@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            使用Lucene索引存储空间数据 | 
+        
+        Rico&#39;s Blog
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Rico">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content=",Lucene">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="使用Lucene索引存储空间数据 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="Lucene"> 
+
+    
+        <meta property="article:published_time" content="3月 20, 2017" />
+        <meta property="article:modified_time" content="3月 20, 2018" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="使用Lucene索引存储空间数据 | Rico&#39;s Blog">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://hogwartsrico.github.io" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2017/03/20/Index-SpatialData/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Rico&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Rico",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "GIS LBS Java 大数据 数据挖掘"
+    },
+    "headline": "使用Lucene索引存储空间数据",
+    "url": "http://hogwartsrico.github.io/2017/03/20/Index-SpatialData/index.html",
+    "datePublished": "3月 20, 2017",
+    "dateModified": "3月 20, 2018",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://hogwartsrico.github.io"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    .footer-sns-facebook {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
+    }
+    
+    
+    .footer-sns-twitter {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
+    }
+    
+    
+    .footer-sns-gplus {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
+    }
+    
+    
+    .footer-sns-weibo {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzUuMiA3OWMtOC42IDMtMjIuOCAxMi40LTMyLjggMjEuOC04LjIgNy44LTIyLjIgMzEtMjQuNiA0MC42LTEgNC4yLTEuNiAxNjctMS42IDM2NC42IDAgMjg0LjguNCAzNTguNCAyLjYgMzY0IDEuNCAzLjggNi44IDEzIDEyIDIwLjQgOC44IDEyLjggMjQgMjUuNCA0MS44IDM1IDYgMy40IDI3IDMuNiAzNjcuNCAzLjYgMjg2LjIgMCAzNjIuNi0uNiAzNjktMi42IDE5LjgtNi4yIDUxLjItMzcuNiA1Ny40LTU3LjQgMi02LjQgMi42LTgyLjYgMi42LTM2OFYxNDFsLTQuMi05Yy0xMS42LTI0LTM5LjItNDkuOC01OC4yLTU0LjItNC4yLTEtMTY4LjYtMS42LTM2NS42LTEuNi0zMDAgMC0zNTkuMi40LTM2NS44IDIuOHptNTU4LjYgMTY5YzguNiAxLjIgMTYuNCA0IDI0IDguNiA2LjIgMy42IDE1LjIgOC4yIDIwLjIgMTAuMiA1LjggMi4yIDE0LjYgOC44IDI1IDE4LjggMjUuNCAyNC44IDMyLjggMzQuOCAzNy44IDUxIDIuNiA4IDcuNCAxOS44IDEwLjggMjYuNCA3LjggMTQuNiAxMS42IDQyLjYgOS40IDY5LTEgMTQuMi0yLjIgMTguNi03LjQgMjYuNC0zLjIgNS4yLTkgMTIuMi0xMi44IDE1LjYtMTMuOCAxMi0zNCA1LjgtMzguOC0xMi0xLjYtNi0xLjQtMTEuNCAxLjItMjMuNCA0LjItMjAgMy00Ni0yLjYtNTguNi0yLjItNS04LTEyLjYtMTIuOC0xNi44LTQuOC00LjItMTQuNi0xNi40LTIxLjgtMjYuOC03LjItMTAuNi0xNS4yLTIwLjgtMTgtMjIuOC0yLjgtMi0xMi42LTYtMjItOS0xNC40LTQuNC0yMC44LTUuNC00My01LjYtMjgtLjItMzEuNC0xLjItNDIuNC0xMS42LTcuNC03LTguNi0xNS42LTMuOC0yNS4yIDctMTMuMiAxNi40LTE2IDU0LjItMTYgMTYuNiAwIDM1LjguOCA0Mi44IDEuOHptLTIxMy42IDc1LjZjMjAuMiAxNS40IDIwLjYgMTYuNCAyMiA0OCAuNiAxNSAxLjggMjkgMi42IDMxIDIuOCA2LjIgMTEgNi42IDIxLjYuNiA1LjQtMy4yIDE0LTUuOCAyMC02LjQgNS44LS42IDE4LjgtMi40IDI5LTQuMiAxNy4yLTMgMTkuNC0zIDM2IC40IDMyIDYuNiAzNS44IDkuMiA0NC4yIDMxLjYgNS4yIDE0IDUuNCAyMS40IDEuMiAzMi44LTIuMiA1LjQtMi44IDExLTIgMTUuNCAxLjggMTAgMTcuNiAyMy40IDM1IDMwLjIgMTEuMiA0LjIgMTYuMiA3LjYgMjcgMTkgMTkuMiAxOS44IDIwLjIgMjMgMjAgNTktLjIgMzUtLjQgMzUuNC0xOS44IDYzLjYtMTMuOCAxOS44LTMyLjQgMzguNi00OSA1MC01IDMuNC0xMi4yIDguOC0xNS44IDEyLTMuOCAzLjItMTEuNiA4LTE3LjIgMTAuNC01LjYgMi42LTE0LjYgNy40LTE5LjggMTAuNi01LjIgMy40LTE1LjggNy42LTIzLjggOS40LTggMi0yMS4yIDYuNi0yOS42IDEwLjItMjIuNCAxMC0zNi4yIDExLjItMTIxLjggMTAuNGwtNzUtLjYtMTktOC40Yy0xMC42LTQuNi0yNS40LTkuOC0zMy0xMS42LTcuNi0xLjYtMTgtNS44LTIzLTlzLTE0LjItOC0yMC40LTEwLjhjLTE4LTgtNTkuNC00Ni4yLTY2LTYxLjItMi4yLTUtNy40LTE0LjQtMTEuNC0yMC44bC03LjItMTJWNTQ5bDcuNi0xMy42YzQuMi03LjQgOS40LTE4LjYgMTEuNi0yNC44IDMuOC0xMS40IDEzLjQtMjcuOCAyNC44LTQyLjYgMjAuMi0yNi4yIDM4LjQtNDYuOCA1My02MCA5LjItOC4yIDIxLTE4LjYgMjYtMjMuMiA1LTQuNCAxMy4yLTExIDE4LjYtMTQuNiA1LjItMy40IDkuNC03LjIgOS40LTggMC0xIDUuNi00LjYgMTIuNi04LjIgNi44LTMuOCAxNi40LTkuNiAyMS40LTEzLjIgNS0zLjYgMTQuNC04IDIxLTkuOCA2LjYtMiAxNy44LTYuNiAyNS0xMC4yIDEyLTYuMiAxNC40LTYuOCAzMi40LTYuOGgxOS40bDEyLjQgOS42em0yMDMuNiAxMy4yYzMgMS42IDYuNiA0LjQgOCA2IDEuNiAxLjggOS40IDcgMTcuNCAxMS42IDE3IDkuNiAxOSAxMyAyNCA0MiAzLjQgMjAuNCAyLjYgMzIuMi0zLjQgNDMuOC03LjYgMTUuMi0yMi44IDIwLjYtMzEuMiAxMS4yLTctNy42LTkuMi0xMy44LTEwLjYtMjkuNi0xLjItMTMuMi0yLjQtMTYuNC05LjYtMjcuMi0xMS0xNi0xNi44LTIwLjYtMjcuMi0yMC42LTEwIDAtMjQtNi4yLTI3LTExLjYtNS44LTEwLjguNC0yNC42IDEyLjQtMjguNCA4LjYtMi42IDQwLjItLjggNDcuMiAyLjh6Ii8+PHBhdGggZD0iTTQyNCA0NzcuNGMtMzIuNiAzLjYtNDcuOCA3LTYxLjggMTMuOC04IDQtMTkgOC40LTI0LjIgMTAtNS4yIDEuNi0xMi40IDUtMTYuMiA3LjgtMy44IDIuNi0xMSA3LjYtMTYuMiAxMS0xMy40IDguOC0zNSAzMy4yLTM4LjggNDQtMS44IDUtNS40IDE0LjQtOC4yIDIxLTguOCAyMS4yLTguMiAyNi44IDQgNTMgMTAuNiAyMi42IDExIDIzLjIgMjcuNiAzNi40IDIxIDE2LjggMjMuNiAxOC40IDUwLjggMjguMiAyMC4yIDcuMiAyNC42IDggNTQgMTAgMTcuNiAxLjIgNDUuNiAyLjIgNjIgMi4ybDMwIC4yIDE3LjQtOC40YzkuNi00LjYgMjIuNC05LjYgMjguMi0xMS40IDYtMS44IDE1LjQtNi4yIDIwLjgtMTAgNS40LTMuNiAxMy40LTguNiAxNy42LTEwLjggOS4yLTQuNiAzOS0zNC40IDM5LTM5IDAtMS42IDMuOC0xMC4yIDguNC0xOC44IDcuOC0xNC4yIDguNi0xNi44IDguNC0yOS42LS4yLTEyLjgtMS0xNS44LTEwLjYtMzQuNi0xMy40LTI2LjItMzAuNC00My42LTUwLjItNTEuNC03LjItMi44LTE2LjItNy0yMC05LjYtMTEuNC03LjYtMTcuNi05LjItNDguOC0xMi40LTI3LjYtMi44LTU2LjYtMy40LTczLjItMS42em0zOS40IDQ0LjRjMTEuMiAyLjIgMjIuNiA1IDI1IDYuNCA3IDMuNiAyNiAyMS44IDMwLjggMjkuNCA4LjYgMTMuNCAxMSA1NCA0LjYgNzctMi42IDkuNi0xOC44IDI3LjYtMzkuNCA0NC4yLTE1LjYgMTIuNC0xNyAxMy0yOS44IDE0LTcuNi44LTIyLjQgMi4yLTMzIDMuNi0yMi42IDIuNi00NS42IDEtNTMuOC0zLjgtMy4yLTItOC02LjgtMTAuOC0xMC44LTIuNi00LjItOC40LTEwLjQtMTIuOC0xMy44LTguMi02LjgtMTMuNC0xNi40LTE5LjQtMzctMy44LTEzLjItMi44LTIxLjggNS4yLTQ3LjYgMy4yLTEwLjQgNi0xNC42IDE3LjQtMjUuOCAxMi40LTEyLjIgMjMuOC0yMi4yIDMzLjItMjkuNiA0LTMgMzguNi05LjQgNTMuNC05LjggNSAwIDE4LjIgMS42IDI5LjQgMy42eiIvPjxwYXRoIGQ9Ik0zODcuMiA2MDZjLTEyLjIgMy44LTE4LjIgMTMuNC0xNSAyNC42IDUuOCAyMS4yIDI3LjggMjUuOCA0MC42IDguNiA2LjYtOC44IDcuOC0xNi4yIDQuMi0yNC00LjgtMTAuMi0xNS40LTEzLjQtMjkuOC05LjJ6Ii8+PC9zdmc+);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为何要对地理数据进行索引并存储"><span class="post-toc-number">1.</span> <span class="post-toc-text">为何要对地理数据进行索引并存储</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#shpfile介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">shpfile介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#shp存入Lucene"><span class="post-toc-number">3.</span> <span class="post-toc-text">shp存入Lucene</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引入第三方包"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">引入第三方包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java连接ShapeFile文件"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Java连接ShapeFile文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java读取shp内容"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Java读取shp内容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#存入lucene"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">存入lucene</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lucene空间索引"><span class="post-toc-number">4.</span> <span class="post-toc-text">Lucene空间索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建空间索引"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">创建空间索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#索引结构"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">索引结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#空间索引创建流程"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">空间索引创建流程</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#空间索引查询"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">空间索引查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#查询方法"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">查询方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#空间索引查询流程"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">空间索引查询流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一些主要类说明："><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">一些主要类说明：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">其他</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">5.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                使用Lucene索引存储空间数据
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>3月 20, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Lucene/">Lucene</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=使用Lucene索引存储空间数据&url=http://hogwartsrico.github.io/2017/03/20/Index-SpatialData/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=使用Lucene索引存储空间数据&url=http://hogwartsrico.github.io/2017/03/20/Index-SpatialData/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2017/03/20/Index-SpatialData/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2017/03/20/Index-SpatialData/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="为何要对地理数据进行索引并存储"><a href="#为何要对地理数据进行索引并存储" class="headerlink" title="为何要对地理数据进行索引并存储"></a>为何要对地理数据进行索引并存储</h1><p>要实现地理位置空间搜索，我们首先需要对地理位置数据创建索引，比较容易想到的就是把经度和纬度存入索引，可是这样做，有个弊端，因为地理位置数据(经纬度)是非常精细的，一般两个地点相差就0.0几，这样我们需要构建的索引体积会很大，这会显著减慢你的搜索速度。在精确度上采取折衷的方法通常是将纬度和经度封装到层中。您可以将每个层看作是地图的特定部分的缩放级别，比如位于美国中央上方的第 2 层几乎包含了整个北美，而第 19 层可能只是某户人家的后院。尤其是，每个层都将地图分成 2层 # 的箱子或网格。然后给每个箱子分配一个号码并添加到文档索引中。如果希望使用一个字段，那么可以使用 Geohash编码方式将纬度/经度编码到一个 String 中。Geohash 的好处是能够通过切去散列码末尾的字符来实现任意的精度。在许多情况下，相邻的位置通常有相同的前缀。</p>
+<p>  同样比较重要的，就是距离计算，给定两个坐标点需要你计算这两个点之间的距离，至于怎么计算，这取决于你对地球怎么进行建模，一般对于距离计算精度要求不是很精确的(误差在10-20米范围内能接受的话)</p>
+<p>采用平面模型就够了。当然你也可以计算球面模型，这样计算精度更精确，但更耗CPU，意味着计算时间更长，需要自己去优化。</p>
+<h1 id="shpfile介绍"><a href="#shpfile介绍" class="headerlink" title="shpfile介绍"></a>shpfile介绍</h1><p>通常,地理数据都是ShapeFile <a href="https://baike.baidu.com/item/shapefile%E6%96%87%E4%BB%B6/11041662" target="_blank" rel="external">百科</a>  <a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank" rel="external">维基</a> 格式的文件 </p>
+<p>它通常由7个文件组成  </p>
+<p><img src="1.png" alt=""> </p>
+<ul>
+<li>主文件（<code>*.shp</code>） –存储地理要素的几何图形的文件。</li>
+<li><a href="https://baike.baidu.com/item/%E7%B4%A2%E5%BC%95%E6%96%87%E4%BB%B6" target="_blank" rel="external">索引文件</a>（<code>*.shx</code>） –存储图形要素与属性信息索引的文件。</li>
+<li>dBASE表文件（<code>*.dbf</code>），–存储要素信息属性的dBase表文件。</li>
+<li>空间参考文件（<code>*.prj</code>）</li>
+<li>几何体的空间索引文件（<code>*.sbn</code> 和 <code>*.sbx</code> )</li>
+<li>以XML格式保存元数据（<code>*.shp.xml</code>)</li>
+<li>.fix文件  </li>
+</ul>
+<p>此类文件如非使用专业的GIS软件例如 ArcMap, QGIS, Udig等是打不开的  </p>
+<p>如非使用例如 GeoServer, ArcGIS Server等服务软件是无法对外部提供各种能力和接口的,例如获取瓦片图层，空间查询等  </p>
+<p>空间数据和普通业务数据最大的不同就是业务数据基本上就是文本数据。例如电商的商品信息，信息系统的姓名年龄身高性别等,我们可以方便的对他们进行存储，分词等。 空间数据有着各种点，边 ，面，无法保存进传统数据库表的字段中 </p>
+<p>然而,Oracle Spatial和PostgreSQL就提供了对空间数据的支持。它们可以导入shp数据，建立空间索引，提供了文本查询和空间查询 ，各大应用都可以通过数据库的协议来对空间数据进行增删查改,特别是查，不单单像普通业务数据那样可以进行查询，还可以进行空间查询，例如查找最近的餐馆，一个面和一个面是否相交，相交的面又是怎样的？ 这就大大开放了地理数据的能力。原来只能通过IO读取的shp文件，现在能提供给不同的业务系统进行增删查改  </p>
+<p>Oracle Spatial和PG的确是解决了大部分的问题,但是比较麻烦，我得安装一个Oracle Spatial或PostgreSQL，导入数据，启动服务，项目连接配置。项目实施起来相对比较麻烦,Oracle Spatial还是商用收费的，只有企业版才有  </p>
+<p>如果能有一种形式,无需起服务,Java应用能直接读取地理数据,且能快速方便的进行文本查询，空间查询,那该多好，答案就是Lucene的索引文件形式了  </p>
+<p>那么如何将shp数据存入lucene的索引文件中呢？ </p>
+<h1 id="shp存入Lucene"><a href="#shp存入Lucene" class="headerlink" title="shp存入Lucene"></a>shp存入Lucene</h1><h2 id="引入第三方包"><a href="#引入第三方包" class="headerlink" title="引入第三方包"></a>引入第三方包</h2><p>首先我们需要引入一些第三方的jar包  </p>
+<p>我们介绍3个开源库 一个是<a href="http://geotools.org/" target="_blank" rel="external">GeoTools</a>  一个是<a href="https://en.wikipedia.org/wiki/JTS_Topology_Suite" target="_blank" rel="external">JTS</a>    一个是Spatial4J</p>
+<p>GeoTools是英国利兹大学(University of Leeds)的James Macgll 从1996 年开始研发的一个操作和显示地图的开源Java 代码库, 提供了一系列符合规范的操作地理空间数据的方法，例如可以用它来实现一个地理信息系统（GIS）。GeoTools库在开发时执行OGC规范.  很多工具和软件都使用了这个库 。 最著名的就是Udig和GeoServer </p>
+<p>JTS加拿大的 Vivid Solutions公司做的一套开放源码的 Java API。它提供了一套空间数据操作的核心算法。提供了兼容OGC标准的空间对象模型中进行基础的几何操作 </p>
+<p>Spatial4J是  </p>
+<p> 我们使用Maven引入GeoTools(GeoTools中已经引入了JTS)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">geotools.version</span>&gt;</span>14.1<span class="tag">&lt;/<span class="name">geotools.version</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.geotools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>geotools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;geotools.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.geotools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gt-main<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;geotools.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span><span class="comment">&lt;!--提供了Oracle数据源支持 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.geotools.jdbc<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gt-jdbc-oracle<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;geotools.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span><span class="comment">&lt;!--提供了ShapeFile数据源支持 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.geotools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gt-shapefile<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;geotools.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.geotools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gt-process<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;geotools.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span><span class="comment">&lt;!--提供了PostgreSQL数据源支持 --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.geotools.jdbc<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gt-jdbc-postgis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;geotools.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.geotools<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gt-epsg-hsql<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;geotools.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>本例中我们使用shpfile,所以数据库支持用不到,可以删掉</p>
+<h2 id="Java连接ShapeFile文件"><a href="#Java连接ShapeFile文件" class="headerlink" title="Java连接ShapeFile文件"></a>Java连接ShapeFile文件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">ShapefileDataStoreFactory shpStoreFactory = <span class="keyword">new</span> ShapefileDataStoreFactory();<span class="comment">//工厂模式,首先构造ShapefileDataStoreFactory</span></div><div class="line">     ShapefileDataStore shapefileDataStore=<span class="keyword">null</span>;</div><div class="line">     <span class="keyword">try</span> &#123;</div><div class="line">         shapefileDataStore = (ShapefileDataStore)shpStoreFactory.createDataStore(<span class="keyword">new</span> File(<span class="string">"~/Airport.shp"</span>).toURI().toURL());<span class="comment">//打开一个shp文件连接到datastore</span></div><div class="line">         shapefileDataStore.setCharset(Charset.forName(<span class="string">"GBK"</span>));</div><div class="line">     &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">         e.printStackTrace();</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">if</span>(shapefileDataStore!=<span class="keyword">null</span>)&#123;</div><div class="line">         String names[]=shapefileDataStore.getTypeNames();<span class="comment">//获取datastore中所有的shp,因为一个datastore可能存储了很多的shp</span></div><div class="line">         System.out.println(Arrays.toString(names));</div><div class="line">         SimpleFeatureSource featureSource = shapefileDataStore.getFeatureSource();</div><div class="line">         <span class="comment">//featureSource = dataStore.getFeatureSource(dataStore.getTypeNames()[0])//对于shp数据而言,等同于上面一行</span></div><div class="line">         System.out.println(<span class="string">"shp名称:"</span>+shapefileDataStore.getTypeNames()[<span class="number">0</span>]);</div><div class="line">         System.out.println(<span class="string">"坐标系:"</span>+featureSource.getSchema().getGeometryDescriptor().getCoordinateReferenceSystem().toString());</div><div class="line">shapefileDataStore.dispose();<span class="comment">//释放资源</span></div></pre></td></tr></table></figure>
+<p>DataStore有很多实现类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AbstractDataStore, AbstractFileDataStore, ArcSDEDataStore, ArrayDataStore, CollectionDataStore, ContentDataStore, DataStoreWrapper, DirectoryDataStore,</div><div class="line">JDBCDataStore, MemoryDataStore, OGRDataStore, OracleDatastoreWrapper, PostgisDatastoreWrapper, PreGeneralizedDataStore, PropertyDataStore,</div><div class="line">ShapefileDataStore, SingleFeatureSourceDataStore, WFS100DataStore, WFS110DataStore</div></pre></td></tr></table></figure>
+<p>提供了多种数据源的支持,例如Oracle,PostgreSQL,ShapeFile,WFS,内存,目录等  ,我们这边使用的是<code>ShapefileDataStore</code>  </p>
+<p><code>shpStoreFactory.createDataStore(URL url)</code>返回的是<code>FileDataStore</code> 并不是 <code>ShapefileDataStore</code> ,它有2个实现类<code>AbstractFileDataStore, ShapefileDataStore</code> 所以直接强转就行了 </p>
+<p><code>DataStore.getTypeNames</code>:Returns the names of all entries or types provided by the datastore.</p>
+<p>结果: </p>
+<p><img src="2.png" alt=""></p>
+<h2 id="Java读取shp内容"><a href="#Java读取shp内容" class="headerlink" title="Java读取shp内容"></a>Java读取shp内容</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">ArrayList&lt;Airport&gt; lists=<span class="keyword">new</span> ArrayList&lt;Airport&gt;();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            SimpleFeatureIterator itertor = featureSource.getFeatures().features();</div><div class="line">            <span class="keyword">while</span> (itertor.hasNext()) &#123;</div><div class="line">                Airport airport=<span class="keyword">new</span> Airport();</div><div class="line">                SimpleFeature feature = itertor.next();<span class="comment">///迭代里面的要素,例如如果是路的shp,那么就是迭代一条条路</span></div><div class="line">                Iterator&lt;Property&gt; it = feature.getProperties().iterator();<span class="comment">//getProperties是获取某个条要素的属性信息(属性表)  迭代某条数据中的很多属性字段</span></div><div class="line">                <span class="keyword">while</span> (it.hasNext()) &#123;</div><div class="line">                    Property pro = it.next();</div><div class="line">                    <span class="keyword">switch</span> (pro.getName().toString())&#123;</div><div class="line">                        <span class="keyword">case</span> <span class="string">"Name"</span>:</div><div class="line">                            airport.setName(pro.getValue().toString());</div><div class="line">                            <span class="keyword">break</span>;</div><div class="line">                        <span class="keyword">case</span> <span class="string">"Address"</span>:</div><div class="line">                            airport.setAddress(pro.getValue().toString());</div><div class="line">                            <span class="keyword">break</span>;</div><div class="line">                        <span class="keyword">case</span> <span class="string">"PY"</span>:</div><div class="line">                            airport.setPY(pro.getValue().toString());</div><div class="line">                            <span class="keyword">break</span>;</div><div class="line">                        <span class="keyword">case</span> <span class="string">"Display_X"</span>:</div><div class="line">                            airport.setDisplay_X(pro.getValue().toString());</div><div class="line">                            <span class="keyword">break</span>;</div><div class="line">                        <span class="keyword">case</span> <span class="string">"Display_Y"</span>:</div><div class="line">                            airport.setDisplay_Y(pro.getValue().toString());</div><div class="line">                            <span class="keyword">break</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">if</span>(pro.getValue() <span class="keyword">instanceof</span> Point)&#123;<span class="comment">//该shp里面是点</span></div><div class="line">                        Point point=(Point)pro.getValue();</div><div class="line">                        airport.setWKT(point.toText());</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                lists.add(airport);</div><div class="line">            &#125;</div><div class="line">            itertor.close();</div><div class="line">            System.out.println(<span class="string">"数据条数:"</span>+lists.size());</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>如果是线, 多线 ,面 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(pro.getValue() <span class="keyword">instanceof</span> MultiLineString)&#123;</div><div class="line">	MultiLineString lineString=(MultiLineString)pro.getValue();</div><div class="line">	<span class="comment">//lineString.getCoordinates();</span></div><div class="line">	System.out.println(lineString.toText());</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span>(pro.getValue() <span class="keyword">instanceof</span> LineString)&#123;</div><div class="line">	MultiLineString lineString=(MultiLineString)pro.getValue();</div><div class="line">	<span class="comment">//lineString.getCoordinates();</span></div><div class="line">	System.out.println(lineString.toText());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="3.png" alt=""></p>
+<h2 id="存入lucene"><a href="#存入lucene" class="headerlink" title="存入lucene"></a>存入lucene</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line">	File luceneDir=<span class="keyword">new</span> File(<span class="string">"~/lucene"</span>);<span class="comment">//索引存放路径</span></div><div class="line">      Path path= Paths.get(luceneDir.getAbsolutePath());</div><div class="line">      Directory indexDirectory= FSDirectory.open(path);</div><div class="line">      <span class="comment">//------------------------构造wktreader,它需要JtsSpatialContext,由JtsSpatialContextFactory创建,这里要创建一个JtsSpatialContext,其需要一个Rectangle,其过程也创建了一个JtsSpatialContext,注意区分----------------------</span></div><div class="line"><span class="comment">//JtsSpatialContextFactory 当有Polygon多边形或者linestrings线段时，会使用jts(需要把jts.jar放到solr服务的lib下)，而基本形状使用SpatialContext (spatial4j的类)。</span></div><div class="line">      JtsSpatialContextFactory jtsSpatialContextFactory = <span class="keyword">new</span> JtsSpatialContextFactory();<span class="comment">//创建JtsSpatialContextFactory工厂类</span></div><div class="line">      <span class="comment">//spatial4j/jts实现的 SpatialContext: 用于获得距离计算Calculator以及解析形状等。其属于spatial4j包中，该包中还有各种Shape及判断各Shape间的相交情况。JtsSpatialContext(jts包)用于处理多边形等情况。</span></div><div class="line">      jtsSpatialContextFactory.srid = <span class="number">4326</span>;<span class="comment">// 赋予坐标系</span></div><div class="line">      jtsSpatialContextFactory.autoIndex = <span class="keyword">true</span>;<span class="comment">// 对于通过 ShapeReader获取的jtsGeometry几何图形进行优化,自动索引</span></div><div class="line">      <span class="comment">// 根据srid不同获取不同的模型参数:4326采用椭球模型  sphere ,900913采用欧几里得平面坐标系flatPlane    4326不使用大地测量坐标系，而使用欧几里得平面坐标系进行计算</span></div><div class="line">      String model = <span class="string">"sphere"</span>;</div><div class="line">      jtsSpatialContextFactory.geo = <span class="keyword">true</span>;<span class="comment">//是否是地理坐标系  如果是flatPlane则是false  jtsSpatialContextFactory继承自SpatialContextFactory这个字段一同继承过来的</span></div><div class="line">      JtsSpatialContext jtsSpatialContext =<span class="keyword">new</span> JtsSpatialContext(jtsSpatialContextFactory);<span class="comment">//通过工厂创建  这样做只是为了创建一个Rectangle(世界模型,矩形),下面的new RectangleImpl需要用到</span></div><div class="line">      Envelope env = <span class="keyword">new</span> Envelope(-<span class="number">180</span>, <span class="number">180</span>, <span class="number">90</span>, -<span class="number">90</span>);<span class="comment">// mecator的全 球范围 如果是900913 new Envelope(-20037508.3427892, 20037508.3427892, 20037508.3427892, -20037508.3427892);// mecator的全 球范围</span></div><div class="line">      jtsSpatialContextFactory.worldBounds = <span class="keyword">new</span> RectangleImpl(env.getMinX(), env.getMaxX(), env.getMinY(), env.getMaxY(), jtsSpatialContext);<span class="comment">//为factory设置worldbounds，该属性来自父类SpatialContextFactory</span></div><div class="line">      JtsSpatialContext ctx = jtsSpatialContextFactory.newSpatialContext();<span class="comment">//最终用的是这个JtsSpatialContext</span></div><div class="line">      WKTReader wktReader=<span class="keyword">new</span> WKTReader(ctx, <span class="keyword">new</span> SpatialContextFactory());<span class="comment">//SpatialContext: 用于获得距离计算Calculator以及解析形状等。其属于spatial4j包中，该包中还有各种Shape及判断各Shape间的相交情况。JtsSpatialContext(jts包)用于处理多边形等情况。</span></div><div class="line">      <span class="comment">//-------------------构造wktreader结束--------------------</span></div><div class="line"></div><div class="line">      <span class="comment">//-----------------构造SpatialStrategy---------------------</span></div><div class="line">      SpatialPrefixTree spt = <span class="keyword">new</span> GeohashPrefixTree(ctx, <span class="number">23</span>);<span class="comment">//网格最大几层 最大精度24层</span></div><div class="line">      <span class="comment">//如果是900913  new QuadPrefixTree(ctx, ctx.getWorldBounds(), 23);//四叉树，对应笛卡尔分层策略)。分层其实取的就是前缀</span></div><div class="line">      SpatialStrategy strategy = <span class="keyword">new</span> RecursivePrefixTreeStrategy(spt, <span class="string">"Geometry"</span>);</div><div class="line">      <span class="comment">/*索引和搜索的策略接口,两个主要实现类</span></div><div class="line"><span class="comment">      * 1:RecursivePrefixTreeStrategy(支持任何Shape的索引和检索)</span></div><div class="line"><span class="comment">      * 2: TermQueryPrefixTreeStrategy(仅支持Point Shape)</span></div><div class="line"><span class="comment">      * 上述两个类继承PrefixTreeStrategy(有使用缓存)</span></div><div class="line"><span class="comment">      */</span></div><div class="line">      <span class="comment">//SpatialStrategy: 空间索引的核心，用来创建 索引域 以及 查询Query、查询Filter，以及用于score=distance等的打分策略(DistanceValueSource)。</span></div><div class="line">      IndexWriter indexWriter = <span class="keyword">new</span> IndexWriter(indexDirectory,<span class="keyword">new</span> IndexWriterConfig(<span class="keyword">new</span> SmartChineseAnalyzer(<span class="keyword">true</span>)));</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;lists.size();i++)&#123;</div><div class="line">          Document doc = <span class="keyword">new</span> Document();<span class="comment">// org.apache.lucene.document // document代表索引库中的一条记录</span></div><div class="line">          StringField nameField= <span class="keyword">new</span> StringField(<span class="string">"Name"</span>,lists.get(i).getName(), Field.Store.YES);<span class="comment">//名字 存储</span></div><div class="line">          doc.add(nameField);</div><div class="line">          StringField addressField= <span class="keyword">new</span> StringField(<span class="string">"Address"</span>,lists.get(i).getAddress(), Field.Store.YES);<span class="comment">//地址 存储</span></div><div class="line">          doc.add(addressField);</div><div class="line">          StringField pyField= <span class="keyword">new</span> StringField(<span class="string">"PY"</span>,lists.get(i).getPY(), Field.Store.YES);<span class="comment">//拼音 存储</span></div><div class="line">          doc.add(pyField);</div><div class="line">          StringField xField= <span class="keyword">new</span> StringField(<span class="string">"X"</span>,lists.get(i).getDisplay_X(), Field.Store.YES);<span class="comment">//X 存储</span></div><div class="line">          doc.add(xField);</div><div class="line">          StringField yField= <span class="keyword">new</span> StringField(<span class="string">"Y"</span>,lists.get(i).getDisplay_Y(), Field.Store.YES);<span class="comment">//X 存储</span></div><div class="line">          doc.add(yField);</div><div class="line">          SortedDocValuesField sortedField = <span class="keyword">new</span> SortedDocValuesField(<span class="string">"PYName"</span>, <span class="keyword">new</span> BytesRef(lists.get(i).getPY()));<span class="comment">// 根据name进行排序</span></div><div class="line">          doc.add(sortedField);</div><div class="line">	<span class="comment">/* ---------------------------空间字段------------------------ */</span></div><div class="line">          <span class="comment">// 空间字段，需要转换为shape后存储</span></div><div class="line">          Shape shp=<span class="keyword">null</span>;</div><div class="line">          <span class="keyword">try</span> &#123;</div><div class="line">              shp = wktReader.parse(lists.get(i).getWKT());</div><div class="line">		<span class="comment">/*</span></div><div class="line"><span class="comment">		 * 注意,检索但不存储空间字段。 org.apache.lucene.spatial.SpatialStrategy类</span></div><div class="line"><span class="comment">		 * createIndexableFields(org.locationtech.spatial4j.shape.Shape * shape) 返回值 abstract Field[] Returns the IndexableField(s) from</span></div><div class="line"><span class="comment">		 * the shape that are to be added to the Document</span></div><div class="line"><span class="comment">		 */</span></div><div class="line">              <span class="keyword">for</span> (Field shpField : strategy.createIndexableFields(shp)) &#123;</div><div class="line">                  doc.add(shpField);</div><div class="line">              &#125;</div><div class="line">              StoredField wkt = <span class="keyword">new</span> StoredField(<span class="string">"wkt"</span>, lists.get(i).getWKT());<span class="comment">//wkt存储</span></div><div class="line">              doc.add(wkt);</div><div class="line">          &#125; <span class="keyword">catch</span> (ParseException e) &#123;</div><div class="line">              e.printStackTrace();</div><div class="line">          &#125;</div><div class="line">          indexWriter.addDocument(doc);</div><div class="line">      &#125;</div><div class="line">      indexWriter.close();</div></pre></td></tr></table></figure>
+<p><strong>一些函数api</strong>  </p>
+<p>生成一个默认的context</p>
+<p><img src="16.png" alt=""></p>
+<p>生成一个基于各种配置的context</p>
+<p><img src="17.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">JtsSpatialContextFactory 也是继承的 SpatialContextFactory</div></pre></td></tr></table></figure>
+<p>执行程序,可以发现目录中已经有所以文件了  </p>
+<p><img src="4.png" alt=""></p>
+<p>我们使用Luke来查看Lucene索引文件  </p>
+<p><img src="5.png" alt=""></p>
+<p><img src="6.png" alt=""></p>
+<p>我们上面代码写到我们生成了23层geohash网格，我们使用luke工具查看一下是否是23层   </p>
+<p><img src="18.png" alt=""></p>
+<p><img src="19.png" alt=""></p>
+<p>果然是23层 </p>
+<p>完整代码 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">      ArrayList&lt;Airport&gt; lists=<span class="keyword">null</span>;</div><div class="line">      ShapefileDataStoreFactory shpStoreFactory = <span class="keyword">new</span> ShapefileDataStoreFactory();<span class="comment">//工厂模式,首先构造ShapefileDataStoreFactory</span></div><div class="line">      ShapefileDataStore shapefileDataStore=<span class="keyword">null</span>;</div><div class="line">      <span class="keyword">try</span> &#123;</div><div class="line">          shapefileDataStore = (ShapefileDataStore)shpStoreFactory.createDataStore(<span class="keyword">new</span> File(<span class="string">"~/Airport.shp"</span>).toURI().toURL());<span class="comment">//打开一个shp文件连接到datastore</span></div><div class="line">          shapefileDataStore.setCharset(Charset.forName(<span class="string">"GBK"</span>));</div><div class="line">      &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">          e.printStackTrace();</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span>(shapefileDataStore!=<span class="keyword">null</span>)&#123;</div><div class="line">          String names[]=shapefileDataStore.getTypeNames();<span class="comment">//获取datastore中所有的shp,因为一个datastore可能存储了很多的shp</span></div><div class="line">          System.out.println(Arrays.toString(names));</div><div class="line">          SimpleFeatureSource featureSource = shapefileDataStore.getFeatureSource();</div><div class="line">          <span class="comment">//featureSource = dataStore.getFeatureSource(dataStore.getTypeNames()[0])//对于shp数据而言,等同于上面一行</span></div><div class="line">          System.out.println(<span class="string">"shp名称:"</span>+shapefileDataStore.getTypeNames()[<span class="number">0</span>]);</div><div class="line">          System.out.println(<span class="string">"坐标系:"</span>+featureSource.getSchema().getGeometryDescriptor().getCoordinateReferenceSystem().toString());</div><div class="line">          lists=<span class="keyword">new</span> ArrayList&lt;Airport&gt;();</div><div class="line">          <span class="keyword">try</span> &#123;</div><div class="line">              SimpleFeatureIterator itertor = featureSource.getFeatures().features();</div><div class="line">              <span class="keyword">while</span> (itertor.hasNext()) &#123;</div><div class="line">                  Airport airport=<span class="keyword">new</span> Airport();</div><div class="line">                  SimpleFeature feature = itertor.next();<span class="comment">///迭代里面的要素,比如如果是路的shp,那么就是迭代一条条路</span></div><div class="line">                  Iterator&lt;Property&gt; it = feature.getProperties().iterator();<span class="comment">//getProperties是获取某个条要素的属性信息(属性表)  迭代某条数据中的很多属性字段</span></div><div class="line">                  <span class="keyword">while</span> (it.hasNext()) &#123;</div><div class="line">                      Property pro = it.next();</div><div class="line">                      <span class="keyword">switch</span> (pro.getName().toString())&#123;</div><div class="line">                          <span class="keyword">case</span> <span class="string">"Name"</span>:</div><div class="line">                              airport.setName(pro.getValue().toString());</div><div class="line">                              <span class="keyword">break</span>;</div><div class="line">                          <span class="keyword">case</span> <span class="string">"Address"</span>:</div><div class="line">                              airport.setAddress(pro.getValue().toString());</div><div class="line">                              <span class="keyword">break</span>;</div><div class="line">                          <span class="keyword">case</span> <span class="string">"PY"</span>:</div><div class="line">                              airport.setPY(pro.getValue().toString());</div><div class="line">                              <span class="keyword">break</span>;</div><div class="line">                          <span class="keyword">case</span> <span class="string">"Display_X"</span>:</div><div class="line">                              airport.setDisplay_X(pro.getValue().toString());</div><div class="line">                              <span class="keyword">break</span>;</div><div class="line">                          <span class="keyword">case</span> <span class="string">"Display_Y"</span>:</div><div class="line">                              airport.setDisplay_Y(pro.getValue().toString());</div><div class="line">                              <span class="keyword">break</span>;</div><div class="line">                      &#125;</div><div class="line">                      <span class="keyword">if</span>(pro.getValue() <span class="keyword">instanceof</span> Point)&#123;<span class="comment">//点</span></div><div class="line">                          Point point=(Point)pro.getValue();</div><div class="line">                          airport.setWKT(point.toText());</div><div class="line">                      &#125;</div><div class="line">                  &#125;</div><div class="line">                  lists.add(airport);</div><div class="line">              &#125;</div><div class="line">              itertor.close();</div><div class="line">              System.out.println(<span class="string">"数据条数:"</span>+lists.size());</div><div class="line">          &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">              e.printStackTrace();</div><div class="line">          &#125;</div><div class="line">          shapefileDataStore.dispose();<span class="comment">//释放资源</span></div><div class="line">      &#125;</div><div class="line">      <span class="comment">//---------开始存入Lucene---------</span></div><div class="line">      File luceneDir=<span class="keyword">new</span> File(<span class="string">"~/lucene"</span>);<span class="comment">//索引存放路径</span></div><div class="line">      Path path= Paths.get(luceneDir.getAbsolutePath());</div><div class="line">      Directory indexDirectory= FSDirectory.open(path);</div><div class="line">      <span class="comment">//------------------------构造wktreader,它需要JtsSpatialContext,由JtsSpatialContextFactory创建,这里要创建一个JtsSpatialContext,其需要一个Rectangle,其过程也创建了一个JtsSpatialContext,注意区分----------------------</span></div><div class="line"><span class="comment">//JtsSpatialContextFactory 当有Polygon多边形或者linestrings线段时，会使用jts，而基本形状使用SpatialContext (spatial4j的类)。</span></div><div class="line">      JtsSpatialContextFactory jtsSpatialContextFactory = <span class="keyword">new</span> JtsSpatialContextFactory();<span class="comment">//创建JtsSpatialContextFactory工厂类</span></div><div class="line">      <span class="comment">//spatial4j/jts实现的 SpatialContext: 用于获得距离计算Calculator以及解析形状等。其属于spatial4j包中，该包中还有各种Shape及判断各Shape间的相交情况。JtsSpatialContext(jts包)用于处理多边形等情况。</span></div><div class="line">      jtsSpatialContextFactory.srid = <span class="number">4326</span>;<span class="comment">// 赋予坐标系</span></div><div class="line">      jtsSpatialContextFactory.autoIndex = <span class="keyword">true</span>;<span class="comment">// 对于通过 ShapeReader获取的jtsGeometry几何图形进行优化,自动索引</span></div><div class="line">      <span class="comment">// 根据srid不同获取不同的模型参数:4326采用椭球模型  sphere ,900913采用欧几里得平面坐标系flatPlane    4326不使用大地测量坐标系，而使用欧几里得平面坐标系进行计算</span></div><div class="line">      String model = <span class="string">"sphere"</span>;</div><div class="line">      jtsSpatialContextFactory.geo = <span class="keyword">true</span>;<span class="comment">//是否是geohash索引    jtsSpatialContextFactory继承自SpatialContextFactory这个字段一同继承过来的</span></div><div class="line">      JtsSpatialContext jtsSpatialContext =<span class="keyword">new</span> JtsSpatialContext(jtsSpatialContextFactory);<span class="comment">//通过工厂创建  这样做只是为了创建一个Rectangle(世界模型,矩形),下面的new RectangleImpl需要用到</span></div><div class="line">      Envelope env = <span class="keyword">new</span> Envelope(-<span class="number">180</span>, <span class="number">180</span>, <span class="number">90</span>, -<span class="number">90</span>);<span class="comment">// mecator的全 球范围 如果是900913 new Envelope(-20037508.3427892, 20037508.3427892, 20037508.3427892, -20037508.3427892);// mecator的全 球范围</span></div><div class="line">      jtsSpatialContextFactory.worldBounds = <span class="keyword">new</span> RectangleImpl(env.getMinX(), env.getMaxX(), env.getMinY(), env.getMaxY(), jtsSpatialContext);<span class="comment">//为factory设置worldbounds，该属性来自父类SpatialContextFactory</span></div><div class="line">      JtsSpatialContext ctx = jtsSpatialContextFactory.newSpatialContext();<span class="comment">//最终用的是这个JtsSpatialContext</span></div><div class="line">      WKTReader wktReader=<span class="keyword">new</span> WKTReader(ctx, <span class="keyword">new</span> SpatialContextFactory());<span class="comment">//SpatialContext: 用于获得距离计算Calculator以及解析形状等。其属于spatial4j包中，该包中还有各种Shape及判断各Shape间的相交情况。JtsSpatialContext(jts包)用于处理多边形等情况。</span></div><div class="line">      <span class="comment">//-------------------构造wktreader结束--------------------</span></div><div class="line"></div><div class="line">      <span class="comment">//-----------------构造SpatialStrategy---------------------</span></div><div class="line">      SpatialPrefixTree spt = <span class="keyword">new</span> GeohashPrefixTree(ctx, <span class="number">23</span>);<span class="comment">//网格最大几层 最大精度24层</span></div><div class="line">      <span class="comment">//如果是900913  new QuadPrefixTree(ctx, ctx.getWorldBounds(), 23);//四叉树，对应笛卡尔分层策略)。分层其实取的就是前缀</span></div><div class="line">      SpatialStrategy strategy = <span class="keyword">new</span> RecursivePrefixTreeStrategy(spt, <span class="string">"Geometry"</span>);</div><div class="line">      <span class="comment">/*索引和搜索的策略接口,两个主要实现类</span></div><div class="line"><span class="comment">      * 1:RecursivePrefixTreeStrategy(支持任何Shape的索引和检索)</span></div><div class="line"><span class="comment">      * 2: TermQueryPrefixTreeStrategy(仅支持Point Shape)</span></div><div class="line"><span class="comment">      * 上述两个类继承PrefixTreeStrategy(有使用缓存)</span></div><div class="line"><span class="comment">      */</span></div><div class="line">      <span class="comment">//SpatialStrategy: 空间索引的核心，用来创建 索引域 以及 查询Query、查询Filter，以及用于score=distance等的打分策略(DistanceValueSource)。</span></div><div class="line">      IndexWriter indexWriter = <span class="keyword">new</span> IndexWriter(indexDirectory,<span class="keyword">new</span> IndexWriterConfig(<span class="keyword">new</span> SmartChineseAnalyzer(<span class="keyword">true</span>)));</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;lists.size();i++)&#123;</div><div class="line">          Document doc = <span class="keyword">new</span> Document();<span class="comment">// document代表索引库中的一条记录</span></div><div class="line">          StringField nameField= <span class="keyword">new</span> StringField(<span class="string">"Name"</span>,lists.get(i).getName(), Field.Store.YES);<span class="comment">//名字 存储</span></div><div class="line">          doc.add(nameField);</div><div class="line">          StringField addressField= <span class="keyword">new</span> StringField(<span class="string">"Address"</span>,lists.get(i).getAddress(), Field.Store.YES);<span class="comment">//地址 存储</span></div><div class="line">          doc.add(addressField);</div><div class="line">          StringField pyField= <span class="keyword">new</span> StringField(<span class="string">"PY"</span>,lists.get(i).getPY(), Field.Store.YES);<span class="comment">//拼音 存储</span></div><div class="line">          doc.add(pyField);</div><div class="line">          StringField xField= <span class="keyword">new</span> StringField(<span class="string">"X"</span>,lists.get(i).getDisplay_X(), Field.Store.YES);<span class="comment">//X 存储</span></div><div class="line">          doc.add(xField);</div><div class="line">          StringField yField= <span class="keyword">new</span> StringField(<span class="string">"Y"</span>,lists.get(i).getDisplay_Y(), Field.Store.YES);<span class="comment">//X 存储</span></div><div class="line">          doc.add(yField);</div><div class="line">          SortedDocValuesField sortedField = <span class="keyword">new</span> SortedDocValuesField(<span class="string">"PYName"</span>, <span class="keyword">new</span> BytesRef(lists.get(i).getPY()));<span class="comment">// 根据pyname进行排序</span></div><div class="line">          doc.add(sortedField);</div><div class="line">	<span class="comment">/* ---------------------------空间字段------------------------ */</span></div><div class="line">          <span class="comment">// 空间字段，需要转换为shape后存储</span></div><div class="line">          Shape shp=<span class="keyword">null</span>;</div><div class="line">          <span class="keyword">try</span> &#123;</div><div class="line">              shp = wktReader.parse(lists.get(i).getWKT());</div><div class="line">		<span class="comment">/*</span></div><div class="line"><span class="comment">		 * 注意,检索但不存储空间字段。 org.apache.lucene.spatial.SpatialStrategy类</span></div><div class="line"><span class="comment">		 * createIndexableFields(org.locationtech.spatial4j.shape.Shape * shape) 返回值 abstract Field[] Returns the IndexableField(s) from</span></div><div class="line"><span class="comment">		 * the shape that are to be added to the Document</span></div><div class="line"><span class="comment">		 */</span></div><div class="line">              <span class="keyword">for</span> (Field shpField : strategy.createIndexableFields(shp)) &#123;</div><div class="line">                  doc.add(shpField);</div><div class="line">              &#125;</div><div class="line">              StoredField wkt = <span class="keyword">new</span> StoredField(<span class="string">"wkt"</span>, lists.get(i).getWKT());<span class="comment">//wkt存储</span></div><div class="line">              doc.add(wkt);</div><div class="line">          &#125; <span class="keyword">catch</span> (ParseException e) &#123;</div><div class="line">              e.printStackTrace();</div><div class="line">          &#125;</div><div class="line">          indexWriter.addDocument(doc);</div><div class="line">      &#125;</div><div class="line">      indexWriter.close();</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>以下内容Copy自<a href="https://dataknocker.github.io/2014/04/11/solr%E7%A9%BA%E9%97%B4%E7%B4%A2%E5%BC%95%E5%8E%9F%E7%90%86%E5%8F%8A%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" target="_blank" rel="external">solr空间索引原理及源码分析</a>  </p>
+<h1 id="Lucene空间索引"><a href="#Lucene空间索引" class="headerlink" title="Lucene空间索引"></a>Lucene空间索引</h1><p>空间索引主要有两类GeohashPrefixTree(Geohash)与QuadPrefixTree(四叉树，对应笛卡尔分层策略)。分层其实取的就是前缀。<br>4.3开始geohash也引入了分层查询策略(这个有些不严谨，4.0-4.2虽然没使用IntersectsPrefixTreeFilter，但具体策略我还没有研究)，总体效果应该优于Quad(拿了一个多边形，geohash只要203个term，而quad要488个, 对于点来说geohash只要11个term，而quad要26个term)。应该是4.3开始作者按照quad优化了geohash。</p>
+<p><img src="20.png" alt=""></p>
+<p>worldBounds 世界坐标值：”minX minY maxX maxY”。 geo=true即geohash模式时，该值默认为”-180 -90 180 90”。geo=false即quad时，该值为Java double类型的正负边界，此时需要指定该值，设置成”-180 -90 180 90”。 </p>
+<p><img src="8.png" alt=""> </p>
+<ul>
+<li>SpatialStrategy: 空间索引的核心，用来创建 索引域 以及 查询Query、查询Filter，以及用于score=distance等的打分策略(DistanceValueSource)。</li>
+<li>SpatialPrefixTree: 其子类为GeohashPrefixTree和QuadPrefixTree。其主要用于获得索引Level、深度遍历获得与目标Shape相交的Cell，以及将token字符串与Cell间的相互转换。GeohashPrefix.GhCell (下层32个子结点，因为geohash每位代表5bit，2^5=32, 经度3bit，纬度2bit)和QuadPrefixTree.QuadCell(下层4个子结点)均是用于获得与目标Shape相交的下一层子cell。</li>
+<li><p>SpatialPrefixTreeFactory:初始化maxLevels, 通过makeSPT()方法创建SpatialPrefixTree对象(grid)</p>
+<p>spatial4j/jts实现的：</p>
+</li>
+<li><p>SpatialContext: 用于获得距离计算Calculator以及解析形状等。其属于spatial4j包中，该包中还有各种Shape及判断各Shape间的相交情况。JtsSpatialContext(jts包)用于处理多边形等情况。</p>
+</li>
+</ul>
+<h2 id="创建空间索引"><a href="#创建空间索引" class="headerlink" title="创建空间索引"></a>创建空间索引</h2><h3 id="索引结构"><a href="#索引结构" class="headerlink" title="索引结构"></a>索引结构</h3><p>geohash模式的索引结构分成Point和非Point。下图为索引结构示意图(为方便起见只画了6层, 蓝色为Point，黄色为非Point)：<br>note: d=5的未画出的其他分支…</p>
+<p><img src="9.jpg" alt=""></p>
+<ul>
+<li>Point<br>如经纬度41.79452,123.41555，对应的geohash为wxrvb2kqexu(maxLevels=11), 则其对应的term有11个(如w、wx、wxr、wxrv…，存储了前缀，牺牲索引加快查询速度)。</li>
+<li>非Point<br>如Polygon。非Point的索引中有leaf叶子结点的概念，比如wtxrvb包含在Polygon中，则该cell为leaf，生成term时会有wtxrvb与wtxrvb+(+是leaf的标志)。  </li>
+</ul>
+<h3 id="空间索引创建流程"><a href="#空间索引创建流程" class="headerlink" title="空间索引创建流程"></a>空间索引创建流程</h3><p><img src="10.png" alt="">  </p>
+<p>说明：Point的term就是把其geohash:wtxrvb变成w、wt、wtx、wtxr、wtxrv、wtxrvb，Point的索引Level为maxLevels(即11位)。下面主要说明非Point的term创建过程。<br>1、将空间索引域的shapeStr解析成相应的Shape(复杂Shape如Polygon要使用JTS中的WTKReader来解析)，以下拿Polygon为例。<br>2、计算目标Polygon的索引Level,即根据Polygon的外包矩形以及distErrPct算出distErr，再调用SpatialPrefixTree.getLevelForDistance(distErr)得到索引detaiLlevel。<br>3、得到与目标Polygon相交(即有交集或在Polygon内)的所有子Cell。主要做法是从root=WorldCell开始进行深度遍历并对各子树进行前枝：每下一层有32个子结点，然后判断各子结点与Polygon的相交情况。判断相交时简单的可以用spatial4j包来计算，复杂的需要用JTS。判断相交主要是先与Polygon的外包矩形判断是否相交(提高效率)，如果相交，再与Polygon进行进一步相交判断。<br>a、不相交的则舍弃该Cell(其子Cell也不会被遍历到)。<br>b、包含在目标Polygon中，则设置该Cell为叶结点(term末尾加+)， 添加到result中，其子Cell不再遍历。<br>c、intersect以及contain Polygon: 将Cell添加到result中，然后继续深度遍历其子Cell，获得更精确的Cell。<br>d、当cell的token长度达到detailLevel时，则到达最底层，标记为叶结点，添加到result中，停止该Cell的遍历。如果某个Cell的32个子Cell都是叶结点，则删除这32个子结点，把该Cell设置成叶结点。(这里直接影响了查询时的误差，会多取数据。即查询到detailLevel的geohash时，其实不包括该多边形，但也把多边形算进去了)<br>4、得到Filed，得到的Cell列表都放在CellTokenStream中。<br>5、存储索引域与存储域。<br>下图为判断相交的示意图： </p>
+<p><img src="11.jpg" alt=""> </p>
+<p>多边形索引一般会得到几百上千个term，大大增加了索引大小与创建时间，哎，一切都是为了查询… </p>
+<h2 id="空间索引查询"><a href="#空间索引查询" class="headerlink" title="空间索引查询"></a>空间索引查询</h2><h3 id="查询方法"><a href="#查询方法" class="headerlink" title="查询方法"></a>查询方法</h3><p>我们可以像创建空间索引的方法那样得到与查询Shape相交的所有子Cell，然后再与term进行匹配，但这有两个问题：一是很多没有数据的区域也会被深度遍历，二是得到的子Cell与term进行匹配比较麻烦(比如一个精度很大的多边形查询，其获得了很多前缀，不知道该拿哪些前缀去匹配相应的term从而获得docId)。<br>solr的查询策略：利用了索引term的字典有序可以有效地对上面的深度遍历进行剪枝，term的顺序和深度遍历的Cell的顺序是一致的。具体流程如下图：</p>
+<p><img src="12.png" alt=""></p>
+<p>说明：<br>1、获得空间索引域的第一个域，深度遍历root=WorldCell开始，找到与查询Shape相交的子Cell。<br>2、开始深度遍历, 找到遍历的下一个结点，判断当前Cell与当前term的大小关系：<br>a、当前Cell &lt; term : 则跳过该Cell， 因为term是按字典序顺序取的，在当前term之前的Cell对应不到数据。<br>b、当前Cell &gt; term : 当前term已经匹配完成(因为以后遍历的Cell肯定都比当前term大)，定位到下一个&gt;=Cell的最小term，继续遍历Cell。<br>c、当前Cell = term : 判断当前Cell是否还要继续深度遍历，即如果Cell包含在查询Shape内，或者Cell已经达到了查询Shape的detailLevel层时，则当前Cell遍历结束，将当前term上的docId都取出来；否则继续深度遍历获得当前Cell的与查询Shape相交的子Cell。同时取下一个term。这里有个特殊情况是当term是以+结尾即leaf结点时且Cell长度和term长度一样长时(长度比较不包括+)，说明该数据是非Point索引时的叶结点，再深度遍历已经也对应不上相应的term，所以就把该term对应的非Point docId都取出来，然后取下一个term。<br>不断重复第2步直到term取完或者所有树结点都被遍历完。<br>下图是查询策略的示意图： </p>
+<p><img src="13.png" alt=""></p>
+<h3 id="空间索引查询流程"><a href="#空间索引查询流程" class="headerlink" title="空间索引查询流程"></a>空间索引查询流程</h3><p><img src="14.png" alt=""></p>
+<p>上图以geofilt查询为例，其中分成有score=distance和无score=distance两种情况。</p>
+<ul>
+<li><p>先介绍不需要score的情况：<br>1、解析查询，生成Query树：获得相应的QParse, 对geofilt进行语法解析，获得geofilt的各个参数，并且获得相应的查询Query(ConstantScoreQuery)包括相应的Filter(IntersectsPrefixTreeFilter)，其中也计算了查询Shape的一些属性，如最大索引长度detailLevel。<br>2、查询：SolrIndexSearch.search()进行创建Weight树和Score树。利用IntersectsPrefixTreeFilter得到符合条件的docIdSet(调用了前面的VistorTemplate深度遍历策略)。由于不需要score，所以Score返回的是ConstantScorer。</p>
+</li>
+<li><p>需要score的情况(大坑，要缓存所有term对应的docId及对应的geohash中心点)，只说明score=distance,score=recipDistance图中已经说明：<br>基本流程和上面一致。说明下主要不同的地方：</p>
+</li>
+<li><p>Query对象：其创建的是FilteredQuery，其中有几个属性关系到打分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a、ShapeFieldCacheDistanceValueSource: 用于生成FuncitonValues对象来给各个doc打分，只用于计算Point类的doc，非Point类的doc都打180分(即非Point都是最近的)。其主要属性PointPrefixTreeFieldCacheProvider缓存了所有Point类doc的docId–&gt;point所在geohash的中心点(大坑之所在)。</div><div class="line">b、FunctionQuery:其中包括了FunctionWeight、AllScorer、FunctionValues等主要用于空间索引的打分操作。</div></pre></td></tr></table></figure>
+</li>
+<li><p>Scorer.score()调用的是AllScorer.score(): 解析出符合条件的docId，然后通过ShapeFieldCacheDistanceValueSource生成的FunctionValues得到docId对应的中心点，计算与查询Shape中心的距离来作为score。再放到优先队列中进行排序，从而实现按score排序的功能。</p>
+</li>
+</ul>
+<h3 id="一些主要类说明："><a href="#一些主要类说明：" class="headerlink" title="一些主要类说明："></a>一些主要类说明：</h3><ul>
+<li>FunctionValues: 其floatVal(docId)用于计算两点距离(非Point默认最近)，调用provider的cache来获得各个docId的中心点坐标。</li>
+<li>ShapeFieldCacheDistanceValueSource: 生成的FunctionWeight。</li>
+<li>ShapeFieldCache(大坑,文档里说以后会替换这块):缓存了docId–&gt;其term对应的Cell的中心点。cache[docId]=ArrayList。</li>
+<li>PointPrefixTreeFieldCacheProvider:管理ShapeFieldCache。(只支持Point)</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>  lucene write类图</p>
+<p><img src="15.png" alt=""></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://dataknocker.github.io/2014/04/11/solr%E7%A9%BA%E9%97%B4%E7%B4%A2%E5%BC%95%E5%8E%9F%E7%90%86%E5%8F%8A%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" target="_blank" rel="external">solr空间索引原理及源码分析</a>   </p>
+<p><a href="https://tech.meituan.com/solr-spatial-search.html" target="_blank" rel="external">Solr空间搜索原理分析与实践</a>   </p>
+<p><a href="http://www.cnblogs.com/hanfight/p/5776769.html" target="_blank" rel="external">Lucene Spatial构建地理空间索引</a>  </p>
+<p><a href="https://wiki.apache.org/solr/SolrAdaptersForLuceneSpatial4" target="_blank" rel="external">https://wiki.apache.org/solr/SolrAdaptersForLuceneSpatial4</a>  </p>
+<p><a href="https://sourceforge.net/projects/jts-topo-suite/" target="_blank" rel="external">https://sourceforge.net/projects/jts-topo-suite/</a>  </p>
+<p><a href="https://lucene.apache.org/core/7_2_1/spatial-extras/index.html" target="_blank" rel="external">https://lucene.apache.org/core/7_2_1/spatial-extras/index.html</a></p>
+
+    
+
+    
+</div>
+
+
+                
+		<!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="Rico's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        chenhongjie101@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material chenhongjie 
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+  -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/Ricoccc" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/rico.austin.5" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/103668464393164710629" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+        <a href="http://weibo.com/206999040" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

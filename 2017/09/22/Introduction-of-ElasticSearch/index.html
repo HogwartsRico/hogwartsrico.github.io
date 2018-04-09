@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            ElasticSearch入门学习笔记 | 
+        
+        Rico&#39;s Blog
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+        <link rel="dns-prefetch" href="https://hm.baidu.com"/>
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Rico">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="Rico,ElasticSearch">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="ElasticSearch入门学习笔记 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="ElasticSearch"> 
+
+    
+        <meta property="article:published_time" content="9月 22, 2017" />
+        <meta property="article:modified_time" content="4月 09, 2018" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="ElasticSearch入门学习笔记 | Rico&#39;s Blog">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://hogwartsrico.github.io" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Rico&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Rico",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "GIS LBS Java 大数据 数据挖掘"
+    },
+    "headline": "ElasticSearch入门学习笔记",
+    "url": "http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html",
+    "datePublished": "9月 22, 2017",
+    "dateModified": "4月 09, 2018",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://hogwartsrico.github.io"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    .footer-sns-facebook {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
+    }
+    
+    
+    .footer-sns-twitter {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
+    }
+    
+    
+    .footer-sns-gplus {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ElasticSearch简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">ElasticSearch简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ES版本历史和选择"><span class="post-toc-number">2.</span> <span class="post-toc-text">ES版本历史和选择</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#单实例安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">单实例安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插件安装"><span class="post-toc-number">4.</span> <span class="post-toc-text">插件安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分布式安装"><span class="post-toc-number">5.</span> <span class="post-toc-text">分布式安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础概念"><span class="post-toc-number">6.</span> <span class="post-toc-text">基础概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#索引创建"><span class="post-toc-number">7.</span> <span class="post-toc-text">索引创建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建索引"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">创建索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#非结构化创建"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">非结构化创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构化创建"><span class="post-toc-number">7.1.2.</span> <span class="post-toc-text">结构化创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据插入"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">数据插入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接修改文档"><span class="post-toc-number">7.3.1.</span> <span class="post-toc-text">直接修改文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#脚本修改"><span class="post-toc-number">7.3.2.</span> <span class="post-toc-text">脚本修改</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">删除</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除文档"><span class="post-toc-number">7.4.1.</span> <span class="post-toc-text">删除文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除索引"><span class="post-toc-number">7.4.2.</span> <span class="post-toc-text">删除索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用head插件删除"><span class="post-toc-number">7.4.2.1.</span> <span class="post-toc-text">使用head插件删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用rest删除"><span class="post-toc-number">7.4.2.2.</span> <span class="post-toc-text">使用rest删除</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查询"><span class="post-toc-number">8.</span> <span class="post-toc-text">查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单查询"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">简单查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#条件查询"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">条件查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚合查询"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">聚合查询</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SpringBook集成ES"><span class="post-toc-number">9.</span> <span class="post-toc-text">SpringBook集成ES</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                ElasticSearch入门学习笔记
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>9月 22, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/ElasticSearch/">ElasticSearch</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ElasticSearch入门学习笔记&url=http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ElasticSearch入门学习笔记&url=http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>本文为<a href="https://www.imooc.com/learn/889" target="_blank" rel="external">慕课网ElasticSearch</a>学习笔记,步骤均为亲手尝试实践  </p>
+<h1 id="ElasticSearch简介"><a href="#ElasticSearch简介" class="headerlink" title="ElasticSearch简介"></a>ElasticSearch简介</h1><p>基于Apache Lucene构建的开源搜索引擎 </p>
+<p>采用Java编写，提供简单易用的RESTFul API  </p>
+<p>轻松的横向扩展,支持PB级的结构化或非结构化数据处理   </p>
+<p><strong>可应用场景 </strong></p>
+<ul>
+<li>海量数据分析引擎  </li>
+<li>站内搜索引擎  </li>
+<li>数据仓库(利用ES强大的分布式存储能力)  </li>
+</ul>
+<p>一线公司实际应用场景   </p>
+<ul>
+<li>英国卫报–实时分析公众对文章的回应   </li>
+<li>维基百科,Github–站内实时搜索   </li>
+<li>百度–实时日志监控平台  </li>
+</ul>
+<h1 id="ES版本历史和选择"><a href="#ES版本历史和选择" class="headerlink" title="ES版本历史和选择"></a>ES版本历史和选择</h1><p>版本历史 1.x–&gt;2.x–&gt;5.x<br>版本选择:<br>es5.x支持lucene6,性能有大幅提升,磁盘空间相交之前也少了一半,查询性能提升了25%左右<br>2.x不被重视，也不会继续开发了<br>我们这里选择5.x  </p>
+<h1 id="单实例安装"><a href="#单实例安装" class="headerlink" title="单实例安装"></a>单实例安装</h1><p> 官网  <a href="https://www.elastic.co/" target="_blank" rel="external">https://www.elastic.co/</a>   </p>
+<p><img src="1.png" alt="">  </p>
+<p>下载好之后 </p>
+<blockquote>
+<p>tar -zxvf elasticsearch-5.6.1.tar.gz<br>cd elasticsearch-5.6.1 </p>
+</blockquote>
+<p>可以看到如下文件结构<br><img src="2.png" alt=""> </p>
+<p>bin是存放es启动脚本的<br>config是存放es配置文件的目录<br>lib是它依赖的第三方库的目录<br>modules是它的模块目录<br>plugins是它的第三方插件的目录   </p>
+<p>使用命令<code>./bin/elasticsearch</code>来启动ES  </p>
+<p><img src="3.png" alt="">  </p>
+<p>started表示启动成功,地址是localhost:9200  </p>
+<p>访问<a href="http://localhost:9200" target="_blank" rel="external">http://localhost:9200</a><br>显示如下<br><img src="4.png" alt=""> </p>
+<p>es单实例安装完成  </p>
+<h1 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h1><p>实用Head插件安装  </p>
+<p>es返回的是json格式的，不是很友好，head插件提供了友好的web界面，同时还可以实现基本信息的查看，rest请求的模拟，以及数据的基本检索  </p>
+<p>head插件地址 <a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="external">https://github.com/mobz/elasticsearch-head</a>  </p>
+<p>head要求node大于等于6.0   </p>
+<p>我们使用8.2.1版本的node    </p>
+<p>下载完成之后使用<code>npm install --registry=https://registry.npm.taobao.org</code>安装   </p>
+<p>使用命令<code>npm run start</code> 运行这个插件   然后访问<a href="http://localhost:9100" target="_blank" rel="external">http://localhost:9100</a>  </p>
+<p>es和head插件是2个不同的程序，而且端口也不一样，他们2个之间互相访问存在跨域问题，所以这里改2个配置   </p>
+<p><code>vim config/elasticsearch.yml</code>   </p>
+<p>在最下面加入2行   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http.cors.enabled:  true  #注意:后面有空格</div><div class="line">http.cors.allow-origin: &quot;*&quot;   #注意:后面有空格</div></pre></td></tr></table></figure>
+<p>然后用后台方式启动es<br><code>./bin/elasticsearch -d</code>   </p>
+<p>然后再启动head插件，访问localhost:9100  </p>
+<p>就可以看到head连接es成功了,而且健康值是绿色   </p>
+<p><img src="5.png" alt="">  </p>
+<p>健康值还有黄色和红色<br>黄色代表健康值不是很好,但是可以正常使用；red表示集群的情况很差了   </p>
+<p>后台启动的es如何关闭呢？ 答:使用 kill -9<br><img src="6.png" alt="">  </p>
+<h1 id="分布式安装"><a href="#分布式安装" class="headerlink" title="分布式安装"></a>分布式安装</h1><p>我们会建一个集群，3个节点，1个master ,2个slave   </p>
+<p>编辑conf/elasticsearch.yml </p>
+<p>加入如下配置    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cluster.name: rico  #指定集群的名字       </div><div class="line">node.name: master   #给master起一个名字   </div><div class="line">node.master: true	#告诉它它就是master </div><div class="line">network.host: 127.0.0.1  #绑定的IP ,端口不用改，默认就是9200</div></pre></td></tr></table></figure>
+<p>IP绑定为127.0.0.1之后就不能用localhost访问了,必须用127.0.0.1了   </p>
+<p>然后启动es和head<br>访问如下 ，可以看到集群名字和master已经变成rico和master了<br><img src="7.png" alt=""><br><img src="8.png" alt="">  </p>
+<p>我们新建2个目录，<code>es_slave1</code>和<code>es_slave2</code>,然后把es的程序拷贝进去，然后解压    </p>
+<p>然后修改slave的es的配置  </p>
+<p>加入如下配置 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">luster.name: rico   #这个必须与master保证一致  </div><div class="line">node.name: slave1   #给这个节点起一个名字</div><div class="line">network.host: 127.0.0.1  #绑定IP </div><div class="line">http.port: 8200     ## 不能和master的端口冲突  默认不配就是9200和master重了   </div><div class="line">discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;]  #这个配置的作用是找到master,如果不加这个配置的话,这个slave会游离于集群之外,找不到集群的master的</div></pre></td></tr></table></figure>
+<p>slave可以不加  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">http.cors.enabled:  true  </div><div class="line">http.cors.allow-origin: &quot;*&quot;</div></pre></td></tr></table></figure>
+<p>先后启动slave1和slave2,然后我们访问head插件地址就可以看到下图   </p>
+<p><img src="9.png" alt="">  </p>
+<p>我们可以看到一个master(五角星)，2个slave(圆点)   </p>
+<p>从这里可以看到，我们的es扩容是非常容易的  </p>
+<h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><p>每个集群都有一个唯一的名字,默认叫elasticsearch,所有节点都是通过集群名字来加入集群的, 每一个节点还有它自己的名字  </p>
+<p>节点能够存储数据，参与集群索引数据，搜索数据的独立服务<br><img src="10.png" alt="">   </p>
+<p><img src="9.5.png" alt="">  </p>
+<p>通常我们定义有相同字段的文档作为一个类型<br>文档是es里面最小的存储单位<br>索引在es中是通过名字来识别的，而且必须是英文字母小写且不含中划线,我们都是通过这个名字来对索引进行增删查改的操作   </p>
+<p>索引相当于数据库里的database ,类型相当于table，文档相当于sql里的一行记录  </p>
+<p>举个例子：<br>一个信息查询系统，用ES来做存储,里面的数据可以分为各种各样的索引，例如图书索引，家具索引，汽车索引。 图书索引又可以分为各种类型，例如科普类，计算机类，小说类等，具体到每一本书就是文档   </p>
+<p><img src="11.png" alt="">  </p>
+<p>为何要分片？  </p>
+<p>假设一个索引的数据量很大，就会造成硬盘的压力很大，同时，搜索速度也会出现瓶颈,这时就可以将索引分成多个分片,分摊压力,分片的同时还允许用户进行水平的拆分，和分布式的操作，可以提高搜索和其他操作的效率   </p>
+<p>备份有哪些好处?<br>当一个主分片失败，或者出现问题时，备份的分片就可以代替工作，从而提高了es的可用性，备份的分片还可以执行搜索操作,以分摊搜索的压力,es默认在创建索引时会创建5个分片，1份备份,这个数量是可以修改的,分片的数量只能在创建索引时指定,而不能再后期进行修改,而备份可以修改   </p>
+<h1 id="索引创建"><a href="#索引创建" class="headerlink" title="索引创建"></a>索引创建</h1><p>RESTFul API<br><img src="12.png" alt="">  </p>
+<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><h3 id="非结构化创建"><a href="#非结构化创建" class="headerlink" title="非结构化创建"></a>非结构化创建</h3><p>我们使用head插件来新建索引   </p>
+<p><img src="13.png" alt="">  </p>
+<p><img src="14.png" alt=""> </p>
+<p>粗方框的是主分片,西细方框的是备份分片 </p>
+<p>如何知道一个索引是结构化还是非结构化的?  </p>
+<p>点击查看索引信息,mappings如果是空的就是非结构化的  </p>
+<p><img src="15.png" alt="">  </p>
+<h3 id="结构化创建"><a href="#结构化创建" class="headerlink" title="结构化创建"></a>结构化创建</h3><p>如何建立结构化的索引呢？<br>点击复合索引<br>输入book索引,加一个类型novel，小说,接着加一个关键词<code>_mappings</code>给它加一个映射<br>内容写json结构体，也就是它的映射结构, </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;novel&quot;: &#123;//novel是类型前缀,</div><div class="line">  //然后在这里定义它的结构</div><div class="line">    &quot;properties&quot;: &#123;//关键词properties,在这里定义它的每一个字段</div><div class="line">      &quot;title&quot;: &#123;//自定义的  标题</div><div class="line">        &quot;type&quot;: &quot;text&quot;//给title定义类型 type:text 表示是文本</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="16.png" alt="">   </p>
+<p>结果是”acknowledged”:true表示成功  </p>
+<p><img src="17.png" alt=""><br>这时我们看到mappings里面有内容了,有一个novel小说,它里面是有结构映射的  </p>
+<p>接下来我们使用工具POSTMan ，它是一个http模拟器  </p>
+<p><img src="18.png" alt=""><br>新的索引名 people    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;settings&quot;:&#123;//关键词settings,指定索引的配置</div><div class="line">		&quot;number_of_shards&quot;:3,//指定索引的分片数 </div><div class="line">		&quot;number_of_replicas&quot;:1//指定备份数 </div><div class="line">	&#125;,</div><div class="line">	&quot;mappings&quot;:&#123;//索引映射定义</div><div class="line">		&quot;man&quot;:&#123;//加一个类型 man  </div><div class="line">			&quot;properties&quot;:&#123;//属性</div><div class="line">				&quot;name&quot;:&#123;//名字</div><div class="line">					&quot;type&quot;:&quot;text&quot;//类型是文本类型</div><div class="line">				&#125;,</div><div class="line">				&quot;county&quot;:&#123;//国家</div><div class="line">					&quot;type&quot;:&quot;keyword&quot;//国家是不可切分的，是一个关键词</div><div class="line">				&#125;,</div><div class="line">				&quot;age&quot;:&#123;//年龄</div><div class="line">					&quot;type&quot;:&quot;integer&quot;//类型是int</div><div class="line">				&#125;,</div><div class="line">				&quot;date&quot;:&#123;//出生日期</div><div class="line">					&quot;type&quot;:&quot;date&quot;,//格式是date</div><div class="line">					&quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis&quot;//多种类型定义 年月日 小时分秒和年月日和时间戳</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;,</div><div class="line">		&quot;woman&quot;:&#123;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>去head插件里看一下 ,可以看到有people了,点击索引信息，可以看到格式映射是完全按照我们自己定义的     </p>
+<p><img src="19.png" alt="">    </p>
+<h2 id="数据插入"><a href="#数据插入" class="headerlink" title="数据插入"></a>数据插入</h2><ul>
+<li>指定文档id插入</li>
+<li>自动产生文档id插入  </li>
+</ul>
+<p>文档id是唯一索引值，指向文档数据    </p>
+<p><img src="20.png" alt="">  </p>
+<p>采用put方式,people是索引，man是类型,1是我们给他指定的一个id,也就是文档id<br>返回结果和我们的信息也是对应的,index是people，type是man，id是1   </p>
+<p>我们回head插件看到docs是1了，也就是我们刚插入的数据成功了     </p>
+<p><img src="21.png" alt=""> </p>
+<p>我们浏览数据<br><img src="22.png" alt="">  </p>
+<p>id是我们自己指定的  </p>
+<p>接下来我们看如何让es在我们插入文档的时候自动产生id  </p>
+<p><img src="23.png" alt="">  </p>
+<p>采用post方式,url不要写id，这样es就会产生id   </p>
+<p><img src="24.png" alt="">  </p>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><ul>
+<li>直接修改文档 </li>
+<li>脚本修改文档  </li>
+</ul>
+<h3 id="直接修改文档"><a href="#直接修改文档" class="headerlink" title="直接修改文档"></a>直接修改文档</h3><blockquote>
+<p>127.0.0.1:9200/people/man/1/_update  </p>
+</blockquote>
+<p><img src="25.png" alt="">   </p>
+<p>方式是post,1表示我们要修改的文档的id,<code>_update</code>是关键词，表示我们要对文档进行修改   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;doc&quot;:&#123;//关键词,要修改的文本就写在doc里面  </div><div class="line">		&quot;name&quot;:&quot;HogwartsRico&quot;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="26.png" alt="">  </p>
+<p>我们查看head插件，可以看到数据已经修改了    </p>
+<h3 id="脚本修改"><a href="#脚本修改" class="headerlink" title="脚本修改"></a>脚本修改</h3><p><img src="27.png" alt="">  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;script&quot;:&#123;//script关键字 es以脚本的方式去运行修改</div><div class="line">		&quot;lang&quot;:&quot;painless&quot;,//指定脚本语言,es支持很多的脚本语言, painless是内置的脚本语言,还支持js,python,groovy等脚本语言,这里我们选择es内置的painless</div><div class="line">		&quot;inline&quot;:&quot;ctx._source.age+=10&quot;//inline指定脚本内容，ctx代表es上下文,_source代表es当前的文档</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以看到结果修改了<br><img src="28.png" alt=""><br>我们还可以将参数放到外面 </p>
+<p><img src="29.png" alt="">  </p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><p>这里我们删除id为1的文档<br>使用delete方式<br><img src="30.png" alt="">  </p>
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><h4 id="使用head插件删除"><a href="#使用head插件删除" class="headerlink" title="使用head插件删除"></a>使用head插件删除</h4><p><img src="31.png" alt="">  </p>
+<p><img src="32.png" alt="">  </p>
+<p>这里有个确认操作，因为删除操作是很危险的，当我们删除索引时，索引和所有数据都会被删除  </p>
+<h4 id="使用rest删除"><a href="#使用rest删除" class="headerlink" title="使用rest删除"></a>使用rest删除</h4><p><img src="33.png" alt="">  </p>
+<p>删除操作非常危险，谨慎操作  </p>
+<h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><p>我们先造几个模拟数据 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;settings&quot;:&#123;&quot;number_of_shards&quot;: 3,&quot;number_of_replicas&quot;: 1&#125;,</div><div class="line">	&quot;mappings&quot;:&#123;</div><div class="line">		&quot;novel&quot;:&#123;</div><div class="line">			&quot;properties&quot;:&#123;</div><div class="line">				&quot;word_count&quot;:&#123;&quot;type&quot;:&quot;integer&quot;&#125;,	</div><div class="line">				&quot;author&quot;:&#123;&quot;type&quot;:&quot;keyword&quot;&#125;,</div><div class="line">				&quot;title&quot;:&#123;&quot;type&quot;:&quot;text&quot;&#125;,</div><div class="line">				&quot;publish_date&quot;:&#123;&quot;type&quot;:&quot;date&quot;,&quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || epoch_millis&quot;&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;word_count&quot;:50000,</div><div class="line">	&quot;title&quot;:&quot;菜谱&quot;,</div><div class="line">	&quot;author&quot;:&quot;abc&quot;,</div><div class="line">	&quot;publish_date&quot;:&quot;2017-09-21&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>等等 </p>
+<h2 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h2><p>查询id唯一的文档  </p>
+<blockquote>
+<p>127.0.0.1:9200/book/novel/1</p>
+</blockquote>
+<p><img src="35.png" alt="">  </p>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;query&quot;:&#123;//es所有查询都是以query为关键词的</div><div class="line">		&quot;match_all&quot;:&#123;&#125;//查询所有的数据</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="36.png" alt="">  </p>
+<p>took：2表示这个查询花2毫秒<br>hits代表响应结果<br>hits的total是8，表示总共有8条数据,hits默认返回10条数据<br>如果size不指定，那么默认返回10条<br><code>_shards</code>：描述了查询分片的信息，查询了多少个分片、成功的分片数量、失败的分片数量等<br><code>_score</code>是文档的分数信息，与排名相关度有关，参考各大搜索引擎的搜索结果，就容易理解</p>
+<p>如何指定返回的数据大小和从哪里返回呢？  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;query&quot;:&#123;</div><div class="line">		&quot;match_all&quot;:&#123;&#125;</div><div class="line">	&#125;,</div><div class="line">	&quot;from&quot;:1,//返回第二条数据(从0开始数)  </div><div class="line">	&quot;size&quot;:1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>文档的顺序是按照<code>_score</code>默认倒排的<br>如何将查询变成关键词查询呢？  </p>
+<p><img src="37.png" alt="">  </p>
+<p>这里的返回结果是以<code>_score</code>默认倒排的,如何自定义自己的排序呢？  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;query&quot;:&#123;</div><div class="line">		&quot;match&quot;:&#123;&quot;title&quot;:&quot;java&quot;&#125;</div><div class="line">	&#125;,</div><div class="line">	&quot;sort&quot;:[//指定需要排序的字段</div><div class="line">		&#123;</div><div class="line">			&quot;publish_date&quot;:&#123;//publish_date作为排序字段</div><div class="line">				&quot;order&quot;:&quot;desc&quot;//默认是升序的，我们改成倒序</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>返回结果<br><img src="39.png" alt=""><br>我们发现score这个字段变成null了，是因为我们指定了排序规则,</p>
+<p>下面的高级查询会做更多关于查询的介绍   </p>
+<h2 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h2><p>单个分组聚合  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;aggs&quot;:&#123;//aggs是聚合查询的关键词</div><div class="line">		&quot;group_by_word_count&quot;:&#123;//给聚合条件起一个名字,这个名字是自定义的，可以随便起</div><div class="line">			&quot;terms&quot;:&#123;//关键词</div><div class="line">				&quot;field&quot;:&quot;word_count&quot;//指定聚合的字段</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果会将所有数据返回并在结尾返回聚合后的数据  </p>
+<p><img src="40.png" alt=""> </p>
+<p>多个分组聚合  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;aggs&quot;:&#123;</div><div class="line">		&quot;group_by_word_count&quot;:&#123;</div><div class="line">			&quot;terms&quot;:&#123;</div><div class="line">				&quot;field&quot;:&quot;word_count&quot;</div><div class="line">			&#125;</div><div class="line">		&#125;,</div><div class="line">		&quot;group_by_publish_date&quot;:&#123;</div><div class="line">			&quot;terms&quot;:&#123;</div><div class="line">				&quot;field&quot;:&quot;publish_date&quot;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>es的其他功能函数  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;aggs&quot;:&#123;</div><div class="line">		&quot;grades_word_count&quot;:&#123;</div><div class="line">			&quot;stats&quot;:&#123;//stats表示进行下计算</div><div class="line">				&quot;field&quot;:&quot;word_count&quot;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果<br><img src="41.png" alt=""><br>count总共有12个数   min最小值  avg 平均值  sum总和  </p>
+<p>也直接支持这里面的函数  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	&quot;aggs&quot;:&#123;</div><div class="line">		&quot;grades_word_count&quot;:&#123;</div><div class="line">			&quot;min&quot;:&#123;</div><div class="line">				&quot;field&quot;:&quot;word_count&quot;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="SpringBook集成ES"><a href="#SpringBook集成ES" class="headerlink" title="SpringBook集成ES"></a>SpringBook集成ES</h1><p>ESConfig.java  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Configuration</div><div class="line">public class ESConfig &#123;</div><div class="line">    @Bean</div><div class="line">    public TransportClient client() throws UnknownHostException &#123;</div><div class="line">        InetSocketTransportAddress node=new InetSocketTransportAddress(</div><div class="line">                InetAddress.getByName(&quot;localhost&quot;),//address</div><div class="line">                9300//tcp端口</div><div class="line">        );</div><div class="line">        //设置自定义配置</div><div class="line">        Settings settings = Settings.builder().put(&quot;cluster.name&quot;,&quot;rico&quot;).build();//集群名</div><div class="line">        TransportClient client=new PreBuiltTransportClient(settings);//这里需要传入es的配置</div><div class="line">        client.addTransportAddress(node);</div><div class="line">        return client;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>增加和查询</strong></p>
+<p>Controller.java  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">@Autowired</div><div class="line">  private TransportClient client;</div><div class="line"></div><div class="line">  //获取图书的功能</div><div class="line">  @GetMapping(&quot;/get/book/novel&quot;)</div><div class="line">  @ResponseBody</div><div class="line">  public ResponseEntity  getBookNovel(@RequestParam(name=&quot;id&quot;,defaultValue = &quot;&quot;) String id)&#123;</div><div class="line">      if(id.isEmpty())&#123;</div><div class="line">          return new ResponseEntity(HttpStatus.NOT_FOUND);</div><div class="line">      &#125;</div><div class="line">      GetResponse result= this.client.prepareGet(&quot;book&quot;,&quot;novel&quot;,id).get();//索引,类型   prepareGet获取索引</div><div class="line">      if(result.isExists())&#123;</div><div class="line">          return new ResponseEntity(result.getSource(), HttpStatus.OK);</div><div class="line">      &#125;else&#123;</div><div class="line">          return new ResponseEntity(HttpStatus.NOT_FOUND);</div><div class="line">      &#125;</div><div class="line">  //http://localhost:8080/get/book/novel?id=2</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  //增加图书的功能</div><div class="line">  @PostMapping(&quot;add/book/novel&quot;)</div><div class="line">  @ResponseBody</div><div class="line">  public ResponseEntity add(@RequestParam(name=&quot;title&quot;) String title,</div><div class="line">                            @RequestParam(name=&quot;author&quot;) String author,</div><div class="line">                            @RequestParam(name=&quot;word_count&quot;) int wordCount,</div><div class="line">                            @RequestParam(name=&quot;publish_date&quot;) @DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;) Date publish_date)&#123;</div><div class="line">      XContentBuilder content= null;</div><div class="line">      try &#123;</div><div class="line">          content = XContentFactory.jsonBuilder().startObject().field(&quot;title&quot;,title).field(&quot;author&quot;,author).field(&quot;word_count&quot;,wordCount).field(&quot;publish_date&quot;,publish_date.getTime()).endObject();</div><div class="line">      &#125; catch (IOException e) &#123;</div><div class="line">          e.printStackTrace();</div><div class="line">          return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);</div><div class="line">      &#125;</div><div class="line">      IndexResponse result= this.client.prepareIndex(&quot;book&quot;,&quot;novel&quot;).setSource(content).get();//prepareIndex准备构建索引  book是索引名   nove是type</div><div class="line">      return new ResponseEntity(result.getId(),HttpStatus.OK);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p><img src="43.png" alt=""><br><img src="44.png" alt=""> </p>
+<p><strong>删除</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@DeleteMapping(&quot;delete/book/novel&quot;)</div><div class="line">   @ResponseBody</div><div class="line">   public ResponseEntity delete(@RequestParam(name=&quot;id&quot;) String id)&#123;</div><div class="line">       DeleteResponse result=this.client.prepareDelete(&quot;book&quot;,&quot;novel&quot;,id).get();</div><div class="line">       return new ResponseEntity(result,HttpStatus.OK);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="45.png" alt="">   </p>
+<p><strong>更新</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">@PutMapping(&quot;update/book/novel&quot;)</div><div class="line">  @ResponseBody</div><div class="line">  public ResponseEntity update(</div><div class="line">          @RequestParam(name=&quot;id&quot;) String id,</div><div class="line">          @RequestParam(name=&quot;title&quot;,required = false) String title,</div><div class="line">          @RequestParam(name=&quot;author&quot;,required = false) String author,</div><div class="line">          @RequestParam(name=&quot;word_count&quot;,required = false) Integer word_count,</div><div class="line">          @RequestParam(name=&quot;publish_date&quot;,required = false) @DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;) Date publish_date</div><div class="line">  )&#123;</div><div class="line">      UpdateRequest update=new UpdateRequest(&quot;book&quot;,&quot;novel&quot;,id);</div><div class="line">      XContentBuilder content=null;</div><div class="line">      try &#123;</div><div class="line">          content=XContentFactory.jsonBuilder().startObject();</div><div class="line">          if(title!=null)&#123;</div><div class="line">              content.field(&quot;title&quot;,title);</div><div class="line">          &#125;</div><div class="line">          if(author!=null)&#123;</div><div class="line">              content.field(&quot;author&quot;,author);</div><div class="line">          &#125;</div><div class="line">          if(word_count!=null)&#123;</div><div class="line">              content.field(&quot;word_count&quot;,word_count);</div><div class="line">          &#125;</div><div class="line">          if(publish_date!=null)&#123;</div><div class="line">              content.field(&quot;publish_date&quot;,publish_date.getTime());</div><div class="line">          &#125;</div><div class="line">          content.endObject();//必须以endObject结尾</div><div class="line">          update.doc(content);</div><div class="line">          try &#123;</div><div class="line">              UpdateResponse result=this.client.update(update).get();</div><div class="line">              return new ResponseEntity(result,HttpStatus.OK);</div><div class="line">          &#125; catch (InterruptedException e) &#123;</div><div class="line">              e.printStackTrace();</div><div class="line">              return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);</div><div class="line">          &#125; catch (ExecutionException e) &#123;</div><div class="line">              e.printStackTrace();</div><div class="line">              return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);</div><div class="line">          &#125;</div><div class="line">      &#125; catch (IOException e) &#123;</div><div class="line">          e.printStackTrace();</div><div class="line">          return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);</div><div class="line">      &#125;</div><div class="line">  &#125;</div><div class="line">  //一般情况下，我们如果要在表单中上传文件，一般会将form的enctype参数设置为multipart/form-data。这种方式只支持POST的请求方式。</div><div class="line">  //put的话就用  x-www-form-urlencoded</div></pre></td></tr></table></figure>
+<p><img src="46.png" alt="">  </p>
+<p><strong>符合查询接口</strong>  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">@PostMapping(&quot;query/book/novel&quot;)</div><div class="line">   @ResponseBody</div><div class="line">   public ResponseEntity query(</div><div class="line">           @RequestParam(name=&quot;author&quot;,required = false) String author,</div><div class="line">           @RequestParam(name=&quot;title&quot;,required = false) String title,</div><div class="line">           @RequestParam(name=&quot;gt_word&quot;,defaultValue = &quot;0&quot;) Integer gt_word,//大于多少字</div><div class="line">           @RequestParam(name=&quot;lt_word&quot;,required = false) Integer lt_word//小于多少</div><div class="line">   )&#123;</div><div class="line"></div><div class="line">       BoolQueryBuilder boolQuery= QueryBuilders.boolQuery();</div><div class="line">       if(author!=null)&#123;</div><div class="line">           boolQuery.must(QueryBuilders.matchQuery(&quot;author&quot;,author));</div><div class="line">       &#125;</div><div class="line">       if(title!=null)&#123;</div><div class="line">           boolQuery.must(QueryBuilders.matchQuery(&quot;title&quot;,title));</div><div class="line">       &#125;</div><div class="line">       RangeQueryBuilder rangeQueryBuilder=QueryBuilders.rangeQuery(&quot;word_count&quot;).from(gt_word);</div><div class="line">       if(lt_word!=null&amp;&amp;lt_word&gt;0)&#123;</div><div class="line">           rangeQueryBuilder.to(lt_word);</div><div class="line">       &#125;</div><div class="line">       boolQuery.filter(rangeQueryBuilder);</div><div class="line">       SearchRequestBuilder  builder=this.client.prepareSearch(&quot;book&quot;)</div><div class="line">               .setTypes(&quot;novel&quot;)</div><div class="line">               .setSearchType(SearchType.DEFAULT.DFS_QUERY_THEN_FETCH)</div><div class="line">               .setQuery(boolQuery)</div><div class="line">               .setFrom(0).setSize(10);//当你的数据量足够多的时候，可以用QUERY_THEN_FETCH</div><div class="line">       System.out.println(builder);//直接打印请求体</div><div class="line">       SearchResponse response=builder.get();</div><div class="line">       List&lt;Map&lt;String,Object&gt;&gt; result=new ArrayList&lt;Map&lt;String,Object&gt;&gt;();</div><div class="line">       for(SearchHit hit:response.getHits())&#123;</div><div class="line">           result.add(hit.getSource());</div><div class="line">       &#125;</div><div class="line">       return new ResponseEntity(result,HttpStatus.OK);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p><img src="47.png" alt=""><br><img src="48.png" alt="">  </p>
+
+    
+
+    
+</div>
+
+
+                
+		<!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/10/01/Introduction-of-Lucene/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/04/08/Kafka-Install-and-ABC/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="Rico's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        chenhongjie101@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material chenhongjie 
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+  -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/Ricoccc" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/rico.austin.5" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/103668464393164710629" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

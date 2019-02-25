@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            Spring中的代理 | 
+        
+        Rico&#39;s Blog
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+        <link rel="dns-prefetch" href="https://hm.baidu.com"/>
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Rico">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="Rico,Spring">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Spring中的代理 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="Spring"> 
+
+    
+        <meta property="article:published_time" content="9月 01, 2018" />
+        <meta property="article:modified_time" content="2月 25, 2019" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="Spring中的代理 | Rico&#39;s Blog">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://hogwartsrico.github.io" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Rico&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Rico",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "Java"
+    },
+    "headline": "Spring中的代理",
+    "url": "http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html",
+    "datePublished": "9月 01, 2018",
+    "dateModified": "2月 25, 2019",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://hogwartsrico.github.io"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    .footer-sns-facebook {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
+    }
+    
+    
+    .footer-sns-twitter {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
+    }
+    
+    
+    .footer-sns-gplus {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代理模式（Proxy）"><span class="post-toc-number">1.</span> <span class="post-toc-text">代理模式（Proxy）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自己编写Proxy和ClassLoader-InvocationHandler"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">自己编写Proxy和ClassLoader,InvocationHandler</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CGLib案例"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">CGLib案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-number">2.</span> <span class="post-toc-text">扩展阅读:</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Spring中的代理
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>9月 01, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Spring/">Spring</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Spring中的代理&url=http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Spring中的代理&url=http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="代理模式（Proxy）"><a href="#代理模式（Proxy）" class="headerlink" title="代理模式（Proxy）"></a>代理模式（Proxy）</h1><p>特点: </p>
+<p>1、 有2个角色，执行者、被代理人</p>
+<p>2、 对于被代理人来说，这件事情是一定要做的，但是我自己不想做或者没有时间做，找代理做</p>
+<p>3、 需要获取到被代理的人个人资料，只是参与整个过程的某个或几个环节</p>
+<p>生活中的案例: </p>
+<p> <strong>租房中介、</strong> </p>
+<p><strong>售票黄牛、</strong> </p>
+<p><strong>婚介、</strong></p>
+<p><strong>经纪人</strong>、</p>
+<p>快递、事务代理、非侵入式日志监听   </p>
+<p>应用场景：为其他对象提供一种代理以控制对这个对象的访问。从结构上来看和Decorator模式类似，但Proxy是控制，更像是一种对功能的限制，而Decorator是增加职责。</p>
+<p>Spring的Proxy模式在AOP中有体现，比如JdkDynamicAopProxy和Cglib2AopProxy。</p>
+<p>代码举例：租房子</p>
+<p>定义一个人，要找房子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> findHouse;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	<span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</div><div class="line">	<span class="function">String <span class="title">getAddress</span><span class="params">()</span></span>;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">findHouse</span><span class="params">()</span></span>;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">anotherMethod</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义个张三，要找房子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> findHouse;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhangsan</span> <span class="keyword">implements</span> <span class="title">Person</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> String name=<span class="string">"张三"</span>;</div><div class="line">	<span class="keyword">private</span> String address=<span class="string">"西湖"</span>;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findHouse</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"我是"</span>+<span class="keyword">this</span>.getName()+<span class="string">",我住"</span>+<span class="keyword">this</span>.getAddress()+<span class="string">"附近，要租房子"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">anotherMethod</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"另一个方法"</span>); &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> address; &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>&#123; <span class="keyword">this</span>.address = address; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果不使用任何模式，最简单的调用是这样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> findHouse;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFindHouse</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Person person=<span class="keyword">new</span> Zhangsan();</div><div class="line">		person.findHouse();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="5.png" alt=""></p>
+<p>但是张三是个上班族，没时间租房子，就去找中介。 </p>
+<p>中介类</p>
+<p>在使用动态代理时，我们需要定义一个位于代理类与委托类之间的中介类，<strong>这个中介类被要求实现InvocationHandler接口</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> findHouse;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</div><div class="line"><span class="comment">//中介</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhongjie</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;<span class="comment">//实现这个接口才具有代理功能</span></div><div class="line">	<span class="keyword">private</span> Person target;</div><div class="line">	<span class="comment">//获取被代理人的个人资料</span></div><div class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getInstance</span><span class="params">(Person target)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		<span class="keyword">this</span>.target=target;</div><div class="line">		Class clazz=target.getClass();</div><div class="line">		ClassLoader loader=clazz.getClassLoader();</div><div class="line">		<span class="keyword">return</span> Proxy.newProxyInstance(loader, clazz.getInterfaces(), <span class="keyword">this</span>);<span class="comment">//第一个参数是ClassLoader,第二个参数是interfaces,第三个参数是InvocationHandler</span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</div><div class="line">		System.out.println(<span class="string">"代理开始"</span>);</div><div class="line">		System.out.println(<span class="string">"我是中介，你叫"</span>+<span class="keyword">this</span>.target.getName()+<span class="string">",你住"</span>+<span class="keyword">this</span>.target.getAddress()+<span class="string">"附近，我帮你找房子,找了几个合适的你挑选一下"</span>);</div><div class="line">		<span class="comment">//this.target.findHouse();</span></div><div class="line">		Object result = method.invoke(<span class="keyword">this</span>.target, args);<span class="comment">//这里其实并没有返回值</span></div><div class="line">		System.out.println(<span class="string">"代理结束"</span>);</div><div class="line">		<span class="keyword">return</span> result;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从InvocationHandler这个名称我们就可以知道，实现了这个接口的中介类用做“调用处理器”。<strong>当我们调用代理类对象的方法时，这个“调用”会转送到invoke方法中</strong>，代理类对象作为proxy参数传入，参数method标识了我们具体调用的是代理类的哪个方法，args为这个方法的参数。这样一来，我们对代理类中的所有方法的调用都会变为对invoke的调用，这样我们可以在invoke方法中添加统一的处理逻辑（也可以根据method参数对不同的代理类方法做不同的处理）</p>
+<p>中介类实现InvocationHandler接口，作为调用处理器”拦截“对代理类方法的调用</p>
+<p>测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> findHouse;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFindHouse</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Zhongjie zhongjie=<span class="keyword">new</span> Zhongjie();<span class="comment">//中介</span></div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Person obj=(Person)zhongjie.getInstance(<span class="keyword">new</span> Zhangsan());</div><div class="line">			System.out.println(<span class="string">"代理后生成的class:"</span>+obj.getClass().getName());</div><div class="line">			obj.findHouse();</div><div class="line">			<span class="comment">//obj.anotherMethod();</span></div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="6.png" alt=""></p>
+<p>从以上代码中我们可以看到，中介类持有一个<strong>委托类对象引用，在invoke方法中调用了委托类对象的相应方法</strong>， </p>
+<p> 感觉上就是 ，中介类可以在调用张三的找房方法前，先执行一些逻辑，然后调用张三的找房，然后在执行以下后续方法。</p>
+<p> 有点像我们现实生活中的情况，比如你要买房，中介在你签字前做了大量工作，找房东，拿钥匙，联系贷款银行问利率，帮你算总价，分期等，你决定要买了之后你只需要签字即可(调用委托对象的相应方法)，你签完字，中介还要继续后续银行放款，权证房产证契税缴纳，房管局取送资料，最后交付。 你只需要签字付钱即可。</p>
+<p> 贷款利率变了，手续流程变了，你不需要关心，你只要签字，脏活累活业务强相关的代理类帮你干了。 </p>
+<p>在编程中也一样，某些东西流程变了，委托类不需要管，代理类帮你管好，你的核心流程不变。这样就省心多了 </p>
+<p>动态代理的优势在于可以很方便的对代理类的函数进行统一的处理，而不用修改每个代理类的函数</p>
+<p>原理： </p>
+<p>1 拿到被代理对象的引用（张三类），然后获取它的接口</p>
+<p>2 JDK代理重新生成一个类，同时实现我们给的代理对象所实现的接口 （Person接口） </p>
+<p>3 把被代理对象的引用也拿到了</p>
+<p>4 重新动态生成一个class字节码</p>
+<p>5 然后编译 </p>
+<p>你委托类(被代理类)的原始方法是不改的，只是在你前面，在你后面加了一些逻辑  </p>
+<p>把JVM编译后的代理类的class字节获取到然后反编译看下 </p>
+<p><img src="10.png" alt=""> </p>
+<p><img src="11.png" alt=""> </p>
+<p>这个this.h是什么？ 在父类Proxy中可以看到这个h</p>
+<p><img src="12.png" alt=""> </p>
+<p><img src="13.png" alt=""> </p>
+<p>this.h就是InvocatinHandler </p>
+<p><img src="14.png" alt=""> </p>
+<p>我们把生成的proxy0.class的字节码反编译输出看下 </p>
+<p><img src="7.png" alt=""> </p>
+<p><img src="8.png" alt=""> </p>
+<p>h就是InvocationHandler </p>
+<p><img src="9.png" alt=""></p>
+<p> 我们代码中</p>
+<p><code>Proxy.newProxyInstance(loader, clazz.getInterfaces(), this)</code> 把Zhongjie的this当做第三个参数传入,所以h就是中介类</p>
+<p>所以上图代码中的</p>
+<p><code>this.h.invoke(this.m4.null)</code>就是调用了 zhangsan类中的invoke方法，而中介类的invoke的代码是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"代理开始"</span>);</div><div class="line">System.out.println(<span class="string">"我是中介，你叫"</span>+<span class="keyword">this</span>.target.getName()+<span class="string">",你住"</span>+<span class="keyword">this</span>.target.getAddress()+<span class="string">"附近，我帮你找房子,找了几个合适的你挑选一下"</span>);</div><div class="line">Object result = method.invoke(<span class="keyword">this</span>.target, args);<span class="comment">//这里其实并没有返回值</span></div><div class="line">System.out.println(<span class="string">"代理结束"</span>);</div><div class="line"><span class="keyword">return</span> result;</div></pre></td></tr></table></figure>
+<p>其中有一行是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object result = method.invoke(<span class="keyword">this</span>.target, args);</div></pre></td></tr></table></figure>
+<p>又调用了method.lnvoke,这才真正调用了张三的实际方法，但是在调用张三方法之前和之后，就是我们在代理类中需要在调用张三方法之前需要执行的操作，达到了我们的目的</p>
+<p>了解清楚代理原理和代理模式对后续看Spring源码有帮助。 修炼内功心法 </p>
+<h2 id="自己编写Proxy和ClassLoader-InvocationHandler"><a href="#自己编写Proxy和ClassLoader-InvocationHandler" class="headerlink" title="自己编写Proxy和ClassLoader,InvocationHandler"></a>自己编写Proxy和ClassLoader,InvocationHandler</h2><p>根据接口生成java代码的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//重新根据接口生成代码(拼代码)</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span>  String <span class="title">generateSourceCode</span><span class="params">(Class&lt;?&gt; interfaces)</span> </span>&#123;</div><div class="line"> <span class="comment">//包名</span></div><div class="line"> StringBuilder sourceCode=<span class="keyword">new</span> StringBuilder(<span class="string">"package org.rico.learnSpring.customProxy;"</span>).append(ln);<span class="comment">//包名</span></div><div class="line"> <span class="comment">//导包</span></div><div class="line"> sourceCode.append(<span class="string">"import java.lang.reflect.Method;"</span>).append(ln).append(ln);</div><div class="line"> <span class="comment">//声明类</span></div><div class="line"> sourceCode.append(<span class="string">"public  class $Proxy0 implements "</span>).append(interfaces.getName()).append(<span class="string">"&#123;"</span>).append(ln);<span class="comment">//这里只实现了一个，如果通用的话要写循环//这里的类名是随便的，只要.java文件和类名一样就可以了这里是$Proxy0</span></div><div class="line"> sourceCode.append(<span class="string">"  MyInvocationHandler h;"</span>).append(ln);<span class="comment">//域 局部变量</span></div><div class="line"> <span class="comment">//构造函数</span></div><div class="line">       sourceCode.append(<span class="string">"  public $Proxy0(MyInvocationHandler h)&#123;"</span>).append(ln);<span class="comment">//这个构造函数名应该是动态生成的，但是这里写死了,为了方便</span></div><div class="line"> sourceCode.append(<span class="string">"    this.h=h;"</span>).append(ln);</div><div class="line"> sourceCode.append(<span class="string">"&#125;"</span>).append(ln);<span class="comment">//匹配public $Proxy0的&#123;</span></div><div class="line"> <span class="keyword">for</span>(Method m:interfaces.getMethods())&#123;</div><div class="line">	 sourceCode.append(<span class="string">"  public "</span>).append(m.getReturnType().getName()).append(<span class="string">" "</span>).append(m.getName()).append(<span class="string">"()&#123;"</span>).append(ln);<span class="comment">//我们的Person方法都是无参的，这里也是图简便，应该是要把参数也遍历出来的</span></div><div class="line">	 sourceCode.append(<span class="string">"    try&#123;"</span>).append(ln);</div><div class="line">	 <span class="comment">//获取这个Method</span></div><div class="line">	 sourceCode.append(<span class="string">"        Method m = "</span>).append(interfaces.getName()).append(<span class="string">".class.getMethod(\""</span>).append(m.getName()).append(<span class="string">"\",new Class[0]);"</span>).append(ln);<span class="comment">//new Class[]&#123;&#125;</span></div><div class="line">	 sourceCode.append(<span class="string">"        this.h.invoke(this,m,null);"</span>).append(ln);</div><div class="line">	 sourceCode.append(<span class="string">"    &#125;catch(Throwable e)&#123;e.printStackTrace();&#125;"</span>).append(ln);</div><div class="line">	 <span class="keyword">if</span>(!m.getReturnType().getName().equals(<span class="string">"void"</span>))&#123;<span class="comment">//如果返回值不为空,返回</span></div><div class="line">		 sourceCode.append(<span class="string">"    return null;"</span>).append(ln);<span class="comment">//这里为了方便直接返回null</span></div><div class="line">	 &#125;</div><div class="line">	 sourceCode.append(<span class="string">"  &#125;"</span>).append(ln);</div><div class="line"> &#125;</div><div class="line"> sourceCode.append(<span class="string">"&#125;"</span>);<span class="comment">//匹配public class 的 &#123;</span></div><div class="line"> <span class="keyword">return</span> sourceCode.toString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>生成的java代码</p>
+<p><img src="15.png" alt=""> </p>
+<p>编写的这个generageSourceCode方法也是不断尝试，知道生成的.java文件放在工程中不报错了就可以了 ,经常会出现括号不成对出现，返回值，大小写等的问题 </p>
+<p>编译java文件成class文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//3 编译源代码 ,并且生成.class文件 </span></div><div class="line"> <span class="keyword">try</span> &#123;</div><div class="line">	 JavaCompiler compiler= ToolProvider.getSystemJavaCompiler();<span class="comment">//javax提供的编译器</span></div><div class="line">	 StandardJavaFileManager manager=compiler.getStandardFileManager(<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</div><div class="line">	 Iterable iterable=manager.getJavaFileObjects(f);<span class="comment">//获取迭代器 就是为了找到Java文件</span></div><div class="line">	 JavaCompiler.CompilationTask task=compiler.getTask(<span class="keyword">null</span>,manager,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,iterable);<span class="comment">//编译任务</span></div><div class="line">	 task.call();</div><div class="line">	 manager.close();</div><div class="line"> &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">	 e.printStackTrace();</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>完整源码</p>
+<p>测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</div><div class="line"><span class="keyword">import</span> org.rico.learnSpring.findHouse.Person;</div><div class="line"><span class="keyword">import</span> org.rico.learnSpring.findHouse.Zhangsan;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFindHouse</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		MyZhongjie zhongjie=<span class="keyword">new</span> MyZhongjie();<span class="comment">//中介</span></div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			Person obj=(Person)zhongjie.getInstance(<span class="keyword">new</span> Zhangsan());<span class="comment">//代理出来的对象可以强转成接口的 ，当然zhangsan也要实现Person</span></div><div class="line">			System.out.println(<span class="string">"代理后生成的class:"</span>+obj.getClass().getName());</div><div class="line">			obj.findHouse();</div><div class="line">			<span class="comment">//obj.anotherMethod();</span></div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e)&#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>中介类 MyZhongjie.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</div><div class="line"><span class="keyword">import</span> org.rico.learnSpring.findHouse.Person;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="comment">//房屋中介类</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyZhongjie</span> <span class="keyword">implements</span> <span class="title">MyInvocationHandler</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> Person target;</div><div class="line">	<span class="comment">//获取被代理人的个人资料</span></div><div class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getInstance</span><span class="params">(Person target)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">		<span class="keyword">this</span>.target=target;</div><div class="line">		Class clazz=target.getClass();</div><div class="line">		System.out.println(<span class="string">"被代理对象的class是:"</span>+clazz.getName());		</div><div class="line">		<span class="keyword">return</span> MyProxy.newProxyInstance(<span class="keyword">new</span> MyClassLoader(), clazz.getInterfaces(), <span class="keyword">this</span>);<span class="comment">//第一个参数是ClassLoader,第二个参数是interfaces,第三个参数是InvocationHandler也即本身，因为zhongjie本身实现了InvocationHandler</span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</div><div class="line">		System.out.println(<span class="string">"代理开始"</span>);</div><div class="line">		System.out.println(<span class="string">"我是中介，你叫"</span>+<span class="keyword">this</span>.target.getName()+<span class="string">",你住"</span>+<span class="keyword">this</span>.target.getAddress()+<span class="string">"附近，我帮你找房子,找了几个合适的你挑选一下"</span>);</div><div class="line">		Object result = method.invoke(<span class="keyword">this</span>.target, args);<span class="comment">//这里其实并没有返回值</span></div><div class="line">		System.out.println(<span class="string">"代理结束"</span>);</div><div class="line">		<span class="keyword">return</span> result;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中用到了MyProxy和MyInvocationhandler接口还有MyClassLoader</p>
+<p>代理类MyProxy.java的newProxyInstance会生成新的java源码并编译成class然后classLoader会加载进JVM,gtInstance方法return的就是这个新生成并加载的class 然后用Person接口来接收(在测试类中)，然后调用findHouse时就调用了这个新生成的类的findHouse(见上图新“生成的类”) 而这个findHouse方法又调用了中介的invoke方法，当然会把实际调用的方法名也传入，例如findhouse，然后调到了中介的invoke方法，中介的invoke方法是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"代理开始"</span>);</div><div class="line">System.out.println(<span class="string">"我是中介，你叫"</span>+<span class="keyword">this</span>.target.getName()+<span class="string">",你住"</span>+<span class="keyword">this</span>.target.getAddress()+<span class="string">"附近，我帮你找房子,找了几个合适的你挑选一下"</span>);</div><div class="line">Object result = method.invoke(<span class="keyword">this</span>.target, args);<span class="comment">//这里其实并没有返回值</span></div><div class="line">System.out.println(<span class="string">"代理结束"</span>);</div><div class="line"><span class="keyword">return</span> result;</div></pre></td></tr></table></figure>
+<p>其中有一行是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object result = method.invoke(<span class="keyword">this</span>.target, args);</div></pre></td></tr></table></figure>
+<p>又调用了method.lnvoke,这才真正调用了张三的实际方法，但是在调用张三方法之前和之后，就是我们在代理类中需要在调用张三方法之前需要执行的操作，达到了我们的目的</p>
+<p>下面是MyProxy的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</div><div class="line"><span class="keyword">import</span> javax.tools.JavaCompiler;</div><div class="line"><span class="keyword">import</span> javax.tools.StandardJavaFileManager;</div><div class="line"><span class="keyword">import</span> javax.tools.ToolProvider;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileWriter;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Constructor;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="comment">//这个类会生成代理对象的代码</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyProxy</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span>  <span class="keyword">final</span> String  ln=<span class="string">"\n"</span>;<span class="comment">//换行</span></div><div class="line">     <span class="comment">//这个方法很重要 用于生成代理对象的代码</span></div><div class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(MyClassLoader loader,  Class&lt;?&gt;[] interfaces,  MyInvocationHandler h)</span> </span>&#123;</div><div class="line">		 <span class="comment">//1 生成源代码</span></div><div class="line">		 String proxySourceCode=generateSourceCode(interfaces[<span class="number">0</span>]);</div><div class="line">		 <span class="comment">//2 将生成的源代码输出到磁盘，保存为.java文件</span></div><div class="line">		 <span class="keyword">final</span> String filePath = MyProxy.class.getResource(<span class="string">""</span>).getPath();</div><div class="line">		 <span class="comment">//final String filePath = "C:\\Users\\chenhongjie\\Desktop\\";</span></div><div class="line">		 File f= <span class="keyword">new</span> File(filePath+<span class="string">"$Proxy0.java"</span>);<span class="comment">//.java文件名和类名一致</span></div><div class="line">		 <span class="keyword">try</span> &#123;</div><div class="line">			 FileWriter fw=<span class="keyword">new</span> FileWriter(f);</div><div class="line">			 fw.write(proxySourceCode);</div><div class="line">			 fw.flush();</div><div class="line">			 fw.close();</div><div class="line">		 &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">			 e.printStackTrace();</div><div class="line">		 &#125;</div><div class="line">		 <span class="comment">//3 编译源代码 ,并且生成.class文件 </span></div><div class="line">		 <span class="keyword">try</span> &#123;</div><div class="line">			 JavaCompiler compiler= ToolProvider.getSystemJavaCompiler();<span class="comment">//javax提供的编译器</span></div><div class="line">			 StandardJavaFileManager manager=compiler.getStandardFileManager(<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</div><div class="line">			 Iterable iterable=manager.getJavaFileObjects(f);<span class="comment">//获取迭代器 就是为了找到Java文件</span></div><div class="line">			 JavaCompiler.CompilationTask task=compiler.getTask(<span class="keyword">null</span>,manager,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,iterable);<span class="comment">//编译任务</span></div><div class="line">			 task.call();</div><div class="line">			 manager.close();</div><div class="line">			 <span class="comment">//4 通过MyClassLoader将class文件中的内容动态加载到JVM中来</span></div><div class="line">			 Class  proxyClass=loader.findClass(<span class="string">"$Proxy0"</span>);</div><div class="line">			 Constructor c=proxyClass.getConstructor(MyInvocationHandler.class);<span class="comment">//定义构造函数</span></div><div class="line">			 f.delete();<span class="comment">//获取到构造函数后可以把源文件删掉 JDK是这么做的，当然你也可以不删</span></div><div class="line">			 <span class="comment">//5 返回被代理后的代理对象</span></div><div class="line">			 <span class="keyword">return</span> c.newInstance(h);</div><div class="line">		 &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			 e.printStackTrace();</div><div class="line">		 &#125;</div><div class="line">		 <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">	 &#125;</div><div class="line">	 </div><div class="line">	 <span class="comment">//重新根据接口生成代码(拼代码)</span></div><div class="line">	 <span class="function"><span class="keyword">private</span> <span class="keyword">static</span>  String <span class="title">generateSourceCode</span><span class="params">(Class&lt;?&gt; interfaces)</span> </span>&#123;</div><div class="line">		 <span class="comment">//包名</span></div><div class="line">		 StringBuilder sourceCode=<span class="keyword">new</span> StringBuilder(<span class="string">"package org.rico.learnSpring.customProxy;"</span>).append(ln);<span class="comment">//包名</span></div><div class="line">		 <span class="comment">//导包</span></div><div class="line">		 sourceCode.append(<span class="string">"import java.lang.reflect.Method;"</span>).append(ln).append(ln);</div><div class="line">		 <span class="comment">//声明类</span></div><div class="line">		 sourceCode.append(<span class="string">"public  class $Proxy0 implements "</span>).append(interfaces.getName()).append(<span class="string">"&#123;"</span>).append(ln);<span class="comment">//这里只实现了一个，如果通用的话要写循环//这里的类名是随便的，只要.java文件和类名一样就可以了这里是$Proxy0</span></div><div class="line">		 sourceCode.append(<span class="string">"  MyInvocationHandler h;"</span>).append(ln);<span class="comment">//域 局部变量</span></div><div class="line">		 <span class="comment">//构造函数</span></div><div class="line">         sourceCode.append(<span class="string">"  public $Proxy0(MyInvocationHandler h)&#123;"</span>).append(ln);<span class="comment">//这个构造函数名应该是动态生成的，但是这里写死了,为了方便</span></div><div class="line">		 sourceCode.append(<span class="string">"    this.h=h;"</span>).append(ln);</div><div class="line">		 sourceCode.append(<span class="string">"&#125;"</span>).append(ln);<span class="comment">//匹配public $Proxy0的&#123;</span></div><div class="line">		 <span class="keyword">for</span>(Method m:interfaces.getMethods())&#123;</div><div class="line">			 sourceCode.append(<span class="string">"  public "</span>).append(m.getReturnType().getName()).append(<span class="string">" "</span>).append(m.getName()).append(<span class="string">"()&#123;"</span>).append(ln);<span class="comment">//我们的Person方法都是无参的，这里也是图简便，应该是要把参数也遍历出来的</span></div><div class="line">			 sourceCode.append(<span class="string">"    try&#123;"</span>).append(ln);</div><div class="line">			 <span class="comment">//获取这个Method</span></div><div class="line">			 sourceCode.append(<span class="string">"        Method m = "</span>).append(interfaces.getName()).append(<span class="string">".class.getMethod(\""</span>).append(m.getName()).append(<span class="string">"\",new Class[0]);"</span>).append(ln);<span class="comment">//new Class[]&#123;&#125;</span></div><div class="line">			 sourceCode.append(<span class="string">"        this.h.invoke(this,m,null);"</span>).append(ln);</div><div class="line">			 sourceCode.append(<span class="string">"    &#125;catch(Throwable e)&#123;e.printStackTrace();&#125;"</span>).append(ln);</div><div class="line">			 <span class="keyword">if</span>(!m.getReturnType().getName().equals(<span class="string">"void"</span>))&#123;<span class="comment">//如果返回值不为空,返回</span></div><div class="line">				 sourceCode.append(<span class="string">"    return null;"</span>).append(ln);<span class="comment">//这里为了方便直接返回null</span></div><div class="line">			 &#125;</div><div class="line">			 sourceCode.append(<span class="string">"  &#125;"</span>).append(ln);</div><div class="line">		 &#125;</div><div class="line">		 sourceCode.append(<span class="string">"&#125;"</span>);<span class="comment">//匹配public class 的 &#123;</span></div><div class="line">		 <span class="keyword">return</span> sourceCode.toString();</div><div class="line">	 &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>MyClassLoader.java的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</div><div class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileInputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="comment">//实现了代码生成，编译，动态重新load到JVM中</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> File baseDir;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyClassLoader</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">final</span> String basePath=MyClassLoader.class.getResource(<span class="string">""</span>).getPath();</div><div class="line">        <span class="keyword">this</span>.baseDir=<span class="keyword">new</span> File(basePath);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</div><div class="line">        <span class="comment">//加载到JVM中来</span></div><div class="line">        String className=MyClassLoader.class.getPackage().getName()+<span class="string">"."</span>+name;</div><div class="line">        System.out.println(className);</div><div class="line">        <span class="keyword">if</span>(baseDir!=<span class="keyword">null</span>)&#123;</div><div class="line">            File classFile=<span class="keyword">new</span> File(baseDir,name.replace(<span class="string">"\\."</span>,<span class="string">"/"</span>)+<span class="string">".class"</span>);<span class="comment">//点.替换成斜杠/</span></div><div class="line">            <span class="keyword">if</span>(classFile.exists())&#123;</div><div class="line">                FileInputStream in=<span class="keyword">null</span>;</div><div class="line">                <span class="keyword">try</span>&#123;</div><div class="line">                    in =<span class="keyword">new</span> FileInputStream(classFile);</div><div class="line">                    ByteArrayOutputStream out=<span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">                    <span class="keyword">byte</span> [] buff=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line">                    <span class="keyword">int</span> len;</div><div class="line">                    <span class="keyword">while</span> ((len=in.read(buff))!=-<span class="number">1</span>)&#123;</div><div class="line">                        out.write(buff,<span class="number">0</span>,len);;</div><div class="line">                    &#125;</div><div class="line">                    out.close();</div><div class="line">                    <span class="keyword">return</span> defineClass(className,out.toByteArray(),<span class="number">0</span>,out.size());</div><div class="line">                &#125;<span class="keyword">catch</span> (Exception e)&#123;</div><div class="line">                   e.printStackTrace();</div><div class="line">                &#125;<span class="keyword">finally</span> &#123;</div><div class="line">                    <span class="keyword">if</span>(<span class="keyword">null</span>!=in)&#123;</div><div class="line">                        <span class="keyword">try</span> &#123;</div><div class="line">                            in.close();</div><div class="line">                        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                            e.printStackTrace();</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                    classFile.delete();<span class="comment">//加载到jvm后delete掉(要在in，out都删掉之后再关) JDK是删掉的，当然你也可以不删掉</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>MyInvocationHandler.java的代码</p>
+<p>JDK原生的InvocationHandler也是一个接口，用于代理类来实现的,本例中就是中介</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInvocationHandler</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代理成功!</p>
+<p><img src="16.png" alt=""></p>
+<p>通过这个案例就理解了JDK动态代理的原理,真正是如何实现的 </p>
+<p>复习一下原理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">拿到被代理对象的引用（张三类），然后获取它实现的接口接口也就是Person</div><div class="line">JDK代理重新生成一个类，同时实现我们给的代理对象所实现的接口 （Person接口）给每个方法内部实现都写成this.h.invoke,这样就变成了调用中介类的invoke，当然也会把实际需要调用的方法名传入给中介的invoke以便执行完代理逻辑前/后调用真正的方法</div></pre></td></tr></table></figure>
+<p>总结一下有点像狸猫换太子：新生成一个类，类里的所有方法都去调用代理类的那个invoke方法，同时把真正需要调用的方法名也传入。 然后代理类的invoke就被执行了，然后代理类的invoke在执行代理逻辑时再调用下真实那个被代理类的那个方法 </p>
+<p>总结：字节码重组 </p>
+<p>上面的JDK的动态代理一定要写一个接口,例如案例中的Person(张三实现了Person接口，所以在张三类中可以拿到它实现的接口也就是Person),因为我们生成的class文件需要实现这个接口,所以必须要这个接口，否则实现不了。CGlib不需要接口就可以实现动态代理 </p>
+<p>代理的实现分<strong>动态代理</strong>和<strong>静态代理</strong>    </p>
+<p>静态代理的实现是对已经生成了的JAVA类进行封装。</p>
+<p>动态代理则是在运行时生成了相关代理类，在JAVA中生成动态代理一般有两种方式</p>
+<ul>
+<li>JDK实现代理生成，是用类 java.lang.reflect.Proxy, 实现方式 就是上面这个案例 </li>
+<li>用CGLib实现  <a href="http://cglib.sourceforge.net/" target="_blank" rel="external">CGLIB</a>是一个开源项目 </li>
+</ul>
+<p>Spring中，bean都是由动态代理生成出来的 <strong>Spring AOP中，当拦截对象实现了接口时，生成方式是用JDK的Proxy类。当没有实现任何接口时用的是GCLIB开源项目生成的拦截类的子类.</strong>    Spring是集成了CGLib的  </p>
+<p>CGLib的实现原理: 自动生成一个类，继承自己的那个被代理类，然后把子类的引用指向父 类 ,同样是做了字节码重组，</p>
+<p>好处就是可以少写一个接口 ,对于使用API的用户来说是无感知的  </p>
+<h2 id="CGLib案例"><a href="#CGLib案例" class="headerlink" title="CGLib案例"></a>CGLib案例</h2><p>Zhangsan.java 张三</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhangsan</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findHouse</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"我要找房子"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>中介 Zhongjie.java </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhongjie</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;<span class="comment">//interceptor的英文意思是拦截机</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getInstance</span> <span class="params">(Class clazz)</span> <span class="keyword">throws</span>  Exception</span>&#123;</div><div class="line">        <span class="comment">//通过反射机制，实例化</span></div><div class="line">        Enhancer enhancer=<span class="keyword">new</span> Enhancer();</div><div class="line">        <span class="comment">//把父类设置为谁?</span></div><div class="line">        enhancer.setSuperclass(clazz);<span class="comment">//传入被代理对象的Class,这一步就是告诉cglib，生成的子类需要继承哪个类</span></div><div class="line">        enhancer.setCallback(<span class="keyword">this</span>);<span class="comment">//设置回调 后续this.h.invoke调用的是本身的intercept方法</span></div><div class="line">        <span class="keyword">return</span> enhancer.create();<span class="comment">//第一步生成源代码,第二步编译Class,第三步加载到JVM中,并返回被代理后的对象</span></div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;<span class="comment">//这里的obj并不是我们new出来的被代理对象的引用，而是被代理对象的class</span></div><div class="line">        System.out.println(<span class="string">"代理开始"</span>);</div><div class="line">        System.out.println(<span class="string">"被调用的方法名:"</span>+method.getName());</div><div class="line">        <span class="comment">//这个obj的引用是由CGLib给我们new出来的,CGLib new出来以后的对象是被代理对象的子类(继承了我们自己写的那个被代理对象也就是Zhangsan.java)</span></div><div class="line">        <span class="comment">//new子类的同时，必须先new出父类来，这就相当于是间接的持有了我们父类的引用,子类重写了父类的所有的方法,变成类似于this.h.invoke(...),我们改变子类对象的某些属性是可以间接的操作父类的属性的</span></div><div class="line">        Object result=methodProxy.invokeSuper(obj,args);<span class="comment">//一定是调Super,这里调用Super其实就是原始的那个被代理对象的那个原始方法.不能写Invoke不然会死循环 相当于在findHose中调用findHouse</span></div><div class="line">        System.out.println(<span class="string">"代理结束"</span>);</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>测试类,main方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">//JDK的动态代理是通过接口来进行强制转换的,生成以后的代理对象可以强制转换为接口</span></div><div class="line">        <span class="comment">//CGLib的动态代理是通过生成一个被代理对象的子类，然后重写父类的方法,生成以后的对象时可以强制转换为被代理对象,子类引用赋值给父类</span></div><div class="line">        Zhongjie zhongjie =<span class="keyword">new</span> Zhongjie();</div><div class="line">        <span class="keyword">try</span>&#123;</div><div class="line">            <span class="comment">//Zhangsan zhangsan=(Zhangsan)zhongjie.getInstance(new Zhangsan());//其实没用到这个对象的引用，只需要它的class，这样写只是方便，在Zhongjie.java中也是obj.getClass,为了不避免误会，采用下面的方式</span></div><div class="line">            Zhangsan zhangsan=(Zhangsan)zhongjie.getInstance(Zhangsan.class);</div><div class="line">            zhangsan.findHouse();</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>代理模式用的最多的就是SpringAOP </p>
+<p>可以做什么事情？可以在每一个方法调用之前加一些代码，在方法调用之后再加一些代码</p>
+<p><strong>AOP一般用在哪里</strong> :事务代理(声明式事务,哪个方法需要加事务，哪个方法不需要加事务s)、日志</p>
+<p>在调用service方法之前开启(open)一个事务，<strong>事务的执行是由我们自己的代码完成的</strong>，事务执行完成后监听是否有异常，可能要根据异常的类型来决定这个事务是否要回滚(rollaback)还是继续提交(commit)，最后事务还要关闭(close) </p>
+<p>上面的流程中，除了事务的执行(加粗部分)，其他操作都是AOP帮我们做的 </p>
+<p>AOP是通过代理这种技术来实现的，AOP不是代理，代理也不是AOP</p>
+<h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读:"></a>扩展阅读:</h1><p><a href="https://www.jianshu.com/p/cbd58642fc08" target="_blank" rel="external">十分钟理解Java之动态代理</a>  </p>
+<p><a href="https://www.jianshu.com/p/942a4a349ac4" target="_blank" rel="external">https://www.jianshu.com/p/942a4a349ac4</a></p>
+<p><a href="https://www.jianshu.com/p/774c65290218" target="_blank" rel="external">https://www.jianshu.com/p/774c65290218</a></p>
+<p><a href="https://www.cnblogs.com/lianghaoc/p/5699537.html" target="_blank" rel="external">https://www.cnblogs.com/lianghaoc/p/5699537.html</a></p>
+<p><a href="https://segmentfault.com/a/1190000007089902" target="_blank" rel="external">https://segmentfault.com/a/1190000007089902</a></p>
+
+    
+
+    
+</div>
+
+
+                
+		<!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/10/01/Introduction-of-Lucene/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="Rico's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        chenhongjie101@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material chenhongjie 
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+  -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/Ricoccc" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/rico.austin.5" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/103668464393164710629" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

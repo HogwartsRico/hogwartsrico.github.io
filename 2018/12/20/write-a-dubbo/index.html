@@ -12,7 +12,7 @@
     
     <title>
         
-            标签: 算法 | 
+            手写一个Dubbo | 
         
         Rico&#39;s Blog
     </title>
@@ -38,7 +38,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Rico">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="Rico">
+    <meta name="keywords" content="Rico,RPC">
 
     <!-- Site Verification -->
     
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://hogwartsrico.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 算法 | Rico&#39;s Blog">
+    <meta property="og:title" content="手写一个Dubbo | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="RPC"> 
 
+    
+        <meta property="article:published_time" content="12月 20, 2018" />
+        <meta property="article:modified_time" content="3月 11, 2019" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="标签: 算法 | Rico&#39;s Blog">
+    <meta name="twitter:title" content="手写一个Dubbo | Rico&#39;s Blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/tags/算法/index.html" />
+        <link rel="canonical" href="http://hogwartsrico.github.io/2018/12/20/write-a-dubbo/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Rico&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Rico",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "Java"
+    },
+    "headline": "手写一个Dubbo",
+    "url": "http://hogwartsrico.github.io/2018/12/20/write-a-dubbo/index.html",
+    "datePublished": "12月 20, 2018",
+    "dateModified": "3月 11, 2019",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://hogwartsrico.github.io"
+    }
+}
+</script>
 
 
     
@@ -284,96 +317,260 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Dubbo"><span class="post-toc-number">1.</span> <span class="post-toc-text">Dubbo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#传统的HTTP调用"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">传统的HTTP调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RPC式的调用"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">RPC式的调用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自己实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">自己实现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#部分源码"><span class="post-toc-number">3.</span> <span class="post-toc-text">部分源码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册中心"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">注册中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#传输协议"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">传输协议</span></a></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2016/03/11/AStarPathFinding/">A星寻路算法解析</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            ...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2016/03/11/AStarPathFinding/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Rico's avatar">
-            </div>
-            <div>
-                <strong>Rico</strong>
-                <span>3月 11, 2016</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                手写一个Dubbo
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>12月 20, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/RPC/">RPC</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=手写一个Dubbo&url=http://hogwartsrico.github.io/2018/12/20/write-a-dubbo/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=手写一个Dubbo&url=http://hogwartsrico.github.io/2018/12/20/write-a-dubbo/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2018/12/20/write-a-dubbo/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2018/12/20/write-a-dubbo/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Dubbo"><a href="#Dubbo" class="headerlink" title="Dubbo"></a>Dubbo</h1><p>Dubbo是一款高性能轻量级的开源Java RPC框架</p>
+<p>什么是RPC？</p>
+<p>远程过程调用。</p>
+<p><img src="1.png" alt=""> </p>
+<p> HTTP也是一种RPC协议 TCP也是  </p>
+<p><img src="2.png" alt=""> </p>
+<h3 id="传统的HTTP调用"><a href="#传统的HTTP调用" class="headerlink" title="传统的HTTP调用"></a>传统的HTTP调用</h3><p><img src="3.png" alt=""> </p>
+<p>需要关心地址，地址变了消费端也要跟着变 ，需要字符串转换等缺点</p>
+<h3 id="RPC式的调用"><a href="#RPC式的调用" class="headerlink" title="RPC式的调用"></a>RPC式的调用</h3><p><img src="4.png" alt=""> </p>
+<p>consumer配置</p>
+<p><img src="5.png" alt=""> </p>
+<p>provider配置</p>
+<p><img src="6.png" alt=""> </p>
+<p> 特别简单，作为消费者不需要关心地址</p>
+<p>dubbo可扩展，它支持多种协议</p>
+<p><img src="7.png" alt=""> </p>
+<h1 id="自己实现"><a href="#自己实现" class="headerlink" title="自己实现"></a>自己实现</h1><p><img src="8.png" alt=""></p>
+<p>本项目就不采用模块的形式了（可以采用模块的形式） ，采用包代替模块的方式 </p>
+<p><img src="9.png" alt=""> </p>
+<p>我们注册中心一般用zookeeper或者eureka 或者redis  ,注册中心也是可以扩展的 </p>
+<p>我们自己实现一个注册中心</p>
+<p>注册中心要实现的是保存服务配置，需要保存:  服务名, url, 服务的实现类</p>
+<p>形如</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"> 服务名://因为可能有多个提供者</div><div class="line">   &#123;URL:服务实现类&#125;,</div><div class="line">   &#123;URL:服务实现类&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们用hashmap来存 </p>
+<p>一个Java对象要在网络中进行传输，需要序列化 </p>
+<h1 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h1><h2 id="注册中心"><a href="#注册中心" class="headerlink" title="注册中心"></a>注册中心</h2><p>采用一个hashmap来充当注册中心. 注册中心是独立于服务提供方和服务消费方的，但是这里为了省事，放在同一个工程中了   </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> org.rico.learnDubbo.register;</div><div class="line"><span class="keyword">import</span> org.rico.learnDubbo.framework.URL;</div><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">import</span> java.util.Map;</div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 自己实现的一个注册中心,采用map</span></div><div class="line"><span class="comment"> * Created by Rico on 2018/12/20.</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegisterServer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Map&lt;String,Map&lt;URL,Class&gt;&gt;   REGISTER =<span class="keyword">new</span> HashMap&lt;String,Map&lt;URL,Class&gt;&gt;();</div><div class="line"></div><div class="line">    <span class="comment">//注册服务</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span> <span class="title">register</span><span class="params">(URL url,String interfaceName,Class implClass)</span></span>&#123;<span class="comment">//需要传入URL，服务名，接口名(interface),实现类</span></div><div class="line">        Map&lt;URL,Class&gt; map=<span class="keyword">new</span> HashMap&lt;URL,Class&gt;();</div><div class="line">        map.put(url,implClass);</div><div class="line">        System.out.println(<span class="string">"服务注册成功!注册的服务接口名为:"</span>+interfaceName+<span class="string">",所在接口类为:"</span>+implClass.getName());</div><div class="line">        REGISTER.put(interfaceName,map);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Class <span class="title">get</span><span class="params">(URL url,String interfaceName)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> REGISTER.get(interfaceName).get(url);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//获取可用服务</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  URL <span class="title">get</span><span class="params">(String interfaceName)</span></span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h2><p>http</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnDubbo.protocol.http;</div><div class="line">import javax.servlet.ServletException;</div><div class="line">import javax.servlet.http.HttpServlet;</div><div class="line">import javax.servlet.http.HttpServletRequest;</div><div class="line">import javax.servlet.http.HttpServletResponse;</div><div class="line">import java.io.IOException;</div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/20.</div><div class="line"> */</div><div class="line">public class DispatcherServlet extends HttpServlet &#123;</div><div class="line">    @Override</div><div class="line">    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;</div><div class="line">        //super.service(req, resp);</div><div class="line">        new HttpServerHandler().handler(req,resp);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnDubbo.protocol.http;</div><div class="line"></div><div class="line">import org.apache.commons.io.IOUtils;</div><div class="line">import org.rico.learnDubbo.framework.TransferModel;</div><div class="line">import org.rico.learnDubbo.framework.URL;</div><div class="line">import org.rico.learnDubbo.register.RegisterServer;</div><div class="line"></div><div class="line">import javax.servlet.http.HttpServletRequest;</div><div class="line">import javax.servlet.http.HttpServletResponse;</div><div class="line">import java.io.IOException;</div><div class="line">import java.io.InputStream;</div><div class="line">import java.io.ObjectInputStream;</div><div class="line">import java.io.OutputStream;</div><div class="line">import java.lang.reflect.InvocationTargetException;</div><div class="line">import java.lang.reflect.Method;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/20.</div><div class="line"> */</div><div class="line">public class HttpServerHandler&#123;</div><div class="line">    //处理请求和响应</div><div class="line">    public void handler(HttpServletRequest req, HttpServletResponse resp)&#123;</div><div class="line">        //对象通过网络传输</div><div class="line">        InputStream inputStream= null;</div><div class="line">        try &#123;</div><div class="line">            inputStream = req.getInputStream();</div><div class="line">            ObjectInputStream objectInputStream=new ObjectInputStream(inputStream);</div><div class="line">            TransferModel  transferModel =(TransferModel)objectInputStream.readObject();//二进制数据反序列化成一个对象</div><div class="line">            //根据transferModel中的信息去注册中心找接口的实现类</div><div class="line">            String interfaceName=transferModel.getInterfaceName();</div><div class="line">            URL url=new URL(&quot;localhost&quot;,8080);</div><div class="line">            Class implementClass=RegisterServer.get(url,interfaceName);//根据url和接口名找一个实现类</div><div class="line">            //然后new出这个实现类,然后执行一下需要调用的这个方法</div><div class="line">            Method method=implementClass.getMethod(transferModel.getMethodName(),transferModel.getParamTypes());//这里Class的getMethod方法的第一个参数:方法的名字,第二个参数,方法的参数类型</div><div class="line">            //执行,并保存返回值</div><div class="line">            String result=(String)method.invoke(implementClass.newInstance(),transferModel.getParams());//第一个参数:new出来的这个实现类,第二个参数:参数 我们这里因为知道sayHello方法返回的是String，所以强转成String了,实际dubbo框架肯定是Object</div><div class="line">            //然后把结果返回,通过outputstream返回给resp</div><div class="line">            OutputStream outputStream=resp.getOutputStream();</div><div class="line">            IOUtils.write(result,outputStream);//把字符串给output了 这样就完成了一个结果的返回</div><div class="line">            //server端就写完了</div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (ClassNotFoundException e) &#123;</div><div class="line">            System.out.println(&quot;找不到这个类&quot;);</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (NoSuchMethodException e) &#123;</div><div class="line">            System.out.println(&quot;没有这个方法&quot;);</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (IllegalAccessException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (InstantiationException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; catch (InvocationTargetException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnDubbo.protocol.http;</div><div class="line"></div><div class="line">import org.apache.catalina.*;</div><div class="line">import org.apache.catalina.connector.Connector;</div><div class="line">import org.apache.catalina.core.StandardContext;</div><div class="line">import org.apache.catalina.core.StandardEngine;</div><div class="line">import org.apache.catalina.core.StandardHost;</div><div class="line">import org.apache.catalina.startup.Tomcat;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/20.</div><div class="line"> */</div><div class="line">public class HttpServer &#123;</div><div class="line">    public void start(String hostname,Integer port)&#123;</div><div class="line">        Tomcat tomcat=new Tomcat();</div><div class="line"></div><div class="line">        Server server=tomcat.getServer();</div><div class="line">        Service service=server.findService(&quot;Tomcat&quot;);//默认 叫tomcat</div><div class="line"></div><div class="line">        Connector connector=new Connector();</div><div class="line">        connector.setPort(port);</div><div class="line"></div><div class="line">        Engine engine=new StandardEngine();</div><div class="line">        engine.setDefaultHost(hostname);</div><div class="line"></div><div class="line">        Host host=new StandardHost();</div><div class="line">        host.setName(hostname);</div><div class="line"></div><div class="line">        String contextPath=&quot;&quot;;</div><div class="line">        Context context=new StandardContext();</div><div class="line">        context.setPath(contextPath);</div><div class="line">        context.addLifecycleListener(new Tomcat.FixContextListener());//加一个tomcat生命周期的监听器</div><div class="line"></div><div class="line">        host.addChild(context);</div><div class="line">        engine.addChild(host);</div><div class="line"></div><div class="line">        service.setContainer(engine);</div><div class="line">        service.addConnector(connector);</div><div class="line">        //tomcat是servlet的容器 所以要加入servlet,servlet用来处理请求的</div><div class="line">        tomcat.addServlet(contextPath,&quot;dispatcher&quot;,new DispatcherServlet());//指定servlet,第二个参数是servlet的名字，第三个参数是指定其实现类</div><div class="line">        context.addServletMappingDecoded(&quot;/*&quot;,&quot;dispatcher&quot;);//mapping</div><div class="line">        try &#123;</div><div class="line">            tomcat.start();//只是初始化</div><div class="line">            tomcat.getServer().await();//接收请求</div><div class="line">        &#125; catch (LifecycleException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnDubbo.protocol.http;</div><div class="line">import org.apache.commons.io.IOUtils;</div><div class="line">import org.rico.learnDubbo.framework.TransferModel;</div><div class="line">import java.io.IOException;</div><div class="line">import java.io.InputStream;</div><div class="line">import java.io.ObjectOutputStream;</div><div class="line">import java.io.OutputStream;</div><div class="line">import java.net.HttpURLConnection;</div><div class="line">import java.net.MalformedURLException;</div><div class="line">import java.net.ProtocolException;</div><div class="line">import java.net.URL;</div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/21.</div><div class="line"> */</div><div class="line">public class HttpClient &#123;</div><div class="line">    public String post(String hostname, Integer port, TransferModel transferModel) &#123;</div><div class="line">        try &#123;</div><div class="line">            //发送请求</div><div class="line">            URL url = new URL(&quot;http&quot;, hostname, port, &quot;/&quot;);</div><div class="line">            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();</div><div class="line">            httpURLConnection.setRequestMethod(&quot;POST&quot;);</div><div class="line">            httpURLConnection.setDoOutput(true);</div><div class="line">            OutputStream outputStream = httpURLConnection.getOutputStream();</div><div class="line">            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);</div><div class="line">            objectOutputStream.writeObject(transferModel);</div><div class="line">            objectOutputStream.flush();</div><div class="line">            objectOutputStream.close();</div><div class="line">            //发送完请求,然后拿到结果</div><div class="line">            InputStream inputStream=httpURLConnection.getInputStream();</div><div class="line">            return IOUtils.toString(inputStream);</div><div class="line">        &#125; catch (MalformedURLException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            return &quot;&quot;;</div><div class="line">        &#125; catch (ProtocolException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            return &quot;&quot;;</div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">            return &quot;&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>未完，待续….</p>
+
+    
+
     
 </div>
+
+
+                
+		<!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2019/01/08/how-springboot-achieves-zero-configuration/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/11/11/write-a-spring/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -530,6 +727,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

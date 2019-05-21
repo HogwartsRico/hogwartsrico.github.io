@@ -344,7 +344,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JMeter入门"><span class="post-toc-number">1.</span> <span class="post-toc-text">JMeter入门</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JMeter自定义变量"><span class="post-toc-number">2.</span> <span class="post-toc-text">JMeter自定义变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令行压测"><span class="post-toc-number">3.</span> <span class="post-toc-text">命令行压测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redis压测"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Redis压测</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#秒杀压测"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">秒杀压测</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JMeter入门"><span class="post-toc-number">1.</span> <span class="post-toc-text">JMeter入门</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JMeter自定义变量"><span class="post-toc-number">2.</span> <span class="post-toc-text">JMeter自定义变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#命令行压测"><span class="post-toc-number">3.</span> <span class="post-toc-text">命令行压测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redis压测"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Redis压测</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#秒杀压测"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">秒杀压测</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决卖超"><span class="post-toc-number">4.</span> <span class="post-toc-text">解决卖超</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -616,7 +616,20 @@
 <p>压测后库存 </p>
 <p><img src="54.png" alt=""> </p>
 <p>吞吐量 比上面那种方式高了 </p>
-<p><img src="55.png" alt=""> </p>
+<p><img src="55.png" alt="">  </p>
+<h2 id="解决卖超"><a href="#解决卖超" class="headerlink" title="解决卖超"></a>解决卖超</h2><p>原来减库存的sql是这样的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Update</span>(<span class="string">"update secondkill_goods set stock_count=stock_count-1 where goods_id=#&#123;id&#125;"</span>)</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">reduceStock</span><span class="params">(SecondKillGoods secondKillGoods)</span></span>;</div></pre></td></tr></table></figure>
+<p>现在改成 </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span> secondkill_goods <span class="keyword">set</span> stock_count=stock_count<span class="number">-1</span> <span class="keyword">where</span> goods_id=#&#123;<span class="keyword">id</span>&#125; <span class="keyword">and</span> stock_count&gt;<span class="number">0</span></div></pre></td></tr></table></figure>
+<p>而且原来的代码对于1个用户同时发起多个请求进行秒杀，可能会出现同一个用户秒杀到多次的情况 </p>
+<p>结论：使用数据库的唯一索引，这也是为什么秒杀表要单拉出一个表的原因 </p>
+<p><img src="65.png" alt=""></p>
+<p>重新压测</p>
+<p><img src="66.png" alt=""> </p>
+<p>没有卖超了</p>
+<p><img src="67.png" alt=""> </p>
+<p>吞吐量</p>
+<p><img src="68.png" alt=""> </p>
 
     
 

@@ -344,7 +344,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#优化待评价的订单数量查询逻辑"><span class="post-toc-number">1.</span> <span class="post-toc-text">优化待评价的订单数量查询逻辑</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -492,9 +492,13 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>优化待评价的订单数量查询逻辑</p>
-<p>最开始是xxxService.getOrderCount这个接口有慢日志日均80, 但是这个接口的调用量远超这个值, 判断是某个场景下触发了慢请求.</p>
+        <h1 id="优化待评价的订单数量查询逻辑"><a href="#优化待评价的订单数量查询逻辑" class="headerlink" title="优化待评价的订单数量查询逻辑"></a>优化待评价的订单数量查询逻辑</h1><p>最开始是xxxService.getOrderCount这个接口有慢日志日均80, 但是这个接口的调用量远超这个值, 判断是某个场景下触发了慢请求.</p>
 <p>用Arthas监控了慢请求的入参, 发现了只有queryScene=WAIT_COMMNET(待评价)时，才会出现慢请求</p>
+<p><img src="1.jpg" alt="">  </p>
+<p>查看了这个待评价场景的查询逻辑是有点问题的</p>
+<p><img src="2.jpg" alt=""> </p>
+<p>优化点比较简单，主要还是发现问题和定位问题的过程。</p>
+<p>后续写一下Arthas的各个案例。 </p>
 
     
 

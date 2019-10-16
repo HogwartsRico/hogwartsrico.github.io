@@ -12,7 +12,7 @@
     
     <title>
         
-            标签: Gradle | 
+            Java服务器可以跑多少个线程以及Docker下GC线程数的问题 | 
         
         Rico&#39;s Blog
     </title>
@@ -38,7 +38,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Rico">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="Rico">
+    <meta name="keywords" content="Rico,Java">
 
     <!-- Site Verification -->
     
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://hogwartsrico.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: Gradle | Rico&#39;s Blog">
+    <meta property="og:title" content="Java服务器可以跑多少个线程以及Docker下GC线程数的问题 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="Java"> 
 
+    
+        <meta property="article:published_time" content="10月 16, 2019" />
+        <meta property="article:modified_time" content="10月 16, 2019" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="标签: Gradle | Rico&#39;s Blog">
+    <meta name="twitter:title" content="Java服务器可以跑多少个线程以及Docker下GC线程数的问题 | Rico&#39;s Blog">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/tags/Gradle/index.html" />
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Rico&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Rico",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "Javaer"
+    },
+    "headline": "Java服务器可以跑多少个线程以及Docker下GC线程数的问题",
+    "url": "http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html",
+    "datePublished": "10月 16, 2019",
+    "dateModified": "10月 16, 2019",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://hogwartsrico.github.io"
+    }
+}
+</script>
 
 
     
@@ -284,96 +317,253 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一台服务器能跑多少java线程"><span class="post-toc-number">1.</span> <span class="post-toc-text">一台服务器能跑多少java线程?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java应用容器化后GC的问题以及解决方案"><span class="post-toc-number">2.</span> <span class="post-toc-text">Java应用容器化后GC的问题以及解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">解决方案</span></a></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/03/24/learn-gradle/">新一代构建工具Gradle</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            项目...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/03/24/learn-gradle/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpg" width="44px" height="44px" alt="Rico's avatar">
-            </div>
-            <div>
-                <strong>Rico</strong>
-                <span>3月 24, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Java服务器可以跑多少个线程以及Docker下GC线程数的问题
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>10月 16, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Java/">Java</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Java服务器可以跑多少个线程以及Docker下GC线程数的问题&url=http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Java服务器可以跑多少个线程以及Docker下GC线程数的问题&url=http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="一台服务器能跑多少java线程"><a href="#一台服务器能跑多少java线程" class="headerlink" title="一台服务器能跑多少java线程?"></a>一台服务器能跑多少java线程?</h2><p>这个问题来自一次线上报警如下图，超过了配置阈值。</p>
+<p><img src="1.png" alt=""></p>
+<p>打出jstack文件，通过IBM Thread and Monitor Dump Analyzer for Java工具查看如下：</p>
+<p><img src="2.png" alt=""></p>
+<p>共计1661个线程，和监控数据得出的吻合。但这个数量应该是大了，<strong>我们都知道线程多了，就会有线程切换，带来性能开销</strong>。</p>
+<p>那么一台java服务器到底可以跑多少个线程呢？跟什么有关系？现整理如下。</p>
+<p>每个线程都有一个<strong>线程栈空间</strong>通过-Xss设置，查了一下我们服务器的关于jvm内存的配置</p>
+<p>-Xms4096m</p>
+<p>-Xmx4096m</p>
+<p>-XX:MaxPermSize=1024m</p>
+<p>只有这三个，并没有-Xss 和-XX:ThreadStackSize的配置，因此是走的默认值。几种JVM的默认栈大小</p>
+<p><img src="3.png" alt=""></p>
+<p>可以通过如下命令打印输出默认值的大小，<strong>命令：jinfo -flag ThreadStackSize</strong> ；例如</p>
+<p><img src="4.png" alt=""></p>
+<p>不考虑系统限制，可以通过如下公式计算，得出最大线程数量</p>
+<p><strong>线程数量=（机器本身可用内存-JVM分配的堆内存）/Xss的值</strong>，比如我们的容器本身大小是8G,堆大小是4096M,走-Xss默认值，可以得出 最大线程数量：4096个。</p>
+<p>根据计算公式，得出如下结论：</p>
+<p>结论1：jvm堆越大，系统创建的线程数量越小。</p>
+<p>结论2：<strong>当-Xss的值越小，可生成线程数量越多。</strong></p>
+<p>我们知道操作系统分配给每个进程的内存大小是有限制的，比如32位的Windows是2G。因此<strong>操作系统对一个进程下的线程数量是有限制的，不能无限的增多</strong>。经验值：3000-5000左右（我没有验证）。</p>
+<p>刚才说的是不考虑系统限制的情况，那如果考虑系统限制呢，主要跟以下几个参数有关系</p>
+<p>/proc/sys/kernel/pid_max 增大，线程数量增大，pid_max有最高值，超过之后不再改变，而且32，64位也不一样</p>
+<p>/proc/sys/kernel/thread-max 系统可以生成最大线程数量</p>
+<p>max_user_process（ulimit -u）centos系统上才有，没有具体研究</p>
+<p>/proc/sys/vm/max_map_count 增大，数量增多</p>
+<p>线程是非常宝贵的资源，我们要严格控制线程的数量，象上面我们的截图情况，显然线程数量过多。这个是跟我们自己配置了fixed大小的线程池有关系。京东有自己的rpc框架jsf，里面可以针对每个服务端口设置线程大小。</p>
+<h2 id="Java应用容器化后GC的问题以及解决方案"><a href="#Java应用容器化后GC的问题以及解决方案" class="headerlink" title="Java应用容器化后GC的问题以及解决方案"></a>Java应用容器化后GC的问题以及解决方案</h2><p>在docker容器下，应用获取到的主机信息(CPU核数、内存大小等)，都是物理机的信息，JVM在启动时根据系统CPU核数确定GC线程数量。</p>
+<p>线上应用启动了53个GC线程，而容器本身只分配了4C，大量线程间的资源竞争和上下文切换，可能导致GC变慢。</p>
+<p>一些第三方框架也会根据获取到的CPU数量调整框架的线程数量，为了根本上解决此问题，需要JVM可以正确的获取到容器限制的CPU数量、内存大小等。</p>
+<p>说明：由于我们的Java应用在启动时都会通过XMX和XMS限制堆内存大小，因此主要解决CPU限制问题。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>oracle在JDK 1.8u131开始对Docker容器进行支持，以解决上述问题，并且在JDK1.8u191版本进行了完善，因此升级JDK版本到1.8u191之后的版本即可解决问题</p>
+<p><a href="https://www.jianshu.com/p/040a1315bce5" target="_blank" rel="external">https://www.jianshu.com/p/040a1315bce5</a></p>
+<p><a href="https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html" target="_blank" rel="external">https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</a></p>
+<p>oracle官方针对容器的支持在后续的JDK9 JDK10 和JDK11均得到了支持</p>
+<p>因此所有应用均升级到JDK8最新的update即可解决问题</p>
+
+    
+
     
 </div>
+
+
+                
+		<!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/09/24/Locating-Slow-Queries-Using-Arthas/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -530,6 +720,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 

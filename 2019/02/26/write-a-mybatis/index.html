@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -23,7 +23,7 @@
     
     
     
-        <link rel="dns-prefetch" href="https://hm.baidu.com"/>
+        <link rel="dns-prefetch" href="https://hm.baidu.com">
     
     
     
@@ -37,7 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content="">
+    <meta name="description" itemprop="description" content>
     <meta name="keywords" content="Rico,Spring">
 
     <!-- Site Verification -->
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://hogwartsrico.github.io">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Mybatis原理/自己实现一个Mybatis | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
-    <meta property="og:description" content="">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
     <meta property="og:article:tag" content="Spring"> 
 
     
-        <meta property="article:published_time" content="2月 26, 2019" />
-        <meta property="article:modified_time" content="3月 11, 2019" />
+        <meta property="article:published_time" content="2月 26, 2019">
+        <meta property="article:modified_time" content="3月 24, 2020">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Mybatis原理/自己实现一个Mybatis | Rico&#39;s Blog">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content>
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://hogwartsrico.github.io" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://hogwartsrico.github.io">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/02/26/write-a-mybatis/index.html" />
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/02/26/write-a-mybatis/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -115,7 +115,7 @@
     "headline": "Mybatis原理/自己实现一个Mybatis",
     "url": "http://hogwartsrico.github.io/2019/02/26/write-a-mybatis/index.html",
     "datePublished": "2月 26, 2019",
-    "dateModified": "3月 11, 2019",
+    "dateModified": "3月 24, 2020",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -276,10 +276,10 @@
 <!-- Import Font -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
     
     
     <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
@@ -493,104 +493,104 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h1 id="Mybatis-使用案例"><a href="#Mybatis-使用案例" class="headerlink" title="Mybatis 使用案例"></a>Mybatis 使用案例</h1><p>有这么一张表 </p>
-<p><img src="9.png" alt=""></p>
+<p><img src="9.png" alt></p>
 <p>先简单用一下Mybatis(和Spring整合)</p>
-<p><a href="http://www.mybatis.org/spring/" target="_blank" rel="external">http://www.mybatis.org/spring/</a></p>
+<p><a href="http://www.mybatis.org/spring/" target="_blank" rel="noopener">http://www.mybatis.org/spring/</a></p>
 <p>数据源有很多，比如c3p0,druid,Spring也有内置的数据源 ,叫DriverManagerDataSource </p>
-<p><img src="2.png" alt=""></p>
+<p><img src="2.png" alt></p>
 <p>上图的DataSource会自动注入到下面的SQLSessionFactoryBean中(它在构造函数中依赖了)</p>
-<p><img src="3.png" alt=""> </p>
+<p><img src="3.png" alt> </p>
 <p>mybatis官网的截图</p>
-<p><img src="4.png" alt=""> </p>
+<p><img src="4.png" alt> </p>
 <p>意思是你定义好了一个mapper接口，然后通过一个xml配置将一个MapperFactoryBean加入到Spring中</p>
 <p>这种方式比较麻烦，你每定义一个Mapper就要声明一下 </p>
 <p>其实有更加简便的方式，让MapperFactory自己去找mappers </p>
-<p><a href="http://www.mybatis.org/spring/mappers.html#scan" target="_blank" rel="external">http://www.mybatis.org/spring/mappers.html#scan</a>     </p>
-<p><img src="5.png" alt=""> </p>
-<p><img src="6.png" alt=""> </p>
-<p><img src="7.png" alt=""></p>
-<p><img src="8.png" alt=""> </p>
-<p><img src="10.png" alt=""></p>
+<p><a href="http://www.mybatis.org/spring/mappers.html#scan" target="_blank" rel="noopener">http://www.mybatis.org/spring/mappers.html#scan</a>     </p>
+<p><img src="5.png" alt> </p>
+<p><img src="6.png" alt> </p>
+<p><img src="7.png" alt></p>
+<p><img src="8.png" alt> </p>
+<p><img src="10.png" alt></p>
 <p>然后开始用Anno加载</p>
 <p>上面的confi的类还需要加Spring的bean的扫描 </p>
-<p><img src="11.png" alt=""></p>
+<p><img src="11.png" alt></p>
 <p>等同于</p>
-<p><img src="12.png" alt=""> </p>
-<p><img src="13.png" alt=""> </p>
+<p><img src="12.png" alt> </p>
+<p><img src="13.png" alt> </p>
 <p>AnnotationConfigApplicationContext的构造方法需传入Config的Java类 </p>
 <p>结果:</p>
-<p><img src="14.png" alt=""></p>
+<p><img src="14.png" alt></p>
 <p>Mybatis的使用很简单，mybatis与Spring的整合也很简单   </p>
 <p>本内容主要讲解Mybatis源码和如何实现而不是Mybatis的使用，故使用部分比较粗略</p>
 <h1 id="Mybatis运行原理"><a href="#Mybatis运行原理" class="headerlink" title="Mybatis运行原理"></a>Mybatis运行原理</h1><p>Mybatis如何把一个CityDao这么一个接口变成了一个对象 ，使我们能够调用其query方法（CityService调用了CityDao的query）  ？</p>
 <p>答案就是动态代理</p>
-<p><img src="15.png" alt=""></p>
+<p><img src="15.png" alt></p>
 <p>动态代理有JDK的动态代理，CGLib的动态代理，</p>
-<p><img src="16.png" alt=""> </p>
+<p><img src="16.png" alt> </p>
 <p><img src="17.png" alt="17"> </p>
-<p><a href="http://www.mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="external">http://www.mybatis.org/mybatis-3/zh/getting-started.html</a>  </p>
+<p><a href="http://www.mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">http://www.mybatis.org/mybatis-3/zh/getting-started.html</a>  </p>
 <p>SqlSession是Mybatis中的一个类   </p>
 <p>ibatis是mybatis的前身，mybatis是google基于ibatis开发的</p>
 <p>mybatis提供了2中执行sql语句的方式:</p>
 <p>第一种是通过session api,需要写sql语句所在的的命名空间,加上sql语句的id ,然后传入参数 </p>
-<p><img src="20.png" alt=""> </p>
+<p><img src="20.png" alt> </p>
 <p>第二种是session.getMapper,最后也会调第一种方法 </p>
-<p><img src="18.png" alt=""> </p>
+<p><img src="18.png" alt> </p>
 <h3 id="Acquiring-a-SqlSession-from-SqlSessionFactory"><a href="#Acquiring-a-SqlSession-from-SqlSessionFactory" class="headerlink" title="Acquiring a SqlSession from SqlSessionFactory"></a>Acquiring a SqlSession from SqlSessionFactory</h3><p>Now that you have a SqlSessionFactory, as the name suggests, you can acquire an instance of SqlSession. The SqlSession contains absolutely every method needed to execute SQL commands against the database. You can execute mapped SQL statements directly against the SqlSession instance. For example:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">SqlSession session = sqlSessionFactory.openSession();</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  Blog blog = session.selectOne(</div><div class="line">    <span class="string">"org.mybatis.example.BlogMapper.selectBlog"</span>, <span class="number">101</span>);</div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">  session.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SqlSession session = sqlSessionFactory.openSession();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  Blog blog = session.selectOne(</span><br><span class="line">    <span class="string">"org.mybatis.example.BlogMapper.selectBlog"</span>, <span class="number">101</span>);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>While this approach works, and is familiar to users of previous versions of MyBatis, there is now a cleaner approach. Using an interface (e.g. BlogMapper.class) that properly describes the parameter and return value for a given statement, you can now execute cleaner and more type safe code, without error prone string literals and casting.</p>
 <p>For example:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">SqlSession session = sqlSessionFactory.openSession();</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">  BlogMapper mapper = session.getMapper(BlogMapper.class);</div><div class="line">  Blog blog = mapper.selectBlog(<span class="number">101</span>);</div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">  session.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SqlSession session = sqlSessionFactory.openSession();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  BlogMapper mapper = session.getMapper(BlogMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">  Blog blog = mapper.selectBlog(<span class="number">101</span>);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Now let’s explore what exactly is being executed here.</p>
-<p><img src="19.png" alt=""> </p>
-<p><img src="21.png" alt=""> </p>
+<p><img src="19.png" alt> </p>
+<p><img src="21.png" alt> </p>
 <p>IDEA Ctrl+Alt+B可以查看所以实现接口的类,根据图17我们可以看到目前用的是SqlSessionTemplate,</p>
-<p><img src="22.png" alt=""> </p>
+<p><img src="22.png" alt> </p>
 <p>selectOne先去查selectList，如果确实只有1条，那么返回否则抛出异常 .<strong>因为你不能保证某个sql结果只有1条</strong>，如果不是主键或者唯一，它也可能是多条。 </p>
 <p>这里有个面试题:    <strong>selectOne是如何实现的?</strong>  </p>
 <p>selectList调用了 <code>configuration.getMappedStatement(String statement)</code> </p>
-<p><img src="23.png" alt=""></p>
+<p><img src="23.png" alt></p>
 <p>其中 String类型的statement是sql的命名空间+id</p>
-<p><img src="24.png" alt=""> </p>
+<p><img src="24.png" alt> </p>
 <p>而getMappedStatement实际调用的是<code>mappedStatements.get(id);</code> 这里的id就是上一个方法传入的statement ,也就是图片中的  包名(命名空间)+方法名(id) </p>
-<p><img src="25.png" alt=""> </p>
-<p><img src="26.png" alt=""> </p>
+<p><img src="25.png" alt> </p>
+<p><img src="26.png" alt> </p>
 <p><strong>这里的mappedSatement是一个key为String，value为MappedStatement的Map</strong> ，而我们传入的所谓的id是命名空间+id的字符串,举例就是上面的<code>com.dao.CityDao.query</code> </p>
 <p>其实这个map就是<code>Map&lt;ID,SQL语句&gt;</code>的Map ,上面 的 <code>mappedStatements.get(id)</code> 就是为了拿到sql语句  </p>
 <p>面试题：为什么方法名要和mapper.xml中的sql的id一样？ </p>
 <p>因为mybatis底层在初始化的时候是拿一个Map将id与sql语句对应起来(其实就是上面的<strong>MappedStatement</strong>), 需要拿到这个id作为key去调用这个方法的  ,如果不一致，会找不到 </p>
-<p><img src="27.png" alt=""> </p>
-<p><img src="28.png" alt=""> </p>
+<p><img src="27.png" alt> </p>
+<p><img src="28.png" alt> </p>
 <p>好了，获得了sql语句之后继续往下走 </p>
 <p><img src="29.png" alt="29"> </p>
-<p><img src="30.png" alt=""> </p>
+<p><img src="30.png" alt> </p>
 <p>那么DefaultSqlSession用的是哪个Executor实现类呢？ </p>
-<p><img src="31.png" alt=""> </p>
+<p><img src="31.png" alt> </p>
 <p>为什么用这个实现类呢？</p>
 <p>因为Mybatis和Hibernate一样，自带一级缓存 ，但是<strong>这个一级缓存在Spring中是失效的</strong>。  </p>
 <p>为什么？</p>
-<p><img src="32.png" alt=""> </p>
+<p><img src="32.png" alt> </p>
 <p>因为当和Spring整合之后，有个叫SqlSessionFactoryBean的东西，用来替代SqlSessionFactoryBuilder来创建SqlSession。</p>
 <p>这个SQLSessionFactoryBean是交给Spring去管理了，Spring当请求结束后会把session关掉，所以一级缓存没用了   </p>
 <p>大家在用Spring的时候有去主动关过Session吗？没有吧，都是Spring在帮你关的  ，每个方法一旦执行完了就帮你关了，Spring的AOP帮你关的 </p>
 <p>如果是自己来管理session，只要不关闭session，缓存就在</p>
-<p><img src="33.png" alt=""> </p>
+<p><img src="33.png" alt> </p>
 <p>接下来讲解图29中的executor.query方法</p>
 <p><img src="34.png" alt="34"> </p>
-<p><img src="35.png" alt=""> </p>
-<p><img src="36.png" alt=""></p>
-<p><img src="37.png" alt=""> </p>
-<p><img src="38.png" alt=""> </p>
+<p><img src="35.png" alt> </p>
+<p><img src="36.png" alt></p>
+<p><img src="37.png" alt> </p>
+<p><img src="38.png" alt> </p>
 <p>org.mybatis.mybatis-spring.jar包中有一个 MapperScannerRegistrar.java的scanner.doscan会扫描 mapper  </p>
-<p><img src="39.png" alt=""> </p>
+<p><img src="39.png" alt> </p>
 <p>mybatis在启动的时候就会进行mapper扫描 </p>
 <p>如下图所示，有2个断点，一个打在了service.query上，一个打在了scanner.doScan上，经过实际调试发现，先到了doScan这个断点上了  </p>
-<p><img src="40.png" alt=""> </p>
-<p><img src="42.png" alt=""> </p>
+<p><img src="40.png" alt> </p>
+<p><img src="42.png" alt> </p>
 <p>循环扫描，因为ComponentScan可以指定多个包 </p>
-<p><img src="41.png" alt=""></p>
-<p><img src="43.png" alt=""> </p>
-<p><img src="44.png" alt=""> </p>
+<p><img src="41.png" alt></p>
+<p><img src="43.png" alt> </p>
+<p><img src="44.png" alt> </p>
 <p>注意上图中packageSearchPath是<code>com/dao/**/*.class</code> 然后通过反射技术拿到这个类然后加载到内存中来</p>
 <p><code>Class.forName(xxx.class)</code> </p>
 <p>但是Spring怎么知道你这个目录(com/dao)下有多少class呢？ </p>
@@ -602,19 +602,19 @@
 <p>3 sqlsession调用selectList方法,</p>
 <p>4 sqlsession调用selectList方法底层调用executor的接口，这个接口有很多实现类，有CachedExecotor和DefaultExecutor，MyBatis默认用的CachedExecutor</p>
 <p>5 CachedExecutor调用的JDBC底层的prepareStatement语句 </p>
-<h1 id="自己实现一个Mybatis"><a href="#自己实现一个Mybatis" class="headerlink" title="自己实现一个Mybatis"></a>自己实现一个Mybatis</h1><p><img src="46.png" alt=""> </p>
-<p><img src="47.png" alt=""> </p>
-<p><img src="48.png" alt=""> </p>
+<h1 id="自己实现一个Mybatis"><a href="#自己实现一个Mybatis" class="headerlink" title="自己实现一个Mybatis"></a>自己实现一个Mybatis</h1><p><img src="46.png" alt> </p>
+<p><img src="47.png" alt> </p>
+<p><img src="48.png" alt> </p>
 <p>升级版，可以向mybatis一样扫描mapper，然后建立一个有包名+方法名作为id，sql作为value的一个Mapperedstatement的Map，然后代理的时候可以根据包名和方法名获取具体执行的sql语句</p>
-<p><img src="49.png" alt=""> </p>
-<h1 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h1><p>DefaultSqlSession.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnMybatis.test;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/18.</div><div class="line"> */</div><div class="line">public class DefaultSqlSession &#123;</div><div class="line">    //最原始的</div><div class="line">    public void selectList()&#123;</div><div class="line">        System.out.println(&quot;select list&quot;);</div><div class="line">    &#125;</div><div class="line">    //可以看到sql了</div><div class="line">    public void selectList(String id)&#123;</div><div class="line">        String sql=Test.mapperedStatement.get(id);</div><div class="line">        System.out.println(&quot;根据statementid获取到了具体的sql:&quot;+sql);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>UserDaoInvocationHandler.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnMybatis.test;</div><div class="line">import org.rico.learnMybatis.dao.UserDao;</div><div class="line">import java.lang.reflect.InvocationHandler;</div><div class="line">import java.lang.reflect.Method;</div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/18.</div><div class="line"> */</div><div class="line">public class UserDaoInvocationHandler implements InvocationHandler&#123;</div><div class="line">    UserDao userDao;</div><div class="line">    DefaultSqlSession sqlSession;</div><div class="line">    UserDaoInvocationHandler(DefaultSqlSession sqlSession,UserDao userDao)&#123;</div><div class="line">        this.sqlSession=sqlSession;</div><div class="line">        this.userDao=userDao;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</div><div class="line">        System.out.println(&quot;开始代理了&quot;);</div><div class="line">        String id=method.getDeclaringClass().toString().replace(&quot;interface&quot;,&quot;&quot;).trim();</div><div class="line">        id+=&quot;.&quot;+method.getName();</div><div class="line">        System.out.println(id);</div><div class="line">        sqlSession.selectList(id);</div><div class="line">        Object o= method.invoke(this.userDao,args);</div><div class="line">        System.out.println(&quot;代理结束了&quot;);</div><div class="line">        return o;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="49.png" alt> </p>
+<h1 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h1><p>DefaultSqlSession.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package org.rico.learnMybatis.test;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by Rico on 2018/12/18.</span><br><span class="line"> */</span><br><span class="line">public class DefaultSqlSession &#123;</span><br><span class="line">    //最原始的</span><br><span class="line">    public void selectList()&#123;</span><br><span class="line">        System.out.println(&quot;select list&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //可以看到sql了</span><br><span class="line">    public void selectList(String id)&#123;</span><br><span class="line">        String sql=Test.mapperedStatement.get(id);</span><br><span class="line">        System.out.println(&quot;根据statementid获取到了具体的sql:&quot;+sql);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>UserDaoInvocationHandler.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package org.rico.learnMybatis.test;</span><br><span class="line">import org.rico.learnMybatis.dao.UserDao;</span><br><span class="line">import java.lang.reflect.InvocationHandler;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">/**</span><br><span class="line"> * Created by Rico on 2018/12/18.</span><br><span class="line"> */</span><br><span class="line">public class UserDaoInvocationHandler implements InvocationHandler&#123;</span><br><span class="line">    UserDao userDao;</span><br><span class="line">    DefaultSqlSession sqlSession;</span><br><span class="line">    UserDaoInvocationHandler(DefaultSqlSession sqlSession,UserDao userDao)&#123;</span><br><span class="line">        this.sqlSession=sqlSession;</span><br><span class="line">        this.userDao=userDao;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">        System.out.println(&quot;开始代理了&quot;);</span><br><span class="line">        String id=method.getDeclaringClass().toString().replace(&quot;interface&quot;,&quot;&quot;).trim();</span><br><span class="line">        id+=&quot;.&quot;+method.getName();</span><br><span class="line">        System.out.println(id);</span><br><span class="line">        sqlSession.selectList(id);</span><br><span class="line">        Object o= method.invoke(this.userDao,args);</span><br><span class="line">        System.out.println(&quot;代理结束了&quot;);</span><br><span class="line">        return o;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>UserDao.java</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnMybatis.dao;</div><div class="line">import org.rico.learnMybatis.annotation.Select;</div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/18.</div><div class="line"> */</div><div class="line">public interface  UserDao &#123;</div><div class="line">    @Select(&quot;select * from user where id = 1;&quot;)</div><div class="line">    public void query();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Test.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnMybatis.test;</div><div class="line">import org.rico.learnMybatis.annotation.Select;</div><div class="line">import org.rico.learnMybatis.dao.UserDao;</div><div class="line">import java.lang.reflect.Method;</div><div class="line">import java.lang.reflect.Proxy;</div><div class="line">import java.util.HashMap;</div><div class="line">import java.util.Map;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/18.</div><div class="line"> */</div><div class="line">public class Test &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        //模拟Mybatis初始化的时候扫描Mapper的操作</div><div class="line">        init();</div><div class="line">        UserDao userDao =null;//Spring把这个UserDao实现了然后赋给接口UserDao,然后我们就可以真正的拿来用了</div><div class="line">        DefaultSqlSession defaultSqlSession=new DefaultSqlSession();</div><div class="line">        UserDaoInvocationHandler userDaoInvocationHandler=new UserDaoInvocationHandler(defaultSqlSession, new UserDao() &#123; @Override public void query() &#123; &#125; &#125;);</div><div class="line">        //第一个参数:ClassLoader,通过哪个ClassLoader来把class加载进来</div><div class="line">        //第二个参数:代理哪些接口?</div><div class="line">        //第三个参数InvocationHandler:代理接口的哪些方法</div><div class="line">        userDao=(UserDao)Proxy.newProxyInstance(UserDao.class.getClassLoader(),new Class[]&#123;UserDao.class&#125;,userDaoInvocationHandler);</div><div class="line">        userDao.query();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static Map&lt;String,String&gt; mapperedStatement=new HashMap&lt;String,String&gt;();</div><div class="line"></div><div class="line">    public static void init()&#123;</div><div class="line">        try &#123;</div><div class="line">            Class clazz=Class.forName(&quot;org.rico.learnMybatis.dao.UserDao&quot;);</div><div class="line">            Method[] methods = clazz.getDeclaredMethods();</div><div class="line">            for(Method m:methods)&#123;</div><div class="line">                if(m.isAnnotationPresent(Select.class)) &#123;//是否加了@Select的注解</div><div class="line">                    Select select=m.getAnnotation(Select.class);//拿到@Select注解中的值</div><div class="line">                    String value=select.value();</div><div class="line">                    String key=m.getDeclaringClass().getName()+&quot;.&quot;+m.getName();</div><div class="line">                    mapperedStatement.put(key,value);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            System.out.println(mapperedStatement);</div><div class="line">        &#125; catch (ClassNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package org.rico.learnMybatis.dao;</span><br><span class="line">import org.rico.learnMybatis.annotation.Select;</span><br><span class="line">/**</span><br><span class="line"> * Created by Rico on 2018/12/18.</span><br><span class="line"> */</span><br><span class="line">public interface  UserDao &#123;</span><br><span class="line">    @Select(&quot;select * from user where id = 1;&quot;)</span><br><span class="line">    public void query();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Test.java<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">package org.rico.learnMybatis.test;</span><br><span class="line">import org.rico.learnMybatis.annotation.Select;</span><br><span class="line">import org.rico.learnMybatis.dao.UserDao;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line">import java.lang.reflect.Proxy;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by Rico on 2018/12/18.</span><br><span class="line"> */</span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //模拟Mybatis初始化的时候扫描Mapper的操作</span><br><span class="line">        init();</span><br><span class="line">        UserDao userDao =null;//Spring把这个UserDao实现了然后赋给接口UserDao,然后我们就可以真正的拿来用了</span><br><span class="line">        DefaultSqlSession defaultSqlSession=new DefaultSqlSession();</span><br><span class="line">        UserDaoInvocationHandler userDaoInvocationHandler=new UserDaoInvocationHandler(defaultSqlSession, new UserDao() &#123; @Override public void query() &#123; &#125; &#125;);</span><br><span class="line">        //第一个参数:ClassLoader,通过哪个ClassLoader来把class加载进来</span><br><span class="line">        //第二个参数:代理哪些接口?</span><br><span class="line">        //第三个参数InvocationHandler:代理接口的哪些方法</span><br><span class="line">        userDao=(UserDao)Proxy.newProxyInstance(UserDao.class.getClassLoader(),new Class[]&#123;UserDao.class&#125;,userDaoInvocationHandler);</span><br><span class="line">        userDao.query();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static Map&lt;String,String&gt; mapperedStatement=new HashMap&lt;String,String&gt;();</span><br><span class="line"></span><br><span class="line">    public static void init()&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Class clazz=Class.forName(&quot;org.rico.learnMybatis.dao.UserDao&quot;);</span><br><span class="line">            Method[] methods = clazz.getDeclaredMethods();</span><br><span class="line">            for(Method m:methods)&#123;</span><br><span class="line">                if(m.isAnnotationPresent(Select.class)) &#123;//是否加了@Select的注解</span><br><span class="line">                    Select select=m.getAnnotation(Select.class);//拿到@Select注解中的值</span><br><span class="line">                    String value=select.value();</span><br><span class="line">                    String key=m.getDeclaringClass().getName()+&quot;.&quot;+m.getName();</span><br><span class="line">                    mapperedStatement.put(key,value);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(mapperedStatement);</span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>Select.java  这个是定义注解</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">package org.rico.learnMybatis.annotation;</div><div class="line">import java.lang.annotation.ElementType;</div><div class="line">import java.lang.annotation.Retention;</div><div class="line">import java.lang.annotation.RetentionPolicy;</div><div class="line">import java.lang.annotation.Target;</div><div class="line">/**</div><div class="line"> * Created by Rico on 2018/12/18.</div><div class="line"> */</div><div class="line">@Target(ElementType.METHOD)//方法级别的</div><div class="line">@Retention(RetentionPolicy.RUNTIME)//运行时级别</div><div class="line">public @interface Select &#123;</div><div class="line">    public String value();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>目录结构<br><img src="50.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package org.rico.learnMybatis.annotation;</span><br><span class="line">import java.lang.annotation.ElementType;</span><br><span class="line">import java.lang.annotation.Retention;</span><br><span class="line">import java.lang.annotation.RetentionPolicy;</span><br><span class="line">import java.lang.annotation.Target;</span><br><span class="line">/**</span><br><span class="line"> * Created by Rico on 2018/12/18.</span><br><span class="line"> */</span><br><span class="line">@Target(ElementType.METHOD)//方法级别的</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)//运行时级别</span><br><span class="line">public @interface Select &#123;</span><br><span class="line">    public String value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>目录结构<br><img src="50.png" alt></p>
 <p>源码待上传github</p>
 
     
@@ -913,7 +913,7 @@ It will not impact the appearance and can give developers a lot of support :)
                     <!-- Import File -->
 
 
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
     <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
 
 

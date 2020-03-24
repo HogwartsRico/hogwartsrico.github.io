@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -23,7 +23,7 @@
     
     
     
-        <link rel="dns-prefetch" href="https://hm.baidu.com"/>
+        <link rel="dns-prefetch" href="https://hm.baidu.com">
     
     
     
@@ -37,7 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content="">
+    <meta name="description" itemprop="description" content>
     <meta name="keywords" content="Rico,Java">
 
     <!-- Site Verification -->
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://hogwartsrico.github.io">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="【转载】并发情况下HashMap为什么会引起死循环 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
-    <meta property="og:description" content="">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
     <meta property="og:article:tag" content="Java"> 
 
     
-        <meta property="article:published_time" content="10月 21, 2019" />
-        <meta property="article:modified_time" content="10月 21, 2019" />
+        <meta property="article:published_time" content="10月 21, 2019">
+        <meta property="article:modified_time" content="3月 24, 2020">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="【转载】并发情况下HashMap为什么会引起死循环 | Rico&#39;s Blog">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content>
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://hogwartsrico.github.io" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://hogwartsrico.github.io">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/21/Why-does-HashMap-cause-a-dead-cycle-in-concurrent-cases/index.html" />
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/21/Why-does-HashMap-cause-a-dead-cycle-in-concurrent-cases/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -115,7 +115,7 @@
     "headline": "【转载】并发情况下HashMap为什么会引起死循环",
     "url": "http://hogwartsrico.github.io/2019/10/21/Why-does-HashMap-cause-a-dead-cycle-in-concurrent-cases/index.html",
     "datePublished": "10月 21, 2019",
-    "dateModified": "10月 21, 2019",
+    "dateModified": "3月 24, 2020",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -276,10 +276,10 @@
 <!-- Import Font -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
     
     
     <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
@@ -494,39 +494,39 @@
     
         <p>今天研读Java并发容器和框架时，看到为什么要使用ConcurrentHashMap时，其中有一个原因是：线程不安全的HashMap, HashMap在并发执行put操作时会引起死循环，是因为多线程会导致HashMap的Entry链表形成环形数据结构，查找时会陷入死循环。纠起原因看了其他的博客，都比较抽象，所以这里以图形的方式展示一下</p>
 <p>（1）当往HashMap中添加元素时，会引起HashMap容器的扩容，原理不再解释，直接附源代码，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">/**</span></div><div class="line"><span class="comment">    *</span></div><div class="line"><span class="comment">    * 往表中添加元素，如果插入元素之后，表长度不够，便会调用resize方法扩容</span></div><div class="line"><span class="comment">    */</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</div><div class="line">Entry&lt;K,V&gt; e = table[bucketIndex];</div><div class="line">       table[bucketIndex] = <span class="keyword">new</span> Entry&lt;K,V&gt;(hash, key, value, e);</div><div class="line">       <span class="keyword">if</span> (size++ &gt;= threshold)</div><div class="line">           resize(<span class="number">2</span> * table.length);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line"><span class="comment">    * resize()方法如下，重要的是transfer方法，把旧表中的元素添加到新表中</span></div><div class="line"><span class="comment">    */</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;</div><div class="line">       Entry[] oldTable = table;</div><div class="line">       <span class="keyword">int</span> oldCapacity = oldTable.length;</div><div class="line">       <span class="keyword">if</span> (oldCapacity == MAXIMUM_CAPACITY) &#123;</div><div class="line">           threshold = Integer.MAX_VALUE;</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       Entry[] newTable = <span class="keyword">new</span> Entry[newCapacity];</div><div class="line">       transfer(newTable);</div><div class="line">       table = newTable;</div><div class="line">       threshold = (<span class="keyword">int</span>)(newCapacity * loadFactor);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * 往表中添加元素，如果插入元素之后，表长度不够，便会调用resize方法扩容</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">addEntry</span><span class="params">(<span class="keyword">int</span> hash, K key, V value, <span class="keyword">int</span> bucketIndex)</span> </span>&#123;</span><br><span class="line">Entry&lt;K,V&gt; e = table[bucketIndex];</span><br><span class="line">       table[bucketIndex] = <span class="keyword">new</span> Entry&lt;K,V&gt;(hash, key, value, e);</span><br><span class="line">       <span class="keyword">if</span> (size++ &gt;= threshold)</span><br><span class="line">           resize(<span class="number">2</span> * table.length);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * resize()方法如下，重要的是transfer方法，把旧表中的元素添加到新表中</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;</span><br><span class="line">       Entry[] oldTable = table;</span><br><span class="line">       <span class="keyword">int</span> oldCapacity = oldTable.length;</span><br><span class="line">       <span class="keyword">if</span> (oldCapacity == MAXIMUM_CAPACITY) &#123;</span><br><span class="line">           threshold = Integer.MAX_VALUE;</span><br><span class="line">           <span class="keyword">return</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       Entry[] newTable = <span class="keyword">new</span> Entry[newCapacity];</span><br><span class="line">       transfer(newTable);</span><br><span class="line">       table = newTable;</span><br><span class="line">       threshold = (<span class="keyword">int</span>)(newCapacity * loadFactor);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>（2）参考上面的代码，便引入到了transfer方法，（引入重点）这就是HashMap并发时，会引起死循环的根本原因所在，下面结合transfer的源代码，说明一下产生死循环的原理，先列transfer代码（这是里JDK7的源码），如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * Transfers all entries from current table to newTable.</span></div><div class="line"><span class="comment">    */</span></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</div><div class="line">       <span class="keyword">int</span> newCapacity = newTable.length;</div><div class="line">       <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</div><div class="line">           <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</div><div class="line">               Entry&lt;K,V&gt; next = e.next;<span class="comment">//(1)</span></div><div class="line">               <span class="keyword">if</span> (rehash) &#123;</div><div class="line">                   e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</div><div class="line">               &#125;</div><div class="line">               <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</div><div class="line">               e.next = newTable[i];<span class="comment">//3的next=null</span></div><div class="line">               newTable[i] = e;<span class="comment">// newTable[i]=3</span></div><div class="line">               e = next;<span class="comment">//e=3</span></div><div class="line">           &#125; <span class="comment">// while</span></div><div class="line"></div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Transfers all entries from current table to newTable.</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> newCapacity = newTable.length;</span><br><span class="line">       <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</span><br><span class="line">           <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</span><br><span class="line">               Entry&lt;K,V&gt; next = e.next;<span class="comment">//(1)</span></span><br><span class="line">               <span class="keyword">if</span> (rehash) &#123;</span><br><span class="line">                   e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</span><br><span class="line">               e.next = newTable[i];<span class="comment">//3的next=null</span></span><br><span class="line">               newTable[i] = e;<span class="comment">// newTable[i]=3</span></span><br><span class="line">               e = next;<span class="comment">//e=3</span></span><br><span class="line">           &#125; <span class="comment">// while</span></span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <p>假如原来是是3,7,8</p>
 <p>第一轮</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当前e=3</span></div><div class="line">Entry&lt;K,V&gt; next = e.next;<span class="comment">//3的next=7,所以next=7</span></div><div class="line">e.next = newTable[i];<span class="comment">//3的next=newTable[i]=null  因为是第一轮,newTable里面还是空的</span></div><div class="line">newTable[i] = e;<span class="comment">// newTable[i]=3</span></div><div class="line">e = next;<span class="comment">//e=7</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当前e=3</span></span><br><span class="line">Entry&lt;K,V&gt; next = e.next;<span class="comment">//3的next=7,所以next=7</span></span><br><span class="line">e.next = newTable[i];<span class="comment">//3的next=newTable[i]=null  因为是第一轮,newTable里面还是空的</span></span><br><span class="line">newTable[i] = e;<span class="comment">// newTable[i]=3</span></span><br><span class="line">e = next;<span class="comment">//e=7</span></span><br></pre></td></tr></table></figure>
 <p>目前newTable[i]上的链表是<code>[3]</code></p>
 <p>第二轮</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当前e=7</span></div><div class="line">Entry&lt;K,V&gt; next = e.next;<span class="comment">//7的next=8,所以next=8</span></div><div class="line">e.next = newTable[i];<span class="comment">//7的next=3 注意7的next=3所以相当于是7-&gt;3，相比原来反序了</span></div><div class="line">newTable[i] = e;<span class="comment">// newTable[i]=7(这里把7放到了newTable[i]这个位置的链表的首位,而7的指针指向3)</span></div><div class="line">e = next;<span class="comment">//e=8</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当前e=7</span></span><br><span class="line">Entry&lt;K,V&gt; next = e.next;<span class="comment">//7的next=8,所以next=8</span></span><br><span class="line">e.next = newTable[i];<span class="comment">//7的next=3 注意7的next=3所以相当于是7-&gt;3，相比原来反序了</span></span><br><span class="line">newTable[i] = e;<span class="comment">// newTable[i]=7(这里把7放到了newTable[i]这个位置的链表的首位,而7的指针指向3)</span></span><br><span class="line">e = next;<span class="comment">//e=8</span></span><br></pre></td></tr></table></figure>
 <p>目前newTable[i]上的链表是<code>[7]-&gt;[3]</code></p>
 <p>第三轮</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当前e=8</span></div><div class="line">Entry&lt;K,V&gt; next = e.next;<span class="comment">//8的next=null,所以next=null,最后一轮了,因为后面null肯定通不过判断</span></div><div class="line">e.next = newTable[i];<span class="comment">//8的next=7 注意8的next=7所以相当于是8-&gt;7，相比原来反序了,而原来7指向3,所以目前是8&gt;7&gt;3</span></div><div class="line">newTable[i] = e;<span class="comment">// newTable[i]=8(这里把8放到了newTable[i]这个位置的链表的首位,而8的指针指向7,而7又是指向3的)</span></div><div class="line">e = next;<span class="comment">//e=null,这个位置结束</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当前e=8</span></span><br><span class="line">Entry&lt;K,V&gt; next = e.next;<span class="comment">//8的next=null,所以next=null,最后一轮了,因为后面null肯定通不过判断</span></span><br><span class="line">e.next = newTable[i];<span class="comment">//8的next=7 注意8的next=7所以相当于是8-&gt;7，相比原来反序了,而原来7指向3,所以目前是8&gt;7&gt;3</span></span><br><span class="line">newTable[i] = e;<span class="comment">// newTable[i]=8(这里把8放到了newTable[i]这个位置的链表的首位,而8的指针指向7,而7又是指向3的)</span></span><br><span class="line">e = next;<span class="comment">//e=null,这个位置结束</span></span><br></pre></td></tr></table></figure>
 <p>可以看到,进行扩容操作之后,在旧表中key值相同的数据块在新表中数据块的连接方式会<strong>逆向</strong></p>
 <p>3）假设：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Map&lt;Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer&gt;(<span class="number">2</span>);  <span class="comment">// 只能放置两个元素，其中的threshold为1（表中只填充一个元素时），即插入元素为1时就扩容（由addEntry方法中得知）</span></div><div class="line"><span class="comment">//放置2个元素 3 和 7，若要再放置元素8（经hash映射后不等于1）时，会引起扩容</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer&gt;(<span class="number">2</span>);  <span class="comment">// 只能放置两个元素，其中的threshold为1（表中只填充一个元素时），即插入元素为1时就扩容（由addEntry方法中得知）</span></span><br><span class="line"><span class="comment">//放置2个元素 3 和 7，若要再放置元素8（经hash映射后不等于1）时，会引起扩容</span></span><br></pre></td></tr></table></figure>
 <p>假设放置结果图如下:</p>
-<p><img src="1.png" alt=""></p>
+<p><img src="1.png" alt></p>
 <p>现在有两个线程A和B，都要执行put操作，即向表中添加元素，即线程A和线程B都会看到上面图的状态快照</p>
 <p>执行顺序如下：</p>
 <p>执行一：  线程A执行到transfer函数中（1）处挂起（transfer函数代码中有标注）。此时在线程A的栈中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">e = <span class="number">3</span></div><div class="line">next = <span class="number">7</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e = <span class="number">3</span></span><br><span class="line">next = <span class="number">7</span></span><br></pre></td></tr></table></figure>
 <p> 执行二：线程B执行 transfer函数中的while循环，即会把原来的table变成新一table（线程B自己的栈中），再写入到内存中。如下图（假设两个元素在新的hash函数下也会映射到同一个位置）</p>
-<p><img src="2.png" alt=""></p>
+<p><img src="2.png" alt></p>
 <p>执行三： 线程A解挂，接着执行（<strong>看到的仍是旧表</strong>），即从transfer代码（1）处接着执行，当前的 e = 3, next = 7, 上面已经描述。</p>
 <p>​</p>
 <p>1 处理元素 3 ， 将 3 放入 线程A自己栈的新table中（新table是处于线程A自己栈中，是线程私有的，不被线程2的影响），处理3后的图如下：</p>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <p>【重点在这步】 2 线程A再复制元素 7 ，当前 e = 7 ,<strong>而next值由于线程 B 修改了它的引用，所以next 为 3</strong> (本来7后面应该是null,但是由于线程B处理时由于hashmap扩容机制是倒序,7指向了3)，处理后的新表如下图</p>
-<p><img src="4.png" alt=""></p>
+<p><img src="4.png" alt></p>
 <p>3 由于上面取到的next = 3, 接着while循环，即当前处理的结点为3， next就为null ，退出while循环，执行完while循环后，新表中的内容如下图：</p>
-<p><img src="5.png" alt=""></p>
+<p><img src="5.png" alt></p>
 <p>4 当操作完成，执行查找时，会陷入死循环！</p>
-<p>原文  <a href="https://blog.csdn.net/zhuqiuhui/article/details/51849692" target="_blank" rel="external">https://blog.csdn.net/zhuqiuhui/article/details/51849692</a></p>
+<p>原文  <a href="https://blog.csdn.net/zhuqiuhui/article/details/51849692" target="_blank" rel="noopener">https://blog.csdn.net/zhuqiuhui/article/details/51849692</a></p>
 
     
 
@@ -824,7 +824,7 @@ It will not impact the appearance and can give developers a lot of support :)
                     <!-- Import File -->
 
 
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
     <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
 
 

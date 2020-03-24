@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -23,7 +23,7 @@
     
     
     
-        <link rel="dns-prefetch" href="https://hm.baidu.com"/>
+        <link rel="dns-prefetch" href="https://hm.baidu.com">
     
     
     
@@ -37,7 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content="">
+    <meta name="description" itemprop="description" content>
     <meta name="keywords" content="Rico,Java">
 
     <!-- Site Verification -->
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://hogwartsrico.github.io">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Hash算法以及为什么重写equals一定要重写hashcode | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
-    <meta property="og:description" content="">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
     <meta property="og:article:tag" content="Java"> 
 
     
-        <meta property="article:published_time" content="10月 21, 2019" />
-        <meta property="article:modified_time" content="10月 21, 2019" />
+        <meta property="article:published_time" content="10月 21, 2019">
+        <meta property="article:modified_time" content="3月 24, 2020">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Hash算法以及为什么重写equals一定要重写hashcode | Rico&#39;s Blog">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content>
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://hogwartsrico.github.io" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://hogwartsrico.github.io">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/21/Hash-in-HashMap/index.html" />
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/21/Hash-in-HashMap/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -115,7 +115,7 @@
     "headline": "Hash算法以及为什么重写equals一定要重写hashcode",
     "url": "http://hogwartsrico.github.io/2019/10/21/Hash-in-HashMap/index.html",
     "datePublished": "10月 21, 2019",
-    "dateModified": "10月 21, 2019",
+    "dateModified": "3月 24, 2020",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -276,10 +276,10 @@
 <!-- Import Font -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
     
     
     <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
@@ -505,8 +505,8 @@
 <p>String.hashCode 根据字符串内容生成hashCode，字符串内容一样则hashCode也相同</p>
 <h3 id="其他场景中的Hash算法"><a href="#其他场景中的Hash算法" class="headerlink" title="其他场景中的Hash算法"></a>其他场景中的Hash算法</h3><p>MD4,MD5</p>
 <p>sha(sha-1,sha-24,sha-256,sha-384,sha-512)  sha后面的数字代表长度</p>
-<p><img src="1.png" alt=""></p>
-<p><img src="2.png" alt=""></p>
+<p><img src="1.png" alt></p>
+<p><img src="2.png" alt></p>
 <p>解决办法:再散列函数法,链地址法(就是hashmap用的那个方法来解决地址冲突的)</p>
 <h2 id="哈希算法的用途"><a href="#哈希算法的用途" class="headerlink" title="哈希算法的用途"></a>哈希算法的用途</h2><ul>
 <li>哈希查找，哈希表</li>
@@ -523,39 +523,39 @@
 </ul>
 <h1 id="手写HashMap及源码分析"><a href="#手写HashMap及源码分析" class="headerlink" title="手写HashMap及源码分析"></a>手写HashMap及源码分析</h1><p>HashMap 初始容量是16</p>
 <p>加载因子<code>DEFAULT_LOAD_FACTOR</code>是0.75 ,<code>threshold</code>阈值是容量乘以0.75 ,也就是12 ,满12个就要扩容</p>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <p>modCount是修改次数</p>
 <p>hashmap的hash方法也是调用的Object的hashCode方法</p>
-<p><img src="4.png" alt=""></p>
+<p><img src="4.png" alt></p>
 <p>HashMap能够将键设为<strong>null</strong>，也可以将值设为<strong>null</strong>。Hashtable不能将键和值设为null，否则运行时会报空指针异常错误；</p>
 <p>为什么重写equals的时候一定要重写hashcode方法？ 见文章下面</p>
 <p>根据这个hashcode来生成这个元素所在数组的位置(索引) ,方式是hashcode和长度-1做一个按位与操作，和h%length的结果是一样的，但是这种方式效率更高</p>
-<p><img src="8.png" alt=""></p>
+<p><img src="8.png" alt></p>
 <p>如果size大于阈值，就会扩容，扩的是数组长度，扩容到目前大小的2倍 ，扩容后会重新hash，也会算出新的数组下标</p>
-<p><img src="9.png" alt=""></p>
+<p><img src="9.png" alt></p>
 <p>get，根据key计算hash，找到对应的数组上的链表，然后循环遍历key相等的取值</p>
-<p><img src="10.png" alt=""></p>
+<p><img src="10.png" alt></p>
 <p>当key为null的时候，存在数组的第一个位置 （相当于写死了）</p>
-<h2 id="线程不安全"><a href="#线程不安全" class="headerlink" title="线程不安全"></a>线程不安全</h2><h3 id="在迭代过程中修改hashmap会报错"><a href="#在迭代过程中修改hashmap会报错" class="headerlink" title="在迭代过程中修改hashmap会报错"></a>在迭代过程中修改hashmap会报错</h3><p><img src="11.png" alt=""></p>
+<h2 id="线程不安全"><a href="#线程不安全" class="headerlink" title="线程不安全"></a>线程不安全</h2><h3 id="在迭代过程中修改hashmap会报错"><a href="#在迭代过程中修改hashmap会报错" class="headerlink" title="在迭代过程中修改hashmap会报错"></a>在迭代过程中修改hashmap会报错</h3><p><img src="11.png" alt></p>
 <p>报错信息</p>
-<p><img src="12.png" alt=""></p>
+<p><img src="12.png" alt></p>
 <p> 修改次数modCount在put，remove，add的时候会更新 +1，</p>
-<p><img src="13.png" alt=""></p>
-<p><img src="14.png" alt=""></p>
+<p><img src="13.png" alt></p>
+<p><img src="14.png" alt></p>
 <p>expectedModeCound在迭代的时候不会变，但是modCount在迭代时候被修改了，所以报错了</p>
 <p>这样的情况叫做fail-fast，这么做是为了保证一个线程在遍历，一个线程在修改，防止出现多线程的问题，例如脏读或者幻读</p>
 <p>作者是知道这个问题的，因为hashmap并不保证线程安全，所以它尽快的将错误抛了出来</p>
-<h3 id="resize的时候会出现死循环"><a href="#resize的时候会出现死循环" class="headerlink" title="resize的时候会出现死循环"></a>resize的时候会出现死循环</h3><p><a href="https://blog.csdn.net/zhuqiuhui/article/details/51849692" target="_blank" rel="external">https://blog.csdn.net/zhuqiuhui/article/details/51849692</a>  头插法导致的</p>
+<h3 id="resize的时候会出现死循环"><a href="#resize的时候会出现死循环" class="headerlink" title="resize的时候会出现死循环"></a>resize的时候会出现死循环</h3><p><a href="https://blog.csdn.net/zhuqiuhui/article/details/51849692" target="_blank" rel="noopener">https://blog.csdn.net/zhuqiuhui/article/details/51849692</a>  头插法导致的</p>
 <h2 id="为什么要用2的次方数作为数组大小"><a href="#为什么要用2的次方数作为数组大小" class="headerlink" title="为什么要用2的次方数作为数组大小"></a>为什么要用2的次方数作为数组大小</h2><p>1 新老索引尽可能保持一致，大大减少了之前已经散列良好的老数组的数据位置重新调换</p>
 <p>2 低位全是1，有更好的散列性</p>
 <h1 id="为什么重写equals一定要重写hashcode？"><a href="#为什么重写equals一定要重写hashcode？" class="headerlink" title="为什么重写equals一定要重写hashcode？"></a>为什么重写equals一定要重写hashcode？</h1><p>大家都知道，equals和hashcode是java.lang.Object类的两个重要的方法，在实际应用中常常需要重写这两个方法，但至于为什么重写这两个方法很多人都搞不明白，以下是我的一些个人理解</p>
-<p><img src="5.png" alt=""></p>
-<p><img src="6.png" alt=""></p>
+<p><img src="5.png" alt></p>
+<p><img src="6.png" alt></p>
 <p>这是Object类关于这两个方法的源码，可以看出，Object类默认的equals比较规则就是比较两个对象的内存地址。而hashcode是本地方法，java的内存是安全的，因此无法根据散列码得到对象的内存地址，但实际上，<strong>hashcode是根据对象的内存地址经哈希算法得来的</strong>。</p>
-<p><img src="7.png" alt=""></p>
+<p><img src="7.png" alt></p>
 <p>上图展示了Student类的重写后的equals方法和hashcode方法</p>
 <p>现在有两个Student对象：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student s1=<span class="keyword">new</span> Student(<span class="string">"小明"</span>,<span class="number">18</span>);</div><div class="line">Student s2=<span class="keyword">new</span> Student(<span class="string">"小明"</span>,<span class="number">18</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student s1=<span class="keyword">new</span> Student(<span class="string">"小明"</span>,<span class="number">18</span>);</span><br><span class="line">Student s2=<span class="keyword">new</span> Student(<span class="string">"小明"</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
 <p>此时<code>s1.equals(s2)</code>一定返回true</p>
 <p>假如只重写equals而不重写hashcode，那么Student类的hashcode方法就是Object默认的hashcode方法，由于默认的hashcode方法是根据对象的内存地址经哈希算法得来的，显然此时s1!=s2,故两者的hashcode不一定相等。</p>
 <p>然而重写了equals，且s1.equals(s2)返回true，根据<strong>hashcode的规则，两个对象相等其哈希值一定相等，所以矛盾就产生了，因此重写equals一定要重写hashcode</strong>，而且从Student类重写后的hashcode方法中可以看出，重写后返回的新的哈希值与Student的两个属性有关。</p>
@@ -864,7 +864,7 @@ It will not impact the appearance and can give developers a lot of support :)
                     <!-- Import File -->
 
 
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
     <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
 
 

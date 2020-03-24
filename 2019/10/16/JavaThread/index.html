@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -23,7 +23,7 @@
     
     
     
-        <link rel="dns-prefetch" href="https://hm.baidu.com"/>
+        <link rel="dns-prefetch" href="https://hm.baidu.com">
     
     
     
@@ -37,7 +37,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content="">
+    <meta name="description" itemprop="description" content>
     <meta name="keywords" content="Rico,Java">
 
     <!-- Site Verification -->
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://hogwartsrico.github.io">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Java服务器可以跑多少个线程以及Docker下GC线程数的问题 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
-    <meta property="og:description" content="">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
     <meta property="og:article:tag" content="Java"> 
 
     
-        <meta property="article:published_time" content="10月 16, 2019" />
-        <meta property="article:modified_time" content="10月 17, 2019" />
+        <meta property="article:published_time" content="10月 16, 2019">
+        <meta property="article:modified_time" content="3月 24, 2020">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="Java服务器可以跑多少个线程以及Docker下GC线程数的问题 | Rico&#39;s Blog">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content>
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://hogwartsrico.github.io" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://hogwartsrico.github.io">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html" />
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -115,7 +115,7 @@
     "headline": "Java服务器可以跑多少个线程以及Docker下GC线程数的问题",
     "url": "http://hogwartsrico.github.io/2019/10/16/JavaThread/index.html",
     "datePublished": "10月 16, 2019",
-    "dateModified": "10月 17, 2019",
+    "dateModified": "3月 24, 2020",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -276,10 +276,10 @@
 <!-- Import Font -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
     
     
     <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
@@ -493,9 +493,9 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h2 id="一台服务器能跑多少java线程"><a href="#一台服务器能跑多少java线程" class="headerlink" title="一台服务器能跑多少java线程?"></a>一台服务器能跑多少java线程?</h2><p>这个问题来自一次线上报警如下图，超过了配置阈值。</p>
-<p><img src="1.png" alt=""></p>
+<p><img src="1.png" alt></p>
 <p>打出jstack文件，通过IBM Thread and Monitor Dump Analyzer for Java工具查看如下：</p>
-<p><img src="2.png" alt=""></p>
+<p><img src="2.png" alt></p>
 <p>共计1661个线程，和监控数据得出的吻合。但这个数量应该是大了，<strong>我们都知道线程多了，就会有线程切换，带来性能开销</strong>。</p>
 <p>那么一台java服务器到底可以跑多少个线程呢？跟什么有关系？现整理如下。</p>
 <p>每个线程都有一个<strong>线程栈空间</strong>通过-Xss设置，查了一下我们服务器的关于jvm内存的配置</p>
@@ -503,9 +503,9 @@
 <p>-Xmx4096m</p>
 <p>-XX:MaxPermSize=1024m</p>
 <p>只有这三个，并没有-Xss 和-XX:ThreadStackSize的配置，因此是走的默认值。几种JVM的默认栈大小</p>
-<p><img src="3.png" alt=""></p>
+<p><img src="3.png" alt></p>
 <p>可以通过如下命令打印输出默认值的大小，<strong>命令：jinfo -flag ThreadStackSize</strong> ；例如</p>
-<p><img src="4.png" alt=""></p>
+<p><img src="4.png" alt></p>
 <p>不考虑系统限制，可以通过如下公式计算，得出最大线程数量</p>
 <p><strong>线程数量=（机器本身可用内存-JVM分配的堆内存）/Xss的值</strong>，比如我们的容器本身大小是8G,堆大小是4096M,走-Xss默认值，可以得出 最大线程数量：4096个。</p>
 <p>根据计算公式，得出如下结论：</p>
@@ -523,7 +523,7 @@
 <p>JVM在docker环境中，获取到的CPU信息是宿主机的（容器中/proc目录并未做隔离，各容器共享，CPU信息保存在该目录下），并不是指定的六核心，宿主机是八十核心，因此创建的垃圾回收线程数远大于docker环境的CPU资源，导致每次新生代回收线程间竞争激烈，耗时增加</p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="临时方案"><a href="#临时方案" class="headerlink" title="临时方案"></a>临时方案</h4><p>修改JVM启动参数:</p>
 <p>4C8G容器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-XX:ParallelGCThreads=4 -XX:ConcGCThreads=2</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:ParallelGCThreads=4 -XX:ConcGCThreads=2</span><br></pre></td></tr></table></figure>
 <p>ParallelGCThreads值建议等于CPU核数, ConcGCThreads值建议等于(ParallelGCThreads+3)/4</p>
 <p><code>-XX:ParallelGCThreads=n</code> 设置垃圾收集器在并行阶段使用的线程数<br><code>-XX:ConcGCThreads=n</code> 并发垃圾收集器使用的线程数量</p>
 <h5 id="XX：ConcGCThreads"><a href="#XX：ConcGCThreads" class="headerlink" title="-XX：ConcGCThreads"></a>-XX：ConcGCThreads</h5><p>标志<code>-XX：ConcGCThreads=&lt;value&gt;</code>(早期JVM版本也叫-XX:ParallelCMSThreads)定义并发CMS过程运行时的线程数。比如value=4意味着CMS周期的所有阶段都以4个线程来执行。尽管更多的线程会加快并发CMS过程，但其也会带来额外的同步开销。因此，对于特定的应用程序，应该通过测试来判断增加CMS线程数是否真的能够带来性能的提升。</p>
@@ -534,14 +534,14 @@
 <p>并行：</p>
 <p>并行（Parallel），当系统有一个以上CPU时，当一个CPU执行一个进程时，另一个CPU可以执行另一个进程，两个进程互不抢占CPU资源，可以同时进行，这种方式我们称之为并行(Parallel)。</p>
 <p>其实决定并行的因素不是CPU的数量，而是CPU的核心数量，比如一个CPU多个核也可以并行。</p>
-<p><img src="5.jpg" alt=""></p>
+<p><img src="5.jpg" alt></p>
 <p>这种临时方案也有缺点，因为一些第三方框架也会根据获取到的CPU数量调整框架的线程数量，为了根本上解决此问题，需要JVM可以正确的获取到容器限制的CPU数量、内存大小等。</p>
 <h4 id="永久方案"><a href="#永久方案" class="headerlink" title="永久方案"></a>永久方案</h4><p>oracle在JDK 1.8u131开始对Docker容器进行支持，以解决上述问题，并且在JDK1.8u191版本进行了完善，因此升级JDK版本到1.8u191之后的版本即可解决问题</p>
-<p><a href="https://www.jianshu.com/p/040a1315bce5" target="_blank" rel="external">https://www.jianshu.com/p/040a1315bce5</a></p>
-<p><a href="https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html" target="_blank" rel="external">https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</a></p>
+<p><a href="https://www.jianshu.com/p/040a1315bce5" target="_blank" rel="noopener">https://www.jianshu.com/p/040a1315bce5</a></p>
+<p><a href="https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/8u191-relnotes-5032181.html</a></p>
 <p>oracle官方针对容器的支持在后续的JDK9 JDK10 和JDK11均得到了支持</p>
 <p>因此所有应用均升级到JDK8最新的update即可解决问题</p>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="6.png" alt=""></p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="6.png" alt></p>
 
     
 
@@ -839,7 +839,7 @@ It will not impact the appearance and can give developers a lot of support :)
                     <!-- Import File -->
 
 
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
     <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
 
 

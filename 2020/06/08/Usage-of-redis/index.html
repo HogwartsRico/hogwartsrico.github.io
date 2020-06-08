@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            Redis系列之应用 | 
+        
+        Rico&#39;s Blog
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+        <link rel="dns-prefetch" href="https://hm.baidu.com">
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Rico">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="Rico,redis">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Redis系列之应用 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="redis"> 
+
+    
+        <meta property="article:published_time" content="6月 08, 2020">
+        <meta property="article:modified_time" content="6月 08, 2020">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="Redis系列之应用 | Rico&#39;s Blog">
+    <meta name="twitter:description" content>
+    <meta name="twitter:image" content="/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://hogwartsrico.github.io">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/08/Usage-of-redis/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Rico&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Rico",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "Javaer"
+    },
+    "headline": "Redis系列之应用",
+    "url": "http://hogwartsrico.github.io/2020/06/08/Usage-of-redis/index.html",
+    "datePublished": "6月 08, 2020",
+    "dateModified": "6月 08, 2020",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://hogwartsrico.github.io"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+            <style>
+    
+    .footer-sns-facebook {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
+    }
+    
+    
+    .footer-sns-twitter {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
+    }
+    
+    
+    .footer-sns-gplus {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</style>
+
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用-1：千帆竞发-—-分布式锁"><span class="post-toc-number">1.</span> <span class="post-toc-text">应用 1：千帆竞发 — 分布式锁</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分布式锁"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">分布式锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#超时问题"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">超时问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可重入性"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">可重入性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结："><span class="post-toc-number">1.4.</span> <span class="post-toc-text">总结：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用-2：缓兵之计-—-延时队列"><span class="post-toc-number">2.</span> <span class="post-toc-text">应用 2：缓兵之计 — 延时队列</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异步消息队列"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">异步消息队列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#队列空了怎么办？"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">队列空了怎么办？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#队列延迟"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">队列延迟</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#空闲连接自动断开"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">空闲连接自动断开</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#锁冲突处理"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">锁冲突处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#延时队列的实现"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">延时队列的实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进一步优化"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">进一步优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结：-1"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">总结：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用-3：节衣缩食-—-位图"><span class="post-toc-number">3.</span> <span class="post-toc-text">应用 3：节衣缩食 — 位图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#setbit命令"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">setbit命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getbit命令"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">getbit命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getcount命令"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">getcount命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#场景"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">场景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户日活，月活，留存率的统计"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">用户日活，月活，留存率的统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现用户上线次数的统计"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">实现用户上线次数的统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户在线状态和人数统计"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">用户在线状态和人数统计</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#优点"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">优点</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用-4：四两拨千斤-——HyperLogLog"><span class="post-toc-number">4.</span> <span class="post-toc-text">应用 4：四两拨千斤 ——HyperLogLog</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用方法"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">使用方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pfadd-这个-pf-是什么意思？"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">pfadd 这个 pf 是什么意思？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#pfmerge-适合什么场合用？"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">pfmerge 适合什么场合用？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注意事项"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">注意事项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HyperLogLog-实现原理"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">HyperLogLog 实现原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分桶"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">分桶</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#调和平均数"><span class="post-toc-number">4.5.2.</span> <span class="post-toc-text">调和平均数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用-5：层峦叠嶂-—-布隆过滤器"><span class="post-toc-number">5.</span> <span class="post-toc-text">应用 5：层峦叠嶂 — 布隆过滤器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布隆过滤器是什么？"><span class="post-toc-number">5.0.1.</span> <span class="post-toc-text">布隆过滤器是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布隆过滤器基本使用"><span class="post-toc-number">5.0.2.</span> <span class="post-toc-text">布隆过滤器基本使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注意事项-1"><span class="post-toc-number">5.0.3.</span> <span class="post-toc-text">注意事项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布隆过滤器的原理"><span class="post-toc-number">5.0.4.</span> <span class="post-toc-text">布隆过滤器的原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布隆过滤器的其它应用"><span class="post-toc-number">5.0.5.</span> <span class="post-toc-text">布隆过滤器的其它应用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用-6：-简单限流"><span class="post-toc-number">6.</span> <span class="post-toc-text">应用 6： 简单限流</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何使用-Redis-来实现简单限流策略？"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">如何使用 Redis 来实现简单限流策略？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">解决方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">小结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用-7：一毛不拔-——-漏斗限流"><span class="post-toc-number">7.</span> <span class="post-toc-text">应用 7：一毛不拔 —— 漏斗限流</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#应用9-大海捞针"><span class="post-toc-number">8.</span> <span class="post-toc-text">应用9 大海捞针</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#scan-基础使用"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">scan 基础使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字典的结构"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">字典的结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#scan-遍历顺序"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">scan 遍历顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字典扩容"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">字典扩容</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对比扩容缩容前后的遍历顺序"><span class="post-toc-number">8.5.</span> <span class="post-toc-text">对比扩容缩容前后的遍历顺序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#渐进式-rehash"><span class="post-toc-number">8.6.</span> <span class="post-toc-text">渐进式 rehash</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更多的-scan-指令"><span class="post-toc-number">8.7.</span> <span class="post-toc-text">更多的 scan 指令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#大-key-扫描"><span class="post-toc-number">8.8.</span> <span class="post-toc-text">大 key 扫描</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-number">8.9.</span> <span class="post-toc-text">扩展阅读</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Redis系列之应用
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>6月 08, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/redis/">redis</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Redis系列之应用&url=http://hogwartsrico.github.io/2020/06/08/Usage-of-redis/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Redis系列之应用&url=http://hogwartsrico.github.io/2020/06/08/Usage-of-redis/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2020/06/08/Usage-of-redis/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2020/06/08/Usage-of-redis/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>本文为掘金小册Redis学习笔记</p>
+<h1 id="应用-1：千帆竞发-—-分布式锁"><a href="#应用-1：千帆竞发-—-分布式锁" class="headerlink" title="应用 1：千帆竞发 — 分布式锁"></a>应用 1：千帆竞发 — 分布式锁</h1><p>分布式应用进行逻辑处理时经常会遇到并发问题。</p>
+<p>比如一个操作要修改用户的状态，修改状态需要先读出用户的状态，在内存里进行修改，改完了再存回去。如果这样的操作同时进行了，就会出现并发问题，因为读取和保存状态这两个操作不是原子的。（Wiki 解释：所谓<strong>原子操作</strong>是指不会被线程调度机制打断的操作；这种操作一旦开始，就一直运行到结束，中间不会有任何 context switch 线程切换。）</p>
+<p><img src="1.png" alt> </p>
+<p>这个时候就要使用到分布式锁来限制程序的并发执行。Redis 分布式锁使用非常广泛，它是面试的重要考点之一，很多同学都知道这个知识，也大致知道分布式锁的原理，但是具体到细节的使用上往往并不完全正确。</p>
+<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p>分布式锁本质上要实现的目标就是在 Redis 里面占一个“坑”，当别的进程也要来占时，发现已经有人蹲在那里了，就只好放弃或者稍后再试。</p>
+<p>占坑一般是使用 <strong>setnx(set if not exists)</strong> 指令，只允许被一个客户端占坑。先来先占， 用完了，再调用 del 指令释放茅坑。(<strong>SETEX如果之前已经存在会覆盖</strong>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setnx apple true</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; setnx apple true </span><br><span class="line">(integer) 0 #不能继续加锁了</span><br><span class="line">127.0.0.1:6379&gt; del apple</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; setnx apple true</span><br><span class="line">(integer) 1#删除后可以加锁了</span><br></pre></td></tr></table></figure>
+<p>但是有个问题，如果逻辑执行到中间出现异常了，可能会导致 del 指令没有被调用，这样就会陷入死锁，锁永远得不到释放。</p>
+<p>于是我们在拿到锁之后，再<strong>给锁加上一个过期时间</strong>，比如 5s，这样即使中间出现异常也可以保证 5 秒之后锁会自动释放。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; setnx lock_codehole true</span><br><span class="line">OK</span><br><span class="line">&gt; expire lock_codehole 5</span><br><span class="line">... do something critical ...</span><br><span class="line">&gt; del lock_codehole</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+<p>但是以上逻辑还有问题。如果在 setnx 和 expire 之间服务器进程突然挂掉了，可能是因为机器掉电或者是被人为杀掉的，就会导致 expire 得不到执行，也会造成死锁。</p>
+<p><strong>这种问题的根源就在于 setnx 和 expire 是两条指令而不是原子指令</strong>。如果这两条指令可以一起执行就不会出现问题。也许你会想到用 Redis 事务来解决。但是这里不行，因为 expire 是依赖于 setnx 的执行结果的，如果 setnx 没抢到锁，expire 是不应该执行的。事务里没有 if-else 分支逻辑，事务的特点是一口气执行，要么全部执行要么一个都不执行。</p>
+<p>为了解决这个疑难，Redis 开源社区涌现了一堆分布式锁的 library，专门用来解决这个问题。实现方法极为复杂，小白用户一般要费很大的精力才可以搞懂。如果你需要使用分布式锁，意味着你不能仅仅使用 Jedis 或者 redis-py 就行了，还得引入分布式锁的 library。</p>
+<p><img src="2.gif" alt> </p>
+<p>为了治理这个乱象，Redis 2.8 版本中作者加入了 set 指令的扩展参数，使得 <strong>setnx 和 expire 指令可以一起执行</strong>，彻底解决了分布式锁的乱象。从此以后所有的第三方分布式锁 library 可以休息了。</p>
+<p><code>SET key value [EX seconds] [PX milliseconds] [NX|XX]</code> </p>
+<ul>
+<li><code>EX seconds</code> ： 将键的过期时间设置为 <code>seconds</code> 秒。 执行 <code>SET key value EX seconds</code> 的效果等同于执行 <code>SETEX key seconds value</code> 。</li>
+<li><code>PX milliseconds</code> ： 将键的过期时间设置为 <code>milliseconds</code> 毫秒。 执行 <code>SET key value PX milliseconds</code> 的效果等同于执行 <code>PSETEX key milliseconds value</code> 。</li>
+<li><code>NX</code> ： 只在键不存在时， 才对键进行设置操作。 执行 <code>SET key value NX</code> 的效果等同于执行 <code>SETNX key value</code> 。</li>
+<li><code>XX</code> ： 只在键已经存在时， 才对键进行设置操作。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; set lock_codehole true ex 5 nx</span><br><span class="line">OK</span><br><span class="line">... do something critical ...</span><br><span class="line">&gt; del lock_codehole</span><br></pre></td></tr></table></figure>
+<p>上面这个指令就是 setnx 和 expire 组合在一起的原子指令，它就是分布式锁的奥义所在。</p>
+<h2 id="超时问题"><a href="#超时问题" class="headerlink" title="超时问题"></a>超时问题</h2><p>Redis 的分布式锁不能解决超时问题，如果在加锁和释放锁之间的逻辑执行的太长，以至于超出了锁的超时限制，就会出现问题。因为这时候第一个线程持有的锁过期了，临界区的逻辑还没有执行完，这个时候第二个线程就提前重新持有了这把锁，导致临界区代码不能得到严格的串行执行。</p>
+<p>为了避免这个问题，<strong>Redis 分布式锁不要用于较长时间的任务</strong>。如果真的偶尔出现了，数据出现的小波错乱可能需要人工介入解决。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tag = random.nextint()  # 随机数</span><br><span class="line">if redis.set(key, tag, nx=True, ex=5):</span><br><span class="line">    do_something()</span><br><span class="line">    redis.delifequals(key, tag)  # 假想的 delifequals 指令</span><br></pre></td></tr></table></figure>
+<p>有一个稍微安全一点的方案是为 set 指令的 value 参数设置为一个随机数，释放锁时先匹配随机数是否一致，然后再删除 key，这是为了确保当前线程占有的锁不会被其它线程释放，除非这个锁是过期了被服务器自动释放的。 但是匹配 value 和删除 key 不是一个原子操作，Redis 也没有提供类似于<code>delifequals</code>这样的指令，这就需要使用 Lua 脚本来处理了，因为 Lua 脚本可以保证连续多个指令的原子性执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># delifequals</span><br><span class="line">if redis.call(&quot;get&quot;,KEYS[1]) == ARGV[1] then</span><br><span class="line">    return redis.call(&quot;del&quot;,KEYS[1])</span><br><span class="line">else</span><br><span class="line">    return 0</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>但是这也不是一个完美的方案，它只是相对安全一点，因为如果真的超时了，当前线程的逻辑没有执行完，其它线程也会乘虚而入。</p>
+<h2 id="可重入性"><a href="#可重入性" class="headerlink" title="可重入性"></a>可重入性</h2><p>可重入性是指线程在持有锁的情况下再次请求加锁，如果一个锁支持同一个线程的多次加锁，那么这个锁就是可重入的。比如 Java 语言里有个 ReentrantLock 就是可重入锁。Redis 分布式锁如果要支持可重入，需要对客户端的 set 方法进行包装，使用线程的 Threadlocal 变量存储当前持有锁的计数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8</span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">locks = threading.local()</span><br><span class="line">locks.redis = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">def <span class="title">key_for</span><span class="params">(user_id)</span>:</span></span><br><span class="line"><span class="function">    return "account_</span>&#123;&#125;<span class="string">".format(user_id)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def _lock(client, key):</span></span><br><span class="line"><span class="string">    return bool(client.set(key, True, nx=True, ex=5))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def _unlock(client, key):</span></span><br><span class="line"><span class="string">    client.delete(key)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def lock(client, user_id):</span></span><br><span class="line"><span class="string">    key = key_for(user_id)</span></span><br><span class="line"><span class="string">    if key in locks.redis:</span></span><br><span class="line"><span class="string">        locks.redis[key] += 1</span></span><br><span class="line"><span class="string">        return True</span></span><br><span class="line"><span class="string">    ok = _lock(client, key)</span></span><br><span class="line"><span class="string">    if not ok:</span></span><br><span class="line"><span class="string">        return False</span></span><br><span class="line"><span class="string">    locks.redis[key] = 1</span></span><br><span class="line"><span class="string">    return True</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def unlock(client, user_id):</span></span><br><span class="line"><span class="string">    key = key_for(user_id)</span></span><br><span class="line"><span class="string">    if key in locks.redis:</span></span><br><span class="line"><span class="string">        locks.redis[key] -= 1</span></span><br><span class="line"><span class="string">        if locks.redis[key] &lt;= 0:</span></span><br><span class="line"><span class="string">            del locks.redis[key]</span></span><br><span class="line"><span class="string">            self._unlock(key)</span></span><br><span class="line"><span class="string">        return True</span></span><br><span class="line"><span class="string">    return False</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">client = redis.StrictRedis()</span></span><br><span class="line"><span class="string">print "</span>lock<span class="string">", lock(client, "</span>codehole<span class="string">")</span></span><br><span class="line"><span class="string">print "</span>lock<span class="string">", lock(client, "</span>codehole<span class="string">")</span></span><br><span class="line"><span class="string">print "</span>unlock<span class="string">", unlock(client, "</span>codehole<span class="string">")</span></span><br><span class="line"><span class="string">print "</span>unlock<span class="string">", unlock(client, "</span>codehole<span class="string">")</span></span><br></pre></td></tr></table></figure>
+<p>以上还不是可重入锁的全部，精确一点还需要考虑内存锁计数的过期时间，代码复杂度将会继续升高。老钱不推荐使用可重入锁，它加重了客户端的复杂性，在编写业务方法时注意在逻辑结构上进行调整完全可以不使用可重入锁。下面是 Java 版本的可重入锁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisWithReentrantLock</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> ThreadLocal&lt;Map&lt;String, Integer&gt;&gt; lockers = <span class="keyword">new</span> ThreadLocal&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Jedis jedis;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">RedisWithReentrantLock</span><span class="params">(Jedis jedis)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.jedis = jedis;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">_lock</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> jedis.set(key, <span class="string">""</span>, <span class="string">"nx"</span>, <span class="string">"ex"</span>, <span class="number">5L</span>) != <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">_unlock</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    jedis.del(key);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> Map&lt;String, Integer&gt; <span class="title">currentLockers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Map&lt;String, Integer&gt; refs = lockers.get();</span><br><span class="line">    <span class="keyword">if</span> (refs != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> refs;</span><br><span class="line">    &#125;</span><br><span class="line">    lockers.set(<span class="keyword">new</span> HashMap&lt;&gt;());</span><br><span class="line">    <span class="keyword">return</span> lockers.get();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">lock</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    Map&lt;String, Integer&gt; refs = currentLockers();</span><br><span class="line">    Integer refCnt = refs.get(key);</span><br><span class="line">    <span class="keyword">if</span> (refCnt != <span class="keyword">null</span>) &#123;</span><br><span class="line">      refs.put(key, refCnt + <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">boolean</span> ok = <span class="keyword">this</span>._lock(key);</span><br><span class="line">    <span class="keyword">if</span> (!ok) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    refs.put(key, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">unlock</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">    Map&lt;String, Integer&gt; refs = currentLockers();</span><br><span class="line">    Integer refCnt = refs.get(key);</span><br><span class="line">    <span class="keyword">if</span> (refCnt == <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    refCnt -= <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (refCnt &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      refs.put(key, refCnt);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      refs.remove(key);</span><br><span class="line">      <span class="keyword">this</span>._unlock(key);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Jedis jedis = <span class="keyword">new</span> Jedis();</span><br><span class="line">    RedisWithReentrantLock redis = <span class="keyword">new</span> RedisWithReentrantLock(jedis);</span><br><span class="line">    System.out.println(redis.lock(<span class="string">"codehole"</span>));</span><br><span class="line">    System.out.println(redis.lock(<span class="string">"codehole"</span>));</span><br><span class="line">    System.out.println(redis.unlock(<span class="string">"codehole"</span>));</span><br><span class="line">    System.out.println(redis.unlock(<span class="string">"codehole"</span>));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跟 Python 版本区别不大，也是基于 ThreadLocal 和引用计数。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>分布式锁可用设置了超时的set/setnx来实现</p>
+<h1 id="应用-2：缓兵之计-—-延时队列"><a href="#应用-2：缓兵之计-—-延时队列" class="headerlink" title="应用 2：缓兵之计 — 延时队列"></a>应用 2：缓兵之计 — 延时队列</h1><p>我们平时习惯于使用 Rabbitmq 和 Kafka 作为消息队列中间件，来给应用程序之间增加异步消息传递功能。这两个中间件都是专业的消息队列中间件，特性之多超出了大多数人的理解能力。</p>
+<p>使用过 Rabbitmq 的同学知道它使用起来有多复杂，发消息之前要创建 Exchange，再创建 Queue，还要将 Queue 和 Exchange 通过某种规则绑定起来，发消息的时候要指定 routing-key，还要控制头部信息。消费者在消费消息之前也要进行上面一系列的繁琐过程。但是绝大多数情况下，虽然我们的消息队列只有一组消费者，但还是需要经历上面这些繁琐的过程。</p>
+<p>有了 Redis，它就可以让我们解脱出来，对于那些只有一组消费者的消息队列，使用 Redis 就可以非常轻松的搞定。Redis 的消息队列不是专业的消息队列，它没有非常多的高级特性，没有 ack 保证，如果对消息的可靠性有着极致的追求，那么它就不适合使用。</p>
+<h2 id="异步消息队列"><a href="#异步消息队列" class="headerlink" title="异步消息队列"></a>异步消息队列</h2><p>Redis 的 list(列表) 数据结构常用来作为异步消息队列使用，使用<code>rpush/lpush</code>操作入队列，使用<code>lpop 和 rpop</code>来出队列。</p>
+<p><img src="3.png" alt></p>
+<p> rpush表示在右边添加apple banana pear 顺序进入，<strong>apple在最左侧</strong>  ,可以理解为新要素不断的加入到旧要素的右边</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">rpush notify-queue apple banana pear</span><br><span class="line">(integer) 3</span><br><span class="line">llen notify-queue</span><br><span class="line">(integer) 3</span><br><span class="line">lpop notify-queue #从左侧压出</span><br><span class="line">"apple"</span><br><span class="line">llen notify-queue</span><br><span class="line">(integer) 2</span><br><span class="line">lpop notify-queue</span><br><span class="line">"banana"</span><br><span class="line">llen notify-queue</span><br><span class="line">(integer) 1</span><br><span class="line">lpop notify-queue</span><br><span class="line">"pear"</span><br><span class="line">llen notify-queue</span><br><span class="line">(integer) 0</span><br><span class="line">lpop notify-queue</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<p>上面是 rpush 和 lpop 结合使用的例子。还可以使用 lpush 和 rpop 结合使用，效果是一样的。这里不再赘述。</p>
+<h2 id="队列空了怎么办？"><a href="#队列空了怎么办？" class="headerlink" title="队列空了怎么办？"></a>队列空了怎么办？</h2><p>客户端是通过队列的 pop 操作来获取消息，然后进行处理。处理完了再接着获取消息，再进行处理。如此循环往复，这便是作为队列消费者的客户端的生命周期。</p>
+<p>可是如果队列空了，客户端就会陷入 pop 的死循环，不停地 pop，没有数据，接着再 pop，又没有数据。这就是浪费生命的<strong>空轮询。空轮询不但拉高了客户端的 CPU，redis 的 QPS 也会被拉高</strong>，如果这样空轮询的客户端有几十来个，Redis 的慢查询可能会显著增多。</p>
+<p><strong>通常我们使用 sleep 来解决这个问题</strong>，让线程睡一会，睡个 1s 钟就可以了。不但客户端的 CPU 能降下来，Redis 的 QPS 也降下来了。</p>
+<h2 id="队列延迟"><a href="#队列延迟" class="headerlink" title="队列延迟"></a>队列延迟</h2><p>用上面睡眠的办法可以解决问题。但是有个小问题，那就是睡眠会导致消息的延迟增大。如果只有 1 个消费者，那么这个延迟就是 1s。如果有多个消费者，这个延迟会有所下降，因为每个消费者的睡觉时间是岔开来的。</p>
+<p>有没有什么办法能显著降低延迟呢？你当然可以很快想到：那就把睡觉的时间缩短点。这种方式当然可以，不过有没有更好的解决方案呢？当然也有，那就是 <strong>blpop/brpop</strong>。</p>
+<p>这两个指令的前缀字符<code>b</code>代表的是<code>blocking</code>，也就是<strong>阻塞读</strong>。</p>
+<p><strong>阻塞读在队列没有数据的时候，会立即进入休眠状态，一旦数据到来，则立刻醒过来</strong>。消息的延迟几乎为零。用<code>blpop/brpop</code>替代前面的<code>lpop/rpop</code>，就完美解决了上面的问题。</p>
+<h2 id="空闲连接自动断开"><a href="#空闲连接自动断开" class="headerlink" title="空闲连接自动断开"></a>空闲连接自动断开</h2><p>你以为上面的方案真的很完美么？先别急着开心，其实他还有个问题需要解决。</p>
+<p>什么问题？—— <strong>空闲连接</strong>的问题。</p>
+<p>如果线程一直阻塞在哪里，Redis 的客户端连接就成了闲置连接，闲置过久，服务器一般会主动断开连接，减少闲置资源占用。这个时候<code>blpop/brpop</code>会抛出异常来。</p>
+<p>所以编写客户端消费者的时候要小心，<strong>注意捕获异常</strong>，还要重试。</p>
+<h2 id="锁冲突处理"><a href="#锁冲突处理" class="headerlink" title="锁冲突处理"></a>锁冲突处理</h2><p>上节课我们讲了分布式锁的问题，但是没有提到客户端在处理请求时加锁没加成功怎么办。一般有 3 种策略来处理加锁失败：</p>
+<ol>
+<li>直接抛出异常，通知用户稍后重试；</li>
+<li>sleep 一会再重试；</li>
+<li>将请求转移至延时队列，过一会再试；</li>
+</ol>
+<p><strong>直接抛出特定类型的异常</strong> </p>
+<p>这种方式比较适合由用户直接发起的请求，用户看到错误对话框后，会先阅读对话框的内容，再点击重试，这样就可以起到人工延时的效果。如果考虑到用户体验，可以由前端的代码替代用户自己来进行延时重试控制。它本质上是对当前请求的放弃，由用户决定是否重新发起新的请求。</p>
+<p><strong>sleep</strong> </p>
+<p>sleep 会阻塞当前的消息处理线程，会导致队列的后续消息处理出现延迟。如果碰撞的比较频繁或者队列里消息比较多，sleep 可能并不合适。如果因为个别死锁的 key 导致加锁不成功，线程会彻底堵死，导致后续消息永远得不到及时处理。</p>
+<p><strong>延时队列</strong> </p>
+<p>这种方式比较适合异步消息处理，将当前冲突的请求扔到另一个队列延后处理以避开冲突。</p>
+<h2 id="延时队列的实现"><a href="#延时队列的实现" class="headerlink" title="延时队列的实现"></a>延时队列的实现</h2><p>延时队列可以通过 Redis 的 zset(有序列表) 来实现。我们将消息序列化成一个字符串作为 zset 的<code>value</code>，这个消息的到期处理时间作为<code>score</code>，然后用多个线程轮询 zset 获取到期的任务进行处理，多个线程是为了保障可用性，万一挂了一个线程还有其它线程可以继续处理。因为有多个线程，所以需要考虑并发争抢任务，确保任务不能被多次执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def delay(msg):</span><br><span class="line">    msg.id = str(uuid.uuid4())  # 保证 value 值唯一</span><br><span class="line">    value = json.dumps(msg)</span><br><span class="line">    retry_ts = time.time() + 5  # 5 秒后重试</span><br><span class="line">    redis.zadd(&quot;delay-queue&quot;, retry_ts, value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def loop():</span><br><span class="line">    while True:</span><br><span class="line">        # 最多取 1 条</span><br><span class="line">        values = redis.zrangebyscore(&quot;delay-queue&quot;, 0, time.time(), start=0, num=1)</span><br><span class="line">        if not values:</span><br><span class="line">            time.sleep(1)  # 延时队列空的，休息 1s</span><br><span class="line">            continue</span><br><span class="line">        value = values[0]  # 拿第一条，也只有一条</span><br><span class="line">        success = redis.zrem(&quot;delay-queue&quot;, value)  # 从消息队列中移除该消息</span><br><span class="line">        if success:  # 因为有多进程并发的可能，最终只会有一个进程可以抢到消息</span><br><span class="line">            msg = json.loads(value)</span><br><span class="line">            handle_msg(msg)</span><br></pre></td></tr></table></figure>
+<p>Redis 的 zrem(删除) 方法是多线程多进程争抢任务的关键，<strong>它的返回值决定了当前实例有没有抢到任务</strong>，因为 loop 方法可能会被多个线程、多个进程调用，同一个任务可能会被多个进程线程抢到，<strong>通过 zrem 来决定唯一的属主</strong>。</p>
+<p>同时，我们要注意一定要对 handle_msg 进行异常捕获，避免因为个别任务处理问题导致循环异常退出。以下是 Java 版本的延时队列实现，因为要使用到 Json 序列化，所以还需要 fastjson 库的支持。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Type;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="keyword">import</span> java.util.UUID;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.TypeReference;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisDelayingQueue</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskItem</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String id;</span><br><span class="line">    <span class="keyword">public</span> T msg;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// fastjson 序列化对象中存在 generic 类型时，需要使用 TypeReference</span></span><br><span class="line">  <span class="keyword">private</span> Type TaskType = <span class="keyword">new</span> TypeReference&lt;TaskItem&lt;T&gt;&gt;() &#123;</span><br><span class="line">  &#125;.getType();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Jedis jedis;</span><br><span class="line">  <span class="keyword">private</span> String queueKey;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">RedisDelayingQueue</span><span class="params">(Jedis jedis, String queueKey)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.jedis = jedis;</span><br><span class="line">    <span class="keyword">this</span>.queueKey = queueKey;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delay</span><span class="params">(T msg)</span> </span>&#123;</span><br><span class="line">    TaskItem&lt;T&gt; task = <span class="keyword">new</span> TaskItem&lt;T&gt;();</span><br><span class="line">    task.id = UUID.randomUUID().toString(); <span class="comment">// 分配唯一的 uuid</span></span><br><span class="line">    task.msg = msg;</span><br><span class="line">    String s = JSON.toJSONString(task); <span class="comment">// fastjson 序列化</span></span><br><span class="line">    jedis.zadd(queueKey, System.currentTimeMillis() + <span class="number">5000</span>, s); <span class="comment">// 塞入延时队列 ,5s 后再试</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (!Thread.interrupted()) &#123;</span><br><span class="line">      <span class="comment">// 只取一条</span></span><br><span class="line">      Set&lt;String&gt; values = jedis.zrangeByScore(queueKey, <span class="number">0</span>, System.currentTimeMillis(), <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span> (values.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          Thread.sleep(<span class="number">500</span>); <span class="comment">// 歇会继续</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      String s = values.iterator().next();</span><br><span class="line">      <span class="keyword">if</span> (jedis.zrem(queueKey, s) &gt; <span class="number">0</span>) &#123; <span class="comment">// 抢到了</span></span><br><span class="line">        TaskItem&lt;T&gt; task = JSON.parseObject(s, TaskType); <span class="comment">// fastjson 反序列化</span></span><br><span class="line">        <span class="keyword">this</span>.handleMsg(task.msg);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMsg</span><span class="params">(T msg)</span> </span>&#123;</span><br><span class="line">    System.out.println(msg);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Jedis jedis = <span class="keyword">new</span> Jedis();</span><br><span class="line">    RedisDelayingQueue&lt;String&gt; queue = <span class="keyword">new</span> RedisDelayingQueue&lt;&gt;(jedis, <span class="string">"q-demo"</span>);</span><br><span class="line">    Thread producer = <span class="keyword">new</span> Thread() &#123;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">          queue.delay(<span class="string">"codehole"</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">    Thread consumer = <span class="keyword">new</span> Thread() &#123;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        queue.loop();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;;</span><br><span class="line">    producer.start();</span><br><span class="line">    consumer.start();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      producer.join();</span><br><span class="line">      Thread.sleep(<span class="number">6000</span>);</span><br><span class="line">      consumer.interrupt();</span><br><span class="line">      consumer.join();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用时间作为分数进行排序,其中zrangeByScore用的是这个api</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zrangeByScore(String key, String min, String max, int offset, int count)</span><br></pre></td></tr></table></figure>
+<h2 id="进一步优化"><a href="#进一步优化" class="headerlink" title="进一步优化"></a>进一步优化</h2><p>上面的算法中同一个任务可能会被多个进程取到之后再使用 zrem 进行争抢，那些没抢到的进程都是白取了一次任务，这是浪费。可以考虑使用 lua scripting 来优化一下这个逻辑，将 zrangebyscore 和 zrem 一同挪到服务器端进行原子化操作，这样多个进程之间争抢任务时就不会出现这种浪费了。</p>
+<h2 id="总结：-1"><a href="#总结：-1" class="headerlink" title="总结："></a>总结：</h2><p>消息队列可使用list的<strong>blpop/brpop</strong>来实现，延时队列可使用zset来实现</p>
+<h1 id="应用-3：节衣缩食-—-位图"><a href="#应用-3：节衣缩食-—-位图" class="headerlink" title="应用 3：节衣缩食 — 位图"></a>应用 3：节衣缩食 — 位图</h1><p>在我们平时开发过程中，会有一些 bool 型数据需要存取，比如用户一年的签到记录，签了是 1，没签是 0，要记录 365 天。如果使用普通的 key/value，每个用户要记录 365 个，当用户上亿的时候，需要的存储空间是惊人的。</p>
+<p>为了解决这个问题，<strong>Redis 提供了位图数据结构</strong>，这样每天的签到记录只占据一个位(bit)，365 天就是 365 个位，46 个字节(byte) (一个稍长一点的字符串) 就可以完全容纳下，这就大大节约了存储空间。</p>
+<p><img src="4.gif" alt></p>
+<p>位图不是特殊的数据结构，它的内容其实就是普通的字符串，也就是 byte 数组。我们可以使用普通的 get/set 直接获取和设置整个位图的内容，也可以使用位图操作 getbit/setbit 等将 byte 数组看成「位数组」来处理。</p>
+<p>当我们要统计月活的时候，因为需要去重，需要使用 set 来记录所有活跃用户的 id，这非常浪费内存。这时就可以考虑使用位图来标记用户的活跃状态。每个用户会都在这个位图的一个确定位置上，0 表示不活跃，1 表示活跃。然后到月底遍历一次位图就可以得到月度活跃用户数。不过这个方法也是有条件的，那就是 userid 是整数连续的，并且活跃占比较高，否则可能得不偿失。</p>
+<p>如果你对 Redis 的位图有所了解，它将会是你的面试加分项。</p>
+<p>关于位图，可能大家不太熟悉，</p>
+<p>那么位图能干啥呢？位图的内容其实就是普通的字符串，也就是byte数组，我们都知道</p>
+<p>byte = 8 位无符号整数 = 0 到 255  </p>
+<p>说个场景。比如你处理一些业务时候，往往会存在 是或者不是 这样的数据，那么这种数据还是频繁去查看和请求，从数据方面和请求次数方面都是非常的大的。那么Redis位图可以帮你解决。每天的记录只占据一个位，他的存储格式：0 1 0 1 0 1。在操作方面我们可以使用：get/set， gitbit/setbit等将byte数组看成【位数组】来处理。</p>
+<p>说说他的特性：</p>
+<p>位数组是自动扩展的，如果超出现有内容范围，它会自动将位数组进行零扩充。</p>
+<p>当然一般这种业务数据，都往往少不了统计，查找，那么位图指令统计bitcount和查找bitpos。bitcount 用来统计指定位置范围内 1 的个数，bitpos 用来查找指定范围内出现的第一个 0 或 1。</p>
+<p>bitpos指定的范围是【start，end】。注意的是start 和 end 参数是字节索引，也就是说指定的位范围必须是 8 的倍数，</p>
+<h2 id="setbit命令"><a href="#setbit命令" class="headerlink" title="setbit命令"></a>setbit命令</h2><p>设置或修改<code>key</code>上的偏移量<code>（offset）</code>的位<code>（value）</code>的值。</p>
+<ul>
+<li>语法：<code>setbit key offset value</code></li>
+<li>返回值：指定偏移量<code>（offset）</code>原来存储的值</li>
+</ul>
+<p><img src="16.png" alt> </p>
+<h2 id="getbit命令"><a href="#getbit命令" class="headerlink" title="getbit命令"></a>getbit命令</h2><p>查询<code>key</code>所存储的字符串值，获取偏移量上的<strong>位</strong>。</p>
+<ul>
+<li>语法：<code>getbit key offset</code></li>
+<li>返回值：返回指定<code>key</code>上的<strong>偏移量</strong>，若<code>key</code>不存在，那么返回0。</li>
+</ul>
+<p><img src="17.png" alt> </p>
+<h2 id="getcount命令"><a href="#getcount命令" class="headerlink" title="getcount命令"></a>getcount命令</h2><p>计算给定key的字符串值中，被设置为1的位<code>bit</code>的数量</p>
+<ul>
+<li>语法：<code>bitcount key [start] [end]</code> </li>
+<li>返回值：1比特位的数量</li>
+</ul>
+<p>注意：<code>setbit</code>是设置或者清除bit位置。这个是统计key出现1的次数。<br> （友情提示：）需要注意的是：[start][end]<strong>（单位）</strong>实际是<strong><code>byte</code></strong>，这是什么意思呢？进入redis实际上是乘以8。</p>
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><h3 id="用户日活，月活，留存率的统计"><a href="#用户日活，月活，留存率的统计" class="headerlink" title="用户日活，月活，留存率的统计"></a>用户日活，月活，留存率的统计</h3><blockquote>
+<p>实际是统计每天的用户数量。</p>
+</blockquote>
+<ul>
+<li>key：日期；</li>
+<li>offset：用户id【数字或者二进制】；<strong>要求用户id连续</strong></li>
+<li>value：是否登录/做任意操作；</li>
+</ul>
+<p>按日期生成一个位图（bitmap）</p>
+<ul>
+<li>计算日活：<code>bitcount key</code>获取key为1的数量；</li>
+<li>计算月活：可把30天的所有<code>bitmap</code>做<code>or</code>计算，在进行<code>bitcount</code>计算；</li>
+<li>计算留存率：<code>昨日留存=昨天今天连续登录的人数/昨天登录的人数</code>，即昨天的<code>bitmap</code>与今天的<code>bitmap</code>进行<code>and</code>计算，在除以昨天<code>bitcount</code>的数量</li>
+</ul>
+<h3 id="实现用户上线次数的统计"><a href="#实现用户上线次数的统计" class="headerlink" title="实现用户上线次数的统计"></a>实现用户上线次数的统计</h3><blockquote>
+<p>实际上是以用户为主体</p>
+</blockquote>
+<ul>
+<li>key：用户id；</li>
+<li>offset：日期；</li>
+<li>value：是否上线；</li>
+</ul>
+<p><code>setbit xiaopang 1 0；</code>记录小胖的上线天数，<code>bitcount xiaopang</code>统计小胖的上线天数。</p>
+<h3 id="用户在线状态和人数统计"><a href="#用户在线状态和人数统计" class="headerlink" title="用户在线状态和人数统计"></a>用户在线状态和人数统计</h3><p>也是使用一个<code>bitmap</code>，使用用户<code>id</code>来充当<code>offset</code>，上线标识是1，下线标识是0，也可轻松统计在线人数。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p> 位图操作是用来操作比特位的，其优点是节省内存空间。为什么可以节省内存空间呢？假如我们需要存储100万个用户的登录状态，使用位图的话最少只需要100万个比特位（比特位1表示登录，比特位0表示未登录）就可以存储了，而如果以字符串的形式存储，比如说以userId为key，是否登录（字符串“1”表示登录，字符串“0”表示未登录）为value进行存储的话，就需要存储100万个字符串了，相比之下使用位图存储占用的空间要小得多，这就是位图存储的优势。 </p>
+<h1 id="应用-4：四两拨千斤-——HyperLogLog"><a href="#应用-4：四两拨千斤-——HyperLogLog" class="headerlink" title="应用 4：四两拨千斤 ——HyperLogLog"></a>应用 4：四两拨千斤 ——HyperLogLog</h1><p> 在开始这一节之前，我们先思考一个常见的业务问题：如果你负责开发维护一个大型的网站，有一天老板找产品经理要网站每个网页每天的 UV 数据，然后让你来开发这个统计模块，你会如何实现？ </p>
+<p>如果统计 PV 那非常好办，给每个网页一个独立的 Redis 计数器就可以了，这个计数器的 key 后缀加上当天的日期。这样来一个请求，incrby 一次，最终就可以统计出所有的 PV 数据。</p>
+<p>但是 UV 不一样，它要去重，同一个用户一天之内的多次访问请求只能计数一次。这就要求每一个网页请求都需要带上用户的 ID，无论是登陆用户还是未登陆用户都需要一个唯一 ID 来标识。</p>
+<p>你也许已经想到了一个简单的方案，那就是<strong>为每一个页面一个独立的 set 集合</strong>来存储所有当天访问过此页面的用户 ID。当一个请求过来时，我们使用 sadd 将用户 ID 塞进去就可以了。通过 scard 可以取出这个集合的大小，这个数字就是这个页面的 UV 数据。没错，这是一个非常简单的方案。</p>
+<p>但是，如果你的页面访问量非常大，比如一个爆款页面几千万的 UV，你需要一个很大的 set 集合来统计，这就非常浪费空间。如果这样的页面很多，那所需要的存储空间是惊人的。为这样一个去重功能就耗费这样多的存储空间，值得么？其实老板需要的数据又不需要太精确，105w 和 106w 这两个数字对于老板们来说并没有多大区别，So，有没有更好的解决方案呢？</p>
+<p>这就是本节要引入的一个解决方案，Redis 提供了 HyperLogLog 数据结构就是用来解决这种统计问题的。HyperLogLog 提供不精确的去重计数方案，虽然不精确但是也不是非常不精确，标准误差是 0.81%，这样的精确度已经可以满足上面的 UV 统计需求了。</p>
+<p>HyperLogLog 数据结构是 Redis 的高级数据结构，它非常有用，但是令人感到意外的是，使用过它的人非常少。</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>HyperLogLog 提供了两个指令 pfadd 和 pfcount，根据字面意义很好理解，一个是增加计数，一个是获取计数。pfadd 用法和 set 集合的 sadd 是一样的，来一个用户 ID，就将用户 ID 塞进去就是。pfcount 和 scard 用法是一样的，直接获取计数值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; pfadd codehole user1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount codehole</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfadd codehole user2</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount codehole</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; pfadd codehole user3</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount codehole</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; pfadd codehole user4</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount codehole</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; pfadd codehole user5</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount codehole</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; pfadd codehole user6</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount codehole</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; pfadd codehole user7 user8 user9 user10</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount codehole</span><br><span class="line">(integer) 10</span><br></pre></td></tr></table></figure>
+<p>简单试了一下，发现还蛮精确的，一个没多也一个没少。接下来我们使用脚本，往里面灌更多的数据，看看它是否还可以继续精确下去，如果不能精确，差距有多大</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PfTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Jedis jedis = <span class="keyword">new</span> Jedis();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">      jedis.pfadd(<span class="string">"rico"</span>, <span class="string">"user"</span> + i);</span><br><span class="line">      <span class="keyword">long</span> total = jedis.pfcount(<span class="string">"rico"</span>);</span><br><span class="line">      <span class="keyword">if</span> (total != i + <span class="number">1</span>) &#123;</span><br><span class="line">        System.out.printf(<span class="string">"%d %d\n"</span>, total, i + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    jedis.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 当我们加入第 100 个元素时，结果开始出现了不一致。接下来我们将数据增加到 10w 个，看看总量差距有多大。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class JedisTest &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    Jedis jedis = new Jedis();</span><br><span class="line">    for (int i = 0; i &lt; 100000; i++) &#123;</span><br><span class="line">      jedis.pfadd(&quot;codehole&quot;, &quot;user&quot; + i);</span><br><span class="line">    &#125;</span><br><span class="line">    long total = jedis.pfcount(&quot;codehole&quot;);</span><br><span class="line">    System.out.printf(&quot;%d %d\n&quot;, 100000, total);</span><br><span class="line">    jedis.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跑了约半分钟，我们看输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100000 99723</span><br></pre></td></tr></table></figure>
+<p>差了 277 个，按百分比是 0.277%，对于上面的 UV 统计需求来说，误差率也不算高。然后我们把上面的脚本再跑一边，也就相当于将数据重复加入一边，查看输出，可以发现，pfcount 的结果没有任何改变，还是 99723，说明它确实具备去重功能。</p>
+<h2 id="pfadd-这个-pf-是什么意思？"><a href="#pfadd-这个-pf-是什么意思？" class="headerlink" title="pfadd 这个 pf 是什么意思？"></a>pfadd 这个 pf 是什么意思？</h2><p>它是 HyperLogLog 这个数据结构的发明人 Philippe Flajolet 的首字母缩写</p>
+<h2 id="pfmerge-适合什么场合用？"><a href="#pfmerge-适合什么场合用？" class="headerlink" title="pfmerge 适合什么场合用？"></a>pfmerge 适合什么场合用？</h2><p>HyperLogLog 除了上面的 pfadd 和 pfcount 之外，还提供了第三个指令 pfmerge，用于将多个 pf 计数值累加在一起形成一个新的 pf 值。</p>
+<p>比如在网站中我们有两个内容差不多的页面，运营说需要这两个页面的数据进行合并。其中页面的 UV 访问量也需要合并，那这个时候 pfmerge 就可以派上用场了。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>HyperLogLog 这个数据结构不是免费的，不是说使用这个数据结构要花钱，它需要占据一定 12k 的存储空间，所以它不适合统计单个用户相关的数据。如果你的用户上亿，可以算算，这个空间成本是非常惊人的。但是相比 set 存储方案，HyperLogLog 所使用的空间那真是可以使用千斤对比四两来形容了。</p>
+<p>不过你也不必过于担心，因为 Redis 对 HyperLogLog 的存储进行了优化，在计数比较小时，它的存储空间采用稀疏矩阵存储，空间占用很小，仅仅在计数慢慢变大，稀疏矩阵占用空间渐渐超过了阈值时才会一次性转变成稠密矩阵，才会占用 12k 的空间。</p>
+<h2 id="HyperLogLog-实现原理"><a href="#HyperLogLog-实现原理" class="headerlink" title="HyperLogLog 实现原理"></a>HyperLogLog 实现原理</h2><p>HyperLogLog算法来源于论文《HyperLogLog the analysis of a near-optimal cardinality estimation algorithm》 </p>
+<p>HyperLogLog 的使用非常简单，但是实现原理比较复杂，如果读者没有特别的兴趣，下面的内容暂时可以跳过不看。</p>
+<p>HyperLogLog本质上来源于生活中一个小的发现，假设你抛了很多次硬币，你告诉在这次抛硬币的过程中最多只有两次扔出连续的反面，让我猜你总共抛了多少次硬币，我敢打赌你抛硬币的总次数不会太多，相反，如果你和我说最多出现了100次连续的反面，那么我敢肯定扔硬盘的总次数非常的多，甚至我还可以给出一个估计，这个估计要怎么给呢？其实是一个很简单的概率问题，假设1代表抛出正面，0代表反面：</p>
+<p><img src="6.png" alt></p>
+<p>上图中以抛硬币序列”1110100110”为例，其中最长的反面序列是”00”，我们顺手把后面那个1也给带上，也就是”001”，因为它包括了序列中最长的一串0，所以在序列中肯定只出现过一次，而它在任意序列出现出现且仅出现一次的概率显然是上图所示的三个二分之一相乘，也就是八分之一，所以我可以给出一个估计值，你大概总共抛了8次硬币。<br> 很显然，上面这种做法虽然能够估计抛硬币的总数，但是显然误差是比较大的，很容易受到突发事件（比如突然连续抛出好多0）的影响，HyperLogLog算法研究的就是如何减小这个误差。</p>
+<p>之前说过，HyperLogLog算法是用来计算基数的，这个抛硬币的序列和基数有什么关系呢？比如在数据库中，我只要在每次插入一条新的记录时，计算这条记录的hash，并且转换成二进制，就可以将其看成一个硬币序列了，如下(0b前缀表示二进制数)：</p>
+<p> <img src="7.png" alt></p>
+<p> 根据上面抛硬币的启发我可以想到如下的估计基数的算法（这里先给出伪代码，后面会有Java实现）： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：一个集合</span><br><span class="line">输出：集合的基数</span><br><span class="line">算法：</span><br><span class="line">     max = 0</span><br><span class="line">     对于集合中的每个元素：</span><br><span class="line">               hashCode = hash(元素)</span><br><span class="line">               num = hashCode二进制表示中最前面连续的0的数量</span><br><span class="line">               if num &gt; max:</span><br><span class="line">                   max = num</span><br><span class="line">     最后的结果是2的(max + 1)次幂</span><br></pre></td></tr></table></figure>
+<p>举个例子，对于集合<code>{ele1, ele2}</code>，先求<code>hash(ele1)=0b00110111</code>，它最前面的连续的0的数量为2（又称为前导0），然后求<code>hash(ele2)=0b10010000111</code>，它的前导0数量为0，我们始终只保存前导零数量的最大值，所以最后max是2，我们估计的基数就是2的(2+1)次幂，即8。<br> 为什么最后的max要加1呢？这是一个数学细节，具体要看论文，简单的理解的话，可以像之前抛硬币的例子那样理解，把最长的一串零的后面的一个1或者前面的一个1”顺手”带上进行概率估计。<br> 显然这个算法是非常不准确的，但是这个想法还是很有启发性的，从这个简单的想法跟随下文一步一步优化即可得到最终的比较高精度的HyperLogLog算法。</p>
+<h3 id="分桶"><a href="#分桶" class="headerlink" title="分桶"></a>分桶</h3><p>最简单的一种优化方法显然就是把数据分成m个均等的部分，分别估计其总数求平均后再乘以m，称之为分桶。对应到前面抛硬币的例子，其实就是把硬币序列分成m个均等的部分，分别用之前提到的那个方法估计总数求平均后再乘以m，这样就能一定程度上避免单一突发事件造成的误差。<br> 具体要怎么分桶呢？我们可以将每个元素的hash值的二进制表示的前几位用来指示数据属于哪个桶，然后把剩下的部分再按照之前最简单的想法处理。<br> 还是以刚刚的那个集合<code>{ele1,ele2}</code>为例，假设我要分2个桶，那么我只要去ele1的hash值的第一位来确定其分桶即可，之后用剩下的部分进行前导零的计算，如下图：<br> 假设ele1和ele2的hash值二进制表示如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">hash</span>(ele1) = 00110111</span><br><span class="line"><span class="built_in">hash</span>(ele2) = 10010001</span><br></pre></td></tr></table></figure>
+<p> <img src="8.png" alt></p>
+<p>到这里，你大概已经理解了LogLog算法的基本思想，LogLog算法是在HyperLogLog算法之前提出的一个基数估计算法，HyperLogLog算法其实就是LogLog算法的一个改进版。</p>
+<p>LogLog算法完整的基数计算公式如下：</p>
+<p>到这里，你大概已经理解了LogLog算法的基本思想，LogLog算法是在HyperLogLog算法之前提出的一个基数估计算法，HyperLogLog算法其实就是LogLog算法的一个改进版。</p>
+<p>LogLog算法完整的基数计算公式如下：</p>
+<p><img src="9.png" alt></p>
+<p>其中m代表分桶数，R头上一道横杠的记号就代表每个桶的结果（其实就是桶中数据的最长前导零+1）的均值，相比我之前举的简单的例子，LogLog算法还乘了一个常数constant进行修正，这个constant具体是多少等我讲到Java实现的时候再说。</p>
+<h3 id="调和平均数"><a href="#调和平均数" class="headerlink" title="调和平均数"></a>调和平均数</h3><hr>
+<p>前面的LogLog算法中我们是使用的是平均数来将每个桶的结果汇总起来，但是平均数有一个广为人知的缺点，就是容易受到大的数值的影响，一个常见的例子是，假如我的工资是1000元一个月，我老板的工资是100000元一个月，那么我和老板的平均工资就是(100000 + 1000)/2，即50500元，显然这离我的工资相差甚远，我肯定不服这个平均工资。<br> 用调和平均数就可以解决这一问题，调和平均数的结果会倾向于集合中比较小的数，x1到xn的调和平均数的公式如下：</p>
+<p> <img src="10.png" alt></p>
+<p> 再用这个公式算一下我和老板的平均工资： </p>
+<p> <img src="11.png" alt></p>
+<p>最后的结果是1980元，这和我的工资水平还比较接近，这样的平均工资水平我才比较信服。</p>
+<p>再回到前面的LogLog算法，从前面的举的例子可以看出，<br> 影响LogLog算法精度的一个重要因素就是，hash值的前导零的数量显然是有很大的偶然性的，经常会出现一两数据前导零的数目比较多的情况，所以HyperLogLog算法相比LogLog算法一个重要的改进就是使用调和平均数而不是平均数来聚合每个桶中的结果，HyperLogLog算法的公式如下：</p>
+<p> <img src="12.png" alt></p>
+<p> 其中constant常数和m的含义和之前的LogLog算法公式中的含义一致，Rj代表(第j个桶中的数据的最大前导零数目+1)，为了方便理解，我将公式再拆解一下： </p>
+<p><img src="13.png" alt></p>
+<p>其实从算术平均数改成调和平均数这个优化是很容易想到的，但是为什么LogLog算法没有直接使用调和平均数吗？网上看到一篇英文文章里说大概是因为使用算术平均数的话证明比较容易一些，毕竟科学家们出论文每一步都是要证明的，不像我们这里简单理解一下，猜一猜就可以了。</p>
+<p>以上HyperLogLog算法部分来自：<a href="https://www.jianshu.com/p/55defda6dcd2" target="_blank" rel="noopener">https://www.jianshu.com/p/55defda6dcd2</a> </p>
+<p>扩展阅读： <a href="http://content.research.neustar.biz/blog/hll.html" target="_blank" rel="noopener">http://content.research.neustar.biz/blog/hll.html</a>  </p>
+<p> <a href="https://research.neustar.biz/2012/10/25/sketch-of-the-day-hyperloglog-cornerstone-of-a-big-data-infrastructure/" target="_blank" rel="noopener">https://research.neustar.biz/2012/10/25/sketch-of-the-day-hyperloglog-cornerstone-of-a-big-data-infrastructure/</a>  </p>
+<p> <a href="https://github.com/addthis/stream-lib/blob/master/src/main/java/com/clearspring/analytics/stream/cardinality/HyperLogLog.java" target="_blank" rel="noopener">https://github.com/addthis/stream-lib/blob/master/src/main/java/com/clearspring/analytics/stream/cardinality/HyperLogLog.java</a> </p>
+<h1 id="应用-5：层峦叠嶂-—-布隆过滤器"><a href="#应用-5：层峦叠嶂-—-布隆过滤器" class="headerlink" title="应用 5：层峦叠嶂 — 布隆过滤器"></a>应用 5：层峦叠嶂 — 布隆过滤器</h1><p>上一节我们学会了使用 HyperLogLog 数据结构来进行估数，它非常有价值，可以解决很多精确度不高的统计需求。</p>
+<p>但是如果我们想知道某一个值是不是已经在 HyperLogLog 结构里面了，它就无能为力了，它只提供了 pfadd 和 pfcount 方法，没有提供 pfcontains 这种方法。</p>
+<p>讲个使用场景，比如我们在使用新闻客户端看新闻时，它会给我们不停地推荐新的内容，它每次推荐时要去重，去掉那些已经看过的内容。问题来了，新闻客户端推荐系统如何实现推送去重的？</p>
+<p>你会想到服务器记录了用户看过的所有历史记录，当推荐系统推荐新闻时会从每个用户的历史记录里进行筛选，过滤掉那些已经存在的记录。问题是当用户量很大，每个用户看过的新闻又很多的情况下，这种方式，推荐系统的去重工作在性能上跟的上么？</p>
+<p>实际上，如果历史记录存储在关系数据库里，去重就需要频繁地对数据库进行 exists 查询，当系统并发量很高时，数据库是很难扛住压力的。</p>
+<p>你可能又想到了缓存，但是如此多的历史记录全部缓存起来，那得浪费多大存储空间啊？而且这个存储空间是随着时间线性增长，你撑得住一个月，你能撑得住几年么？但是不缓存的话，性能又跟不上，这该怎么办？</p>
+<p>这时，<strong>布隆过滤器 (Bloom Filter) 闪亮登场了，它就是专门用来解决这种去重问题的。它在起到去重的同时，在空间上还能节省 90% 以上，只是稍微有那么点不精确</strong>，也就是有一定的误判概率。</p>
+<h3 id="布隆过滤器是什么？"><a href="#布隆过滤器是什么？" class="headerlink" title="布隆过滤器是什么？"></a>布隆过滤器是什么？</h3><p>布隆过滤器可以理解为一个不怎么精确的 set 结构，当你使用它的 contains 方法判断某个对象是否存在时，它可能会误判。但是布隆过滤器也不是特别不精确，只要参数设置的合理，它的精确度可以控制的相对足够精确，只会有小小的误判概率。</p>
+<p> 波隆过滤器是宁可错杀三千，也不放过一人。用判断url是否是在黑名单集合中，如果你是黑名单，那么我肯定将你拦截，如果不是，我可能错杀将你拦截 </p>
+<p>套在上面的使用场景中，布隆过滤器能准确过滤掉那些已经看过的内容，那些没有看过的新内容，它也会过滤掉极小一部分 (误判)，但是绝大多数新内容它都能准确识别。这样就可以完全保证推荐给用户的内容都是无重复的。</p>
+<h3 id="布隆过滤器基本使用"><a href="#布隆过滤器基本使用" class="headerlink" title="布隆过滤器基本使用"></a>布隆过滤器基本使用</h3><p>布隆过滤器有二个基本指令，<code>bf.add</code> 添加元素，<code>bf.exists</code> 查询元素是否存在，它的用法和 set 集合的 sadd 和 sismember 差不多。<strong>注意 <code>bf.add</code> 只能一次添加一个元素</strong>，如果想要一次添加多个，就需要用到 <code>bf.madd</code> 指令。同样如果需要一次查询多个元素是否存在，就需要用到 <code>bf.mexists</code> 指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; bf.add codehole user1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bf.add codehole user2</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bf.add codehole user3</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bf.exists codehole user1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bf.exists codehole user2</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bf.exists codehole user3</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bf.exists codehole user4</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; bf.madd codehole user4 user5 user6</span><br><span class="line">1) (integer) 1</span><br><span class="line">2) (integer) 1</span><br><span class="line">3) (integer) 1</span><br><span class="line">127.0.0.1:6379&gt; bf.mexists codehole user4 user5 user6 user7</span><br><span class="line">1) (integer) 1</span><br><span class="line">2) (integer) 1</span><br><span class="line">3) (integer) 1</span><br><span class="line">4) (integer) 0</span><br></pre></td></tr></table></figure>
+<p>似乎很准确啊，一个都没误判。下面我们用 Python 脚本加入很多元素，看看加到第几个元素的时候，布隆过滤器会出现误判。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line">client.delete(<span class="string">"codehole"</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>):</span><br><span class="line">    client.execute_command(<span class="string">"bf.add"</span>, <span class="string">"codehole"</span>, <span class="string">"user%d"</span> % i)</span><br><span class="line">    ret = client.execute_command(<span class="string">"bf.exists"</span>, <span class="string">"codehole"</span>, <span class="string">"user%d"</span> % i)</span><br><span class="line">    <span class="keyword">if</span> ret == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">print</span> i</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>Java 客户端 Jedis-2.x 没有提供指令扩展机制，所以你无法直接使用 Jedis 来访问 Redis Module 提供的 <a href="http://bf.xxx/" target="_blank" rel="noopener">bf.xxx</a> 指令。RedisLabs 提供了一个单独的包 <a href="https://github.com/RedisLabs/JReBloom" target="_blank" rel="noopener">JReBloom</a>，但是它是基于 Jedis-3.0，Jedis-3.0 这个包目前还没有进入 release，没有进入 maven 的中央仓库，需要在 Github 上下载。在使用上很不方便，如果怕麻烦，还可以使用 <a href="https://github.com/lettuce-io/lettuce-core" target="_blank" rel="noopener">lettuce</a>，它是另一个 Redis 的客户端，相比 Jedis 而言，它很早就支持了指令扩展。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BloomTest</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Client client = <span class="keyword">new</span> Client();</span><br><span class="line">    client.delete(<span class="string">"codehole"</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">      client.add(<span class="string">"codehole"</span>, <span class="string">"user"</span> + i);</span><br><span class="line">      <span class="keyword">boolean</span> ret = client.exists(<span class="string">"codehole"</span>, <span class="string">"user"</span> + i);</span><br><span class="line">      <span class="keyword">if</span> (!ret) &#123;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    client.close();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行上面的代码后，你会张大了嘴巴发现居然没有输出，塞进去了 100000 个元素，还是没有误判，这是怎么回事？如果你不死心的话，可以将数字再加一个 0 试试，你会发现依然没有误判。</p>
+<p>原因就在于<strong>布隆过滤器对于已经见过的元素肯定不会误判，它只会误判那些没见过的元素</strong>。所以我们要稍微改一下上面的脚本，使用 bf.exists 去查找没见过的元素，看看它是不是以为自己见过了。</p>
+<p>改成</p>
+<p><code>boolean ret = client.exists(&quot;codehole&quot;, &quot;user&quot; + (i + 1));</code></p>
+<p> 运行后，我们看到了输出是 214，也就是到第 214 的时候，它出现了误判。 </p>
+<p>误判率大约 1% 多点。你也许会问这个误判率还是有点高啊，有没有办法降低一点？答案是有的。</p>
+<p>我们上面使用的布隆过滤器只是默认参数的布隆过滤器，它在我们第一次 add 的时候自动创建。Redis 其实还提供了自定义参数的布隆过滤器，需要我们在 add 之前使用<code>bf.reserve</code>指令显式创建。如果对应的 key 已经存在，<code>bf.reserve</code>会报错。<code>bf.reserve</code>有三个参数，分别是 key, <code>error_rate</code>和<code>initial_size</code>。错误率越低，需要的空间越大。<code>initial_size</code>参数表示预计放入的元素数量，当实际数量超出这个数值时，误判率会上升。</p>
+<p>所以需要提前设置一个较大的数值避免超出导致误判率升高。如果不使用 bf.reserve，默认的<code>error_rate</code>是 0.01，默认的<code>initial_size</code>是 100。</p>
+<p>接下来我们使用 bf.reserve 改造一下上面的脚本：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line"></span><br><span class="line">CHARS = <span class="string">''</span>.join([chr(ord(<span class="string">'a'</span>) + i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">26</span>)])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_string</span><span class="params">(n)</span>:</span></span><br><span class="line">    chars = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        idx = random.randint(<span class="number">0</span>, len(CHARS) - <span class="number">1</span>)</span><br><span class="line">        chars.append(CHARS[idx])</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(chars)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">users = list(set([random_string(<span class="number">64</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100000</span>)]))</span><br><span class="line"><span class="keyword">print</span> <span class="string">'total users'</span>, len(users)</span><br><span class="line">users_train = users[:len(users)/<span class="number">2</span>]</span><br><span class="line">users_test = users[len(users)/<span class="number">2</span>:]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">falses = <span class="number">0</span></span><br><span class="line">client.delete(<span class="string">"codehole"</span>)</span><br><span class="line"><span class="comment"># 增加了下面这一句</span></span><br><span class="line">client.execute_command(<span class="string">"bf.reserve"</span>, <span class="string">"codehole"</span>, <span class="number">0.001</span>, <span class="number">50000</span>)</span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users_train:</span><br><span class="line">    client.execute_command(<span class="string">"bf.add"</span>, <span class="string">"codehole"</span>, user)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'all trained'</span></span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users_test:</span><br><span class="line">    ret = client.execute_command(<span class="string">"bf.exists"</span>, <span class="string">"codehole"</span>, user)</span><br><span class="line">    <span class="keyword">if</span> ret == <span class="number">1</span>:</span><br><span class="line">        falses += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> falses, len(users_test)</span><br></pre></td></tr></table></figure>
+<p>Java 版本：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BloomTest</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String chars;</span><br><span class="line">  &#123;</span><br><span class="line">    StringBuilder builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++) &#123;</span><br><span class="line">      builder.append((<span class="keyword">char</span>) (<span class="string">'a'</span> + i));</span><br><span class="line">    &#125;</span><br><span class="line">    chars = builder.toString();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> String <span class="title">randomString</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    StringBuilder builder = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">      <span class="keyword">int</span> idx = ThreadLocalRandom.current().nextInt(chars.length());</span><br><span class="line">      builder.append(chars.charAt(idx));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> builder.toString();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">randomUsers</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; users = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100000</span>; i++) &#123;</span><br><span class="line">      users.add(randomString(<span class="number">64</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> users;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    BloomTest bloomer = <span class="keyword">new</span> BloomTest();</span><br><span class="line">    List&lt;String&gt; users = bloomer.randomUsers(<span class="number">100000</span>);</span><br><span class="line">    List&lt;String&gt; usersTrain = users.subList(<span class="number">0</span>, users.size() / <span class="number">2</span>);</span><br><span class="line">    List&lt;String&gt; usersTest = users.subList(users.size() / <span class="number">2</span>, users.size());</span><br><span class="line"></span><br><span class="line">    Client client = <span class="keyword">new</span> Client();</span><br><span class="line">    client.delete(<span class="string">"codehole"</span>);</span><br><span class="line">    <span class="comment">// 对应 bf.reserve 指令</span></span><br><span class="line">    client.createFilter(<span class="string">"codehole"</span>, <span class="number">50000</span>, <span class="number">0.001</span>);</span><br><span class="line">    <span class="keyword">for</span> (String user : usersTrain) &#123;</span><br><span class="line">      client.add(<span class="string">"codehole"</span>, user);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> falses = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (String user : usersTest) &#123;</span><br><span class="line">      <span class="keyword">boolean</span> ret = client.exists(<span class="string">"codehole"</span>, user);</span><br><span class="line">      <span class="keyword">if</span> (ret) &#123;</span><br><span class="line">        falses++;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.printf(<span class="string">"%d %d\n"</span>, falses, usersTest.size());</span><br><span class="line">    client.close();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行一下，等待约 1 分钟，输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">total users 100000</span><br><span class="line">all trained</span><br><span class="line">6 50000</span><br></pre></td></tr></table></figure>
+<p>我们看到了误判率大约 0.012%，比预计的 0.1% 低很多，不过布隆的概率是有误差的，只要不比预计误判率高太多，都是正常现象。</p>
+<h3 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h3><p>布隆过滤器的<code>initial_size</code>估计的过大，会浪费存储空间，估计的过小，就会影响准确率，用户在使用之前一定要尽可能地精确估计好元素数量，还需要加上一定的冗余空间以避免实际元素可能会意外高出估计值很多。</p>
+<p>布隆过滤器的<code>error_rate</code>越小，需要的存储空间就越大，对于不需要过于精确的场合，<code>error_rate</code>设置稍大一点也无伤大雅。比如在新闻去重上而言，误判率高一点只会让小部分文章不能让合适的人看到，文章的整体阅读量不会因为这点误判率就带来巨大的改变。</p>
+<h3 id="布隆过滤器的原理"><a href="#布隆过滤器的原理" class="headerlink" title="布隆过滤器的原理"></a>布隆过滤器的原理</h3><p>学会了布隆过滤器的使用，下面有必要把原理解释一下，不然读者还会继续蒙在鼓里</p>
+<p><img src="14.png" alt></p>
+<p>每个布隆过滤器对应到 Redis 的数据结构里面就是一个大型的位数组和几个不一样的无偏 hash 函数。所谓无偏就是能够把元素的 hash 值算得比较均匀。 </p>
+<p>向布隆过滤器中添加 key 时，会使用多个 hash 函数对 key 进行 hash 算得一个整数索引值然后对位数组长度进行取模运算得到一个位置，每个 hash 函数都会算得一个不同的位置。再把位数组的这几个位置都置为 1 就完成了 add 操作。</p>
+<p>向布隆过滤器询问 key 是否存在时，跟 add 一样，也会把 hash 的几个位置都算出来，看看位数组中这几个位置是否都为 1，只要有一个位为 0，那么说明布隆过滤器中这个 key 不存在。如果都是 1，这并不能说明这个 key 就一定存在，只是极有可能存在，因为这些位被置为 1 可能是因为其它的 key 存在所致。<strong>如果这个位数组比较稀疏，判断正确的概率就会很大，如果这个位数组比较拥挤，判断正确的概率就会降低</strong>。具体的概率计算公式比较复杂，感兴趣可以阅读扩展阅读，非常烧脑</p>
+<p>使用时不要让实际元素远大于初始化大小，当实际元素开始超出初始化大小时，应该对布隆过滤器进行重建，重新分配一个 size 更大的过滤器，再将所有的历史元素批量 add 进去 (这就要求我们在其它的存储器中记录所有的历史元素)。因为 error_rate 不会因为数量超出就急剧增加，这就给我们重建过滤器提供了较为宽松的时间。</p>
+<h3 id="布隆过滤器的其它应用"><a href="#布隆过滤器的其它应用" class="headerlink" title="布隆过滤器的其它应用"></a>布隆过滤器的其它应用</h3><p> 布隆过滤器在 NoSQL 数据库领域使用非常广泛，我们平时用到的 HBase、Cassandra 还有 LevelDB、RocksDB 内部都有布隆过滤器结构，布隆过滤器可以显著降低数据库的 IO 请求数量。当用户来查询某个 row 时，可以先通过内存中的布隆过滤器过滤掉大量不存在的 row 请求，然后再去磁盘进行查询。 </p>
+<p> 邮箱系统的垃圾邮件过滤功能也普遍用到了布隆过滤器，因为用了这个过滤器，所以平时也会遇到某些正常的邮件被放进了垃圾邮件目录中，这个就是误判所致，概率很低。 </p>
+<p> 布隆过滤器的原理涉及到较为复杂的数学知识，感兴趣可以阅读下面的链接文章继续深入了解内部原理：<a href="http://www.cnblogs.com/allensun/archive/2011/02/16/1956532.html" target="_blank" rel="noopener">布隆过滤器</a>。 </p>
+<h1 id="应用-6：-简单限流"><a href="#应用-6：-简单限流" class="headerlink" title="应用 6： 简单限流"></a>应用 6： 简单限流</h1><p>限流算法在分布式领域是一个经常被提起的话题，当系统的处理能力有限时，如何阻止计划外的请求继续对系统施压，这是一个需要重视的问题。 。</p>
+<p>除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。</p>
+<h2 id="如何使用-Redis-来实现简单限流策略？"><a href="#如何使用-Redis-来实现简单限流策略？" class="headerlink" title="如何使用 Redis 来实现简单限流策略？"></a>如何使用 Redis 来实现简单限流策略？</h2><p>首先我们来看一个常见 的简单的限流策略。<strong>系统要限定用户的某个行为在指定的时间里只能允许发生 N 次</strong>，如何使用 Redis 的数据结构来实现这个限流的功能？</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这个限流需求中存在一个滑动时间窗口，想想 zset 数据结构的 score 值，是不是可以通过 score 来圈出这个时间窗口来。而且我们只需要保留这个时间窗口，窗口之外的数据都可以砍掉。那这个 zset 的 value 填什么比较合适呢？它只需要保证唯一性即可，用 uuid 会比较浪费空间，那就改用毫秒时间戳吧。</p>
+<p><img src="15.png" alt></p>
+<p>如图所示，用一个 zset 结构记录用户的行为历史，每一个行为都会作为 zset 中的一个 key 保存下来。同一个用户同一种行为用一个 zset 记录。</p>
+<p>为节省内存，我们只需要保留时间窗口内的行为记录，同时如果用户是冷用户，滑动时间窗口内的行为是空记录，那么这个 zset 就可以从内存中移除，不再占用空间。</p>
+<p>通过统计滑动窗口内的行为数量与阈值 max_count 进行比较就可以得出当前的行为是否允许。用代码表示如下：</p>
+<p>Java 版：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleRateLimiter</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> Jedis jedis;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">SimpleRateLimiter</span><span class="params">(Jedis jedis)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.jedis = jedis;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isActionAllowed</span><span class="params">(String userId, String actionKey, <span class="keyword">int</span> period, <span class="keyword">int</span> maxCount)</span> </span>&#123;</span><br><span class="line">    String key = String.format(<span class="string">"hist:%s:%s"</span>, userId, actionKey);</span><br><span class="line">    <span class="keyword">long</span> nowTs = System.currentTimeMillis();</span><br><span class="line">    Pipeline pipe = jedis.pipelined();</span><br><span class="line">    pipe.multi();</span><br><span class="line">    pipe.zadd(key, nowTs, <span class="string">""</span> + nowTs);</span><br><span class="line">    pipe.zremrangeByScore(key, <span class="number">0</span>, nowTs - period * <span class="number">1000</span>);</span><br><span class="line">    Response&lt;Long&gt; count = pipe.zcard(key);</span><br><span class="line">    pipe.expire(key, period + <span class="number">1</span>);</span><br><span class="line">    pipe.exec();</span><br><span class="line">    pipe.close();</span><br><span class="line">    <span class="keyword">return</span> count.get() &lt;= maxCount;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Jedis jedis = <span class="keyword">new</span> Jedis();</span><br><span class="line">    SimpleRateLimiter limiter = <span class="keyword">new</span> SimpleRateLimiter(jedis);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++) &#123;</span><br><span class="line">      System.out.println(limiter.isActionAllowed(<span class="string">"rico"</span>, <span class="string">"reply"</span>, <span class="number">60</span>, <span class="number">5</span>));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码还是略显复杂，需要读者花一定的时间好好啃。它的整体思路就是：每一个行为到来时，都维护一次时间窗口。将时间窗口外的记录全部清理掉，只保留窗口内的记录。zset 集合中只有 score 值非常重要，value 值没有特别的意义，只需要保证它是唯一的就可以了。</p>
+<p>因为这几个连续的 Redis 操作都是针对同一个 key 的，使用 pipeline 可以显著提升 Redis 存取效率。但这种方案也有缺点，因为它要记录时间窗口内所有的行为记录，如果这个量很大，比如限定 60s 内操作不得超过 100w 次这样的参数，它是不适合做这样的限流的，因为会消耗大量的存储空间。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本节介绍的是限流策略的简单应用，它仍然有较大的提升空间，适用的场景也有限。为了解决简单限流的缺点，下一节我们将引入高级限流算法——漏斗限流。</p>
+<h1 id="应用-7：一毛不拔-——-漏斗限流"><a href="#应用-7：一毛不拔-——-漏斗限流" class="headerlink" title="应用 7：一毛不拔 —— 漏斗限流"></a>应用 7：一毛不拔 —— 漏斗限流</h1><p> 漏斗限流是最常用的限流方法之一，顾名思义，这个算法的灵感源于漏斗（funnel）的结<br>构。 </p>
+<p><img src="19.png" alt> </p>
+<p>漏洞的容量是有限的，如果将漏嘴堵住，然后一直往里面灌水，它就会变满，直至再也装不进去。如果将漏嘴放开，水就会往下流，流走一部分之后，就又可以继续往里面灌水。如果漏嘴流水的速率大于灌水的速率，那么漏斗永远都装不满。如果漏嘴流水速率小于灌水的速率，那么一旦漏斗满了，灌水就需要暂停并等待漏斗腾空。</p>
+<p>所以，漏斗的剩余空间就代表着当前行为可以持续进行的数量，漏嘴的流水速率代表着系统允许该行为的最大频率。</p>
+<p>Redis 4.0 提供了一个限流 Redis 模块，它叫 redis-cell。该模块也使用了漏斗算法，并提供了原子的限流指令。有了这个模块，限流问题就非常简单了。该模块只有 1 条指令 <code>cl.throttle</code>，它的参数和返回值都略显复杂，接下来让我们来看看这个指令具体该如何使用。</p>
+<p><img src="20.png" alt> </p>
+<p>上面这个指令的意思是允许「用户老钱回复行为」的频率为每 60s 最多 30 次(漏水速率)，漏斗的初始容量为 15，也就是说一开始可以连续回复 15 个帖子，然后才开始受漏水速率的影响。</p>
+<p><img src="21.png" alt> </p>
+<p>throttle:节流阀,喉咙 </p>
+<p>在执行限流指令时，如果被拒绝了，就需要丢弃或重试。cl.throttle 指令考虑的非常周到，连重试时间都帮你算好了，直接取返回结果数组的第四个值进行 sleep 即可，如果不想阻塞线程，也可以异步定时任务来重试。</p>
+<h1 id="应用9-大海捞针"><a href="#应用9-大海捞针" class="headerlink" title="应用9 大海捞针"></a>应用9 大海捞针</h1><p> 在平时线上 Redis 维护工作中，有时候需要从 Redis 实例成千上万的 key 中找出特定前缀的 key 列表来手动处理数据，可能是修改它的值，也可能是删除 key。这里就有一个问题，如何从海量的 key 中找出满足特定前缀的 key 列表来？ </p>
+<p> Redis 提供了一个简单暴力的指令 <code>keys</code> 用来列出所有满足特定正则字符串规则的 key。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set codehole1 a</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set codehole2 b</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set codehole3 c</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set code1hole a</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set code2hole b</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set code3hole b</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;codehole1&quot;</span><br><span class="line">2) &quot;code3hole&quot;</span><br><span class="line">3) &quot;codehole3&quot;</span><br><span class="line">4) &quot;code2hole&quot;</span><br><span class="line">5) &quot;codehole2&quot;</span><br><span class="line">6) &quot;code1hole&quot;</span><br><span class="line">127.0.0.1:6379&gt; keys codehole*</span><br><span class="line">1) &quot;codehole1&quot;</span><br><span class="line">2) &quot;codehole3&quot;</span><br><span class="line">3) &quot;codehole2&quot;</span><br><span class="line">127.0.0.1:6379&gt; keys code*hole</span><br><span class="line">1) &quot;code3hole&quot;</span><br><span class="line">2) &quot;code2hole&quot;</span><br><span class="line">3) &quot;code1hole&quot;</span><br></pre></td></tr></table></figure>
+<p>这个指令使用非常简单，提供一个简单的正则字符串即可，但是有很明显的两个<strong>缺点</strong>。</p>
+<ol>
+<li>没有 offset、limit 参数，一次性吐出所有满足条件的 key，万一实例中有几百 w 个 key 满足条件，当你看到满屏的字符串刷的没有尽头时，你就知道难受了。</li>
+<li>keys 算法是遍历算法，复杂度是 O(n)，如果实例中有千万级以上的 key，这个指令就会导致 Redis 服务卡顿，所有读写 Redis 的其它的指令都会被延后甚至会超时报错，因为 Redis 是单线程程序，顺序执行所有指令，其它指令必须等到当前的 keys 指令执行完了才可以继续。</li>
+</ol>
+<p>面对这两个显著的缺点该怎么办呢？</p>
+<p>Redis 为了解决这个问题，它在 2.8 版本中加入了大海捞针的指令——<code>scan</code>。<code>scan</code> 相比 <code>keys</code> 具备有以下特点:</p>
+<ol>
+<li>复杂度虽然也是 O(n)，但是它是通过游标<strong>分步进行的，不会阻塞线程</strong>;</li>
+<li><strong>提供 limit 参数，可以控制每次返回结果的最大条数</strong>，limit 只是一个 hint，返回的结果可多可少;</li>
+<li>同 keys 一样，它<strong>也提供模式匹配功能</strong>;</li>
+<li><strong>服务器不需要为游标保存状态，游标的唯一状态就是 scan 返回给客户端的游标整数</strong>;</li>
+<li>返回的<strong>结果可能会有重复</strong>，需要客户端去重复，这点非常重要;</li>
+<li><strong>遍历的过程中如果有数据修改，改动后的数据能不能遍历到是不确定的;</strong></li>
+<li><strong>单次返回的结果是空的并不意味着遍历结束，而要看返回的游标值是否为零</strong>;</li>
+</ol>
+<h2 id="scan-基础使用"><a href="#scan-基础使用" class="headerlink" title="scan 基础使用"></a>scan 基础使用</h2><p>在使用之前，让我们往 Redis 里插入 10000 条数据来进行测试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>):</span><br><span class="line">    client.set(<span class="string">"key%d"</span> % i, i)</span><br></pre></td></tr></table></figure>
+<p>好，Redis 中现在有了 10000 条数据，接下来我们找出以 key99 开头 key 列表。</p>
+<p>scan 参数提供了三个参数，第一个是 <code>cursor 整数值</code>，第二个是 <code>key 的正则模式</code>，第三个是<code>遍历的 limit hint</code>。第一次遍历时，cursor 值为 0，然后将返回结果中第一个整数值作为下一次遍历的 cursor。一直遍历到返回的 cursor 值为 0 时结束。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; scan 0 match key99* count 1000</span><br><span class="line">1) &quot;13976&quot;</span><br><span class="line">2)  1) &quot;key9911&quot;</span><br><span class="line">    2) &quot;key9974&quot;</span><br><span class="line">    3) &quot;key9994&quot;</span><br><span class="line">    4) &quot;key9910&quot;</span><br><span class="line">    5) &quot;key9907&quot;</span><br><span class="line">    6) &quot;key9989&quot;</span><br><span class="line">    7) &quot;key9971&quot;</span><br><span class="line">    8) &quot;key99&quot;</span><br><span class="line">    9) &quot;key9966&quot;</span><br><span class="line">   10) &quot;key992&quot;</span><br><span class="line">   11) &quot;key9903&quot;</span><br><span class="line">   12) &quot;key9905&quot;</span><br><span class="line">127.0.0.1:6379&gt; scan 13976 match key99* count 1000</span><br><span class="line">1) &quot;1996&quot;</span><br><span class="line">2)  1) &quot;key9982&quot;</span><br><span class="line">    2) &quot;key9997&quot;</span><br><span class="line">    3) &quot;key9963&quot;</span><br><span class="line">    4) &quot;key996&quot;</span><br><span class="line">    5) &quot;key9912&quot;</span><br><span class="line">    6) &quot;key9999&quot;</span><br><span class="line">    7) &quot;key9921&quot;</span><br><span class="line">    8) &quot;key994&quot;</span><br><span class="line">    9) &quot;key9956&quot;</span><br><span class="line">   10) &quot;key9919&quot;</span><br><span class="line">127.0.0.1:6379&gt; scan 1996 match key99* count 1000</span><br><span class="line">1) &quot;12594&quot;</span><br><span class="line">2) 1) &quot;key9939&quot;</span><br><span class="line">   2) &quot;key9941&quot;</span><br><span class="line">   3) &quot;key9967&quot;</span><br><span class="line">   4) &quot;key9938&quot;</span><br><span class="line">   5) &quot;key9906&quot;</span><br><span class="line">   6) &quot;key999&quot;</span><br><span class="line">   7) &quot;key9909&quot;</span><br><span class="line">   8) &quot;key9933&quot;</span><br><span class="line">   9) &quot;key9992&quot;</span><br><span class="line">......</span><br><span class="line">127.0.0.1:6379&gt; scan 11687 match key99* count 1000</span><br><span class="line">1) &quot;0&quot;</span><br><span class="line">2)  1) &quot;key9969&quot;</span><br><span class="line">    2) &quot;key998&quot;</span><br><span class="line">    3) &quot;key9986&quot;</span><br><span class="line">    4) &quot;key9968&quot;</span><br><span class="line">    5) &quot;key9965&quot;</span><br><span class="line">    6) &quot;key9990&quot;</span><br><span class="line">    7) &quot;key9915&quot;</span><br><span class="line">    8) &quot;key9928&quot;</span><br><span class="line">    9) &quot;key9908&quot;</span><br><span class="line">   10) &quot;key9929&quot;</span><br><span class="line">   11) &quot;key9944&quot;</span><br></pre></td></tr></table></figure>
+<p> 从上面的过程可以看到虽然提供的 limit 是 1000，但是返回的结果只有 10 个左右。因为这个 limit 不是限定返回结果的数量，<strong>而是限定服务器单次遍历的字典槽位数量(不是结果数量)</strong>(约等于)。<strong>如果将 limit 设置为 10，你会发现返回结果是空的，但是游标值不为零，意味着遍历还没结束</strong>。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; scan 0 match key99* count 10</span><br><span class="line">1) &quot;3072&quot;</span><br><span class="line">2) (empty list or set)</span><br></pre></td></tr></table></figure>
+<h2 id="字典的结构"><a href="#字典的结构" class="headerlink" title="字典的结构"></a>字典的结构</h2><p><strong>在 Redis 中所有的 key 都存储在一个很大的字典中</strong>，这个字典的结构和 Java 中的 HashMap 一样，是一维数组 + 二维链表结构，第一维数组的大小总是 2^n(n&gt;=0)，扩容一次数组大小空间加倍，也就是 n++。</p>
+<p><img src="22.png" alt> </p>
+<p> scan 指令返回的游标就是第一维数组的位置索引，我们将这个位置索引称为<strong>槽 (slot)</strong>。如果不考虑字典的扩容缩容，直接按数组下标挨个遍历就行了。limit 参数就表示需要遍历的槽位数，<strong>之所以返回的结果可能多可能少，是因为不是所有的槽位上都会挂接链表，有些槽位可能是空的，还有些槽位上挂接的链表上的元素可能会有多个</strong>。每一次遍历都会将 limit 数量的槽位上挂接的所有链表元素进行模式匹配过滤后，一次性返回给客户端。 </p>
+<h2 id="scan-遍历顺序"><a href="#scan-遍历顺序" class="headerlink" title="scan 遍历顺序"></a>scan 遍历顺序</h2><p>scan 的遍历顺序非常特别。它不是从第一维数组的第 0 位一直遍历到末尾，而是采用了高位进位加法来遍历。之所以使用这样特殊的方式进行遍历，是考虑到字典的扩容和缩容时避免槽位的遍历重复和遗漏。???没理解 </p>
+<p>首先我们用动画演示一下普通加法和高位进位加法的区别</p>
+<p><img src="23.gif" alt> </p>
+<p> 从动画中可以看出高位进位法从左边加，进位往右边移动，同普通加法正好相反。但是最终它们都会遍历所有的槽位并且没有重复。 </p>
+<h2 id="字典扩容"><a href="#字典扩容" class="headerlink" title="字典扩容"></a>字典扩容</h2><p>Java 中的 HashMap 有扩容的概念，当 loadFactor 达到阈值时，需要重新分配一个新的 2 倍大小的数组，然后将所有的元素全部 rehash 挂到新的数组下面。rehash 就是将元素的 hash 值对数组长度进行取模运算，因为长度变了，所以每个元素挂接的槽位可能也发生了变化。又因为数组的长度是 2^n 次方，所以取模运算等价于位与操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a mod 8 = a &amp; (8-1) = a &amp; 7</span><br><span class="line">a mod 16 = a &amp; (16-1) = a &amp; 15</span><br><span class="line">a mod 32 = a &amp; (32-1) = a &amp; 31</span><br></pre></td></tr></table></figure>
+<p>这里的 7, 15, 31 称之为字典的 mask 值，mask 的作用就是保留 hash 值的低位，高位都被设置为 0。</p>
+<p>接下来我们看看 rehash 前后元素槽位的变化。</p>
+<p>假设当前的字典的数组长度由 8 位扩容到 16 位，那么 3 号槽位 011 将会被 rehash 到 3 号槽位和 11 号槽位，也就是说该槽位链表中大约有一半的元素还是 3 号槽位，其它的元素会放到 11 号槽位，11 这个数字的二进制是 1011，就是对 3 的二进制 011 增加了一个高位 1。</p>
+<p><img src="24.png" alt></p>
+<p> 抽象一点说，假设开始槽位的二进制数是 xxx，那么该槽位中的元素将被 rehash 到 0xxx 和 1xxx(xxx+8) 中。 如果字典长度由 16 位扩容到 32 位，那么对于二进制槽位 xxxx 中的元素将被 rehash 到 0xxxx 和 1xxxx(xxxx+16) 中。 </p>
+<h2 id="对比扩容缩容前后的遍历顺序"><a href="#对比扩容缩容前后的遍历顺序" class="headerlink" title="对比扩容缩容前后的遍历顺序"></a>对比扩容缩容前后的遍历顺序</h2><p><img src="25.png" alt> </p>
+<p>观察这张图，我们发现采用高位进位加法的遍历顺序，rehash 后的槽位在遍历顺序上是相邻的。</p>
+<p>假设当前要即将遍历 110 这个位置 (橙色)，那么扩容后，当前槽位上所有的元素对应的新槽位是 0110 和 1110(深绿色)，也就是在槽位的二进制数增加一个高位 0 或 1。这时我们可以直接从 0110 这个槽位开始往后继续遍历，0110 槽位之前的所有槽位都是已经遍历过的，这样就可以避免扩容后对已经遍历过的槽位进行重复遍历。</p>
+<p>再考虑缩容，假设当前即将遍历 110 这个位置 (橙色)，那么缩容后，当前槽位所有的元素对应的新槽位是 10(深绿色)，也就是去掉槽位二进制最高位。这时我们可以直接从 10 这个槽位继续往后遍历，10 槽位之前的所有槽位都是已经遍历过的，这样就可以避免缩容的重复遍历。不过缩容还是不太一样，它会对图中 010 这个槽位上的元素进行重复遍历，因为缩融后 10 槽位的元素是 010 和 110 上挂接的元素的融合。</p>
+<h2 id="渐进式-rehash"><a href="#渐进式-rehash" class="headerlink" title="渐进式 rehash"></a>渐进式 rehash</h2><p>Java 的 HashMap 在扩容时会一次性将旧数组下挂接的元素全部转移到新数组下面。如果 HashMap 中元素特别多，线程就会出现卡顿现象。Redis 为了解决这个问题，它采用<strong>渐进式 rehash</strong>。</p>
+<p>它会同时保留旧数组和新数组，然后在定时任务中以及后续对 hash 的指令操作中渐渐地将旧数组中挂接的元素迁移到新数组上。这意味着要操作处于 rehash 中的字典，需要同时访问新旧两个数组结构。如果在旧数组下面找不到元素，还需要去新数组下面去寻找。</p>
+<p>scan 也需要考虑这个问题，对与 rehash 中的字典，它需要同时扫描新旧槽位，然后将结果融合后返回给客户端。</p>
+<h2 id="更多的-scan-指令"><a href="#更多的-scan-指令" class="headerlink" title="更多的 scan 指令"></a>更多的 scan 指令</h2><p>scan 指令是一系列指令，除了可以遍历所有的 key 之外，还可以对指定的容器集合进行遍历。比如 zscan 遍历 zset 集合元素，hscan 遍历 hash 字典的元素、sscan 遍历 set 集合的元素。</p>
+<p>它们的原理同 scan 都会类似的，因为 hash 底层就是字典，set 也是一个特殊的 hash(所有的 value 指向同一个元素)，zset 内部也使用了字典来存储所有的元素内容，所以这里不再赘述。</p>
+<h2 id="大-key-扫描"><a href="#大-key-扫描" class="headerlink" title="大 key 扫描"></a>大 key 扫描</h2><p>有时候会因为业务人员使用不当，在 Redis 实例中会形成很大的对象，比如一个很大的 hash，一个很大的 zset 这都是经常出现的。这样的对象对 Redis 的集群数据迁移带来了很大的问题，因为在集群环境下，如果某个 key 太大，会数据导致迁移卡顿。另外在内存分配上，如果一个 key 太大，那么当它需要扩容时，会一次性申请更大的一块内存，这也会导致卡顿。如果这个大 key 被删除，内存会一次性回收，卡顿现象会再一次产生。</p>
+<p><strong>在平时的业务开发中，要尽量避免大 key 的产生</strong>。</p>
+<p>如果你观察到 Redis 的内存大起大落，这极有可能是因为大 key 导致的，这时候你就需要定位出具体是那个 key，进一步定位出具体的业务来源，然后再改进相关业务代码设计。  </p>
+<p><strong>那如何定位大 key 呢？</strong></p>
+<p>为了避免对线上 Redis 带来卡顿，这就要用到 scan 指令，对于扫描出来的每一个 key，使用 type 指令获得 key 的类型，然后使用相应数据结构的 size 或者 len 方法来得到它的大小，对于每一种类型，保留大小的前 N 名作为扫描结果展示出来。</p>
+<p>上面这样的过程需要编写脚本，比较繁琐，不过 Redis 官方已经在 redis-cli 指令中提供了这样的扫描功能，我们可以直接拿来即用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 7001 –-bigkeys</span><br></pre></td></tr></table></figure>
+<p>如果你担心这个指令会大幅抬升 Redis 的 ops 导致线上报警，还可以增加一个休眠参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 7001 –-bigkeys -i 0.1</span><br></pre></td></tr></table></figure>
+<p>上面这个指令每隔 100 条 scan 指令就会休眠 0.1s，ops 就不会剧烈抬升，但是扫描的时间会变长。</p>
+<h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>感兴趣可以继续深入阅读 <a href="https://mp.weixin.qq.com/s/ufoLJiXE0wU4Bc7ZbE9cDQ" target="_blank" rel="noopener">美团近期修复的Scan的一个bug</a>   </p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p> <a href="https://www.jianshu.com/p/305e65de1b13" target="_blank" rel="noopener">https://www.jianshu.com/p/305e65de1b13</a> </p>
+
+    
+
+    
+</div>
+
+
+                
+		<!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/06/08/BloomFilter-HyperLogLog-BitMap/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/10/28/The-use-and-implementation-of-ThreadLocal/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.jpg" alt="Rico's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        chenhongjie101@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/02/">二月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material chenhongjie 
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+  -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/Ricoccc" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/rico.austin.5" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/103668464393164710629" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

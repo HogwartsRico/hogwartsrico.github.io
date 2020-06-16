@@ -12,7 +12,7 @@
     
     <title>
         
-            LambdaExpression | 
+            CentOS7防火墙配置 | 
         
         Rico&#39;s Blog
     </title>
@@ -38,7 +38,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Rico">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico">
+    <meta name="keywords" content="Rico,Linux">
 
     <!-- Site Verification -->
     
@@ -67,18 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://hogwartsrico.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="LambdaExpression | Rico&#39;s Blog">
+    <meta property="og:title" content="CentOS7防火墙配置 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Linux"> 
 
     
-        <meta property="article:published_time" content="10月 17, 2019">
-        <meta property="article:modified_time" content="3月 24, 2020">
+        <meta property="article:published_time" content="6月 16, 2020">
+        <meta property="article:modified_time" content="6月 16, 2020">
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="LambdaExpression | Rico&#39;s Blog">
+    <meta name="twitter:title" content="CentOS7防火墙配置 | Rico&#39;s Blog">
     <meta name="twitter:description" content>
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -86,7 +86,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/17/LambdaExpression/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/16/CentOS7Firewall/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -112,10 +112,10 @@
         },
         "description": "Javaer"
     },
-    "headline": "LambdaExpression",
-    "url": "http://hogwartsrico.github.io/2019/10/17/LambdaExpression/index.html",
-    "datePublished": "10月 17, 2019",
-    "dateModified": "3月 24, 2020",
+    "headline": "CentOS7防火墙配置",
+    "url": "http://hogwartsrico.github.io/2020/06/16/CentOS7Firewall/index.html",
+    "datePublished": "6月 16, 2020",
+    "dateModified": "6月 16, 2020",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -344,7 +344,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#防火墙状态"><span class="post-toc-number">1.</span> <span class="post-toc-text">防火墙状态</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开启防火墙"><span class="post-toc-number">2.</span> <span class="post-toc-text">开启防火墙</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#关闭防火墙"><span class="post-toc-number">3.</span> <span class="post-toc-text">关闭防火墙</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开启端口"><span class="post-toc-number">4.</span> <span class="post-toc-text">开启端口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#禁用端口"><span class="post-toc-number">5.</span> <span class="post-toc-text">禁用端口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查看端口"><span class="post-toc-number">6.</span> <span class="post-toc-text">查看端口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查看当前开放端口"><span class="post-toc-number">7.</span> <span class="post-toc-text">查看当前开放端口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#重启防火墙-更新规则"><span class="post-toc-number">8.</span> <span class="post-toc-text">重启防火墙:更新规则</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -382,7 +382,7 @@
         
     
             <p class="article-headline-p">
-                LambdaExpression
+                CentOS7防火墙配置
             </p>
         </div>
 
@@ -401,7 +401,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Rico</strong>
-        <span>10月 17, 2019</span>
+        <span>6月 16, 2020</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -425,7 +425,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/Linux/">Linux</a>
     </ul>
     
 
@@ -441,7 +441,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=LambdaExpression&url=http://hogwartsrico.github.io/2019/10/17/LambdaExpression/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=CentOS7防火墙配置&url=http://hogwartsrico.github.io/2020/06/16/CentOS7Firewall/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -450,7 +450,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=LambdaExpression&url=http://hogwartsrico.github.io/2019/10/17/LambdaExpression/index.html&via=Rico" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=CentOS7防火墙配置&url=http://hogwartsrico.github.io/2020/06/16/CentOS7Firewall/index.html&via=Rico" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -459,7 +459,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2019/10/17/LambdaExpression/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2020/06/16/CentOS7Firewall/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -468,7 +468,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2019/10/17/LambdaExpression/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2020/06/16/CentOS7Firewall/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -492,7 +492,42 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <p>centos7版本对防火墙进行加强,不再使用原来的iptables,启用firewalld</p>
+<h1 id="防火墙状态"><a href="#防火墙状态" class="headerlink" title="防火墙状态"></a>防火墙状态</h1><p> 通过systemctl status firewalld查看firewalld状态 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+<p><img src="1.png" alt> </p>
+<p> 发现当前是dead状态，即防火墙未开启。 </p>
+<h1 id="开启防火墙"><a href="#开启防火墙" class="headerlink" title="开启防火墙"></a>开启防火墙</h1><p> 通过systemctl start firewalld开启防火墙，没有任何提示即开启成功 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
+<p><img src="4.png" alt> </p>
+<p> 再次通过systemctl status firewalld查看firewalld状态，显示active（running）即已开启了 </p>
+<h1 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h1><p> 如果要关闭防火墙设置，可能通过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+<p>这条指令来关闭该功能，没有任何提示则关闭成功 </p>
+<p>禁用防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure>
+<h1 id="开启端口"><a href="#开启端口" class="headerlink" title="开启端口"></a>开启端口</h1><p>执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd  --zone=public --add-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+<p>提示success，表示设置成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">参数解释</span><br><span class="line">–zone #作用域</span><br><span class="line">–add-port=80/tcp #添加端口，格式为：端口/通讯协议</span><br><span class="line">–permanent #永久生效，没有此参数重启后失效</span><br></pre></td></tr></table></figure>
+<p>这里的端口哪怕不对外，只要用到就得开。 比如说我3306的mysql端口,不对外(比如远程连接，只本地应用连接),如果没开,本地的程序也是连不上的,必须先开端口才能连上。 如果怕mysql攻击, 云服务器可以在安全组上不提供3306的入方向规则,只防火墙开端口，这样别人也是连不上的，但是本地程序可以连 </p>
+<p><img src="5.png" alt> </p>
+<h1 id="禁用端口"><a href="#禁用端口" class="headerlink" title="禁用端口"></a>禁用端口</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone= public --remove-port=80/tcp --permanent  # 删除</span><br></pre></td></tr></table></figure>
+<h1 id="查看端口"><a href="#查看端口" class="headerlink" title="查看端口"></a>查看端口</h1><p>执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --query-port=80/tcp</span><br></pre></td></tr></table></figure>
+<p>提示yes，即表示该端口开启,否则未开启 </p>
+<p><img src="6.png" alt> </p>
+<h1 id="查看当前开放端口"><a href="#查看当前开放端口" class="headerlink" title="查看当前开放端口"></a>查看当前开放端口</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-ports</span><br></pre></td></tr></table></figure>
+<p><img src="7.png" alt> </p>
+<h1 id="重启防火墙-更新规则"><a href="#重启防火墙-更新规则" class="headerlink" title="重启防火墙:更新规则"></a>重启防火墙:更新规则</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<p>提示success即执行成功 </p>
+<p>这一步非常重要，因为我之前就因为只开了端口，没重启导致jenkins服务无法访问，排查了半天</p>
+<p><img src="3.png" alt> </p>
+<p>通过命令发现Jenkins是启动的，但是访问不了。 结果通过命令<code>firewall-cmd --list-ports</code>看到开放的端口和我设置的不一样,才发现忘记执行防火墙重启 了  ，重启之后就行了</p>
+<p><img src="2.png" alt> </p>
+<p>  在每次修改端口和服务后/etc/firewalld/zones/public.xml文件就会被修改,所以也可以在文件中之间修改,然后重新加载 使用命令实际也是在修改文件，需要重新加载才能生效。 </p>
+<p><img src="8.png" alt> </p>
+
     
 
     
@@ -510,21 +545,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2019/10/21/Hash-in-HashMap/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2019/10/16/JavaThread/" id="post_nav-older" class="next-content">
+        <a href="/2020/06/11/WoBuGuoDiPeiDeRenSheng/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

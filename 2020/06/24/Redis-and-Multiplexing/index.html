@@ -344,7 +344,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#几种-I-O-模型"><span class="post-toc-number">1.</span> <span class="post-toc-text">几种 I/O 模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#阻塞IO"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">阻塞IO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非阻塞IO"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">非阻塞IO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多路复用IO"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">多路复用IO</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Reactor-设计模式"><span class="post-toc-number">2.</span> <span class="post-toc-text">Reactor 设计模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#消息处理流程"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">消息处理流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件事件处理器"><span class="post-toc-number">2.0.1.1.</span> <span class="post-toc-text">文件事件处理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件事件"><span class="post-toc-number">2.0.1.2.</span> <span class="post-toc-text">文件事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件事件处理器-1"><span class="post-toc-number">2.0.1.3.</span> <span class="post-toc-text">文件事件处理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#客户端与redis通信的一次流程"><span class="post-toc-number">2.0.1.4.</span> <span class="post-toc-text">客户端与redis通信的一次流程</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多路复用模块"><span class="post-toc-number">3.</span> <span class="post-toc-text">多路复用模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#子模块的选择"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">子模块的选择</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为啥Redis单线程模型也能效率这么高？"><span class="post-toc-number">4.</span> <span class="post-toc-text">为啥Redis单线程模型也能效率这么高？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考："><span class="post-toc-number">5.</span> <span class="post-toc-text">参考：</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#几种-I-O-模型"><span class="post-toc-number">1.</span> <span class="post-toc-text">几种 I/O 模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#阻塞IO"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">阻塞IO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非阻塞IO"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">非阻塞IO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多路复用IO"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">多路复用IO</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Reactor-设计模式"><span class="post-toc-number">2.</span> <span class="post-toc-text">Reactor 设计模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#消息处理流程"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">消息处理流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件事件处理器"><span class="post-toc-number">2.0.1.1.</span> <span class="post-toc-text">文件事件处理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件事件"><span class="post-toc-number">2.0.1.2.</span> <span class="post-toc-text">文件事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件事件处理器-1"><span class="post-toc-number">2.0.1.3.</span> <span class="post-toc-text">文件事件处理器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#客户端与redis通信的一次流程"><span class="post-toc-number">2.0.1.4.</span> <span class="post-toc-text">客户端与redis通信的一次流程</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多路复用模块"><span class="post-toc-number">3.</span> <span class="post-toc-text">多路复用模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#子模块的选择"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">子模块的选择</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#动图理解"><span class="post-toc-number">4.</span> <span class="post-toc-text">动图理解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#select、poll、epoll"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">select、poll、epoll</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为啥Redis单线程模型也能效率这么高？"><span class="post-toc-number">5.</span> <span class="post-toc-text">为啥Redis单线程模型也能效率这么高？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考："><span class="post-toc-number">6.</span> <span class="post-toc-text">参考：</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -551,11 +551,42 @@
 <p><img src="5.png" alt> </p>
 <p>整个 I/O 多路复用模块抹平了不同平台上 I/O 多路复用函数的差异性，提供了相同的接口</p>
 <h2 id="子模块的选择"><a href="#子模块的选择" class="headerlink" title="子模块的选择"></a>子模块的选择</h2><p>因为 Redis 需要在多个平台上运行，同时为了最大化执行的效率与性能，所以会根据编译平台的不同选择不同的 I/O 多路复用函数作为子模块，提供给上层统一的接口；在 Redis 中，我们通过宏定义的使用，合理的选择不同的子模块：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ifdef HAVE_EVPORT</span><br><span class="line">include <span class="string">"ae_evport.c"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    ifdef HAVE_EPOLL</span><br><span class="line">    include <span class="string">"ae_epoll.c"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        ifdef HAVE_KQUEUE</span><br><span class="line">        include <span class="string">"ae_kqueue.c"</span></span><br><span class="line">        elsec</span><br><span class="line">        include <span class="string">"ae_select.c"</span></span><br><span class="line">        endif</span><br><span class="line">    endif</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ifdef HAVE_EVPORT</span><br><span class="line">include <span class="string">"ae_evport.c"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    ifdef HAVE_EPOLL</span><br><span class="line">    include <span class="string">"ae_epoll.c"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        ifdef HAVE_KQUEUE</span><br><span class="line">        include <span class="string">"ae_kqueue.c"</span></span><br><span class="line">        elsec</span><br><span class="line">        include <span class="string">"ae_select.c"</span></span><br><span class="line">        endif</span><br><span class="line">    endif</span><br></pre></td></tr></table></figure>
 <p>  因为 <code>select</code> 函数是作为 POSIX 标准中的系统调用，在不同版本的操作系统上都会实现，所以将其作为保底方案： </p>
 <p><img src="8.png" alt> </p>
 <p>Redis 会优先选择时间复杂度为 $O(1)$ 的 I/O 多路复用函数作为底层实现，包括 Solaries 10 中的 <code>evport</code>、Linux 中的 <code>epoll</code> 和 macOS/FreeBSD 中的 <code>kqueue</code>，上述的这些函数都使用了内核内部的结构，并且能够服务几十万的文件描述符。</p>
 <p>但是如果当前编译环境没有上述函数，就会选择 <code>select</code> 作为备选方案，由于其在使用时会扫描全部监听的描述符，所以其时间复杂度较差 $O(n)$，并且只能同时服务 1024 个文件描述符，所以一般并不会以 <code>select</code> 作为第一方案使用。</p>
+<h1 id="动图理解"><a href="#动图理解" class="headerlink" title="动图理解"></a>动图理解</h1><p> 通常的一次的请求结果如下图所示： </p>
+<p><img src="10.gif" alt> </p>
+<p> 但是，服务器往往不会只处理一次请求，往往是多个请求，这一个请求，这时候每来一个请求，就会生成一个进程或线程。 </p>
+<p><img src="11.png" alt></p>
+<p>在这些请求线程或者进程中，大部分都处于等待阶段，只有少部分是接收数据。这样一来，非常耗费资源，而且这些线程或者进程的管理，也是个事儿。</p>
+<p><img src="12.png" alt> </p>
+<p>于是，有人想到一个办法：我们只用一个线程或者进程来和系统内核打交道，并想办法把每个应用的I/O流状态记录下来，一有响应变及时返回给相应的应用。</p>
+<p><img src="13.png" alt> </p>
+<p> 或者下图： </p>
+<p><img src="14.png" alt> </p>
+<h2 id="select、poll、epoll"><a href="#select、poll、epoll" class="headerlink" title="select、poll、epoll"></a>select、poll、epoll</h2><p>select, poll, epoll 都是I/O多路复用的具体实现，他们出现是有先后顺序的。</p>
+<p>select是第一个实现 (1983 左右在BSD里面实现的)。</p>
+<p>select 被实现后，发现诸多问题，然后1997年实现了poll，对select进行了改进，select和poll是很类似的。</p>
+<p>再后来，2002做出重大改进实现了epoll。</p>
+<p>epoll和 select/poll 有着很大的不同：</p>
+<p>例如：select/poll的处理流程如下：</p>
+<p> <img src="15.gif" alt></p>
+<p>而epoll的处理流程如下：</p>
+<p><img src="16.gif" alt> </p>
+<p>这样，就无需遍历成千上万个消息列表了，直接可以定位哪个socket有数据。</p>
+<p>那么，这是如何实现的呢？</p>
+<p>早期的时候 epoll的实现是一个哈希表，但是后来由于占用空间比较大，改为了红黑树和链表</p>
+<p><img src="17.jpg" alt> </p>
+<p>其中链表中全部为活跃的链接，红黑树中放的是所有事件。两部分各司其职。 这样一来，当收到内核的数据时，只需遍历链表中的数据就行了，而注册read事件或者write事件的时候，向红黑树中记录。</p>
+<p>结果导致：</p>
+<ul>
+<li>创建\修改\删除消息效率非常高：O(logN)。</li>
+<li>获取活跃链接也非常快，因为在一个时间内，大部分是不活跃的链接，活跃的链接是少数，只需要遍历少数活跃的链接就好了</li>
+</ul>
+<p> select：将之前传入的fd_set拷贝传出到用户态并返回就绪的文件描述符总数。用户态并不知道是哪些文件描述符处于就绪态，需要遍历来判断。 </p>
+<p> epoll：epoll_wait只用观察就绪链表中有无数据即可，最后将链表的数据返回给数组并返回就绪的数量。内核将就绪的文件描述符放在传入的数组中，所以只用遍历依次处理即可。这里返回的文件描述符是通过mmap让内核和用户空间共享同一块内存实现传递的，减少了不必要的拷贝。 </p>
 <h1 id="为啥Redis单线程模型也能效率这么高？"><a href="#为啥Redis单线程模型也能效率这么高？" class="headerlink" title="为啥Redis单线程模型也能效率这么高？"></a>为啥Redis单线程模型也能效率这么高？</h1><p><strong>1）纯内存操作</strong></p>
 <p>Redis 将所有数据放在内存中，内存的响应时长大约为 100 纳秒，这是 redis 的   QPS 过万的重要基础。</p>
 <p><strong>2）核心是基于非阻塞的IO多路复用机制</strong></p>
@@ -570,6 +601,8 @@
 <p> <a href="https://juejin.im/post/583d11bd128fe1006bf0ec0f" target="_blank" rel="noopener">https://juejin.im/post/583d11bd128fe1006bf0ec0f</a>  </p>
 <p> <a href="https://juejin.im/post/5dabdb1ee51d45216d7b166a" target="_blank" rel="noopener">https://juejin.im/post/5dabdb1ee51d45216d7b166a</a> </p>
 <p> <a href="https://juejin.im/post/5e5dcab26fb9a07ce271f6ec" target="_blank" rel="noopener">https://juejin.im/post/5e5dcab26fb9a07ce271f6ec</a></p>
+<p> <a href="https://juejin.im/post/5dc83f22f265da4cf677c461?utm_source=gold_browser_extension" target="_blank" rel="noopener">https://juejin.im/post/5dc83f22f265da4cf677c461?utm_source=gold_browser_extension</a> </p>
+<p> <a href="https://mp.weixin.qq.com/s/FRg_lSHDiZofzTZApU6z9Q" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/FRg_lSHDiZofzTZApU6z9Q</a> </p>
 
     
 

@@ -5,8 +5,42 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!-- Title -->
     
@@ -17,115 +51,18 @@
         Rico&#39;s Blog
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico,Spring">
-
-    <!-- Site Verification -->
-    
-    
-
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,Spring">
+    <meta name="theme-color" content="#0097A7">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://hogwartsrico.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Spring中的代理 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="Spring"> 
-
-    
-        <meta property="article:published_time" content="9月 01, 2018">
-        <meta property="article:modified_time" content="3月 24, 2020">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Spring中的代理 | Rico&#39;s Blog">
-    <meta name="twitter:description" content>
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="http://hogwartsrico.github.io">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Rico&#39;s Blog",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Rico",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "Javaer"
-    },
-    "headline": "Spring中的代理",
-    "url": "http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html",
-    "datePublished": "9月 01, 2018",
-    "dateModified": "3月 24, 2020",
-    "description": "",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://hogwartsrico.github.io"
-    }
-}
-</script>
-
-
-    
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -136,47 +73,38 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
 
-    <!-- Import CSS & jQuery -->
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -274,28 +202,73 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Spring中的代理 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="Spring"> 
+
+    
+        <meta property="article:published_time" content="Sat Sep 01 2018 21:41:43 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 24 2020 11:19:16 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
 
     <!-- Analytics -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    
+    
+    
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -313,7 +286,7 @@
                     
                         <!-- Hamburger Button -->
                         <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
                         </button>
                     
 
@@ -336,23 +309,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代理模式（Proxy）"><span class="post-toc-number">1.</span> <span class="post-toc-text">代理模式（Proxy）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自己编写Proxy和ClassLoader-InvocationHandler"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">自己编写Proxy和ClassLoader,InvocationHandler</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CGLib案例"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">CGLib案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#何时Spring使用JDK-CGLib代理"><span class="post-toc-number">2.</span> <span class="post-toc-text">何时Spring使用JDK/CGLib代理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-number">3.</span> <span class="post-toc-text">扩展阅读:</span></a></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
     
-
 
 
 
@@ -396,7 +365,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -430,7 +399,8 @@
     
 
     <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
     <span class="visuallyhidden">share</span>
 </button>
@@ -441,7 +411,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Spring中的代理&url=http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Spring中的代理&url=http://hogwartsrico.github.io/2018/09/01/proxy-in-Spring/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -485,6 +455,7 @@
     
 </ul>
 
+    
 </div>
 
                 
@@ -506,20 +477,84 @@
 <p>Spring的Proxy模式在AOP中有体现，比如JdkDynamicAopProxy和Cglib2AopProxy。</p>
 <p>代码举例：租房子</p>
 <p>定义一个人，要找房子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> findHouse;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">	<span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function">String <span class="title">getAddress</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">findHouse</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">anotherMethod</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package findHouse;
+public interface Person {
+    String getName();
+    String getAddress();
+    void findHouse();
+    void anotherMethod();
+}
+</code></pre>
 <p>定义个张三，要找房子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> findHouse;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhangsan</span> <span class="keyword">implements</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name=<span class="string">"张三"</span>;</span><br><span class="line">	<span class="keyword">private</span> String address=<span class="string">"西湖"</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findHouse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是"</span>+<span class="keyword">this</span>.getName()+<span class="string">",我住"</span>+<span class="keyword">this</span>.getAddress()+<span class="string">"附近，要租房子"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">anotherMethod</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"另一个方法"</span>); &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> address; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAddress</span><span class="params">(String address)</span> </span>&#123; <span class="keyword">this</span>.address = address; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package findHouse;
+public class Zhangsan implements Person{
+    private String name=&quot;张三&quot;;
+    private String address=&quot;西湖&quot;;
+    public void findHouse() {
+        System.out.println(&quot;我是&quot;+this.getName()+&quot;,我住&quot;+this.getAddress()+&quot;附近，要租房子&quot;);
+    }
+    public void anotherMethod() { System.out.println(&quot;另一个方法&quot;); }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+}
+</code></pre>
 <p>如果不使用任何模式，最简单的调用是这样</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> findHouse;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFindHouse</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Person person=<span class="keyword">new</span> Zhangsan();</span><br><span class="line">		person.findHouse();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package findHouse;
+public class TestFindHouse {
+    public static void main(String[] args) {
+        Person person=new Zhangsan();
+        person.findHouse();
+    }
+}
+</code></pre>
 <p><img src="5.png" alt></p>
 <p>但是张三是个上班族，没时间租房子，就去找中介。 </p>
 <p>中介类</p>
 <p>在使用动态代理时，我们需要定义一个位于代理类与委托类之间的中介类，<strong>这个中介类被要求实现InvocationHandler接口</strong> </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> findHouse;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"><span class="comment">//中介</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhongjie</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;<span class="comment">//实现这个接口才具有代理功能</span></span><br><span class="line">	<span class="keyword">private</span> Person target;</span><br><span class="line">	<span class="comment">//获取被代理人的个人资料</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getInstance</span><span class="params">(Person target)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.target=target;</span><br><span class="line">		Class clazz=target.getClass();</span><br><span class="line">		ClassLoader loader=clazz.getClassLoader();</span><br><span class="line">		<span class="keyword">return</span> Proxy.newProxyInstance(loader, clazz.getInterfaces(), <span class="keyword">this</span>);<span class="comment">//第一个参数是ClassLoader,第二个参数是interfaces,第三个参数是InvocationHandler</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"代理开始"</span>);</span><br><span class="line">		System.out.println(<span class="string">"我是中介，你叫"</span>+<span class="keyword">this</span>.target.getName()+<span class="string">",你住"</span>+<span class="keyword">this</span>.target.getAddress()+<span class="string">"附近，我帮你找房子,找了几个合适的你挑选一下"</span>);</span><br><span class="line">		<span class="comment">//this.target.findHouse();</span></span><br><span class="line">		Object result = method.invoke(<span class="keyword">this</span>.target, args);<span class="comment">//这里其实并没有返回值</span></span><br><span class="line">		System.out.println(<span class="string">"代理结束"</span>);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package findHouse;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+//中介
+public class Zhongjie implements InvocationHandler{//实现这个接口才具有代理功能
+    private Person target;
+    //获取被代理人的个人资料
+    public Object getInstance(Person target) throws Exception {
+        this.target=target;
+        Class clazz=target.getClass();
+        ClassLoader loader=clazz.getClassLoader();
+        return Proxy.newProxyInstance(loader, clazz.getInterfaces(), this);//第一个参数是ClassLoader,第二个参数是interfaces,第三个参数是InvocationHandler
+    }
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println(&quot;代理开始&quot;);
+        System.out.println(&quot;我是中介，你叫&quot;+this.target.getName()+&quot;,你住&quot;+this.target.getAddress()+&quot;附近，我帮你找房子,找了几个合适的你挑选一下&quot;);
+        //this.target.findHouse();
+        Object result = method.invoke(this.target, args);//这里其实并没有返回值
+        System.out.println(&quot;代理结束&quot;);
+        return result;
+    }
+}
+</code></pre>
 <p>从InvocationHandler这个名称我们就可以知道，实现了这个接口的中介类用做“调用处理器”。<strong>当我们调用代理类对象的方法时，这个“调用”会转送到invoke方法中</strong>，代理类对象作为proxy参数传入，参数method标识了我们具体调用的是代理类的哪个方法，args为这个方法的参数。这样一来，我们对代理类中的所有方法的调用都会变为对invoke的调用，这样我们可以在invoke方法中添加统一的处理逻辑（也可以根据method参数对不同的代理类方法做不同的处理）</p>
 <p>中介类实现InvocationHandler接口，作为调用处理器”拦截“对代理类方法的调用</p>
 <p>测试类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> findHouse;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFindHouse</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Zhongjie zhongjie=<span class="keyword">new</span> Zhongjie();<span class="comment">//中介</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Person obj=(Person)zhongjie.getInstance(<span class="keyword">new</span> Zhangsan());</span><br><span class="line">			System.out.println(<span class="string">"代理后生成的class:"</span>+obj.getClass().getName());</span><br><span class="line">			obj.findHouse();</span><br><span class="line">			<span class="comment">//obj.anotherMethod();</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package findHouse;
+public class TestFindHouse {
+    public static void main(String[] args) {
+        Zhongjie zhongjie=new Zhongjie();//中介
+        try {
+            Person obj=(Person)zhongjie.getInstance(new Zhangsan());
+            System.out.println(&quot;代理后生成的class:&quot;+obj.getClass().getName());
+            obj.findHouse();
+            //obj.anotherMethod();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
 <p><img src="6.png" alt></p>
 <p>从以上代码中我们可以看到，中介类持有一个<strong>委托类对象引用，在invoke方法中调用了委托类对象的相应方法</strong>， </p>
 <p> 感觉上就是 ，中介类可以在调用张三的找房方法前，先执行一些逻辑，然后调用张三的找房，然后在执行以下后续方法。</p>
@@ -551,42 +586,261 @@
 <p><code>Proxy.newProxyInstance(loader, clazz.getInterfaces(), this)</code> 把Zhongjie的this当做第三个参数传入,所以h就是中介类</p>
 <p>所以上图代码中的</p>
 <p><code>this.h.invoke(this.m4.null)</code>就是调用了 zhangsan类中的invoke方法，而中介类的invoke的代码是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"代理开始"</span>);</span><br><span class="line">System.out.println(<span class="string">"我是中介，你叫"</span>+<span class="keyword">this</span>.target.getName()+<span class="string">",你住"</span>+<span class="keyword">this</span>.target.getAddress()+<span class="string">"附近，我帮你找房子,找了几个合适的你挑选一下"</span>);</span><br><span class="line">Object result = method.invoke(<span class="keyword">this</span>.target, args);<span class="comment">//这里其实并没有返回值</span></span><br><span class="line">System.out.println(<span class="string">"代理结束"</span>);</span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">System.out.println(&quot;代理开始&quot;);
+System.out.println(&quot;我是中介，你叫&quot;+this.target.getName()+&quot;,你住&quot;+this.target.getAddress()+&quot;附近，我帮你找房子,找了几个合适的你挑选一下&quot;);
+Object result = method.invoke(this.target, args);//这里其实并没有返回值
+System.out.println(&quot;代理结束&quot;);
+return result;
+</code></pre>
 <p>其中有一行是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object result = method.invoke(<span class="keyword">this</span>.target, args);</span><br></pre></td></tr></table></figure>
+<pre><code class="java">Object result = method.invoke(this.target, args);
+</code></pre>
 <p>又调用了method.lnvoke,这才真正调用了张三的实际方法，但是在调用张三方法之前和之后，就是我们在代理类中需要在调用张三方法之前需要执行的操作，达到了我们的目的</p>
 <p>了解清楚代理原理和代理模式对后续看Spring源码有帮助。 修炼内功心法 </p>
 <h2 id="自己编写Proxy和ClassLoader-InvocationHandler"><a href="#自己编写Proxy和ClassLoader-InvocationHandler" class="headerlink" title="自己编写Proxy和ClassLoader,InvocationHandler"></a>自己编写Proxy和ClassLoader,InvocationHandler</h2><p>根据接口生成java代码的方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重新根据接口生成代码(拼代码)</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span>  String <span class="title">generateSourceCode</span><span class="params">(Class&lt;?&gt; interfaces)</span> </span>&#123;</span><br><span class="line"> <span class="comment">//包名</span></span><br><span class="line"> StringBuilder sourceCode=<span class="keyword">new</span> StringBuilder(<span class="string">"package org.rico.learnSpring.customProxy;"</span>).append(ln);<span class="comment">//包名</span></span><br><span class="line"> <span class="comment">//导包</span></span><br><span class="line"> sourceCode.append(<span class="string">"import java.lang.reflect.Method;"</span>).append(ln).append(ln);</span><br><span class="line"> <span class="comment">//声明类</span></span><br><span class="line"> sourceCode.append(<span class="string">"public  class $Proxy0 implements "</span>).append(interfaces.getName()).append(<span class="string">"&#123;"</span>).append(ln);<span class="comment">//这里只实现了一个，如果通用的话要写循环//这里的类名是随便的，只要.java文件和类名一样就可以了这里是$Proxy0</span></span><br><span class="line"> sourceCode.append(<span class="string">"  MyInvocationHandler h;"</span>).append(ln);<span class="comment">//域 局部变量</span></span><br><span class="line"> <span class="comment">//构造函数</span></span><br><span class="line">       sourceCode.append(<span class="string">"  public $Proxy0(MyInvocationHandler h)&#123;"</span>).append(ln);<span class="comment">//这个构造函数名应该是动态生成的，但是这里写死了,为了方便</span></span><br><span class="line"> sourceCode.append(<span class="string">"    this.h=h;"</span>).append(ln);</span><br><span class="line"> sourceCode.append(<span class="string">"&#125;"</span>).append(ln);<span class="comment">//匹配public $Proxy0的&#123;</span></span><br><span class="line"> <span class="keyword">for</span>(Method m:interfaces.getMethods())&#123;</span><br><span class="line">	 sourceCode.append(<span class="string">"  public "</span>).append(m.getReturnType().getName()).append(<span class="string">" "</span>).append(m.getName()).append(<span class="string">"()&#123;"</span>).append(ln);<span class="comment">//我们的Person方法都是无参的，这里也是图简便，应该是要把参数也遍历出来的</span></span><br><span class="line">	 sourceCode.append(<span class="string">"    try&#123;"</span>).append(ln);</span><br><span class="line">	 <span class="comment">//获取这个Method</span></span><br><span class="line">	 sourceCode.append(<span class="string">"        Method m = "</span>).append(interfaces.getName()).append(<span class="string">".class.getMethod(\""</span>).append(m.getName()).append(<span class="string">"\",new Class[0]);"</span>).append(ln);<span class="comment">//new Class[]&#123;&#125;</span></span><br><span class="line">	 sourceCode.append(<span class="string">"        this.h.invoke(this,m,null);"</span>).append(ln);</span><br><span class="line">	 sourceCode.append(<span class="string">"    &#125;catch(Throwable e)&#123;e.printStackTrace();&#125;"</span>).append(ln);</span><br><span class="line">	 <span class="keyword">if</span>(!m.getReturnType().getName().equals(<span class="string">"void"</span>))&#123;<span class="comment">//如果返回值不为空,返回</span></span><br><span class="line">		 sourceCode.append(<span class="string">"    return null;"</span>).append(ln);<span class="comment">//这里为了方便直接返回null</span></span><br><span class="line">	 &#125;</span><br><span class="line">	 sourceCode.append(<span class="string">"  &#125;"</span>).append(ln);</span><br><span class="line"> &#125;</span><br><span class="line"> sourceCode.append(<span class="string">"&#125;"</span>);<span class="comment">//匹配public class 的 &#123;</span></span><br><span class="line"> <span class="keyword">return</span> sourceCode.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">     //重新根据接口生成代码(拼代码)
+     private static  String generateSourceCode(Class&lt;?&gt; interfaces) {
+         //包名
+         StringBuilder sourceCode=new StringBuilder(&quot;package org.rico.learnSpring.customProxy;&quot;).append(ln);//包名
+         //导包
+         sourceCode.append(&quot;import java.lang.reflect.Method;&quot;).append(ln).append(ln);
+         //声明类
+         sourceCode.append(&quot;public  class $Proxy0 implements &quot;).append(interfaces.getName()).append(&quot;{&quot;).append(ln);//这里只实现了一个，如果通用的话要写循环//这里的类名是随便的，只要.java文件和类名一样就可以了这里是$Proxy0
+         sourceCode.append(&quot;  MyInvocationHandler h;&quot;).append(ln);//域 局部变量
+         //构造函数
+         sourceCode.append(&quot;  public $Proxy0(MyInvocationHandler h){&quot;).append(ln);//这个构造函数名应该是动态生成的，但是这里写死了,为了方便
+         sourceCode.append(&quot;    this.h=h;&quot;).append(ln);
+         sourceCode.append(&quot;}&quot;).append(ln);//匹配public $Proxy0的{
+         for(Method m:interfaces.getMethods()){
+             sourceCode.append(&quot;  public &quot;).append(m.getReturnType().getName()).append(&quot; &quot;).append(m.getName()).append(&quot;(){&quot;).append(ln);//我们的Person方法都是无参的，这里也是图简便，应该是要把参数也遍历出来的
+             sourceCode.append(&quot;    try{&quot;).append(ln);
+             //获取这个Method
+             sourceCode.append(&quot;        Method m = &quot;).append(interfaces.getName()).append(&quot;.class.getMethod(\&quot;&quot;).append(m.getName()).append(&quot;\&quot;,new Class[0]);&quot;).append(ln);//new Class[]{}
+             sourceCode.append(&quot;        this.h.invoke(this,m,null);&quot;).append(ln);
+             sourceCode.append(&quot;    }catch(Throwable e){e.printStackTrace();}&quot;).append(ln);
+             if(!m.getReturnType().getName().equals(&quot;void&quot;)){//如果返回值不为空,返回
+                 sourceCode.append(&quot;    return null;&quot;).append(ln);//这里为了方便直接返回null
+             }
+             sourceCode.append(&quot;  }&quot;).append(ln);
+         }
+         sourceCode.append(&quot;}&quot;);//匹配public class 的 {
+         return sourceCode.toString();
+     }
+</code></pre>
 <p>生成的java代码</p>
 <p><img src="15.png" alt> </p>
 <p>编写的这个generageSourceCode方法也是不断尝试，直到生成的.java文件放在工程中不报错了就可以了 ,经常会出现括号不成对出现，返回值，大小写等的问题 </p>
 <p>编译java文件成class文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3 编译源代码 ,并且生成.class文件 </span></span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line">	 JavaCompiler compiler= ToolProvider.getSystemJavaCompiler();<span class="comment">//javax提供的编译器</span></span><br><span class="line">	 StandardJavaFileManager manager=compiler.getStandardFileManager(<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line">	 Iterable iterable=manager.getJavaFileObjects(f);<span class="comment">//获取迭代器 就是为了找到Java文件</span></span><br><span class="line">	 JavaCompiler.CompilationTask task=compiler.getTask(<span class="keyword">null</span>,manager,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,iterable);<span class="comment">//编译任务</span></span><br><span class="line">	 task.call();</span><br><span class="line">	 manager.close();</span><br><span class="line"> &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">	 e.printStackTrace();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">        //3 编译源代码 ,并且生成.class文件 
+         try {
+             JavaCompiler compiler= ToolProvider.getSystemJavaCompiler();//javax提供的编译器
+             StandardJavaFileManager manager=compiler.getStandardFileManager(null,null,null);
+             Iterable iterable=manager.getJavaFileObjects(f);//获取迭代器 就是为了找到Java文件
+             JavaCompiler.CompilationTask task=compiler.getTask(null,manager,null,null,null,iterable);//编译任务
+             task.call();
+             manager.close();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+</code></pre>
 <p>完整源码</p>
 <p>测试类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</span><br><span class="line"><span class="keyword">import</span> org.rico.learnSpring.findHouse.Person;</span><br><span class="line"><span class="keyword">import</span> org.rico.learnSpring.findHouse.Zhangsan;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFindHouse</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		MyZhongjie zhongjie=<span class="keyword">new</span> MyZhongjie();<span class="comment">//中介</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Person obj=(Person)zhongjie.getInstance(<span class="keyword">new</span> Zhangsan());<span class="comment">//代理出来的对象可以强转成接口的 ，当然zhangsan也要实现Person</span></span><br><span class="line">			System.out.println(<span class="string">"代理后生成的class:"</span>+obj.getClass().getName());</span><br><span class="line">			obj.findHouse();</span><br><span class="line">			<span class="comment">//obj.anotherMethod();</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package org.rico.learnSpring.customProxy;
+import org.rico.learnSpring.findHouse.Person;
+import org.rico.learnSpring.findHouse.Zhangsan;
+public class TestFindHouse {
+    public static void main(String[] args) {
+        MyZhongjie zhongjie=new MyZhongjie();//中介
+        try {
+            Person obj=(Person)zhongjie.getInstance(new Zhangsan());//代理出来的对象可以强转成接口的 ，当然zhangsan也要实现Person
+            System.out.println(&quot;代理后生成的class:&quot;+obj.getClass().getName());
+            obj.findHouse();
+            //obj.anotherMethod();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
 <p>中介类 MyZhongjie.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</span><br><span class="line"><span class="keyword">import</span> org.rico.learnSpring.findHouse.Person;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="comment">//房屋中介类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyZhongjie</span> <span class="keyword">implements</span> <span class="title">MyInvocationHandler</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Person target;</span><br><span class="line">	<span class="comment">//获取被代理人的个人资料</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getInstance</span><span class="params">(Person target)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.target=target;</span><br><span class="line">		Class clazz=target.getClass();</span><br><span class="line">		System.out.println(<span class="string">"被代理对象的class是:"</span>+clazz.getName());		</span><br><span class="line">		<span class="keyword">return</span> MyProxy.newProxyInstance(<span class="keyword">new</span> MyClassLoader(), clazz.getInterfaces(), <span class="keyword">this</span>);<span class="comment">//第一个参数是ClassLoader,第二个参数是interfaces,第三个参数是InvocationHandler也即本身，因为zhongjie本身实现了InvocationHandler</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"代理开始"</span>);</span><br><span class="line">		System.out.println(<span class="string">"我是中介，你叫"</span>+<span class="keyword">this</span>.target.getName()+<span class="string">",你住"</span>+<span class="keyword">this</span>.target.getAddress()+<span class="string">"附近，我帮你找房子,找了几个合适的你挑选一下"</span>);</span><br><span class="line">		Object result = method.invoke(<span class="keyword">this</span>.target, args);<span class="comment">//这里其实并没有返回值</span></span><br><span class="line">		System.out.println(<span class="string">"代理结束"</span>);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package org.rico.learnSpring.customProxy;
+import org.rico.learnSpring.findHouse.Person;
+import java.lang.reflect.Method;
+//房屋中介类
+public class MyZhongjie implements MyInvocationHandler{
+    private Person target;
+    //获取被代理人的个人资料
+    public Object getInstance(Person target) throws Exception {
+        this.target=target;
+        Class clazz=target.getClass();
+        System.out.println(&quot;被代理对象的class是:&quot;+clazz.getName());        
+        return MyProxy.newProxyInstance(new MyClassLoader(), clazz.getInterfaces(), this);//第一个参数是ClassLoader,第二个参数是interfaces,第三个参数是InvocationHandler也即本身，因为zhongjie本身实现了InvocationHandler
+    }
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println(&quot;代理开始&quot;);
+        System.out.println(&quot;我是中介，你叫&quot;+this.target.getName()+&quot;,你住&quot;+this.target.getAddress()+&quot;附近，我帮你找房子,找了几个合适的你挑选一下&quot;);
+        Object result = method.invoke(this.target, args);//这里其实并没有返回值
+        System.out.println(&quot;代理结束&quot;);
+        return result;
+    }
+}
+</code></pre>
 <p>其中用到了MyProxy和MyInvocationhandler接口还有MyClassLoader</p>
 <p>代理类MyProxy.java的newProxyInstance会生成新的java源码并编译成class然后classLoader会加载进JVM,gtInstance方法return的就是这个新生成并加载的class 然后用Person接口来接收(在测试类中)，然后调用findHouse时就调用了这个新生成的类的findHouse(见上图新“生成的类”) 而这个findHouse方法又调用了中介的invoke方法，当然会把实际调用的方法名也传入，例如findhouse，然后调到了中介的invoke方法，中介的invoke方法是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"代理开始"</span>);</span><br><span class="line">System.out.println(<span class="string">"我是中介，你叫"</span>+<span class="keyword">this</span>.target.getName()+<span class="string">",你住"</span>+<span class="keyword">this</span>.target.getAddress()+<span class="string">"附近，我帮你找房子,找了几个合适的你挑选一下"</span>);</span><br><span class="line">Object result = method.invoke(<span class="keyword">this</span>.target, args);<span class="comment">//这里其实并没有返回值</span></span><br><span class="line">System.out.println(<span class="string">"代理结束"</span>);</span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">System.out.println(&quot;代理开始&quot;);
+System.out.println(&quot;我是中介，你叫&quot;+this.target.getName()+&quot;,你住&quot;+this.target.getAddress()+&quot;附近，我帮你找房子,找了几个合适的你挑选一下&quot;);
+Object result = method.invoke(this.target, args);//这里其实并没有返回值
+System.out.println(&quot;代理结束&quot;);
+return result;
+</code></pre>
 <p>其中有一行是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object result = method.invoke(<span class="keyword">this</span>.target, args);</span><br></pre></td></tr></table></figure>
+<pre><code class="java">Object result = method.invoke(this.target, args);
+</code></pre>
 <p>又调用了method.lnvoke,这才真正调用了张三的实际方法，但是在调用张三方法之前和之后，就是我们在代理类中需要在调用张三方法之前需要执行的操作，达到了我们的目的</p>
 <p>下面是MyProxy的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</span><br><span class="line"><span class="keyword">import</span> javax.tools.JavaCompiler;</span><br><span class="line"><span class="keyword">import</span> javax.tools.StandardJavaFileManager;</span><br><span class="line"><span class="keyword">import</span> javax.tools.ToolProvider;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Constructor;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="comment">//这个类会生成代理对象的代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyProxy</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span>  <span class="keyword">final</span> String  ln=<span class="string">"\n"</span>;<span class="comment">//换行</span></span><br><span class="line">     <span class="comment">//这个方法很重要 用于生成代理对象的代码</span></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(MyClassLoader loader,  Class&lt;?&gt;[] interfaces,  MyInvocationHandler h)</span> </span>&#123;</span><br><span class="line">		 <span class="comment">//1 生成源代码</span></span><br><span class="line">		 String proxySourceCode=generateSourceCode(interfaces[<span class="number">0</span>]);</span><br><span class="line">		 <span class="comment">//2 将生成的源代码输出到磁盘，保存为.java文件</span></span><br><span class="line">		 final String filePath = MyProxy.class.getResource("").getPath();</span><br><span class="line">		 <span class="comment">//final String filePath = "C:\\Users\\chenhongjie\\Desktop\\";</span></span><br><span class="line">		 File f= <span class="keyword">new</span> File(filePath+<span class="string">"$Proxy0.java"</span>);<span class="comment">//.java文件名和类名一致</span></span><br><span class="line">		 <span class="keyword">try</span> &#123;</span><br><span class="line">			 FileWriter fw=<span class="keyword">new</span> FileWriter(f);</span><br><span class="line">			 fw.write(proxySourceCode);</span><br><span class="line">			 fw.flush();</span><br><span class="line">			 fw.close();</span><br><span class="line">		 &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			 e.printStackTrace();</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="comment">//3 编译源代码 ,并且生成.class文件 </span></span><br><span class="line">		 <span class="keyword">try</span> &#123;</span><br><span class="line">			 JavaCompiler compiler= ToolProvider.getSystemJavaCompiler();<span class="comment">//javax提供的编译器</span></span><br><span class="line">			 StandardJavaFileManager manager=compiler.getStandardFileManager(<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line">			 Iterable iterable=manager.getJavaFileObjects(f);<span class="comment">//获取迭代器 就是为了找到Java文件</span></span><br><span class="line">			 JavaCompiler.CompilationTask task=compiler.getTask(<span class="keyword">null</span>,manager,<span class="keyword">null</span>,<span class="keyword">null</span>,<span class="keyword">null</span>,iterable);<span class="comment">//编译任务</span></span><br><span class="line">			 task.call();</span><br><span class="line">			 manager.close();</span><br><span class="line">			 <span class="comment">//4 通过MyClassLoader将class文件中的内容动态加载到JVM中来</span></span><br><span class="line">			 Class  proxyClass=loader.findClass(<span class="string">"$Proxy0"</span>);</span><br><span class="line">			 Constructor c=proxyClass.getConstructor(MyInvocationHandler<span class="class">.<span class="keyword">class</span>)</span>;<span class="comment">//定义构造函数</span></span><br><span class="line">			 f.delete();<span class="comment">//获取到构造函数后可以把源文件删掉 JDK是这么做的，当然你也可以不删</span></span><br><span class="line">			 <span class="comment">//5 返回被代理后的代理对象</span></span><br><span class="line">			 <span class="keyword">return</span> c.newInstance(h);</span><br><span class="line">		 &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			 e.printStackTrace();</span><br><span class="line">		 &#125;</span><br><span class="line">		 <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	 &#125;</span><br><span class="line">	 </span><br><span class="line">	 <span class="comment">//重新根据接口生成代码(拼代码)</span></span><br><span class="line">	 <span class="function"><span class="keyword">private</span> <span class="keyword">static</span>  String <span class="title">generateSourceCode</span><span class="params">(Class&lt;?&gt; interfaces)</span> </span>&#123;</span><br><span class="line">		 <span class="comment">//包名</span></span><br><span class="line">		 StringBuilder sourceCode=<span class="keyword">new</span> StringBuilder(<span class="string">"package org.rico.learnSpring.customProxy;"</span>).append(ln);<span class="comment">//包名</span></span><br><span class="line">		 <span class="comment">//导包</span></span><br><span class="line">		 sourceCode.append(<span class="string">"import java.lang.reflect.Method;"</span>).append(ln).append(ln);</span><br><span class="line">		 <span class="comment">//声明类</span></span><br><span class="line">		 sourceCode.append(<span class="string">"public  class $Proxy0 implements "</span>).append(interfaces.getName()).append(<span class="string">"&#123;"</span>).append(ln);<span class="comment">//这里只实现了一个，如果通用的话要写循环//这里的类名是随便的，只要.java文件和类名一样就可以了这里是$Proxy0</span></span><br><span class="line">		 sourceCode.append(<span class="string">"  MyInvocationHandler h;"</span>).append(ln);<span class="comment">//域 局部变量</span></span><br><span class="line">		 <span class="comment">//构造函数</span></span><br><span class="line">         sourceCode.append(<span class="string">"  public $Proxy0(MyInvocationHandler h)&#123;"</span>).append(ln);<span class="comment">//这个构造函数名应该是动态生成的，但是这里写死了,为了方便</span></span><br><span class="line">		 sourceCode.append(<span class="string">"    this.h=h;"</span>).append(ln);</span><br><span class="line">		 sourceCode.append(<span class="string">"&#125;"</span>).append(ln);<span class="comment">//匹配public $Proxy0的&#123;</span></span><br><span class="line">		 <span class="keyword">for</span>(Method m:interfaces.getMethods())&#123;</span><br><span class="line">			 sourceCode.append(<span class="string">"  public "</span>).append(m.getReturnType().getName()).append(<span class="string">" "</span>).append(m.getName()).append(<span class="string">"()&#123;"</span>).append(ln);<span class="comment">//我们的Person方法都是无参的，这里也是图简便，应该是要把参数也遍历出来的</span></span><br><span class="line">			 sourceCode.append(<span class="string">"    try&#123;"</span>).append(ln);</span><br><span class="line">			 <span class="comment">//获取这个Method</span></span><br><span class="line">			 sourceCode.append(<span class="string">"        Method m = "</span>).append(interfaces.getName()).append(<span class="string">".class.getMethod(\""</span>).append(m.getName()).append(<span class="string">"\",new Class[0]);"</span>).append(ln);<span class="comment">//new Class[]&#123;&#125;</span></span><br><span class="line">			 sourceCode.append(<span class="string">"        this.h.invoke(this,m,null);"</span>).append(ln);</span><br><span class="line">			 sourceCode.append(<span class="string">"    &#125;catch(Throwable e)&#123;e.printStackTrace();&#125;"</span>).append(ln);</span><br><span class="line">			 <span class="keyword">if</span>(!m.getReturnType().getName().equals(<span class="string">"void"</span>))&#123;<span class="comment">//如果返回值不为空,返回</span></span><br><span class="line">				 sourceCode.append(<span class="string">"    return null;"</span>).append(ln);<span class="comment">//这里为了方便直接返回null</span></span><br><span class="line">			 &#125;</span><br><span class="line">			 sourceCode.append(<span class="string">"  &#125;"</span>).append(ln);</span><br><span class="line">		 &#125;</span><br><span class="line">		 sourceCode.append(<span class="string">"&#125;"</span>);<span class="comment">//匹配public class 的 &#123;</span></span><br><span class="line">		 <span class="keyword">return</span> sourceCode.toString();</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package org.rico.learnSpring.customProxy;
+import javax.tools.JavaCompiler;
+import javax.tools.StandardJavaFileManager;
+import javax.tools.ToolProvider;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+//这个类会生成代理对象的代码
+public class MyProxy {
+    private static  final String  ln=&quot;\n&quot;;//换行
+     //这个方法很重要 用于生成代理对象的代码
+     public static Object newProxyInstance(MyClassLoader loader,  Class&lt;?&gt;[] interfaces,  MyInvocationHandler h) {
+         //1 生成源代码
+         String proxySourceCode=generateSourceCode(interfaces[0]);
+         //2 将生成的源代码输出到磁盘，保存为.java文件
+         final String filePath = MyProxy.class.getResource(&quot;&quot;).getPath();
+         //final String filePath = &quot;C:\\Users\\chenhongjie\\Desktop\\&quot;;
+         File f= new File(filePath+&quot;$Proxy0.java&quot;);//.java文件名和类名一致
+         try {
+             FileWriter fw=new FileWriter(f);
+             fw.write(proxySourceCode);
+             fw.flush();
+             fw.close();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+         //3 编译源代码 ,并且生成.class文件 
+         try {
+             JavaCompiler compiler= ToolProvider.getSystemJavaCompiler();//javax提供的编译器
+             StandardJavaFileManager manager=compiler.getStandardFileManager(null,null,null);
+             Iterable iterable=manager.getJavaFileObjects(f);//获取迭代器 就是为了找到Java文件
+             JavaCompiler.CompilationTask task=compiler.getTask(null,manager,null,null,null,iterable);//编译任务
+             task.call();
+             manager.close();
+             //4 通过MyClassLoader将class文件中的内容动态加载到JVM中来
+             Class  proxyClass=loader.findClass(&quot;$Proxy0&quot;);
+             Constructor c=proxyClass.getConstructor(MyInvocationHandler.class);//定义构造函数
+             f.delete();//获取到构造函数后可以把源文件删掉 JDK是这么做的，当然你也可以不删
+             //5 返回被代理后的代理对象
+             return c.newInstance(h);
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         return null;
+     }
+
+     //重新根据接口生成代码(拼代码)
+     private static  String generateSourceCode(Class&lt;?&gt; interfaces) {
+         //包名
+         StringBuilder sourceCode=new StringBuilder(&quot;package org.rico.learnSpring.customProxy;&quot;).append(ln);//包名
+         //导包
+         sourceCode.append(&quot;import java.lang.reflect.Method;&quot;).append(ln).append(ln);
+         //声明类
+         sourceCode.append(&quot;public  class $Proxy0 implements &quot;).append(interfaces.getName()).append(&quot;{&quot;).append(ln);//这里只实现了一个，如果通用的话要写循环//这里的类名是随便的，只要.java文件和类名一样就可以了这里是$Proxy0
+         sourceCode.append(&quot;  MyInvocationHandler h;&quot;).append(ln);//域 局部变量
+         //构造函数
+         sourceCode.append(&quot;  public $Proxy0(MyInvocationHandler h){&quot;).append(ln);//这个构造函数名应该是动态生成的，但是这里写死了,为了方便
+         sourceCode.append(&quot;    this.h=h;&quot;).append(ln);
+         sourceCode.append(&quot;}&quot;).append(ln);//匹配public $Proxy0的{
+         for(Method m:interfaces.getMethods()){
+             sourceCode.append(&quot;  public &quot;).append(m.getReturnType().getName()).append(&quot; &quot;).append(m.getName()).append(&quot;(){&quot;).append(ln);//我们的Person方法都是无参的，这里也是图简便，应该是要把参数也遍历出来的
+             sourceCode.append(&quot;    try{&quot;).append(ln);
+             //获取这个Method
+             sourceCode.append(&quot;        Method m = &quot;).append(interfaces.getName()).append(&quot;.class.getMethod(\&quot;&quot;).append(m.getName()).append(&quot;\&quot;,new Class[0]);&quot;).append(ln);//new Class[]{}
+             sourceCode.append(&quot;        this.h.invoke(this,m,null);&quot;).append(ln);
+             sourceCode.append(&quot;    }catch(Throwable e){e.printStackTrace();}&quot;).append(ln);
+             if(!m.getReturnType().getName().equals(&quot;void&quot;)){//如果返回值不为空,返回
+                 sourceCode.append(&quot;    return null;&quot;).append(ln);//这里为了方便直接返回null
+             }
+             sourceCode.append(&quot;  }&quot;).append(ln);
+         }
+         sourceCode.append(&quot;}&quot;);//匹配public class 的 {
+         return sourceCode.toString();
+     }
+}
+</code></pre>
 <p>MyClassLoader.java的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="comment">//实现了代码生成，编译，动态重新load到JVM中</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> File baseDir;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyClassLoader</span><span class="params">()</span></span>&#123;</span><br><span class="line">        final String basePath=MyClassLoader.class.getResource("").getPath();</span><br><span class="line">        <span class="keyword">this</span>.baseDir=<span class="keyword">new</span> File(basePath);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Class&lt;?&gt; findClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">        <span class="comment">//加载到JVM中来</span></span><br><span class="line">        String className=MyClassLoader.class.getPackage().getName()+"."+name;</span><br><span class="line">        System.out.println(className);</span><br><span class="line">        <span class="keyword">if</span>(baseDir!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            File classFile=<span class="keyword">new</span> File(baseDir,name.replace(<span class="string">"\\."</span>,<span class="string">"/"</span>)+<span class="string">".class"</span>);<span class="comment">//点.替换成斜杠/</span></span><br><span class="line">            <span class="keyword">if</span>(classFile.exists())&#123;</span><br><span class="line">                FileInputStream in=<span class="keyword">null</span>;</span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    in =<span class="keyword">new</span> FileInputStream(classFile);</span><br><span class="line">                    ByteArrayOutputStream out=<span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">                    <span class="keyword">byte</span> [] buff=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">                    <span class="keyword">int</span> len;</span><br><span class="line">                    <span class="keyword">while</span> ((len=in.read(buff))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                        out.write(buff,<span class="number">0</span>,len);;</span><br><span class="line">                    &#125;</span><br><span class="line">                    out.close();</span><br><span class="line">                    <span class="keyword">return</span> defineClass(className,out.toByteArray(),<span class="number">0</span>,out.size());</span><br><span class="line">                &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">                   e.printStackTrace();</span><br><span class="line">                &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="keyword">null</span>!=in)&#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            in.close();</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    classFile.delete();<span class="comment">//加载到jvm后delete掉(要在in，out都删掉之后再关) JDK是删掉的，当然你也可以不删掉</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package org.rico.learnSpring.customProxy;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+//实现了代码生成，编译，动态重新load到JVM中
+public class MyClassLoader extends ClassLoader {
+    private final File baseDir;
+    public MyClassLoader(){
+        final String basePath=MyClassLoader.class.getResource(&quot;&quot;).getPath();
+        this.baseDir=new File(basePath);
+    }
+    @Override
+    protected Class&lt;?&gt; findClass(String name) throws ClassNotFoundException {
+        //加载到JVM中来
+        String className=MyClassLoader.class.getPackage().getName()+&quot;.&quot;+name;
+        System.out.println(className);
+        if(baseDir!=null){
+            File classFile=new File(baseDir,name.replace(&quot;\\.&quot;,&quot;/&quot;)+&quot;.class&quot;);//点.替换成斜杠/
+            if(classFile.exists()){
+                FileInputStream in=null;
+                try{
+                    in =new FileInputStream(classFile);
+                    ByteArrayOutputStream out=new ByteArrayOutputStream();
+                    byte [] buff=new byte[1024];
+                    int len;
+                    while ((len=in.read(buff))!=-1){
+                        out.write(buff,0,len);;
+                    }
+                    out.close();
+                    return defineClass(className,out.toByteArray(),0,out.size());
+                }catch (Exception e){
+                   e.printStackTrace();
+                }finally {
+                    if(null!=in){
+                        try {
+                            in.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    classFile.delete();//加载到jvm后delete掉(要在in，out都删掉之后再关) JDK是删掉的，当然你也可以不删掉
+                }
+            }
+        }
+        return null;        
+    }
+}
+</code></pre>
 <p>MyInvocationHandler.java的代码</p>
 <p>JDK原生的InvocationHandler也是一个接口，用于代理类来实现的,本例中就是中介</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.rico.learnSpring.customProxy;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MyInvocationHandler</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package org.rico.learnSpring.customProxy;
+import java.lang.reflect.Method;
+public interface MyInvocationHandler{
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable;
+}
+</code></pre>
 <p>代理成功!</p>
 <p><img src="16.png" alt></p>
 <p>通过这个案例就理解了JDK动态代理的原理,真正是如何实现的 </p>
 <p>复习一下原理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">拿到被代理对象的引用（张三类），然后获取它实现的接口接口也就是Person</span><br><span class="line">JDK代理重新生成一个类，同时实现我们给的代理对象所实现的接口 （Person接口）给每个方法内部实现都写成this.h.invoke,这样就变成了调用中介类的invoke，当然也会把实际需要调用的方法名传入给中介的invoke以便执行完代理逻辑前/后调用真正的方法</span><br></pre></td></tr></table></figure>
-<p>总结一下有点像狸猫换太子：新生成一个类，类里的所有方法都去调用代理类的那个invoke方法，同时把真正需要调用的方法名也传入。 然后代理类的invoke就被执行了，然后代理类的invoke在执行代理逻辑时再调用下真实那个被代理类的那个方法 </p>
+<pre><code>拿到被代理对象的引用（张三类），然后获取它实现的接口接口也就是Person
+JDK代理重新生成一个类，同时实现我们给的代理对象所实现的接口 （Person接口）给每个方法内部实现都写成this.h.invoke,这样就变成了调用中介类的invoke，当然也会把实际需要调用的方法名传入给中介的invoke以便执行完代理逻辑前/后调用真正的方法
+</code></pre><p>总结一下有点像狸猫换太子：新生成一个类，类里的所有方法都去调用代理类的那个invoke方法，同时把真正需要调用的方法名也传入。 然后代理类的invoke就被执行了，然后代理类的invoke在执行代理逻辑时再调用下真实那个被代理类的那个方法 </p>
 <p>总结：字节码重组 </p>
 <p>上面的JDK的动态代理一定要写一个接口,例如案例中的Person(张三实现了Person接口，所以在张三类中可以拿到它实现的接口也就是Person),因为我们生成的class文件需要实现这个接口,所以必须要这个接口，否则实现不了。CGlib不需要接口就可以实现动态代理 </p>
 <p>代理的实现分<strong>动态代理</strong>和<strong>静态代理</strong>    </p>
@@ -600,11 +854,49 @@
 <p>CGLib的实现原理: 自动生成一个类，继承自己的那个被代理类，然后把子类的引用指向父 类 ,同样是做了字节码重组，</p>
 <p>好处就是可以少写一个接口 ,对于使用API的用户来说是无感知的  </p>
 <h2 id="CGLib案例"><a href="#CGLib案例" class="headerlink" title="CGLib案例"></a>CGLib案例</h2><p>Zhangsan.java 张三</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhangsan</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findHouse</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"我要找房子"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Zhangsan {
+    public void findHouse(){
+        System.out.println(&quot;我要找房子&quot;);
+    }
+}
+</code></pre>
 <p>中介 Zhongjie.java </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zhongjie</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;<span class="comment">//interceptor的英文意思是拦截机</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getInstance</span> <span class="params">(Class clazz)</span> <span class="keyword">throws</span>  Exception</span>&#123;</span><br><span class="line">        <span class="comment">//通过反射机制，实例化</span></span><br><span class="line">        Enhancer enhancer=<span class="keyword">new</span> Enhancer();</span><br><span class="line">        <span class="comment">//把父类设置为谁?</span></span><br><span class="line">        enhancer.setSuperclass(clazz);<span class="comment">//传入被代理对象的Class,这一步就是告诉cglib，生成的子类需要继承哪个类</span></span><br><span class="line">        enhancer.setCallback(<span class="keyword">this</span>);<span class="comment">//设置回调 后续this.h.invoke调用的是本身的intercept方法</span></span><br><span class="line">        <span class="keyword">return</span> enhancer.create();<span class="comment">//第一步生成源代码,第二步编译Class,第三步加载到JVM中,并返回被代理后的对象</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy methodProxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;<span class="comment">//这里的obj并不是我们new出来的被代理对象的引用，而是被代理对象的class</span></span><br><span class="line">        System.out.println(<span class="string">"代理开始"</span>);</span><br><span class="line">        System.out.println(<span class="string">"被调用的方法名:"</span>+method.getName());</span><br><span class="line">        <span class="comment">//这个obj的引用是由CGLib给我们new出来的,CGLib new出来以后的对象是被代理对象的子类(继承了我们自己写的那个被代理对象也就是Zhangsan.java)</span></span><br><span class="line">        <span class="comment">//new子类的同时，必须先new出父类来，这就相当于是间接的持有了我们父类的引用,子类重写了父类的所有的方法,变成类似于this.h.invoke(...),我们改变子类对象的某些属性是可以间接的操作父类的属性的</span></span><br><span class="line">        Object result=methodProxy.invokeSuper(obj,args);<span class="comment">//一定是调Super,这里调用Super其实就是原始的那个被代理对象的那个原始方法.不能写Invoke不然会死循环 相当于在findHose中调用findHouse</span></span><br><span class="line">        System.out.println(<span class="string">"代理结束"</span>);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Zhongjie implements MethodInterceptor {//interceptor的英文意思是拦截机
+    public Object getInstance (Class clazz) throws  Exception{
+        //通过反射机制，实例化
+        Enhancer enhancer=new Enhancer();
+        //把父类设置为谁?
+        enhancer.setSuperclass(clazz);//传入被代理对象的Class,这一步就是告诉cglib，生成的子类需要继承哪个类
+        enhancer.setCallback(this);//设置回调 后续this.h.invoke调用的是本身的intercept方法
+        return enhancer.create();//第一步生成源代码,第二步编译Class,第三步加载到JVM中,并返回被代理后的对象
+
+    }
+    @Override
+    public Object intercept(Object obj, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {//这里的obj并不是我们new出来的被代理对象的引用，而是被代理对象的class
+        System.out.println(&quot;代理开始&quot;);
+        System.out.println(&quot;被调用的方法名:&quot;+method.getName());
+        //这个obj的引用是由CGLib给我们new出来的,CGLib new出来以后的对象是被代理对象的子类(继承了我们自己写的那个被代理对象也就是Zhangsan.java)
+        //new子类的同时，必须先new出父类来，这就相当于是间接的持有了我们父类的引用,子类重写了父类的所有的方法,变成类似于this.h.invoke(...),我们改变子类对象的某些属性是可以间接的操作父类的属性的
+        Object result=methodProxy.invokeSuper(obj,args);//一定是调Super,这里调用Super其实就是原始的那个被代理对象的那个原始方法.不能写Invoke不然会死循环 相当于在findHose中调用findHouse
+        System.out.println(&quot;代理结束&quot;);
+        return result;
+    }
+}
+</code></pre>
 <p>测试类,main方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//JDK的动态代理是通过接口来进行强制转换的,生成以后的代理对象可以强制转换为接口</span></span><br><span class="line">        <span class="comment">//CGLib的动态代理是通过生成一个被代理对象的子类，然后重写父类的方法,生成以后的对象时可以强制转换为被代理对象,子类引用赋值给父类</span></span><br><span class="line">        Zhongjie zhongjie =<span class="keyword">new</span> Zhongjie();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//Zhangsan zhangsan=(Zhangsan)zhongjie.getInstance(new Zhangsan());//其实没用到这个对象的引用，只需要它的class，这样写只是方便，在Zhongjie.java中也是obj.getClass,为了不避免误会，采用下面的方式</span></span><br><span class="line">            Zhangsan zhangsan=(Zhangsan)zhongjie.getInstance(Zhangsan<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">            zhangsan.findHouse();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public static void main(String[] args) {
+        //JDK的动态代理是通过接口来进行强制转换的,生成以后的代理对象可以强制转换为接口
+        //CGLib的动态代理是通过生成一个被代理对象的子类，然后重写父类的方法,生成以后的对象时可以强制转换为被代理对象,子类引用赋值给父类
+        Zhongjie zhongjie =new Zhongjie();
+        try{
+            //Zhangsan zhangsan=(Zhangsan)zhongjie.getInstance(new Zhangsan());//其实没用到这个对象的引用，只需要它的class，这样写只是方便，在Zhongjie.java中也是obj.getClass,为了不避免误会，采用下面的方式
+            Zhangsan zhangsan=(Zhangsan)zhongjie.getInstance(Zhangsan.class);
+            zhangsan.findHouse();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+</code></pre>
 <p>代理模式用的最多的就是SpringAOP </p>
 <p>可以做什么事情？可以在每一个方法调用之前加一些代码，在方法调用之后再加一些代码</p>
 <p><strong>AOP一般用在哪里</strong> :事务代理(声明式事务,哪个方法需要加事务，哪个方法不需要加事务s)、日志</p>
@@ -619,6 +911,7 @@
 <p><a href="https://www.cnblogs.com/lianghaoc/p/5699537.html" target="_blank" rel="noopener">https://www.cnblogs.com/lianghaoc/p/5699537.html</a></p>
 <p><a href="https://segmentfault.com/a/1190000007089902" target="_blank" rel="noopener">https://segmentfault.com/a/1190000007089902</a></p>
 
+        
     
 
     
@@ -626,7 +919,8 @@
 
 
                 
-		<!-- Post Comments -->
+
+                <!-- Post Comments -->
                 
                     
                 
@@ -688,7 +982,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.jpg" alt="Rico's avatar">
+        <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -753,16 +1047,6 @@
 
     <!-- Pages  -->
     
-        <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
@@ -785,7 +1069,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material chenhongjie 
+<!-- Theme Material -->
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
@@ -793,7 +1077,6 @@ It will not impact the appearance and can give developers a lot of support :)
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
-  -->
 
 
 <!-- Help & Support -->
@@ -867,11 +1150,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -885,12 +1180,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -906,21 +1208,24 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>
     
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -965,15 +1270,40 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -991,10 +1321,21 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
     (function(){
         var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
@@ -1003,7 +1344,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

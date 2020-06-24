@@ -5,8 +5,42 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!-- Title -->
     
@@ -17,115 +51,18 @@
         Rico&#39;s Blog
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico,读书笔记">
-
-    <!-- Site Verification -->
-    
-    
-
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,读书笔记">
+    <meta name="theme-color" content="#0097A7">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://hogwartsrico.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="如何成为一个有趣的人读书笔记 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="读书笔记"> 
-
-    
-        <meta property="article:published_time" content="6月 11, 2020">
-        <meta property="article:modified_time" content="6月 11, 2020">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="如何成为一个有趣的人读书笔记 | Rico&#39;s Blog">
-    <meta name="twitter:description" content>
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="http://hogwartsrico.github.io">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/11/How-To-Be-An-Interesting-Person/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Rico&#39;s Blog",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Rico",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "Javaer"
-    },
-    "headline": "如何成为一个有趣的人读书笔记",
-    "url": "http://hogwartsrico.github.io/2020/06/11/How-To-Be-An-Interesting-Person/index.html",
-    "datePublished": "6月 11, 2020",
-    "dateModified": "6月 11, 2020",
-    "description": "",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://hogwartsrico.github.io"
-    }
-}
-</script>
-
-
-    
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -136,47 +73,38 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
 
-    <!-- Import CSS & jQuery -->
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -274,28 +202,73 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2020/06/11/How-To-Be-An-Interesting-Person/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2020/06/11/How-To-Be-An-Interesting-Person/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="如何成为一个有趣的人读书笔记 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="读书笔记"> 
+
+    
+        <meta property="article:published_time" content="Thu Jun 11 2020 18:29:53 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jun 11 2020 18:34:13 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/11/How-To-Be-An-Interesting-Person/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
 
     <!-- Analytics -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    
+    
+    
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -313,7 +286,7 @@
                     
                         <!-- Hamburger Button -->
                         <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
                         </button>
                     
 
@@ -336,23 +309,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#摘抄"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘抄</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第1章-有趣是一场令人愉悦的意外"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">第1章 有趣是一场令人愉悦的意外</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-有趣是个什么东西"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.2 有趣是个什么东西</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-观察和想象：视角中分裂的对方"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">1.3 观察和想象：视角中分裂的对方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第2章-在柴米油盐中守护诗和远方"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">第2章 在柴米油盐中守护诗和远方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-审美，到底审的是什么"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">2.2 审美，到底审的是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-“城会玩”，玩的是什么"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">2.3 “城会玩”，玩的是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第3章-兴趣是天生的，无聊是被逼的"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">第3章 兴趣是天生的，无聊是被逼的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-越长大越无聊：自戕式发育"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">3.2 越长大越无聊：自戕式发育</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-像哲学家一样观察世界：视角陌生化"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">3.3 像哲学家一样观察世界：视角陌生化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第4章-“有趣”是一种技能"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">第4章 “有趣”是一种技能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-世界不是平的——信息管理能力"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">4.2 世界不是平的——信息管理能力</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-玻璃钢心——感知能力"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">4.3 玻璃钢心——感知能力</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-4-品味是做人的底线——鉴赏能力"><span class="post-toc-number">1.14.</span> <span class="post-toc-text">4.4 品味是做人的底线——鉴赏能力</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-5-天马行空有航线——严谨的想象力"><span class="post-toc-number">1.15.</span> <span class="post-toc-text">4.5 天马行空有航线——严谨的想象力</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第5章-有趣是一种态度"><span class="post-toc-number">1.16.</span> <span class="post-toc-text">第5章 有趣是一种态度</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-2-我不是一个随便的人——个人特质"><span class="post-toc-number">1.17.</span> <span class="post-toc-text">5.2 我不是一个随便的人——个人特质</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-3-我打起脸来自己都怕——自嘲"><span class="post-toc-number">1.18.</span> <span class="post-toc-text">5.3 我打起脸来自己都怕——自嘲</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-4-赞美、倾听、反驳——情绪沟通"><span class="post-toc-number">1.19.</span> <span class="post-toc-text">5.4 赞美、倾听、反驳——情绪沟通</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第6章-有趣需要变现"><span class="post-toc-number">1.20.</span> <span class="post-toc-text">第6章 有趣需要变现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-2-性格内向-不善表达吗"><span class="post-toc-number">1.21.</span> <span class="post-toc-text">6.2 性格内向=不善表达吗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-3-有钱了不起吗？你说呢"><span class="post-toc-number">1.22.</span> <span class="post-toc-text">6.3 有钱了不起吗？你说呢</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第7章-终极有趣——精神世界的创造与维护"><span class="post-toc-number">1.23.</span> <span class="post-toc-text">第7章 终极有趣——精神世界的创造与维护</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-2-一只随波逐流的帆水母"><span class="post-toc-number">1.24.</span> <span class="post-toc-text">7.2 一只随波逐流的帆水母</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-3-吸引力相对论"><span class="post-toc-number">1.25.</span> <span class="post-toc-text">7.3 吸引力相对论</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我的想法"><span class="post-toc-number">2.</span> <span class="post-toc-text">我的想法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第1章-有趣是一场令人愉悦的意外-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">第1章 有趣是一场令人愉悦的意外</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第2章-在柴米油盐中守护诗和远方-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">第2章 在柴米油盐中守护诗和远方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-审美，到底审的是什么-1"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">2.2 审美，到底审的是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第3章-兴趣是天生的，无聊是被逼的-1"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">第3章 兴趣是天生的，无聊是被逼的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-3-像哲学家一样观察世界：视角陌生化-1"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">3.3 像哲学家一样观察世界：视角陌生化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第4章-“有趣”是一种技能-1"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">第4章 “有趣”是一种技能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-世界不是平的——信息管理能力-1"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">4.2 世界不是平的——信息管理能力</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第6章-有趣需要变现-1"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">第6章 有趣需要变现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-2-性格内向-不善表达吗-1"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">6.2 性格内向=不善表达吗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-3-有钱了不起吗？你说呢-1"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">6.3 有钱了不起吗？你说呢</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第7章-终极有趣——精神世界的创造与维护-1"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">第7章 终极有趣——精神世界的创造与维护</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-2-一只随波逐流的帆水母-1"><span class="post-toc-number">2.13.</span> <span class="post-toc-text">7.2 一只随波逐流的帆水母</span></a></li></ol></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
     
-
 
 
 
@@ -396,7 +365,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -430,7 +399,8 @@
     
 
     <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
     <span class="visuallyhidden">share</span>
 </button>
@@ -441,7 +411,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=如何成为一个有趣的人读书笔记&url=http://hogwartsrico.github.io/2020/06/11/How-To-Be-An-Interesting-Person/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=如何成为一个有趣的人读书笔记&url=http://hogwartsrico.github.io/2020/06/11/How-To-Be-An-Interesting-Person/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -485,6 +455,7 @@
     
 </ul>
 
+    
 </div>
 
                 
@@ -607,47 +578,49 @@
 <p> 我觉得思想上也是这样，努力在非常舒服的时候自己去找不适感，去分析思考问题，去质疑自己的观点，去打破自己的思想桎梏，而不是去“求认同”。尽量去一点一点啃食让我觉得辛苦的艰深的书，而不是止步于高潮迭起的快感文字爽到飞起。 </p>
 <p> 有趣的人，他有自己的世界，他不是走进你的世界，而是为你打开一扇窗去参观他的世界。或许他的世界让你感到惊讶，甚至不认同。但经历一段时间的磨合以后，你开始理解欣赏他的世界，从此你与他彼此都拥有了两个世界。所以，首先，你要有一个自己的世界，完全属于自己的稳固的世界。你敞开世界欢迎别人来游走参观，参观者可以是路人亲友，可是古哲先贤。你自己则每日在这个世界里修修补补自得其乐，有时候也会自己给自己刮一场龙卷风，放一把火，让一切推倒重来。 </p>
 <h1 id="我的想法"><a href="#我的想法" class="headerlink" title="我的想法"></a>我的想法</h1><h2 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h2><p>一位优秀的演奏家、舞蹈家、画家、运动员在他施展这项技能的时候，施展的不仅仅是技能本身，还有他对世界的认知，他对人生的态度。从这个意义上说，“有趣”不仅仅是一种生活态度，还是一种技能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一位优秀的演奏家、舞蹈家、画家、运动员在他施展这项技能的时候，施展的不仅仅是技能本身，还有他对世界的认知，他对人生的态度。从这个意义上说，“有趣”不仅仅是一种生活态度，还是一种技能。</span><br></pre></td></tr></table></figure>
-<h2 id="第1章-有趣是一场令人愉悦的意外-1"><a href="#第1章-有趣是一场令人愉悦的意外-1" class="headerlink" title="第1章 有趣是一场令人愉悦的意外"></a>第1章 有趣是一场令人愉悦的意外</h2><p>唯有有趣，跳脱功名利禄身世皮囊，也无关道德评价，是一种稀缺而珍贵的品质，也是对一个人的灵魂极为由衷的赞美</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">唯有有趣，跳脱功名利禄身世皮囊，也无关道德评价，是一种稀缺而珍贵的品质，也是对一个人的灵魂极为由衷的赞美</span><br></pre></td></tr></table></figure>
-<p>消遣的回报则来得更明确也更迅速，很多消遣的回报基于感官刺激。当人接受的刺激越来越多，也越来越强烈时，对感官刺激的敏感度就会下降，变得迟钝，这时就需要更强烈的刺激才能引发快感，导致人对刺激的反应更加迟钝，陷入一个死循环——成瘾性药物就是这样伤害人类的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">抖音快手之流与吃瓜子无异，立马有回报，于是停不下来。</span><br></pre></td></tr></table></figure>
-<p>有些人会用消遣来代替正事。消遣的时候有事可做是不无聊的，但等到消遣完正事一点未动，deadline又近了一步，此刻积蓄已久的无聊感裹挟着愧疚感如开闸放水奔腾而下，我们称之为——拖延症。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这就是我遇到的问题啊</span><br></pre></td></tr></table></figure>
-<p>在中学里，有法定课本，有老师排课、布置作业、考试，学生不需要思考该学什么东西、选什么教材、找什么人学、用什么办法记住</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作后对人生迷茫和对活着的思考多了起来。看到这才意识到，小学初中，大学是因为我们有着明确的目标和任务，无暇思考.成人后朝花夕拾所带来的“快感”也降得越来越低.得定一个让自己快乐的有意义的目标. 叔本华说人活着本就没有什么特殊的意义，快乐和健康反而很重要. 最后再实现自我.</span><br></pre></td></tr></table></figure>
-<p>这种脱口就来的“随便”“看你”“都行”表面上看是随和无争、为对方考虑，实际上是在为自己逃脱可能承担的责任。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有道理</span><br></pre></td></tr></table></figure>
-<p>生活的艰辛和匮乏产生出了痛苦，而丰裕和安定就产生无聊。因此，我们看见劳动阶层与匮乏——亦即痛苦——进行着永恒的斗争，而有钱的上流社会却旷日持久地与无聊进行一场堪称绝望的搏斗。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">痛苦是绝对的.  这是人性，也是每个人逃脱不了的. 能逃脱的人，真大师也. 就算啥都满足你了，你也会哀吾生之须臾，羡长江之无穷. 无解.</span><br></pre></td></tr></table></figure>
-<h2 id="第2章-在柴米油盐中守护诗和远方-1"><a href="#第2章-在柴米油盐中守护诗和远方-1" class="headerlink" title="第2章 在柴米油盐中守护诗和远方"></a>第2章 在柴米油盐中守护诗和远方</h2><p>“诗和远方”这种非功利的情怀很大程度上构成了我们对“有趣”生活的认知——尽管我很遗憾“情怀”这个词现在已经因为泛滥成灾而有了讽刺意味，请您一定相信我在此使用的是“情怀”最初最美好的意思。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">偶尔忘记实用也挺好</span><br></pre></td></tr></table></figure>
-<h2 id="2-2-审美，到底审的是什么-1"><a href="#2-2-审美，到底审的是什么-1" class="headerlink" title="2.2 审美，到底审的是什么"></a>2.2 审美，到底审的是什么</h2><p>而穷人大概会有比较长的工作时间，上班很辛苦耗尽了注意力，下班只想躺着吃美味的高热量食物慰劳艰难的一天</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">真相了</span><br></pre></td></tr></table></figure>
-<h2 id="第3章-兴趣是天生的，无聊是被逼的-1"><a href="#第3章-兴趣是天生的，无聊是被逼的-1" class="headerlink" title="第3章 兴趣是天生的，无聊是被逼的"></a>第3章 兴趣是天生的，无聊是被逼的</h2><p>没有探索的好奇心，就没有经历的意义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">旅行不只是拍照，而是体验和探寻.</span><br></pre></td></tr></table></figure>
-<p>•好奇心是脆弱的<br>重复的生活模式会钝化人的感知能力，沉重的精神压力会压缩人的生活空间。买房还贷找工作，结婚恋爱生孩子，人生被固定的轨道牵制着，稍稍逾矩就会被周围的人侧目，每天下了班在拥堵的交通中冲进杀出，到家的一刹那把自己埋进沙发里，方觉疲惫一阵阵袭来。健身阅读学英语，什么都想做，可是疲惫把这些念头全都杀光，我们只会去和那些让我们感觉不到辛苦的信息在一起。拿起手机，刷各种碎片信息——与其说是我们在吸收信息，不如说是各种垃圾信息在吸收我们，占据我们的时间，吞噬我们的生命。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop it</span><br></pre></td></tr></table></figure>
-<h2 id="3-3-像哲学家一样观察世界：视角陌生化-1"><a href="#3-3-像哲学家一样观察世界：视角陌生化-1" class="headerlink" title="3.3 像哲学家一样观察世界：视角陌生化"></a>3.3 像哲学家一样观察世界：视角陌生化</h2><p>我们需要偶尔把自己陌生化。把自己当作一个客体去看待、去围观，以一个旁观者的视角去观察自己的生活状态，会发现很多很多问题。<br>如果你觉得陌生化后你的生活是荒谬的，那说明你已经偏离自己想要的轨道了，早发现早治疗，可能还有救。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">经常客观的审视自己</span><br></pre></td></tr></table></figure>
-<h2 id="第4章-“有趣”是一种技能-1"><a href="#第4章-“有趣”是一种技能-1" class="headerlink" title="第4章 “有趣”是一种技能"></a>第4章 “有趣”是一种技能</h2><p>对很多人来说，旅行的意义在于脱离你习以为常的生活环境，去一个陌生的地方，从视觉听觉味觉触觉高浓度全息地输入大量陌生信息，去感受当地的风土人情，去思考总结自己的人生观——只去拍照购物的旅行者，意义止于拍照购物，止于朋友圈。<br>你买的东西、拍的照片会成为美好的记录，你买的物品或可以一直使用，而你感受到的东西会内化为精神世界的一部分，藏在大脑里，日复一日慢慢发酵，酿成醇厚悠长的记忆，融入你日常的举手投足，外化成为你气质的一部分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">写的太好了</span><br></pre></td></tr></table></figure>
-<p>投资往往高风险高回报或低风险低回报。一个投资组合，常常会对这两种回报的资产做一个配比，在风险和回报中取得一个平衡。构建知识储备也是一样。我们既需要吃力地啃艰深著作，也需要厕所里刷段子；既需要深交三五知己，也需要电话簿里的泛泛之交——这些组合让我们不流于肤浅，又不至于太辛苦。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">阳春白雪和下里巴人</span><br></pre></td></tr></table></figure>
-<h2 id="4-2-世界不是平的——信息管理能力-1"><a href="#4-2-世界不是平的——信息管理能力-1" class="headerlink" title="4.2 世界不是平的——信息管理能力"></a>4.2 世界不是平的——信息管理能力</h2><p>在愈演愈烈的碎片化中，我们的注意力时长渐渐变短，在一次又一次的刷手机中，我们不再有耐心读完一篇数万字的文章，不再有耐心看完一堂两小时的公开课视频。如此凶险的事实，却很少有人意识到——我们的时间就是我们的生命。被切割的，不仅仅是时间，还有生命。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">确实是这样。尽量少用手机</span><br></pre></td></tr></table></figure>
-<h2 id="第6章-有趣需要变现-1"><a href="#第6章-有趣需要变现-1" class="headerlink" title="第6章 有趣需要变现"></a>第6章 有趣需要变现</h2><p>只要存在社交，就存在优势展示。人经常想让别人知道“我有钱”“我长得好看”“有人为我争风吃醋”“有人送我股份把我留在公司”，或者想让人知道——“我这人可有意思了”。我们的人格魅力正是通过这种有意无意的炫耀展示在别人的目光里，成为他们评价我们的依据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">哈哈，大多数人还是比较肤浅的</span><br></pre></td></tr></table></figure>
-<h2 id="6-2-性格内向-不善表达吗-1"><a href="#6-2-性格内向-不善表达吗-1" class="headerlink" title="6.2 性格内向=不善表达吗"></a>6.2 性格内向=不善表达吗</h2><p>我朋友A，天文地理绯闻八卦无所不通，跟她聊天，再偏的梗也能接住，再冷的知识也能扯上，聊得浑身毛孔无不舒畅。她从来没有特别准备过这种“谈资”，腹有诗书，自然有话。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很期待能和这样的人进行交流</span><br></pre></td></tr></table></figure>
-<h2 id="6-3-有钱了不起吗？你说呢-1"><a href="#6-3-有钱了不起吗？你说呢-1" class="headerlink" title="6.3 有钱了不起吗？你说呢"></a>6.3 有钱了不起吗？你说呢</h2><p>对于一个程序员而言，今天给银行写充值系统前台，明天给互联网公司写游戏币充值系统前台，绝对差别并没有太大。但对硬件工程师而言，差别则更大一些。职业技能跨行业跳槽的难易度，我称之为流动性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java的流动性比gis好一些</span><br></pre></td></tr></table></figure>
-<h2 id="第7章-终极有趣——精神世界的创造与维护-1"><a href="#第7章-终极有趣——精神世界的创造与维护-1" class="headerlink" title="第7章 终极有趣——精神世界的创造与维护"></a>第7章 终极有趣——精神世界的创造与维护</h2><p>假设我给上面两位开个座谈会，讨论“中国性别比例失衡，男子三千万无法娶妻”的问题。<br>张载大概会说：“哀民生之多艰，我们要移风易俗，反对打胎反对性别选择，反对天价彩礼，让每个人都能高高兴兴结婚。”<br>韩非子大概会说：“扯淡，从来就没有什么性别偏好问题。一切都是利益。男人是田里的重劳力，传统风俗女性不承担赡养义务，所以趋利避害，大家喜欢生儿子。如果把社保做好，城市化进度加快，性别偏好就会渐渐消失。”<br>看，这就是两个人不同的精神世界，虽然思考方式不同，却都是自洽的。<br>建立坚定而又自洽的精神世界，需要的是“思考”，而不仅仅是“体验”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给了我很大的启发，我咋没想到呢？</span><br></pre></td></tr></table></figure>
-<p>体验是轻松的——<br>是抓着一屉纸巾看肥皂剧，是坐在马桶上刷爽文，是窝在沙发里看综艺。那些制造肥皂剧、爽文、综艺的人，深知如何顺着你的心意，让你得到最舒服的体验。可你能得到的，也就止步于舒服了。<br>思考是辛苦的——<br>是注解比正文长的原稿，是密密麻麻的笔记，是焦头烂额的一团乱麻。那些人类最精妙的思想，好比山顶的风景，海底的珍珠，需要艰难险阻才可以探索，虽然过程不甚愉快，但最终你能得到的，是醍醐灌顶的通透，是豁然开朗的狂喜。正因为如此，优秀的书籍才显得珍贵，它们是引导你登山入海的向导。<br>一个人的三观，是在外界大量“阅读”和“体验”下，通过思考获得的。由于阅读和体验的制造者设计了形形色色的套路，我们的思考深度，很大程度上影响到三观的深度和自洽度，最终形成一个人“有趣”与否的根基。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这就是不要看抖音头条之流的原因。推荐给你的不要看</span><br></pre></td></tr></table></figure>
-<h2 id="7-2-一只随波逐流的帆水母-1"><a href="#7-2-一只随波逐流的帆水母-1" class="headerlink" title="7.2 一只随波逐流的帆水母"></a>7.2 一只随波逐流的帆水母</h2><p>每个人的三观都是由外界经年累月的信息积累、消化而成。我们收到的信息不一样，消化方式不一样，我们的三观就不一样。当我们观察其他人的时候，很难避免把自己代入，很难避免以自己的立场、视角去判断他人，这就需要我们尽量意识到自身的局限性，力求避免偏见。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">很赞同，每个人的想法都是独特而有原因的，你不在别人的位置就不能明白别人这样做的原因。尊重个体差异性，包容不同的想法，认识自身局限性。</span><br></pre></td></tr></table></figure>
+<pre><code>一位优秀的演奏家、舞蹈家、画家、运动员在他施展这项技能的时候，施展的不仅仅是技能本身，还有他对世界的认知，他对人生的态度。从这个意义上说，“有趣”不仅仅是一种生活态度，还是一种技能。
+</code></pre><h2 id="第1章-有趣是一场令人愉悦的意外-1"><a href="#第1章-有趣是一场令人愉悦的意外-1" class="headerlink" title="第1章 有趣是一场令人愉悦的意外"></a>第1章 有趣是一场令人愉悦的意外</h2><p>唯有有趣，跳脱功名利禄身世皮囊，也无关道德评价，是一种稀缺而珍贵的品质，也是对一个人的灵魂极为由衷的赞美</p>
+<pre><code>唯有有趣，跳脱功名利禄身世皮囊，也无关道德评价，是一种稀缺而珍贵的品质，也是对一个人的灵魂极为由衷的赞美
+</code></pre><p>消遣的回报则来得更明确也更迅速，很多消遣的回报基于感官刺激。当人接受的刺激越来越多，也越来越强烈时，对感官刺激的敏感度就会下降，变得迟钝，这时就需要更强烈的刺激才能引发快感，导致人对刺激的反应更加迟钝，陷入一个死循环——成瘾性药物就是这样伤害人类的。</p>
+<pre><code>抖音快手之流与吃瓜子无异，立马有回报，于是停不下来。
+</code></pre><p>有些人会用消遣来代替正事。消遣的时候有事可做是不无聊的，但等到消遣完正事一点未动，deadline又近了一步，此刻积蓄已久的无聊感裹挟着愧疚感如开闸放水奔腾而下，我们称之为——拖延症。</p>
+<pre><code>这就是我遇到的问题啊
+</code></pre><p>在中学里，有法定课本，有老师排课、布置作业、考试，学生不需要思考该学什么东西、选什么教材、找什么人学、用什么办法记住</p>
+<pre><code>工作后对人生迷茫和对活着的思考多了起来。看到这才意识到，小学初中，大学是因为我们有着明确的目标和任务，无暇思考.成人后朝花夕拾所带来的“快感”也降得越来越低.得定一个让自己快乐的有意义的目标. 叔本华说人活着本就没有什么特殊的意义，快乐和健康反而很重要. 最后再实现自我.
+</code></pre><p>这种脱口就来的“随便”“看你”“都行”表面上看是随和无争、为对方考虑，实际上是在为自己逃脱可能承担的责任。</p>
+<pre><code>有道理
+</code></pre><p>生活的艰辛和匮乏产生出了痛苦，而丰裕和安定就产生无聊。因此，我们看见劳动阶层与匮乏——亦即痛苦——进行着永恒的斗争，而有钱的上流社会却旷日持久地与无聊进行一场堪称绝望的搏斗。</p>
+<pre><code>痛苦是绝对的.  这是人性，也是每个人逃脱不了的. 能逃脱的人，真大师也. 就算啥都满足你了，你也会哀吾生之须臾，羡长江之无穷. 无解.
+</code></pre><h2 id="第2章-在柴米油盐中守护诗和远方-1"><a href="#第2章-在柴米油盐中守护诗和远方-1" class="headerlink" title="第2章 在柴米油盐中守护诗和远方"></a>第2章 在柴米油盐中守护诗和远方</h2><p>“诗和远方”这种非功利的情怀很大程度上构成了我们对“有趣”生活的认知——尽管我很遗憾“情怀”这个词现在已经因为泛滥成灾而有了讽刺意味，请您一定相信我在此使用的是“情怀”最初最美好的意思。</p>
+<pre><code>偶尔忘记实用也挺好
+</code></pre><h2 id="2-2-审美，到底审的是什么-1"><a href="#2-2-审美，到底审的是什么-1" class="headerlink" title="2.2 审美，到底审的是什么"></a>2.2 审美，到底审的是什么</h2><p>而穷人大概会有比较长的工作时间，上班很辛苦耗尽了注意力，下班只想躺着吃美味的高热量食物慰劳艰难的一天</p>
+<pre><code>真相了
+</code></pre><h2 id="第3章-兴趣是天生的，无聊是被逼的-1"><a href="#第3章-兴趣是天生的，无聊是被逼的-1" class="headerlink" title="第3章 兴趣是天生的，无聊是被逼的"></a>第3章 兴趣是天生的，无聊是被逼的</h2><p>没有探索的好奇心，就没有经历的意义</p>
+<pre><code>旅行不只是拍照，而是体验和探寻.
+</code></pre><p>•好奇心是脆弱的<br>重复的生活模式会钝化人的感知能力，沉重的精神压力会压缩人的生活空间。买房还贷找工作，结婚恋爱生孩子，人生被固定的轨道牵制着，稍稍逾矩就会被周围的人侧目，每天下了班在拥堵的交通中冲进杀出，到家的一刹那把自己埋进沙发里，方觉疲惫一阵阵袭来。健身阅读学英语，什么都想做，可是疲惫把这些念头全都杀光，我们只会去和那些让我们感觉不到辛苦的信息在一起。拿起手机，刷各种碎片信息——与其说是我们在吸收信息，不如说是各种垃圾信息在吸收我们，占据我们的时间，吞噬我们的生命。</p>
+<pre><code>stop it
+</code></pre><h2 id="3-3-像哲学家一样观察世界：视角陌生化-1"><a href="#3-3-像哲学家一样观察世界：视角陌生化-1" class="headerlink" title="3.3 像哲学家一样观察世界：视角陌生化"></a>3.3 像哲学家一样观察世界：视角陌生化</h2><p>我们需要偶尔把自己陌生化。把自己当作一个客体去看待、去围观，以一个旁观者的视角去观察自己的生活状态，会发现很多很多问题。<br>如果你觉得陌生化后你的生活是荒谬的，那说明你已经偏离自己想要的轨道了，早发现早治疗，可能还有救。</p>
+<pre><code>经常客观的审视自己
+</code></pre><h2 id="第4章-“有趣”是一种技能-1"><a href="#第4章-“有趣”是一种技能-1" class="headerlink" title="第4章 “有趣”是一种技能"></a>第4章 “有趣”是一种技能</h2><p>对很多人来说，旅行的意义在于脱离你习以为常的生活环境，去一个陌生的地方，从视觉听觉味觉触觉高浓度全息地输入大量陌生信息，去感受当地的风土人情，去思考总结自己的人生观——只去拍照购物的旅行者，意义止于拍照购物，止于朋友圈。<br>你买的东西、拍的照片会成为美好的记录，你买的物品或可以一直使用，而你感受到的东西会内化为精神世界的一部分，藏在大脑里，日复一日慢慢发酵，酿成醇厚悠长的记忆，融入你日常的举手投足，外化成为你气质的一部分。</p>
+<pre><code>写的太好了
+</code></pre><p>投资往往高风险高回报或低风险低回报。一个投资组合，常常会对这两种回报的资产做一个配比，在风险和回报中取得一个平衡。构建知识储备也是一样。我们既需要吃力地啃艰深著作，也需要厕所里刷段子；既需要深交三五知己，也需要电话簿里的泛泛之交——这些组合让我们不流于肤浅，又不至于太辛苦。</p>
+<pre><code>阳春白雪和下里巴人
+</code></pre><h2 id="4-2-世界不是平的——信息管理能力-1"><a href="#4-2-世界不是平的——信息管理能力-1" class="headerlink" title="4.2 世界不是平的——信息管理能力"></a>4.2 世界不是平的——信息管理能力</h2><p>在愈演愈烈的碎片化中，我们的注意力时长渐渐变短，在一次又一次的刷手机中，我们不再有耐心读完一篇数万字的文章，不再有耐心看完一堂两小时的公开课视频。如此凶险的事实，却很少有人意识到——我们的时间就是我们的生命。被切割的，不仅仅是时间，还有生命。</p>
+<pre><code>确实是这样。尽量少用手机
+</code></pre><h2 id="第6章-有趣需要变现-1"><a href="#第6章-有趣需要变现-1" class="headerlink" title="第6章 有趣需要变现"></a>第6章 有趣需要变现</h2><p>只要存在社交，就存在优势展示。人经常想让别人知道“我有钱”“我长得好看”“有人为我争风吃醋”“有人送我股份把我留在公司”，或者想让人知道——“我这人可有意思了”。我们的人格魅力正是通过这种有意无意的炫耀展示在别人的目光里，成为他们评价我们的依据。</p>
+<pre><code>哈哈，大多数人还是比较肤浅的
+</code></pre><h2 id="6-2-性格内向-不善表达吗-1"><a href="#6-2-性格内向-不善表达吗-1" class="headerlink" title="6.2 性格内向=不善表达吗"></a>6.2 性格内向=不善表达吗</h2><p>我朋友A，天文地理绯闻八卦无所不通，跟她聊天，再偏的梗也能接住，再冷的知识也能扯上，聊得浑身毛孔无不舒畅。她从来没有特别准备过这种“谈资”，腹有诗书，自然有话。</p>
+<pre><code>很期待能和这样的人进行交流
+</code></pre><h2 id="6-3-有钱了不起吗？你说呢-1"><a href="#6-3-有钱了不起吗？你说呢-1" class="headerlink" title="6.3 有钱了不起吗？你说呢"></a>6.3 有钱了不起吗？你说呢</h2><p>对于一个程序员而言，今天给银行写充值系统前台，明天给互联网公司写游戏币充值系统前台，绝对差别并没有太大。但对硬件工程师而言，差别则更大一些。职业技能跨行业跳槽的难易度，我称之为流动性。</p>
+<pre><code>java的流动性比gis好一些
+</code></pre><h2 id="第7章-终极有趣——精神世界的创造与维护-1"><a href="#第7章-终极有趣——精神世界的创造与维护-1" class="headerlink" title="第7章 终极有趣——精神世界的创造与维护"></a>第7章 终极有趣——精神世界的创造与维护</h2><p>假设我给上面两位开个座谈会，讨论“中国性别比例失衡，男子三千万无法娶妻”的问题。<br>张载大概会说：“哀民生之多艰，我们要移风易俗，反对打胎反对性别选择，反对天价彩礼，让每个人都能高高兴兴结婚。”<br>韩非子大概会说：“扯淡，从来就没有什么性别偏好问题。一切都是利益。男人是田里的重劳力，传统风俗女性不承担赡养义务，所以趋利避害，大家喜欢生儿子。如果把社保做好，城市化进度加快，性别偏好就会渐渐消失。”<br>看，这就是两个人不同的精神世界，虽然思考方式不同，却都是自洽的。<br>建立坚定而又自洽的精神世界，需要的是“思考”，而不仅仅是“体验”。</p>
+<pre><code>给了我很大的启发，我咋没想到呢？
+</code></pre><p>体验是轻松的——<br>是抓着一屉纸巾看肥皂剧，是坐在马桶上刷爽文，是窝在沙发里看综艺。那些制造肥皂剧、爽文、综艺的人，深知如何顺着你的心意，让你得到最舒服的体验。可你能得到的，也就止步于舒服了。<br>思考是辛苦的——<br>是注解比正文长的原稿，是密密麻麻的笔记，是焦头烂额的一团乱麻。那些人类最精妙的思想，好比山顶的风景，海底的珍珠，需要艰难险阻才可以探索，虽然过程不甚愉快，但最终你能得到的，是醍醐灌顶的通透，是豁然开朗的狂喜。正因为如此，优秀的书籍才显得珍贵，它们是引导你登山入海的向导。<br>一个人的三观，是在外界大量“阅读”和“体验”下，通过思考获得的。由于阅读和体验的制造者设计了形形色色的套路，我们的思考深度，很大程度上影响到三观的深度和自洽度，最终形成一个人“有趣”与否的根基。</p>
+<pre><code>这就是不要看抖音头条之流的原因。推荐给你的不要看
+</code></pre><h2 id="7-2-一只随波逐流的帆水母-1"><a href="#7-2-一只随波逐流的帆水母-1" class="headerlink" title="7.2 一只随波逐流的帆水母"></a>7.2 一只随波逐流的帆水母</h2><p>每个人的三观都是由外界经年累月的信息积累、消化而成。我们收到的信息不一样，消化方式不一样，我们的三观就不一样。当我们观察其他人的时候，很难避免把自己代入，很难避免以自己的立场、视角去判断他人，这就需要我们尽量意识到自身的局限性，力求避免偏见。</p>
+<pre><code>很赞同，每个人的想法都是独特而有原因的，你不在别人的位置就不能明白别人这样做的原因。尊重个体差异性，包容不同的想法，认识自身局限性。
+</code></pre>
+        
     
 
     
@@ -655,7 +628,8 @@
 
 
                 
-		<!-- Post Comments -->
+
+                <!-- Post Comments -->
                 
                     
                 
@@ -717,7 +691,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.jpg" alt="Rico's avatar">
+        <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -782,16 +756,6 @@
 
     <!-- Pages  -->
     
-        <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
@@ -814,7 +778,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material chenhongjie 
+<!-- Theme Material -->
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
@@ -822,7 +786,6 @@ It will not impact the appearance and can give developers a lot of support :)
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
-  -->
 
 
 <!-- Help & Support -->
@@ -896,11 +859,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -914,12 +889,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -935,21 +917,24 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>
     
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -994,15 +979,40 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -1020,10 +1030,21 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
     (function(){
         var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
@@ -1032,7 +1053,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

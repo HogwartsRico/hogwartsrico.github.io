@@ -5,8 +5,42 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!-- Title -->
     
@@ -17,115 +51,18 @@
         Rico&#39;s Blog
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico,读书笔记">
-
-    <!-- Site Verification -->
-    
-    
-
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,读书笔记">
+    <meta name="theme-color" content="#0097A7">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://hogwartsrico.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="我不过低配的人生读书笔记 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="读书笔记"> 
-
-    
-        <meta property="article:published_time" content="6月 11, 2020">
-        <meta property="article:modified_time" content="6月 11, 2020">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="我不过低配的人生读书笔记 | Rico&#39;s Blog">
-    <meta name="twitter:description" content>
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="http://hogwartsrico.github.io">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/11/WoBuGuoDiPeiDeRenSheng/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Rico&#39;s Blog",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Rico",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "Javaer"
-    },
-    "headline": "我不过低配的人生读书笔记",
-    "url": "http://hogwartsrico.github.io/2020/06/11/WoBuGuoDiPeiDeRenSheng/index.html",
-    "datePublished": "6月 11, 2020",
-    "dateModified": "6月 11, 2020",
-    "description": "",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://hogwartsrico.github.io"
-    }
-}
-</script>
-
-
-    
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -136,47 +73,38 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
 
-    <!-- Import CSS & jQuery -->
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -274,28 +202,73 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2020/06/11/WoBuGuoDiPeiDeRenSheng/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2020/06/11/WoBuGuoDiPeiDeRenSheng/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="我不过低配的人生读书笔记 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="读书笔记"> 
+
+    
+        <meta property="article:published_time" content="Thu Jun 11 2020 18:38:39 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jun 11 2020 18:43:50 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/11/WoBuGuoDiPeiDeRenSheng/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
 
     <!-- Analytics -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    
+    
+    
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -313,7 +286,7 @@
                     
                         <!-- Hamburger Button -->
                         <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
                         </button>
                     
 
@@ -336,23 +309,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#标注"><span class="post-toc-number">1.</span> <span class="post-toc-text">标注</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#突破思维障碍与边界，让自己强大起来"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">突破思维障碍与边界，让自己强大起来</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#人生不需要太多大道理，注重人品是关键"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">人生不需要太多大道理，注重人品是关键</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#只有努力还不够，方法更重要"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">只有努力还不够，方法更重要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#能力绝非万能，心胸非常重要"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">能力绝非万能，心胸非常重要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#穷孩子如何站在富人堆里"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">穷孩子如何站在富人堆里</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发现别人，自我实现——人生就是要奋斗"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">发现别人，自我实现——人生就是要奋斗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#摆脱贫困思维的困扰"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">摆脱贫困思维的困扰</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#你要相信生活会改变"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">你要相信生活会改变</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#人生的四个等级"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">人生的四个等级</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#从人性角度，看人心冷漠现象"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">从人性角度，看人心冷漠现象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#哪些能力很重要，一点就透却没人告诉你"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">哪些能力很重要，一点就透却没人告诉你</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#人性实验：你不是世界的中心"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">人性实验：你不是世界的中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#想当然是靠不住的，还是要思考"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">想当然是靠不住的，还是要思考</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#跨不过去的是苟且，跨过去的是远方"><span class="post-toc-number">1.14.</span> <span class="post-toc-text">跨不过去的是苟且，跨过去的是远方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#持续的好运是一种能力"><span class="post-toc-number">1.15.</span> <span class="post-toc-text">持续的好运是一种能力</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#年轻只是资本，成熟才意味机会"><span class="post-toc-number">1.16.</span> <span class="post-toc-text">年轻只是资本，成熟才意味机会</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么有些人勤劳却陷入贫困"><span class="post-toc-number">1.17.</span> <span class="post-toc-text">为什么有些人勤劳却陷入贫困</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#不要读书读到蠢"><span class="post-toc-number">1.18.</span> <span class="post-toc-text">不要读书读到蠢</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#情商是什么？就是不为别人的错误埋单"><span class="post-toc-number">1.19.</span> <span class="post-toc-text">情商是什么？就是不为别人的错误埋单</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#爱护朋友，别让他蹬鼻子上脸"><span class="post-toc-number">1.20.</span> <span class="post-toc-text">爱护朋友，别让他蹬鼻子上脸</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#你日常的麻烦，有可能是情商不足所导致"><span class="post-toc-number">1.21.</span> <span class="post-toc-text">你日常的麻烦，有可能是情商不足所导致</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#凭你的智力，还不够做坏人"><span class="post-toc-number">1.22.</span> <span class="post-toc-text">凭你的智力，还不够做坏人</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#千万别得罪心胸狭窄的人"><span class="post-toc-number">1.23.</span> <span class="post-toc-text">千万别得罪心胸狭窄的人</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用微笑对待别人，用自嘲对付自己"><span class="post-toc-number">1.24.</span> <span class="post-toc-text">用微笑对待别人，用自嘲对付自己</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何避免被职场上的垃圾干掉"><span class="post-toc-number">1.25.</span> <span class="post-toc-text">如何避免被职场上的垃圾干掉</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#教养是一种温静的智慧"><span class="post-toc-number">1.26.</span> <span class="post-toc-text">教养是一种温静的智慧</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#教养：源自你内心的强大力量"><span class="post-toc-number">1.27.</span> <span class="post-toc-text">教养：源自你内心的强大力量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无知就是最大的风险"><span class="post-toc-number">1.28.</span> <span class="post-toc-text">无知就是最大的风险</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#尖酸刻薄，是性格直率吗"><span class="post-toc-number">1.29.</span> <span class="post-toc-text">尖酸刻薄，是性格直率吗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#我们一生的努力，只是为了矫正性格上的缺陷"><span class="post-toc-number">1.30.</span> <span class="post-toc-text">我们一生的努力，只是为了矫正性格上的缺陷</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#怎样读书，才会通透"><span class="post-toc-number">1.31.</span> <span class="post-toc-text">怎样读书，才会通透</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#存在感太弱的人是危险的"><span class="post-toc-number">1.32.</span> <span class="post-toc-text">存在感太弱的人是危险的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#比知识更重要的是，让这个世界听懂你"><span class="post-toc-number">1.33.</span> <span class="post-toc-text">比知识更重要的是，让这个世界听懂你</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我的想法"><span class="post-toc-number">2.</span> <span class="post-toc-text">我的想法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#突破思维障碍与边界，让自己强大起来-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">突破思维障碍与边界，让自己强大起来</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#人生不需要太多大道理，注重人品是关键-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">人生不需要太多大道理，注重人品是关键</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#只有努力还不够，方法更重要-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">只有努力还不够，方法更重要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#能力绝非万能，心胸非常重要-1"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">能力绝非万能，心胸非常重要</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#穷孩子如何站在富人堆里-1"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">穷孩子如何站在富人堆里</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发现别人，自我实现——人生就是要奋斗-1"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">发现别人，自我实现——人生就是要奋斗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#摆脱贫困思维的困扰-1"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">摆脱贫困思维的困扰</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#你要相信生活会改变-1"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">你要相信生活会改变</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#人生的四个等级-1"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">人生的四个等级</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#跨不过去的是苟且，跨过去的是远方-1"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">跨不过去的是苟且，跨过去的是远方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#年轻只是资本，成熟才意味机会-1"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">年轻只是资本，成熟才意味机会</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#爱护朋友，别让他蹬鼻子上脸-1"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">爱护朋友，别让他蹬鼻子上脸</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用微笑对待别人，用自嘲对付自己-1"><span class="post-toc-number">2.13.</span> <span class="post-toc-text">用微笑对待别人，用自嘲对付自己</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#教养是一种温静的智慧-1"><span class="post-toc-number">2.14.</span> <span class="post-toc-text">教养是一种温静的智慧</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#教养：源自你内心的强大力量-1"><span class="post-toc-number">2.15.</span> <span class="post-toc-text">教养：源自你内心的强大力量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#尖酸刻薄，是性格直率吗-1"><span class="post-toc-number">2.16.</span> <span class="post-toc-text">尖酸刻薄，是性格直率吗</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#我们一生的努力，只是为了矫正性格上的缺陷-1"><span class="post-toc-number">2.17.</span> <span class="post-toc-text">我们一生的努力，只是为了矫正性格上的缺陷</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#怎样读书，才会通透-1"><span class="post-toc-number">2.18.</span> <span class="post-toc-text">怎样读书，才会通透</span></a></li></ol></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
     
-
 
 
 
@@ -396,7 +365,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -430,7 +399,8 @@
     
 
     <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
     <span class="visuallyhidden">share</span>
 </button>
@@ -441,7 +411,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=我不过低配的人生读书笔记&url=http://hogwartsrico.github.io/2020/06/11/WoBuGuoDiPeiDeRenSheng/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=我不过低配的人生读书笔记&url=http://hogwartsrico.github.io/2020/06/11/WoBuGuoDiPeiDeRenSheng/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -485,6 +455,7 @@
     
 </ul>
 
+    
 </div>
 
                 
@@ -720,81 +691,85 @@
 <p> 这就是发达国家之所以更重视社会实践的原因。他们发现，对于某些孩子来说，有些东西，比知识更重要。 </p>
 <p> 不成熟的心，天然具有自闭性。因为以自我为中心的人格，存在着对抗社会化的本能，只有差异化的接触，才有可能撬动这扇死闭的门。在正常的知识积累之外，你或许需要让自己多多接触与自己不同类型的人，一旦在这个过程中感受到了挫折感，甚至感受到了伤害，这就意味着你向成熟迈进了一步。这个过程需要缓释，需要你认真解读自我心灵的对抗，逃避也未必不可，但差异化接触必须要持续。你应该让这个世界听懂你，让这个世界理解你，因为懂得，所以慈悲。因为理解，所以相爱。那些没有勇气成长的人，终生逃不过知识的诅咒。 </p>
 <h1 id="我的想法"><a href="#我的想法" class="headerlink" title="我的想法"></a>我的想法</h1><h2 id="突破思维障碍与边界，让自己强大起来-1"><a href="#突破思维障碍与边界，让自己强大起来-1" class="headerlink" title="突破思维障碍与边界，让自己强大起来"></a>突破思维障碍与边界，让自己强大起来</h2><p>知识，是拿来外用的。<br>而智慧，却是真实自我的浮现。<br>——找到那个最强大的自我，战胜天性中的恐惧与懦弱。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有道理</span><br></pre></td></tr></table></figure>
-<p>哪怕你拥有一千八百个博士文凭，但内心软弱，自卑胆怯，话不敢大声说，屁不敢大胆放，见女神也不敢推倒，那么你照样一事无成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">哈哈😄有道理</span><br></pre></td></tr></table></figure>
-<p>哪怕你出身再寒微，资源再匮乏，但你能够正确认知自我，能够克制天性中的疲懒、懦弱与恐惧，照样有一番惊天作为。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">嗯</span><br></pre></td></tr></table></figure>
-<h2 id="人生不需要太多大道理，注重人品是关键-1"><a href="#人生不需要太多大道理，注重人品是关键-1" class="headerlink" title="人生不需要太多大道理，注重人品是关键"></a>人生不需要太多大道理，注重人品是关键</h2><p>巴菲特式的买卖朋友股份的游戏，其实每天都在进行。<br>我们的一言一行，都被别人看在眼里，感觉到你可靠、可信，就会果断押下筹码。<br>押你的人越多，你获得机会的概率就越大。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有时真的是拿自我抬杠当做了内心的思考，殊不知失去理智很容易误入歧途。</span><br></pre></td></tr></table></figure>
-<h2 id="只有努力还不够，方法更重要-1"><a href="#只有努力还不够，方法更重要-1" class="headerlink" title="只有努力还不够，方法更重要"></a>只有努力还不够，方法更重要</h2><p>有朋友在留言里讲述他坎坷的奋斗史，出生于乡村，父母不懂教育，成长时记忆最深刻的，就是父母那满满的恶意。诸如他去参加数学竞赛，临走前父亲用怪怪的眼神看着他，说：还是别出去给我丢人现眼了，你能行吗？他就这样笼罩着浓重的心理阴影去考场，回来后见到父亲一张幸灾乐祸的脸：哈哈，考砸了吧？早就知道你不行……实际上考得很好。但再好的成绩，也换不来父母温和的笑脸。<br>诸多细节，但留言的孩子说，如果你认为这些就够悲惨了，那你的想象力实在是有限。等他长大，进入社会后，童年教育的缺失，处处显露出来，因为隔膜于人际关系，无论他工作做得多么好，也会被大家无视。咬牙死拼，哪怕是一小点人生进步，都要付出比别人多出几倍的代价……</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">童年的环境和家教真的对人的影响太深了，各方面的</span><br></pre></td></tr></table></figure>
-<p>社会化能力有个恼人的特点，最初的心理机制形成，会影响孩子的一生。事实上，许多人终其一生的奋斗，不过是在努力矫正自己残缺的人格——这是最明智的人都要努力一生的事，学校教育的作用相对有限。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是的。深有体会</span><br></pre></td></tr></table></figure>
-<p>对于我们大多数人来说，社会化的能力，既不能完全靠家庭，也不能完全靠学校。<br>主要还是靠自己。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">哦</span><br></pre></td></tr></table></figure>
-<p>我们这一生，主要靠自己。<br>靠自己，就得研究社会化能力的原理机制。从一个更高的维度，居高临下俯视社会，才能够赋予自我并不具备的能力。<br>——思维能力！<br>要获得这种思维能力，就必须要用心，修复此前教育不足对自己大脑造成的伤害。<br>这种伤害，主要表现在三种残缺型的思维模式上：借口式、责怨式与颓废式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">太对了</span><br></pre></td></tr></table></figure>
-<p>家庭教育如果太过于严厉，动辄凌辱惩罚，就会让孩子养成习惯性保护的特点。成年后进入社会，遇事习惯于先找借口。<br>随意说个我以前的经历，有位主管工作出了纰漏，事儿不大，管理层也没打算追究。但他本人陷入恐惧，上门来解释。<br>主管：你听我说，当时的情况吧，是这样子的……<br>高管：闭嘴！<br>主管：……为啥不让我解释？<br>高管：你解释个啥？你在找借口。<br>主管：……我没有找借口，我只是说明一下……<br>高管：什么是借口？<br>主管：……当时的情况吧，我也没料到……<br>高管：先回答我，什么叫借口？<br>主管：……你怎么不听我说话呀，你听我解释……<br>高管：……回答我，到底什么是借口？<br>主管：……唔，我明白了，解释就是借口……<br>高管：明白了就好。<br>等主管走后，高管对旁边的人说：他明白个什么呀，什么也没明白。他要是真的明白了，就会哈哈大笑起来，把自己的过错认真地剖析一下，假如他真要是这么做了，我这个位置，都委屈他了。<br>——看明白这个故事没有？职场之上，人与人的差距，就是表现在思维能力上。这句话好像人人都看懂了，但，除非你肯于立即着手修复思维缺陷，否则这个所谓的看明白，不过是又一次自我欺骗。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">太正确了  特别是对于我来说！</span><br></pre></td></tr></table></figure>
-<p>许多人，有一个巧妙的法子对抗思维能力的改善。<br>这个法子就是责怨别人。<br>责怨是我们人类社会常见的风景，人类的痛苦，不低于80%来自于相互责怨。责怨的理由也是五花八门，我这么辛辛苦苦为了你，起早贪黑忙碌不休，我为了谁？不全都是为了你吗？……责怨如毒火，你越是责怨，心中就越是愤怒，越是痛苦。而被责怨的一方，心理蒙上了深深的负罪感，也甭想活得开心。<br>但这种痛苦，九成九是自己找的。<br>你抱怨，说自己的一切都是为了被你抱怨的人——可如果那个人不存在，你是不是不活了呢？<br>你不会，你会找到下一个责怨的目标。<br>停止责怨，当事人的智商，会直线飙升至少20个点。一瞬间变身为高智商人士。<br>但做到这点很难，真的很难。<br>因为有个颓废型人生观，在你心灵深处，如有大磨盘般坠着你，让你无力摆脱。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是啊。想到了我爸和我自己</span><br></pre></td></tr></table></figure>
-<p>无论你的家境有多么糟糕，它最多限定了你的起点，但限制不了你的终点。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">说得好！</span><br></pre></td></tr></table></figure>
-<p>先行修复智力，化颓废为积极，为自己增加动力。变找借口与责怨心理为平和的进取，这时候，努力的价值与意义，就会显现出来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">嗯！</span><br></pre></td></tr></table></figure>
-<h2 id="能力绝非万能，心胸非常重要-1"><a href="#能力绝非万能，心胸非常重要-1" class="headerlink" title="能力绝非万能，心胸非常重要"></a>能力绝非万能，心胸非常重要</h2><p>能力绝非万能，心胸非常重要</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">畅辽阔 问苍茫大地谁主浮沉. 成吉思汗，只识弯弓射大雕，俱往矣数风流人物还看今朝。这是多么豪迈和宽广的心胸啊！也怪不得毛主席能成一番大事业！</span><br></pre></td></tr></table></figure>
-<p>贤妒能，不过是不情愿承认自己的能力不足罢了。<br>这就映射出一个不太让人注意到的规则——越是对自己能力缺乏信心的人士，越是不愿意承认别人的能力。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">嗯</span><br></pre></td></tr></table></figure>
-<p>善待别人，不过是善待自己。真正智慧的选择，是扫尽褊狭之怨，以开放的心胸，关注并欣赏身边朋友们的长处，这样才会给予未来的自己成功的机会。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">嗯，非常对.</span><br></pre></td></tr></table></figure>
-<h2 id="穷孩子如何站在富人堆里-1"><a href="#穷孩子如何站在富人堆里-1" class="headerlink" title="穷孩子如何站在富人堆里"></a>穷孩子如何站在富人堆里</h2><p>吴晓波先生曾说过一句话：再穷也要站在富人堆里。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对语言的理解，有道智力门槛。再穷也要站在富人堆里，意指你经济可以贫穷，但大脑的思维不可以穷困，一个人的观念主导着他的行为选择，而一个人的选择，基本上来说就是他的命运了。</span><br><span class="line">要想站在富人堆里，改善自我的命运，那就必须清理一下自己的思维，看自己的脑子里，是否有不兼容于财富的思维系统——如果你的思维与财富法则背道而驰，那就需要认真地想一想了。</span><br></pre></td></tr></table></figure>
-<p>任何一个行业，都不会排斥优秀的业内人士，重要的是你要破除穷孩子被思维定式锁死的心智，打开自我，重新认识这个世界，重新认识你曾经视而不见的诸多行业，届时你的视野宽广，眼界高远，你在未来得到的，一定会远超你的人生预期。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">说得好</span><br></pre></td></tr></table></figure>
-<h2 id="发现别人，自我实现——人生就是要奋斗-1"><a href="#发现别人，自我实现——人生就是要奋斗-1" class="headerlink" title="发现别人，自我实现——人生就是要奋斗"></a>发现别人，自我实现——人生就是要奋斗</h2><p>人生就这一辈子，截长补短不到三万天，既然我们被赋予灵智，那必然是上苍对我们寄予了期望，这一生务必要活得爽快，不可憋居于斗室里巷之间，世界那么大，地球这么圆，你一生来来去去如果只限于方圆几公尺之内，这岂不是辜负了上天造就的你这颗聪明多智头脑？想六万年前，我们的先祖从原始森林出发，足迹踏遍全球，火种撒向四方。现今技术开明时代，你再怎么疲累，也不至于连六万年前光脚板裹树皮的先祖也不如吧？</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">太对了！</span><br></pre></td></tr></table></figure>
-<p>人生就这一辈子，截长补短不到三万天，既然我们被赋予灵智，那必然是上苍对我们寄予了期望，这一生务必要活得爽快，不可憋居于斗室里巷之间，世界那么大，地球这么圆，你一生来来去去如果只限于方圆几公尺之内，这岂不是辜负了上天造就的你这颗聪明多智头脑？想六万年前，我们的先祖从原始森林出发，足迹踏遍全球，火种撒向四方。现今技术开明时代，你再怎么疲累，也不至于连六万年前光脚板裹树皮的先祖也不如吧？<br>人生就是要嗨，男人就要奋斗——这是一种人生观，有了这种人生观，才有进取的精神与力量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">seize the day</span><br></pre></td></tr></table></figure>
-<p>的自我实现，需要获得他人的认可与帮助。而在此之前，你必须先行的，成为替他人解决无歇止欲求的供应商——只有满足了别人，才能实现你自己</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">马斯洛需求层次理论第五层：自我实现的需要</span><br></pre></td></tr></table></figure>
-<p>我们个体的人也一样，发现人类内心深处的渴望与悲伤，只有在这个时代，我们自己的人生，才算是有了开始。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我们价值的体现是因为被需求。被别人不断的需求、这个需求越大你的存在价值就越大。不仅是人生，对于工作上亦如此。你的工作的不可替代性越强、你的价值体现也会越大！所以找到自己的价值先找到别人的需求点，找到自己的位置先找到自己的需求欲望点。</span><br></pre></td></tr></table></figure>
-<h2 id="摆脱贫困思维的困扰-1"><a href="#摆脱贫困思维的困扰-1" class="headerlink" title="摆脱贫困思维的困扰"></a>摆脱贫困思维的困扰</h2><p>没有追求的男人，很难言品质二字，这类人每天为了一点点虚无缥缈的存在感，疲于奔命，活得特别累。这就是过低的品质，需要支付大量人生成本的道理之所在。没有追求的人生，本身就失去意义，所以当事人必须要用一生的努力，以证明或是否定这一点。如此的努力只为了证明自己的存在，你想这样的人生，是多么划不来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">非常赞同</span><br></pre></td></tr></table></figure>
-<h2 id="你要相信生活会改变-1"><a href="#你要相信生活会改变-1" class="headerlink" title="你要相信生活会改变"></a>你要相信生活会改变</h2><p>先从小的变化开始，一点点改变自己的思维，去除灰暗的不良情绪。这个过程有点像运动员健身，没跑起来时感觉目标极遥远，但一旦开始，过程就是一切。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最难的是开始，开始就成功了一半</span><br></pre></td></tr></table></figure>
-<h2 id="人生的四个等级-1"><a href="#人生的四个等级-1" class="headerlink" title="人生的四个等级"></a>人生的四个等级</h2><p>陶朱公经商，别开生面，与众不同。平常人都是雨天造舟，旱时造车。因为雨季舟船好卖，旱季车辆好销售。但陶朱公却是雨天造车，旱时造船，人们都讥笑他不懂市场。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">追涨杀跌不可取</span><br></pre></td></tr></table></figure>
-<h2 id="跨不过去的是苟且，跨过去的是远方-1"><a href="#跨不过去的是苟且，跨过去的是远方-1" class="headerlink" title="跨不过去的是苟且，跨过去的是远方"></a>跨不过去的是苟且，跨过去的是远方</h2><p>索罗斯、乔布斯及伯根索尔，他们并非是极端的特例。<br>有相当数量的人，其实和他们差不多，无论环境多么恶劣，都秉持一种活着干、死了算、不死总会出头、再穷无非讨饭的人生哲学——这仨老兄都讨过饭，说到他们老哥仨的脸皮，那可不是一般的厚。<br>另外还有相当数量的人，就有点提不起精神来。哪怕他们所居处的环境，比索罗斯、乔布斯、伯根索尔等人好数倍，他们仍然绝望至极，怎么劝也打不起精神来。<br>专业人士会偷偷告诉你——这两类人的差别在于对不确定性及确定性的规律认知上。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">和穷爸爸富爸爸里面说的一个意思。在温水中能苟活便不再思变.就是要教我们不要安于现状.拿着工资能苟活便不再有破釜沉舟釜底抽薪的勇气重新开始. 怕创业后一无所有，当然也看个人追求.</span><br></pre></td></tr></table></figure>
-<p>高晓松说：生活不止眼前的苟且，还有诗和远方。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有的努力关乎苟且，有的努力向着诗和远方。当机会来临时，向着诗和远方的努力获得的回报更大。作者解释的这句话，非常在理。因为苟且之下的机会本来范围也小的多，就像是你每天是为了这点工资做着重复劳动而努力，还是在为自己的事业不断提升自我输出财富而努力，时间越久差别越大。</span><br></pre></td></tr></table></figure>
-<p>人生终归是要奋斗的，奋斗归奋斗，怕就怕心不甘情不愿地怀着满腔悲愤，弄出张苦大仇深的嘴脸，隔八百里看到你，犹自透出一股子冰冷的寒气。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">有道理</span><br></pre></td></tr></table></figure>
-<h2 id="年轻只是资本，成熟才意味机会-1"><a href="#年轻只是资本，成熟才意味机会-1" class="headerlink" title="年轻只是资本，成熟才意味机会"></a>年轻只是资本，成熟才意味机会</h2><p>倾听，做事，多与平和的成年人相处</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">平和的</span><br></pre></td></tr></table></figure>
-<h2 id="爱护朋友，别让他蹬鼻子上脸-1"><a href="#爱护朋友，别让他蹬鼻子上脸-1" class="headerlink" title="爱护朋友，别让他蹬鼻子上脸"></a>爱护朋友，别让他蹬鼻子上脸</h2><p>违章兄开着公司，大模大样，也算是社会中坚了。可这人不要脸，却琢磨省下违章的那仨俩小钱。这种贪小利的心思一出来，整个人的智商，就“咣叽”一下子被拉低了。<br>——他是商业精英，不可能不知道人生的连场互动博弈规律，不可能不知道，在这件小事上的龌龊，是需要支付更昂贵的成本的。<br>但是，贪图小便宜的欲念，让他别的全都顾不上了。<br>结果，他跌入了自己亲手挖的坑里。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">因小失大.生活中也有很多贪小便宜结果付出更大代价的例子</span><br></pre></td></tr></table></figure>
-<h2 id="用微笑对待别人，用自嘲对付自己-1"><a href="#用微笑对待别人，用自嘲对付自己-1" class="headerlink" title="用微笑对待别人，用自嘲对付自己"></a>用微笑对待别人，用自嘲对付自己</h2><p>惧怕失败的人被情绪所左右，勇于挑战者则主动控制情绪。所有人在智力上可以说是平等的，拉开人生鸿沟的，无外乎你是情愿沦为情绪的俘虏，还是学习控制自我与他人的情绪。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">说得好</span><br></pre></td></tr></table></figure>
-<h2 id="教养是一种温静的智慧-1"><a href="#教养是一种温静的智慧-1" class="headerlink" title="教养是一种温静的智慧"></a>教养是一种温静的智慧</h2><p>搞对抗、心智不成熟的成年人，智力仍然停留在公众场合秀存在感的水平阶段。因为他们的自我尚不够强大，必须通过他人的关注以汲取营养。所以他们在社交甚至工作中，都无意识地秀出自我，自然而然地将来自于外界的否定视为挑衅，把别人的观点或建议，视为对自我的压抑。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.</span><br></pre></td></tr></table></figure>
-<h2 id="教养：源自你内心的强大力量-1"><a href="#教养：源自你内心的强大力量-1" class="headerlink" title="教养：源自你内心的强大力量"></a>教养：源自你内心的强大力量</h2><p>爱德华八世陷入了情网，爱上了一位美国寡妇辛普森</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">英国历史上有名的“冲冠一怒为红颜，不爱江山爱美人”的故事</span><br></pre></td></tr></table></figure>
-<h2 id="尖酸刻薄，是性格直率吗-1"><a href="#尖酸刻薄，是性格直率吗-1" class="headerlink" title="尖酸刻薄，是性格直率吗"></a>尖酸刻薄，是性格直率吗</h2><p>第一，千万不要把尖酸当成直率，更不要视刻薄为机智，这只是极度的愚蠢罢了。认识不到这一点，就无法从伤害别人反而最终伤害自己的恶性循环中走出来。<br>第二，要学会曲线凸显自我，直奔着凸显自我而去，期望借此获得存在感，是极低弱的蠢事。自古“花花轿子人抬人”，先突出别人，也未必就会耽误你。曲线思维才是价值思维，直线思维只能撞个头破血流。<br>第三，不要把自己视为他人人生的批判者，这并不是说我们不可以评价别人，而是说更重要的是我们的个人事业—— 一旦你考虑到人生事业，许多低情商的表现，就能够得到克制。<br>最后一点，人无完人，金无足赤。要记住批评是不需要智力的，但首肯或认同，这才是天下最难的事儿</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">赞美别人 不要太直率</span><br></pre></td></tr></table></figure>
-<h2 id="我们一生的努力，只是为了矫正性格上的缺陷-1"><a href="#我们一生的努力，只是为了矫正性格上的缺陷-1" class="headerlink" title="我们一生的努力，只是为了矫正性格上的缺陷"></a>我们一生的努力，只是为了矫正性格上的缺陷</h2><p>可知人生许多事，只是迈出第一步而已。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.</span><br></pre></td></tr></table></figure>
-<p>内向型的人，要把注意力从冥想中收回来。外向型的人，要把注意力从外界收回来。一旦你有意识地训练自我表情与眼神，就差不多接近于成熟了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">嗯 有道理</span><br></pre></td></tr></table></figure>
-<p>目标犹如寒夜孤星，高悬于你人生夜空之上，赋予你持续前行的动力。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">目标犹如寒夜孤星，高悬于你人生夜空之上，赋予你持续前行的动力。</span><br></pre></td></tr></table></figure>
-<h2 id="怎样读书，才会通透-1"><a href="#怎样读书，才会通透-1" class="headerlink" title="怎样读书，才会通透"></a>怎样读书，才会通透</h2><p>书要读到时而习之，知行合一，并不容易。<br>从古到今，把书读糊涂了的，数不胜数。把书读明白的，少之又少。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">那如何读书，才能够应用呢？</span><br><span class="line">方法：古为今用，洋为中用，理为文用，文为理用。</span><br></pre></td></tr></table></figure>
-<p>推荐南怀瑾先生的《老子他说》</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先读再背在再看解释</span><br></pre></td></tr></table></figure>
+<pre><code>有道理
+</code></pre><p>哪怕你拥有一千八百个博士文凭，但内心软弱，自卑胆怯，话不敢大声说，屁不敢大胆放，见女神也不敢推倒，那么你照样一事无成</p>
+<pre><code>哈哈😄有道理
+</code></pre><p>哪怕你出身再寒微，资源再匮乏，但你能够正确认知自我，能够克制天性中的疲懒、懦弱与恐惧，照样有一番惊天作为。</p>
+<pre><code>嗯
+</code></pre><h2 id="人生不需要太多大道理，注重人品是关键-1"><a href="#人生不需要太多大道理，注重人品是关键-1" class="headerlink" title="人生不需要太多大道理，注重人品是关键"></a>人生不需要太多大道理，注重人品是关键</h2><p>巴菲特式的买卖朋友股份的游戏，其实每天都在进行。<br>我们的一言一行，都被别人看在眼里，感觉到你可靠、可信，就会果断押下筹码。<br>押你的人越多，你获得机会的概率就越大。</p>
+<pre><code>有时真的是拿自我抬杠当做了内心的思考，殊不知失去理智很容易误入歧途。
+</code></pre><h2 id="只有努力还不够，方法更重要-1"><a href="#只有努力还不够，方法更重要-1" class="headerlink" title="只有努力还不够，方法更重要"></a>只有努力还不够，方法更重要</h2><p>有朋友在留言里讲述他坎坷的奋斗史，出生于乡村，父母不懂教育，成长时记忆最深刻的，就是父母那满满的恶意。诸如他去参加数学竞赛，临走前父亲用怪怪的眼神看着他，说：还是别出去给我丢人现眼了，你能行吗？他就这样笼罩着浓重的心理阴影去考场，回来后见到父亲一张幸灾乐祸的脸：哈哈，考砸了吧？早就知道你不行……实际上考得很好。但再好的成绩，也换不来父母温和的笑脸。<br>诸多细节，但留言的孩子说，如果你认为这些就够悲惨了，那你的想象力实在是有限。等他长大，进入社会后，童年教育的缺失，处处显露出来，因为隔膜于人际关系，无论他工作做得多么好，也会被大家无视。咬牙死拼，哪怕是一小点人生进步，都要付出比别人多出几倍的代价……</p>
+<pre><code>童年的环境和家教真的对人的影响太深了，各方面的
+</code></pre><p>社会化能力有个恼人的特点，最初的心理机制形成，会影响孩子的一生。事实上，许多人终其一生的奋斗，不过是在努力矫正自己残缺的人格——这是最明智的人都要努力一生的事，学校教育的作用相对有限。</p>
+<pre><code>是的。深有体会
+</code></pre><p>对于我们大多数人来说，社会化的能力，既不能完全靠家庭，也不能完全靠学校。<br>主要还是靠自己。</p>
+<pre><code>哦
+</code></pre><p>我们这一生，主要靠自己。<br>靠自己，就得研究社会化能力的原理机制。从一个更高的维度，居高临下俯视社会，才能够赋予自我并不具备的能力。<br>——思维能力！<br>要获得这种思维能力，就必须要用心，修复此前教育不足对自己大脑造成的伤害。<br>这种伤害，主要表现在三种残缺型的思维模式上：借口式、责怨式与颓废式。</p>
+<pre><code>太对了
+</code></pre><p>家庭教育如果太过于严厉，动辄凌辱惩罚，就会让孩子养成习惯性保护的特点。成年后进入社会，遇事习惯于先找借口。<br>随意说个我以前的经历，有位主管工作出了纰漏，事儿不大，管理层也没打算追究。但他本人陷入恐惧，上门来解释。<br>主管：你听我说，当时的情况吧，是这样子的……<br>高管：闭嘴！<br>主管：……为啥不让我解释？<br>高管：你解释个啥？你在找借口。<br>主管：……我没有找借口，我只是说明一下……<br>高管：什么是借口？<br>主管：……当时的情况吧，我也没料到……<br>高管：先回答我，什么叫借口？<br>主管：……你怎么不听我说话呀，你听我解释……<br>高管：……回答我，到底什么是借口？<br>主管：……唔，我明白了，解释就是借口……<br>高管：明白了就好。<br>等主管走后，高管对旁边的人说：他明白个什么呀，什么也没明白。他要是真的明白了，就会哈哈大笑起来，把自己的过错认真地剖析一下，假如他真要是这么做了，我这个位置，都委屈他了。<br>——看明白这个故事没有？职场之上，人与人的差距，就是表现在思维能力上。这句话好像人人都看懂了，但，除非你肯于立即着手修复思维缺陷，否则这个所谓的看明白，不过是又一次自我欺骗。</p>
+<pre><code>太正确了  特别是对于我来说！
+</code></pre><p>许多人，有一个巧妙的法子对抗思维能力的改善。<br>这个法子就是责怨别人。<br>责怨是我们人类社会常见的风景，人类的痛苦，不低于80%来自于相互责怨。责怨的理由也是五花八门，我这么辛辛苦苦为了你，起早贪黑忙碌不休，我为了谁？不全都是为了你吗？……责怨如毒火，你越是责怨，心中就越是愤怒，越是痛苦。而被责怨的一方，心理蒙上了深深的负罪感，也甭想活得开心。<br>但这种痛苦，九成九是自己找的。<br>你抱怨，说自己的一切都是为了被你抱怨的人——可如果那个人不存在，你是不是不活了呢？<br>你不会，你会找到下一个责怨的目标。<br>停止责怨，当事人的智商，会直线飙升至少20个点。一瞬间变身为高智商人士。<br>但做到这点很难，真的很难。<br>因为有个颓废型人生观，在你心灵深处，如有大磨盘般坠着你，让你无力摆脱。</p>
+<pre><code>是啊。想到了我爸和我自己
+</code></pre><p>无论你的家境有多么糟糕，它最多限定了你的起点，但限制不了你的终点。</p>
+<pre><code>说得好！
+</code></pre><p>先行修复智力，化颓废为积极，为自己增加动力。变找借口与责怨心理为平和的进取，这时候，努力的价值与意义，就会显现出来。</p>
+<pre><code>嗯！
+</code></pre><h2 id="能力绝非万能，心胸非常重要-1"><a href="#能力绝非万能，心胸非常重要-1" class="headerlink" title="能力绝非万能，心胸非常重要"></a>能力绝非万能，心胸非常重要</h2><p>能力绝非万能，心胸非常重要</p>
+<pre><code>畅辽阔 问苍茫大地谁主浮沉. 成吉思汗，只识弯弓射大雕，俱往矣数风流人物还看今朝。这是多么豪迈和宽广的心胸啊！也怪不得毛主席能成一番大事业！
+</code></pre><p>贤妒能，不过是不情愿承认自己的能力不足罢了。<br>这就映射出一个不太让人注意到的规则——越是对自己能力缺乏信心的人士，越是不愿意承认别人的能力。</p>
+<pre><code>嗯
+</code></pre><p>善待别人，不过是善待自己。真正智慧的选择，是扫尽褊狭之怨，以开放的心胸，关注并欣赏身边朋友们的长处，这样才会给予未来的自己成功的机会。</p>
+<pre><code>嗯，非常对.
+</code></pre><h2 id="穷孩子如何站在富人堆里-1"><a href="#穷孩子如何站在富人堆里-1" class="headerlink" title="穷孩子如何站在富人堆里"></a>穷孩子如何站在富人堆里</h2><p>吴晓波先生曾说过一句话：再穷也要站在富人堆里。</p>
+<pre><code>对语言的理解，有道智力门槛。再穷也要站在富人堆里，意指你经济可以贫穷，但大脑的思维不可以穷困，一个人的观念主导着他的行为选择，而一个人的选择，基本上来说就是他的命运了。
+要想站在富人堆里，改善自我的命运，那就必须清理一下自己的思维，看自己的脑子里，是否有不兼容于财富的思维系统——如果你的思维与财富法则背道而驰，那就需要认真地想一想了。
+</code></pre><p>任何一个行业，都不会排斥优秀的业内人士，重要的是你要破除穷孩子被思维定式锁死的心智，打开自我，重新认识这个世界，重新认识你曾经视而不见的诸多行业，届时你的视野宽广，眼界高远，你在未来得到的，一定会远超你的人生预期。</p>
+<pre><code>说得好
+</code></pre><h2 id="发现别人，自我实现——人生就是要奋斗-1"><a href="#发现别人，自我实现——人生就是要奋斗-1" class="headerlink" title="发现别人，自我实现——人生就是要奋斗"></a>发现别人，自我实现——人生就是要奋斗</h2><p>人生就这一辈子，截长补短不到三万天，既然我们被赋予灵智，那必然是上苍对我们寄予了期望，这一生务必要活得爽快，不可憋居于斗室里巷之间，世界那么大，地球这么圆，你一生来来去去如果只限于方圆几公尺之内，这岂不是辜负了上天造就的你这颗聪明多智头脑？想六万年前，我们的先祖从原始森林出发，足迹踏遍全球，火种撒向四方。现今技术开明时代，你再怎么疲累，也不至于连六万年前光脚板裹树皮的先祖也不如吧？</p>
+<pre><code>太对了！
+</code></pre><p>人生就这一辈子，截长补短不到三万天，既然我们被赋予灵智，那必然是上苍对我们寄予了期望，这一生务必要活得爽快，不可憋居于斗室里巷之间，世界那么大，地球这么圆，你一生来来去去如果只限于方圆几公尺之内，这岂不是辜负了上天造就的你这颗聪明多智头脑？想六万年前，我们的先祖从原始森林出发，足迹踏遍全球，火种撒向四方。现今技术开明时代，你再怎么疲累，也不至于连六万年前光脚板裹树皮的先祖也不如吧？<br>人生就是要嗨，男人就要奋斗——这是一种人生观，有了这种人生观，才有进取的精神与力量。</p>
+<pre><code>seize the day
+</code></pre><p>的自我实现，需要获得他人的认可与帮助。而在此之前，你必须先行的，成为替他人解决无歇止欲求的供应商——只有满足了别人，才能实现你自己</p>
+<pre><code>马斯洛需求层次理论第五层：自我实现的需要
+</code></pre><p>我们个体的人也一样，发现人类内心深处的渴望与悲伤，只有在这个时代，我们自己的人生，才算是有了开始。</p>
+<pre><code>我们价值的体现是因为被需求。被别人不断的需求、这个需求越大你的存在价值就越大。不仅是人生，对于工作上亦如此。你的工作的不可替代性越强、你的价值体现也会越大！所以找到自己的价值先找到别人的需求点，找到自己的位置先找到自己的需求欲望点。
+</code></pre><h2 id="摆脱贫困思维的困扰-1"><a href="#摆脱贫困思维的困扰-1" class="headerlink" title="摆脱贫困思维的困扰"></a>摆脱贫困思维的困扰</h2><p>没有追求的男人，很难言品质二字，这类人每天为了一点点虚无缥缈的存在感，疲于奔命，活得特别累。这就是过低的品质，需要支付大量人生成本的道理之所在。没有追求的人生，本身就失去意义，所以当事人必须要用一生的努力，以证明或是否定这一点。如此的努力只为了证明自己的存在，你想这样的人生，是多么划不来。</p>
+<pre><code>非常赞同
+</code></pre><h2 id="你要相信生活会改变-1"><a href="#你要相信生活会改变-1" class="headerlink" title="你要相信生活会改变"></a>你要相信生活会改变</h2><p>先从小的变化开始，一点点改变自己的思维，去除灰暗的不良情绪。这个过程有点像运动员健身，没跑起来时感觉目标极遥远，但一旦开始，过程就是一切。</p>
+<pre><code>最难的是开始，开始就成功了一半
+</code></pre><h2 id="人生的四个等级-1"><a href="#人生的四个等级-1" class="headerlink" title="人生的四个等级"></a>人生的四个等级</h2><p>陶朱公经商，别开生面，与众不同。平常人都是雨天造舟，旱时造车。因为雨季舟船好卖，旱季车辆好销售。但陶朱公却是雨天造车，旱时造船，人们都讥笑他不懂市场。</p>
+<pre><code>追涨杀跌不可取
+</code></pre><h2 id="跨不过去的是苟且，跨过去的是远方-1"><a href="#跨不过去的是苟且，跨过去的是远方-1" class="headerlink" title="跨不过去的是苟且，跨过去的是远方"></a>跨不过去的是苟且，跨过去的是远方</h2><p>索罗斯、乔布斯及伯根索尔，他们并非是极端的特例。<br>有相当数量的人，其实和他们差不多，无论环境多么恶劣，都秉持一种活着干、死了算、不死总会出头、再穷无非讨饭的人生哲学——这仨老兄都讨过饭，说到他们老哥仨的脸皮，那可不是一般的厚。<br>另外还有相当数量的人，就有点提不起精神来。哪怕他们所居处的环境，比索罗斯、乔布斯、伯根索尔等人好数倍，他们仍然绝望至极，怎么劝也打不起精神来。<br>专业人士会偷偷告诉你——这两类人的差别在于对不确定性及确定性的规律认知上。</p>
+<pre><code>和穷爸爸富爸爸里面说的一个意思。在温水中能苟活便不再思变.就是要教我们不要安于现状.拿着工资能苟活便不再有破釜沉舟釜底抽薪的勇气重新开始. 怕创业后一无所有，当然也看个人追求.
+</code></pre><p>高晓松说：生活不止眼前的苟且，还有诗和远方。</p>
+<pre><code>有的努力关乎苟且，有的努力向着诗和远方。当机会来临时，向着诗和远方的努力获得的回报更大。作者解释的这句话，非常在理。因为苟且之下的机会本来范围也小的多，就像是你每天是为了这点工资做着重复劳动而努力，还是在为自己的事业不断提升自我输出财富而努力，时间越久差别越大。
+</code></pre><p>人生终归是要奋斗的，奋斗归奋斗，怕就怕心不甘情不愿地怀着满腔悲愤，弄出张苦大仇深的嘴脸，隔八百里看到你，犹自透出一股子冰冷的寒气。</p>
+<pre><code>有道理
+</code></pre><h2 id="年轻只是资本，成熟才意味机会-1"><a href="#年轻只是资本，成熟才意味机会-1" class="headerlink" title="年轻只是资本，成熟才意味机会"></a>年轻只是资本，成熟才意味机会</h2><p>倾听，做事，多与平和的成年人相处</p>
+<pre><code>平和的
+</code></pre><h2 id="爱护朋友，别让他蹬鼻子上脸-1"><a href="#爱护朋友，别让他蹬鼻子上脸-1" class="headerlink" title="爱护朋友，别让他蹬鼻子上脸"></a>爱护朋友，别让他蹬鼻子上脸</h2><p>违章兄开着公司，大模大样，也算是社会中坚了。可这人不要脸，却琢磨省下违章的那仨俩小钱。这种贪小利的心思一出来，整个人的智商，就“咣叽”一下子被拉低了。<br>——他是商业精英，不可能不知道人生的连场互动博弈规律，不可能不知道，在这件小事上的龌龊，是需要支付更昂贵的成本的。<br>但是，贪图小便宜的欲念，让他别的全都顾不上了。<br>结果，他跌入了自己亲手挖的坑里。</p>
+<pre><code>因小失大.生活中也有很多贪小便宜结果付出更大代价的例子
+</code></pre><h2 id="用微笑对待别人，用自嘲对付自己-1"><a href="#用微笑对待别人，用自嘲对付自己-1" class="headerlink" title="用微笑对待别人，用自嘲对付自己"></a>用微笑对待别人，用自嘲对付自己</h2><p>惧怕失败的人被情绪所左右，勇于挑战者则主动控制情绪。所有人在智力上可以说是平等的，拉开人生鸿沟的，无外乎你是情愿沦为情绪的俘虏，还是学习控制自我与他人的情绪。</p>
+<pre><code>说得好
+</code></pre><h2 id="教养是一种温静的智慧-1"><a href="#教养是一种温静的智慧-1" class="headerlink" title="教养是一种温静的智慧"></a>教养是一种温静的智慧</h2><p>搞对抗、心智不成熟的成年人，智力仍然停留在公众场合秀存在感的水平阶段。因为他们的自我尚不够强大，必须通过他人的关注以汲取营养。所以他们在社交甚至工作中，都无意识地秀出自我，自然而然地将来自于外界的否定视为挑衅，把别人的观点或建议，视为对自我的压抑。</p>
+<pre><code>.
+</code></pre><h2 id="教养：源自你内心的强大力量-1"><a href="#教养：源自你内心的强大力量-1" class="headerlink" title="教养：源自你内心的强大力量"></a>教养：源自你内心的强大力量</h2><p>爱德华八世陷入了情网，爱上了一位美国寡妇辛普森</p>
+<pre><code>英国历史上有名的“冲冠一怒为红颜，不爱江山爱美人”的故事
+</code></pre><h2 id="尖酸刻薄，是性格直率吗-1"><a href="#尖酸刻薄，是性格直率吗-1" class="headerlink" title="尖酸刻薄，是性格直率吗"></a>尖酸刻薄，是性格直率吗</h2><p>第一，千万不要把尖酸当成直率，更不要视刻薄为机智，这只是极度的愚蠢罢了。认识不到这一点，就无法从伤害别人反而最终伤害自己的恶性循环中走出来。<br>第二，要学会曲线凸显自我，直奔着凸显自我而去，期望借此获得存在感，是极低弱的蠢事。自古“花花轿子人抬人”，先突出别人，也未必就会耽误你。曲线思维才是价值思维，直线思维只能撞个头破血流。<br>第三，不要把自己视为他人人生的批判者，这并不是说我们不可以评价别人，而是说更重要的是我们的个人事业—— 一旦你考虑到人生事业，许多低情商的表现，就能够得到克制。<br>最后一点，人无完人，金无足赤。要记住批评是不需要智力的，但首肯或认同，这才是天下最难的事儿</p>
+<pre><code>赞美别人 不要太直率
+</code></pre><h2 id="我们一生的努力，只是为了矫正性格上的缺陷-1"><a href="#我们一生的努力，只是为了矫正性格上的缺陷-1" class="headerlink" title="我们一生的努力，只是为了矫正性格上的缺陷"></a>我们一生的努力，只是为了矫正性格上的缺陷</h2><p>可知人生许多事，只是迈出第一步而已。</p>
+<pre><code>.
+</code></pre><p>内向型的人，要把注意力从冥想中收回来。外向型的人，要把注意力从外界收回来。一旦你有意识地训练自我表情与眼神，就差不多接近于成熟了。</p>
+<pre><code>嗯 有道理
+</code></pre><p>目标犹如寒夜孤星，高悬于你人生夜空之上，赋予你持续前行的动力。</p>
+<pre><code>目标犹如寒夜孤星，高悬于你人生夜空之上，赋予你持续前行的动力。
+</code></pre><h2 id="怎样读书，才会通透-1"><a href="#怎样读书，才会通透-1" class="headerlink" title="怎样读书，才会通透"></a>怎样读书，才会通透</h2><p>书要读到时而习之，知行合一，并不容易。<br>从古到今，把书读糊涂了的，数不胜数。把书读明白的，少之又少。</p>
+<pre><code>那如何读书，才能够应用呢？
+方法：古为今用，洋为中用，理为文用，文为理用。
+</code></pre><p>推荐南怀瑾先生的《老子他说》</p>
+<pre><code>先读再背在再看解释
+</code></pre>
+        
     
 
     
@@ -802,7 +777,8 @@
 
 
                 
-		<!-- Post Comments -->
+
+                <!-- Post Comments -->
                 
                     
                 
@@ -864,7 +840,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.jpg" alt="Rico's avatar">
+        <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -929,16 +905,6 @@
 
     <!-- Pages  -->
     
-        <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
@@ -961,7 +927,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material chenhongjie 
+<!-- Theme Material -->
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
@@ -969,7 +935,6 @@ It will not impact the appearance and can give developers a lot of support :)
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
-  -->
 
 
 <!-- Help & Support -->
@@ -1043,11 +1008,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -1061,12 +1038,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -1082,21 +1066,24 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>
     
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -1141,15 +1128,40 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -1167,10 +1179,21 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
     (function(){
         var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
@@ -1179,7 +1202,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

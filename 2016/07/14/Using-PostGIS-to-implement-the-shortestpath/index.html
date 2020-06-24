@@ -5,8 +5,42 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!-- Title -->
     
@@ -17,115 +51,18 @@
         Rico&#39;s Blog
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico,PostGIS">
-
-    <!-- Site Verification -->
-    
-    
-
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,PostGIS">
+    <meta name="theme-color" content="#0097A7">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://hogwartsrico.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="使用PostGIS实现最短路径服务 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="PostGIS"> 
-
-    
-        <meta property="article:published_time" content="7月 14, 2016">
-        <meta property="article:modified_time" content="3月 24, 2020">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="使用PostGIS实现最短路径服务 | Rico&#39;s Blog">
-    <meta name="twitter:description" content>
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="http://hogwartsrico.github.io">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Rico&#39;s Blog",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Rico",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "Javaer"
-    },
-    "headline": "使用PostGIS实现最短路径服务",
-    "url": "http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/index.html",
-    "datePublished": "7月 14, 2016",
-    "dateModified": "3月 24, 2020",
-    "description": "",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://hogwartsrico.github.io"
-    }
-}
-</script>
-
-
-    
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -136,47 +73,38 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
 
-    <!-- Import CSS & jQuery -->
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -274,28 +202,73 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="使用PostGIS实现最短路径服务 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="PostGIS"> 
+
+    
+        <meta property="article:published_time" content="Thu Jul 14 2016 22:56:32 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 24 2020 11:19:16 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
 
     <!-- Analytics -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    
+    
+    
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -313,7 +286,7 @@
                     
                         <!-- Hamburger Button -->
                         <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
                         </button>
                     
 
@@ -336,23 +309,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、下载和安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、下载和安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#导入shp数据"><span class="post-toc-number">2.</span> <span class="post-toc-text">导入shp数据</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建路网拓扑结构"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建路网拓扑结构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#尝试查询"><span class="post-toc-number">4.</span> <span class="post-toc-text">尝试查询</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最短路径规划中创建基于geoserver的wms服务"><span class="post-toc-number">5.</span> <span class="post-toc-text">最短路径规划中创建基于geoserver的wms服务</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考文献"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
     
-
 
 
 
@@ -396,7 +365,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -430,7 +399,8 @@
     
 
     <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
     <span class="visuallyhidden">share</span>
 </button>
@@ -441,7 +411,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=使用PostGIS实现最短路径服务&url=http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=使用PostGIS实现最短路径服务&url=http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -485,6 +455,7 @@
     
 </ul>
 
+    
 </div>
 
                 
@@ -512,25 +483,210 @@
 <p>为mlength赋值<br><code>update bjroad set mlength =st_length(geom);</code></p>
 <p>为bjroad表添加reverse_cost字段并用mlength的值赋值</p>
 <p><code>ALTER TABLE bjroad ADD COLUMN reverse_cost double precision;</code><br><code>UPDATE bjroad SET reverse_cost = length;</code></p>
-<h1 id="尝试查询"><a href="#尝试查询" class="headerlink" title="尝试查询"></a>尝试查询</h1><p> 查询从30号点到60号点的最短路径<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> seq, id1 <span class="keyword">AS</span> node, id2 <span class="keyword">AS</span> edge, <span class="keyword">cost</span> <span class="keyword">FROM</span> pgr_dijkstra(<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">SELECT gid AS id,                   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">source::integer,                       </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">target::integer,                      </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">length::double precision AS cost</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">FROM bjroad'</span>,</span><br><span class="line"></span><br><span class="line"><span class="number">30</span>, <span class="number">60</span>, <span class="literal">false</span>, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<h1 id="尝试查询"><a href="#尝试查询" class="headerlink" title="尝试查询"></a>尝试查询</h1><p> 查询从30号点到60号点的最短路径</p>
+<pre><code class="SQL">SELECT seq, id1 AS node, id2 AS edge, cost FROM pgr_dijkstra(&#39;
+
+SELECT gid AS id,                   
+
+source::integer,                       
+
+target::integer,                      
+
+length::double precision AS cost
+
+FROM bjroad&#39;,
+
+30, 60, false, false);
+</code></pre>
 <p><img src="10.png" alt></p>
-<p>//查询每个路段经过的点<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> st_astext(geom) <span class="keyword">FROM</span> pgr_dijkstra(<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">SELECT gid AS id,                   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">source::integer,                       </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">target::integer,                      </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">length::double precision AS cost</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">FROM bjroad'</span>,</span><br><span class="line"></span><br><span class="line"><span class="number">30</span>, <span class="number">60</span>, <span class="literal">false</span>, <span class="literal">false</span>) <span class="keyword">as</span> di</span><br><span class="line"></span><br><span class="line"><span class="keyword">join</span> bjroad pt</span><br><span class="line"></span><br><span class="line"><span class="keyword">on</span> di.id2 = pt.gid;</span><br></pre></td></tr></table></figure></p>
+<p>//查询每个路段经过的点</p>
+<pre><code class="SQL">SELECT st_astext(geom) FROM pgr_dijkstra(&#39;
+
+SELECT gid AS id,                   
+
+source::integer,                       
+
+target::integer,                      
+
+length::double precision AS cost
+
+FROM bjroad&#39;,
+
+30, 60, false, false) as di
+
+join bjroad pt
+
+on di.id2 = pt.gid;
+</code></pre>
 <p><img src="11.png" alt></p>
-<p>//把查询结果放在新建的表格中dijkstra_res就是新建的表<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> seq, id1 <span class="keyword">AS</span> node, id2 <span class="keyword">AS</span> edge, <span class="keyword">cost</span>,geom <span class="keyword">into</span> dijkstra_res <span class="keyword">FROM</span> pgr_dijkstra(<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">SELECT gid AS id,                    </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">source::integer,                       </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">target::integer,                      </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">length::double precision AS cost</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">FROM bjroad'</span>,</span><br><span class="line"></span><br><span class="line"><span class="number">30</span>, <span class="number">60</span>, <span class="literal">false</span>, <span class="literal">false</span>) <span class="keyword">as</span> di</span><br><span class="line"></span><br><span class="line"><span class="keyword">join</span> bjroad pt</span><br><span class="line"></span><br><span class="line"><span class="keyword">on</span> di.id2 = pt.gid;</span><br></pre></td></tr></table></figure></p>
+<p>//把查询结果放在新建的表格中dijkstra_res就是新建的表</p>
+<pre><code class="SQL">SELECT seq, id1 AS node, id2 AS edge, cost,geom into dijkstra_res FROM pgr_dijkstra(&#39;
+
+SELECT gid AS id,                    
+
+source::integer,                       
+
+target::integer,                      
+
+length::double precision AS cost
+
+FROM bjroad&#39;,
+
+30, 60, false, false) as di
+
+join bjroad pt
+
+on di.id2 = pt.gid;
+</code></pre>
 <p><img src="12.png" alt><br><img src="13.png" alt>  </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pgr_dijkstra的定义是pgr_costResult[]</span><br><span class="line">pgr_dijkstra(textsql, integer source, integer target, boolean directed, boolean has_rcost);</span><br><span class="line"></span><br><span class="line">directed是否限制方向，has_ rcost作用未知，返回值为pgr_costResult。</span><br><span class="line"></span><br><span class="line">pgr_costResult在workshop中的解释是</span><br><span class="line"></span><br><span class="line">A <span class="keyword">set</span> <span class="keyword">of</span> <span class="keyword">records</span> <span class="keyword">to</span> <span class="keyword">describe</span> a <span class="keyword">path</span> resultwith <span class="keyword">cost</span> <span class="keyword">attribute</span></span><br><span class="line"></span><br><span class="line">一组带有消耗属性的用于描述路径结果的记录的集合。</span><br><span class="line"></span><br><span class="line">其定义如下</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TYPE</span> pgr_costResult <span class="keyword">AS</span></span><br><span class="line"></span><br><span class="line">(</span><br><span class="line"></span><br><span class="line">    seq <span class="built_in">integer</span>, <span class="comment">-- rowsequence</span></span><br><span class="line"></span><br><span class="line">    id1 <span class="built_in">integer</span>, <span class="comment">-- node ID</span></span><br><span class="line"></span><br><span class="line">    id2 <span class="built_in">integer</span>, <span class="comment">-- edge ID(-1 for the last row)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">cost</span> float8 <span class="comment">-- cost totraverse from id1 using id2</span></span><br><span class="line"></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<pre><code class="SQL">
+pgr_dijkstra的定义是pgr_costResult[]
+pgr_dijkstra(textsql, integer source, integer target, boolean directed, boolean has_rcost);
+
+directed是否限制方向，has_ rcost作用未知，返回值为pgr_costResult。
+
+pgr_costResult在workshop中的解释是
+
+A set of records to describe a path resultwith cost attribute
+
+一组带有消耗属性的用于描述路径结果的记录的集合。
+
+其定义如下
+
+CREATE TYPE pgr_costResult AS
+
+(
+
+    seq integer, -- rowsequence
+
+    id1 integer, -- node ID
+
+    id2 integer, -- edge ID(-1 for the last row)
+
+    cost float8 -- cost totraverse from id1 using id2
+
+);
+
+`
+</code></pre>
 <p>将这个表导出为shp，再在arcmap中定义坐标系打开，可以看到上面的结果如下图所示<br><img src="14.png" alt></p>
 <hr>
 <p>前面介绍了如何利用postgresql创建空间数据库，建立空间索引和进行路径规划。但是在真实的场景中用户进行路径规划的时候都是基于经纬度数据进行路径规划的，因为用户根本不会知道道路上节点的ID。因此接下来讲述如何查询任意两点间的最短路径。  </p>
 <p>一、定义函数名及函数参数</p>
 <p>函数名定义为： <code>pgr_fromAtoB</code></p>
-<p>参数设置分别为：<br>输入为数据库表名，起点和终点的经纬度坐标<br>输出为：路段序号，gid号，道路名，消耗及道路集合体。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">IN tbl varchar, <span class="comment">--数据库表名</span></span><br><span class="line">IN x1 double precision, <span class="comment">--起点x坐标</span></span><br><span class="line">IN y1 double precision, <span class="comment">--起点y坐标</span></span><br><span class="line">IN x2 double precision, <span class="comment">--终点x坐标</span></span><br><span class="line">IN y2 double precision, <span class="comment">--终点y坐标</span></span><br><span class="line">OUT seq integer,</span><br><span class="line">OUT gid integer,</span><br><span class="line">OUT name text,</span><br><span class="line">OUT heading double precision,</span><br><span class="line">OUT cost double precision,</span><br><span class="line">OUT geom geometry</span><br></pre></td></tr></table></figure></p>
+<p>参数设置分别为：<br>输入为数据库表名，起点和终点的经纬度坐标<br>输出为：路段序号，gid号，道路名，消耗及道路集合体。</p>
+<pre><code class="SQL">IN tbl varchar, --数据库表名
+IN x1 double precision, --起点x坐标
+IN y1 double precision, --起点y坐标
+IN x2 double precision, --终点x坐标
+IN y2 double precision, --终点y坐标
+OUT seq integer,
+OUT gid integer,
+OUT name text,
+OUT heading double precision,
+OUT cost double precision,
+OUT geom geometry
+</code></pre>
 <p>二、计算距离起点和终点距离最近的道路节点，</p>
-<p>可以使用的函数为<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>::<span class="built_in">integer</span> <span class="keyword">FROM</span> minidata_vertices_pgr </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> the_geom &lt;-&gt; ST_GeometryFromText(<span class="string">''</span>POINT(<span class="string">' </span></span><br><span class="line"><span class="string">|| x1 || '</span> <span class="string">' || y1 || '</span>)<span class="string">''</span>,<span class="number">4326</span>) <span class="keyword">LIMIT</span> <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>可以使用的函数为</p>
+<pre><code class="SQL">SELECT id::integer FROM minidata_vertices_pgr 
+ORDER BY the_geom &lt;-&gt; ST_GeometryFromText(&#39;&#39;POINT(&#39; 
+|| x1 || &#39; &#39; || y1 || &#39;)&#39;&#39;,4326) LIMIT 1
+</code></pre>
 <p> 三、然后根据检索到的节点再调用pgrouting的最短路径查询函数进行计算。<br>可以使用的函数为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> gid, geom, <span class="keyword">name</span>, <span class="keyword">cost</span>, <span class="keyword">source</span>, target, </span><br><span class="line">               ST_Reverse(geom) <span class="keyword">AS</span> flip_geom <span class="keyword">FROM</span> <span class="string">' ||</span></span><br><span class="line"><span class="string">                       '</span>pgr_bdAstar(<span class="string">''</span><span class="keyword">SELECT</span> gid <span class="keyword">as</span> <span class="keyword">id</span>, <span class="keyword">source</span>::<span class="built_in">int</span>, target::<span class="built_in">int</span>, <span class="string">'</span></span><br><span class="line"><span class="string">                                       || '</span><span class="keyword">length</span>::<span class="built_in">float</span> <span class="keyword">AS</span> <span class="keyword">cost</span>,x1,y1,x2,y2 <span class="keyword">FROM</span> <span class="string">'</span></span><br><span class="line"><span class="string">                                       || quote_ident(tbl) || '''</span>, <span class="string">'</span></span><br><span class="line"><span class="string">                                       || source || '</span>, <span class="string">' || target </span></span><br><span class="line"><span class="string">                                       || '</span> ,<span class="literal">false</span>, <span class="literal">false</span>), <span class="string">'</span></span><br><span class="line"><span class="string">                               || quote_ident(tbl) || '</span> <span class="keyword">WHERE</span> id2 = gid <span class="keyword">ORDER</span> <span class="keyword">BY</span> seq</span><br></pre></td></tr></table></figure>
-<p>  四、整合上面几个子过程，得到的最终查询sql函数如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">--</span><br><span class="line">--DROP FUNCTION pgr_fromAtoB(varchar, double precision, double precision, </span><br><span class="line">--                           double precision, double precision);</span><br><span class="line"></span><br><span class="line">CREATE OR REPLACE FUNCTION pgr_fromAtoB(</span><br><span class="line">                IN tbl varchar,</span><br><span class="line">                IN x1 double precision,</span><br><span class="line">                IN y1 double precision,</span><br><span class="line">                IN x2 double precision,</span><br><span class="line">                IN y2 double precision,</span><br><span class="line">                OUT seq integer,</span><br><span class="line">                OUT gid integer,</span><br><span class="line">                OUT name text,</span><br><span class="line">                OUT heading double precision,</span><br><span class="line">                OUT cost double precision,</span><br><span class="line">                OUT geom geometry</span><br><span class="line">        )</span><br><span class="line">        RETURNS SETOF record AS</span><br><span class="line">$BODY$</span><br><span class="line">DECLARE</span><br><span class="line">        sql     text;</span><br><span class="line">        rec     record;</span><br><span class="line">        source	integer;</span><br><span class="line">        target	integer;</span><br><span class="line">        point	integer;</span><br><span class="line">        </span><br><span class="line">BEGIN</span><br><span class="line">	-- 查询距离出发点最近的道路节点</span><br><span class="line">	EXECUTE &apos;SELECT id::integer FROM minidata_vertices_pgr </span><br><span class="line">			ORDER BY the_geom &lt;-&gt; ST_GeometryFromText(&apos;&apos;POINT(&apos; </span><br><span class="line">			|| x1 || &apos; &apos; || y1 || &apos;)&apos;&apos;,900913) LIMIT 1&apos; INTO rec;</span><br><span class="line">	source := rec.id;</span><br><span class="line">	</span><br><span class="line">	-- 查询距离目的地最近的道路节点</span><br><span class="line">	EXECUTE &apos;SELECT id::integer FROM minidata_vertices_pgr </span><br><span class="line">			ORDER BY the_geom &lt;-&gt; ST_GeometryFromText(&apos;&apos;POINT(&apos; </span><br><span class="line">			|| x2 || &apos; &apos; || y2 || &apos;)&apos;&apos;,900913) LIMIT 1&apos; INTO rec;</span><br><span class="line">	target := rec.id;</span><br><span class="line"></span><br><span class="line">	-- 最短路径查询 </span><br><span class="line">        seq := 0;</span><br><span class="line">        sql := &apos;SELECT gid, geom, name, cost, source, target, </span><br><span class="line">				ST_Reverse(geom) AS flip_geom FROM &apos; ||</span><br><span class="line">                        &apos;pgr_bdAstar(&apos;&apos;SELECT gid as id, source::int, target::int, &apos;</span><br><span class="line">                                        || &apos;length::float AS cost,x1,y1,x2,y2 FROM &apos;</span><br><span class="line">                                        || quote_ident(tbl) || &apos;&apos;&apos;, &apos;</span><br><span class="line">                                        || source || &apos;, &apos; || target </span><br><span class="line">                                        || &apos; ,false, false), &apos;</span><br><span class="line">                                || quote_ident(tbl) || &apos; WHERE id2 = gid ORDER BY seq&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	-- Remember start point</span><br><span class="line">        point := source;</span><br><span class="line"></span><br><span class="line">        FOR rec IN EXECUTE sql</span><br><span class="line">        LOOP</span><br><span class="line">		-- Flip geometry (if required)</span><br><span class="line">		IF ( point != rec.source ) THEN</span><br><span class="line">			rec.geom := rec.flip_geom;</span><br><span class="line">			point := rec.source;</span><br><span class="line">		ELSE</span><br><span class="line">			point := rec.target;</span><br><span class="line">		END IF;</span><br><span class="line"></span><br><span class="line">		-- Calculate heading (simplified)</span><br><span class="line">		EXECUTE &apos;SELECT degrees( ST_Azimuth( </span><br><span class="line">				ST_StartPoint(&apos;&apos;&apos; || rec.geom::text || &apos;&apos;&apos;),</span><br><span class="line">				ST_EndPoint(&apos;&apos;&apos; || rec.geom::text || &apos;&apos;&apos;) ) )&apos; </span><br><span class="line">			INTO heading;</span><br><span class="line"></span><br><span class="line">		-- Return record</span><br><span class="line">                seq     := seq + 1;</span><br><span class="line">                gid     := rec.gid;</span><br><span class="line">                name    := rec.name;</span><br><span class="line">                cost    := rec.cost;</span><br><span class="line">                geom    := rec.geom;</span><br><span class="line">                RETURN NEXT;</span><br><span class="line">        END LOOP;</span><br><span class="line">        RETURN;</span><br><span class="line">END;</span><br><span class="line">$BODY$</span><br><span class="line">LANGUAGE &apos;plpgsql&apos; VOLATILE STRICT;</span><br></pre></td></tr></table></figure></p>
-<p>但是上面查询任意两点间最短路径的函数，是由于当时对pgrouting不熟悉，功能很low。现在对该函数进行扩展，支持用户自己输入查询的数据库表，这一点看似简单，其实意义很大，在做室内导航的时候当用户所在的楼层变化的时候最短路径函数查询的数据表名称也会发生变化，不可能一栋大楼里的道路都是一样的吧，另外进行跨楼层的最短路径规划时，需要查询从A到楼梯口的最短路径和楼梯口到B的最短路径，这些都需要进行最短路径规划的时候能够自己选择数据表。</p>
+<pre><code class="SQL"> SELECT gid, geom, name, cost, source, target, 
+                ST_Reverse(geom) AS flip_geom FROM &#39; ||
+                        &#39;pgr_bdAstar(&#39;&#39;SELECT gid as id, source::int, target::int, &#39;
+                                        || &#39;length::float AS cost,x1,y1,x2,y2 FROM &#39;
+                                        || quote_ident(tbl) || &#39;&#39;&#39;, &#39;
+                                        || source || &#39;, &#39; || target 
+                                        || &#39; ,false, false), &#39;
+                                || quote_ident(tbl) || &#39; WHERE id2 = gid ORDER BY seq
+</code></pre>
+<p>  四、整合上面几个子过程，得到的最终查询sql函数如下：</p>
+<pre><code>--
+--DROP FUNCTION pgr_fromAtoB(varchar, double precision, double precision, 
+--                           double precision, double precision);
+
+CREATE OR REPLACE FUNCTION pgr_fromAtoB(
+                IN tbl varchar,
+                IN x1 double precision,
+                IN y1 double precision,
+                IN x2 double precision,
+                IN y2 double precision,
+                OUT seq integer,
+                OUT gid integer,
+                OUT name text,
+                OUT heading double precision,
+                OUT cost double precision,
+                OUT geom geometry
+        )
+        RETURNS SETOF record AS
+$BODY$
+DECLARE
+        sql     text;
+        rec     record;
+        source    integer;
+        target    integer;
+        point    integer;
+
+BEGIN
+    -- 查询距离出发点最近的道路节点
+    EXECUTE &#39;SELECT id::integer FROM minidata_vertices_pgr 
+            ORDER BY the_geom &lt;-&gt; ST_GeometryFromText(&#39;&#39;POINT(&#39; 
+            || x1 || &#39; &#39; || y1 || &#39;)&#39;&#39;,900913) LIMIT 1&#39; INTO rec;
+    source := rec.id;
+
+    -- 查询距离目的地最近的道路节点
+    EXECUTE &#39;SELECT id::integer FROM minidata_vertices_pgr 
+            ORDER BY the_geom &lt;-&gt; ST_GeometryFromText(&#39;&#39;POINT(&#39; 
+            || x2 || &#39; &#39; || y2 || &#39;)&#39;&#39;,900913) LIMIT 1&#39; INTO rec;
+    target := rec.id;
+
+    -- 最短路径查询 
+        seq := 0;
+        sql := &#39;SELECT gid, geom, name, cost, source, target, 
+                ST_Reverse(geom) AS flip_geom FROM &#39; ||
+                        &#39;pgr_bdAstar(&#39;&#39;SELECT gid as id, source::int, target::int, &#39;
+                                        || &#39;length::float AS cost,x1,y1,x2,y2 FROM &#39;
+                                        || quote_ident(tbl) || &#39;&#39;&#39;, &#39;
+                                        || source || &#39;, &#39; || target 
+                                        || &#39; ,false, false), &#39;
+                                || quote_ident(tbl) || &#39; WHERE id2 = gid ORDER BY seq&#39;;
+
+
+    -- Remember start point
+        point := source;
+
+        FOR rec IN EXECUTE sql
+        LOOP
+        -- Flip geometry (if required)
+        IF ( point != rec.source ) THEN
+            rec.geom := rec.flip_geom;
+            point := rec.source;
+        ELSE
+            point := rec.target;
+        END IF;
+
+        -- Calculate heading (simplified)
+        EXECUTE &#39;SELECT degrees( ST_Azimuth( 
+                ST_StartPoint(&#39;&#39;&#39; || rec.geom::text || &#39;&#39;&#39;),
+                ST_EndPoint(&#39;&#39;&#39; || rec.geom::text || &#39;&#39;&#39;) ) )&#39; 
+            INTO heading;
+
+        -- Return record
+                seq     := seq + 1;
+                gid     := rec.gid;
+                name    := rec.name;
+                cost    := rec.cost;
+                geom    := rec.geom;
+                RETURN NEXT;
+        END LOOP;
+        RETURN;
+END;
+$BODY$
+LANGUAGE &#39;plpgsql&#39; VOLATILE STRICT;
+</code></pre><p>但是上面查询任意两点间最短路径的函数，是由于当时对pgrouting不熟悉，功能很low。现在对该函数进行扩展，支持用户自己输入查询的数据库表，这一点看似简单，其实意义很大，在做室内导航的时候当用户所在的楼层变化的时候最短路径函数查询的数据表名称也会发生变化，不可能一栋大楼里的道路都是一样的吧，另外进行跨楼层的最短路径规划时，需要查询从A到楼梯口的最短路径和楼梯口到B的最短路径，这些都需要进行最短路径规划的时候能够自己选择数据表。</p>
 <p>先解释一下最短路径规划的处理步骤，首先要确定用户的出发点和目的地所在的道路，再在相应的道路上确定道路的节点，查找这两个节点之间的最短路径，最后再处理出发点和目的地到道路节点之间的路段。具体过程为：</p>
 <ol>
 <li><p>查找距离用户出发点最近的道路和该道路的终点T。</p>
@@ -542,25 +698,366 @@
 <li><p>处理出发点和道路终点T以及目的去和道路起点S之间的路段。</p>
 </li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">FUNCTION</span> pgr_fromAtoB(tbl <span class="built_in">varchar</span>,startx <span class="built_in">float</span>, starty <span class="built_in">float</span>,endx <span class="built_in">float</span>,endy <span class="built_in">float</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">function</span> pgr_fromAtoB(tbl <span class="built_in">varchar</span>,startx <span class="built_in">float</span>, starty <span class="built_in">float</span>,endx <span class="built_in">float</span>,endy <span class="built_in">float</span>)   </span><br><span class="line"><span class="keyword">returns</span>  geometry <span class="keyword">as</span>  </span><br><span class="line">$<span class="keyword">body</span>$  </span><br><span class="line"><span class="keyword">declare</span>  </span><br><span class="line">    v_startLine geometry;<span class="comment">--离起点最近的线  </span></span><br><span class="line">    v_endLine geometry;<span class="comment">--离终点最近的线  </span></span><br><span class="line">      </span><br><span class="line">    v_startTarget integer;<span class="comment">--距离起点最近线的终点  </span></span><br><span class="line">    v_endSource integer;<span class="comment">--距离终点最近线的起点  </span></span><br><span class="line">  </span><br><span class="line">    v_statpoint geometry;<span class="comment">--在v_startLine上距离起点最近的点  </span></span><br><span class="line">    v_endpoint geometry;<span class="comment">--在v_endLine上距离终点最近的点  </span></span><br><span class="line">      </span><br><span class="line">    v_res geometry;<span class="comment">--最短路径分析结果  </span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">    v_perStart float;<span class="comment">--v_statpoint在v_res上的百分比  </span></span><br><span class="line">    v_perEnd float;<span class="comment">--v_endpoint在v_res上的百分比  </span></span><br><span class="line">  </span><br><span class="line">    v_shPath geometry;<span class="comment">--最终结果</span></span><br><span class="line">    tempnode float;	</span><br><span class="line"><span class="keyword">begin</span>     </span><br><span class="line">          </span><br><span class="line">    <span class="comment">--查询离起点最近的线  </span></span><br><span class="line">    <span class="keyword">execute</span> <span class="string">'select geom ,target  from '</span> ||tbl||</span><br><span class="line">			<span class="string">' where </span></span><br><span class="line"><span class="string">			ST_DWithin(geom,ST_Geometryfromtext(''point('</span>||	startx ||<span class="string">' '</span> || starty||<span class="string">')''),15) </span></span><br><span class="line"><span class="string">			order by ST_Distance(geom,ST_GeometryFromText(''point('</span>|| startx ||<span class="string">' '</span>|| starty ||<span class="string">')''))  limit 1'</span> </span><br><span class="line">			<span class="keyword">into</span> v_startLine ,v_startTarget;  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">--查询离终点最近的线  </span></span><br><span class="line">    <span class="keyword">execute</span> <span class="string">'select geom,source  from '</span> ||tbl||</span><br><span class="line">			<span class="string">' where ST_DWithin(geom,ST_Geometryfromtext(''point('</span>|| endx || <span class="string">' '</span> || endy ||<span class="string">')''),15) </span></span><br><span class="line"><span class="string">			order by ST_Distance(geom,ST_GeometryFromText(''point('</span>|| endx ||<span class="string">' '</span> || endy ||<span class="string">')''))  limit 1'</span> </span><br><span class="line">			<span class="keyword">into</span> v_endLine,v_endSource;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">--如果没找到最近的线，就返回null  </span></span><br><span class="line">    if (v_startLine is null) or (v_endLine is null) then  </span><br><span class="line">        return null;  </span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">if</span> ;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">select</span>  ST_ClosestPoint(v_startLine, ST_Geometryfromtext(<span class="string">'point('</span>|| startx ||<span class="string">' '</span> || starty ||<span class="string">')'</span>)) <span class="keyword">into</span> v_statpoint;  </span><br><span class="line">    <span class="keyword">select</span>  ST_ClosestPoint(v_endLine, ST_GeometryFromText(<span class="string">'point('</span>|| endx ||<span class="string">' '</span> || endy ||<span class="string">')'</span>)) <span class="keyword">into</span> v_endpoint;  </span><br><span class="line">  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">--最短路径  </span></span><br><span class="line">    <span class="keyword">execute</span> <span class="string">'SELECT st_linemerge(st_union(b.geom)) '</span> || </span><br><span class="line">    <span class="string">'FROM pgr_kdijkstraPath(  </span></span><br><span class="line"><span class="string">    ''SELECT gid as id, source, target, mlength as cost FROM '</span> || tbl ||<span class="string">''','</span>  </span><br><span class="line">    ||v_startTarget || <span class="string">', '</span> ||<span class="string">'array['</span>||v_endSource||<span class="string">'] , false, false  </span></span><br><span class="line"><span class="string">    ) a, '</span>  </span><br><span class="line">    || tbl || <span class="string">' b  </span></span><br><span class="line"><span class="string">    WHERE a.id3=b.gid  </span></span><br><span class="line"><span class="string">    GROUP by id1  </span></span><br><span class="line"><span class="string">    ORDER by id1'</span> <span class="keyword">into</span> v_res;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">--如果找不到最短路径，就返回null  </span></span><br><span class="line">    if(v_res is null) then  </span><br><span class="line">        return null;  </span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">if</span>;  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">--将v_res,v_startLine,v_endLine进行拼接  </span></span><br><span class="line">    <span class="keyword">select</span>  st_linemerge(ST_Union(<span class="built_in">array</span>[v_res,v_startLine,v_endLine])) <span class="keyword">into</span> v_res;  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">select</span>  ST_Line_Locate_Point(v_res, v_statpoint) <span class="keyword">into</span> v_perStart;  </span><br><span class="line">    <span class="keyword">select</span>  ST_Line_Locate_Point(v_res, v_endpoint) <span class="keyword">into</span> v_perEnd;  </span><br><span class="line">	</span><br><span class="line">	if(v_perStart &gt; v_perEnd) then  </span><br><span class="line">        tempnode =  v_perStart;</span><br><span class="line">		v_perStart = v_perEnd;</span><br><span class="line">		v_perEnd = tempnode;</span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">--截取v_res  </span></span><br><span class="line">    <span class="keyword">SELECT</span> ST_Line_SubString(v_res,v_perStart, v_perEnd) <span class="keyword">into</span> v_shPath;  </span><br><span class="line">       </span><br><span class="line">    return v_shPath;  </span><br><span class="line">  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line"><span class="keyword">end</span>;  </span><br><span class="line">$body$  </span><br><span class="line">LANGUAGE plpgsql VOLATILE STRICT</span><br></pre></td></tr></table></figure>
+<pre><code class="SQL">DROP FUNCTION pgr_fromAtoB(tbl varchar,startx float, starty float,endx float,endy float);
+CREATE OR REPLACE function pgr_fromAtoB(tbl varchar,startx float, starty float,endx float,endy float)   
+returns  geometry as  
+$body$  
+declare  
+    v_startLine geometry;--离起点最近的线  
+    v_endLine geometry;--离终点最近的线  
+
+    v_startTarget integer;--距离起点最近线的终点  
+    v_endSource integer;--距离终点最近线的起点  
+
+    v_statpoint geometry;--在v_startLine上距离起点最近的点  
+    v_endpoint geometry;--在v_endLine上距离终点最近的点  
+
+    v_res geometry;--最短路径分析结果  
+
+
+    v_perStart float;--v_statpoint在v_res上的百分比  
+    v_perEnd float;--v_endpoint在v_res上的百分比  
+
+    v_shPath geometry;--最终结果
+    tempnode float;    
+begin     
+
+    --查询离起点最近的线  
+    execute &#39;select geom ,target  from &#39; ||tbl||
+            &#39; where 
+            ST_DWithin(geom,ST_Geometryfromtext(&#39;&#39;point(&#39;||    startx ||&#39; &#39; || starty||&#39;)&#39;&#39;),15) 
+            order by ST_Distance(geom,ST_GeometryFromText(&#39;&#39;point(&#39;|| startx ||&#39; &#39;|| starty ||&#39;)&#39;&#39;))  limit 1&#39; 
+            into v_startLine ,v_startTarget;  
+
+    --查询离终点最近的线  
+    execute &#39;select geom,source  from &#39; ||tbl||
+            &#39; where ST_DWithin(geom,ST_Geometryfromtext(&#39;&#39;point(&#39;|| endx || &#39; &#39; || endy ||&#39;)&#39;&#39;),15) 
+            order by ST_Distance(geom,ST_GeometryFromText(&#39;&#39;point(&#39;|| endx ||&#39; &#39; || endy ||&#39;)&#39;&#39;))  limit 1&#39; 
+            into v_endLine,v_endSource;  
+
+    --如果没找到最近的线，就返回null  
+    if (v_startLine is null) or (v_endLine is null) then  
+        return null;  
+    end if ;  
+
+    select  ST_ClosestPoint(v_startLine, ST_Geometryfromtext(&#39;point(&#39;|| startx ||&#39; &#39; || starty ||&#39;)&#39;)) into v_statpoint;  
+    select  ST_ClosestPoint(v_endLine, ST_GeometryFromText(&#39;point(&#39;|| endx ||&#39; &#39; || endy ||&#39;)&#39;)) into v_endpoint;  
+
+
+    --最短路径  
+    execute &#39;SELECT st_linemerge(st_union(b.geom)) &#39; || 
+    &#39;FROM pgr_kdijkstraPath(  
+    &#39;&#39;SELECT gid as id, source, target, mlength as cost FROM &#39; || tbl ||&#39;&#39;&#39;,&#39;  
+    ||v_startTarget || &#39;, &#39; ||&#39;array[&#39;||v_endSource||&#39;] , false, false  
+    ) a, &#39;  
+    || tbl || &#39; b  
+    WHERE a.id3=b.gid  
+    GROUP by id1  
+    ORDER by id1&#39; into v_res;  
+
+    --如果找不到最短路径，就返回null  
+    if(v_res is null) then  
+        return null;  
+    end if;  
+
+    --将v_res,v_startLine,v_endLine进行拼接  
+    select  st_linemerge(ST_Union(array[v_res,v_startLine,v_endLine])) into v_res;  
+
+    select  ST_Line_Locate_Point(v_res, v_statpoint) into v_perStart;  
+    select  ST_Line_Locate_Point(v_res, v_endpoint) into v_perEnd;  
+
+    if(v_perStart &gt; v_perEnd) then  
+        tempnode =  v_perStart;
+        v_perStart = v_perEnd;
+        v_perEnd = tempnode;
+    end if;
+
+    --截取v_res  
+    SELECT ST_Line_SubString(v_res,v_perStart, v_perEnd) into v_shPath;  
+
+    return v_shPath;  
+
+
+
+end;  
+$body$  
+LANGUAGE plpgsql VOLATILE STRICT
+</code></pre>
 <p>使用这个最短路径规划函数进行路径规划一般不会出现问题，但是有的时候会出现这样的问题，因为函数的查找思路是查找距离起点最近的线和改线的终点，查找离目的地最近的线和该线的起点，这样有可能会出现这样的情况，就是起点和终点对应的线段是相连接的，这时查找的距离起点最近线的终点和距离目的地最近线上的起点就是同一个点，这样的话这两点直接就没有最短距离。</p>
 <p>所以需要对上述代码第59到61行进行修改，修改后的代码如下  </p>
-<p><strong>最终使用的函数</strong><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">FUNCTION</span> pgr_fromAtoB(tbl <span class="built_in">varchar</span>,startx <span class="built_in">float</span>, starty <span class="built_in">float</span>,endx <span class="built_in">float</span>,endy <span class="built_in">float</span>);</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">function</span> pgr_fromAtoB(tbl <span class="built_in">varchar</span>,startx <span class="built_in">float</span>, starty <span class="built_in">float</span>,endx <span class="built_in">float</span>,endy <span class="built_in">float</span>)   </span><br><span class="line"><span class="keyword">returns</span>  geometry <span class="keyword">as</span>  </span><br><span class="line">$<span class="keyword">body</span>$  </span><br><span class="line"><span class="keyword">declare</span>  </span><br><span class="line">    v_startLine geometry;<span class="comment">--离起点最近的线  </span></span><br><span class="line">    v_endLine geometry;<span class="comment">--离终点最近的线  </span></span><br><span class="line">      </span><br><span class="line">    v_startTarget integer;<span class="comment">--距离起点最近线的终点  </span></span><br><span class="line">    v_endSource integer;<span class="comment">--距离终点最近线的起点  </span></span><br><span class="line">  </span><br><span class="line">    v_statpoint geometry;<span class="comment">--在v_startLine上距离起点最近的点  </span></span><br><span class="line">    v_endpoint geometry;<span class="comment">--在v_endLine上距离终点最近的点  </span></span><br><span class="line">      </span><br><span class="line">    v_res geometry;<span class="comment">--最短路径分析结果  </span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">    v_perStart float;<span class="comment">--v_statpoint在v_res上的百分比  </span></span><br><span class="line">    v_perEnd float;<span class="comment">--v_endpoint在v_res上的百分比  </span></span><br><span class="line">  </span><br><span class="line">    v_shPath geometry;<span class="comment">--最终结果</span></span><br><span class="line">    tempnode float;	</span><br><span class="line"><span class="keyword">begin</span>     </span><br><span class="line">          </span><br><span class="line">    <span class="comment">--查询离起点最近的线  </span></span><br><span class="line">    <span class="keyword">execute</span> <span class="string">'select geom ,target  from '</span> ||tbl||</span><br><span class="line">			<span class="string">' where </span></span><br><span class="line"><span class="string">			ST_DWithin(geom,ST_Geometryfromtext(''point('</span>||	startx ||<span class="string">' '</span> || starty||<span class="string">')''),15) </span></span><br><span class="line"><span class="string">			order by ST_Distance(geom,ST_GeometryFromText(''point('</span>|| startx ||<span class="string">' '</span>|| starty ||<span class="string">')''))  limit 1'</span> </span><br><span class="line">			<span class="keyword">into</span> v_startLine ,v_startTarget;  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">--查询离终点最近的线  </span></span><br><span class="line">    <span class="keyword">execute</span> <span class="string">'select geom,source  from '</span> ||tbl||</span><br><span class="line">			<span class="string">' where ST_DWithin(geom,ST_Geometryfromtext(''point('</span>|| endx || <span class="string">' '</span> || endy ||<span class="string">')''),15) </span></span><br><span class="line"><span class="string">			order by ST_Distance(geom,ST_GeometryFromText(''point('</span>|| endx ||<span class="string">' '</span> || endy ||<span class="string">')''))  limit 1'</span> </span><br><span class="line">			<span class="keyword">into</span> v_endLine,v_endSource;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">--如果没找到最近的线，就返回null  </span></span><br><span class="line">    if (v_startLine is null) or (v_endLine is null) then  </span><br><span class="line">        return null;  </span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">if</span> ;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">select</span>  ST_ClosestPoint(v_startLine, ST_Geometryfromtext(<span class="string">'point('</span>|| startx ||<span class="string">' '</span> || starty ||<span class="string">')'</span>)) <span class="keyword">into</span> v_statpoint;  </span><br><span class="line">    <span class="keyword">select</span>  ST_ClosestPoint(v_endLine, ST_GeometryFromText(<span class="string">'point('</span>|| endx ||<span class="string">' '</span> || endy ||<span class="string">')'</span>)) <span class="keyword">into</span> v_endpoint;  </span><br><span class="line">  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">--最短路径  </span></span><br><span class="line">    <span class="keyword">execute</span> <span class="string">'SELECT st_linemerge(st_union(b.geom)) '</span> || </span><br><span class="line">    <span class="string">'FROM pgr_kdijkstraPath(  </span></span><br><span class="line"><span class="string">    ''SELECT gid as id, source, target, mlength as cost FROM '</span> || tbl ||<span class="string">''','</span>  </span><br><span class="line">    ||v_startTarget || <span class="string">', '</span> ||<span class="string">'array['</span>||v_endSource||<span class="string">'] , false, false  </span></span><br><span class="line"><span class="string">    ) a, '</span>  </span><br><span class="line">    || tbl || <span class="string">' b  </span></span><br><span class="line"><span class="string">    WHERE a.id3=b.gid  </span></span><br><span class="line"><span class="string">    GROUP by id1  </span></span><br><span class="line"><span class="string">    ORDER by id1'</span> <span class="keyword">into</span> v_res ;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">--如果找不到最短路径，就返回null  </span></span><br><span class="line">    <span class="comment">--if(v_res is null) then  </span></span><br><span class="line">    <span class="comment">--    return null;  </span></span><br><span class="line">    <span class="comment">--end if;  </span></span><br><span class="line">      </span><br><span class="line">    <span class="comment">--将v_res,v_startLine,v_endLine进行拼接  </span></span><br><span class="line">    <span class="keyword">select</span>  st_linemerge(ST_Union(<span class="built_in">array</span>[v_res,v_startLine,v_endLine])) <span class="keyword">into</span> v_res;  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">select</span>  ST_Line_Locate_Point(v_res, v_statpoint) <span class="keyword">into</span> v_perStart;  </span><br><span class="line">    <span class="keyword">select</span>  ST_Line_Locate_Point(v_res, v_endpoint) <span class="keyword">into</span> v_perEnd;  </span><br><span class="line">	</span><br><span class="line">	if(v_perStart &gt; v_perEnd) then  </span><br><span class="line">        tempnode =  v_perStart;</span><br><span class="line">		v_perStart = v_perEnd;</span><br><span class="line">		v_perEnd = tempnode;</span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">--截取v_res  </span></span><br><span class="line">    <span class="keyword">SELECT</span> ST_Line_SubString(v_res,v_perStart, v_perEnd) <span class="keyword">into</span> v_shPath;  </span><br><span class="line">       </span><br><span class="line">    return v_shPath;  </span><br><span class="line">  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line"><span class="keyword">end</span>;  </span><br><span class="line">$body$  </span><br><span class="line">LANGUAGE plpgsql VOLATILE STRICT</span><br></pre></td></tr></table></figure></p>
+<p><strong>最终使用的函数</strong></p>
+<pre><code class="SQL">DROP FUNCTION pgr_fromAtoB(tbl varchar,startx float, starty float,endx float,endy float);
+CREATE OR REPLACE function pgr_fromAtoB(tbl varchar,startx float, starty float,endx float,endy float)   
+returns  geometry as  
+$body$  
+declare  
+    v_startLine geometry;--离起点最近的线  
+    v_endLine geometry;--离终点最近的线  
+
+    v_startTarget integer;--距离起点最近线的终点  
+    v_endSource integer;--距离终点最近线的起点  
+
+    v_statpoint geometry;--在v_startLine上距离起点最近的点  
+    v_endpoint geometry;--在v_endLine上距离终点最近的点  
+
+    v_res geometry;--最短路径分析结果  
+
+
+    v_perStart float;--v_statpoint在v_res上的百分比  
+    v_perEnd float;--v_endpoint在v_res上的百分比  
+
+    v_shPath geometry;--最终结果
+    tempnode float;    
+begin     
+
+    --查询离起点最近的线  
+    execute &#39;select geom ,target  from &#39; ||tbl||
+            &#39; where 
+            ST_DWithin(geom,ST_Geometryfromtext(&#39;&#39;point(&#39;||    startx ||&#39; &#39; || starty||&#39;)&#39;&#39;),15) 
+            order by ST_Distance(geom,ST_GeometryFromText(&#39;&#39;point(&#39;|| startx ||&#39; &#39;|| starty ||&#39;)&#39;&#39;))  limit 1&#39; 
+            into v_startLine ,v_startTarget;  
+
+    --查询离终点最近的线  
+    execute &#39;select geom,source  from &#39; ||tbl||
+            &#39; where ST_DWithin(geom,ST_Geometryfromtext(&#39;&#39;point(&#39;|| endx || &#39; &#39; || endy ||&#39;)&#39;&#39;),15) 
+            order by ST_Distance(geom,ST_GeometryFromText(&#39;&#39;point(&#39;|| endx ||&#39; &#39; || endy ||&#39;)&#39;&#39;))  limit 1&#39; 
+            into v_endLine,v_endSource;  
+
+    --如果没找到最近的线，就返回null  
+    if (v_startLine is null) or (v_endLine is null) then  
+        return null;  
+    end if ;  
+
+    select  ST_ClosestPoint(v_startLine, ST_Geometryfromtext(&#39;point(&#39;|| startx ||&#39; &#39; || starty ||&#39;)&#39;)) into v_statpoint;  
+    select  ST_ClosestPoint(v_endLine, ST_GeometryFromText(&#39;point(&#39;|| endx ||&#39; &#39; || endy ||&#39;)&#39;)) into v_endpoint;  
+
+
+    --最短路径  
+    execute &#39;SELECT st_linemerge(st_union(b.geom)) &#39; || 
+    &#39;FROM pgr_kdijkstraPath(  
+    &#39;&#39;SELECT gid as id, source, target, mlength as cost FROM &#39; || tbl ||&#39;&#39;&#39;,&#39;  
+    ||v_startTarget || &#39;, &#39; ||&#39;array[&#39;||v_endSource||&#39;] , false, false  
+    ) a, &#39;  
+    || tbl || &#39; b  
+    WHERE a.id3=b.gid  
+    GROUP by id1  
+    ORDER by id1&#39; into v_res ;  
+
+    --如果找不到最短路径，就返回null  
+    --if(v_res is null) then  
+    --    return null;  
+    --end if;  
+
+    --将v_res,v_startLine,v_endLine进行拼接  
+    select  st_linemerge(ST_Union(array[v_res,v_startLine,v_endLine])) into v_res;  
+
+    select  ST_Line_Locate_Point(v_res, v_statpoint) into v_perStart;  
+    select  ST_Line_Locate_Point(v_res, v_endpoint) into v_perEnd;  
+
+    if(v_perStart &gt; v_perEnd) then  
+        tempnode =  v_perStart;
+        v_perStart = v_perEnd;
+        v_perEnd = tempnode;
+    end if;
+
+    --截取v_res  
+    SELECT ST_Line_SubString(v_res,v_perStart, v_perEnd) into v_shPath;  
+
+    return v_shPath;  
+
+
+
+end;  
+$body$  
+LANGUAGE plpgsql VOLATILE STRICT
+</code></pre>
 <p>将这个函数在PostgreSQL的sql查询工具中执行一遍就可以了  </p>
 <p>这时你在sql查询中输入<br><code>SELECT * FROM pgr_fromatob(&#39;bjroad&#39;, x1, y1, x2, y2  )</code><br>或<br><code>SELECT pgr_fromatob.geometry FROM pgr_fromatob(&#39;bjroad&#39;, x1, y1, x2, y2  )</code>就可以查询到从点1到点2的路径了</p>
 <h1 id="最短路径规划中创建基于geoserver的wms服务"><a href="#最短路径规划中创建基于geoserver的wms服务" class="headerlink" title="最短路径规划中创建基于geoserver的wms服务"></a>最短路径规划中创建基于geoserver的wms服务</h1><p>上面文章写了求任意两点间最短路径的sql函数，接下来讲一下如何把上面介绍的子功能整合到系统中去</p>
 <p>单击左侧数据存储图标，会进入新建数据源页面<br><img src="15.png" alt><br>单击postgis，会弹出数据库的访问设置对话框<br>在对话框中选择工作区，填入数据源名称、数据库名以及用户名密码 点击保存</p>
 <p>在弹出的新页面中单击配置新的SQL视图，<br><img src="16.png" alt> </p>
 <p>在出现的新页面中输入视图名称以及最短路径规划的查询sql语句（pgr_fromAtoB为自定义的查询函数，需要添加到postgresql中,上文已经将其添加进去了）</p>
-<p>在出现的新页面中输入视图名称以及最短路径规划的查询sql语句（pgr_fromAtoB为自定义的查询函数，需要添加到postgresql中），<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ST_MakeLine(route.geometry) <span class="keyword">FROM</span> (</span><br><span class="line"></span><br><span class="line">   <span class="keyword">SELECT</span> pgr_fromatob.geometry <span class="keyword">FROM</span> pgr_fromatob(<span class="string">'bjroad'</span>, %x1%, %y1%, %x2%, %y2%  )</span><br><span class="line"></span><br><span class="line">) <span class="keyword">AS</span> route</span><br></pre></td></tr></table></figure></p>
+<p>在出现的新页面中输入视图名称以及最短路径规划的查询sql语句（pgr_fromAtoB为自定义的查询函数，需要添加到postgresql中），</p>
+<pre><code class="SQL">SELECT ST_MakeLine(route.geometry) FROM (
+
+   SELECT pgr_fromatob.geometry FROM pgr_fromatob(&#39;bjroad&#39;, %x1%, %y1%, %x2%, %y2%  )
+
+) AS route
+</code></pre>
 <p>单击从sql猜想的参数，把x1 y1 x2 y2的默认值都设为0，正则表达式中全部输入<code>^-?[\d.]+$</code> 。最后点刷新按钮，在出现的st_makeline结果数据中选择其类型为linestring，坐标系为4326<br><img src="17.png" alt></p>
 <p><img src="18.png" alt></p>
 <p>然后就像普通图层那样将其发布即可<br><img src="19.png" alt><br><img src="20.png" alt></p>
 <p>然后写代码就可以实现最短路径功能了  </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//W3C//DTD XHTML 1.0 Strict//EN"</span> <span class="meta-string">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml&gt;"</span></span></span><br><span class="line">&lt;head&gt;</span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>最短路径分析<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html;charset=UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span> v\:* &#123;behavior:url(#default#VML);&#125;</span><br><span class="line">		html, body &#123; overflow: hidden; padding: 0; height: 100%; width: 100%; font-family: 'Lucida Grande',Geneva,Arial,Verdana,sans-serif; &#125;</span><br><span class="line">		body &#123; margin: 0px; background: #fff; &#125;</span><br><span class="line">		#map &#123; height: 100%; border: 1px solid #888; &#125;</span><br><span class="line">		.olImageLoadError &#123;</span><br><span class="line">			display: none !important;</span><br><span class="line">		&#125;</span><br><span class="line">		ul li&#123;height:28px; width:100%;list-style:none;&#125;</span><br><span class="line"> li a&#123;</span><br><span class="line">	padding-left:0px; </span><br><span class="line">	width:100%; </span><br><span class="line">	line-height:0px;</span><br><span class="line">	text-decoration:none;</span><br><span class="line">	color:#666;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"http://xxxxx/OpenLayers-2.11/theme/default/style.css"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://xxxxx/OpenLayers-2.11/OpenLayers.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line">		var tilerpath="http://xxxxxx/zjTDT/";//你的底图地址</span><br><span class="line">		var map,baselayer,tmsoverlay,bjroadLayer,markerLayer;</span><br><span class="line">		OpenLayers.Util.onImageLoadErrorColor = "transparent";</span><br><span class="line">		function init()&#123;</span><br><span class="line">			var options = &#123;</span><br><span class="line">				controls: [new OpenLayers.Control.PanZoomBar(),</span><br><span class="line">				new OpenLayers.Control.Navigation(&#123;dragPanOptions:&#123;enableKinetic:true&#125;&#125;),new OpenLayers.Control.MousePosition()],</span><br><span class="line">				projection: new OpenLayers.Projection("EPSG:4326"),</span><br><span class="line">				resolutions:[0.3515625,0.17578125,0.087890625,0.0439453125,0.02197265625,0.010986328125,0.0054931640625,0.00274658203125,0.001373291015625,0.0006866455078125,0.00034332275390625,0.000171661376953125,0.0000858306884765625,0.00004291534423828125,0.000021457672119140625,0.0000107288360595703125,0.00000536441802978515625],</span><br><span class="line">				maxExtent: new OpenLayers.Bounds(-180, -90, 180, 90)</span><br><span class="line">			&#125;;</span><br><span class="line">			map = new OpenLayers.Map('map', options);</span><br><span class="line">			</span><br><span class="line">			baselayer = new OpenLayers.Layer.TMS( "天地图底图", tilerpath+"TDTVec",</span><br><span class="line">			&#123; </span><br><span class="line">				serviceVersion: '.', layername: '.', alpha: true,</span><br><span class="line">				type: 'png', getURL: overlay_getTileURL,</span><br><span class="line">				isBaseLayer: true</span><br><span class="line">			&#125;);</span><br><span class="line">			</span><br><span class="line">			tmsoverlay = new OpenLayers.Layer.TMS( "天地图标注", tilerpath+"TDTVecAnno",</span><br><span class="line">			&#123;</span><br><span class="line">				serviceVersion: '.', layername: '.', alpha: true,</span><br><span class="line">				type: 'png', getURL: overlay_getTileURL,</span><br><span class="line">				isBaseLayer: false</span><br><span class="line">			&#125;);</span><br><span class="line">			 function overlay_getTileURL(bounds) &#123;</span><br><span class="line">            	bounds = this.adjustBounds(bounds);</span><br><span class="line">            	var res = this.map.getResolution();</span><br><span class="line">            	var x = Math.round((bounds.left - this.tileOrigin.lon) / (res * this.tileSize.w));</span><br><span class="line">            	var y = Math.round(Math.abs((bounds.bottom + this.tileOrigin.lat))/(res * this.tileSize.h))-1;</span><br><span class="line">            	var z = this.map.getZoom()+2;</span><br><span class="line">			return this.url + "/L"+z+"/"+x+"/"+y+".png";//&amp;x="+x+"&amp;y="+y+"&amp;l="+z;</span><br><span class="line">			&#125;	</span><br><span class="line">			</span><br><span class="line">			map.addLayers([baselayer,tmsoverlay]);</span><br><span class="line"> 			map.setCenter(new OpenLayers.LonLat(120.00,30.25),10);</span><br><span class="line">			</span><br><span class="line">			//-----------------------------------------</span><br><span class="line">			 bjroadLayer = new OpenLayers.Layer.WMS("OpenLayers WMS",   </span><br><span class="line">                'http://xxxxx:8080/geoserver/chj/wms',     </span><br><span class="line">                &#123;    </span><br><span class="line">                    layers: 'chj:bjroadshp'  ,format:'image/png',transparent:true  </span><br><span class="line">                &#125;);    </span><br><span class="line">		    map.addLayer(bjroadLayer);</span><br><span class="line">			</span><br><span class="line">			markerLayer = new OpenLayers.Layer.Markers("markers");         </span><br><span class="line">            icon = new OpenLayers.Icon('marker.png',new OpenLayers.Size(21,25));</span><br><span class="line">			map.addLayer(markerLayer);  </span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			//清空路径规划结果  </span><br><span class="line">			var clearButton = document.getElementById('clear');  </span><br><span class="line">			clearButton.addEventListener('click', function(event) &#123;  </span><br><span class="line">				// Reset the "start" and "destination" features.  </span><br><span class="line">				startPointSet = false;  </span><br><span class="line">				endPointSet = false;  </span><br><span class="line">				// Remove the result layer.  </span><br><span class="line">				markerLayer.removeMarker(startPoint);  </span><br><span class="line">				markerLayer.removeMarker(destPoint);  </span><br><span class="line">				startPoint.destroy();  </span><br><span class="line">				destPoint.destroy();  </span><br><span class="line">				map.removeLayer(result);  </span><br><span class="line">			&#125;);           </span><br><span class="line">        map.events.register('click', map, onMapClick);  	</span><br><span class="line">			</span><br><span class="line">&#125;// init end</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">var startPointSet = false;</span><br><span class="line">var endPointSet = false;</span><br><span class="line">var startCoord;</span><br><span class="line">var destCoord</span><br><span class="line"></span><br><span class="line">var result;</span><br><span class="line">var result2;</span><br><span class="line">function onMapClick(event)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">     // 显示地图屏幕坐标</span><br><span class="line">    if (!startPointSet) &#123;    </span><br><span class="line">	var lonlat = map.getLonLatFromPixel(event.xy);</span><br><span class="line">	startPoint = new OpenLayers.Marker(lonlat);  </span><br><span class="line">	markerLayer.addMarker(startPoint);</span><br><span class="line">	startCoord = new OpenLayers.Geometry.Point(lonlat.lon,lonlat.lat);</span><br><span class="line">	startPointSet = true;</span><br><span class="line">  &#125; </span><br><span class="line">  else if (!endPointSet) &#123;</span><br><span class="line">    // Second click.</span><br><span class="line">	var lonlat = map.getLonLatFromPixel(event.xy);</span><br><span class="line">	destPoint = new OpenLayers.Marker(lonlat);  </span><br><span class="line">    markerLayer.addMarker(destPoint);</span><br><span class="line">	destCoord = new OpenLayers.Geometry.Point(lonlat.lon,lonlat.lat);</span><br><span class="line">	endPointSet = true;</span><br><span class="line">    // Transform the coordinates from the map projection (EPSG:3857)</span><br><span class="line">    // to the server projection (EPSG:4326).</span><br><span class="line">    </span><br><span class="line">    var viewparams = [</span><br><span class="line">      'x1:' + startCoord.x, 'y1:' + startCoord.y,</span><br><span class="line">      'x2:' + destCoord.x, 'y2:' + destCoord.y</span><br><span class="line">	  // 'x1:' + 12952117.2529, 'y1:' + 4836395.5717,</span><br><span class="line">     // 'x2:' + 12945377.2585, 'y2:' + 4827305.7549</span><br><span class="line">    ];</span><br><span class="line">    viewparams = viewparams.join(';');</span><br><span class="line">    result = new OpenLayers.Layer.WMS("resLayer",</span><br><span class="line">	'http://xxxxx:8080/geoserver/rico/wms',</span><br><span class="line">	&#123;	FORMAT: 'image/png8',</span><br><span class="line">	    transparent: true,</span><br><span class="line">		LAYERS: 'chj:pgrfromAtoB',</span><br><span class="line">		viewparams:viewparams</span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;isBaseLayer:false,</span><br><span class="line">	opacity: 1,</span><br><span class="line">	&#125;		</span><br><span class="line">	);</span><br><span class="line">	</span><br><span class="line">    map.addLayer(result);</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	 </span><br><span class="line">  &#125;// else if end </span><br><span class="line"> &#125;// onMapClick end</span><br><span class="line"> </span><br><span class="line">  </span><br><span class="line">		</span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"init()"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left;width:20%;height:100%;"</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">ul</span> <span class="attr">style</span>=<span class="string">"margin-top:100px;"</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span> <span class="attr">id</span>=<span class="string">"clear"</span>&gt;</span>清空<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"float:left;width:80%;height:100%;"</span>&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'map'</span> <span class="attr">style</span>=<span class="string">'width: 100%; height:100%;'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="HTML">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&gt;&quot;
+&lt;head&gt;
+    &lt;title&gt;最短路径分析&lt;/title&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;
+    &lt;style type=&quot;text/css&quot;&gt; v\:* {behavior:url(#default#VML);}
+        html, body { overflow: hidden; padding: 0; height: 100%; width: 100%; font-family: &#39;Lucida Grande&#39;,Geneva,Arial,Verdana,sans-serif; }
+        body { margin: 0px; background: #fff; }
+        #map { height: 100%; border: 1px solid #888; }
+        .olImageLoadError {
+            display: none !important;
+        }
+        ul li{height:28px; width:100%;list-style:none;}
+ li a{
+    padding-left:0px; 
+    width:100%; 
+    line-height:0px;
+    text-decoration:none;
+    color:#666;
+}
+    &lt;/style&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;http://xxxxx/OpenLayers-2.11/theme/default/style.css&quot; type=&quot;text/css&quot;&gt;
+    &lt;script src=&quot;http://xxxxx/OpenLayers-2.11/OpenLayers.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var tilerpath=&quot;http://xxxxxx/zjTDT/&quot;;//你的底图地址
+        var map,baselayer,tmsoverlay,bjroadLayer,markerLayer;
+        OpenLayers.Util.onImageLoadErrorColor = &quot;transparent&quot;;
+        function init(){
+            var options = {
+                controls: [new OpenLayers.Control.PanZoomBar(),
+                new OpenLayers.Control.Navigation({dragPanOptions:{enableKinetic:true}}),new OpenLayers.Control.MousePosition()],
+                projection: new OpenLayers.Projection(&quot;EPSG:4326&quot;),
+                resolutions:[0.3515625,0.17578125,0.087890625,0.0439453125,0.02197265625,0.010986328125,0.0054931640625,0.00274658203125,0.001373291015625,0.0006866455078125,0.00034332275390625,0.000171661376953125,0.0000858306884765625,0.00004291534423828125,0.000021457672119140625,0.0000107288360595703125,0.00000536441802978515625],
+                maxExtent: new OpenLayers.Bounds(-180, -90, 180, 90)
+            };
+            map = new OpenLayers.Map(&#39;map&#39;, options);
+
+            baselayer = new OpenLayers.Layer.TMS( &quot;天地图底图&quot;, tilerpath+&quot;TDTVec&quot;,
+            { 
+                serviceVersion: &#39;.&#39;, layername: &#39;.&#39;, alpha: true,
+                type: &#39;png&#39;, getURL: overlay_getTileURL,
+                isBaseLayer: true
+            });
+
+            tmsoverlay = new OpenLayers.Layer.TMS( &quot;天地图标注&quot;, tilerpath+&quot;TDTVecAnno&quot;,
+            {
+                serviceVersion: &#39;.&#39;, layername: &#39;.&#39;, alpha: true,
+                type: &#39;png&#39;, getURL: overlay_getTileURL,
+                isBaseLayer: false
+            });
+             function overlay_getTileURL(bounds) {
+                bounds = this.adjustBounds(bounds);
+                var res = this.map.getResolution();
+                var x = Math.round((bounds.left - this.tileOrigin.lon) / (res * this.tileSize.w));
+                var y = Math.round(Math.abs((bounds.bottom + this.tileOrigin.lat))/(res * this.tileSize.h))-1;
+                var z = this.map.getZoom()+2;
+            return this.url + &quot;/L&quot;+z+&quot;/&quot;+x+&quot;/&quot;+y+&quot;.png&quot;;//&amp;x=&quot;+x+&quot;&amp;y=&quot;+y+&quot;&amp;l=&quot;+z;
+            }    
+
+            map.addLayers([baselayer,tmsoverlay]);
+             map.setCenter(new OpenLayers.LonLat(120.00,30.25),10);
+
+            //-----------------------------------------
+             bjroadLayer = new OpenLayers.Layer.WMS(&quot;OpenLayers WMS&quot;,   
+                &#39;http://xxxxx:8080/geoserver/chj/wms&#39;,     
+                {    
+                    layers: &#39;chj:bjroadshp&#39;  ,format:&#39;image/png&#39;,transparent:true  
+                });    
+            map.addLayer(bjroadLayer);
+
+            markerLayer = new OpenLayers.Layer.Markers(&quot;markers&quot;);         
+            icon = new OpenLayers.Icon(&#39;marker.png&#39;,new OpenLayers.Size(21,25));
+            map.addLayer(markerLayer);  
+
+
+
+            //清空路径规划结果  
+            var clearButton = document.getElementById(&#39;clear&#39;);  
+            clearButton.addEventListener(&#39;click&#39;, function(event) {  
+                // Reset the &quot;start&quot; and &quot;destination&quot; features.  
+                startPointSet = false;  
+                endPointSet = false;  
+                // Remove the result layer.  
+                markerLayer.removeMarker(startPoint);  
+                markerLayer.removeMarker(destPoint);  
+                startPoint.destroy();  
+                destPoint.destroy();  
+                map.removeLayer(result);  
+            });           
+        map.events.register(&#39;click&#39;, map, onMapClick);      
+
+}// init end
+
+
+var startPointSet = false;
+var endPointSet = false;
+var startCoord;
+var destCoord
+
+var result;
+var result2;
+function onMapClick(event)
+{
+
+     // 显示地图屏幕坐标
+    if (!startPointSet) {    
+    var lonlat = map.getLonLatFromPixel(event.xy);
+    startPoint = new OpenLayers.Marker(lonlat);  
+    markerLayer.addMarker(startPoint);
+    startCoord = new OpenLayers.Geometry.Point(lonlat.lon,lonlat.lat);
+    startPointSet = true;
+  } 
+  else if (!endPointSet) {
+    // Second click.
+    var lonlat = map.getLonLatFromPixel(event.xy);
+    destPoint = new OpenLayers.Marker(lonlat);  
+    markerLayer.addMarker(destPoint);
+    destCoord = new OpenLayers.Geometry.Point(lonlat.lon,lonlat.lat);
+    endPointSet = true;
+    // Transform the coordinates from the map projection (EPSG:3857)
+    // to the server projection (EPSG:4326).
+
+    var viewparams = [
+      &#39;x1:&#39; + startCoord.x, &#39;y1:&#39; + startCoord.y,
+      &#39;x2:&#39; + destCoord.x, &#39;y2:&#39; + destCoord.y
+      // &#39;x1:&#39; + 12952117.2529, &#39;y1:&#39; + 4836395.5717,
+     // &#39;x2:&#39; + 12945377.2585, &#39;y2:&#39; + 4827305.7549
+    ];
+    viewparams = viewparams.join(&#39;;&#39;);
+    result = new OpenLayers.Layer.WMS(&quot;resLayer&quot;,
+    &#39;http://xxxxx:8080/geoserver/rico/wms&#39;,
+    {    FORMAT: &#39;image/png8&#39;,
+        transparent: true,
+        LAYERS: &#39;chj:pgrfromAtoB&#39;,
+        viewparams:viewparams
+    },
+    {isBaseLayer:false,
+    opacity: 1,
+    }        
+    );
+
+    map.addLayer(result);
+
+
+
+  }// else if end 
+ }// onMapClick end
+
+
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body onload=&quot;init()&quot;&gt;
+&lt;div style=&quot;float:left;width:20%;height:100%;&quot;&gt; 
+        &lt;ul style=&quot;margin-top:100px;&quot;&gt;
+
+            &lt;li&gt;&lt;a href=&quot;javascript:void(0);&quot; id=&quot;clear&quot;&gt;清空&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+        &lt;div style=&quot;float:left;width:80%;height:100%;&quot;&gt; 
+    &lt;div id=&#39;map&#39; style=&#39;width: 100%; height:100%;&#39;&gt;&lt;/div&gt;
+    &lt;/div&gt;    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 <p><img src="21.png" alt> </p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="http://blog.csdn.net/longshengguoji/article/details/45565551" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/45565551</a><br><a href="http://blog.csdn.net/cehui115081/article/details/19808889" target="_blank" rel="noopener">http://blog.csdn.net/cehui115081/article/details/19808889</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/46051111" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/46051111</a><br><a href="http://www.davidgis.fr/documentation/pgrouting-1.02/" target="_blank" rel="noopener">http://www.davidgis.fr/documentation/pgrouting-1.02/</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/46350355" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/46350355</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/46350675" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/46350675</a><br><a href="http://www.openlayers.cn/forum.php?mod=viewthread&amp;tid=14&amp;page=1" target="_blank" rel="noopener">http://www.openlayers.cn/forum.php?mod=viewthread&amp;tid=14&amp;page=1</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/45602219" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/45602219</a><br><a href="http://blog.csdn.net/longshengguoji?viewmode=contents" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji?viewmode=contents</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/46793111" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/46793111</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/45602219" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/45602219</a><br><a href="http://blog.csdn.net/yifei1989/article/details/14137891" target="_blank" rel="noopener">http://blog.csdn.net/yifei1989/article/details/14137891</a><br><a href="http://blog.csdn.net/yifei1989/article/details/9500187#comments" target="_blank" rel="noopener">http://blog.csdn.net/yifei1989/article/details/9500187#comments</a><br><a href="http://blog.csdn.net/yifei1989/article/details/14004661" target="_blank" rel="noopener">http://blog.csdn.net/yifei1989/article/details/14004661</a><br><a href="http://blog.csdn.net/yifei1989/article/details/14137891" target="_blank" rel="noopener">http://blog.csdn.net/yifei1989/article/details/14137891</a></p>
 
+        
     
 
     
@@ -568,7 +1065,8 @@
 
 
                 
-		<!-- Post Comments -->
+
+                <!-- Post Comments -->
                 
                     
                 
@@ -630,7 +1128,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.jpg" alt="Rico's avatar">
+        <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -695,16 +1193,6 @@
 
     <!-- Pages  -->
     
-        <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
@@ -727,7 +1215,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material chenhongjie 
+<!-- Theme Material -->
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
@@ -735,7 +1223,6 @@ It will not impact the appearance and can give developers a lot of support :)
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
-  -->
 
 
 <!-- Help & Support -->
@@ -809,11 +1296,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -827,12 +1326,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -848,21 +1354,24 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>
     
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -907,15 +1416,40 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -933,10 +1467,21 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
     (function(){
         var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
@@ -945,7 +1490,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

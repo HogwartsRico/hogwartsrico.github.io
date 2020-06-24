@@ -5,8 +5,42 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!-- Title -->
     
@@ -17,115 +51,18 @@
         Rico&#39;s Blog
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico,Gradle">
-
-    <!-- Site Verification -->
-    
-    
-
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,Gradle">
+    <meta name="theme-color" content="#0097A7">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://hogwartsrico.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="新一代构建工具Gradle | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="Gradle"> 
-
-    
-        <meta property="article:published_time" content="3月 24, 2019">
-        <meta property="article:modified_time" content="3月 24, 2020">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="新一代构建工具Gradle | Rico&#39;s Blog">
-    <meta name="twitter:description" content>
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="http://hogwartsrico.github.io">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/03/24/learn-gradle/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Rico&#39;s Blog",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Rico",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "Javaer"
-    },
-    "headline": "新一代构建工具Gradle",
-    "url": "http://hogwartsrico.github.io/2019/03/24/learn-gradle/index.html",
-    "datePublished": "3月 24, 2019",
-    "dateModified": "3月 24, 2020",
-    "description": "",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://hogwartsrico.github.io"
-    }
-}
-</script>
-
-
-    
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -136,47 +73,38 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
 
-    <!-- Import CSS & jQuery -->
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -274,28 +202,73 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2019/03/24/learn-gradle/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2019/03/24/learn-gradle/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="新一代构建工具Gradle | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="Gradle"> 
+
+    
+        <meta property="article:published_time" content="Sun Mar 24 2019 23:54:38 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 24 2020 11:19:16 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/03/24/learn-gradle/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
 
     <!-- Analytics -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    
+    
+    
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -313,7 +286,7 @@
                     
                         <!-- Hamburger Button -->
                         <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
                         </button>
                     
 
@@ -336,23 +309,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目自动化介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">项目自动化介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建工具的作用"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">构建工具的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主流构建工具"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">主流构建工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gradle是什么？"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Gradle是什么？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备使用Gradle"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备使用Gradle</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#groovy基础知识"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">groovy基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#理论介绍"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">理论介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Groovy是什么？"><span class="post-toc-number">2.2.1.1.</span> <span class="post-toc-text">Groovy是什么？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#与Java相比"><span class="post-toc-number">2.2.1.2.</span> <span class="post-toc-text">与Java相比</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#高效的特性"><span class="post-toc-number">2.2.1.3.</span> <span class="post-toc-text">高效的特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#可选的类型定义"><span class="post-toc-number">2.2.1.3.1.</span> <span class="post-toc-text">可选的类型定义</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#断言"><span class="post-toc-number">2.2.1.3.2.</span> <span class="post-toc-text">断言</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#括号是可选的"><span class="post-toc-number">2.2.1.3.3.</span> <span class="post-toc-text">括号是可选的</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#字符串"><span class="post-toc-number">2.2.1.3.4.</span> <span class="post-toc-text">字符串</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#集合API"><span class="post-toc-number">2.2.1.3.5.</span> <span class="post-toc-text">集合API</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#闭包"><span class="post-toc-number">2.2.1.3.6.</span> <span class="post-toc-text">闭包</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#闭包也是对象"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">闭包也是对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用gradle语法解析构建脚本"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">使用gradle语法解析构建脚本</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第一句："><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">第一句：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第二句："><span class="post-toc-number">2.2.3.2.</span> <span class="post-toc-text">第二句：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第三句"><span class="post-toc-number">2.2.3.3.</span> <span class="post-toc-text">第三句:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第四句"><span class="post-toc-number">2.2.3.4.</span> <span class="post-toc-text">第四句</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一个gradle项目"><span class="post-toc-number">3.</span> <span class="post-toc-text">第一个gradle项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#打包成jar"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">打包成jar</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web应用-war包"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">web应用 war包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级应用"><span class="post-toc-number">4.</span> <span class="post-toc-text">高级应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建脚本介绍"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">构建脚本介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建块："><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">构建块：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性："><span class="post-toc-number">4.1.2.1.</span> <span class="post-toc-text">属性：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#方法："><span class="post-toc-number">4.1.2.2.</span> <span class="post-toc-text">方法：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性的其他配置方式"><span class="post-toc-number">4.1.2.3.</span> <span class="post-toc-text">属性的其他配置方式:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务-task"><span class="post-toc-number">4.1.2.4.</span> <span class="post-toc-text">任务(task)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义任务"><span class="post-toc-number">4.1.2.5.</span> <span class="post-toc-text">自定义任务</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#构建的生命周期"><span class="post-toc-number">4.1.2.6.</span> <span class="post-toc-text">构建的生命周期</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#依赖管理"><span class="post-toc-number">4.1.2.7.</span> <span class="post-toc-text">依赖管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#工件坐标"><span class="post-toc-number">4.1.2.7.1.</span> <span class="post-toc-text">工件坐标</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#常用仓库"><span class="post-toc-number">4.1.2.7.2.</span> <span class="post-toc-text">常用仓库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#依赖的传递性"><span class="post-toc-number">4.1.2.7.3.</span> <span class="post-toc-text">依赖的传递性</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#依赖阶段配置"><span class="post-toc-number">4.1.2.7.4.</span> <span class="post-toc-text">依赖阶段配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#依赖阶段关系"><span class="post-toc-number">4.1.2.7.5.</span> <span class="post-toc-text">依赖阶段关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决版本冲突"><span class="post-toc-number">4.1.2.8.</span> <span class="post-toc-text">解决版本冲突</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#如何解决呢？"><span class="post-toc-number">4.1.2.8.1.</span> <span class="post-toc-text">如何解决呢？</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多项目构建"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">多项目构建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多项目构建实战"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">多项目构建实战</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自动化测试"><span class="post-toc-number">4.1.5.</span> <span class="post-toc-text">自动化测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发布"><span class="post-toc-number">4.1.6.</span> <span class="post-toc-text">发布</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一个疑问"><span class="post-toc-number">6.</span> <span class="post-toc-text">一个疑问</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-number">7.</span> <span class="post-toc-text">扩展阅读</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#委托策略"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">委托策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Owner，delegate和this"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">Owner，delegate和this</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#This"><span class="post-toc-number">7.1.1.1.</span> <span class="post-toc-text">This</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Owner"><span class="post-toc-number">7.1.1.2.</span> <span class="post-toc-text">Owner</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Delegate"><span class="post-toc-number">7.1.1.3.</span> <span class="post-toc-text">Delegate</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Delegate策略"><span class="post-toc-number">7.1.1.4.</span> <span class="post-toc-text">Delegate策略</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GStrings中的闭包"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">GStrings中的闭包</span></a></li></ol></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
     
-
 
 
 
@@ -396,7 +365,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -430,7 +399,8 @@
     
 
     <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
     <span class="visuallyhidden">share</span>
 </button>
@@ -441,7 +411,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=新一代构建工具Gradle&url=http://hogwartsrico.github.io/2019/03/24/learn-gradle/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=新一代构建工具Gradle&url=http://hogwartsrico.github.io/2019/03/24/learn-gradle/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -485,6 +455,7 @@
     
 </ul>
 
+    
 </div>
 
                 
@@ -518,7 +489,21 @@
 <li>最后一个表达式的值会被作为返回值(return这个词可以不写) </li>
 <li>==等同于equals(),不会有NullPointerExceptions</li>
 </ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> groovy.reflect.field</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> &#123;</span></span><br><span class="line">    String id</span><br><span class="line">    String name</span><br><span class="line">    <span class="keyword">def</span> getAge() &#123;</span><br><span class="line">        <span class="string">'everyone is 24'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> main(args)&#123;</span><br><span class="line">        <span class="keyword">def</span> empl1 = <span class="keyword">new</span> Employee(<span class="string">id:</span><span class="string">'00001'</span>,<span class="string">name:</span><span class="string">'Tom'</span>)</span><br><span class="line">        println empl1.name</span><br><span class="line">        <span class="comment">//可以看到，我们并没有给“Employee”类定义“age”属性，但是我们实现了“getAge”方法，我们就可以通过Gpath来访问“age”属性</span></span><br><span class="line">        println empl1.age</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">package groovy.reflect.field
+class Employee {
+    String id
+    String name
+    def getAge() {
+        &#39;everyone is 24&#39;
+    }
+    static main(args){
+        def empl1 = new Employee(id:&#39;00001&#39;,name:&#39;Tom&#39;)
+        println empl1.name
+        //可以看到，我们并没有给“Employee”类定义“age”属性，但是我们实现了“getAge”方法，我们就可以通过Gpath来访问“age”属性
+        println empl1.age
+    }
+}
+</code></pre>
 <p>如“empl1.name”并不是直接访问“empl1”对象的“name”属性，而是通过“Employee”类隐含实现了的“get”和“set”方法来访问的</p>
 <p>我们并没有给“Employee”类定义“age”属性，但是我们实现了“getAge”方法，我们就可以通过Gpath来访问“age”属性 ,当然如果我们声明了属性的话会自动生成getter和setter</p>
 <h4 id="高效的特性"><a href="#高效的特性" class="headerlink" title="高效的特性"></a>高效的特性</h4><ul>
@@ -532,39 +517,123 @@
 <p><img src="2.png" alt></p>
 <p><img src="3.png" alt> </p>
 <p>Tool-&gt;Groovy Console可弹出Groovy的编程环境控制台进行Groovy代码的编写和运行 </p>
-<h5 id="可选的类型定义"><a href="#可选的类型定义" class="headerlink" title="可选的类型定义"></a>可选的类型定义</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> version=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h5 id="可选的类型定义"><a href="#可选的类型定义" class="headerlink" title="可选的类型定义"></a>可选的类型定义</h5><pre><code class="groovy">def version=1
+</code></pre>
 <h5 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h5><p><code>assert version==2</code> </p>
 <h5 id="括号是可选的"><a href="#括号是可选的" class="headerlink" title="括号是可选的"></a>括号是可选的</h5><p><code>println version</code> 等同于 <code>println(version)</code> </p>
-<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串 有三种表达形式</span></span><br><span class="line"><span class="keyword">def</span> s1=<span class="string">'rico'</span><span class="comment">//第一种:仅仅是个字符串</span></span><br><span class="line"><span class="keyword">def</span> s2=<span class="string">"gradle version is $&#123;version&#125;"</span><span class="comment">//第二种:可以插入变量</span></span><br><span class="line"><span class="keyword">def</span> s3=<span class="string">'''my name</span></span><br><span class="line"><span class="string">is rico'''</span><span class="comment">//第三种:可以换行</span></span><br><span class="line"></span><br><span class="line">println s1</span><br><span class="line">println s2</span><br><span class="line">println s3</span><br></pre></td></tr></table></figure>
+<h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><pre><code class="groovy">//字符串 有三种表达形式
+def s1=&#39;rico&#39;//第一种:仅仅是个字符串
+def s2=&quot;gradle version is ${version}&quot;//第二种:可以插入变量
+def s3=&#39;&#39;&#39;my name
+is rico&#39;&#39;&#39;//第三种:可以换行
+
+println s1
+println s2
+println s3
+</code></pre>
 <p>如果双引号字符串中没有插入表达式的话对应的是java中的String对象，如果有则对应Groovy中的GString对象。</p>
 <p>单引号字符串如果只有一个字符会被转化成<code>char</code>类型。</p>
 <p>Groovy中使用<code>${}</code>来表示插入表达式，<code>$</code>来表示引用表达：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> name = <span class="string">'Guillaume'</span> <span class="comment">// a plain string</span></span><br><span class="line"><span class="keyword">def</span> greeting = <span class="string">"Hello $&#123;name&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> greeting.toString() == <span class="string">'Hello Guillaume'</span></span><br><span class="line"><span class="keyword">def</span> person = [<span class="string">name:</span> <span class="string">'Guillaume'</span>, <span class="string">age:</span> <span class="number">36</span>]</span><br><span class="line"><span class="keyword">assert</span> <span class="string">"$person.name is $person.age years old"</span> == <span class="string">'Guillaume is 36 years old'</span></span><br><span class="line">shouldFail(MissingPropertyException) &#123;</span><br><span class="line">    println <span class="string">"$number.toString()"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">def name = &#39;Guillaume&#39; // a plain string
+def greeting = &quot;Hello ${name}&quot;
+
+assert greeting.toString() == &#39;Hello Guillaume&#39;
+def person = [name: &#39;Guillaume&#39;, age: 36]
+assert &quot;$person.name is $person.age years old&quot; == &#39;Guillaume is 36 years old&#39;
+shouldFail(MissingPropertyException) {
+    println &quot;$number.toString()&quot;
+}
+</code></pre>
 <p><img src="4.png" alt> </p>
 <h5 id="集合API"><a href="#集合API" class="headerlink" title="集合API"></a>集合API</h5><p>集合有list和map</p>
 <p><strong>List</strong></p>
 <p>默认对应的java的list是ArrayList</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//集合api</span></span><br><span class="line"><span class="comment">//list</span></span><br><span class="line"><span class="keyword">def</span> buildTools=[<span class="string">'ant'</span>,<span class="string">'maven'</span>];<span class="comment">//默认对应的java的list是ArrayList</span></span><br><span class="line">buildTools &lt;&lt; <span class="string">'gradle'</span> <span class="comment">//追加一个</span></span><br><span class="line"><span class="keyword">assert</span>  buildTools.getClass()==ArrayList <span class="comment">//验证是否是ArrayList</span></span><br><span class="line"><span class="keyword">assert</span> buildTools.size()==<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">//集合api
+//list
+def buildTools=[&#39;ant&#39;,&#39;maven&#39;];//默认对应的java的list是ArrayList
+buildTools &lt;&lt; &#39;gradle&#39; //追加一个
+assert  buildTools.getClass()==ArrayList //验证是否是ArrayList
+assert buildTools.size()==3
+</code></pre>
 <p>以上assert结果都是true</p>
 <p>Groovy中列表使用<code>[]</code>表示，其中可以包含任意类型的元素：</p>
 <p><strong>map</strong> </p>
 <p>map对应到Java中是LinkedHashMap </p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//map</span></span><br><span class="line"><span class="keyword">def</span> buildYears=[<span class="string">'ant'</span>:<span class="number">2000</span>,<span class="string">'maven'</span>:<span class="number">2004</span>];</span><br><span class="line">buildYears.gradle=<span class="number">2009</span></span><br><span class="line">println  buildYears.ant</span><br><span class="line">println  buildYears[<span class="string">'gradle'</span>]</span><br><span class="line">println  buildYears.getClass()</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">//map
+def buildYears=[&#39;ant&#39;:2000,&#39;maven&#39;:2004];
+buildYears.gradle=2009
+println  buildYears.ant
+println  buildYears[&#39;gradle&#39;]
+println  buildYears.getClass()
+</code></pre>
 <p><img src="6.png" alt> </p>
 <h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><p>下面看一些闭包的具体例子：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123; item++ &#125;                                          </span><br><span class="line"></span><br><span class="line">&#123; -&gt; item++ &#125;                                       </span><br><span class="line"></span><br><span class="line">&#123; println it &#125;                                      </span><br><span class="line"></span><br><span class="line">&#123; it -&gt; println it &#125;                                </span><br><span class="line"></span><br><span class="line">&#123; name -&gt; println name &#125;                            </span><br><span class="line"></span><br><span class="line">&#123; String x, <span class="keyword">int</span> y -&gt;                                </span><br><span class="line">    println <span class="string">"hey $&#123;x&#125; the value is $&#123;y&#125;"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123; reader -&gt;                                         </span><br><span class="line">    <span class="keyword">def</span> line = reader.readLine()</span><br><span class="line">    line.trim()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">{ item++ }                                          
+
+{ -&gt; item++ }                                       
+
+{ println it }                                      
+
+{ it -&gt; println it }                                
+
+{ name -&gt; println name }                            
+
+{ String x, int y -&gt;                                
+    println &quot;hey ${x} the value is ${y}&quot;
+}
+
+{ reader -&gt;                                         
+    def line = reader.readLine()
+    line.trim()
+}
+</code></pre>
 <p>闭包简单来说就是一段代码块 ，和方法一样，可以有参数，可以没参数 </p>
 <p>闭包可以被赋值给一个变量，也可以当做一个参数传入给一个方法，像普通方法一样调用  </p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//闭包</span></span><br><span class="line"><span class="comment">//包含参数</span></span><br><span class="line"><span class="keyword">def</span> c1=&#123;</span><br><span class="line">    v -&gt;<span class="comment">//包含一个参数,类型可省</span></span><br><span class="line">        println v</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//不包含参数</span></span><br><span class="line"><span class="keyword">def</span> c2=&#123;</span><br><span class="line">    println <span class="string">'hello'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> method1(Closure closure)&#123;<span class="comment">//定义一个调用有参闭包的方法</span></span><br><span class="line">    closure(<span class="string">'param'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> method2(Closure closure)&#123;</span><br><span class="line">    closure()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">method1(c1)</span><br><span class="line">method2(c2)</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">//闭包
+//包含参数
+def c1={
+    v -&gt;//包含一个参数,类型可省
+        println v
+}
+//不包含参数
+def c2={
+    println &#39;hello&#39;
+}
+
+def method1(Closure closure){//定义一个调用有参闭包的方法
+    closure(&#39;param&#39;)
+}
+
+def method2(Closure closure){
+    closure()
+}
+
+method1(c1)
+method2(c2)
+</code></pre>
 <p>输出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">param</span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
-<p>闭包有两种调用方式：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> code = &#123; <span class="number">123</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> code() == <span class="number">123</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> code.call() == <span class="number">123</span></span><br></pre></td></tr></table></figure>
+<pre><code>param
+hello
+</code></pre><p>闭包有两种调用方式：</p>
+<pre><code class="groovy">def code = { 123 }
+
+assert code() == 123
+
+assert code.call() == 123
+</code></pre>
 <p>闭包名+（）或者闭包名.call()来调用闭包。</p>
 <p>当闭包没有显式声明参数时，其默认包含一个隐式的参数<code>it</code>。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> greeting = &#123; <span class="string">"Hello, $it!"</span> &#125;</span><br><span class="line"><span class="keyword">assert</span> greeting(<span class="string">'Patrick'</span>) == <span class="string">'Hello, Patrick!'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">def greeting = { &quot;Hello, $it!&quot; }
+assert greeting(&#39;Patrick&#39;) == &#39;Hello, Patrick!&#39;
+</code></pre>
 <h3 id="闭包也是对象"><a href="#闭包也是对象" class="headerlink" title="闭包也是对象"></a>闭包也是对象</h3><p>闭包在groovy中是<code>groovy.lang.Closure</code>类的实例，这使得闭包可以赋值给变量或字段。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> listener = &#123; e -&gt; println <span class="string">"Clicked on $e.source"</span> &#125;      </span><br><span class="line"><span class="keyword">assert</span> listener <span class="keyword">instanceof</span> Closure</span><br><span class="line">Closure callback = &#123; println <span class="string">'Done!'</span> &#125;                      </span><br><span class="line">Closure&lt;Boolean&gt; isTextFile = &#123;</span><br><span class="line">    File it -&gt; it.name.endsWith(<span class="string">'.txt'</span>)                     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">def listener = { e -&gt; println &quot;Clicked on $e.source&quot; }      
+assert listener instanceof Closure
+Closure callback = { println &#39;Done!&#39; }                      
+Closure&lt;Boolean&gt; isTextFile = {
+    File it -&gt; it.name.endsWith(&#39;.txt&#39;)                     
+}
+</code></pre>
 <h3 id="使用gradle语法解析构建脚本"><a href="#使用gradle语法解析构建脚本" class="headerlink" title="使用gradle语法解析构建脚本"></a>使用gradle语法解析构建脚本</h3><p>使用Groovy的语法来解析这段gradle构建脚本 </p>
 <p><img src="7.png" alt> </p>
 <p>构建脚本中默认都有个Project实例</p>
@@ -574,10 +643,16 @@
 <p>跟进源代码就可以看到apply方法</p>
 <p><img src="8.png" alt> </p>
 <h4 id="第二句："><a href="#第二句：" class="headerlink" title="第二句："></a>第二句：</h4><p> <code>version=&#39;0.1&#39;</code> 是Project实例中有个属性叫version ,它的值是0.1 </p>
-<h4 id="第三句"><a href="#第三句" class="headerlink" title="第三句:"></a>第三句:</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">  mavenCentral()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第三句"><a href="#第三句" class="headerlink" title="第三句:"></a>第三句:</h4><pre><code class="groovy">repositories {
+  mavenCentral()
+}
+</code></pre>
 <p>repositories也是一个方法 ,其中<code>{  mavenCentral() }</code> 作为一个闭包当做参数传入(闭包的运行结果当做参数) ,来调用repositories这个方法  </p>
 <p><img src="9.png" alt> </p>
-<h4 id="第四句"><a href="#第四句" class="headerlink" title="第四句"></a>第四句</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> dependencies &#123;</span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.1.2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第四句"><a href="#第四句" class="headerlink" title="第四句"></a>第四句</h4><pre><code class="groovy"> dependencies {
+        classpath &#39;com.android.tools.build:gradle:2.1.2&#39;
+}
+</code></pre>
 <p>dependencies也是一个方法，后面大括号也是一个闭包 ，闭包的运行结果作为参数去调用dependencies这个方法 ，其中,classpath又是一个方法，当然dependencies中还有诸如:implementation,runtimeOnly,testImplementation等方法 </p>
 <p><img src="10.png" alt></p>
 <p> compile：编译时必须。</p>
@@ -585,32 +660,97 @@
 <p>testCompile：测试编译时必须。</p>
 <p>testRuntime：测试运行时必须，包括编译时。</p>
 <p>有点类似于下面的结构</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> dependencies(Closure cl)&#123;</span><br><span class="line">    cl.call();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> classpath(String path)&#123;</span><br><span class="line">    println path</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    classpath <span class="string">'com.android.tools.build:gradle:2.1.2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">def dependencies(Closure cl){
+    cl.call();
+}
+
+def classpath(String path){
+    println path
+}
+
+dependencies {
+    classpath &#39;com.android.tools.build:gradle:2.1.2&#39;
+}
+</code></pre>
 <p>那么我们再来看这个：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">task clean(<span class="string">type:</span> Delete) &#123;</span><br><span class="line">    delete rootProject.buildDir</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+</code></pre>
 <p>这个用上面的思路套进去看看呢？task是一个方法，没毛病。后面是两个参数？clean和一个闭包？这里就不对了，如果是两个参数，中间需要有<code>,</code>隔开，所以这里只有一个参数，就是clean。那这就是什么写法？这里我们又要了解groovy中的一个语法特性，</p>
 <blockquote>
 <p>当一个方法的最后一个参数是闭包，可以将这个闭包写在<code>()</code>外面。</p>
 </blockquote>
 <p>看例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def foo(String s,Closure cl)&#123;</span><br><span class="line">    cl(s)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//❶</span><br><span class="line">foo(&apos;hello world&apos;)&#123;</span><br><span class="line">    println it</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo &apos;hello world&apos;,&#123;</span><br><span class="line">    println it</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>方法的两种特殊写法都在这了，上面讲个写法就是❶处的写法。</p>
+<pre><code>def foo(String s,Closure cl){
+    cl(s)
+}
+
+//❶
+foo(&#39;hello world&#39;){
+    println it
+}
+
+foo &#39;hello world&#39;,{
+    println it
+}
+</code></pre><p>方法的两种特殊写法都在这了，上面讲个写法就是❶处的写法。</p>
 <p>所以把clean理解为一个参数是对的，接着再看<code>clean(type: Delete)</code>这个就简单了，groovy中的方法参数是支持<strong>命名参数</strong>的，这里用的就是命名参数，到这里都理顺了，我们还是写一个小例子模仿一下上面的写法：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> task(String taskName)&#123;</span><br><span class="line">    println <span class="string">'execute task '</span> + taskName</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> clean(Map type,Closure cl)&#123;</span><br><span class="line">    type.type</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> delete(String path)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Delete = <span class="string">'delete'</span></span><br><span class="line"></span><br><span class="line">task clean(<span class="string">type:</span>Delete)&#123;</span><br><span class="line">    delete <span class="string">"path"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">def task(String taskName){
+    println &#39;execute task &#39; + taskName
+}
+
+def clean(Map type,Closure cl){
+    type.type
+}
+
+def delete(String path){
+
+}
+
+Delete = &#39;delete&#39;
+
+task clean(type:Delete){
+    delete &quot;path&quot;
+}
+</code></pre>
 <p>有空可以看下<code>org.gradle.api.Project</code>这个interface的源码 ,会对各项属性和方法有了解</p>
 <p>项目name保存在settings.gradle中,settings.gradle是用来管理多项目构建的  </p>
 <p><img src="15.png" alt> </p>
 <h1 id="第一个gradle项目"><a href="#第一个gradle项目" class="headerlink" title="第一个gradle项目"></a>第一个gradle项目</h1><p><img src="5.png" alt> </p>
 <p>构建脚本 build.gradle</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id <span class="string">'java'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">group <span class="string">'org.rico.gradle'</span> <span class="comment">//gav</span></span><br><span class="line">version <span class="string">'1.0-SNAPSHOT'</span> <span class="comment">//版本</span></span><br><span class="line"></span><br><span class="line">sourceCompatibility = <span class="number">1.8</span> <span class="comment">//源文件适应的版本</span></span><br><span class="line"></span><br><span class="line">repositories &#123;<span class="comment">//仓库</span></span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;<span class="comment">//依赖管理</span></span><br><span class="line">    testCompile <span class="string">group:</span> <span class="string">'junit'</span>, <span class="string">name:</span> <span class="string">'junit'</span>, <span class="string">version:</span> <span class="string">'4.12'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">plugins {
+    id &#39;java&#39;
+}
+
+group &#39;org.rico.gradle&#39; //gav
+version &#39;1.0-SNAPSHOT&#39; //版本
+
+sourceCompatibility = 1.8 //源文件适应的版本
+
+repositories {//仓库
+    mavenCentral()
+}
+
+dependencies {//依赖管理
+    testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.12&#39;
+}
+</code></pre>
 <p>新的插件DSL提供一种简洁而方便的定义插件依赖的方法</p>
 <p>其中上面的</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id <span class="string">'java'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">plugins {
+    id &#39;java&#39;
+}
+</code></pre>
 <p>表示使用Java核心插件 </p>
 <p>使用核心插件可以使用简称,如果从插件官网使用社区版插件，就需要使用全称了,例如</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id <span class="string">'com.jfrog.bintray'</span> version <span class="string">'0.4.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">plugins {
+    id &#39;com.jfrog.bintray&#39; version &#39;0.4.1&#39;
+}
+</code></pre>
 <p>而老版本2.0及以下的gradle是</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">plugin:</span> <span class="string">"java"</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">apply plugin: &quot;java&quot;
+</code></pre>
 <p>Gradle构建项目的的目录结构和Maven是一样的，兼容Maven</p>
 <p><img src="11.png" alt> </p>
 <p>如果直接用gradle创建项目的话这些目录都是没有的，需要我们手动创建，后面我们会学到使用task来自动帮我们创建这些目录    </p>
@@ -652,7 +792,27 @@
 <p><img src="17.png" alt> </p>
 <p>任务流程是：编译java，处理资源文件，编译字节码文件，打jar包，说明jar这个任务是依赖上面三个任务的 ，上面的up-to-date表示自上次构建后没有更改，是最新的 ，所以是跳过执行的 </p>
 <h4 id="自定义任务"><a href="#自定义任务" class="headerlink" title="自定义任务"></a>自定义任务</h4><p>我们写一个自动创建java目录的task</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> createDir = &#123;</span><br><span class="line">    path -&gt;</span><br><span class="line">        File dir=<span class="keyword">new</span> File(path)</span><br><span class="line">        <span class="keyword">if</span>(!dir.exists())&#123;</span><br><span class="line">            dir.mkdirs()</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">task makeJavaDir()&#123;</span><br><span class="line">    <span class="keyword">def</span> paths=[<span class="string">'src/main/java'</span>,<span class="string">'src/main/resources'</span>,<span class="string">'src/test/java'</span>,<span class="string">'src/test/resources'</span>]</span><br><span class="line">    doFirst&#123;</span><br><span class="line">        paths.forEach(createDir)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">task makeWebDir() &#123;</span><br><span class="line">    dependsOn <span class="string">'makeJavaDir'</span><span class="comment">//webapp只是在java的目录上多了webapp，所以依赖javadir的任务</span></span><br><span class="line">    <span class="keyword">def</span> paths=[<span class="string">'src/main/webapp'</span>,<span class="string">'src/test/webapp'</span>]</span><br><span class="line">    doLast &#123;</span><br><span class="line">        paths.forEach(createDir)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">def createDir = {
+    path -&gt;
+        File dir=new File(path)
+        if(!dir.exists()){
+            dir.mkdirs()
+        }
+}
+task makeJavaDir(){
+    def paths=[&#39;src/main/java&#39;,&#39;src/main/resources&#39;,&#39;src/test/java&#39;,&#39;src/test/resources&#39;]
+    doFirst{
+        paths.forEach(createDir)
+    }
+}
+task makeWebDir() {
+    dependsOn &#39;makeJavaDir&#39;//webapp只是在java的目录上多了webapp，所以依赖javadir的任务
+    def paths=[&#39;src/main/webapp&#39;,&#39;src/test/webapp&#39;]
+    doLast {
+        paths.forEach(createDir)
+    }
+}
+</code></pre>
 <p>自己写的task在other里 </p>
 <p><img src="18.png" alt> </p>
 <p>双击执行 </p>
@@ -664,7 +824,14 @@
 <p>配置阶段决定任务的依赖关系和执行顺序 </p>
 <p>一个方法中可能有配置代码也有执行代码，先执行完文件中的所有配置代码，再会执行动作代码.  <strong>如果在执行阶段修改任务的依赖会报错</strong> </p>
 <p>例如我改成下面的代码</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">task makeWebDir() &#123;</span><br><span class="line">    <span class="keyword">def</span> paths=[<span class="string">'src/main/webapp'</span>,<span class="string">'src/test/webapp'</span>]</span><br><span class="line">    doLast &#123;</span><br><span class="line">        dependsOn <span class="string">'makeJavaDir'</span><span class="comment">//webapp只是在java的目录上多了webapp，所以依赖javadir的任务</span></span><br><span class="line">        paths.forEach(createDir)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">task makeWebDir() {
+    def paths=[&#39;src/main/webapp&#39;,&#39;src/test/webapp&#39;]
+    doLast {
+        dependsOn &#39;makeJavaDir&#39;//webapp只是在java的目录上多了webapp，所以依赖javadir的任务
+        paths.forEach(createDir)
+    }
+}
+</code></pre>
 <p><img src="23.png" alt> </p>
 <p>钩子方法</p>
 <p><img src="24.png" alt> </p>
@@ -687,18 +854,34 @@
 <h5 id="依赖阶段关系"><a href="#依赖阶段关系" class="headerlink" title="依赖阶段关系"></a>依赖阶段关系</h5><p>运行时阶段都是扩展于编译时阶段的，也就是说编译阶段依赖的jar包在运行时一定会依赖 ，运行时依赖的在编译时不一定依赖</p>
 <p>比如jdbc的驱动，在写代码时JDK包含了JDBC的接口，所以编译时不需要，运行时需要</p>
 <p>源代码依赖的测试代码一定会依赖，测试代码依赖的源代码不一定依赖 </p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    testCompile <span class="string">group:</span> <span class="string">'junit'</span>, <span class="string">name:</span> <span class="string">'junit'</span>, <span class="string">version:</span> <span class="string">'4.11'</span> <span class="comment">//测试时依赖</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">dependencies {
+    testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.11&#39; //测试时依赖
+}
+</code></pre>
 <p>比如</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="string">group:</span> <span class="string">'ch.qos.logback'</span>, <span class="string">name:</span> <span class="string">'logback-classic'</span>, <span class="string">version:</span> <span class="string">'1.2.3'</span></span><br><span class="line">    testCompile <span class="string">group:</span> <span class="string">'junit'</span>, <span class="string">name:</span> <span class="string">'junit'</span>, <span class="string">version:</span> <span class="string">'4.11'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">dependencies {
+    compile group: &#39;ch.qos.logback&#39;, name: &#39;logback-classic&#39;, version: &#39;1.2.3&#39;
+    testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.11&#39;
+}
+</code></pre>
 <p>也有个简单写法</p>
 <p><code>ch.qos.logback:logback-classic:1.2.3</code> </p>
 <p>第一个冒号之前的是groupid，第二个冒号之前的是name，最后一个冒号后面的是version</p>
 <p><img src="26.png" alt> </p>
 <p>gradle中可以配多个仓库</p>
 <p>j</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">    mavenLocal()</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">repositories {
+    mavenLocal()
+    mavenCentral()
+}
+</code></pre>
 <p>私服的写法</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">   maven&#123;</span><br><span class="line">     url <span class="string">'xxx.xxx.com'</span> <span class="comment">//或url='xxx.xxx.com'</span></span><br><span class="line">   &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">repositories {
+   maven{
+     url &#39;xxx.xxx.com&#39; //或url=&#39;xxx.xxx.com&#39;
+   }    
+}
+</code></pre>
 <h4 id="解决版本冲突"><a href="#解决版本冲突" class="headerlink" title="解决版本冲突"></a>解决版本冲突</h4><p>先来看一个版本冲突的例子 </p>
 <p><img src="27.png" alt> </p>
 <p>由于传递性依赖，对slf4j出现了2个版本的依赖 </p>
@@ -737,7 +920,10 @@
 <p><img src="37.png" alt></p>
 <p>所有项目就是根项目加上子项目</p>
 <p>对子项目的依赖有个特殊的写法</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies&#123;</span><br><span class="line">  compile project (<span class="string">":model"</span>) <span class="comment">//model是模块名</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">dependencies{
+  compile project (&quot;:model&quot;) //model是模块名
+}
+</code></pre>
 <p>idea新建module时应该new-&gt;module</p>
 <p>当我们新建module时，settings.gradle会有模块include进来</p>
 <p><img src="38.png" alt> </p>
@@ -746,11 +932,17 @@
 <p>todo旁边显示root，表示它是根项目</p>
 <p>下面的model,repository,web左边都有冒号，说明他们是子模块</p>
 <p>repository依赖model，web依赖model和repository，但是由于依赖传递，web只需要依赖repository即可 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">  compile project (&quot;:repository&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="grovvy">dependencies {
+  compile project (&quot;:repository&quot;)
+}
+</code></pre>
 <h3 id="多项目构建实战"><a href="#多项目构建实战" class="headerlink" title="多项目构建实战"></a>多项目构建实战</h3><p>我们在创建module的时候，每个module的build.gradle都有java插件，源代码版本等属性设置 ，比较麻烦</p>
 <p>我们直接改成在根项目上配置，使用allprojects这个方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">allprojects&#123;</span><br><span class="line">	apply plugin &apos;java&apos;</span><br><span class="line">	sourceCompatibility=1.8</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样就对所有项目应用这些配置了 你在build.gradle中能写什么，在allprojects中就能写什么 </p>
+<pre><code>allprojects{
+    apply plugin &#39;java&#39;
+    sourceCompatibility=1.8
+}
+</code></pre><p>这样就对所有项目应用这些配置了 你在build.gradle中能写什么，在allprojects中就能写什么 </p>
 <p>然后只在web模块中使用war这个插件</p>
 <p>然后比如说所有子项目都要用某个依赖，可以在根项目的build.gralde文件的allprojects中配置依赖，也可以在根项目的build.gralde文件的subprojects中配置依赖，由于我们根项目没代码，所以效果一样</p>
 <p><img src="40.png" alt> </p>
@@ -773,7 +965,9 @@
 <p><img src="49.png" alt> </p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="50.png" alt> </p>
 <h1 id="一个疑问"><a href="#一个疑问" class="headerlink" title="一个疑问"></a>一个疑问</h1><p>build.gradle中有设置属性的一段</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">group <span class="string">'org.rico.gradle'</span></span><br><span class="line">version <span class="string">'1.0-SNAPSHOT'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">group &#39;org.rico.gradle&#39;
+version &#39;1.0-SNAPSHOT&#39;
+</code></pre>
 <p>但是使用空格加参数这不是调用方法的代码吗？怎么变成设置属性了呢？ 设置属性应该是=号 啊 </p>
 <p>而且我按住Ctrl点进去发现调用的的确是setGroup和setVersion，也就是的确是调用的方法</p>
 <p>而且我们自己写一个属性，然后采用 空格这种方式赋值是错误的，必须加等号</p>
@@ -790,21 +984,105 @@
 <li><code>delegate</code> 表示一个用于处理方法调用和属性处理的第三方类。</li>
 </ul>
 <h4 id="This"><a href="#This" class="headerlink" title="This"></a>This</h4><p>闭包中，使用<code>this</code>关键字或者调用方法<code>getThisObject()</code>来获得其外围类：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Enclosing</span> &#123;</span></span><br><span class="line">    <span class="keyword">void</span> run() &#123;</span><br><span class="line">        <span class="keyword">def</span> whatIsThisObject = &#123; getThisObject() &#125;          </span><br><span class="line">        <span class="keyword">assert</span> whatIsThisObject() == <span class="keyword">this</span>                   </span><br><span class="line">        <span class="keyword">def</span> whatIsThis = &#123; <span class="keyword">this</span> &#125;                           </span><br><span class="line">        <span class="keyword">assert</span> whatIsThis() == <span class="keyword">this</span>                         </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EnclosedInInnerClass</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> &#123;</span></span><br><span class="line">        Closure cl = &#123; <span class="keyword">this</span> &#125;                               </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">void</span> run() &#123;</span><br><span class="line">        <span class="keyword">def</span> inner = <span class="keyword">new</span> Inner()</span><br><span class="line">        <span class="keyword">assert</span> inner.cl() == inner                          </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedClosures</span> &#123;</span></span><br><span class="line">    <span class="keyword">void</span> run() &#123;</span><br><span class="line">        <span class="keyword">def</span> nestedClosures = &#123;</span><br><span class="line">            <span class="keyword">def</span> cl = &#123; <span class="keyword">this</span> &#125;                               </span><br><span class="line">            cl()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">assert</span> nestedClosures() == <span class="keyword">this</span>                     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">class Enclosing {
+    void run() {
+        def whatIsThisObject = { getThisObject() }          
+        assert whatIsThisObject() == this                   
+        def whatIsThis = { this }                           
+        assert whatIsThis() == this                         
+    }
+}
+class EnclosedInInnerClass {
+    class Inner {
+        Closure cl = { this }                               
+    }
+    void run() {
+        def inner = new Inner()
+        assert inner.cl() == inner                          
+    }
+}
+class NestedClosures {
+    void run() {
+        def nestedClosures = {
+            def cl = { this }                               
+            cl()
+        }
+        assert nestedClosures() == this                     
+    }
+}
+</code></pre>
 <p>判断this表示的具体是哪个对象可以从this往外找，遇到的第一类就是this代表的类。</p>
 <h4 id="Owner"><a href="#Owner" class="headerlink" title="Owner"></a>Owner</h4><p>owner与this类似，只不过owner表示的是直接外围对象，可以是类也可以是闭包：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Enclosing</span> &#123;</span></span><br><span class="line">    <span class="keyword">void</span> run() &#123;</span><br><span class="line">        <span class="keyword">def</span> whatIsOwnerMethod = &#123; getOwner() &#125;               </span><br><span class="line">        <span class="keyword">assert</span> whatIsOwnerMethod() == <span class="keyword">this</span>                   </span><br><span class="line">        <span class="keyword">def</span> whatIsOwner = &#123; owner &#125;                          </span><br><span class="line">        <span class="keyword">assert</span> whatIsOwner() == <span class="keyword">this</span>                         </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EnclosedInInnerClass</span> &#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> &#123;</span></span><br><span class="line">        Closure cl = &#123; owner &#125;                               </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">void</span> run() &#123;</span><br><span class="line">        <span class="keyword">def</span> inner = <span class="keyword">new</span> Inner()</span><br><span class="line">        <span class="keyword">assert</span> inner.cl() == inner                           </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NestedClosures</span> &#123;</span></span><br><span class="line">    <span class="keyword">void</span> run() &#123;</span><br><span class="line">        <span class="keyword">def</span> nestedClosures = &#123;</span><br><span class="line">            <span class="keyword">def</span> cl = &#123; owner &#125;                               </span><br><span class="line">            cl()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">assert</span> nestedClosures() == nestedClosures            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">class Enclosing {
+    void run() {
+        def whatIsOwnerMethod = { getOwner() }               
+        assert whatIsOwnerMethod() == this                   
+        def whatIsOwner = { owner }                          
+        assert whatIsOwner() == this                         
+    }
+}
+class EnclosedInInnerClass {
+    class Inner {
+        Closure cl = { owner }                               
+    }
+    void run() {
+        def inner = new Inner()
+        assert inner.cl() == inner                           
+    }
+}
+class NestedClosures {
+    void run() {
+        def nestedClosures = {
+            def cl = { owner }                               
+            cl()
+        }
+        assert nestedClosures() == nestedClosures            
+    }
+}
+</code></pre>
 <p>上述例子与this中的例子不同的就是NestedClosures，其中owner表示的是nestedClosures而不是NestedClosures。</p>
 <h4 id="Delegate"><a href="#Delegate" class="headerlink" title="Delegate"></a>Delegate</h4><p>闭包中可以使用delegate关键字或者getDelegate()方法来得到delegate变量，它默认与owner一致，但可以由用户自定义其代表的对象。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Enclosing</span> &#123;</span></span><br><span class="line">    <span class="keyword">void</span> run() &#123;</span><br><span class="line">        <span class="keyword">def</span> cl = &#123; getDelegate() &#125;                          </span><br><span class="line">        <span class="keyword">def</span> cl2 = &#123; delegate &#125;                              </span><br><span class="line">        <span class="keyword">assert</span> cl() == cl2()                                </span><br><span class="line">        <span class="keyword">assert</span> cl() == <span class="keyword">this</span>                                 </span><br><span class="line">        <span class="keyword">def</span> enclosed = &#123;</span><br><span class="line">            &#123; -&gt; delegate &#125;.call()                          </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">assert</span> enclosed() == enclosed                       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">class Enclosing {
+    void run() {
+        def cl = { getDelegate() }                          
+        def cl2 = { delegate }                              
+        assert cl() == cl2()                                
+        assert cl() == this                                 
+        def enclosed = {
+            { -&gt; delegate }.call()                          
+        }
+        assert enclosed() == enclosed                       
+    }
+}
+</code></pre>
 <p>闭包中的delegate可被指向任意对象，我们看下面这个例子：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line">    String name</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Thing</span> &#123;</span></span><br><span class="line">    String name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> p = <span class="keyword">new</span> Person(<span class="string">name:</span> <span class="string">'Norman'</span>)</span><br><span class="line"><span class="keyword">def</span> t = <span class="keyword">new</span> Thing(<span class="string">name:</span> <span class="string">'Teapot'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">class Person {
+    String name
+}
+class Thing {
+    String name
+}
+
+def p = new Person(name: &#39;Norman&#39;)
+def t = new Thing(name: &#39;Teapot&#39;)
+</code></pre>
 <p>定义了两个拥有相同属性name的类Person和Thing。接着定义一个闭包，其作用是通过delegate来获得name属性。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">def upperCasedName = &#123; delegate.name.toUpperCase() &#125;</span><br></pre></td></tr></table></figure>
-<p>接着改变闭包的delegate的指向，我们可以看到闭包调用结果也不同：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upperCasedName.delegate = p</span><br><span class="line"><span class="keyword">assert</span> upperCasedName() == <span class="string">'NORMAN'</span></span><br><span class="line">upperCasedName.delegate = t</span><br><span class="line"><span class="keyword">assert</span> upperCasedName() == <span class="string">'TEAPOT'</span></span><br></pre></td></tr></table></figure>
+<pre><code>def upperCasedName = { delegate.name.toUpperCase() }
+</code></pre><p>接着改变闭包的delegate的指向，我们可以看到闭包调用结果也不同：</p>
+<pre><code class="groovy">upperCasedName.delegate = p
+assert upperCasedName() == &#39;NORMAN&#39;
+upperCasedName.delegate = t
+assert upperCasedName() == &#39;TEAPOT&#39;
+</code></pre>
 <h4 id="Delegate策略"><a href="#Delegate策略" class="headerlink" title="Delegate策略"></a>Delegate策略</h4><p>在闭包中，当一个属性没有指明其所有者的时候，delegate策略就会发挥作用了。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line">    String name</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">def</span> p = <span class="keyword">new</span> Person(<span class="string">name:</span><span class="string">'Igor'</span>)</span><br><span class="line"><span class="keyword">def</span> cl = &#123; name.toUpperCase() &#125;   <span class="comment">//❶              </span></span><br><span class="line">cl.delegate = p                   <span class="comment">//❷              </span></span><br><span class="line"><span class="keyword">assert</span> cl() == <span class="string">'IGOR'</span>             <span class="comment">//❸</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">class Person {
+    String name
+}
+def p = new Person(name:&#39;Igor&#39;)
+def cl = { name.toUpperCase() }   //❶              
+cl.delegate = p                   //❷              
+assert cl() == &#39;IGOR&#39;             //❸
+</code></pre>
 <p>可以看到❶处的name没有指明其所有者。即这个name属性压根不知道是谁的。在❷处指明cl的delegate为p，这时候在❸处调用成功。</p>
 <p>以上代码之所以可以正常运行是因为name属性会被delegate处理。这是一个十分强大的方式用于解决闭包内的属性的访问或方法的调用。在❶处没有显示的使用delegate.name是因为delegate策略已经在程序运行的时候帮助我们这样做了。下面我们看看闭包拥有的不同的delegate策略：</p>
 <ul>
@@ -815,18 +1093,68 @@
 <li><code>Closure.TO_SELF</code> 在闭包自身中寻找。</li>
 </ul>
 <p>下面我们看一下默认的Closure.OWNER_FIRST的用法：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line">    String name</span><br><span class="line">    <span class="keyword">def</span> pretty = &#123; <span class="string">"My name is $name"</span> &#125;             </span><br><span class="line">    String toString() &#123;</span><br><span class="line">        pretty()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Thing</span> &#123;</span></span><br><span class="line">    String name                                     </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> p = <span class="keyword">new</span> Person(<span class="string">name:</span> <span class="string">'Sarah'</span>)</span><br><span class="line"><span class="keyword">def</span> t = <span class="keyword">new</span> Thing(<span class="string">name:</span> <span class="string">'Teapot'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> p.toString() == <span class="string">'My name is Sarah'</span>           </span><br><span class="line">p.pretty.delegate = t                       <span class="comment">//❶                          </span></span><br><span class="line"><span class="keyword">assert</span> p.toString() == <span class="string">'My name is Sarah'</span>   <span class="comment">//❷</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">class Person {
+    String name
+    def pretty = { &quot;My name is $name&quot; }             
+    String toString() {
+        pretty()
+    }
+}
+class Thing {
+    String name                                     
+}
+
+def p = new Person(name: &#39;Sarah&#39;)
+def t = new Thing(name: &#39;Teapot&#39;)
+
+assert p.toString() == &#39;My name is Sarah&#39;           
+p.pretty.delegate = t                       //❶                          
+assert p.toString() == &#39;My name is Sarah&#39;   //❷
+</code></pre>
 <p>尽管在❶处将delegate指向了t，但因为是owner first的缘故，还是会优先使用Person的name属性。</p>
 <p>略做修改：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p.pretty.resolveStrategy = Closure.DELEGATE_FIRST</span><br><span class="line"><span class="keyword">assert</span> p.toString() == <span class="string">'My name is Teapot'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">p.pretty.resolveStrategy = Closure.DELEGATE_FIRST
+assert p.toString() == &#39;My name is Teapot&#39;
+</code></pre>
 <p>这时候就会访问t的name属性了。</p>
 <p>下面再来看一个例子：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line">    String name</span><br><span class="line">    <span class="keyword">int</span> age</span><br><span class="line">    <span class="keyword">def</span> fetchAge = &#123; age &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Thing</span> &#123;</span></span><br><span class="line">    String name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> p = <span class="keyword">new</span> Person(<span class="string">name:</span><span class="string">'Jessica'</span>, <span class="string">age:</span><span class="number">42</span>)</span><br><span class="line"><span class="keyword">def</span> t = <span class="keyword">new</span> Thing(<span class="string">name:</span><span class="string">'Printer'</span>)</span><br><span class="line"><span class="keyword">def</span> cl = p.fetchAge</span><br><span class="line">cl.delegate = p</span><br><span class="line"><span class="keyword">assert</span> cl() == <span class="number">42</span></span><br><span class="line">cl.delegate = t</span><br><span class="line"><span class="keyword">assert</span> cl() == <span class="number">42</span></span><br><span class="line">cl.resolveStrategy = Closure.DELEGATE_ONLY</span><br><span class="line">cl.delegate = p</span><br><span class="line"><span class="keyword">assert</span> cl() == <span class="number">42</span></span><br><span class="line">cl.delegate = t</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    cl()</span><br><span class="line">    <span class="keyword">assert</span> <span class="literal">false</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (MissingPropertyException ex) &#123;</span><br><span class="line">    <span class="comment">// "age" is not defined on the delegate</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">class Person {
+    String name
+    int age
+    def fetchAge = { age }
+}
+class Thing {
+    String name
+}
+
+def p = new Person(name:&#39;Jessica&#39;, age:42)
+def t = new Thing(name:&#39;Printer&#39;)
+def cl = p.fetchAge
+cl.delegate = p
+assert cl() == 42
+cl.delegate = t
+assert cl() == 42
+cl.resolveStrategy = Closure.DELEGATE_ONLY
+cl.delegate = p
+assert cl() == 42
+cl.delegate = t
+try {
+    cl()
+    assert false
+} catch (MissingPropertyException ex) {
+    // &quot;age&quot; is not defined on the delegate
+}
+</code></pre>
 <p>当使用了Closure.DELEGATE_ONLY后，若delegate中找不到age属性，则会直接报错。</p>
 <h2 id="GStrings中的闭包"><a href="#GStrings中的闭包" class="headerlink" title="GStrings中的闭包"></a>GStrings中的闭包</h2><p>先来看一下下面这段代码：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> x = <span class="number">1</span></span><br><span class="line"><span class="keyword">def</span> gs = <span class="string">"x = $&#123;x&#125;"</span></span><br><span class="line"><span class="keyword">assert</span> gs == <span class="string">'x = 1'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">def x = 1
+def gs = &quot;x = ${x}&quot;
+assert gs == &#39;x = 1&#39;
+</code></pre>
 <p>OK,运行没有问题，那如果加两行代码呢？</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">2</span></span><br><span class="line"><span class="keyword">assert</span> gs == <span class="string">'x = 2'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">x = 2
+assert gs == &#39;x = 2&#39;
+</code></pre>
 <p>这里就会报错了，错误原因有两：</p>
 <ul>
 <li>GString只是调用了字符串的toString方法来获得值。</li>
@@ -834,8 +1162,15 @@
 </ul>
 <p>所以当给x赋值2的时候，gs已经被创建，表达式也已经被计算，结果是x = 1,所以gs得值就是固定的x = 1。</p>
 <p>如果要在GString使用闭包也是可以的，如下：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> x = <span class="number">1</span></span><br><span class="line"><span class="keyword">def</span> gs = <span class="string">"x = $&#123;-&gt; x&#125;"</span></span><br><span class="line"><span class="keyword">assert</span> gs == <span class="string">'x = 1'</span></span><br><span class="line"></span><br><span class="line">x = <span class="number">2</span></span><br><span class="line"><span class="keyword">assert</span> gs == <span class="string">'x = 2'</span></span><br></pre></td></tr></table></figure>
+<pre><code class="groovy">def x = 1
+def gs = &quot;x = ${-&gt; x}&quot;
+assert gs == &#39;x = 1&#39;
 
+x = 2
+assert gs == &#39;x = 2&#39;
+</code></pre>
+
+        
     
 
     
@@ -843,7 +1178,8 @@
 
 
                 
-		<!-- Post Comments -->
+
+                <!-- Post Comments -->
                 
                     
                 
@@ -905,7 +1241,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.jpg" alt="Rico's avatar">
+        <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -970,16 +1306,6 @@
 
     <!-- Pages  -->
     
-        <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
@@ -1002,7 +1328,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material chenhongjie 
+<!-- Theme Material -->
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
@@ -1010,7 +1336,6 @@ It will not impact the appearance and can give developers a lot of support :)
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
-  -->
 
 
 <!-- Help & Support -->
@@ -1084,11 +1409,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -1102,12 +1439,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -1123,21 +1467,24 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>
     
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -1182,15 +1529,40 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -1208,10 +1580,21 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
     (function(){
         var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
@@ -1220,7 +1603,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

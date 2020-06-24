@@ -5,8 +5,42 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!-- Title -->
     
@@ -17,115 +51,18 @@
         Rico&#39;s Blog
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico,redis">
-
-    <!-- Site Verification -->
-    
-    
-
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,redis">
+    <meta name="theme-color" content="#0097A7">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://hogwartsrico.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Redis系列之原理 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="redis"> 
-
-    
-        <meta property="article:published_time" content="6月 23, 2020">
-        <meta property="article:modified_time" content="6月 23, 2020">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Redis系列之原理 | Rico&#39;s Blog">
-    <meta name="twitter:description" content>
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="http://hogwartsrico.github.io">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/23/Principle-Of-Redis/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Rico&#39;s Blog",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Rico",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "Javaer"
-    },
-    "headline": "Redis系列之原理",
-    "url": "http://hogwartsrico.github.io/2020/06/23/Principle-Of-Redis/index.html",
-    "datePublished": "6月 23, 2020",
-    "dateModified": "6月 23, 2020",
-    "description": "",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://hogwartsrico.github.io"
-    }
-}
-</script>
-
-
-    
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -136,47 +73,38 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
 
-    <!-- Import CSS & jQuery -->
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -274,28 +202,73 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2020/06/23/Principle-Of-Redis/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2020/06/23/Principle-Of-Redis/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Redis系列之原理 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="redis"> 
+
+    
+        <meta property="article:published_time" content="Tue Jun 23 2020 19:04:24 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jun 23 2020 19:05:29 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/23/Principle-Of-Redis/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
 
     <!-- Analytics -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    
+    
+    
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -313,7 +286,7 @@
                     
                         <!-- Hamburger Button -->
                         <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
                         </button>
                     
 
@@ -336,23 +309,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原理-1：鞭辟入里-——-线程-IO-模型"><span class="post-toc-number">1.</span> <span class="post-toc-text">原理 1：鞭辟入里 —— 线程 IO 模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redis到底有多快？"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">Redis到底有多快？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redis为什么这么快？"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">Redis为什么这么快？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#那么为什么Redis是单线程的"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">那么为什么Redis是单线程的?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Redis-单线程为什么还能这么快？"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">Redis 单线程为什么还能这么快？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis的线程模式？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">redis的线程模式？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件事件处理器"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">文件事件处理器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文件事件"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">文件事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端与redis通信的一次流程"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">客户端与redis通信的一次流程</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非阻塞-IO"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">非阻塞 IO</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#事件轮询-多路复用"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">事件轮询 (多路复用)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#指令队列"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">指令队列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#响应队列"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">响应队列</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定时任务"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">定时任务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注意点"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">注意点</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原理-2：交头接耳-——-通信协议"><span class="post-toc-number">2.</span> <span class="post-toc-text">原理 2：交头接耳 —— 通信协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RESP-Redis-Serialization-Protocol"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">RESP(Redis Serialization Protocol)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#客户端-gt-服务器"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">客户端 -&gt; 服务器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器-gt-客户端"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">服务器 -&gt; 客户端</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">小结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">扩展阅读</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原理-3：未雨绸缪-——-持久化"><span class="post-toc-number">3.</span> <span class="post-toc-text">原理 3：未雨绸缪 —— 持久化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快照原理"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">快照原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#fork-多进程"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">fork(多进程)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AOF-原理"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">AOF 原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AOF-重写"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">AOF 重写</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#fsync"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">fsync</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运维"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">运维</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis-4-0-混合持久化"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">Redis 4.0 混合持久化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原理-4：雷厉风行-——-管道"><span class="post-toc-number">4.</span> <span class="post-toc-text">原理 4：雷厉风行 —— 管道</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis-的消息交互"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Redis 的消息交互</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#管道压力测试"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">管道压力测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#深入理解管道本质"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">深入理解管道本质</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结-1"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">小结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原理-5：同舟共济-——-事务"><span class="post-toc-number">5.</span> <span class="post-toc-text">原理 5：同舟共济 —— 事务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis-事务的基本使用"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Redis 事务的基本使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原子性"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">原子性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#discard-丢弃"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">discard(丢弃)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#优化"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Watch"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">Watch</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原理-6：小道消息-——-PubSub"><span class="post-toc-number">6.</span> <span class="post-toc-text">原理 6：小道消息 —— PubSub</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#消息多播"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">消息多播</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PubSub"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">PubSub</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模式订阅"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">模式订阅</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#消息结构"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">消息结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PubSub-缺点"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">PubSub 缺点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#补充"><span class="post-toc-number">6.6.</span> <span class="post-toc-text">补充</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原理-7：开源节流-——-小对象压缩"><span class="post-toc-number">7.</span> <span class="post-toc-text">原理 7：开源节流 —— 小对象压缩</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#32bit-vs-64bit"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">32bit vs 64bit</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小对象压缩存储-ziplist"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">小对象压缩存储 (ziplist)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内存回收机制"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">内存回收机制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内存分配算法"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">内存分配算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#扩展阅读-1"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">扩展阅读</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原理-8：有备无患-——-主从同步"><span class="post-toc-number">8.</span> <span class="post-toc-text">原理 8：有备无患 —— 主从同步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CAP-原理"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">CAP 原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最终一致"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">最终一致</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主从同步"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">主从同步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#增量同步"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">增量同步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快照同步"><span class="post-toc-number">8.5.</span> <span class="post-toc-text">快照同步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#增加从节点"><span class="post-toc-number">8.6.</span> <span class="post-toc-text">增加从节点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#无盘复制"><span class="post-toc-number">8.7.</span> <span class="post-toc-text">无盘复制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Wait-指令"><span class="post-toc-number">8.8.</span> <span class="post-toc-text">Wait 指令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结-2"><span class="post-toc-number">8.9.</span> <span class="post-toc-text">小结</span></a></li></ol></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
     
-
 
 
 
@@ -396,7 +365,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -430,7 +399,8 @@
     
 
     <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
     <span class="visuallyhidden">share</span>
 </button>
@@ -441,7 +411,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Redis系列之原理&url=http://hogwartsrico.github.io/2020/06/23/Principle-Of-Redis/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Redis系列之原理&url=http://hogwartsrico.github.io/2020/06/23/Principle-Of-Redis/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -485,6 +455,7 @@
     
 </ul>
 
+    
 </div>
 
                 
@@ -535,8 +506,13 @@
 <p><img src="2.png" alt> </p>
 <p>事件轮询 API 就是用来解决这个问题的，最简单的事件轮询 API 是<code>select</code>函数，<strong>它是操作系统提供给用户程序的 API</strong>。<strong>输入是读写描述符列表<code>read_fds &amp; write_fds</code>，输出是与之对应的可读可写事件。同时还提供了一个<code>timeout</code>参数，如果没有任何事件到来，那么就最多等待<code>timeout</code>时间，线程处于阻塞状态。一旦期间有任何事件到来，就可以立即返回。时间过了之后还是没有任何事件到来，也会立即返回。拿到事件后，线程就可以继续挨个处理相应的事件。处理完了继续过来轮询。于是线程就进入了一个死循环，我们把这个死循环称为事件循环，一个循环为一个周期。</strong></p>
 <p>每个客户端套接字<code>socket</code>都有对应的读写文件描述符。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">read_events, write_events = select(read_fds, write_fds, timeout)</span><br><span class="line">for event in read_events:</span><br><span class="line">    handle_read(event.fd)</span><br><span class="line">for event in write_events:</span><br><span class="line">    handle_write(event.fd)</span><br><span class="line">handle_others()  # 处理其它事情，如定时任务等</span><br></pre></td></tr></table></figure>
-<p>因为我们通过<code>select</code>系统调用同时处理多个通道描述符的读写事件，因此我们将这类系统调用称为多路复用 API。<strong>现代操作系统的多路复用 API 已经不再使用<code>select</code>系统调用，而改用<code>epoll(linux)</code>和<code>kqueue(freebsd &amp; macosx)</code></strong>，因为 select 系统调用的性能在描述符特别多时性能会非常差。它们使用起来可能在形式上略有差异，但是本质上都是差不多的，都可以使用上面的伪代码逻辑进行理解。</p>
+<pre><code>read_events, write_events = select(read_fds, write_fds, timeout)
+for event in read_events:
+    handle_read(event.fd)
+for event in write_events:
+    handle_write(event.fd)
+handle_others()  # 处理其它事情，如定时任务等
+</code></pre><p>因为我们通过<code>select</code>系统调用同时处理多个通道描述符的读写事件，因此我们将这类系统调用称为多路复用 API。<strong>现代操作系统的多路复用 API 已经不再使用<code>select</code>系统调用，而改用<code>epoll(linux)</code>和<code>kqueue(freebsd &amp; macosx)</code></strong>，因为 select 系统调用的性能在描述符特别多时性能会非常差。它们使用起来可能在形式上略有差异，但是本质上都是差不多的，都可以使用上面的伪代码逻辑进行理解。</p>
 <p>服务器套接字<code>serversocket</code>对象的读操作是指调用<code>accept</code>接受客户端新连接。何时有新连接到来，也是通过<code>select</code>系统调用的读事件来得到通知的。</p>
 <p><strong>事件轮询 API 就是 Java 语言里面的 NIO 技术</strong></p>
 <p>Java 的 NIO 并不是 Java 特有的技术，其它计算机语言都有这个技术，只不过换了一个词汇，不叫 NIO 而已。</p>
@@ -558,52 +534,100 @@
 <li>数组 以 <code>*</code> 号开头，后跟数组的长度。</li>
 </ol>
 <p><strong>单行字符串</strong> hello world</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+hello world\r\n</span><br></pre></td></tr></table></figure>
-<p><strong>多行字符串</strong> hello world</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$11\r\nhello world\r\n</span><br></pre></td></tr></table></figure>
-<p>多行字符串当然也可以表示单行字符串。</p>
+<pre><code>+hello world\r\n
+</code></pre><p><strong>多行字符串</strong> hello world</p>
+<pre><code>$11\r\nhello world\r\n
+</code></pre><p>多行字符串当然也可以表示单行字符串。</p>
 <p><strong>整数</strong> 1024</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1024\r\n</span><br></pre></td></tr></table></figure>
-<p><strong>错误</strong> 参数类型错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-WRONGTYPE Operation against a key holding the wrong kind of value\r\n</span><br></pre></td></tr></table></figure>
-<p><strong>数组</strong> [1,2,3]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*3\r\n:1\r\n:2\r\n:3\r\n</span><br></pre></td></tr></table></figure>
-<p><strong>NULL</strong> 用多行字符串表示，不过长度要写成-1。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$-1\r\n</span><br></pre></td></tr></table></figure>
-<p><strong>空串</strong> 用多行字符串表示，长度填 0。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$0\r\n\r\n</span><br></pre></td></tr></table></figure>
-<p>注意这里有两个<code>\r\n</code>。为什么是两个?<strong>因为两个<code>\r\n</code>之间,隔的是空串。</strong></p>
+<pre><code>:1024\r\n
+</code></pre><p><strong>错误</strong> 参数类型错误</p>
+<pre><code>-WRONGTYPE Operation against a key holding the wrong kind of value\r\n
+</code></pre><p><strong>数组</strong> [1,2,3]</p>
+<pre><code>*3\r\n:1\r\n:2\r\n:3\r\n
+</code></pre><p><strong>NULL</strong> 用多行字符串表示，不过长度要写成-1。</p>
+<pre><code>$-1\r\n
+</code></pre><p><strong>空串</strong> 用多行字符串表示，长度填 0。</p>
+<pre><code>$0\r\n\r\n
+</code></pre><p>注意这里有两个<code>\r\n</code>。为什么是两个?<strong>因为两个<code>\r\n</code>之间,隔的是空串。</strong></p>
 <h2 id="客户端-gt-服务器"><a href="#客户端-gt-服务器" class="headerlink" title="客户端 -&gt; 服务器"></a>客户端 -&gt; 服务器</h2><p><strong>客户端向服务器发送的指令只有一种格式，多行字符串数组</strong>。比如一个简单的 set 指令<code>set author codehole</code>会被序列化成下面的字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*3\r\n$3\r\nset\r\n$6\r\nauthor\r\n$8\r\ncodehole\r\n</span><br></pre></td></tr></table></figure>
-<p>在控制台输出这个字符串如下，可以看出这是很好阅读的一种格式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*3 //表示有三个字符串</span><br><span class="line">$3 //set 长度为3</span><br><span class="line">set</span><br><span class="line">$6 //author长度为6</span><br><span class="line">author</span><br><span class="line">$8 //codehole长度为8</span><br><span class="line">codehole</span><br></pre></td></tr></table></figure>
-<h2 id="服务器-gt-客户端"><a href="#服务器-gt-客户端" class="headerlink" title="服务器 -&gt; 客户端"></a>服务器 -&gt; 客户端</h2><p>服务器向客户端回复的响应要支持多种数据结构，所以消息响应在结构上要复杂不少。不过再复杂的响应消息也是以上 5 中基本类型的组合。</p>
+<pre><code>*3\r\n$3\r\nset\r\n$6\r\nauthor\r\n$8\r\ncodehole\r\n
+</code></pre><p>在控制台输出这个字符串如下，可以看出这是很好阅读的一种格式。</p>
+<pre><code>*3 //表示有三个字符串
+$3 //set 长度为3
+set
+$6 //author长度为6
+author
+$8 //codehole长度为8
+codehole
+</code></pre><h2 id="服务器-gt-客户端"><a href="#服务器-gt-客户端" class="headerlink" title="服务器 -&gt; 客户端"></a>服务器 -&gt; 客户端</h2><p>服务器向客户端回复的响应要支持多种数据结构，所以消息响应在结构上要复杂不少。不过再复杂的响应消息也是以上 5 中基本类型的组合。</p>
 <p><strong>单行字符串响应</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set author codehole</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
-<p>这里的 OK 就是单行响应，没有使用引号括起来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+OK</span><br></pre></td></tr></table></figure>
-<p><strong>错误响应</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; incr author</span><br><span class="line">(error) ERR value is not an integer or out of range</span><br></pre></td></tr></table></figure>
-<p>试图对一个字符串进行自增，服务器抛出一个通用的错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-ERR value is not an integer or out of range</span><br></pre></td></tr></table></figure>
-<p><strong>整数响应</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; incr books</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
-<p>这里的<code>1</code>就是整数响应</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:1</span><br></pre></td></tr></table></figure>
-<p><strong>多行字符串响应</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; get author</span><br><span class="line">&quot;codehole&quot;</span><br></pre></td></tr></table></figure>
-<p>这里使用双引号括起来的字符串就是多行字符串响应</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$8</span><br><span class="line">codehole</span><br></pre></td></tr></table></figure>
-<p><strong>数组响应</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hset info name laoqian</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hset info age 30</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hset info sex male</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall info</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;laoqian&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;30&quot;</span><br><span class="line">5) &quot;sex&quot;</span><br><span class="line">6) &quot;male&quot;</span><br></pre></td></tr></table></figure>
-<p>这里的 hgetall 命令返回的就是一个数组，第 0|2|4 位置的字符串是 hash 表的 key，第 1|3|5 位置的字符串是 value，客户端负责将数组组装成字典再返回。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">*6</span><br><span class="line">$4</span><br><span class="line">name</span><br><span class="line">$6</span><br><span class="line">laoqian</span><br><span class="line">$3</span><br><span class="line">age</span><br><span class="line">$2</span><br><span class="line">30</span><br><span class="line">$3</span><br><span class="line">sex</span><br><span class="line">$4</span><br><span class="line">male</span><br></pre></td></tr></table></figure>
-<p><strong>嵌套</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; scan 0</span><br><span class="line">1) &quot;0&quot;</span><br><span class="line">2) 1) &quot;info&quot;</span><br><span class="line">   2) &quot;books&quot;</span><br><span class="line">   3) &quot;author&quot;</span><br></pre></td></tr></table></figure>
-<p>scan 命令用来扫描服务器包含的所有 key 列表，它是以游标的形式获取，一次只获取一部分。</p>
+<pre><code>127.0.0.1:6379&gt; set author codehole
+OK
+</code></pre><p>这里的 OK 就是单行响应，没有使用引号括起来。</p>
+<pre><code>+OK
+</code></pre><p><strong>错误响应</strong></p>
+<pre><code>127.0.0.1:6379&gt; incr author
+(error) ERR value is not an integer or out of range
+</code></pre><p>试图对一个字符串进行自增，服务器抛出一个通用的错误。</p>
+<pre><code>-ERR value is not an integer or out of range
+</code></pre><p><strong>整数响应</strong></p>
+<pre><code>127.0.0.1:6379&gt; incr books
+(integer) 1
+</code></pre><p>这里的<code>1</code>就是整数响应</p>
+<pre><code>:1
+</code></pre><p><strong>多行字符串响应</strong></p>
+<pre><code>127.0.0.1:6379&gt; get author
+&quot;codehole&quot;
+</code></pre><p>这里使用双引号括起来的字符串就是多行字符串响应</p>
+<pre><code>$8
+codehole
+</code></pre><p><strong>数组响应</strong></p>
+<pre><code>127.0.0.1:6379&gt; hset info name laoqian
+(integer) 1
+127.0.0.1:6379&gt; hset info age 30
+(integer) 1
+127.0.0.1:6379&gt; hset info sex male
+(integer) 1
+127.0.0.1:6379&gt; hgetall info
+1) &quot;name&quot;
+2) &quot;laoqian&quot;
+3) &quot;age&quot;
+4) &quot;30&quot;
+5) &quot;sex&quot;
+6) &quot;male&quot;
+</code></pre><p>这里的 hgetall 命令返回的就是一个数组，第 0|2|4 位置的字符串是 hash 表的 key，第 1|3|5 位置的字符串是 value，客户端负责将数组组装成字典再返回。</p>
+<pre><code>*6
+$4
+name
+$6
+laoqian
+$3
+age
+$2
+30
+$3
+sex
+$4
+male
+</code></pre><p><strong>嵌套</strong></p>
+<pre><code>127.0.0.1:6379&gt; scan 0
+1) &quot;0&quot;
+2) 1) &quot;info&quot;
+   2) &quot;books&quot;
+   3) &quot;author&quot;
+</code></pre><p>scan 命令用来扫描服务器包含的所有 key 列表，它是以游标的形式获取，一次只获取一部分。</p>
 <p>scan 命令返回的是一个嵌套数组。数组的第一个值表示游标的值，如果这个值为零，说明已经遍历完毕。如果不为零，使用这个值作为 scan 命令的参数进行下一次遍历。数组的第二个值又是一个数组，这个数组就是 key 列表。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*2</span><br><span class="line">$1</span><br><span class="line">0</span><br><span class="line">*3</span><br><span class="line">$4</span><br><span class="line">info</span><br><span class="line">$5</span><br><span class="line">books</span><br><span class="line">$6</span><br><span class="line">author</span><br></pre></td></tr></table></figure>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Redis 协议里有大量冗余的回车换行符，但是这不影响它成为互联网技术领域非常受欢迎的一个文本协议。有很多开源项目使用 RESP 作为它的通讯协议。在技术领域性能并不总是一切，还有简单性、易理解性和易实现性，这些都需要进行适当权衡。</p>
+<pre><code>*2
+$1
+0
+*3
+$4
+info
+$5
+books
+$6
+author
+</code></pre><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Redis 协议里有大量冗余的回车换行符，但是这不影响它成为互联网技术领域非常受欢迎的一个文本协议。有很多开源项目使用 RESP 作为它的通讯协议。在技术领域性能并不总是一切，还有简单性、易理解性和易实现性，这些都需要进行适当权衡。</p>
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p>如果你想自己实现一套Redis协议的解码器，请阅读老钱的另一篇文章<a href="https://juejin.im/post/5aaf1e0af265da2381556c0e" target="_blank" rel="noopener">《基于Netty实现Redis协议的编码解码器》</a> </p>
 <p> <a href="https://redis.io/topics/protocol" target="_blank" rel="noopener">https://redis.io/topics/protocol</a>  </p>
 <h1 id="原理-3：未雨绸缪-——-持久化"><a href="#原理-3：未雨绸缪-——-持久化" class="headerlink" title="原理 3：未雨绸缪 —— 持久化"></a>原理 3：未雨绸缪 —— 持久化</h1><p>Redis 的数据全部在内存里，如果突然宕机，数据就会全部丢失，因此必须有一种机制来保证 Redis 的数据不会因为故障而丢失，这种机制就是 Redis 的持久化机制。</p>
@@ -616,8 +640,14 @@
 <p>Redis 使用操作系统的多进程 COW(Copy On Write) 机制来实现快照持久化，这个机制很有意思，也很少人知道。多进程 COW 也是鉴定程序员知识广度的一个重要指标。</p>
 <h2 id="fork-多进程"><a href="#fork-多进程" class="headerlink" title="fork(多进程)"></a>fork(多进程)</h2><p>Redis 在持久化时会调用 glibc 的函数<code>fork</code>产生一个子进程，快照持久化完全交给子进程来处理，父进程继续处理客户端请求。子进程刚刚产生时，它和父进程共享内存里面的代码段和数据段。这时你可以将父子进程想像成一个连体婴儿，共享身体。这是 Linux 操作系统的机制，为了节约内存资源，所以尽可能让它们共享起来。在进程分离的一瞬间，内存的增长几乎没有明显变化。</p>
 <p> 用 Python 语言描述进程分离的逻辑如下。<code>fork</code>函数会在父子进程同时返回，在父进程里返回子进程的 pid，在子进程里返回零。如果操作系统内存资源不足，pid 就会是负数，表示<code>fork</code>失败。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pid = os.fork()</span><br><span class="line">if pid &gt; 0:</span><br><span class="line">    handle_client_requests()  # 父进程继续处理客户端请求</span><br><span class="line">if pid == 0:</span><br><span class="line">    handle_snapshot_write()  # 子进程处理快照写磁盘</span><br><span class="line">if pid &lt; 0:</span><br><span class="line">    # fork error</span><br></pre></td></tr></table></figure>
-<p>子进程做数据持久化，它不会修改现有的内存数据结构，它只是对数据结构进行遍历读取，然后序列化写到磁盘中。但是父进程不一样，它必须持续服务客户端请求，然后对内存数据结构进行不间断的修改。</p>
+<pre><code>pid = os.fork()
+if pid &gt; 0:
+    handle_client_requests()  # 父进程继续处理客户端请求
+if pid == 0:
+    handle_snapshot_write()  # 子进程处理快照写磁盘
+if pid &lt; 0:
+    # fork error
+</code></pre><p>子进程做数据持久化，它不会修改现有的内存数据结构，它只是对数据结构进行遍历读取，然后序列化写到磁盘中。但是父进程不一样，它必须持续服务客户端请求，然后对内存数据结构进行不间断的修改。</p>
 <p>这个时候就会使用操作系统的 COW 机制来进行数据段页面的分离。数据段是由很多操作系统的页面组合而成，<strong>当父进程对其中一个页面的数据进行修改时，会将被共享的页面复制一份分离出来，然后对这个复制的页面进行修改。这时子进程相应的页面是没有变化的，还是进程产生时那一瞬间的数据</strong>。  </p>
 <p><img src="7.png" alt></p>
 <p>随着父进程修改操作的持续进行，越来越多的共享页面被分离出来，内存就会持续增长。但是也不会超过原有数据内存的 2 倍大小。另外一个 Redis 实例里冷数据占的比例往往是比较高的，所以很少会出现所有的页面都会被分离，被分离的往往只有其中一部分页面。每个页面的大小只有 4K，一个 Redis 实例里面一般都会有成千上万的页面。</p>
@@ -661,12 +691,14 @@
 <h2 id="管道压力测试"><a href="#管道压力测试" class="headerlink" title="管道压力测试"></a>管道压力测试</h2><p>接下来我们实践一下管道的力量。</p>
 <p>Redis 自带了一个压力测试工具<code>redis-benchmark</code>，使用这个工具就可以进行管道测试。</p>
 <p>首先我们对一个普通的 set 指令进行压测，QPS 大约 5w/s。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; redis-benchmark -t set -q</span><br><span class="line">SET: 51975.05 requests per second</span><br></pre></td></tr></table></figure>
-<p>我们加入管道选项<code>-P</code>参数，它表示单个管道内并行的请求数量，看下面<code>P=2</code>，QPS 达到了 9w/s。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; redis-benchmark -t set -P 2 -q</span><br><span class="line">SET: 91240.88 requests per second</span><br></pre></td></tr></table></figure>
-<p>再看看<code>P=3</code>，QPS 达到了 10w/s。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET: 102354.15 requests per second</span><br></pre></td></tr></table></figure>
-<p>但如果再继续提升 P 参数，发现 QPS 已经上不去了。这是为什么呢？</p>
+<pre><code>&gt; redis-benchmark -t set -q
+SET: 51975.05 requests per second
+</code></pre><p>我们加入管道选项<code>-P</code>参数，它表示单个管道内并行的请求数量，看下面<code>P=2</code>，QPS 达到了 9w/s。</p>
+<pre><code>&gt; redis-benchmark -t set -P 2 -q
+SET: 91240.88 requests per second
+</code></pre><p>再看看<code>P=3</code>，QPS 达到了 10w/s。</p>
+<pre><code>SET: 102354.15 requests per second
+</code></pre><p>但如果再继续提升 P 参数，发现 QPS 已经上不去了。这是为什么呢？</p>
 <p>因为这里 CPU 处理能力已经达到了瓶颈，Redis 的单线程 CPU 已经飙到了 100%，所以无法再继续提升了。</p>
 <h2 id="深入理解管道本质"><a href="#深入理解管道本质" class="headerlink" title="深入理解管道本质"></a>深入理解管道本质</h2><p>接下来我们深入分析一个请求交互的流程，真实的情况是它很复杂，因为要经过网络协议栈，这个就得深入内核了。</p>
 <p><img src="14.png" alt> </p>
@@ -690,37 +722,164 @@
 <h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><p>这就是管道的本质了，它并不是服务器的什么特性，而是客户端通过改变了读写的顺序带来的性能的巨大提升。</p>
 <h1 id="原理-5：同舟共济-——-事务"><a href="#原理-5：同舟共济-——-事务" class="headerlink" title="原理 5：同舟共济 —— 事务"></a>原理 5：同舟共济 —— 事务</h1><p>为了确保连续多个操作的原子性，一个成熟的数据库通常都会有事务支持，Redis 也不例外。Redis 的事务使用非常简单，不同于关系数据库，我们无须理解那么多复杂的事务模型，就可以直接使用。不过也正是因为这种简单性，它的事务模型很不严格，这要求我们不能像使用关系数据库的事务一样来使用 Redis。</p>
 <h2 id="Redis-事务的基本使用"><a href="#Redis-事务的基本使用" class="headerlink" title="Redis 事务的基本使用"></a>Redis 事务的基本使用</h2><p>每个事务的操作都有 begin、commit 和 rollback，begin 指示事务的开始，commit 指示事务的提交，rollback 指示事务的回滚。它大致的形式如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">begin();</span><br><span class="line">try &#123;</span><br><span class="line">    command1();</span><br><span class="line">    command2();</span><br><span class="line">    ....</span><br><span class="line">    commit();</span><br><span class="line">&#125; catch(Exception e) &#123;</span><br><span class="line">    rollback();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Redis 在形式上看起来也差不多，分别是 multi/exec/discard。multi 指示事务的开始，exec 指示事务的执行，discard 指示事务的丢弃。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; multi</span><br><span class="line">OK</span><br><span class="line">&gt; incr books</span><br><span class="line">QUEUED</span><br><span class="line">&gt; incr books</span><br><span class="line">QUEUED</span><br><span class="line">&gt; exec</span><br><span class="line">(integer) 1</span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
-<p>上面的指令演示了一个完整的事务过程，所有的指令在 exec 之前不执行，而是缓存在服务器的一个事务队列中，服务器一旦收到 exec 指令，才开执行整个事务队列，执行完毕后一次性返回所有指令的运行结果。因为 Redis 的单线程特性，它不用担心自己在执行队列的时候被其它指令打搅，可以保证他们能得到的「原子性」执行。</p>
+<pre><code>begin();
+try {
+    command1();
+    command2();
+    ....
+    commit();
+} catch(Exception e) {
+    rollback();
+}
+</code></pre><p>Redis 在形式上看起来也差不多，分别是 multi/exec/discard。multi 指示事务的开始，exec 指示事务的执行，discard 指示事务的丢弃。</p>
+<pre><code>&gt; multi
+OK
+&gt; incr books
+QUEUED
+&gt; incr books
+QUEUED
+&gt; exec
+(integer) 1
+(integer) 2
+</code></pre><p>上面的指令演示了一个完整的事务过程，所有的指令在 exec 之前不执行，而是缓存在服务器的一个事务队列中，服务器一旦收到 exec 指令，才开执行整个事务队列，执行完毕后一次性返回所有指令的运行结果。因为 Redis 的单线程特性，它不用担心自己在执行队列的时候被其它指令打搅，可以保证他们能得到的「原子性」执行。</p>
 <p><img src="15.png" alt> </p>
 <p>上图显示了以上事务过程完整的交互效果。QUEUED 是一个简单字符串，同 OK 是一个形式，它表示指令已经被服务器缓存到队列里了。</p>
 <h2 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h2><p>事务的原子性是指要么事务全部成功，要么全部失败，那么 Redis 事务执行是原子性的么？</p>
 <p>下面我们来看一个特别的例子。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; multi</span><br><span class="line">OK</span><br><span class="line">&gt; set books iamastring</span><br><span class="line">QUEUED</span><br><span class="line">&gt; incr books</span><br><span class="line">QUEUED</span><br><span class="line">&gt; set poorman iamdesperate</span><br><span class="line">QUEUED</span><br><span class="line">&gt; exec</span><br><span class="line">1) OK</span><br><span class="line">2) (error) ERR value is not an integer or out of range</span><br><span class="line">3) OK</span><br><span class="line">&gt; get books</span><br><span class="line">&quot;iamastring&quot;</span><br><span class="line">&gt;  get poorman</span><br><span class="line">&quot;iamdesperate</span><br></pre></td></tr></table></figure>
-<p>上面的例子是事务执行到中间遇到失败了，因为我们不能对一个字符串进行数学运算，事务在遇到指令执行失败后，后面的指令还继续执行，所以 poorman 的值能继续得到设置。</p>
+<pre><code>&gt; multi
+OK
+&gt; set books iamastring
+QUEUED
+&gt; incr books
+QUEUED
+&gt; set poorman iamdesperate
+QUEUED
+&gt; exec
+1) OK
+2) (error) ERR value is not an integer or out of range
+3) OK
+&gt; get books
+&quot;iamastring&quot;
+&gt;  get poorman
+&quot;iamdesperate
+</code></pre><p>上面的例子是事务执行到中间遇到失败了，因为我们不能对一个字符串进行数学运算，事务在遇到指令执行失败后，后面的指令还继续执行，所以 poorman 的值能继续得到设置。</p>
 <p>到这里，你应该明白 <strong>Redis 的事务根本不能算「原子性」，而仅仅是满足了事务的「隔离性」，隔离性中的串行化——当前执行的事务有着不被其它事务打断的权利。</strong></p>
 <h2 id="discard-丢弃"><a href="#discard-丢弃" class="headerlink" title="discard(丢弃)"></a>discard(丢弃)</h2><p>Redis 为事务提供了一个 discard 指令，用于丢弃事务缓存队列中的所有指令，在 exec 执行之前。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; get books</span><br><span class="line">(nil)</span><br><span class="line">&gt; multi</span><br><span class="line">OK</span><br><span class="line">&gt; incr books</span><br><span class="line">QUEUED</span><br><span class="line">&gt; incr books</span><br><span class="line">QUEUED</span><br><span class="line">&gt; discard</span><br><span class="line">OK</span><br><span class="line">&gt; get books</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-<p>我们可以看到 discard 之后，队列中的所有指令都没执行，就好像 multi 和 discard 中间的所有指令从未发生过一样。</p>
+<pre><code>&gt; get books
+(nil)
+&gt; multi
+OK
+&gt; incr books
+QUEUED
+&gt; incr books
+QUEUED
+&gt; discard
+OK
+&gt; get books
+(nil)
+</code></pre><p>我们可以看到 discard 之后，队列中的所有指令都没执行，就好像 multi 和 discard 中间的所有指令从未发生过一样。</p>
 <h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>上面的 Redis 事务在发送每个指令到事务缓存队列时都要经过一次网络读写，当一个事务内部的指令较多时，需要的网络 IO 时间也会线性增长。所以通常 Redis 的客户端在执行事务时都会结合 pipeline 一起使用，这样可以将多次 IO 操作压缩为单次 IO 操作。比如我们在使用 Python 的 Redis 客户端时执行事务时是要强制使用 pipeline 的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pipe = redis.pipeline(transaction=true)</span><br><span class="line">pipe.multi()</span><br><span class="line">pipe.incr(&quot;books&quot;)</span><br><span class="line">pipe.incr(&quot;books&quot;)</span><br><span class="line">values = pipe.execute()</span><br></pre></td></tr></table></figure>
-<h2 id="Watch"><a href="#Watch" class="headerlink" title="Watch"></a>Watch</h2><p>考虑到一个业务场景，Redis 存储了我们的账户余额数据，它是一个整数。现在有两个并发的客户端要对账户余额进行修改操作，这个修改不是一个简单的 incrby 指令，而是要对余额乘以一个倍数。Redis 可没有提供 multiplyby 这样的指令。我们需要先取出余额然后在内存里乘以倍数，再将结果写回 Redis。</p>
+<pre><code>pipe = redis.pipeline(transaction=true)
+pipe.multi()
+pipe.incr(&quot;books&quot;)
+pipe.incr(&quot;books&quot;)
+values = pipe.execute()
+</code></pre><h2 id="Watch"><a href="#Watch" class="headerlink" title="Watch"></a>Watch</h2><p>考虑到一个业务场景，Redis 存储了我们的账户余额数据，它是一个整数。现在有两个并发的客户端要对账户余额进行修改操作，这个修改不是一个简单的 incrby 指令，而是要对余额乘以一个倍数。Redis 可没有提供 multiplyby 这样的指令。我们需要先取出余额然后在内存里乘以倍数，再将结果写回 Redis。</p>
 <p>这就会出现并发问题，因为有多个客户端会并发进行操作。我们可以通过 Redis 的分布式锁来避免冲突，这是一个很好的解决方案。<strong>分布式锁是一种悲观锁，那是不是可以使用乐观锁的方式来解决冲突呢？</strong></p>
 <p>Redis 提供了这种 watch 的机制，它就是一种乐观锁。有了 watch 我们又多了一种可以用来解决并发修改的方法。</p>
 <p>Redis Watch 命令用于监视一个(或多个) key ，如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断 </p>
 <p> watch 的使用方式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">while True:</span><br><span class="line">    do_watch()</span><br><span class="line">    commands()</span><br><span class="line">    multi()</span><br><span class="line">    send_commands()</span><br><span class="line">    try:</span><br><span class="line">        exec()</span><br><span class="line">        break</span><br><span class="line">    except WatchError:</span><br><span class="line">        continue</span><br></pre></td></tr></table></figure>
-<p>watch 会在事务开始之前盯住 1 个或多个关键变量，当事务执行时，也就是服务器收到了 exec 指令要顺序执行缓存的事务队列时，Redis 会检查关键变量自 watch 之后，是否被修改了 (包括当前事务所在的客户端)。如果关键变量被人动过了，exec 指令就会返回 null 回复告知客户端事务执行失败，这个时候客户端一般会选择重试。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> watch books</span><br><span class="line">OK</span><br><span class="line"><span class="meta">&gt;</span> incr books  # 被修改了</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">&gt;</span> multi</span><br><span class="line">OK</span><br><span class="line"><span class="meta">&gt;</span> incr books</span><br><span class="line">QUEUED</span><br><span class="line"><span class="meta">&gt;</span> exec  # 事务执行失败</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<pre><code>while True:
+    do_watch()
+    commands()
+    multi()
+    send_commands()
+    try:
+        exec()
+        break
+    except WatchError:
+        continue
+</code></pre><p>watch 会在事务开始之前盯住 1 个或多个关键变量，当事务执行时，也就是服务器收到了 exec 指令要顺序执行缓存的事务队列时，Redis 会检查关键变量自 watch 之后，是否被修改了 (包括当前事务所在的客户端)。如果关键变量被人动过了，exec 指令就会返回 null 回复告知客户端事务执行失败，这个时候客户端一般会选择重试。</p>
+<pre><code class="shell">&gt; watch books
+OK
+&gt; incr books  # 被修改了
+(integer) 1
+&gt; multi
+OK
+&gt; incr books
+QUEUED
+&gt; exec  # 事务执行失败
+(nil)
+</code></pre>
 <p>当服务器给 exec 指令返回一个 null 回复时，客户端知道了事务执行是失败的，通常客户端 (redis-py) 都会抛出一个 WatchError 这种错误，不过也有些语言 (jedis) 不会抛出异常，而是通过在 exec 方法里返回一个 null，这样客户端需要检查一下返回结果是否为 null 来确定事务是否执行失败。</p>
 <p><strong>注意事项</strong></p>
 <p>Redis 禁止在 multi 和 exec 之间执行 watch 指令，而必须在 multi 之前做好盯住关键变量，否则会出错。</p>
 <p>接下来我们使用 Python 语言来实现对余额的加倍操作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8</span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="function">def <span class="title">key_for</span><span class="params">(user_id)</span>:</span></span><br><span class="line"><span class="function">    return "account_</span>&#123;&#125;<span class="string">".format(user_id)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">def double_account(client, user_id):</span></span><br><span class="line"><span class="string">    key = key_for(user_id)</span></span><br><span class="line"><span class="string">    while True:</span></span><br><span class="line"><span class="string">        pipe = client.pipeline(transaction=True)</span></span><br><span class="line"><span class="string">        pipe.watch(key)</span></span><br><span class="line"><span class="string">        value = int(pipe.get(key))</span></span><br><span class="line"><span class="string">        value *= 2  # 加倍</span></span><br><span class="line"><span class="string">        pipe.multi()</span></span><br><span class="line"><span class="string">        pipe.set(key, value)</span></span><br><span class="line"><span class="string">        try:</span></span><br><span class="line"><span class="string">            pipe.execute()</span></span><br><span class="line"><span class="string">            break  # 总算成功了</span></span><br><span class="line"><span class="string">        except redis.WatchError:</span></span><br><span class="line"><span class="string">            continue  # 事务被打断了，重试</span></span><br><span class="line"><span class="string">    return int(client.get(key))  # 重新获取余额</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">client = redis.StrictRedis()</span></span><br><span class="line"><span class="string">user_id = "</span>abc<span class="string">"</span></span><br><span class="line"><span class="string">client.setnx(key_for(user_id), 5)  # setnx 做初始化</span></span><br><span class="line"><span class="string">print double_account(client, user_id)</span></span><br></pre></td></tr></table></figure>
+<pre><code class="java"># -*- coding: utf-8
+import redis
+
+def key_for(user_id):
+    return &quot;account_{}&quot;.format(user_id)
+
+def double_account(client, user_id):
+    key = key_for(user_id)
+    while True:
+        pipe = client.pipeline(transaction=True)
+        pipe.watch(key)
+        value = int(pipe.get(key))
+        value *= 2  # 加倍
+        pipe.multi()
+        pipe.set(key, value)
+        try:
+            pipe.execute()
+            break  # 总算成功了
+        except redis.WatchError:
+            continue  # 事务被打断了，重试
+    return int(client.get(key))  # 重新获取余额
+
+client = redis.StrictRedis()
+user_id = &quot;abc&quot;
+client.setnx(key_for(user_id), 5)  # setnx 做初始化
+print double_account(client, user_id)
+</code></pre>
 <p>下面我们再使用 Java 语言实现一遍。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Jedis;</span><br><span class="line"><span class="keyword">import</span> redis.clients.jedis.Transaction;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TransactionDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Jedis jedis = <span class="keyword">new</span> Jedis();</span><br><span class="line">    String userId = <span class="string">"abc"</span>;</span><br><span class="line">    String key = keyFor(userId);</span><br><span class="line">    jedis.setnx(key, String.valueOf(5));  # setnx 做初始化</span><br><span class="line">    System.out.println(doubleAccount(jedis, userId));</span><br><span class="line">    jedis.close();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">doubleAccount</span><span class="params">(Jedis jedis, String userId)</span> </span>&#123;</span><br><span class="line">    String key = keyFor(userId);</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">      jedis.watch(key);</span><br><span class="line">      <span class="keyword">int</span> value = Integer.parseInt(jedis.get(key));</span><br><span class="line">      value *= <span class="number">2</span>; <span class="comment">// 加倍</span></span><br><span class="line">      Transaction tx = jedis.multi();</span><br><span class="line">      tx.set(key, String.valueOf(value));</span><br><span class="line">      List&lt;Object&gt; res = tx.exec();</span><br><span class="line">      <span class="keyword">if</span> (res != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// 成功了</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Integer.parseInt(jedis.get(key)); <span class="comment">// 重新获取余额</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">keyFor</span><span class="params">(String userId)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> String.format(<span class="string">"account_%s"</span>, userId);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">import java.util.List;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Transaction;
+
+public class TransactionDemo {
+
+  public static void main(String[] args) {
+    Jedis jedis = new Jedis();
+    String userId = &quot;abc&quot;;
+    String key = keyFor(userId);
+    jedis.setnx(key, String.valueOf(5));  # setnx 做初始化
+    System.out.println(doubleAccount(jedis, userId));
+    jedis.close();
+  }
+
+  public static int doubleAccount(Jedis jedis, String userId) {
+    String key = keyFor(userId);
+    while (true) {
+      jedis.watch(key);
+      int value = Integer.parseInt(jedis.get(key));
+      value *= 2; // 加倍
+      Transaction tx = jedis.multi();
+      tx.set(key, String.valueOf(value));
+      List&lt;Object&gt; res = tx.exec();
+      if (res != null) {
+        break; // 成功了
+      }
+    }
+    return Integer.parseInt(jedis.get(key)); // 重新获取余额
+  }
+
+  public static String keyFor(String userId) {
+    return String.format(&quot;account_%s&quot;, userId);
+  }
+
+}
+</code></pre>
 <p>我们常常听说 Python 的代码要比 Java 简短太多，但是从这个例子中我们看到 Java 的代码比 python 的代码也多不了多少，大约只多出 50%。</p>
 <h1 id="原理-6：小道消息-——-PubSub"><a href="#原理-6：小道消息-——-PubSub" class="headerlink" title="原理 6：小道消息 —— PubSub"></a>原理 6：小道消息 —— PubSub</h1><p>前面我们讲了 Redis 消息队列的使用方法，但是没有提到 <strong>Redis 消息队列的不足之处，那就是它不支持消息的多播机制</strong>。</p>
 <p><img src="16.png" alt> </p>
@@ -728,32 +887,106 @@
 <p>如果是普通的消息队列，就得将多个不同的消费组逻辑串接起来放在一个子系统中，进行连续消费。</p>
 <p><img src="17.png" alt> </p>
 <h2 id="PubSub"><a href="#PubSub" class="headerlink" title="PubSub"></a>PubSub</h2><p>为了支持消息多播，Redis 不能再依赖于那 5 种基本数据类型了。它单独使用了一个模块来支持消息多播，这个模块的名字叫着 PubSub，也就是 PublisherSubscriber，发布者订阅者模型。我们使用 Python 语言来演示一下 PubSub 如何使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import time</span><br><span class="line">import redis</span><br><span class="line"></span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line">p = client.pubsub()</span><br><span class="line">p.subscribe(&quot;codehole&quot;)</span><br><span class="line">time.sleep(1)</span><br><span class="line">print p.get_message()</span><br><span class="line">client.publish(&quot;codehole&quot;, &quot;java comes&quot;)</span><br><span class="line">time.sleep(1)</span><br><span class="line">print p.get_message()</span><br><span class="line">client.publish(&quot;codehole&quot;, &quot;python comes&quot;)</span><br><span class="line">time.sleep(1)</span><br><span class="line">print p.get_message()</span><br><span class="line">print p.get_message()</span><br><span class="line">&#123;&apos;pattern&apos;: None, &apos;type&apos;: &apos;subscribe&apos;, &apos;channel&apos;: &apos;codehole&apos;, &apos;data&apos;: 1L&#125;</span><br><span class="line">&#123;&apos;pattern&apos;: None, &apos;type&apos;: &apos;message&apos;, &apos;channel&apos;: &apos;codehole&apos;, &apos;data&apos;: &apos;java comes&apos;&#125;</span><br><span class="line">&#123;&apos;pattern&apos;: None, &apos;type&apos;: &apos;message&apos;, &apos;channel&apos;: &apos;codehole&apos;, &apos;data&apos;: &apos;python comes&apos;&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="18.png" alt> </p>
+<pre><code># -*- coding: utf-8 -*-
+import time
+import redis
+
+client = redis.StrictRedis()
+p = client.pubsub()
+p.subscribe(&quot;codehole&quot;)
+time.sleep(1)
+print p.get_message()
+client.publish(&quot;codehole&quot;, &quot;java comes&quot;)
+time.sleep(1)
+print p.get_message()
+client.publish(&quot;codehole&quot;, &quot;python comes&quot;)
+time.sleep(1)
+print p.get_message()
+print p.get_message()
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;subscribe&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: 1L}
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;message&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: &#39;java comes&#39;}
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;message&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: &#39;python comes&#39;}
+</code></pre><p><img src="18.png" alt> </p>
 <p>客户端发起订阅命令后，Redis 会立即给予一个反馈消息通知订阅成功。因为有网络传输延迟，在 <code>subscribe``get\_message``publish``get\_message``get\_message</code></p>
 <p>Redis PubSub 的生产者和消费者是不同的连接，也就是上面这个例子实际上使用了两个 Redis 的连接。这是必须的，因为 Redis 不允许连接在 subscribe 等待消息时还要进行其它的操作。</p>
 <p><strong>在生产环境中，我们很少将生产者和消费者放在同一个线程里</strong>。如果它们真要在同一个线程里，何必通过中间件来流转，直接使用函数调用就行。所以我们应该将生产者和消费者分离，接下来我们看看分离后的代码要怎么写。</p>
 <p><strong>消费者</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line">p = client.pubsub()</span><br><span class="line">p.subscribe(<span class="string">"codehole"</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    msg = p.get_message()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> msg:</span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">print</span> msg</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import time
+import redis
+
+client = redis.StrictRedis()
+p = client.pubsub()
+p.subscribe(&quot;codehole&quot;)
+while True:
+    msg = p.get_message()
+    if not msg:
+        time.sleep(1)
+        continue
+    print msg
+</code></pre>
 <p><strong>生产者</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line">client.publish(<span class="string">"codehole"</span>, <span class="string">"python comes"</span>)</span><br><span class="line">client.publish(<span class="string">"codehole"</span>, <span class="string">"java comes"</span>)</span><br><span class="line">client.publish(<span class="string">"codehole"</span>, <span class="string">"golang comes"</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import redis
+
+client = redis.StrictRedis()
+client.publish(&quot;codehole&quot;, &quot;python comes&quot;)
+client.publish(&quot;codehole&quot;, &quot;java comes&quot;)
+client.publish(&quot;codehole&quot;, &quot;golang comes&quot;)
+</code></pre>
 <p>必须先启动消费者，然后再执行生产者，消费者我们可以启动多个，pubsub 会保证它们收到的是相同的消息序列。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;'pattern': None, 'type': 'subscribe', 'channel': 'codehole', 'data': 1L&#125;</span><br><span class="line">&#123;'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'python comes'&#125;</span><br><span class="line">&#123;'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'java comes'&#125;</span><br><span class="line">&#123;'pattern': None, 'type': 'message', 'channel': 'codehole', 'data': 'golang comes'&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="json">{&#39;pattern&#39;: None, &#39;type&#39;: &#39;subscribe&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: 1L}
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;message&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: &#39;python comes&#39;}
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;message&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: &#39;java comes&#39;}
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;message&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: &#39;golang comes&#39;}
+</code></pre>
 <p>我们从消费者的控制台窗口可以看到上面的输出，每个消费者窗口都是同样的输出。第一行是订阅成功消息，它很快就会输出，后面的三行会在生产者进程执行的时候立即输出。 上面的消费者是通过轮询 <code>get_message</code> 来收取消息的，如果收取不到就休眠 1s。这让我们想起了第 3 节的消息队列模型，我们使用 blpop 来代替休眠来提高消息处理的及时性。</p>
 <p>PubSub 的消费者如果使用休眠的方式来轮询消息，也会遭遇消息处理不及时的问题。不过我们可以使用 listen 来阻塞监听消息来进行处理，这点同 blpop 原理是一样的。下面我们改造一下消费者</p>
 <p><strong>阻塞消费者</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> -*- coding: utf-8 -*-</span><br><span class="line">import time</span><br><span class="line">import redis</span><br><span class="line"></span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line">p = client.pubsub()</span><br><span class="line">p.subscribe("codehole")</span><br><span class="line">for msg in p.listen():</span><br><span class="line">    print msg</span><br></pre></td></tr></table></figure>
+<pre><code class="shell"># -*- coding: utf-8 -*-
+import time
+import redis
+
+client = redis.StrictRedis()
+p = client.pubsub()
+p.subscribe(&quot;codehole&quot;)
+for msg in p.listen():
+    print msg
+</code></pre>
 <p>代码简短了很多，不需要再休眠了，消息处理也及时了。</p>
 <h2 id="模式订阅"><a href="#模式订阅" class="headerlink" title="模式订阅"></a>模式订阅</h2><p>上面提到的订阅模式是基于名称订阅的，消费者订阅一个主题是必须明确指定主题的名称。如果我们想要订阅多个主题，那就 subscribe 多个名称。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> subscribe codehole.image codehole.text codehole.blog  # 同时订阅三个主题，会有三条订阅成功反馈信息</span><br><span class="line">1) "subscribe"</span><br><span class="line">2) "codehole.image"</span><br><span class="line">3) (integer) 1</span><br><span class="line">1) "subscribe"</span><br><span class="line">2) "codehole.text"</span><br><span class="line">3) (integer) 2</span><br><span class="line">1) "subscribe"</span><br><span class="line">2) "codehole.blog"</span><br><span class="line">3) (integer) 3</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">&gt; subscribe codehole.image codehole.text codehole.blog  # 同时订阅三个主题，会有三条订阅成功反馈信息
+1) &quot;subscribe&quot;
+2) &quot;codehole.image&quot;
+3) (integer) 1
+1) &quot;subscribe&quot;
+2) &quot;codehole.text&quot;
+3) (integer) 2
+1) &quot;subscribe&quot;
+2) &quot;codehole.blog&quot;
+3) (integer) 3
+</code></pre>
 <p>这样生产者向这三个主题发布的消息，这个消费者都可以接收到。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> publish codehole.image https://www.google.com/dudo.png</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">&gt;</span> publish codehole.text " 你好，欢迎加入码洞 "</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">&gt;</span> publish codehole.blog '&#123;"content": "hello, everyone", "title": "welcome"&#125;'</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">&gt; publish codehole.image https://www.google.com/dudo.png
+(integer) 1
+&gt; publish codehole.text &quot; 你好，欢迎加入码洞 &quot;
+(integer) 1
+&gt; publish codehole.blog &#39;{&quot;content&quot;: &quot;hello, everyone&quot;, &quot;title&quot;: &quot;welcome&quot;}&#39;
+(integer) 1
+</code></pre>
 <p>如果现在要增加一个主题<code>codehole.group</code>，客户端必须也跟着增加一个订阅指令才可以收到新开主题的消息推送。</p>
 <p>为了简化订阅的繁琐，redis 提供了模式订阅功能<code>Pattern Subscribe</code>，这样就可以一次订阅多个主题，即使生产者新增加了同模式的主题，消费者也可以立即收到消息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> psubscribe codehole.*  # 用模式匹配一次订阅多个主题，主题以 codehole. 字符开头的消息都可以收到</span><br><span class="line">1) "psubscribe"</span><br><span class="line">2) "codehole.*"</span><br><span class="line">3) (integer) 1</span><br></pre></td></tr></table></figure>
+<pre><code class="shell">&gt; psubscribe codehole.*  # 用模式匹配一次订阅多个主题，主题以 codehole. 字符开头的消息都可以收到
+1) &quot;psubscribe&quot;
+2) &quot;codehole.*&quot;
+3) (integer) 1
+</code></pre>
 <h2 id="消息结构"><a href="#消息结构" class="headerlink" title="消息结构"></a>消息结构</h2><p>前面的消费者消息输出时都是下面的这样一个字典形式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&apos;pattern&apos;: None, &apos;type&apos;: &apos;subscribe&apos;, &apos;channel&apos;: &apos;codehole&apos;, &apos;data&apos;: 1L&#125;</span><br><span class="line">&#123;&apos;pattern&apos;: None, &apos;type&apos;: &apos;message&apos;, &apos;channel&apos;: &apos;codehole&apos;, &apos;data&apos;: &apos;python comes&apos;&#125;</span><br><span class="line">&#123;&apos;pattern&apos;: None, &apos;type&apos;: &apos;message&apos;, &apos;channel&apos;: &apos;codehole&apos;, &apos;data&apos;: &apos;java comes&apos;&#125;</span><br><span class="line">&#123;&apos;pattern&apos;: None, &apos;type&apos;: &apos;message&apos;, &apos;channel&apos;: &apos;codehole&apos;, &apos;data&apos;: &apos;golang comes&apos;&#125;</span><br></pre></td></tr></table></figure>
-<p>那这几个字段是什么含义呢？</p>
+<pre><code>{&#39;pattern&#39;: None, &#39;type&#39;: &#39;subscribe&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: 1L}
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;message&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: &#39;python comes&#39;}
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;message&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: &#39;java comes&#39;}
+{&#39;pattern&#39;: None, &#39;type&#39;: &#39;message&#39;, &#39;channel&#39;: &#39;codehole&#39;, &#39;data&#39;: &#39;golang comes&#39;}
+</code></pre><p>那这几个字段是什么含义呢？</p>
 <p><strong>data</strong> 这个毫无疑问就是消息的内容，一个字符串。</p>
 <p><strong>channel</strong> 这个也很明显，它表示当前订阅的主题名称。</p>
 <p><strong>type</strong> 它表示消息的类型，如果是一个普通的消息，那么类型就是 message，如果是控制消息，比如订阅指令的反馈，它的类型就是 subscribe，如果是模式订阅的反馈，它的类型就是 psubscribe，还有取消订阅指令的反馈 unsubscribe 和 punsubscribe。</p>
@@ -767,42 +1000,131 @@
 <h2 id="32bit-vs-64bit"><a href="#32bit-vs-64bit" class="headerlink" title="32bit vs 64bit"></a>32bit vs 64bit</h2><p>Redis 如果使用 32bit 进行编译，内部所有数据结构所使用的指针空间占用会少一半，如果你对 Redis 使用内存不超过 4G，可以考虑使用 32bit 进行编译，可以节约大量内存。4G 的容量作为一些小型站点的缓存数据库是绰绰有余了，如果不足还可以通过增加实例的方式来解决。</p>
 <h2 id="小对象压缩存储-ziplist"><a href="#小对象压缩存储-ziplist" class="headerlink" title="小对象压缩存储 (ziplist)"></a>小对象压缩存储 (ziplist)</h2><p><strong>如果 Redis 内部管理的集合数据结构很小，它会使用紧凑存储形式压缩存储。</strong></p>
 <p>这就好比 HashMap 本来是二维结构，但是如果内部元素比较少，使用二维结构反而浪费空间，还不如使用一维数组进行存储，需要查找时，因为元素少进行遍历也很快，甚至可以比 HashMap 本身的查找还要快。比如下面我们可以使用数组来模拟 HashMap 的增删改操作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> List&lt;K&gt; keys = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> List&lt;V&gt; values = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K k, V v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; keys.size(); i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (keys.get(i).equals(k)) &#123;</span><br><span class="line">        V oldv = values.get(i);</span><br><span class="line">        values.set(i, v);</span><br><span class="line">        <span class="keyword">return</span> oldv;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    keys.add(k);</span><br><span class="line">    values.add(v);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> V <span class="title">get</span><span class="params">(K k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; keys.size(); i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (keys.get(i).equals(k)) &#123;</span><br><span class="line">        <span class="keyword">return</span> values.get(i);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> V <span class="title">delete</span><span class="params">(K k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; keys.size(); i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (keys.get(i).equals(k)) &#123;</span><br><span class="line">        keys.remove(i);</span><br><span class="line">        <span class="keyword">return</span> values.remove(i);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class ArrayMap&lt;K, V&gt; {
+
+  private List&lt;K&gt; keys = new ArrayList&lt;&gt;();
+  private List&lt;V&gt; values = new ArrayList&lt;&gt;();
+
+  public V put(K k, V v) {
+    for (int i = 0; i &lt; keys.size(); i++) {
+      if (keys.get(i).equals(k)) {
+        V oldv = values.get(i);
+        values.set(i, v);
+        return oldv;
+      }
+    }
+    keys.add(k);
+    values.add(v);
+    return null;
+  }
+
+  public V get(K k) {
+    for (int i = 0; i &lt; keys.size(); i++) {
+      if (keys.get(i).equals(k)) {
+        return values.get(i);
+      }
+    }
+    return null;
+  }
+
+  public V delete(K k) {
+    for (int i = 0; i &lt; keys.size(); i++) {
+      if (keys.get(i).equals(k)) {
+        keys.remove(i);
+        return values.remove(i);
+      }
+    }
+    return null;
+  }
+
+}
+</code></pre>
 <p>Redis 的 ziplist 是一个紧凑的字节数组结构，如下图所示，每个元素之间都是紧挨着的。我们不用过于关心 <code>zlbytes/zltail</code> 和 <code>zlend</code> 的含义，稍微了解一下就好。</p>
 <p><img src="19.png" alt> </p>
 <p>如果它存储的是 hash 结构，那么 key 和 value 会作为两个 entry 相邻存在一起。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hset hello a 1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hset hello b 2</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hset hello c 3</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; object encoding hello</span><br><span class="line">&quot;ziplist&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="22.png" alt> </p>
+<pre><code>127.0.0.1:6379&gt; hset hello a 1
+(integer) 1
+127.0.0.1:6379&gt; hset hello b 2
+(integer) 1
+127.0.0.1:6379&gt; hset hello c 3
+(integer) 1
+127.0.0.1:6379&gt; object encoding hello
+&quot;ziplist&quot;
+</code></pre><p><img src="22.png" alt> </p>
 <p>如果它存储的是 zset，那么 value 和 score 会作为两个 entry 相邻存在一起。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; zadd world 1 a</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd world 2 b</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; zadd world 3 c</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; object encoding world</span><br><span class="line">&quot;ziplist&quot;</span><br></pre></td></tr></table></figure>
-<p>关于压缩列表更多细节，请阅读第34节<a href="https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b5c95226fb9a04fa42fc3f6" target="_blank" rel="noopener">《极度深寒 —— 探索「列表」内部结构》</a>和第35节<a href="https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b5d3ec0f265da0f91561c33" target="_blank" rel="noopener">《极度深寒 —— 探索「紧凑列表」内部》</a></p>
+<pre><code>127.0.0.1:6379&gt; zadd world 1 a
+(integer) 1
+127.0.0.1:6379&gt; zadd world 2 b
+(integer) 1
+127.0.0.1:6379&gt; zadd world 3 c
+(integer) 1
+127.0.0.1:6379&gt; object encoding world
+&quot;ziplist&quot;
+</code></pre><p>关于压缩列表更多细节，请阅读第34节<a href="https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b5c95226fb9a04fa42fc3f6" target="_blank" rel="noopener">《极度深寒 —— 探索「列表」内部结构》</a>和第35节<a href="https://juejin.im/book/5afc2e5f6fb9a07a9b362527/section/5b5d3ec0f265da0f91561c33" target="_blank" rel="noopener">《极度深寒 —— 探索「紧凑列表」内部》</a></p>
 <p><strong>Redis 的 <code>intset</code> 是一个紧凑的整数数组结构，它用于存放元素都是整数的并且元素个数较少的 set 集合。</strong></p>
 <p>如果整数可以用 uint16 表示，那么 intset 的元素就是 16 位的数组，如果新加入的整数超过了 uint16 的表示范围，那么就使用 uint32 表示，如果新加入的元素超过了 uint32 的表示范围，那么就使用 uint64 表示，Redis 支持 set 集合动态从 uint16 升级到 uint32，再升级到 uint64。</p>
 <p><img src="20.png" alt> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd hello 1 2 3</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; object encoding hello</span><br><span class="line">&quot;intset&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="23.png" alt> </p>
+<pre><code>127.0.0.1:6379&gt; sadd hello 1 2 3
+(integer) 3
+127.0.0.1:6379&gt; object encoding hello
+&quot;intset&quot;
+</code></pre><p><img src="23.png" alt> </p>
 <p>如果 set 里存储的是字符串，那么 sadd 立即升级为 hashtable 结构。还记得 Java 的 HashSet 么，它内部是使用 HashMap 实现的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; sadd hello yes no</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; object encoding hello</span><br><span class="line">&quot;hashtable&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>存储界限</strong> 当集合对象的元素不断增加，或者某个 value 值过大，这种小对象存储也会被升级为标准结构。Redis 规定在小对象存储结构的限制条件如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hash-max-ziplist-entries 512  # hash 的元素个数超过 512 就必须用标准结构存储</span><br><span class="line">hash-max-ziplist-value 64  # hash 的任意元素的 key/value 的长度超过 64 就必须用标准结构存储</span><br><span class="line">list-max-ziplist-entries 512  # list 的元素个数超过 512 就必须用标准结构存储</span><br><span class="line">list-max-ziplist-value 64  # list 的任意元素的长度超过 64 就必须用标准结构存储</span><br><span class="line">zset-max-ziplist-entries 128  # zset 的元素个数超过 128 就必须用标准结构存储</span><br><span class="line">zset-max-ziplist-value 64  # zset 的任意元素的长度超过 64 就必须用标准结构存储</span><br><span class="line">set-max-intset-entries 512  # set 的整数元素个数超过 512 就必须用标准结构存储</span><br></pre></td></tr></table></figure>
-<p>接下来我们做一个小实验，看看这里的界限是不是真的起到作用了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import redis</span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line">client.delete(&quot;hello&quot;)</span><br><span class="line">for i in range(512):</span><br><span class="line">    client.hset(&quot;hello&quot;, str(i), str(i))</span><br><span class="line">print client.object(&quot;encoding&quot;, &quot;hello&quot;)  # 获取对象的存储结构</span><br><span class="line">client.hset(&quot;hello&quot;, &quot;512&quot;, &quot;512&quot;)</span><br><span class="line">print client.object(&quot;encoding&quot;, &quot;hello&quot;) # 再次获取对象的存储结构</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ziplist</span><br><span class="line">hashtable</span><br></pre></td></tr></table></figure>
-<p>可以看出来当 hash 结构的元素个数超过 512 的时候，存储结构就发生了变化。</p>
+<pre><code>127.0.0.1:6379&gt; sadd hello yes no
+(integer) 2
+127.0.0.1:6379&gt; object encoding hello
+&quot;hashtable&quot;
+</code></pre><p><strong>存储界限</strong> 当集合对象的元素不断增加，或者某个 value 值过大，这种小对象存储也会被升级为标准结构。Redis 规定在小对象存储结构的限制条件如下：</p>
+<pre><code>hash-max-ziplist-entries 512  # hash 的元素个数超过 512 就必须用标准结构存储
+hash-max-ziplist-value 64  # hash 的任意元素的 key/value 的长度超过 64 就必须用标准结构存储
+list-max-ziplist-entries 512  # list 的元素个数超过 512 就必须用标准结构存储
+list-max-ziplist-value 64  # list 的任意元素的长度超过 64 就必须用标准结构存储
+zset-max-ziplist-entries 128  # zset 的元素个数超过 128 就必须用标准结构存储
+zset-max-ziplist-value 64  # zset 的任意元素的长度超过 64 就必须用标准结构存储
+set-max-intset-entries 512  # set 的整数元素个数超过 512 就必须用标准结构存储
+</code></pre><p>接下来我们做一个小实验，看看这里的界限是不是真的起到作用了。</p>
+<pre><code>import redis
+client = redis.StrictRedis()
+client.delete(&quot;hello&quot;)
+for i in range(512):
+    client.hset(&quot;hello&quot;, str(i), str(i))
+print client.object(&quot;encoding&quot;, &quot;hello&quot;)  # 获取对象的存储结构
+client.hset(&quot;hello&quot;, &quot;512&quot;, &quot;512&quot;)
+print client.object(&quot;encoding&quot;, &quot;hello&quot;) # 再次获取对象的存储结构
+</code></pre><p>输出：</p>
+<pre><code>ziplist
+hashtable
+</code></pre><p>可以看出来当 hash 结构的元素个数超过 512 的时候，存储结构就发生了变化。</p>
 <p>接下来我们再试试递增 value 的长度，在 Python 里面对字符串乘以一个整数 n 相当于重复 n 次。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import redis</span><br><span class="line">client = redis.StrictRedis()</span><br><span class="line">client.delete(&quot;hello&quot;)</span><br><span class="line">for i in range(64):</span><br><span class="line">    client.hset(&quot;hello&quot;, str(i), &quot;0&quot; * (i+1))</span><br><span class="line">print client.object(&quot;encoding&quot;, &quot;hello&quot;)  # 获取对象的存储结构</span><br><span class="line">client.hset(&quot;hello&quot;, &quot;512&quot;, &quot;0&quot; * 65)</span><br><span class="line">print client.object(&quot;encoding&quot;, &quot;hello&quot;) # 再次获取对象的存储结构</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ziplist</span><br><span class="line">hashtable</span><br></pre></td></tr></table></figure>
-<p>可以看出来当 hash 结构的任意 entry 的 value 值超过了 64，存储结构就升级成标准结构了。</p>
+<pre><code>import redis
+client = redis.StrictRedis()
+client.delete(&quot;hello&quot;)
+for i in range(64):
+    client.hset(&quot;hello&quot;, str(i), &quot;0&quot; * (i+1))
+print client.object(&quot;encoding&quot;, &quot;hello&quot;)  # 获取对象的存储结构
+client.hset(&quot;hello&quot;, &quot;512&quot;, &quot;0&quot; * 65)
+print client.object(&quot;encoding&quot;, &quot;hello&quot;) # 再次获取对象的存储结构
+</code></pre><p>输出：</p>
+<pre><code>ziplist
+hashtable
+</code></pre><p>可以看出来当 hash 结构的任意 entry 的 value 值超过了 64，存储结构就升级成标准结构了。</p>
 <h2 id="内存回收机制"><a href="#内存回收机制" class="headerlink" title="内存回收机制"></a>内存回收机制</h2><p>Redis 并不总是可以将空闲内存立即归还给操作系统。</p>
 <p>如果当前 Redis 内存有 10G，当你删除了 1GB 的 key 后，再去观察内存，你会发现内存变化不会太大。( 面试题: redis删除很多key, 内存不减少的原因? ) <strong>原因是操作系统回收内存是以页为单位，如果这个页上只要有一个 key 还在使用，那么它就不能被回收。Redis 虽然删除了 1GB 的 key，但是这些 key 分散到了很多页面中，每个页面都还有其它 key 存在，这就导致了内存不会立即被回收。</strong></p>
 <p>不过，如果你执行 <code>flushdb</code>，然后再观察内存会发现内存确实被回收了。原因是所有的 key 都干掉了，大部分之前使用的页面都完全干净了，会立即被操作系统回收。</p>
 <p><strong>Redis 虽然无法保证立即回收已经删除的 key 的内存，但是它会重用那些尚未回收的空闲内存。这就好比电影院里虽然人走了，但是座位还在，下一波观众来了，直接坐就行。而操作系统回收内存就好比把座位都给搬走了</strong>。这个比喻是不是很 6？</p>
 <h2 id="内存分配算法"><a href="#内存分配算法" class="headerlink" title="内存分配算法"></a>内存分配算法</h2><p>内存分配是一个非常复杂的课题，需要适当的算法划分内存页，需要考虑内存碎片，需要平衡性能和效率。</p>
 <p>Redis 为了保持自身结构的简单性，在内存分配这里直接做了甩手掌柜，将内存分配的细节丢给了第三方内存分配库去实现。目前 Redis 可以使用 jemalloc(facebook) 库来管理内存，也可以切换到tcmalloc(google)。因为 jemalloc 相比 tcmalloc的性能要稍好一些，所以Redis默认使用了jemalloc。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; info memory</span><br><span class="line"># Memory</span><br><span class="line">used_memory:809608</span><br><span class="line">used_memory_human:790.63K</span><br><span class="line">used_memory_rss:8232960</span><br><span class="line">used_memory_peak:566296608</span><br><span class="line">used_memory_peak_human:540.06M</span><br><span class="line">used_memory_lua:36864</span><br><span class="line">mem_fragmentation_ratio:10.17</span><br><span class="line">mem_allocator:jemalloc-3.6.0</span><br></pre></td></tr></table></figure>
-<p>通过<code>info memory</code>指令可以看到 Redis 的<code>mem_allocator</code>使用了 jemalloc。</p>
+<pre><code>127.0.0.1:6379&gt; info memory
+# Memory
+used_memory:809608
+used_memory_human:790.63K
+used_memory_rss:8232960
+used_memory_peak:566296608
+used_memory_peak_human:540.06M
+used_memory_lua:36864
+mem_fragmentation_ratio:10.17
+mem_allocator:jemalloc-3.6.0
+</code></pre><p>通过<code>info memory</code>指令可以看到 Redis 的<code>mem_allocator</code>使用了 jemalloc。</p>
 <p><img src="21.png" alt> </p>
 <h2 id="扩展阅读-1"><a href="#扩展阅读-1" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><p><a href="http://tinylab.org/memory-allocation-mystery-·-jemalloc-a/" target="_blank" rel="noopener">jemalloc —— 内存分配的奥义</a></p>
 <h1 id="原理-8：有备无患-——-主从同步"><a href="#原理-8：有备无患-——-主从同步" class="headerlink" title="原理 8：有备无患 —— 主从同步"></a>原理 8：有备无患 —— 主从同步</h1><p>很多企业都没有使用到 Redis 的集群，但是至少都做了主从。有了主从，当 master 挂掉的时候，运维让从库过来接管，服务就可以继续，否则 master 需要经过数据恢复和重启的过程，这就可能会拖很长的时间，影响线上业务的持续服务。</p>
@@ -833,12 +1155,16 @@
 <h2 id="无盘复制"><a href="#无盘复制" class="headerlink" title="无盘复制"></a>无盘复制</h2><p>主节点在进行快照同步时，会进行很重的文件 IO 操作，特别是对于非 SSD 磁盘存储时，快照会对系统的负载产生较大影响。特别是当系统正在进行 AOF 的 fsync 操作时如果发生快照，fsync 将会被推迟执行，这就会严重影响主节点的服务效率。</p>
 <p>所以从 Redis 2.8.18 版开始支持<strong>无盘复制。所谓无盘复制是指主服务器直接通过套接字将快照内容发送到从节点，生成快照是一个遍历的过程，主节点会一边遍历内存，一边将序列化的内容发送到从节点，从节点还是跟之前一样，先将接收到的内容存储到磁盘文件中，再进行一次性加载</strong>。</p>
 <h2 id="Wait-指令"><a href="#Wait-指令" class="headerlink" title="Wait 指令"></a>Wait 指令</h2><p>Redis 的复制是异步进行的，wait 指令可以让异步复制变身同步复制，确保系统的强一致性 (不严格)。wait 指令是 Redis3.0 版本以后才出现的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; set key value</span><br><span class="line">OK</span><br><span class="line">&gt; wait 1 0</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
-<p><strong>wait 提供两个参数，第一个参数是从库的数量 N，第二个参数是时间 t，以毫秒为单位</strong>。它表示等待 wait 指令之前的所有写操作同步到 N 个从库 (也就是确保 N 个从库的同步没有滞后)，最多等待时间 t。如果时间 t=0，表示无限等待直到 N 个从库同步完成达成一致。</p>
+<pre><code>&gt; set key value
+OK
+&gt; wait 1 0
+(integer) 1
+</code></pre><p><strong>wait 提供两个参数，第一个参数是从库的数量 N，第二个参数是时间 t，以毫秒为单位</strong>。它表示等待 wait 指令之前的所有写操作同步到 N 个从库 (也就是确保 N 个从库的同步没有滞后)，最多等待时间 t。如果时间 t=0，表示无限等待直到 N 个从库同步完成达成一致。</p>
 <p><strong>假设此时出现了网络分区，wait 指令第二个参数时间 t=0，主从同步无法继续进行，wait 指令会永远阻塞，Redis 服务器将丧失可用性</strong>。</p>
 <h2 id="小结-2"><a href="#小结-2" class="headerlink" title="小结"></a>小结</h2><p>主从复制是 Redis 分布式的基础，Redis 的高可用离开了主从复制将无从进行。后面的章节我们会开始讲解 Redis 的集群模式，这几种集群模式都依赖于本节所讲的主从复制。</p>
 <p>不过复制功能也不是必须的，如果你将 Redis 只用来做缓存，跟 memcache 一样来对待，也就无需要从库做备份，挂掉了重新启动一下就行。<strong>但是只要你使用了 Redis 的持久化功能，就必须认真对待主从复制，它是系统数据安全的基础保障。</strong>  </p>
 
+        
     
 
     
@@ -846,7 +1172,8 @@
 
 
                 
-		<!-- Post Comments -->
+
+                <!-- Post Comments -->
                 
                     
                 
@@ -908,7 +1235,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.jpg" alt="Rico's avatar">
+        <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -973,16 +1300,6 @@
 
     <!-- Pages  -->
     
-        <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
@@ -1005,7 +1322,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material chenhongjie 
+<!-- Theme Material -->
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
@@ -1013,7 +1330,6 @@ It will not impact the appearance and can give developers a lot of support :)
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
-  -->
 
 
 <!-- Help & Support -->
@@ -1087,11 +1403,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -1105,12 +1433,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -1126,21 +1461,24 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>
     
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -1185,15 +1523,40 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -1211,10 +1574,21 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
     (function(){
         var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
@@ -1223,7 +1597,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

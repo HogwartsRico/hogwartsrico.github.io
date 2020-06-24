@@ -5,8 +5,42 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!-- Title -->
     
@@ -17,115 +51,18 @@
         Rico&#39;s Blog
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico,redis">
-
-    <!-- Site Verification -->
-    
-    
-
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,redis">
+    <meta name="theme-color" content="#0097A7">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://hogwartsrico.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Redis系列之基础 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="redis"> 
-
-    
-        <meta property="article:published_time" content="10月 22, 2019">
-        <meta property="article:modified_time" content="6月 08, 2020">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Redis系列之基础 | Rico&#39;s Blog">
-    <meta name="twitter:description" content>
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="http://hogwartsrico.github.io">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/22/Basis-of-redis-series/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Rico&#39;s Blog",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Rico",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "Javaer"
-    },
-    "headline": "Redis系列之基础",
-    "url": "http://hogwartsrico.github.io/2019/10/22/Basis-of-redis-series/index.html",
-    "datePublished": "10月 22, 2019",
-    "dateModified": "6月 08, 2020",
-    "description": "",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://hogwartsrico.github.io"
-    }
-}
-</script>
-
-
-    
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -136,47 +73,38 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
 
-    <!-- Import CSS & jQuery -->
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -274,28 +202,73 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2019/10/22/Basis-of-redis-series/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2019/10/22/Basis-of-redis-series/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Redis系列之基础 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="redis"> 
+
+    
+        <meta property="article:published_time" content="Tue Oct 22 2019 17:17:57 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jun 08 2020 11:11:56 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/22/Basis-of-redis-series/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
 
     <!-- Analytics -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    
+    
+    
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -313,7 +286,7 @@
                     
                         <!-- Hamburger Button -->
                         <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
                         </button>
                     
 
@@ -336,23 +309,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#启动关闭"><span class="post-toc-number">1.</span> <span class="post-toc-text">启动关闭</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis-基础数据结构"><span class="post-toc-number">2.</span> <span class="post-toc-text">Redis 基础数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#string-字符串"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">string (字符串)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#list-列表"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">list (列表)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hash-字典"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">hash (字典)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#set-集合"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">set (集合)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#zset-有序集合"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">zset (有序集合)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#容器型数据结构的通用规则"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">容器型数据结构的通用规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#过期时间"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">过期时间</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Keys的通用操作"><span class="post-toc-number">3.</span> <span class="post-toc-text">Keys的通用操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-number">4.</span> <span class="post-toc-text">扩展阅读</span></a></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
     
-
 
 
 
@@ -396,7 +365,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -430,7 +399,8 @@
     
 
     <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
     <span class="visuallyhidden">share</span>
 </button>
@@ -441,7 +411,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Redis系列之基础&url=http://hogwartsrico.github.io/2019/10/22/Basis-of-redis-series/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Redis系列之基础&url=http://hogwartsrico.github.io/2019/10/22/Basis-of-redis-series/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -485,6 +455,7 @@
     
 </ul>
 
+    
 </div>
 
                 
@@ -494,8 +465,10 @@
     
         <p>本文为掘金小册学习笔记    </p>
 <p>Redis是[<strong>Re</strong>mote <strong>Di</strong>ctionary <strong>S</strong>ervice]的首字母缩写，也就是「远程字典服务」</p>
-<h1 id="启动关闭"><a href="#启动关闭" class="headerlink" title="启动关闭"></a>启动关闭</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./redis-server --daemonize yes</span><br><span class="line"># 运行命令行</span><br><span class="line">&gt; ./redis-cli</span><br></pre></td></tr></table></figure>
-<p>或修改配置文件  找到<code>daemonize no</code>这一行，将no改为yes</p>
+<h1 id="启动关闭"><a href="#启动关闭" class="headerlink" title="启动关闭"></a>启动关闭</h1><pre><code>./redis-server --daemonize yes
+# 运行命令行
+&gt; ./redis-cli
+</code></pre><p>或修改配置文件  找到<code>daemonize no</code>这一行，将no改为yes</p>
 <p><img src="28.png" alt></p>
 <p>使用命令<code>ps -ef | grep -i redis</code>   查看redis是否运行及其端口</p>
 <p><strong>关闭Redis</strong></p>
@@ -508,18 +481,78 @@
 <p><img src="2.png" alt></p>
 <p>Redis 的字符串是动态字符串，是可以修改的字符串，内部结构实现上类似于 Java 的 ArrayList，采用预分配冗余空间的方式来减少内存的频繁分配，如图中所示，内部为当前字符串实际分配的空间 capacity 一般要高于实际字符串长度 len。当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。需要注意的是字符串最大长度为 512M。</p>
 <p><strong>键值对</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set name rico</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;rico&quot;</span><br><span class="line">127.0.0.1:6379&gt; exists name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; del name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-<p><strong>批量键值对</strong></p>
+<pre><code>127.0.0.1:6379&gt; set name rico
+OK
+127.0.0.1:6379&gt; get name
+&quot;rico&quot;
+127.0.0.1:6379&gt; exists name
+(integer) 1
+127.0.0.1:6379&gt; del name
+(integer) 1
+127.0.0.1:6379&gt; get name
+(nil)
+</code></pre><p><strong>批量键值对</strong></p>
 <p>mget mset应该就是multiget, multiset的缩写吧</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; set name1 codehole</span><br><span class="line">OK</span><br><span class="line">&gt; set name2 holycoder</span><br><span class="line">OK</span><br><span class="line">&gt; mget name1 name2 name3 # 返回一个列表</span><br><span class="line">1) &quot;codehole&quot;</span><br><span class="line">2) &quot;holycoder&quot;</span><br><span class="line">3) (nil)</span><br><span class="line">&gt; mset name1 boy name2 girl name3 unknown</span><br><span class="line">&gt; mget name1 name2 name3</span><br><span class="line">1) &quot;boy&quot;</span><br><span class="line">2) &quot;girl&quot;</span><br><span class="line">3) &quot;unknown&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>过期和 set 命令扩展</strong></p>
+<pre><code>&gt; set name1 codehole
+OK
+&gt; set name2 holycoder
+OK
+&gt; mget name1 name2 name3 # 返回一个列表
+1) &quot;codehole&quot;
+2) &quot;holycoder&quot;
+3) (nil)
+&gt; mset name1 boy name2 girl name3 unknown
+&gt; mget name1 name2 name3
+1) &quot;boy&quot;
+2) &quot;girl&quot;
+3) &quot;unknown&quot;
+</code></pre><p><strong>过期和 set 命令扩展</strong></p>
 <p>可以对 key 设置过期时间，到点自动删除，这个功能常用来控制缓存的失效时间。不过这个「自动删除」的机制是比较复杂的,后面会介绍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt; set name codehole</span><br><span class="line">&gt; get name</span><br><span class="line">&quot;codehole&quot;</span><br><span class="line">&gt; expire name 5  # 5s 后过期</span><br><span class="line">...  # wait for 5s</span><br><span class="line">&gt; get name</span><br><span class="line">(nil)</span><br><span class="line"></span><br><span class="line">&gt; setex name 5 codehole  # 5s 后过期，等价于 set+expire</span><br><span class="line">&gt; get name</span><br><span class="line">&quot;codehole&quot;</span><br><span class="line">... # wait for 5s</span><br><span class="line">&gt; get name</span><br><span class="line">(nil)</span><br><span class="line"></span><br><span class="line">&gt; setnx name codehole  # 如果 name 不存在就执行 set 创建</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; get name</span><br><span class="line">&quot;codehole&quot;</span><br><span class="line">&gt; setnx name holycoder</span><br><span class="line">(integer) 0  # 因为 name 已经存在，所以 set 创建不成功</span><br><span class="line">&gt; get name</span><br><span class="line">&quot;codehole&quot;  # 没有改变</span><br></pre></td></tr></table></figure>
-<p>setex等价于set+expire</p>
+<pre><code>&gt; set name codehole
+&gt; get name
+&quot;codehole&quot;
+&gt; expire name 5  # 5s 后过期
+...  # wait for 5s
+&gt; get name
+(nil)
+
+&gt; setex name 5 codehole  # 5s 后过期，等价于 set+expire
+&gt; get name
+&quot;codehole&quot;
+... # wait for 5s
+&gt; get name
+(nil)
+
+&gt; setnx name codehole  # 如果 name 不存在就执行 set 创建
+(integer) 1
+&gt; get name
+&quot;codehole&quot;
+&gt; setnx name holycoder
+(integer) 0  # 因为 name 已经存在，所以 set 创建不成功
+&gt; get name
+&quot;codehole&quot;  # 没有改变
+</code></pre><p>setex等价于set+expire</p>
 <p><strong>计数</strong></p>
 <p>如果 value 值是一个整数，还可以对它进行自增操作。自增是有范围的，它的范围是 signed long 的最大最小值，超过了这个值，Redis 会报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; set age 30</span><br><span class="line">OK</span><br><span class="line">&gt; incr age</span><br><span class="line">(integer) 31</span><br><span class="line">&gt; incrby age 5</span><br><span class="line">(integer) 36</span><br><span class="line">&gt; incrby age -5</span><br><span class="line">(integer) 31</span><br><span class="line">&gt; set codehole 9223372036854775807  # Long.Max</span><br><span class="line">OK</span><br><span class="line">&gt; incr codehole</span><br><span class="line">(error) ERR increment or decrement would overflow</span><br><span class="line">&gt; get name1</span><br><span class="line">&quot;rico&quot;</span><br><span class="line">&gt; append name1 haha</span><br><span class="line">(integer) 8</span><br><span class="line">&gt; get name1</span><br><span class="line">&quot;ricohaha&quot;</span><br></pre></td></tr></table></figure>
-<p>获取一个不存在的返回nil</p>
+<pre><code>&gt; set age 30
+OK
+&gt; incr age
+(integer) 31
+&gt; incrby age 5
+(integer) 36
+&gt; incrby age -5
+(integer) 31
+&gt; set codehole 9223372036854775807  # Long.Max
+OK
+&gt; incr codehole
+(error) ERR increment or decrement would overflow
+&gt; get name1
+&quot;rico&quot;
+&gt; append name1 haha
+(integer) 8
+&gt; get name1
+&quot;ricohaha&quot;
+</code></pre><p>获取一个不存在的返回nil</p>
 <p>incr表示增加1  如果这个key不存在，这默认设为0并加1 即为1</p>
 <p>如果不是int型 会报错  ERR value is not an integer or out of range<br>decr 会递减1 如果不存在则是0-1即为-1</p>
 <p>incrby 可以指定加多少而不是1  同样如果不存在则为0然后加</p>
@@ -539,10 +572,26 @@
 <p>lpush 表示在左边添加  a  b  c，<strong>c在最左侧</strong> 过程是:  a , ba(在a左侧添加b) ,cba(在ba左侧添加c)</p>
 <p><img src="4.png" alt></p>
 <p>lpop 从左侧压出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lrange mylist 0 5</span><br><span class="line">1) &quot;a&quot;</span><br><span class="line">2) &quot;b&quot;</span><br><span class="line">3) &quot;c&quot;</span><br><span class="line">127.0.0.1:6379&gt; lpop mylist</span><br><span class="line">&quot;a&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange mylist 0 5</span><br><span class="line">1) &quot;b&quot;</span><br><span class="line">2) &quot;c&quot;</span><br></pre></td></tr></table></figure>
-<p>rpop 右侧压出</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; lrange mylist 0 5</span><br><span class="line">1) &quot;a&quot;</span><br><span class="line">2) &quot;b&quot;</span><br><span class="line">3) &quot;c&quot;</span><br><span class="line">&gt; rpop mylist</span><br><span class="line">&quot;c&quot;</span><br><span class="line">&gt; lrange mylist 0 5</span><br><span class="line">1) &quot;a&quot;</span><br><span class="line">2) &quot;b&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>llen</strong></p>
+<pre><code>127.0.0.1:6379&gt; lrange mylist 0 5
+1) &quot;a&quot;
+2) &quot;b&quot;
+3) &quot;c&quot;
+127.0.0.1:6379&gt; lpop mylist
+&quot;a&quot;
+127.0.0.1:6379&gt; lrange mylist 0 5
+1) &quot;b&quot;
+2) &quot;c&quot;
+</code></pre><p>rpop 右侧压出</p>
+<pre><code>&gt; lrange mylist 0 5
+1) &quot;a&quot;
+2) &quot;b&quot;
+3) &quot;c&quot;
+&gt; rpop mylist
+&quot;c&quot;
+&gt; lrange mylist 0 5
+1) &quot;a&quot;
+2) &quot;b&quot;
+</code></pre><p><strong>llen</strong></p>
 <p><code>llen mylist</code> 获取list长度  , llen 一个没有的 会返回0</p>
 <p><strong>lrange</strong></p>
 <p>查看 list <code>lrange mylist 0 5</code> 0表示开始  5表示结束  可以是负值，表示倒数第几个</p>
@@ -564,15 +613,51 @@
 <p><img src="11.png" alt></p>
 <p>这个功能主要用于消费者备份</p>
 <p><strong>右边进左边出：队列</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush books python java golang</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; llen books</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; lpop books</span><br><span class="line">&quot;python&quot;</span><br><span class="line">&gt; lpop books</span><br><span class="line">&quot;java&quot;</span><br><span class="line">&gt; lpop books</span><br><span class="line">&quot;golang&quot;</span><br><span class="line">&gt; lpop books</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-<p>右边进右边出：<strong>栈</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush books python java golang</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; rpop books</span><br><span class="line">&quot;golang&quot;</span><br><span class="line">&gt; rpop books</span><br><span class="line">&quot;java&quot;</span><br><span class="line">&gt; rpop books</span><br><span class="line">&quot;python&quot;</span><br><span class="line">&gt; rpop books</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-<p><strong>慢操作</strong></p>
+<pre><code>&gt; rpush books python java golang
+(integer) 3
+&gt; llen books
+(integer) 3
+&gt; lpop books
+&quot;python&quot;
+&gt; lpop books
+&quot;java&quot;
+&gt; lpop books
+&quot;golang&quot;
+&gt; lpop books
+(nil)
+</code></pre><p>右边进右边出：<strong>栈</strong></p>
+<pre><code>&gt; rpush books python java golang
+(integer) 3
+&gt; rpop books
+&quot;golang&quot;
+&gt; rpop books
+&quot;java&quot;
+&gt; rpop books
+&quot;python&quot;
+&gt; rpop books
+(nil)
+</code></pre><p><strong>慢操作</strong></p>
 <p>lindex 相当于 Java 链表的<code>get(int index)</code>方法，它需要对链表进行遍历，性能随着参数<code>index</code>增大而变差。</p>
 <p>ltrim 和字面上的含义不太一样，个人觉得它叫 lretain(保留) 更合适一些，因为 ltrim 跟的两个参数<code>start_index</code>和<code>end_index</code>定义了一个区间，在这个区间内的值，ltrim 要保留，区间之外统统砍掉。我们可以通过ltrim来实现一个定长的链表，这一点非常有用。</p>
 <p>index 可以为负数，<code>index=-1</code>表示倒数第一个元素，同样<code>index=-2</code>表示倒数第二个元素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush books python java golang</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; lindex books 1  # O(n) 慎用</span><br><span class="line">&quot;java&quot;</span><br><span class="line">&gt; lrange books 0 -1  # 获取所有元素，O(n) 慎用</span><br><span class="line">1) &quot;python&quot;</span><br><span class="line">2) &quot;java&quot;</span><br><span class="line">3) &quot;golang&quot;</span><br><span class="line">&gt; ltrim books 1 -1 # O(n) 慎用</span><br><span class="line">OK</span><br><span class="line">&gt; lrange books 0 -1</span><br><span class="line">1) &quot;java&quot;</span><br><span class="line">2) &quot;golang&quot;</span><br><span class="line">&gt; ltrim books 1 0 # 这其实是清空了整个列表，因为区间范围长度为负</span><br><span class="line">OK</span><br><span class="line">&gt; llen books</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
-<p><strong>快速列表</strong></p>
+<pre><code>&gt; rpush books python java golang
+(integer) 3
+&gt; lindex books 1  # O(n) 慎用
+&quot;java&quot;
+&gt; lrange books 0 -1  # 获取所有元素，O(n) 慎用
+1) &quot;python&quot;
+2) &quot;java&quot;
+3) &quot;golang&quot;
+&gt; ltrim books 1 -1 # O(n) 慎用
+OK
+&gt; lrange books 0 -1
+1) &quot;java&quot;
+2) &quot;golang&quot;
+&gt; ltrim books 1 0 # 这其实是清空了整个列表，因为区间范围长度为负
+OK
+&gt; llen books
+(integer) 0
+</code></pre><p><strong>快速列表</strong></p>
 <p><img src="12.png" alt></p>
 <p>如果再深入一点，你会发现 Redis 底层存储的还不是一个简单的 <code>linkedlist</code>，而是称之为快速链表 <code>quicklist</code> 的一个结构。</p>
 <p>首先在列表元素较少的情况下会使用一块连续的内存存储，这个结构是 <code>ziplist</code>，也即是压缩列表。它将所有的元素紧挨着一起存储，分配的是一块连续的内存。当数据量比较多的时候才会改成 <code>quicklist</code>。因为普通的链表需要的附加指针空间太大，会比较浪费空间，而且会加重内存的碎片化。比如这个列表里存的只是 <code>int</code> 类型的数据，结构上还需要两个额外的指针 <code>prev</code> 和 <code>next</code> 。所以 Redis 将链表和 <code>ziplist</code> 结合起来组成了 <code>quicklist</code>。也就是将多个 <code>ziplist</code> 使用双向指针串起来使用。这样既满足了快速的插入删除性能，又不会出现太大的空间冗余。</p>
@@ -585,10 +670,34 @@
 <p><img src="15.gif" alt></p>
 <p>hash 结构也可以用来存储用户信息，不同于字符串一次性需要全部序列化整个对象，hash 可以对用户结构中的每个字段单独存储。这样当我们需要获取用户信息时可以进行部分获取。而以整个字符串的形式去保存用户信息的话就只能一次性全部读取，这样就会比较浪费网络流量。</p>
 <p>hash 也有缺点，hash 结构的存储消耗要高于单个字符串，到底该使用 hash 还是字符串，需要根据实际情况再三权衡。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt; hset books java &quot;think in java&quot;  # 命令行的字符串如果包含空格，要用引号括起来</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; hset books golang &quot;concurrency in go&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; hset books python &quot;python cookbook&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; hgetall books  # entries()，key 和 value 间隔出现</span><br><span class="line">1) &quot;java&quot;</span><br><span class="line">2) &quot;think in java&quot;</span><br><span class="line">3) &quot;golang&quot;</span><br><span class="line">4) &quot;concurrency in go&quot;</span><br><span class="line">5) &quot;python&quot;</span><br><span class="line">6) &quot;python cookbook&quot;</span><br><span class="line">&gt; hlen books</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; hget books java</span><br><span class="line">&quot;think in java&quot;</span><br><span class="line">&gt; hset books golang &quot;learning go programming&quot;  # 因为是更新操作，所以返回 0</span><br><span class="line">(integer) 0</span><br><span class="line">&gt; hget books golang</span><br><span class="line">&quot;learning go programming&quot;</span><br><span class="line">&gt; hmset books java &quot;effective java&quot; python &quot;learning python&quot; golang &quot;modern golang programming&quot;  # 批量 set</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
-<p>同字符串对象一样，hash 结构中的单个子 key 也可以进行计数，它对应的指令是 <code>hincrby</code>，和 <code>incr</code> 使用基本一样。但是不支持自增1 ,也即hincr是不支持的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 老钱又老了一岁</span><br><span class="line">&gt; hincrby user-laoqian age 1</span><br><span class="line">(integer) 30</span><br></pre></td></tr></table></figure>
-<p><strong>hexists</strong></p>
+<pre><code>&gt; hset books java &quot;think in java&quot;  # 命令行的字符串如果包含空格，要用引号括起来
+(integer) 1
+&gt; hset books golang &quot;concurrency in go&quot;
+(integer) 1
+&gt; hset books python &quot;python cookbook&quot;
+(integer) 1
+&gt; hgetall books  # entries()，key 和 value 间隔出现
+1) &quot;java&quot;
+2) &quot;think in java&quot;
+3) &quot;golang&quot;
+4) &quot;concurrency in go&quot;
+5) &quot;python&quot;
+6) &quot;python cookbook&quot;
+&gt; hlen books
+(integer) 3
+&gt; hget books java
+&quot;think in java&quot;
+&gt; hset books golang &quot;learning go programming&quot;  # 因为是更新操作，所以返回 0
+(integer) 0
+&gt; hget books golang
+&quot;learning go programming&quot;
+&gt; hmset books java &quot;effective java&quot; python &quot;learning python&quot; golang &quot;modern golang programming&quot;  # 批量 set
+OK
+</code></pre><p>同字符串对象一样，hash 结构中的单个子 key 也可以进行计数，它对应的指令是 <code>hincrby</code>，和 <code>incr</code> 使用基本一样。但是不支持自增1 ,也即hincr是不支持的</p>
+<pre><code># 老钱又老了一岁
+&gt; hincrby user-laoqian age 1
+(integer) 30
+</code></pre><p><strong>hexists</strong></p>
 <p><code>hexists 名字  key</code> 判断是否有这个key的值 如果有返回1 如果没有返回 0</p>
 <p><strong>hgetall</strong></p>
 <p> <code>hgetall 名字</code>可以得到所有属性和值</p>
@@ -602,14 +711,63 @@
 <p>当集合中最后一个元素移除之后，数据结构自动删除，内存被回收。</p>
 <p><img src="16.gif" alt></p>
 <p>set 结构有去重功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; sadd books python</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; sadd books python  #  重复</span><br><span class="line">(integer) 0</span><br><span class="line">&gt; sadd books java golang</span><br><span class="line">(integer) 2</span><br><span class="line">&gt; smembers books  # 注意顺序，和插入的并不一致，因为 set 是无序的</span><br><span class="line">1) &quot;java&quot;</span><br><span class="line">2) &quot;python&quot;</span><br><span class="line">3) &quot;golang&quot;</span><br><span class="line">&gt; sismember books java  # 查询某个 value 是否存在，相当于 contains(o)</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; sismember books rust</span><br><span class="line">(integer) 0</span><br><span class="line">&gt; scard books  # 获取长度相当于 count()</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; spop books  # 弹出一个</span><br><span class="line">&quot;java&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="zset-有序集合"><a href="#zset-有序集合" class="headerlink" title="zset (有序集合)"></a>zset (有序集合)</h2><p>zset 可能是 Redis 提供的最为特色的数据结构，它也是在面试中面试官最爱问的数据结构。它类似于 Java 的 SortedSet 和 HashMap 的结合体，一方面它是一个 set，保证了内部 value 的唯一性，<strong>另一方面它可以给每个 value 赋予一个 score，代表这个 value 的排序权重</strong>。它的内部实现用的是一种叫做「跳跃列表」的数据结构。</p>
+<pre><code>&gt; sadd books python
+(integer) 1
+&gt; sadd books python  #  重复
+(integer) 0
+&gt; sadd books java golang
+(integer) 2
+&gt; smembers books  # 注意顺序，和插入的并不一致，因为 set 是无序的
+1) &quot;java&quot;
+2) &quot;python&quot;
+3) &quot;golang&quot;
+&gt; sismember books java  # 查询某个 value 是否存在，相当于 contains(o)
+(integer) 1
+&gt; sismember books rust
+(integer) 0
+&gt; scard books  # 获取长度相当于 count()
+(integer) 3
+&gt; spop books  # 弹出一个
+&quot;java&quot;
+</code></pre><h2 id="zset-有序集合"><a href="#zset-有序集合" class="headerlink" title="zset (有序集合)"></a>zset (有序集合)</h2><p>zset 可能是 Redis 提供的最为特色的数据结构，它也是在面试中面试官最爱问的数据结构。它类似于 Java 的 SortedSet 和 HashMap 的结合体，一方面它是一个 set，保证了内部 value 的唯一性，<strong>另一方面它可以给每个 value 赋予一个 score，代表这个 value 的排序权重</strong>。它的内部实现用的是一种叫做「跳跃列表」的数据结构。</p>
 <p>zset 中最后一个 value 被移除后，数据结构自动删除，内存被回收。</p>
 <p><img src="17.gif" alt></p>
 <p>zset 可以用来存粉丝列表，value 值是粉丝的用户 ID，score 是关注时间。我们可以对粉丝列表按关注时间进行排序。</p>
 <p>zset 还可以用来存储学生的成绩，value 值是学生的 ID，score 是他的考试成绩。我们可以对成绩按分数进行排序就可以得到他的名次。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&gt; zadd books 9.0 &quot;think in java&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd books 8.9 &quot;java concurrency&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zadd books 8.6 &quot;java cookbook&quot;</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zrange books 0 -1  # 按 score 排序列出，参数区间为排名范围</span><br><span class="line">1) &quot;java cookbook&quot;</span><br><span class="line">2) &quot;java concurrency&quot;</span><br><span class="line">3) &quot;think in java&quot;</span><br><span class="line">&gt; zrevrange books 0 -1  # 按 score 逆序列出，参数区间为排名范围</span><br><span class="line">1) &quot;think in java&quot;</span><br><span class="line">2) &quot;java concurrency&quot;</span><br><span class="line">3) &quot;java cookbook&quot;</span><br><span class="line">&gt; zcard books  # 相当于 count()</span><br><span class="line">(integer) 3</span><br><span class="line">&gt; zscore books &quot;java concurrency&quot;  # 获取指定 value 的 score</span><br><span class="line">&quot;8.9000000000000004&quot;  # 内部 score 使用 double 类型进行存储，所以存在小数点精度问题</span><br><span class="line">&gt; zrank books &quot;java concurrency&quot;  # 排名</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zrangebyscore books 0 8.91  # 根据分值区间遍历 zset</span><br><span class="line">1) &quot;java cookbook&quot;</span><br><span class="line">2) &quot;java concurrency&quot;</span><br><span class="line">&gt; zrangebyscore books -inf 8.91 withscores # 根据分值区间 (-∞, 8.91] 遍历 zset，同时返回分值。inf 代表 infinite，无穷大的意思。</span><br><span class="line">1) &quot;java cookbook&quot;</span><br><span class="line">2) &quot;8.5999999999999996&quot;</span><br><span class="line">3) &quot;java concurrency&quot;</span><br><span class="line">4) &quot;8.9000000000000004&quot;</span><br><span class="line">&gt; zrem books &quot;java concurrency&quot;  # 删除 value</span><br><span class="line">(integer) 1</span><br><span class="line">&gt; zrange books 0 -1</span><br><span class="line">1) &quot;java cookbook&quot;</span><br><span class="line">2) &quot;think in java&quot;</span><br></pre></td></tr></table></figure>
-<p><code>zremrangebyrank mysort 0 4</code> 按照排名删除 0到4个，即5个</p>
+<pre><code>&gt; zadd books 9.0 &quot;think in java&quot;
+(integer) 1
+&gt; zadd books 8.9 &quot;java concurrency&quot;
+(integer) 1
+&gt; zadd books 8.6 &quot;java cookbook&quot;
+(integer) 1
+&gt; zrange books 0 -1  # 按 score 排序列出，参数区间为排名范围
+1) &quot;java cookbook&quot;
+2) &quot;java concurrency&quot;
+3) &quot;think in java&quot;
+&gt; zrevrange books 0 -1  # 按 score 逆序列出，参数区间为排名范围
+1) &quot;think in java&quot;
+2) &quot;java concurrency&quot;
+3) &quot;java cookbook&quot;
+&gt; zcard books  # 相当于 count()
+(integer) 3
+&gt; zscore books &quot;java concurrency&quot;  # 获取指定 value 的 score
+&quot;8.9000000000000004&quot;  # 内部 score 使用 double 类型进行存储，所以存在小数点精度问题
+&gt; zrank books &quot;java concurrency&quot;  # 排名
+(integer) 1
+&gt; zrangebyscore books 0 8.91  # 根据分值区间遍历 zset
+1) &quot;java cookbook&quot;
+2) &quot;java concurrency&quot;
+&gt; zrangebyscore books -inf 8.91 withscores # 根据分值区间 (-∞, 8.91] 遍历 zset，同时返回分值。inf 代表 infinite，无穷大的意思。
+1) &quot;java cookbook&quot;
+2) &quot;8.5999999999999996&quot;
+3) &quot;java concurrency&quot;
+4) &quot;8.9000000000000004&quot;
+&gt; zrem books &quot;java concurrency&quot;  # 删除 value
+(integer) 1
+&gt; zrange books 0 -1
+1) &quot;java cookbook&quot;
+2) &quot;think in java&quot;
+</code></pre><p><code>zremrangebyrank mysort 0 4</code> 按照排名删除 0到4个，即5个</p>
 <p><code>zremrangebyscore mysort 起始分数(包含) 终止分数(包含)</code>  按照分数范围删除</p>
 <p><img src="20.png" alt></p>
 <p><img src="21.png" alt></p>
@@ -641,22 +799,43 @@
 </ol>
 <h2 id="过期时间"><a href="#过期时间" class="headerlink" title="过期时间"></a>过期时间</h2><p>Redis 所有的数据结构都可以设置过期时间，时间到了，Redis 会自动删除相应的对象。需要注意的是过期是以对象为单位，比如一个 hash 结构的过期是整个 hash 对象的过期，而不是其中的某个子 key。</p>
 <p>还有一个需要特别注意的地方是如果一个字符串已经设置了过期时间，然后你调用了 set 方法修改了它，它的过期时间会消失。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set codehole yoyo</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; expire codehole 600</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; ttl codehole</span><br><span class="line">(integer) 597</span><br><span class="line">127.0.0.1:6379&gt; set codehole yoyo</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; ttl codehole</span><br><span class="line">(integer) -1</span><br></pre></td></tr></table></figure>
-<h1 id="Keys的通用操作"><a href="#Keys的通用操作" class="headerlink" title="Keys的通用操作"></a>Keys的通用操作</h1><p><img src="24.png" alt></p>
+<pre><code>127.0.0.1:6379&gt; set codehole yoyo
+OK
+127.0.0.1:6379&gt; expire codehole 600
+(integer) 1
+127.0.0.1:6379&gt; ttl codehole
+(integer) 597
+127.0.0.1:6379&gt; set codehole yoyo
+OK
+127.0.0.1:6379&gt; ttl codehole
+(integer) -1
+</code></pre><h1 id="Keys的通用操作"><a href="#Keys的通用操作" class="headerlink" title="Keys的通用操作"></a>Keys的通用操作</h1><p><img src="24.png" alt></p>
 <p><code>keys *</code>列出所有keys</p>
 <p><code>kyes my*</code> 列出所有my开头的keys 教程上是？号</p>
 <p><img src="25.png" alt></p>
 <p>del 多个key 可以删除</p>
 <p>exists可以判断某个key是否存在  存在返回1  不存在返回0</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; exists mylist2</span><br><span class="line">0</span><br><span class="line">127.0.0.1:6379&gt; exists myset</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<p><code>rename 名字 新名字</code> 注意这里改的是名字而不是值</p>
+<pre><code>127.0.0.1:6379&gt; exists mylist2
+0
+127.0.0.1:6379&gt; exists myset
+1
+</code></pre><p><code>rename 名字 新名字</code> 注意这里改的是名字而不是值</p>
 <p><img src="26.png" alt></p>
 <p>设置过期时间 超过过期时间就获取不到了   如果某个key没有设置过期时间，会返回-1  如果已经过期，返回-2</p>
 <p><img src="27.png" alt></p>
-<p>type命令返回指定key的类型   没有这个key返回none<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; type age</span><br><span class="line">string</span><br><span class="line">127.0.0.1:6379&gt; type myset</span><br><span class="line">set</span><br><span class="line">127.0.0.1:6379&gt; type mylist</span><br><span class="line">list</span><br><span class="line">127.0.0.1:6379&gt; type mysort</span><br><span class="line">zset</span><br></pre></td></tr></table></figure></p>
-<h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><p><a href="https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency" target="_blank" rel="noopener">《存结构体信息到底该使用 hash 还是 string？》</a></p>
+<p>type命令返回指定key的类型   没有这个key返回none</p>
+<pre><code>127.0.0.1:6379&gt; type age
+string
+127.0.0.1:6379&gt; type myset
+set
+127.0.0.1:6379&gt; type mylist
+list
+127.0.0.1:6379&gt; type mysort
+zset
+</code></pre><h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><p><a href="https://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency" target="_blank" rel="noopener">《存结构体信息到底该使用 hash 还是 string？》</a></p>
 <p>本文为掘金小册学习笔记</p>
 
+        
     
 
     
@@ -664,7 +843,8 @@
 
 
                 
-		<!-- Post Comments -->
+
+                <!-- Post Comments -->
                 
                     
                 
@@ -726,7 +906,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.jpg" alt="Rico's avatar">
+        <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -791,16 +971,6 @@
 
     <!-- Pages  -->
     
-        <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
@@ -823,7 +993,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material chenhongjie 
+<!-- Theme Material -->
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
@@ -831,7 +1001,6 @@ It will not impact the appearance and can give developers a lot of support :)
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
-  -->
 
 
 <!-- Help & Support -->
@@ -905,11 +1074,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -923,12 +1104,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -944,21 +1132,24 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>
     
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -1003,15 +1194,40 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -1029,10 +1245,21 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
     (function(){
         var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
@@ -1041,7 +1268,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

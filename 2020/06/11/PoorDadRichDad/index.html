@@ -5,8 +5,42 @@
     <!--
         © Material Theme
         https://github.com/viosey/hexo-theme-material
-        Version: 1.4.0 -->
-    <script>window.materialVersion = "1.4.0"</script>
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <!-- Title -->
     
@@ -17,115 +51,18 @@
         Rico&#39;s Blog
     </title>
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    
-    
-    
-    
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
-    
-    
-    
-    
-    
-    
-    
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="theme-color" content="#0097A7">
-    <meta name="author" content="Rico">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Rico,读书笔记">
-
-    <!-- Site Verification -->
-    
-    
-
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
-    <link rel="icon" sizes="192x192" href="/img/favicon.png">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
 
-    <!--iOS -->
-    <meta name="apple-mobile-web-app-title" content="Title">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="480">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,读书笔记">
+    <meta name="theme-color" content="#0097A7">
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://hogwartsrico.github.io">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="穷爸爸富爸爸读书记录 | Rico&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="读书笔记"> 
-
-    
-        <meta property="article:published_time" content="6月 11, 2020">
-        <meta property="article:modified_time" content="6月 11, 2020">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="穷爸爸富爸爸读书记录 | Rico&#39;s Blog">
-    <meta name="twitter:description" content>
-    <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="http://hogwartsrico.github.io">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/11/PoorDadRichDad/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Rico&#39;s Blog",
-        "logo": "/img/favicon.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Rico",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/favicon.png"
-        },
-        "description": "Javaer"
-    },
-    "headline": "穷爸爸富爸爸读书记录",
-    "url": "http://hogwartsrico.github.io/2020/06/11/PoorDadRichDad/index.html",
-    "datePublished": "6月 11, 2020",
-    "dateModified": "6月 11, 2020",
-    "description": "",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://hogwartsrico.github.io"
-    }
-}
-</script>
-
-
-    
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -136,47 +73,38 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
 
-    <!-- Import CSS & jQuery -->
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
-    
-    .footer-sns-facebook {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNjU3LjYgODcuOGw0LjggMy44djU1LjJjMCA1NC42IDAgNTUuMi00LjYgNTkuNi00LjQgNC40LTYgNC42LTUwLjIgNS42bC00NS42IDEtNy4yIDUuNmMtMTAuNCA4LTE2LjggMTcuMi0xOS4yIDI3LjQtMSA1LTEuOCAyNC44LTEuOCA0NCAuMiAzOCAxLjYgNDQuNiAxMC44IDQ4IDIuOCAxLjIgMjguNCAyIDU2LjggMiA0Ny44IDAgNTIgLjIgNTYuMiAzLjhsNC44IDMuOHY1NS4yYzAgNTQuNiAwIDU1LjItNC42IDU5LjYtNC40IDQuNi01LjQgNC42LTU3IDUuMi0yOC44LjItNTQuNC44LTU2LjggMS40LTIuNC42LTUuNiAzLTYuOCA1LjQtMS44IDMuMi0yLjQgNDEuNC0yLjYgMTQzLjJsLS4yIDEzOC44LTUuNiA0LjgtNS42IDQuOEg2MDljLTUyLjQgMC01Mi44IDAtNTguMi00LjZsLTUuNC00LjYtLjItMTQwLjYtLjItMTQwLjYtNC44LTMuOGMtNC4yLTMuNC04LTMuOC0zNS42LTMuOC0zMi44IDAtNDEtMS44LTQzLjYtMTAtLjYtMi4yLTEuMi0yNS40LTEuMi01MS40IDAtNjAuOC0uMi01NyAzLjQtNjEuNiAyLjgtMy42IDYtNCAzNy44LTUgMzMtMSAzNS4yLTEuMiAzOS40LTUuNiA0LjYtNC40IDQuNi01LjIgNS44LTcxIDEuMi03My40LjItNjcuMiAxNi42LTk5LjQgOC0xNS44IDEyLjgtMjIgMjgtMzcgMTUuMi0xNS4yIDIxLjQtMTkuNiAzOC4yLTI4IDExLTUuNCAyNC0xMSAyOS0xMi4yIDYuMi0xLjggMjguNi0yLjYgNzEuMi0yLjYgNTguNi0uMiA2Mi42IDAgNjcgMy42eiIvPjwvc3ZnPg==);
-    }
-    
-    
-    .footer-sns-twitter {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHptNTMyLjggMjA1YzEwIDQgMjMgMTAuOCAyOC44IDE1LjIgMTIuNiA5LjIgMTYuNiAxMC42IDI5LjQgOS40IDYuNi0uNiAxMy0zLjIgMjAuNC04LjIgMTEuMi03LjYgMTkuNC05LjIgMjMuNi01IDMuNiAzLjYgMi44IDktMi44IDE4LjYtNy4yIDEyLjQtNiAxOC44IDQuMiAyNC4yIDQuNCAyLjIgOC4yIDUuNiA4LjYgNy40IDEgNC44LTEyLjYgMjQuMi0yMiAzMS44LTExLjggOS4yLTE3LjIgMjIuNi0xOS42IDQ3LjgtNC44IDUwLjQtNy44IDY2LjYtMTYuNCA4NS40LTMgNy03IDE3LjgtOC44IDI0LTEuOCA2LjQtNSAxNC42LTcuNCAxOC40LTIuMiAzLjgtNy40IDEzLTExLjQgMjAuNC0xNy4yIDMwLjgtNDMuNCA2MS40LTcxLjQgODMuOC0yNS42IDIwLjQtNDYgMzMuMi02NC4yIDQwLjItOC40IDMuMi0xOCA3LjYtMjEuNCA5LjYtNy40IDQuNi0yMi40IDguNi01Ny4yIDE1LTYyLjIgMTEuNi03OS4yIDExLjQtMTM1LjYtMS0zMi40LTctMzguNi05LTUyLTE2LjgtMjEuNC0xMi42LTI0LjItMTQuOC0yNC4yLTE5LjQgMC02LjIgMTAuMi05LjIgMzUtMTAuNCAyMi40LTEgMjguNi0yLjYgNTctMTQuMiAyMy44LTkuOCAyOS40LTEyLjggMzAuNC0xNi44IDIuMi04LjItMy0xMy4yLTI2LjgtMjUuNC0yNS44LTEzLjItMzIuMi0xOC40LTQzLjgtMzUuOC05LTEzLjYtMTAtMjEuMi0zLjYtMzMuNiA1LjQtMTAuOCAzLjYtMTUtMTEuOC0yNS40LTktNi0xNC0xMS42LTIwLjgtMjIuNi0yMy40LTM3LjgtMjUtNTAuOC03LjItNTkuOCA0LjgtMi40IDkuNC01LjQgMTAuMi02LjYgMi44LTQuMi0uNC0xNS42LTguNC0yOS0xMS42LTE5LjYtMTMuMi0yNS44LTEzLjItNTUuMiAwLTI4LjggMi42LTM3LjggMTItNDAuMiA5LTIuMiAxNC44IDEgMzUuNiAyMC4yIDI0LjggMjIuOCA0My42IDM2LjYgNjIuOCA0NS44IDggMy44IDE3LjggOS4yIDIyIDEyIDQuMiAyLjggMTQuOCA3IDIzLjQgOS4yIDguNiAyLjIgMjQuMiA2LjggMzQuOCAxMC4yIDEzLjQgNC40IDIzLjYgNi40IDMzIDYuNiAxMi44LjIgMTQuMi0uMiAxOC42LTUuNCA0LTQuOCA0LjgtNy44IDQuOC0xOS4yIDAtMTQuNCA1LjYtMzkuNiAxMS4yLTUwLjYgNC4yLTguNCAyOS4yLTM0LjIgMzkuOC00MS40IDcuOC01LjQgMzUuNi0xNiA1Mi0yMCAxNC4yLTMuNiAzMi42LTEuMiA1Mi40IDYuOHoiLz48L3N2Zz4=);
-    }
-    
-    
-    .footer-sns-gplus {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgY2xhc3M9Imljb24iIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGQ9Ik0xMzguNiA3OGMtMjIuNCA1LjItNTUuOCA0MC4yLTYwLjYgNjMuNC0xLjQgNi40LTIgMTI5LjgtMS42IDM2Ny42LjYgMjk4LjYgMSAzNTguOCAzLjQgMzYzIDExIDIwLjIgMjEuNiAzMi40IDM3LjIgNDMgMTUgMTAuMiAxNy40IDExLjIgMzMgMTMgMTEuMiAxLjQgMTM2IDIgMzY1IDEuNiAzMTQtLjYgMzQ4LjYtMSAzNTUtMy44IDE1LjgtNy4yIDMzLjgtMjIgNDMuMi0zNS40IDUuMi03LjQgMTAuOC0xNi42IDEyLjYtMjAuNCAyLjgtNi40IDMuMi00MC44IDMuOC0zNTQgLjQtMjIzLS4yLTM1My40LTEuNC0zNjUtMi0xNy0yLjYtMTguNi0xMy0zNC04LjYtMTIuNi0xNC4yLTE4LjQtMjUuMi0yNS44LTcuOC01LjQtMTcuNC0xMS0yMS42LTEyLjQtNi0yLjItNzIuOC0yLjYtMzY1LjQtMi42LTE5Ni44LjItMzYxIC44LTM2NC40IDEuOHpNNDMwIDI5NS40YzQwLjYgMTUuNCA1Ni42IDIzLjggNzIuNiAzOC40IDYuOCA2LjIgNy4yIDE1LjIgMSAyMy40LTYuMiA4LTMzLjYgMzMuOC0zOSAzNi42LTUuNiAyLjgtMTcuNiAyLjgtMjMuMi0uMi0yLjQtMS4yLTguMi01LjItMTMtOC44LTExLjItOC42LTI0LjYtMTEuMi01NS4yLTExLjItMjcuNCAwLTQwLjYgMi42LTUyLjIgMTAuNC00LjQgMi44LTEyLjIgNy42LTE3LjIgMTAuNi0yMyAxMy4yLTUxLjQgNTUtNTUuOCA4Mi40LTIuNiAxNS42LTIuNCAzNC44LjIgNTEgMi44IDE3LjQgMTkuOCA0OC44IDM1LjIgNjUuMiAxNiAxNi42IDQ1IDMzLjYgNjIuOCAzNi42IDI2LjggNC40IDY1LjggMS42IDc5LjQtNS44IDIwLjYtMTEuNCAzMS0xOSA0MS0zMC40IDE4LjgtMjEuNiAyMy40LTM0LjIgMTUuNi00My44LTMuOC00LjgtNC40LTQuOC01MS01LjgtNjAuOC0xLjItNTYuMiAyLjItNTYuMi00My4yIDAtMzIuNC4yLTMzLjIgNC44LTM3IDQuNC0zLjYgOS0zLjggOTItMy44IDc5IDAgODcuOC40IDk0LjIgMy42IDExLjIgNS42IDEzIDExLjQgMTIuOCA0My40IDAgMjUuNC0uOCAzMC44LTcuNiA1OC00IDE2LjYtOS44IDM0LTEyLjYgMzktMi44IDUtOC4yIDE0LjItMTEuNiAyMC42LTguNCAxNS40LTI3LjIgMzYuOC00MC44IDQ2LjYtNS44IDQuNC0xMy44IDEwLjItMTcuNiAxMy4yLTMuOCAzLTExIDctMTYuMiA4LjgtNS4yIDEuOC0xNi4yIDYuNC0yNC40IDEwLTIyLjQgOS42LTM0LjggMTEuNi03MyAxMS42LTM3LjYuMi00Ny0xLjQtNzEtMTItOC4yLTMuNi0xNy42LTcuMi0yMC44LTgtMTUuOC0zLjgtNjctNDUuMi03Ny44LTYyLjgtMi4yLTMuOC03LjYtMTEuNi0xMS44LTE3LjItNC4yLTUuNC05LTE0LTEwLjYtMTktMS44LTQuOC02LjItMTYtMTAtMjQuOC0zLjYtOC44LTcuOC0yMi4yLTkuMi0yOS42LTMuMi0xOC44LTEuNC03OS40IDIuOC05MS40IDEzLjgtNDAuNiAzNS42LTc4IDU4LjgtMTAwLjIgMTQtMTMuNiA0Ny4yLTM2LjQgNTgtMzkuOCA0LjItMS40IDEzLjQtNS4yIDIwLjYtOC40IDIyLTEwIDMyLjgtMTEuNiA3Ni0xMSAzMy44LjYgNDAuNCAxLjIgNTAgNC44em0zNDAuOCA4MC44YzggMy42IDkuNiAxMS4yIDkuMiAzOS4yLS42IDM0LjQtLjYgMzQgNSAzOS42IDQuOCA1IDUuNCA1IDM3LjYgNSA0My40IDAgNDQuNC44IDQzLjIgMzYuMi0uOCAxNy0xLjIgMTguNC02LjQgMjMtNS40IDQuNi02LjYgNC44LTM3LjYgNC44LTMxLjIgMC0zMiAuMi0zNi44IDUtNS42IDUuNC01LjYgNC40LTUgNDEuMi40IDI2LjQuMiAyNy40LTQuNiAzMy00LjggNS42LTYgNS44LTI0LjQgNi40LTIwLjguOC0yOS42LTEuNC0zMy40LTguNC0xLjQtMi42LTItMTUuNi0xLjgtMzUuNi40LTMxLjIuNC0zMS42LTQuNi0zNi42cy01LjYtNS0zNi01Yy0xOC44IDAtMzMtLjgtMzYtMi4yLTcuNi0zLjYtOS42LTExLjItOC44LTMzLjguOC0yOC4yLjQtMjggNDEtMjggNDUuNCAwIDQ1LjQgMCA0NC42LTQyLjYtLjYtMzMtLjYtMzMgNS0zOC40IDQuNC00LjYgNi4yLTUgMjQuOC01IDExIDAgMjIuMiAxIDI1IDIuMnoiLz48L3N2Zz4=);
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</style>
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
-        <!-- Config CSS -->
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
   body, html {
     font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   }
 
   a {
@@ -274,28 +202,73 @@
 
 
 <!-- Import Font -->
+<!-- Import Roboto -->
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2020/06/11/PoorDadRichDad/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2020/06/11/PoorDadRichDad/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="穷爸爸富爸爸读书记录 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="读书笔记"> 
+
+    
+        <meta property="article:published_time" content="Thu Jun 11 2020 18:25:42 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jun 11 2020 18:34:26 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/11/PoorDadRichDad/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
 
     <!-- Analytics -->
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+    
+    
+    
 
     <!-- Custom Head -->
     
+
 </head>
 
 
@@ -313,7 +286,7 @@
                     
                         <!-- Hamburger Button -->
                         <button class="MD-burger-icon sidebar-toggle">
-                            <span class="MD-burger-layer"></span>
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
                         </button>
                     
 
@@ -336,23 +309,19 @@
     </div>
     -->
 
+
     <!-- Left aligned menu below button -->
+    
+    
     <button id="post-toc-trigger-btn"
         class="mdl-button mdl-js-button mdl-button--icon">
         <i class="material-icons">format_list_numbered</i>
     </button>
 
-    
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#摘抄"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘抄</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序言-这就是你所需要的"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">序言 这就是你所需要的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一部分-课程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">第一部分 课程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二部分-开端"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">第二部分 开端</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三部分-开始行动"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">第三部分 开始行动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结束语-怎样用7000美元支付孩子的大学费用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">结束语 怎样用7000美元支付孩子的大学费用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我的想法"><span class="post-toc-number">2.</span> <span class="post-toc-text">我的想法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#序言-这就是你所需要的-1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">序言 这就是你所需要的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第一部分-课程-1"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">第一部分 课程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第二部分-开端-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">第二部分 开端</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#第三部分-开始行动-1"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">第三部分 开始行动</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#结束语-怎样用7000美元支付孩子的大学费用-1"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">结束语 怎样用7000美元支付孩子的大学费用</span></a></li></ol></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
     </ul>
     
-
 
 
 
@@ -396,7 +365,7 @@
 
     <!-- Author Avatar -->
     <div id="author-avatar">
-        <img src="/img/avatar.jpg" width="44px" height="44px" alt="Author Avatar"/>
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
     </div>
     <!-- Author Name & Date -->
     <div>
@@ -430,7 +399,8 @@
     
 
     <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
     <i class="material-icons" role="presentation">share</i>
     <span class="visuallyhidden">share</span>
 </button>
@@ -441,7 +411,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=穷爸爸富爸爸读书记录&url=http://hogwartsrico.github.io/2020/06/11/PoorDadRichDad/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=穷爸爸富爸爸读书记录&url=http://hogwartsrico.github.io/2020/06/11/PoorDadRichDad/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -485,6 +455,7 @@
     
 </ul>
 
+    
 </div>
 
                 
@@ -772,103 +743,107 @@
 <p> 要知道没有其他人比你更适合来开启你的孩子的财商 </p>
 <p> 你和你的孩子的未来将由你今天，而不是明天作出的选择来决定。<br>我们衷心希望你能运用上天赐予的伟大礼物——生命——来获取巨大的财富和更多的幸福。</p>
 <h1 id="我的想法"><a href="#我的想法" class="headerlink" title="我的想法"></a>我的想法</h1><h2 id="序言-这就是你所需要的-1"><a href="#序言-这就是你所需要的-1" class="headerlink" title="序言 这就是你所需要的"></a>序言 这就是你所需要的</h2><p>罗伯特为我们讲解“老鼠赛跑”的含义：<br>“如果你看看那些受过教育的、努力工作的人的生活，就会看到一条十分相似的道路。孩子出生了，然后去上学。自豪的父母十分兴奋，因为他们的孩子很优秀，成绩很好，还上了大学。之后孩子从大学毕业了，也许还会继续念研究生，然后像编好的程序一样做下面的事：找个安稳的工作。孩子们找了工作，可能是医生，也可能是律师，或者参军或是进政府部门。他们开始挣钱了，手上有了一大堆信用卡，他们会买很多东西，如果以前他们还没买的话。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要摆脱韭菜的宿命啊</span><br></pre></td></tr></table></figure>
-<h2 id="第一部分-课程-1"><a href="#第一部分-课程-1" class="headerlink" title="第一部分 课程"></a>第一部分 课程</h2><p>富爸爸继续说：“如果你是那种没有勇气的人，生活每次推动你，你都会选择放弃。如果你是这种人，你的一生会过得稳稳当当，不做错事、假想着有事情发生时自救，然后慢慢变老，在无聊中死去。你会有许多朋友，他们很喜欢你，因为你真的是一个努力工作的好人。你的一生过得很安稳，处世无误。但事实是，你向生活屈服了，不敢承担风险。你的确想赢，但失败的恐惧超过了成功的兴奋。只有你知道，在你内心深处，你始终认为你不可能赢，所以你选择了稳定。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">机遇与挑战并存</span><br></pre></td></tr></table></figure>
-<p>他们把一生中最好的年华用来挣钱，却不明白到底是为了什么而工作。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开始是时间买钱，后来是钱买时间.将自己解放出来做喜欢的事</span><br></pre></td></tr></table></figure>
-<p>穷人和中产阶级为钱而工作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用资本生钱和卖力挣钱.这应该是中产和上层阶级的根本差别.</span><br></pre></td></tr></table></figure>
-<p>对大多数人而言，给他们的钱越多，他们欠的债也就越多。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">哈哈哈</span><br></pre></td></tr></table></figure>
-<p>只有穷人和中产阶级是这样。我敢打赌我赚的比你爸爸多，但他缴的税比我多。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当老板，利用税收规律</span><br></pre></td></tr></table></figure>
-<p>如果学好了这一课，你们将永享自由和安宁；如果没有学好，你们就会像马丁太太和在草地上打垒球的大多数人一样度过一生。他们为了一点点钱而勤奋工作，深信有工作就有了保障，盼着一年3个星期的假期和工作45年后才能获得的一小笔养老金。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这不就是 微小确定幸福</span><br></pre></td></tr></table></figure>
-<p>不错。当你长大后，你想要的玩具会更贵，会变成要让你的朋友羡慕的汽车、游艇和大房子，”富爸爸笑着说，“恐惧把你推出门外，欲望又开始召唤你，诱惑你去触礁。这就是陷阱。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">买房也是投资.但是要清楚自己真正想要什么</span><br></pre></td></tr></table></figure>
-<p>不幸的是，对许多人来说，离开学校是学习的终点而不是起点。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是的，有些人的自制力真的很弱，比如我，如果没有时间限制，我会熬夜，我会无止境的追剧。所以自律对一个人真的很重要。离开学习是一件很可悲的事，没有自律也会让人感动恐怖😱</span><br></pre></td></tr></table></figure>
-<p>大多数人没有意识到，在生活中你挣了多少钱并不重要，重要的是你留下了多少钱</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是啊</span><br></pre></td></tr></table></figure>
-<p>因为人们并不明白资产和负债的区别。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">房 车 都是负债 因为不断的有支出</span><br></pre></td></tr></table></figure>
-<p>据说，对很多人来说在公众面前讲话比死还可怕。精神病学认为，害怕在公众面前说话是因为害怕被排斥、害怕冒尖、害怕被批评、害怕被嘲笑、害怕被别人所不容。简言之，是害怕与别人不同。这种心理阻碍了人们去想新办法来解决问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不惧与别人不同. 敢于当异类</span><br></pre></td></tr></table></figure>
-<p>当我想要换一所大一点的房子时，我会先买入一些资产，让它们创造能够支付这所房子的现金流。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以借鉴</span><br></pre></td></tr></table></figure>
-<p>最后我的贷款申请还是被拒绝了，原因是我投资了太多的房地产。信贷委员会不信任我从房地产投资中获取的大量收入，他们只想知道为什么我没有一份能挣到薪水的正式工作。他们也不问阿玛尼西装、高尔夫球杆或艺术藏品是从哪里来的。当你不符合“标准”的规范时，生活将是严峻的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">讽刺！标准是指那些想要贷款的人。需要有固定收入需要有房有车。在中国就像要有保险要有公积金要有房有车才可以贷。案例中他拿上了高尔夫球阿玛尼西装不在标准之内，所以他肯定贷不到款。</span><br></pre></td></tr></table></figure>
-<p>对成年人而言，把支出保持在低水平、减少借款并勤劳地工作会帮你打下一个稳固的资产基础。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">嗯！</span><br></pre></td></tr></table></figure>
-<p>大多数人则会冲动地用贷款去买新车或其他奢侈品，他们可能对生活有些厌烦了，所以期待有点新玩意儿。用贷款买奢侈品，结果迟早会让人们放弃那些东西，因为借下的债是个沉重的负担。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">透支花钱是很爽，但也是饮鸩止渴</span><br></pre></td></tr></table></figure>
-<p>爸爸也不反抗——但他做得更聪明，他利用公司——富人的最大秘密——来达到他的目的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">公司年盈利100万，可以拿80万你可以买车买奢侈品或者买入可以继续盈利的资产，最后就剩下的20万缴税就够了，但如果你年薪100万，那要就这100万来缴税，剩下的钱再买车买奢侈品，可能这一年不仅没剩下钱，还负债了。</span><br></pre></td></tr></table></figure>
-<p>如果你是那种只会等待“好事情”发生的人，那么，你就可能要等很长一段时间了。这就好比在动身旅行之前非要等到前面8公里长的路上所有的红绿灯都变成绿色一样。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个比喻恰当</span><br></pre></td></tr></table></figure>
-<p>以我自己的观点来看，我愿意加入这场史无前例的人性革命的洪流，并投身到这个靠脑力而不是体力来工作的时代。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">人性革命</span><br></pre></td></tr></table></figure>
-<p>.财务知识。即阅读理解数字的能力。<br>2.投资策略。即以钱生钱的科学。<br>3.市场、供给与需求。贝尔提供了市场所需要的东西，比尔·盖茨也是如此。用2万美元买了一套值7.5万美元的房子，以6万美元的价格卖出，也就是抓住了市场所创造的机会。在市场上，总是有买方，就有卖方。<br>4.法律规章。要熟悉有关会计、公司方面的法律以及各州和国家的法规。我们必须按规则来进行“游戏”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mark</span><br></pre></td></tr></table></figure>
-<p>风险总是无处不在，要学会驾驭风险，而别总想回避风险。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">风险时刻存在，不该选择逃避，而该直面并克服它，才能掌握不一样的技能，有人在学会滑冰的过程中没摔倒过吗？不存在的！</span><br></pre></td></tr></table></figure>
-<p>正如一句格言所说：“工作（job）一词就是‘比破产强一点’（just over broke）。”然而不幸的是，这句话确实适用于千百万人，因为学校没有把财商看做是一种智慧，大部分工薪阶层都量入为出，他们挣钱，然后支付账单。<br>还有另外一种可怕的管理理论是这样说的：“工人付出最大努力以免于被解雇，而雇主提供最低工资以防止工人辞职。”如果你看一看大部分公司的工资支付额度，就会明白这一说法确实在某种程度上道出了真相。<br>最终的结果是大部分人从不敢越雷池一步，他们按照别人教他们的那样去做：找一份稳定的工作。大部分人是为短期的工资和福利工作的，但从长期来看这种做法常常是具有灾难性的。<br>相反，我劝告年轻人在找工作时要看能从中学到什么，而不是只看能挣多少钱。在选择某种职业或陷入“老鼠赛跑”的陷阱之前，要仔细看看脚下的路，弄清楚自己到底想获得什么技能。<br>一旦人们陷入为支付账单而整天疲于奔命的陷阱，就和那些蹬着小铁笼不停转圈的小老鼠一样了。它们的小毛腿蹬得飞快，小铁笼也转得飞快，可到了第二天早上，它们发现自己依然被困在笼子里，就像你被你的工作困住一样。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">振聋发聩</span><br></pre></td></tr></table></figure>
-<p>正如一句格言所说：“工作（job）一词就是‘比破产强一点’（just over broke）。”然而不幸的是，这句话确实适用于千百万人，因为学校没有把财商看做是一种智慧，大部分工薪阶层都量入为出，他们挣钱，然后支付账单。<br>还有另外一种可怕的管理理论是这样说的：“工人付出最大努力以免于被解雇，而雇主提供最低工资以防止工人辞职。”如果你看一看大部分公司的工资支付额度，就会明白这一说法确实在某种程度上道出了真相。<br>最终的结果是大部分人从不敢越雷池一步，他们按照别人教他们的那样去做：找一份稳定的工作。大部分人是为短期的工资和福利工作的，但从长期来看这种做法常常是具有灾难性的。<br>相反，我劝告年轻人在找工作时要看能从中学到什么，而不是只看能挣多少钱。在选择某种职业或陷入“老鼠赛跑”的陷阱之前，要仔细看看脚下的路，弄清楚自己到底想获得什么技能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是啊</span><br></pre></td></tr></table></figure>
-<p>最终的结果是大部分人从不敢越雷池一步，他们按照别人教他们的那样去做：找一份稳定的工作。大部分人是为短期的工资和福利工作的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">那些父母朋友们眼中的稳定，把他们自己都骗过了！</span><br></pre></td></tr></table></figure>
-<p>我想说一句话鼓励你们：生活就像去健身房，最痛苦的事情是作出锻炼身体的决定，一旦你过了这一关，以后的事情就好办了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是的.迈开腿已经成功了一半</span><br></pre></td></tr></table></figure>
-<p>如果你坚持不愿意学习新东西，而只是想在自己的领域里成为专家，那么你要确信你服务的公司是有工会的，因为工会会保护专业人士。<br>我受过良好教育的爸爸在失去了政府的“恩宠”之后，成为了夏威夷教师工会的负责人。他告诉我这是他所做过的最难的工作。对我个人来说，我不倾向于劳资任何一方，因为我能理解双方有各自的需要和利益。如果你按学校所教育的那样去做，成为一位专业人士，那么最好去寻求工会的保护。例如，如果我继续我的飞行生涯，我就会进一家有强有力的飞行员工会的公司。为什么？因为我将终生只在这一行里学到一种有价值的技能，如果我被这一行业抛弃，我的技能对其他行业便毫无用处</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多掌握几项技能总是好的.</span><br></pre></td></tr></table></figure>
-<p>如果你们中大部分人都能做出比麦当劳更好的汉堡包，那为什么麦当劳比你们更赚钱？”<br>答案是显而易见的：麦当劳拥有一套出色的商业体系。许多才华横溢的人之所以贫穷，就是因为他们只是专心于做好产品，而对商业体系却知之甚少。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">身为程序员觉得很多爆款软件在我看来技术很简单，看不上它，我徒手都可以撸出来，只不过在风口上罢了，现在觉得一件产品的成功背后不单单只有技术.比如滴滴，最核心的就是geohash+redis，我也能做，但是补贴引导消费习惯这大概是我永远也想不出来的.</span><br></pre></td></tr></table></figure>
-<p>他不能理解，为何越是专业化，就越是掉入陷阱而无法自拔。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我们要学习的，是可以迁移的能力，是能够“放之三十六行而皆可行”的能力</span><br><span class="line">比如社交，口才，推销，法律，健康 ，经济运行规律等.</span><br></pre></td></tr></table></figure>
-<p>我受过良好教育的爸爸工作越努力，就越具有竞争力，但同时他也更深地陷入专业特长的陷阱之中。虽然他的工资增长了，可他的选择机会却少了。直到失去了在政府中的工作，他才发现自己在职业选择上是多么被动。这就好比职业运动员因为突然受伤或是年龄太大而无法继续参加比赛一样，他们会失去曾经拥有的高收入工作，而有限的技能又使他们无法另辟蹊径。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我们要学习的，是可以迁移的能力，是能够“放之三十六行而皆可行”的能力</span><br><span class="line">比如社交，口才，推销，法律，健康 ，经济运行规律等.</span><br></pre></td></tr></table></figure>
-<p>我受过良好教育的爸爸工作越努力，就越具有竞争力，但同时他也更深地陷入专业特长的陷阱之中。虽然他的工资增长了，可他的选择机会却少了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">路越走越窄</span><br></pre></td></tr></table></figure>
-<p>我还不知道有比销售和市场营销更重要的技能，但要掌握它们对大部分人来说是很困难的，这主要是因为他们害怕被拒绝。所以，你在处理人际关系、商务谈判和被拒绝时的恐惧心理等方面做得越好，生活就会越轻松。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">收益p^N，多数人在p上努力，少数人在N上努力，概率提升的空间有限，但是多做尝试并没有坏处，尤其是对于销售</span><br></pre></td></tr></table></figure>
-<p>我建议他们用一年时间来学销售，即使挣不到什么钱，可他们处理人际关系的能力会大大提高，这种能力是无价的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一直想走技术流，对推销营销一类的很鄙视.其实不对，不管是否想做生意推销技能必不可少</span><br></pre></td></tr></table></figure>
-<h2 id="第二部分-开端-1"><a href="#第二部分-开端-1" class="headerlink" title="第二部分 开端"></a>第二部分 开端</h2><p>从未遇见喜欢亏钱的人，但在我的一生中，从未遇见一位没亏过钱的富人，却遇见许多从未亏掉一毛钱的穷人——我是说在投资活动中。<br>对亏钱的害怕是确实存在的，每个人都有这种恐惧心理，包括富人。但恐惧本身并不是问题之所在，关键在于你如何处理恐惧心理，如何处理亏钱的问题。处理失败的不同方式造成了人们生活的差异，不仅是对金钱，对生活中的任何事情都是如此</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">机遇与风险并存</span><br></pre></td></tr></table></figure>
-<p>如果你的资金很少而又想致富，你必须首先集中于一点，而不是追求平衡。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">就是押宝孤注一掷。感觉有点危险？</span><br></pre></td></tr></table></figure>
-<p>理查德的反悔并未让我惊讶，这被称为买家违约。这种心理影响着我们所有人。当我们反悔时，“小鸡”得逞了，而我们实现财务自由的机会却丧失了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要有自己的判断</span><br></pre></td></tr></table></figure>
-<p>原因之五：傲慢。傲慢是自大和无知的结合体。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不屑于搞公众号，知乎答题，微博营销觉得那是浪费时间，结果这些东西还真赚钱.就是因为自己偏见和傲慢</span><br></pre></td></tr></table></figure>
-<p>我知道的东西给我带来金钱，我不知道的东西使我失去金钱。因为每当我自高自大时，我就认为我不知道的东西并不重要。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">忠言逆耳。反观自己，很多时候都是抱着傲慢的态度看待一些事情，当时还觉得别人低到了灰尘里，如今想来，我这样的行为可不就是无知加自大，也正是无知才无畏，而无畏之后也就无为了。你无法探视自己不知道的领域，所以你和你无法知道通往那条领域的道路上究竟有多少鲜花和荆棘，然而最可恶的是你不仅没有抱着谦逊的态度来学习，居然还对你不知道的领域不屑一顾，外行的人可能不知道你多么无知，但是内行人一看就知道你是什么样的人了。总之，不管是对待熟悉的领域还是未知的领域，都要抱着谦逊的学习态度，因为人这一生就是不断的学习，犯了错误之后不断的改正，都是这么一个过程啊，最最重要的是你看待事物的态度以及不断调整迈向正确道路的步伐！</span><br></pre></td></tr></table></figure>
-<h2 id="第三部分-开始行动-1"><a href="#第三部分-开始行动-1" class="headerlink" title="第三部分 开始行动"></a>第三部分 开始行动</h2><p>在秘鲁，我问一位工作了45年的金矿工人，为什么他对找新的金矿充满信心。他回答说：“金矿到处都是，但大部分人没有经过相应的培训，所以发现不了它们。”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">金矿遍地都是，看你有没有能耐发现它们了。你要做的只是学习如何找到金矿，找到后继续学习下一个金矿如何找到，财务自由，仅此而已。</span><br></pre></td></tr></table></figure>
-<p>我们花钱的习惯反映了我们是什么样的人，穷人之所以贫穷是因为他们有着不良的消费习惯。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">是啊</span><br></pre></td></tr></table></figure>
-<p>第一是时间，这是你最珍贵的资产；第二是学习，正因为你没有钱，就更要去学习。事实上我们每天都应该作出一个选择，这个选择是我们利用自己的时间、金钱和头脑里学到的东西作出的。这就是选择的力量。我们都有机会。我选择成为富人，每天都在为此而努力。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对极了</span><br></pre></td></tr></table></figure>
-<p>我想说，在积累财富的过程中，最困难的事情莫过于坚持自己的选择而不盲目从众。因为在竞争激烈的市场上，群体往往会反应迟钝，成为被“宰割”的对象。如果一项大宗交易被列在投资杂志的首页，在多数情况下你此刻去投资恐怕为时已晚，这时你应该去寻找新的机会。就像冲浪者经常说的那样：“总会有新的浪头过来。”人们总是匆匆忙忙去赶那已经过去的浪头，往往又会被新的浪头淘汰出局。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">就像股票的追涨杀跌.家乡政府扶植猕猴桃产业，大家一窝蜂的种，结果价格便宜且滞销</span><br></pre></td></tr></table></figure>
-<p>你学习什么，就会成为什么样的人。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">想到英国作家培根的一句话，读史使人明智，读诗使人灵秀，数学使人周密，科学使人深刻，伦理学使人庄重，逻辑修辞使人善辩，凡有所学，皆成性格。</span><br></pre></td></tr></table></figure>
-<p>我要冒昧说一句：能否自律是将富人、穷人和中产阶级区分开来的首要因素。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">！</span><br></pre></td></tr></table></figure>
-<p>自律精神可以增强上面每一项技能。因此我非常重视“首先支付自己”这句话。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">越自律越自由</span><br></pre></td></tr></table></figure>
-<p>我的邻居就曾经对我说，16%的收益率是不可能实现的，但我没有听他的，因为他从来没有试过。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一些从来没有试过的人，用他们的想法给你的建议，完全可以当做放屁</span><br></pre></td></tr></table></figure>
-<p>我还经常使用“免责条款”来做报价。例如在房地产交易协议上，我会加上一条“须得到我的商业伙伴的同意”。我从不指明我的商业伙伴到底是谁，大部分人都不知道我的商业伙伴其实就是我的小猫。如果他们接受我的报价，而我又想反悔的话，我就给家里的小猫打电话。我讲这个荒唐故事的目的就是为了说明，买卖游戏简单得简直让人难以置信。所以，我觉得许多人太过严肃了，反而把事情弄得太复杂。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不错的想法</span><br></pre></td></tr></table></figure>
-<p>在你得到财富的回报以前必须先行动。那么现在就行动吧！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">马云说得好，大部分人都是晚上想想千条路，早上起来走原路，多少人是败在了没有行动之上，想法人人都有，但是在实践中坚持下去的又有几个呢</span><br></pre></td></tr></table></figure>
-<h2 id="结束语-怎样用7000美元支付孩子的大学费用-1"><a href="#结束语-怎样用7000美元支付孩子的大学费用-1" class="headerlink" title="结束语 怎样用7000美元支付孩子的大学费用"></a>结束语 怎样用7000美元支付孩子的大学费用</h2><p>如果没有受过理财训练，我们往往都会选择一种标准的模式度过一生，例如辛苦工作、储蓄、借款和缴纳本不应该缴纳的税，然而今天我们需要更好的生活模式。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果没看到这本书，我不知道我一直在标准模式下生活，本书给了我不少启发和思想上的转变。</span><br></pre></td></tr></table></figure>
-<p>上天赐予我们每个人两样伟大的礼物：思想和时间。你可以运用这两件礼物去做你愿意做的事情。每一美元钞票到了你的手中，你，且只有你，才有权决定自己的前途。愚蠢地用掉它，你就选择了贫困；把钱用在负债项上，你就会成为中产阶级；投资于你的头脑，学习如何获取资产，富有将成为你的目标和你的未来。选择只能由你作出。每一天，面对每一美元，你都在作出自己是成为一个富人、穷人还是中产阶级的抉择。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">购买资产而不是负债</span><br></pre></td></tr></table></figure>
+<pre><code>要摆脱韭菜的宿命啊
+</code></pre><h2 id="第一部分-课程-1"><a href="#第一部分-课程-1" class="headerlink" title="第一部分 课程"></a>第一部分 课程</h2><p>富爸爸继续说：“如果你是那种没有勇气的人，生活每次推动你，你都会选择放弃。如果你是这种人，你的一生会过得稳稳当当，不做错事、假想着有事情发生时自救，然后慢慢变老，在无聊中死去。你会有许多朋友，他们很喜欢你，因为你真的是一个努力工作的好人。你的一生过得很安稳，处世无误。但事实是，你向生活屈服了，不敢承担风险。你的确想赢，但失败的恐惧超过了成功的兴奋。只有你知道，在你内心深处，你始终认为你不可能赢，所以你选择了稳定。”</p>
+<pre><code>机遇与挑战并存
+</code></pre><p>他们把一生中最好的年华用来挣钱，却不明白到底是为了什么而工作。”</p>
+<pre><code>开始是时间买钱，后来是钱买时间.将自己解放出来做喜欢的事
+</code></pre><p>穷人和中产阶级为钱而工作。</p>
+<pre><code>用资本生钱和卖力挣钱.这应该是中产和上层阶级的根本差别.
+</code></pre><p>对大多数人而言，给他们的钱越多，他们欠的债也就越多。”</p>
+<pre><code>哈哈哈
+</code></pre><p>只有穷人和中产阶级是这样。我敢打赌我赚的比你爸爸多，但他缴的税比我多。”</p>
+<pre><code>当老板，利用税收规律
+</code></pre><p>如果学好了这一课，你们将永享自由和安宁；如果没有学好，你们就会像马丁太太和在草地上打垒球的大多数人一样度过一生。他们为了一点点钱而勤奋工作，深信有工作就有了保障，盼着一年3个星期的假期和工作45年后才能获得的一小笔养老金。</p>
+<pre><code>这不就是 微小确定幸福
+</code></pre><p>不错。当你长大后，你想要的玩具会更贵，会变成要让你的朋友羡慕的汽车、游艇和大房子，”富爸爸笑着说，“恐惧把你推出门外，欲望又开始召唤你，诱惑你去触礁。这就是陷阱。”</p>
+<pre><code>买房也是投资.但是要清楚自己真正想要什么
+</code></pre><p>不幸的是，对许多人来说，离开学校是学习的终点而不是起点。”</p>
+<pre><code>是的，有些人的自制力真的很弱，比如我，如果没有时间限制，我会熬夜，我会无止境的追剧。所以自律对一个人真的很重要。离开学习是一件很可悲的事，没有自律也会让人感动恐怖😱
+</code></pre><p>大多数人没有意识到，在生活中你挣了多少钱并不重要，重要的是你留下了多少钱</p>
+<pre><code>是啊
+</code></pre><p>因为人们并不明白资产和负债的区别。”</p>
+<pre><code>房 车 都是负债 因为不断的有支出
+</code></pre><p>据说，对很多人来说在公众面前讲话比死还可怕。精神病学认为，害怕在公众面前说话是因为害怕被排斥、害怕冒尖、害怕被批评、害怕被嘲笑、害怕被别人所不容。简言之，是害怕与别人不同。这种心理阻碍了人们去想新办法来解决问题。</p>
+<pre><code>不惧与别人不同. 敢于当异类
+</code></pre><p>当我想要换一所大一点的房子时，我会先买入一些资产，让它们创造能够支付这所房子的现金流。</p>
+<pre><code>可以借鉴
+</code></pre><p>最后我的贷款申请还是被拒绝了，原因是我投资了太多的房地产。信贷委员会不信任我从房地产投资中获取的大量收入，他们只想知道为什么我没有一份能挣到薪水的正式工作。他们也不问阿玛尼西装、高尔夫球杆或艺术藏品是从哪里来的。当你不符合“标准”的规范时，生活将是严峻的。</p>
+<pre><code>讽刺！标准是指那些想要贷款的人。需要有固定收入需要有房有车。在中国就像要有保险要有公积金要有房有车才可以贷。案例中他拿上了高尔夫球阿玛尼西装不在标准之内，所以他肯定贷不到款。
+</code></pre><p>对成年人而言，把支出保持在低水平、减少借款并勤劳地工作会帮你打下一个稳固的资产基础。</p>
+<pre><code>嗯！
+</code></pre><p>大多数人则会冲动地用贷款去买新车或其他奢侈品，他们可能对生活有些厌烦了，所以期待有点新玩意儿。用贷款买奢侈品，结果迟早会让人们放弃那些东西，因为借下的债是个沉重的负担。</p>
+<pre><code>透支花钱是很爽，但也是饮鸩止渴
+</code></pre><p>爸爸也不反抗——但他做得更聪明，他利用公司——富人的最大秘密——来达到他的目的</p>
+<pre><code>公司年盈利100万，可以拿80万你可以买车买奢侈品或者买入可以继续盈利的资产，最后就剩下的20万缴税就够了，但如果你年薪100万，那要就这100万来缴税，剩下的钱再买车买奢侈品，可能这一年不仅没剩下钱，还负债了。
+</code></pre><p>如果你是那种只会等待“好事情”发生的人，那么，你就可能要等很长一段时间了。这就好比在动身旅行之前非要等到前面8公里长的路上所有的红绿灯都变成绿色一样。</p>
+<pre><code>这个比喻恰当
+</code></pre><p>以我自己的观点来看，我愿意加入这场史无前例的人性革命的洪流，并投身到这个靠脑力而不是体力来工作的时代。</p>
+<pre><code>人性革命
+</code></pre><p>.财务知识。即阅读理解数字的能力。<br>2.投资策略。即以钱生钱的科学。<br>3.市场、供给与需求。贝尔提供了市场所需要的东西，比尔·盖茨也是如此。用2万美元买了一套值7.5万美元的房子，以6万美元的价格卖出，也就是抓住了市场所创造的机会。在市场上，总是有买方，就有卖方。<br>4.法律规章。要熟悉有关会计、公司方面的法律以及各州和国家的法规。我们必须按规则来进行“游戏”。</p>
+<pre><code>mark
+</code></pre><p>风险总是无处不在，要学会驾驭风险，而别总想回避风险。</p>
+<pre><code>风险时刻存在，不该选择逃避，而该直面并克服它，才能掌握不一样的技能，有人在学会滑冰的过程中没摔倒过吗？不存在的！
+</code></pre><p>正如一句格言所说：“工作（job）一词就是‘比破产强一点’（just over broke）。”然而不幸的是，这句话确实适用于千百万人，因为学校没有把财商看做是一种智慧，大部分工薪阶层都量入为出，他们挣钱，然后支付账单。<br>还有另外一种可怕的管理理论是这样说的：“工人付出最大努力以免于被解雇，而雇主提供最低工资以防止工人辞职。”如果你看一看大部分公司的工资支付额度，就会明白这一说法确实在某种程度上道出了真相。<br>最终的结果是大部分人从不敢越雷池一步，他们按照别人教他们的那样去做：找一份稳定的工作。大部分人是为短期的工资和福利工作的，但从长期来看这种做法常常是具有灾难性的。<br>相反，我劝告年轻人在找工作时要看能从中学到什么，而不是只看能挣多少钱。在选择某种职业或陷入“老鼠赛跑”的陷阱之前，要仔细看看脚下的路，弄清楚自己到底想获得什么技能。<br>一旦人们陷入为支付账单而整天疲于奔命的陷阱，就和那些蹬着小铁笼不停转圈的小老鼠一样了。它们的小毛腿蹬得飞快，小铁笼也转得飞快，可到了第二天早上，它们发现自己依然被困在笼子里，就像你被你的工作困住一样。</p>
+<pre><code>振聋发聩
+</code></pre><p>正如一句格言所说：“工作（job）一词就是‘比破产强一点’（just over broke）。”然而不幸的是，这句话确实适用于千百万人，因为学校没有把财商看做是一种智慧，大部分工薪阶层都量入为出，他们挣钱，然后支付账单。<br>还有另外一种可怕的管理理论是这样说的：“工人付出最大努力以免于被解雇，而雇主提供最低工资以防止工人辞职。”如果你看一看大部分公司的工资支付额度，就会明白这一说法确实在某种程度上道出了真相。<br>最终的结果是大部分人从不敢越雷池一步，他们按照别人教他们的那样去做：找一份稳定的工作。大部分人是为短期的工资和福利工作的，但从长期来看这种做法常常是具有灾难性的。<br>相反，我劝告年轻人在找工作时要看能从中学到什么，而不是只看能挣多少钱。在选择某种职业或陷入“老鼠赛跑”的陷阱之前，要仔细看看脚下的路，弄清楚自己到底想获得什么技能。</p>
+<pre><code>是啊
+</code></pre><p>最终的结果是大部分人从不敢越雷池一步，他们按照别人教他们的那样去做：找一份稳定的工作。大部分人是为短期的工资和福利工作的</p>
+<pre><code>那些父母朋友们眼中的稳定，把他们自己都骗过了！
+</code></pre><p>我想说一句话鼓励你们：生活就像去健身房，最痛苦的事情是作出锻炼身体的决定，一旦你过了这一关，以后的事情就好办了</p>
+<pre><code>是的.迈开腿已经成功了一半
+</code></pre><p>如果你坚持不愿意学习新东西，而只是想在自己的领域里成为专家，那么你要确信你服务的公司是有工会的，因为工会会保护专业人士。<br>我受过良好教育的爸爸在失去了政府的“恩宠”之后，成为了夏威夷教师工会的负责人。他告诉我这是他所做过的最难的工作。对我个人来说，我不倾向于劳资任何一方，因为我能理解双方有各自的需要和利益。如果你按学校所教育的那样去做，成为一位专业人士，那么最好去寻求工会的保护。例如，如果我继续我的飞行生涯，我就会进一家有强有力的飞行员工会的公司。为什么？因为我将终生只在这一行里学到一种有价值的技能，如果我被这一行业抛弃，我的技能对其他行业便毫无用处</p>
+<pre><code>多掌握几项技能总是好的.
+</code></pre><p>如果你们中大部分人都能做出比麦当劳更好的汉堡包，那为什么麦当劳比你们更赚钱？”<br>答案是显而易见的：麦当劳拥有一套出色的商业体系。许多才华横溢的人之所以贫穷，就是因为他们只是专心于做好产品，而对商业体系却知之甚少。</p>
+<pre><code>身为程序员觉得很多爆款软件在我看来技术很简单，看不上它，我徒手都可以撸出来，只不过在风口上罢了，现在觉得一件产品的成功背后不单单只有技术.比如滴滴，最核心的就是geohash+redis，我也能做，但是补贴引导消费习惯这大概是我永远也想不出来的.
+</code></pre><p>他不能理解，为何越是专业化，就越是掉入陷阱而无法自拔。</p>
+<pre><code>我们要学习的，是可以迁移的能力，是能够“放之三十六行而皆可行”的能力
+比如社交，口才，推销，法律，健康 ，经济运行规律等.
+</code></pre><p>我受过良好教育的爸爸工作越努力，就越具有竞争力，但同时他也更深地陷入专业特长的陷阱之中。虽然他的工资增长了，可他的选择机会却少了。直到失去了在政府中的工作，他才发现自己在职业选择上是多么被动。这就好比职业运动员因为突然受伤或是年龄太大而无法继续参加比赛一样，他们会失去曾经拥有的高收入工作，而有限的技能又使他们无法另辟蹊径。</p>
+<pre><code>我们要学习的，是可以迁移的能力，是能够“放之三十六行而皆可行”的能力
+比如社交，口才，推销，法律，健康 ，经济运行规律等.
+</code></pre><p>我受过良好教育的爸爸工作越努力，就越具有竞争力，但同时他也更深地陷入专业特长的陷阱之中。虽然他的工资增长了，可他的选择机会却少了</p>
+<pre><code>路越走越窄
+</code></pre><p>我还不知道有比销售和市场营销更重要的技能，但要掌握它们对大部分人来说是很困难的，这主要是因为他们害怕被拒绝。所以，你在处理人际关系、商务谈判和被拒绝时的恐惧心理等方面做得越好，生活就会越轻松。</p>
+<pre><code>收益p^N，多数人在p上努力，少数人在N上努力，概率提升的空间有限，但是多做尝试并没有坏处，尤其是对于销售
+</code></pre><p>我建议他们用一年时间来学销售，即使挣不到什么钱，可他们处理人际关系的能力会大大提高，这种能力是无价的</p>
+<pre><code>一直想走技术流，对推销营销一类的很鄙视.其实不对，不管是否想做生意推销技能必不可少
+</code></pre><h2 id="第二部分-开端-1"><a href="#第二部分-开端-1" class="headerlink" title="第二部分 开端"></a>第二部分 开端</h2><p>从未遇见喜欢亏钱的人，但在我的一生中，从未遇见一位没亏过钱的富人，却遇见许多从未亏掉一毛钱的穷人——我是说在投资活动中。<br>对亏钱的害怕是确实存在的，每个人都有这种恐惧心理，包括富人。但恐惧本身并不是问题之所在，关键在于你如何处理恐惧心理，如何处理亏钱的问题。处理失败的不同方式造成了人们生活的差异，不仅是对金钱，对生活中的任何事情都是如此</p>
+<pre><code>机遇与风险并存
+</code></pre><p>如果你的资金很少而又想致富，你必须首先集中于一点，而不是追求平衡。</p>
+<pre><code>就是押宝孤注一掷。感觉有点危险？
+</code></pre><p>理查德的反悔并未让我惊讶，这被称为买家违约。这种心理影响着我们所有人。当我们反悔时，“小鸡”得逞了，而我们实现财务自由的机会却丧失了。</p>
+<pre><code>要有自己的判断
+</code></pre><p>原因之五：傲慢。傲慢是自大和无知的结合体。</p>
+<pre><code>不屑于搞公众号，知乎答题，微博营销觉得那是浪费时间，结果这些东西还真赚钱.就是因为自己偏见和傲慢
+</code></pre><p>我知道的东西给我带来金钱，我不知道的东西使我失去金钱。因为每当我自高自大时，我就认为我不知道的东西并不重要。</p>
+<pre><code>忠言逆耳。反观自己，很多时候都是抱着傲慢的态度看待一些事情，当时还觉得别人低到了灰尘里，如今想来，我这样的行为可不就是无知加自大，也正是无知才无畏，而无畏之后也就无为了。你无法探视自己不知道的领域，所以你和你无法知道通往那条领域的道路上究竟有多少鲜花和荆棘，然而最可恶的是你不仅没有抱着谦逊的态度来学习，居然还对你不知道的领域不屑一顾，外行的人可能不知道你多么无知，但是内行人一看就知道你是什么样的人了。总之，不管是对待熟悉的领域还是未知的领域，都要抱着谦逊的学习态度，因为人这一生就是不断的学习，犯了错误之后不断的改正，都是这么一个过程啊，最最重要的是你看待事物的态度以及不断调整迈向正确道路的步伐！
+</code></pre><h2 id="第三部分-开始行动-1"><a href="#第三部分-开始行动-1" class="headerlink" title="第三部分 开始行动"></a>第三部分 开始行动</h2><p>在秘鲁，我问一位工作了45年的金矿工人，为什么他对找新的金矿充满信心。他回答说：“金矿到处都是，但大部分人没有经过相应的培训，所以发现不了它们。”</p>
+<pre><code>金矿遍地都是，看你有没有能耐发现它们了。你要做的只是学习如何找到金矿，找到后继续学习下一个金矿如何找到，财务自由，仅此而已。
+</code></pre><p>我们花钱的习惯反映了我们是什么样的人，穷人之所以贫穷是因为他们有着不良的消费习惯。</p>
+<pre><code>是啊
+</code></pre><p>第一是时间，这是你最珍贵的资产；第二是学习，正因为你没有钱，就更要去学习。事实上我们每天都应该作出一个选择，这个选择是我们利用自己的时间、金钱和头脑里学到的东西作出的。这就是选择的力量。我们都有机会。我选择成为富人，每天都在为此而努力。</p>
+<pre><code>对极了
+</code></pre><p>我想说，在积累财富的过程中，最困难的事情莫过于坚持自己的选择而不盲目从众。因为在竞争激烈的市场上，群体往往会反应迟钝，成为被“宰割”的对象。如果一项大宗交易被列在投资杂志的首页，在多数情况下你此刻去投资恐怕为时已晚，这时你应该去寻找新的机会。就像冲浪者经常说的那样：“总会有新的浪头过来。”人们总是匆匆忙忙去赶那已经过去的浪头，往往又会被新的浪头淘汰出局。</p>
+<pre><code>就像股票的追涨杀跌.家乡政府扶植猕猴桃产业，大家一窝蜂的种，结果价格便宜且滞销
+</code></pre><p>你学习什么，就会成为什么样的人。</p>
+<pre><code>想到英国作家培根的一句话，读史使人明智，读诗使人灵秀，数学使人周密，科学使人深刻，伦理学使人庄重，逻辑修辞使人善辩，凡有所学，皆成性格。
+</code></pre><p>我要冒昧说一句：能否自律是将富人、穷人和中产阶级区分开来的首要因素。</p>
+<pre><code>！
+</code></pre><p>自律精神可以增强上面每一项技能。因此我非常重视“首先支付自己”这句话。</p>
+<pre><code>越自律越自由
+</code></pre><p>我的邻居就曾经对我说，16%的收益率是不可能实现的，但我没有听他的，因为他从来没有试过。</p>
+<pre><code>一些从来没有试过的人，用他们的想法给你的建议，完全可以当做放屁
+</code></pre><p>我还经常使用“免责条款”来做报价。例如在房地产交易协议上，我会加上一条“须得到我的商业伙伴的同意”。我从不指明我的商业伙伴到底是谁，大部分人都不知道我的商业伙伴其实就是我的小猫。如果他们接受我的报价，而我又想反悔的话，我就给家里的小猫打电话。我讲这个荒唐故事的目的就是为了说明，买卖游戏简单得简直让人难以置信。所以，我觉得许多人太过严肃了，反而把事情弄得太复杂。</p>
+<pre><code>不错的想法
+</code></pre><p>在你得到财富的回报以前必须先行动。那么现在就行动吧！</p>
+<pre><code>马云说得好，大部分人都是晚上想想千条路，早上起来走原路，多少人是败在了没有行动之上，想法人人都有，但是在实践中坚持下去的又有几个呢
+</code></pre><h2 id="结束语-怎样用7000美元支付孩子的大学费用-1"><a href="#结束语-怎样用7000美元支付孩子的大学费用-1" class="headerlink" title="结束语 怎样用7000美元支付孩子的大学费用"></a>结束语 怎样用7000美元支付孩子的大学费用</h2><p>如果没有受过理财训练，我们往往都会选择一种标准的模式度过一生，例如辛苦工作、储蓄、借款和缴纳本不应该缴纳的税，然而今天我们需要更好的生活模式。</p>
+<pre><code>如果没看到这本书，我不知道我一直在标准模式下生活，本书给了我不少启发和思想上的转变。
+</code></pre><p>上天赐予我们每个人两样伟大的礼物：思想和时间。你可以运用这两件礼物去做你愿意做的事情。每一美元钞票到了你的手中，你，且只有你，才有权决定自己的前途。愚蠢地用掉它，你就选择了贫困；把钱用在负债项上，你就会成为中产阶级；投资于你的头脑，学习如何获取资产，富有将成为你的目标和你的未来。选择只能由你作出。每一天，面对每一美元，你都在作出自己是成为一个富人、穷人还是中产阶级的抉择。</p>
+<pre><code>购买资产而不是负债
+</code></pre>
+        
     
 
     
@@ -876,7 +851,8 @@
 
 
                 
-		<!-- Post Comments -->
+
+                <!-- Post Comments -->
                 
                     
                 
@@ -938,7 +914,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.jpg" alt="Rico's avatar">
+        <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -1003,16 +979,6 @@
 
     <!-- Pages  -->
     
-        <li>
-            <a href="/about" title="About">
-                
-                    <i class="material-icons sidebar-material-icons">person</i>
-                
-                About
-            </a>
-        </li>
-        
-    
 
     <!-- Article Number  -->
     
@@ -1035,7 +1001,7 @@ It will not impact the appearance and can give developers a lot of support :)
     <div class="sidebar-divider"></div>
 
 
-<!-- Theme Material chenhongjie 
+<!-- Theme Material -->
 
     <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
         <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
@@ -1043,7 +1009,6 @@ It will not impact the appearance and can give developers a lot of support :)
             <span class="sidebar-badge badge-circle">i</span>
         </div>
     </a>
-  -->
 
 
 <!-- Help & Support -->
@@ -1117,11 +1082,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Instagram -->
     
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Tumblr -->
     
 
     <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
     
 
     <!-- LinkedIn -->
@@ -1135,12 +1112,19 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Telegram -->
     
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
 </div>
 
 
         <!--Copyright-->
         <div id="copyright">
-            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Rico's Blog
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -1156,21 +1140,24 @@ It will not impact the appearance and can give developers a lot of support :)
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
         </div>
     
 </footer>
 
 
-                    <!-- Import File -->
+                    <!-- Import JS File -->
 
-
-    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
-    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
 
 
 
-    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
 
 
 <script type="text/ls-javascript" id="NProgress-script">
@@ -1215,15 +1202,40 @@ It will not impact the appearance and can give developers a lot of support :)
 	}
 </script>
 
-<!-- Window Load-->
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
 <script type="text/ls-javascript" id="window-load">
     $(window).on('load', function() {
         // Post_Toc parent position fixed
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
 </script>
 
 <!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -1241,10 +1253,21 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-<!-- Bing Background -->
+<!-- Custom Footer -->
+
 
 
 <script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
     (function(){
         var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
 
@@ -1253,7 +1276,7 @@ It will not impact the appearance and can give developers a lot of support :)
             lsloader.runInlineScript(item.id,item.id);
         }
     })()
-console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
 </script>
 
                 </main>

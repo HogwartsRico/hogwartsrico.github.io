@@ -169,12 +169,12 @@
 <!-- Theme Background Related-->
 
     <style>
-      body{
+      body {
         background-color: #F5F5F5;
       }
 
       /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
         background-color: #fff;
       }
     </style>
@@ -438,12 +438,6 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://hogwartsrico.github.io/2015/01/22/About-GeoHash/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
 
     <!-- Share LinkedIn -->
     
@@ -519,6 +513,16 @@
 <h1 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h1><p><a href="http://en.wikipedia.org/wiki/Geohash" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Geohash</a></p>
 <p>本文转载自 <a href="http://www.cnblogs.com/LBSer/p/3310455.html" target="_blank" rel="noopener">http://www.cnblogs.com/LBSer/p/3310455.html</a></p>
 
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            This blog is under a CC BY-NC-SA 3.0 Unported License
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://hogwartsrico.github.io/2015/01/22/About-GeoHash/">http://hogwartsrico.github.io/2015/01/22/About-GeoHash/</a>
+                    </p>
+                </blockquote>
         
     
 
@@ -671,13 +675,6 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Theme Material -->
 
-    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
-        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
-            主题 - Material
-            <span class="sidebar-badge badge-circle">i</span>
-        </div>
-    </a>
-
 
 <!-- Help & Support -->
 <!--
@@ -747,6 +744,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Weibo -->
     
+        <a href="https://weibo.com/1878017080/profile" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Instagram -->
     
@@ -777,11 +780,23 @@ It will not impact the appearance and can give developers a lot of support :)
 
     <!-- Bilibili -->
     
+        <a href="https://space.bilibili.com/14573494" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
 
     <!-- Telegram -->
     
 
     <!-- V2EX -->
+    
+        <a href="https://v2ex.com/member/Rico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-v2ex">
+                <span class="visuallyhidden">V2EX</span>
+            </button><!--
+     --></a>
     
 
     <!-- Segmentfault -->
@@ -793,6 +808,11 @@ It will not impact the appearance and can give developers a lot of support :)
         <div id="copyright">
             Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
             
+                <br>
+                
+                    <a href="http://www.beian.miit.gov.cn/" rel="nofollow" target="_blank">浙ICP备16013155号</a>
+                
+            
         </div>
 
         <!-- Paradox Footer Right Section -->
@@ -803,14 +823,14 @@ It will not impact the appearance and can give developers a lot of support :)
 
         很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
         它不会影响美观并可以给开发者很大的支持。 :)
-        -->
+        
 
         <div class="mdl-mini-footer--right-section">
             <div>
                 <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
                 <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
             </div>
-        </div>
+        </div>-->
     
 </footer>
 
@@ -850,6 +870,10 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
 
 
 
@@ -904,6 +928,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Bing Background -->
 
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?');
+    });
+</script>
+
 
 <script type="text/ls-javascript" id="lazy-load">
     // Offer LazyLoad
@@ -929,7 +959,7 @@ It will not impact the appearance and can give developers a lot of support :)
     var copyrightNow = new Date().getFullYear();
     var textContent = document.querySelector('span[year]')
 
-    copyrightSince = 0000;
+    copyrightSince = 2014;
     if (copyrightSince === copyrightNow||copyrightSince === 0000) {
         textContent.textContent = copyrightNow
     } else {

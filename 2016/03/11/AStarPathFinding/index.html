@@ -247,7 +247,7 @@
 
     
         <meta property="article:published_time" content="Fri Mar 11 2016 23:21:15 GMT+0800">
-        <meta property="article:modified_time" content="Tue Mar 24 2020 11:19:16 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jul 02 2020 10:54:31 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -463,14 +463,16 @@
 <p><code>A*寻路</code>算法是比较流行的启发式搜索算法之一，被广泛应用于路径优化领域。它的独特之处是检查最短路径中每个可能的节点时引入了全局信息，对当前节点距终点的距离做出估计，并作为评价该节点处于最短路线上的可能性的量度。 </p>
 <p>当你玩War3，Dota, 等RTS(即时战略)游戏，当你给里面的人物下达移动指令时，就是基于格子地图使用了<code>A*</code>算法来进行路径分析的. 当然了诸如冰霜飞龙奇美拉是不需要考虑阻挡的啦，直接飞直线就行了(三本兵就是屌233)      </p>
 <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>网上A星算法可视化的比较多 推荐2个Demo  </p>
-<p><a href="https://anvaka.github.io/ngraph.path.demo/#?graph=amsterdam-roads" target="_blank" rel="noopener">阿姆斯特丹路网–A*寻路Demo</a>   <a href="https://github.com/anvaka/ngraph.path" target="_blank" rel="noopener">源码</a>  </p>
+<p><a href="https://anvaka.github.io/ngraph.path.demo/#?graph=amsterdam-roads" target="_blank" rel="noopener">阿姆斯特丹路网–A*寻路Demo</a><br> <a href="https://github.com/anvaka/ngraph.path" target="_blank" rel="noopener">源码</a>  </p>
 <p><img src="1.png" alt></p>
 <p>作者将荷兰阿姆斯特丹城市的路网经过pbf编码压缩，使得7万6千条边数据压缩到了1.1M大小，然后通过A星算法进行最短路径分析，性能强大到鼠标拖动B点到哪里，路径分析就到哪里。 左上角是耗时，8.85毫秒  </p>
 <p>第二个Demo对于理解A星算法有很大帮助 </p>
-<p><a href="http://qiao.github.io/PathFinding.js/visual/" target="_blank" rel="noopener">PathFinding.js/visual</a>  <a href="https://github.com/qiao/PathFinding.js" target="_blank" rel="noopener">源码</a> </p>
+<p><a href="http://qiao.github.io/PathFinding.js/visual/" target="_blank" rel="noopener">PathFinding.js/visual</a><br><a href="https://github.com/qiao/PathFinding.js" target="_blank" rel="noopener">源码</a> </p>
 <p><img src="2.png" alt> </p>
 <p>下图是相同起止点，使用<code>迪杰斯特拉算法</code>进行路径分析的结果 ，可以明显看到，分析的节点比A*多了很多,耗时也多了很多，效率优劣不言而喻了.   </p>
 <p><img src="3.png" alt> </p>
+<p>再补一个3D的A*可视化网站： <a href="https://www.hightopo.com/demo/astar/astar.html" target="_blank" rel="noopener">https://www.hightopo.com/demo/astar/astar.html</a>  <a href="https://github.com/bgrins/javascript-astar" target="_blank" rel="noopener">源码</a>   </p>
+<p>2D <a href="https://briangrinstead.com/files/astar/" target="_blank" rel="noopener">https://briangrinstead.com/files/astar/</a>  </p>
 <h1 id="算法详解"><a href="#算法详解" class="headerlink" title="算法详解"></a>算法详解</h1><p>如图所示简易网格地图, 其中绿色方块的是起点 (用 A 表示), 中间绿色的是障碍物(不可走), 红色的方块 (用 B 表示) 是目的地. 为了可以用一个二维数组来表示地图, 我们将地图划分成一个个的小方块.</p>
 <p><img src="4.png" alt></p>
 <h2 id="开始搜索"><a href="#开始搜索" class="headerlink" title="开始搜索"></a>开始搜索</h2><h3 id="1-起点加入OpenList"><a href="#1-起点加入OpenList" class="headerlink" title="1. 起点加入OpenList"></a>1. 起点加入OpenList</h3><p><strong>把起点A加入到一个由方格组成的 <em>OpenList</em></strong>( 开放列表 ,这个概念很重要，还有一个<em>CloseList</em> ,下文中会提及) 中。这个 OpenList 就是一个备选列表。当然现在 OpenList 里只有一项，它就是起点 A ，后面会慢慢加入更多的项。 OpenList 里的格子是路径可能会是沿途经过的，也有可能不经过。</p>

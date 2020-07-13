@@ -247,7 +247,7 @@
 
     
         <meta property="article:published_time" content="Mon Jun 29 2020 15:51:04 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jun 29 2020 15:53:31 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jun 29 2020 16:29:11 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -457,17 +457,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>整理和总结了一下大家常遇到的问题：</p>
-<pre><code>1.  客户端socket发送消息后，为什么服务端socket没有收到？
-
-2.  使用while 循环实现连续输入，是不是就是多线程模式？
-
-3.  对多线程处理机制不是很明白，希望详细讲解？
-
-4.  希望详细讲解ServerSocketChannel和SocketChannel与ServerSoket和Socket的区别？
-
-5.  希望有详细的例子，可以直接拷贝下来运行？
-</code></pre><h1 id="一：socket通信基本原理。"><a href="#一：socket通信基本原理。" class="headerlink" title="一：socket通信基本原理。"></a>一：socket通信基本原理。</h1><p>首先socket 通信是基于TCP/IP 网络层上的一种传送方式，我们通常把TCP和UDP称为传输层。</p>
+        <h1 id="一：socket通信基本原理。"><a href="#一：socket通信基本原理。" class="headerlink" title="一：socket通信基本原理。"></a>一：socket通信基本原理。</h1><p>首先socket 通信是基于TCP/IP 网络层上的一种传送方式，我们通常把TCP和UDP称为传输层。</p>
 <p><img src="1.png" alt> </p>
 <p>如上图，在七个层级关系中，我们将的socket属于传输层，其中UDP是一种面向无连接的传输层协议。UDP不关心对端是否真正收到了传送过去的数据。如果需要检查对端是否收到分组数据包，或者对端是否连接到网络，则需要在应用程序中实现。UDP常用在分组数据较少或多播、广播通信以及视频通信等多媒体领域。在这里我们不进行详细讨论，这里主要讲解的是基于TCP/IP协议下的socket通信。</p>
 <p>socket是基于应用服务与TCP/IP通信之间的一个抽象，他将TCP/IP协议里面复杂的通信逻辑进行分装，对用户来说，只要通过一组简单的API就可以实现网络的连接。借用网络上一组socket通信图给大家进行详细讲解：</p>

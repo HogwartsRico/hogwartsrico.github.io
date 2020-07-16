@@ -249,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Wed Jul 15 2020 17:59:35 GMT+0800">
-        <meta property="article:modified_time" content="Wed Jul 15 2020 18:00:26 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jul 16 2020 17:21:26 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -1093,9 +1093,9 @@ private static void connect(Bootstrap bootstrap, String host, int port, int retr
 }
 </code></pre>
 <p>将这段逻辑添加到客户端之后逻辑处理器 <code>FirstClientHandler</code> 之后，客户端就能收到服务端发来的数据，完整的代码参考 <a href="https://github.com/lightningMan/flash-netty/tree/客户端与服务端双向通信" target="_blank" rel="noopener">GitHub</a></p>
-<p>客户端与服务端的读写数据的逻辑完成之后，我们先运行服务端，再运行客户端，控制台输出如下</p>
-<p><img src="1.png" alt> </p>
-<p><img src="2.png" alt> </p>
+<p>客户端与服务端的读写数据的逻辑完成之后，我们先运行服务端，再运行客户端，控制台输出如下 </p>
+<p><img src="6.png" alt> </p>
+<p><img src="7.png" alt> </p>
 <p>到这里，我们本小节要实现的客户端与服务端双向通信的功能实现完毕，最后，我们对本小节做一个总结。</p>
 <h2 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h2><ul>
 <li>本文中，我们了解到客户端和服务端的逻辑处理是均是在启动的时候，通过给逻辑处理链 <code>pipeline</code> 添加逻辑处理器，来编写数据的读写逻辑，<code>pipeline</code> 的逻辑我们在后面会分析。 </li>
@@ -1104,7 +1104,7 @@ private static void connect(Bootstrap bootstrap, String host, int port, int retr
 </ul>
 <h1 id="数据传输载体-ByteBuf-介绍"><a href="#数据传输载体-ByteBuf-介绍" class="headerlink" title="数据传输载体 ByteBuf 介绍"></a>数据传输载体 ByteBuf 介绍</h1><p> 在前面一小节，我们已经了解到 Netty 里面数据读写是以 ByteBuf 为单位进行交互的，这一小节，我们就来详细剖析一下 ByteBuf </p>
 <h2 id="ByteBuf结构"><a href="#ByteBuf结构" class="headerlink" title="ByteBuf结构"></a>ByteBuf结构</h2><p>首先，我们先来了解一下 ByteBuf 的结构</p>
-<p><img src="3.png" alt> </p>
+<p><img src="8.png" alt> </p>
 <p>以上就是一个 ByteBuf 的结构图，从上面这幅图可以看到</p>
 <ol>
 <li><strong>ByteBuf 是一个字节容器</strong>，容器里面的的数据分为三个部分，<strong>第一个部分是已经丢弃的字节</strong>，这部分数据是无效的；<strong>第二部分是可读字节，这部分数据是 ByteBuf 的主体数据， 从 ByteBuf 里面读取的数据都来自这一部分</strong>;<strong>最后一部分的数据是可写字节</strong>，所有写到 ByteBuf 的数据都会写到这一段。最后一部分虚线表示的是该 ByteBuf 最多还能扩容多少容量</li>
@@ -1412,10 +1412,10 @@ maxWritableBytes(): 90
 <li>最后，我们通过一个具体的例子说明 ByteBuf 的实际使用</li>
 </ol>
 <h1 id="客户端与服务端通信协议编解码"><a href="#客户端与服务端通信协议编解码" class="headerlink" title="客户端与服务端通信协议编解码"></a>客户端与服务端通信协议编解码</h1><h2 id="什么是服务端与客户端的通信协议"><a href="#什么是服务端与客户端的通信协议" class="headerlink" title="什么是服务端与客户端的通信协议"></a>什么是服务端与客户端的通信协议</h2><p>无论是使用 Netty 还是原始的 Socket 编程，基于 TCP 通信的数据包格式均为二进制，协议指的就是客户端与服务端事先商量好的，每一个二进制数据包中每一段字节分别代表什么含义的规则。如下图的一个简单的登录指令</p>
-<p><img src="4.png" alt> </p>
+<p><img src="9.png" alt> </p>
 <p>在这个数据包中，第一个字节为 1 表示这是一个登录指令，接下来是用户名和密码，这两个值以 <code>\0</code> 分割，客户端发送这段二进制数据包到服务端，服务端就能根据这个协议来取出用户名密码，进行登录逻辑。实际的通信协议设计中，我们会考虑更多细节，要比这个稍微复杂一些。</p>
 <p>那么，协议设计好之后，客户端与服务端的通信过程又是怎样的呢？</p>
-<p><img src="5.png" alt> </p>
+<p><img src="10.png" alt> </p>
 <p>如上图所示，客户端与服务端通信</p>
 <ol>
 <li>首先，客户端把一个 Java 对象按照通信协议转换成二进制数据包。</li>
@@ -1424,7 +1424,7 @@ maxWritableBytes(): 90
 <li>服务端处理完之后，如果需要吐出响应给客户端，那么按照相同的流程进行。</li>
 </ol>
 <p>在本小册子的<a href="https://juejin.im/book/5b4bc28bf265da0f60130116/section/5b6a1a9cf265da0f87595521" target="_blank" rel="noopener">第一节</a>中，我们已经列出了实现一个支持单聊和群聊的 IM 的指令集合，我们设计协议的目的就是为了客户端与服务端能够识别出这些具体的指令。 接下来，我们就来看一下如何设计这个通信协议。</p>
-<h2 id="通信协议的设计"><a href="#通信协议的设计" class="headerlink" title="通信协议的设计"></a>通信协议的设计</h2><p><img src="6.png" alt> </p>
+<h2 id="通信协议的设计"><a href="#通信协议的设计" class="headerlink" title="通信协议的设计"></a>通信协议的设计</h2><p><img src="11.png" alt> </p>
 <ol>
 <li>首先，第一个字段是魔数，通常情况下为固定的几个字节（我们这边规定为4个字节）。 为什么需要这个字段，而且还是一个固定的数？假设我们在服务器上开了一个端口，比如 80 端口，如果没有这个魔数，任何数据包传递到服务器，服务器都会根据自定义协议来进行处理，包括不符合自定义协议规范的数据包。例如，我们直接通过 <code>http://服务器ip</code> 来访问服务器（默认为 80 端口）， 服务端收到的是一个标准的 HTTP 协议数据包，但是它仍然会按照事先约定好的协议来处理 HTTP 协议，显然，这是会解析出错的。而有了这个魔数之后，服务端首先取出前面四个字节进行比对，能够在第一时间识别出这个数据包并非是遵循自定义协议的，也就是无效数据包，为了安全考虑可以直接关闭连接以节省资源。在 Java 的字节码的二进制文件中，开头的 4 个字节为<code>0xcafebabe</code> 用来标识这是个字节码文件，亦是异曲同工之妙。</li>
 <li>接下来一个字节为版本号，通常情况下是预留字段，用于协议升级的时候用到，有点类似 TCP 协议中的一个字段标识是 IPV4 协议还是 IPV6 协议，大多数情况下，这个字段是用不到的，不过为了协议能够支持升级，我们还是先留着。</li>
@@ -1610,7 +1610,7 @@ public ByteBuf encode(Packet packet) {
 <p>可以看到，解码过程与编码过程正好是一个相反的过程。</p>
 <h2 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h2><p>本小节，我们学到了如下几个知识点</p>
 <ol>
-<li>通信协议是为了服务端与客户端交互，双方协商出来的满足一定规则的二进制数据格式。</li>
+<li>通信协议是为了服务端与客户端交互，双方协商出来的满足一定规则的<strong>二进制数据格式</strong>。</li>
 <li>介绍了一种通用的通信协议的设计，包括魔数、版本号、序列化算法标识、指令、数据长度、数据几个字段，该协议能够满足绝大多数的通信场景。</li>
 <li>Java 对象以及序列化，目的就是实现 Java 对象与二进制数据的互转。</li>
 <li>最后，我们依照我们设计的协议以及 ByteBuf 的 API 实现了通信协议，这个过程称为编解码过程。</li>
@@ -1618,7 +1618,7 @@ public ByteBuf encode(Packet packet) {
 <blockquote>
 <p>本小节完整代码参考 <a href="https://github.com/lightningMan/flash-netty/tree/客户端与服务端通信协议编解码" target="_blank" rel="noopener">github</a>， 其中 <code>PacketCodeCTest.java</code> 对编解码过程的测试用例，大家可以下载下来跑一跑。</p>
 </blockquote>
-<h1 id="Netty实现登录和首发消息"><a href="#Netty实现登录和首发消息" class="headerlink" title="Netty实现登录和首发消息"></a>Netty实现登录和首发消息</h1><h2 id="登录流程"><a href="#登录流程" class="headerlink" title="登录流程"></a>登录流程</h2><p><img src="7.png" alt> </p>
+<h1 id="Netty实现登录和首发消息"><a href="#Netty实现登录和首发消息" class="headerlink" title="Netty实现登录和首发消息"></a>Netty实现登录和首发消息</h1><h2 id="登录流程"><a href="#登录流程" class="headerlink" title="登录流程"></a>登录流程</h2><p><img src="12.png" alt> </p>
 <p>从上图中我们可以看到，客户端连接上服务端之后</p>
 <ol>
 <li>客户端会构建一个登录请求对象，然后通过编码把请求对象编码为 ByteBuf，写到服务端。</li>
@@ -1743,9 +1743,9 @@ ctx.channel().writeAndFlush(responseByteBuf);
 <blockquote>
 <p>服务端</p>
 </blockquote>
-<p><img src="8.png" alt></p>
+<p><img src="13.png" alt></p>
 <p> 客户端 </p>
-<p><img src="9.png" alt></p>
+<p><img src="14.png" alt></p>
 <h2 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h2><p>本小节，我们们梳理了一下客户端登录的基本流程，然后结合上一小节的编解码逻辑，我们使用 Netty 实现了完整的客户端登录流程。</p>
 <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>客户端登录成功或者失败之后，如果把成功或者失败的标识绑定在客户端的连接上？</p>
 <h1 id="实战：实现客户端与服务端收发消息"><a href="#实战：实现客户端与服务端收发消息" class="headerlink" title="实战：实现客户端与服务端收发消息"></a>实战：实现客户端与服务端收发消息</h1><blockquote>
@@ -1898,9 +1898,9 @@ private static void startConsoleThread(Channel channel) {
 <h2 id="控制台输出"><a href="#控制台输出" class="headerlink" title="控制台输出"></a>控制台输出</h2><blockquote>
 <p>客户端</p>
 </blockquote>
-<p><img src="10.png" alt> </p>
+<p><img src="15.png" alt> </p>
 <p> 服务端 </p>
-<p><img src="11.png" alt> </p>
+<p><img src="16.png" alt> </p>
 <h2 id="总结-6"><a href="#总结-6" class="headerlink" title="总结"></a>总结</h2><p>在本小节中</p>
 <ol>
 <li>我们定义了收发消息的 Java 对象进行消息的收发。</li>
@@ -1913,7 +1913,7 @@ private static void startConsoleThread(Channel channel) {
 <p>这一小节，我们将会学习 Netty 里面一大核心组件： Pipeline 与 ChannelHandler</p>
 </blockquote>
 <p>上一小节的最后，我们提出一个问题：如何避免 <code>else</code> 泛滥？我们注意到，不管是服务端还是客户端，处理流程大致分为以下几个步骤</p>
-<p><img src="12.png" alt> </p>
+<p><img src="17.png" alt> </p>
 <p>我们把这三类逻辑都写在一个类里面，客户端写在 <code>ClientHandler</code>，服务端写在 <code>ServerHandler</code>，如果要做功能的扩展（比如，我们要校验 magic number，或者其他特殊逻辑），只能在一个类里面去修改， 这个类就会变得越来越臃肿。</p>
 <p>另外，我们注意到，每次发指令数据包都要手动调用编码器编码成 <code>ByteBuf</code>，对于这类场景的编码优化，我们能想到的办法自然是模块化处理，不同的逻辑放置到单独的类来处理，最后将这些逻辑串联起来，形成一个完整的逻辑处理链。</p>
 <p>Netty 中的 pipeline 和 channelHandler 正是用来解决这个问题的：它通过责任链设计模式来组织代码逻辑，并且能够支持逻辑的动态添加和删除 ，Netty 能够支持各类协议的扩展，比如 HTTP，Websocket，Redis，靠的就是 pipeline 和 channelHandler，下面，我们就来一起学习一下这部分内容。</p>

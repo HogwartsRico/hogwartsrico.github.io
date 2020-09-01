@@ -249,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Mon Aug 17 2020 10:16:14 GMT+0800">
-        <meta property="article:modified_time" content="Mon Aug 17 2020 10:47:54 GMT+0800">
+        <meta property="article:modified_time" content="Tue Sep 01 2020 22:48:25 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-初探门径"><span class="post-toc-number">1.</span> <span class="post-toc-text">RocketMQ 初探门径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ整体认知"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">RocketMQ整体认知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ概念模型"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">RocketMQ概念模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ源码包编译"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">RocketMQ源码包编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码包结构介绍"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">源码包结构介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">环境搭建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-编辑-etc-hosts"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">1 编辑/etc/hosts</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-上传，解压程序-建立软连接"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">2 上传，解压程序,建立软连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-创建数据存储位置"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">3 创建数据存储位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-修改rocketmq配置文件"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">4 修改rocketmq配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-修改日志配置文件"><span class="post-toc-number">1.4.6.</span> <span class="post-toc-text">5 修改日志配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-修改启动脚本参数"><span class="post-toc-number">1.4.7.</span> <span class="post-toc-text">6 修改启动脚本参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改runbroker-sh"><span class="post-toc-number">1.4.7.1.</span> <span class="post-toc-text">修改runbroker.sh</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改runserver-sh"><span class="post-toc-number">1.4.7.2.</span> <span class="post-toc-text">修改runserver.sh</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动"><span class="post-toc-number">1.4.8.</span> <span class="post-toc-text">启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先启动nameserver"><span class="post-toc-number">1.4.8.1.</span> <span class="post-toc-text">先启动nameserver</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再启动broker"><span class="post-toc-number">1.4.8.2.</span> <span class="post-toc-text">再启动broker</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭"><span class="post-toc-number">1.4.9.</span> <span class="post-toc-text">关闭</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先关闭broker"><span class="post-toc-number">1.4.9.1.</span> <span class="post-toc-text">先关闭broker</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再关闭nameserver"><span class="post-toc-number">1.4.9.2.</span> <span class="post-toc-text">再关闭nameserver</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ控制台使用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">RocketMQ控制台使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-急速入门"><span class="post-toc-number">2.</span> <span class="post-toc-text">RocketMQ 急速入门</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-生产者核心"><span class="post-toc-number">3.</span> <span class="post-toc-text">RocketMQ  生产者核心</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-消费者核心"><span class="post-toc-number">4.</span> <span class="post-toc-text">RocketMQ 消费者核心</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-初探门径"><span class="post-toc-number">1.</span> <span class="post-toc-text">RocketMQ 初探门径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ整体认知"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">RocketMQ整体认知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ概念模型"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">RocketMQ概念模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ源码包编译"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">RocketMQ源码包编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码包结构介绍"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">源码包结构介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">环境搭建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-编辑-etc-hosts"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">1 编辑/etc/hosts</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-上传，解压程序-建立软连接"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">2 上传，解压程序,建立软连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-创建数据存储位置"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">3 创建数据存储位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-修改rocketmq配置文件"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">4 修改rocketmq配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-修改日志配置文件"><span class="post-toc-number">1.4.6.</span> <span class="post-toc-text">5 修改日志配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-修改启动脚本参数"><span class="post-toc-number">1.4.7.</span> <span class="post-toc-text">6 修改启动脚本参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改runbroker-sh"><span class="post-toc-number">1.4.7.1.</span> <span class="post-toc-text">修改runbroker.sh</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改runserver-sh"><span class="post-toc-number">1.4.7.2.</span> <span class="post-toc-text">修改runserver.sh</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动"><span class="post-toc-number">1.4.8.</span> <span class="post-toc-text">启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先启动nameserver"><span class="post-toc-number">1.4.8.1.</span> <span class="post-toc-text">先启动nameserver</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再启动broker"><span class="post-toc-number">1.4.8.2.</span> <span class="post-toc-text">再启动broker</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭"><span class="post-toc-number">1.4.9.</span> <span class="post-toc-text">关闭</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先关闭broker"><span class="post-toc-number">1.4.9.1.</span> <span class="post-toc-text">先关闭broker</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再关闭nameserver"><span class="post-toc-number">1.4.9.2.</span> <span class="post-toc-text">再关闭nameserver</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ控制台使用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">RocketMQ控制台使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#云主机部署rocketmq的配置："><span class="post-toc-number">1.6.</span> <span class="post-toc-text">云主机部署rocketmq的配置：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ入门"><span class="post-toc-number">2.</span> <span class="post-toc-text">RocketMQ入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生产者使用"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">生产者使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#消费者使用-amp-重试机制"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">消费者使用 &amp; 重试机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重试机制"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">重试机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模拟消息异常"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">模拟消息异常</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四种集群环境讲解"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">四种集群环境讲解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主从集群环境构建"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">主从集群环境构建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据高可用机制故障演练"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">数据高可用机制故障演练</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-生产者核心"><span class="post-toc-number">3.</span> <span class="post-toc-text">RocketMQ  生产者核心</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-消费者核心"><span class="post-toc-number">4.</span> <span class="post-toc-text">RocketMQ 消费者核心</span></a></li></ol>
     </ul>
     
 
@@ -648,11 +648,180 @@ flushDiskType=ASYNC_FLUSH
 <p>可以新建topic</p>
 <p><img src="32.png" alt> </p>
 <p><img src="33.png" alt> </p>
-<h1 id="RocketMQ-急速入门"><a href="#RocketMQ-急速入门" class="headerlink" title="RocketMQ 急速入门"></a>RocketMQ 急速入门</h1><p>生产者模型使用</p>
-<p>消费者模型使用</p>
-<p>四种集群环境讲解</p>
-<p>主从集群环境构建</p>
-<p>数据高可用机制故障演练</p>
+<h2 id="云主机部署rocketmq的配置："><a href="#云主机部署rocketmq的配置：" class="headerlink" title="云主机部署rocketmq的配置："></a>云主机部署rocketmq的配置：</h2><p>在云服务器上 启动好nameServer和Broker之后, 启动生产者会报这样的错误</p>
+<pre><code>RemotingTooMuchRequestException: sendDefaultImpl call timeout
+</code></pre><p>原因： BrokerIP展示的是云服务器的本地IP，不是公网IP  据说这个问题的原因是因为虚拟机的多网卡造成的. </p>
+<p><img src="36.png" alt> </p>
+<p><strong>解决方法：</strong> </p>
+<p>在broker 中 加入 两行配置</p>
+<p>namesrvAddr = 127.0.0.1:9876</p>
+<p>brokerIP1=你的公网IP</p>
+<p><img src="37.png" alt> </p>
+<p> 启动broker的指令要修改下 </p>
+<pre><code class="shell">nohup ./mqbroker -n 公网IP:9876 autoCreateTopicEnable=true -c /usr/local/rocketmq/conf/2m-2s-async/broker-a.properties  &gt;/dev/null 2&gt;&amp;1 &amp;
+</code></pre>
+<p><img src="38.png" alt> </p>
+<p>控制台显示端口是10911,但是 <strong>程序仍然连接9876</strong> </p>
+<h1 id="RocketMQ入门"><a href="#RocketMQ入门" class="headerlink" title="RocketMQ入门"></a>RocketMQ入门</h1><h2 id="生产者使用"><a href="#生产者使用" class="headerlink" title="生产者使用"></a>生产者使用</h2><p>rocketmq在发消息的时候，<strong>如果mq中事先不存在这个消息中设置的topic，会自动帮你创建</strong>,并创建默认的队列 </p>
+<pre><code class="java">
+public class Producer {
+    public static void main(String[] args) throws MQClientException, RemotingException, InterruptedException, MQBrokerException {
+        //1 创建生产者对象DefaultMQProducer(一个应用中组名称不能重复)
+        //2 设置NamesrvAddr
+        //3 启动生产者服务
+        //4 创建消息并发送
+        DefaultMQProducer producer=new DefaultMQProducer(&quot;test_pull_producer_name&quot;);//传入生产者组组名
+        producer.setNamesrvAddr(Const.NAMESERV_ADDR_SINGLE);
+        producer.start();
+        //RocketMQ的消息封装成了Message的对象
+        for(int i=0;i&lt;10;i++){
+            /** 创建消息
+             * new Message的参数
+             * 1 topic  主题 消费端订阅某一个主题
+             * 2 tags  标签   主要做一个过滤
+             * 3 keys  唯一id  用户自定义的
+             * 4 body  消息体 是字节格式的
+             */
+            Message message=new Message(&quot;test_pull_topic&quot;,&quot;TagA&quot;,&quot;key&quot;+i,(&quot;hello,rocketmq&quot;+i).getBytes());//1 topic  2 tags 3 keys 4 body
+            message.setDelayTimeLevel(1);
+            /** 发送消息
+             * producer.send的参数
+             * msg  消息
+             * selector 某个topic的指定队列
+             * arg  参数
+             * sendCallback  回调
+             * timeout  超时时间
+             */
+            SendResult sendResult=producer.send(message);//有返回值就是sendresult
+            /* 指定队列
+            SendResult sendResult=producer.send(message, new MessageQueueSelector() {
+                @Override
+                public MessageQueue select(List&lt;MessageQueue&gt; msgQueueList, Message message, Object arg) {
+                    Integer queueNumber = (int) arg;
+                    return msgQueueList.get(queueNumber);
+                }
+            },1);//这个1会回调给  public MessageQueue select(List&lt;MessageQueue&gt; list, Message message, Object arg) 的 arg,也就是指定发送到第1个队列
+            */
+            //System.out.printf(sendResult.getSendStatus());//可以获取发送状态
+            System.out.println(&quot;消息发出&quot;+sendResult.toString());//可以获取发送状态
+            Thread.sleep(1000);
+        }
+        producer.shutdown();
+    }
+}
+</code></pre>
+<p>注意pom引入的client版本和rocketmq程序版本要一致</p>
+<p>运行后控制台输出</p>
+<pre><code>消息发出SendResult [sendStatus=SEND_OK, msgId=0200021A487C18B4AAC204C1C3CD0000, offsetMsgId=51446DF900002A9F0000000000000000, messageQueue=MessageQueue [topic=test_pull_topic, brokerName=broker-a, queueId=2], queueOffset=0]
+....
+</code></pre><p>msgID自动生成的 </p>
+<p>messageQueue 表示放到哪个队列里 </p>
+<p>rocketmq在一个topic下默认会有4个队列，所以topic对queue是一对多的关系</p>
+<p><img src="39.png" alt> </p>
+<p><img src="40.png" alt> </p>
+<h2 id="消费者使用-amp-重试机制"><a href="#消费者使用-amp-重试机制" class="headerlink" title="消费者使用 &amp; 重试机制"></a>消费者使用 &amp; 重试机制</h2><p>编写消费者代码</p>
+<pre><code class="java">public static void main(String[] args) throws MQClientException {
+    /**
+         * 1创建消费者对象DefaultMQPushConsumer
+         * 2设置NamesrvAddr及其消费位置ConsumeFromWhere(消息消费的点在哪里?从哪里开始消费,有first,last)
+         * 3进行订阅主题subscribe
+         * 4注册监听并消费registerMessageListener  (所以并不是mq主动推送给消费者的，上面的mqpushConsumer感觉像是主动推，其实并不是主动发消息的，是消费者注册监听，内部是长轮训的机制 )
+         */
+        DefaultMQPushConsumer consumer=new DefaultMQPushConsumer(&quot;test_consumer&quot;);//传入消费者组名  有push和pull，最常用的是push
+        consumer.setNamesrvAddr(Const.NAMESERV_ADDR);
+        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);//last从最后端开始消费,first从头开始消费
+        consumer.subscribe(&quot;test_topic&quot;,&quot;TagA&quot;);//tag其实起到一个过滤的作用，当然你也可以写*,这样就不过滤了topic下所有的都消费
+        consumer.registerMessageListener(new MessageListenerConcurrently() {//并发的接口
+            @Override
+            public ConsumeConcurrentlyStatus consumeMessage(List&lt;MessageExt&gt; msgList, ConsumeConcurrentlyContext consumeConcurrentlyContext) {
+                //对消息处理的逻辑
+                MessageExt messageExt=msgList.get(0);//由于我们发的是单条消息，所以获取0就好了
+                try{
+                    String topic=messageExt.getTopic();
+                    String tag=messageExt.getTags();
+                    String keys=messageExt.getKeys();
+                    String msgBody=new String(messageExt.getBody(), RemotingHelper.DEFAULT_CHARSET);
+                    System.out.println(&quot;topic:&quot;+topic+&quot;tag:&quot;+tag+&quot;keys&quot;+keys+&quot;msgBody:&quot;+msgBody);
+                }catch (Exception e){
+
+                    return ConsumeConcurrentlyStatus.RECONSUME_LATER;//如果失败，稍后重试
+                }
+                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+            }
+        });
+        consumer.start();
+        System.out.println(&quot;consumer start&quot;);
+    }
+</code></pre>
+<p><img src="41.png" alt> </p>
+<p>上面代码中有</p>
+<pre><code class="java">catch (Exception e){
+    return ConsumeConcurrentlyStatus.RECONSUME_LATER;//如果失败，稍后重试
+}
+</code></pre>
+<p>意思是如果发生异常，会再次重新push过来，过1s ,2s,5s,10s等间隔</p>
+<p>那么如何知道目前是第几次重试呢？ 答：其实 <strong>MessageExt</strong> 中包含了重试次数 </p>
+<h3 id="重试机制"><a href="#重试机制" class="headerlink" title="重试机制"></a>重试机制</h3><p>其实mq在启动的时候进行了很多的配置项，可以去broker.log那里去看</p>
+<p><img src="42.png" alt> </p>
+<p>总共有15次自动重试(如果一直失败)</p>
+<h3 id="模拟消息异常"><a href="#模拟消息异常" class="headerlink" title="模拟消息异常"></a>模拟消息异常</h3><pre><code class="java">public class Consumer {
+    public static void main(String[] args) throws MQClientException {
+        /**
+         * 1创建消费者对象DefaultMQPushConsumer
+         * 2设置NamesrvAddr及其消费位置ConsumeFromWhere(消息消费的点在哪里?从哪里开始消费,有first,last)
+         * 3进行订阅主题subscribe
+         * 4注册监听并消费registerMessageListener  (所以并不是mq主动推送给消费者的，上面的mqpushConsumer感觉像是主动推，其实并不是主动发消息的，是消费者注册监听，内部是长轮训的机制 )
+         */
+        DefaultMQPushConsumer consumer=new DefaultMQPushConsumer(&quot;test_consumer&quot;);//传入消费者组名  有push和pull，最常用的是push
+        consumer.setNamesrvAddr(Const.NAMESERV_ADDR_SINGLE);
+        consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);//last从最后端开始消费,first从头开始消费
+        consumer.subscribe(&quot;test_pull_topic&quot;,&quot;TagA&quot;);//tag其实起到一个过滤的作用，当然你也可以写*,这样就不过滤了topic下所有的都消费
+        consumer.setConsumeMessageBatchMaxSize(1);//一次最多可以拉取多少消息
+        consumer.setConsumeThreadMax(20);//最多会有20个线程去拉取消息
+        consumer.setMaxReconsumeTimes(3);//最大重试次数3次
+        consumer.setMessageModel(MessageModel.CLUSTERING);//默认是CLUSTERING集群模式
+        consumer.registerMessageListener(//注册消息监听
+          new MessageListenerConcurrently() {//并发的监听,还有一个是MessageListenerOrderly,它是用作顺序消费的
+            @Override
+            public ConsumeConcurrentlyStatus consumeMessage(List&lt;MessageExt&gt; msgList, ConsumeConcurrentlyContext consumeConcurrentlyContext) {
+                //对消息处理的逻辑
+                MessageExt messageExt=msgList.get(0);//由于我们发的是单条消息，所以获取0就好了
+                try{
+                    String topic=messageExt.getTopic();
+                    String tag=messageExt.getTags();
+                    String keys=messageExt.getKeys();
+                    /*
+                    if (messageExt.getQueueId() == 1) {
+                        ....
+                    }*/
+                    if(keys.equals(&quot;key2&quot;)) {//我们选取key2来当作失败
+                        System.out.println(&quot;消息消费失败&quot;);
+                        int a=1/0;
+                    }
+                    String msgBody=new String(messageExt.getBody(), RemotingHelper.DEFAULT_CHARSET);
+                    System.out.println(&quot;topic:&quot;+topic+&quot;tag:&quot;+tag+&quot;keys&quot;+keys+&quot;msgBody:&quot;+msgBody);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    int reconsumeTimes = messageExt.getReconsumeTimes();//当前这条消息被重发了多少次
+                    System.err.println(&quot;当前消息重发了: &quot;+reconsumeTimes+&quot;次&quot;);
+                    if(reconsumeTimes == 3){
+                        //记录日志,作补偿处理.....
+                        return  ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+                    }
+                    return ConsumeConcurrentlyStatus.RECONSUME_LATER;//如果失败，稍后重试
+                }
+                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+            }
+        });
+        consumer.start();
+        System.out.println(&quot;消费者启动了&quot;);
+    }
+}
+</code></pre>
+<p><img src="43.png" alt> </p>
+<h2 id="四种集群环境讲解"><a href="#四种集群环境讲解" class="headerlink" title="四种集群环境讲解"></a>四种集群环境讲解</h2><p>待完善</p>
+<h2 id="主从集群环境构建"><a href="#主从集群环境构建" class="headerlink" title="主从集群环境构建"></a>主从集群环境构建</h2><p>待完善</p>
+<h2 id="数据高可用机制故障演练"><a href="#数据高可用机制故障演练" class="headerlink" title="数据高可用机制故障演练"></a>数据高可用机制故障演练</h2><p>待完善</p>
 <h1 id="RocketMQ-生产者核心"><a href="#RocketMQ-生产者核心" class="headerlink" title="RocketMQ  生产者核心"></a>RocketMQ  生产者核心</h1><p>配置参数解析</p>
 <p>主从同步机制解析</p>
 <p>同步/异步消息发送解析</p>

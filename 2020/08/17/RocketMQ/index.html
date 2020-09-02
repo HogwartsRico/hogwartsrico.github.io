@@ -249,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Mon Aug 17 2020 10:16:14 GMT+0800">
-        <meta property="article:modified_time" content="Tue Sep 01 2020 22:48:25 GMT+0800">
+        <meta property="article:modified_time" content="Wed Sep 02 2020 15:16:04 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-初探门径"><span class="post-toc-number">1.</span> <span class="post-toc-text">RocketMQ 初探门径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ整体认知"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">RocketMQ整体认知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ概念模型"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">RocketMQ概念模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ源码包编译"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">RocketMQ源码包编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码包结构介绍"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">源码包结构介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">环境搭建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-编辑-etc-hosts"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">1 编辑/etc/hosts</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-上传，解压程序-建立软连接"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">2 上传，解压程序,建立软连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-创建数据存储位置"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">3 创建数据存储位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-修改rocketmq配置文件"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">4 修改rocketmq配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-修改日志配置文件"><span class="post-toc-number">1.4.6.</span> <span class="post-toc-text">5 修改日志配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-修改启动脚本参数"><span class="post-toc-number">1.4.7.</span> <span class="post-toc-text">6 修改启动脚本参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改runbroker-sh"><span class="post-toc-number">1.4.7.1.</span> <span class="post-toc-text">修改runbroker.sh</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改runserver-sh"><span class="post-toc-number">1.4.7.2.</span> <span class="post-toc-text">修改runserver.sh</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动"><span class="post-toc-number">1.4.8.</span> <span class="post-toc-text">启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先启动nameserver"><span class="post-toc-number">1.4.8.1.</span> <span class="post-toc-text">先启动nameserver</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再启动broker"><span class="post-toc-number">1.4.8.2.</span> <span class="post-toc-text">再启动broker</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭"><span class="post-toc-number">1.4.9.</span> <span class="post-toc-text">关闭</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先关闭broker"><span class="post-toc-number">1.4.9.1.</span> <span class="post-toc-text">先关闭broker</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再关闭nameserver"><span class="post-toc-number">1.4.9.2.</span> <span class="post-toc-text">再关闭nameserver</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ控制台使用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">RocketMQ控制台使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#云主机部署rocketmq的配置："><span class="post-toc-number">1.6.</span> <span class="post-toc-text">云主机部署rocketmq的配置：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ入门"><span class="post-toc-number">2.</span> <span class="post-toc-text">RocketMQ入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生产者使用"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">生产者使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#消费者使用-amp-重试机制"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">消费者使用 &amp; 重试机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重试机制"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">重试机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模拟消息异常"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">模拟消息异常</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四种集群环境讲解"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">四种集群环境讲解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主从集群环境构建"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">主从集群环境构建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据高可用机制故障演练"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">数据高可用机制故障演练</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-生产者核心"><span class="post-toc-number">3.</span> <span class="post-toc-text">RocketMQ  生产者核心</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-消费者核心"><span class="post-toc-number">4.</span> <span class="post-toc-text">RocketMQ 消费者核心</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-初探门径"><span class="post-toc-number">1.</span> <span class="post-toc-text">RocketMQ 初探门径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ整体认知"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">RocketMQ整体认知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ概念模型"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">RocketMQ概念模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Producer"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Producer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Producer-Group"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Producer Group</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Consumer"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Consumer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Consumer-Group"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Consumer Group</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Topic"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">Topic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Message"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">Message</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Tag"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">Tag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Broker"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">Broker</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Broker与NameServer关系"><span class="post-toc-number">1.2.8.1.</span> <span class="post-toc-text">Broker与NameServer关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#负载均衡"><span class="post-toc-number">1.2.8.2.</span> <span class="post-toc-text">负载均衡</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#可用性"><span class="post-toc-number">1.2.8.3.</span> <span class="post-toc-text">可用性</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Queue"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">Queue</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#offset"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">offset</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NameServer"><span class="post-toc-number">1.2.11.</span> <span class="post-toc-text">NameServer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Broker集群"><span class="post-toc-number">1.2.12.</span> <span class="post-toc-text">Broker集群</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Topic和Queue"><span class="post-toc-number">1.2.13.</span> <span class="post-toc-text">Topic和Queue</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#tags"><span class="post-toc-number">1.2.14.</span> <span class="post-toc-text">tags</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流程图"><span class="post-toc-number">1.2.15.</span> <span class="post-toc-text">流程图:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Topic的存储"><span class="post-toc-number">1.2.16.</span> <span class="post-toc-text">Topic的存储</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#部署模型"><span class="post-toc-number">1.2.17.</span> <span class="post-toc-text">部署模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#消费者"><span class="post-toc-number">1.2.18.</span> <span class="post-toc-text">消费者</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Consumer与Name-Server关系"><span class="post-toc-number">1.2.18.1.</span> <span class="post-toc-text">Consumer与Name Server关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Consumer与Broker关系"><span class="post-toc-number">1.2.18.2.</span> <span class="post-toc-text">Consumer与Broker关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#负载均衡-1"><span class="post-toc-number">1.2.18.3.</span> <span class="post-toc-text">负载均衡</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生产者"><span class="post-toc-number">1.2.19.</span> <span class="post-toc-text">生产者</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Producer与Name-Server关系"><span class="post-toc-number">1.2.19.1.</span> <span class="post-toc-text">Producer与Name Server关系</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#与broker关系"><span class="post-toc-number">1.2.19.2.</span> <span class="post-toc-text">与broker关系</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ源码包编译"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">RocketMQ源码包编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码包结构介绍"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">源码包结构介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">环境搭建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-编辑-etc-hosts"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">1 编辑/etc/hosts</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-上传，解压程序-建立软连接"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">2 上传，解压程序,建立软连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-创建数据存储位置"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">3 创建数据存储位置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-修改rocketmq配置文件"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">4 修改rocketmq配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-修改日志配置文件"><span class="post-toc-number">1.4.6.</span> <span class="post-toc-text">5 修改日志配置文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-修改启动脚本参数"><span class="post-toc-number">1.4.7.</span> <span class="post-toc-text">6 修改启动脚本参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改runbroker-sh"><span class="post-toc-number">1.4.7.1.</span> <span class="post-toc-text">修改runbroker.sh</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改runserver-sh"><span class="post-toc-number">1.4.7.2.</span> <span class="post-toc-text">修改runserver.sh</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动"><span class="post-toc-number">1.4.8.</span> <span class="post-toc-text">启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先启动nameserver"><span class="post-toc-number">1.4.8.1.</span> <span class="post-toc-text">先启动nameserver</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再启动broker"><span class="post-toc-number">1.4.8.2.</span> <span class="post-toc-text">再启动broker</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关闭"><span class="post-toc-number">1.4.9.</span> <span class="post-toc-text">关闭</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#先关闭broker"><span class="post-toc-number">1.4.9.1.</span> <span class="post-toc-text">先关闭broker</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#再关闭nameserver"><span class="post-toc-number">1.4.9.2.</span> <span class="post-toc-text">再关闭nameserver</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RocketMQ控制台使用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">RocketMQ控制台使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#云主机部署rocketmq的配置："><span class="post-toc-number">1.6.</span> <span class="post-toc-text">云主机部署rocketmq的配置：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ入门"><span class="post-toc-number">2.</span> <span class="post-toc-text">RocketMQ入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生产者使用"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">生产者使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#消费者使用-amp-重试机制"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">消费者使用 &amp; 重试机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重试机制"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">重试机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模拟消息异常"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">模拟消息异常</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四种集群环境讲解"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">四种集群环境讲解</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主从集群环境构建"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">主从集群环境构建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据高可用机制故障演练"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">数据高可用机制故障演练</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#杀掉master的broker"><span class="post-toc-number">2.5.1.</span> <span class="post-toc-text">杀掉master的broker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#恢复master的broker"><span class="post-toc-number">2.5.2.</span> <span class="post-toc-text">恢复master的broker</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-生产者核心"><span class="post-toc-number">3.</span> <span class="post-toc-text">RocketMQ  生产者核心</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#生产者参数解析"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">生产者参数解析</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RocketMQ-消费者核心"><span class="post-toc-number">4.</span> <span class="post-toc-text">RocketMQ 消费者核心</span></a></li></ol>
     </ul>
     
 
@@ -496,18 +496,99 @@
 <li>消息失败重试机制，消息可查询 (RabbitMQ消息失败是不支持重试的，rocketmq如果失败了，broker负责重发)</li>
 <li>开源社区活跃，成熟度高</li>
 </ul>
-<h2 id="RocketMQ概念模型"><a href="#RocketMQ概念模型" class="headerlink" title="RocketMQ概念模型"></a>RocketMQ概念模型</h2><ul>
-<li><p>Producer : 消息生产者，负责生产消息,一般由业务系统负责产生消息</p>
-</li>
-<li><p>Consumer：消息消费者，负责消费消息，一般是后台系统负责异步消费</p>
-</li>
-<li><p>Push Consumer(推送的Consumer):Consumer的一种，需要向Consumer对象注册监听，监听mq向我们推消息 </p>
-</li>
+<h2 id="RocketMQ概念模型"><a href="#RocketMQ概念模型" class="headerlink" title="RocketMQ概念模型"></a>RocketMQ概念模型</h2><h3 id="Producer"><a href="#Producer" class="headerlink" title="Producer"></a>Producer</h3><p> 消息生产者，负责生产消息,一般由业务系统负责产生消息。 位于用户的进程内，<code>Producer通过NameServer获取所有Broker的路由信息</code>，根据负载均衡策略选择将消息发到哪个Broker，然后调用Broker接口提交消息。 </p>
+<h3 id="Producer-Group"><a href="#Producer-Group" class="headerlink" title="Producer Group"></a>Producer Group</h3><p> 生产者组，简单来说就是多个<strong>发送同一类消息</strong>的生产者称之为一个生产者组。 </p>
+<p>生产者可以有多个，启动时候可以定义多个节点同一个组。在RocketMQ中生产者组合消费者组是必须要定义的，并且一个环境只能起一个相同名称的group  </p>
+<h3 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h3><p>消息消费者，负责消费消息，一般是后台系统负责异步消费.</p>
+<p>位于用户进程内。Consumer通过NameServer获取所有broker的路由信息后，向Broker发送Pull请求来获取消息数据。Consumer可以以两种模式启动，<strong>广播（Broadcast）和集群（Cluster）</strong>，<strong>广播模式下，一条消息会发送给所有Consumer，集群模式下消息只会发送给一个Consumer</strong>。  </p>
+<ul>
+<li>Push Consumer(推送的Consumer):Consumer的一种，需要向Consumer对象注册监听，监听mq向我们推消息 </li>
 <li>Pull Consumer(拉取消息):Consumer的一种，需要主动请求Broker拉取消息 </li>
-<li>Produce Group 生产者集合 ，一般用于发送一类消息。生产者可以有多个，启动时候可以定义多个节点同一个组。在RocketMQ中生产者组合消费者组是必须要定义的，并且一个环境只能起一个相同名称的group  </li>
-<li>Consumer Group：消费者集合。 一般用于接受一类消息进行消费。这个比较好理解，比如三个消费者组成一个组，那么<strong>可以设置成发过来的消息都接受到，或者负载均衡各自接受消息(互相不重复)</strong>  (集群模式或广播模式)</li>
-<li>Broker:MQ消息服务(中转角色，用于消息存储与生产消费转发) </li>
 </ul>
+<h3 id="Consumer-Group"><a href="#Consumer-Group" class="headerlink" title="Consumer Group"></a>Consumer Group</h3><p> 消费者组，和生产者类似，<strong>消费同一类消息</strong>的多个 Consumer 实例组成一个消费者组。 </p>
+<p>这个比较好理解，比如三个消费者组成一个组，那么<strong>可以设置成发过来的消息都接受到，或者负载均衡各自接受消息(互相不重复)</strong>  (集群模式或广播模式)</p>
+<h3 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h3><p>Topic用于将消息按主题做划分，<strong>Producer将消息发往指定的Topic，Consumer订阅该Topic就可以收到这条消息</strong>。Topic跟发送方和消费方都没有强关联关系，发送方可以同时往多个Topic投放消息，消费方也可以订阅多个Topic的消息。在RocketMQ中</p>
+<p><strong>Topic是一个上逻辑概念。消息存储不会按Topic分开， 一个Topic分布在多个Broker上</strong>。 </p>
+<p><strong>Topic是一个上逻辑概念。消息存储不会按Topic分开， 一个Topic分布在多个Broker上</strong>。 </p>
+<p><strong>Topic是一个上逻辑概念。消息存储不会按Topic分开， 一个Topic分布在多个Broker上</strong>。 </p>
+<h3 id="Message"><a href="#Message" class="headerlink" title="Message"></a>Message</h3><p>代表一条消息，使用<code>MessageId</code>唯一识别，用户在发送时可以设置messageKey，便于之后查询和跟踪。一个 Message 必须指定 Topic，相当于寄信的地址。Message 还有一个可选的 Tag 设置，以便消费端可以基于 Tag 进行过滤消息。也可以添加额外的键值对，例如你需要一个业务 key 来查找 Broker 上的消息，方便在开发过程中诊断问题。 </p>
+<h3 id="Tag"><a href="#Tag" class="headerlink" title="Tag"></a>Tag</h3><p> 标签可以被认为是对 Topic 进一步细化。一般在相同业务模块中通过引入标签来标记不同用途的消息。 </p>
+<h3 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h3><p>Broker:MQ消息服务(中转角色，用于消息存储与生产消费转发) </p>
+<p>Broker是RocketMQ的核心模块，<code>负责接收并存储消息</code>，同时提供Push/Pull接口来将消息发送给Consumer。Consumer可选择从Master或者Slave读取数据。多个主/从组成Broker集群，集群内的Master节点之间不做数据交互。Broker同时提供消息查询的功能，可以通过MessageID和MessageKey来查询消息。Borker会将自己的Topic配置信息实时同步到NameServer。  </p>
+<h4 id="Broker与NameServer关系"><a href="#Broker与NameServer关系" class="headerlink" title="Broker与NameServer关系"></a>Broker与NameServer关系</h4><p><strong>1）连接</strong> 单个Broker和<strong>所有</strong>Name Server保持长连接。(NameServer是一个几乎无状态节点，可集群部署，<strong>节点之间无任何信息同步</strong>) </p>
+<p><strong>2）心跳</strong> </p>
+<p><strong>心跳间隔</strong>：每隔<strong>30秒</strong>向所有NameServer发送心跳，心跳包含了自身的Topic配置信息。</p>
+<p><strong>心跳超时</strong>：NameServer每隔<strong>10秒</strong>，扫描所有还存活的Broker连接，若某个连接2分钟内没有发送心跳数据，则断开连接。</p>
+<p><strong>3）断开</strong>：当Broker挂掉；NameServer会根据心跳超时主动关闭连接,一旦连接断开，会更新Topic与队列的对应关系，但不会通知生产者和消费者。</p>
+<h4 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h4><p> 一个Topic分布在多个Broker上，一个Broker可以配置多个Topic，它们是多对多的关系。<br>如果某个Topic消息量很大，应该给它多配置几个Queue，并且尽量多分布在不同Broker上，减轻某个Broker的压力。 </p>
+<h4 id="可用性"><a href="#可用性" class="headerlink" title="可用性"></a>可用性</h4><p>由于消息分布在各个Broker上，一旦某个Broker宕机，则该Broker上的消息读写都会受到影响。</p>
+<p>所以RocketMQ提供了Master/Slave的结构，Salve定时从Master同步数据，如果Master宕机，则Slave提供消费服务，但是不能写入消息，此过程对应用透明，由RocketMQ内部解决。<br>有两个关键点：<br><code>思考1</code>一旦某个broker master宕机，生产者和消费者多久才能发现？</p>
+<p>受限于Rocketmq的网络连接机制，默认情况下最多需要<strong>30秒</strong>，因为消费者每隔30秒从nameserver获取所有topic的最新队列情况，这意味着某个broker如果宕机，客户端最多要30秒才能感知。</p>
+<p><code>思考2</code> master恢复恢复后，消息能否恢复。<br>消费者得到Master宕机通知后，转向Slave消费，但是Slave不能保证Master的消息100%都同步过来了，因此会有少量的消息丢失。但是消息最终不会丢的，一旦Master恢复，未同步过去的消息会被消费掉。</p>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><p> <strong>Topic和Queue是1对多的关系</strong>，<strong>一个Topic下可以包含多个Queue</strong>，主要用于负载均衡。<strong>发送消息时，用户只指定Topic</strong> ,，Producer会根据Topic的路由信息选择具体发到哪个Queue上。Consumer订阅消息时，会根据负载均衡策略决定订阅哪些Queue的消息。  </p>
+<p><strong>也可以指定queue发送</strong> </p>
+<pre><code class="java"> SendResult sendResult=producer.send(message, new MessageQueueSelector() {
+                @Override
+                public MessageQueue select(List&lt;MessageQueue&gt; msgQueueList, Message message, Object arg) {
+                    Integer queueNumber = (int) arg;
+                    return msgQueueList.get(queueNumber);
+                }
+            },1);//这个1会回调给  public MessageQueue select(List&lt;MessageQueue&gt; list, Message message, Object arg) 的 arg,也就是指定发送到第1个队列
+</code></pre>
+<p>默认一个topic 有4个队列，下标：0-3 ；</p>
+<p>这里要重写该构造方法， 1 表示的是指投递第一个队列queue</p>
+<p>查看控制台日志可以看到该消息只投递到了 queueId= 1的队列</p>
+<p>ps:投递的Id设置必须小于总的队列数</p>
+<h3 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h3><p> RocketMQ在存储消息时会为每个Topic下的每个Queue生成一个消息的索引文件，每个Queue都对应一个Offset<strong>记录当前Queue中消息条数</strong>。 </p>
+<h3 id="NameServer"><a href="#NameServer" class="headerlink" title="NameServer"></a>NameServer</h3><p>NameServer的作用是注册中心，类似于Zookeeper，但又有区别于它的地方。每个NameServer节点互相之间是独立的，没有任何信息交互，也就不存在任何的选主或者主从切换之类的问题，因此NameServer与Zookeeper相比更轻量级。单个NameServer节点中存储了活跃的Broker列表（包括master和slave），这里活跃的定义是与NameServer保持有心跳。 </p>
+<p>它管理两部分数据：集群的Topic-Queue的路由配置；Broker的实时配置信息。其它模块通过Nameserv提供的接口获取最新的Topic配置和路由信息。</p>
+<ul>
+<li><code>Producer/Consumer</code> ：通过查询接口获取Topic对应的Broker的地址信息</li>
+<li><code>Broker</code> ： 注册配置信息到NameServer， 实时更新Topic信息到NameServer</li>
+</ul>
+<h3 id="Broker集群"><a href="#Broker集群" class="headerlink" title="Broker集群"></a>Broker集群</h3><p>Broker是具体提供业务的服务器，单个Broker节点与所有的NameServer节点保持长连接及心跳，并会定时将Topic信息注册到NameServer，顺带一提底层的通信和连接都是基于Netty实现的。</p>
+<p>Broker中分master和slave两种角色，每个master可以对应多个slave，但一个slave只能对应一个master，master和slave通过指定相同的Brokername，不同的BrokerId （master为0）成为一个组。master和slave之间的同步方式分为同步双写和异步复制，异步复制方式master和slave之间虽然会存在少量的延迟，但性能较同步双写方式要高出10%左右。</p>
+<p>另外，Broker中还存在一些非常重要的名词需要说明：</p>
+<h3 id="Topic和Queue"><a href="#Topic和Queue" class="headerlink" title="Topic和Queue"></a>Topic和Queue</h3><p>RocketMQ的Topic/Queue和JMS中的Topic/Queue概念有一定的差异，JMS中所有消费者都会消费一个Topic消息的副本，而Queue中消息只会被一个消费者消费；但到了RocketMQ中Topic只代表普通的消息队列，而Queue是组成Topic的更小单元，<strong>集群消费模式下一个消费者只消费该Topic中部分Queue中的消息，当一个消费者开启广播模式时则会消费该Topic下所有Queue中的消息</strong>。Topic和Queue的具体关系可以参考下图</p>
+<p><img src="44.png" alt> </p>
+<h3 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h3><p>Tags是Topic下的次级消息类型（注：Tags也支持<code>TagA || TagB</code>这样的表达式），可以在同一个Topic下基于Tags进行消息过滤。Tags的过滤需要经过两次比对，首先会在Broker端通过Tag hashcode进行一次比对过滤，匹配成功传到consumer端后再对具体Tags进行比对，以防止Tag hashcode重复的情况。Queue中具体的存储单元结构如下图：</p>
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图:"></a>流程图:</h3><p><img src="46.jpg" alt> </p>
+<p> 消息先发到Topic，然后消费者去Topic拿消息。<strong>Topic只是个逻辑上的概念</strong>，那它到底是怎么存储消息数据的呢，这里就要引入Broker 。 </p>
+<h3 id="Topic的存储"><a href="#Topic的存储" class="headerlink" title="Topic的存储"></a>Topic的存储</h3><p>Topic是一个逻辑上的概念，实际上Message是在每个Broker上以Queue的形式记录。 </p>
+<p><img src="47.jpg" alt>   </p>
+<p>从上面的图片可以总结下几条结论。</p>
+<ol>
+<li>消费者发送的Message会在Broker中的Queue队列中记录。</li>
+<li><strong>一个Topic的数据可能会存在多个Broker中</strong>。</li>
+<li><strong>一个Broker存在多个Queue</strong>。</li>
+<li><strong>单个的Queue也可能存储多个Topic的消息</strong>。  </li>
+</ol>
+<p>也就是说每个Topic在Broker上会划分成几个逻辑队列，每个逻辑队列保存一部分消息数据，但是保存的消息数据实际上不是真正的消息数据，而是指向commit log的消息索引。</p>
+<p><code>Queue不是真正存储Message的地方，真正存储Message的地方是在CommitLog</code>。</p>
+<p>如下图所示</p>
+<p><img src="48.png" alt> </p>
+<p>左边的是CommitLog。这个是真正存储消息的地方。RocketMQ所有生产者的消息都是往这一个地方存的。</p>
+<p>右边是ConsumeQueue。这是一个逻辑队列。和上文中Topic下的Queue是一一对应的。消费者是直接和ConsumeQueue打交道。ConsumeQueue记录了消费位点，这个消费位点关联了commitlog的位置。所以<strong>即使ConsumeQueue出问题，只要commitlog还在，消息就没丢，可以恢复出来。还可以通过修改消费位点来重放或跳过一些消息。</strong> </p>
+<h3 id="部署模型"><a href="#部署模型" class="headerlink" title="部署模型"></a>部署模型</h3><p><img src="45.png" alt> </p>
+<p>针对这张图做个说明</p>
+<pre><code>1、Producer和consumer集群部署，是你开发的项目进行集群部署。
+2、Broker 集群部署是为了高可用，因为Broker是真正存储Message的地方，集群部署是为了避免一台挂掉，导致整个项目KO.
+</code></pre><p>那Name SerVer是做什么用呢，它和Product、Consumer、Broker之前存在怎样的关系呢？</p>
+<p>先简单概括Name Server的特点： </p>
+<ol>
+<li>NameServer是一个几乎无状态节点，可集群部署，<strong>节点之间无任何信息同步</strong>。</li>
+<li>每个Broker与NameServer集群中的<strong>所有节点建立长连接</strong>，定时注册Topic信息到所有Name Server。</li>
+<li>Producer与NameServer集群中的其中一个节点（随机选择）建立长连接，定期从Name Server取Topic路由信息。</li>
+<li>Consumer与Name Server集群中的其中一个节点（随机选择）建立长连接，定期从Name Server取Topic路由信息。</li>
+</ol>
+<p>这里面最核心的是<code>每个Broker与NameServer集群中的所有节点建立长连接</code>这样做好处多多。</p>
+<p>1、这样可以使<strong>NameServer之间可以没有任何关联</strong>，因为它们绑定的Broker是一致的。</p>
+<p>2、作为Producer或者Consumer可以绑定任何一个NameServer 因为它们都是一样的。</p>
+<h3 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h3><h4 id="Consumer与Name-Server关系"><a href="#Consumer与Name-Server关系" class="headerlink" title="Consumer与Name Server关系"></a>Consumer与Name Server关系</h4><p><strong>1）连接</strong> : 单个Consumer和一台NameServer保持长连接，如果该NameServer挂掉，消费者会自动连接下一个NameServer，直到有可用连接为止，并能自动重连。<br><strong>2）心跳</strong>: 与NameServer没有心跳（broker与nameserver之间有心跳）<br><strong>3）轮询时间</strong> : 默认情况下，消费者每隔<strong>30秒</strong>从NameServer获取所有Topic的最新队列情况，这意味着某个Broker如果宕机，客户端最多要30秒才能感知。</p>
+<h4 id="Consumer与Broker关系"><a href="#Consumer与Broker关系" class="headerlink" title="Consumer与Broker关系"></a>Consumer与Broker关系</h4><p><strong>1）连接</strong> :单个消费者和该消费者关联的所有broker保持长连接。</p>
+<h4 id="负载均衡-1"><a href="#负载均衡-1" class="headerlink" title="负载均衡"></a>负载均衡</h4><p>集群消费模式下，一个消费者集群多台机器共同消费一个Topic的多个队列，一个队列只会被一个消费者消费。如果某个消费者挂掉，分组内其它消费者会接替挂掉的消费者继续消费。</p>
+<h3 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h3><h4 id="Producer与Name-Server关系"><a href="#Producer与Name-Server关系" class="headerlink" title="Producer与Name Server关系"></a>Producer与Name Server关系</h4><p><strong>1）连接</strong> 单个Producer和一台NameServer保持长连接，如果该NameServer挂掉，生产者会自动连接下一个NameServer，直到有可用连接为止，并能自动重连。<br><strong>2）轮询时间</strong> 默认情况下，生产者每隔30秒从NameServer获取所有Topic的最新队列情况，这意味着某个Broker如果宕机，生产者最多要30秒才能感知，在此期间，<br>发往该broker的消息发送失败。<br><strong>3）心跳</strong> 与nameserver没有心跳</p>
+<h4 id="与broker关系"><a href="#与broker关系" class="headerlink" title="与broker关系"></a>与broker关系</h4><p><strong>连接</strong> 单个生产者和该生产者关联的所有broker保持长连接。</p>
 <h2 id="RocketMQ源码包编译"><a href="#RocketMQ源码包编译" class="headerlink" title="RocketMQ源码包编译"></a>RocketMQ源码包编译</h2><p>这里我们使用4.4.0 ,因为官网4.5.0的包下载不了</p>
 <p><a href="https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip" target="_blank" rel="noopener">https://www.apache.org/dyn/closer.cgi?path=rocketmq/4.4.0/rocketmq-all-4.4.0-source-release.zip</a></p>
 <p>编译很简单 ,<a href="http://rocketmq.apache.org/docs/quick-start/" target="_blank" rel="noopener">quickstart</a>  </p>
@@ -819,11 +900,67 @@ public class Producer {
 }
 </code></pre>
 <p><img src="43.png" alt> </p>
-<h2 id="四种集群环境讲解"><a href="#四种集群环境讲解" class="headerlink" title="四种集群环境讲解"></a>四种集群环境讲解</h2><p>待完善</p>
-<h2 id="主从集群环境构建"><a href="#主从集群环境构建" class="headerlink" title="主从集群环境构建"></a>主从集群环境构建</h2><p>待完善</p>
-<h2 id="数据高可用机制故障演练"><a href="#数据高可用机制故障演练" class="headerlink" title="数据高可用机制故障演练"></a>数据高可用机制故障演练</h2><p>待完善</p>
-<h1 id="RocketMQ-生产者核心"><a href="#RocketMQ-生产者核心" class="headerlink" title="RocketMQ  生产者核心"></a>RocketMQ  生产者核心</h1><p>配置参数解析</p>
-<p>主从同步机制解析</p>
+<h2 id="四种集群环境讲解"><a href="#四种集群环境讲解" class="headerlink" title="四种集群环境讲解"></a>四种集群环境讲解</h2><p><img src="49.png" alt></p>
+<p>消费者组我们可以理解，多个消费者消费 进行 负载均衡</p>
+<p>但是生产者组是干嘛呢？答：  多个生产者并行发消息，提高效率。还有后面的消息事务，如果一个消息失败了，broker会回调producer，如果一个producer失败了，可以连另一个producer </p>
+<pre><code>单点模式 
+主从模式(消息高可用，主节点可以对消息进行读写和收发，从节点不能接收消息，从节点从主节点里同步消息，这样消息不会丢失了。rocketmq不支持主从切换)
+双主模式 (没有从节点，例如把一个topic建在2台master上)  
+双主双从模式 (实际中用的较多)，多主多从模式
+</code></pre><h2 id="主从集群环境构建"><a href="#主从集群环境构建" class="headerlink" title="主从集群环境构建"></a>主从集群环境构建</h2><p>主从模式环境构建可以保障消息的即时性与可靠性</p>
+<p>去主节点投递消息之后，<strong>会把数据同步给从节点</strong>，从而保障数据有副本。</p>
+<p>故障重试(模拟)：<strong>投递一条消息后，关闭主节点(主节点挂了)</strong> ，消息能不能投递到从节点呢？ </p>
+<p>同步刷盘(投递过程中如果主节点挂了，会返回给我们失败)，</p>
+<p>异步刷盘(投递过程中如果主节点挂了，会返回给我们投递成功，数据会丢失)。 </p>
+<p><strong>主节点挂了之后，从节点可以继续提供消费者数据进行消费，但是不能接收消息</strong>。 </p>
+<p><strong>主节点重新上线后进行消费进度offset同步</strong>   </p>
+<p>部署过程略</p>
+<h2 id="数据高可用机制故障演练"><a href="#数据高可用机制故障演练" class="headerlink" title="数据高可用机制故障演练"></a>数据高可用机制故障演练</h2><h3 id="杀掉master的broker"><a href="#杀掉master的broker" class="headerlink" title="杀掉master的broker"></a>杀掉master的broker</h3><p>发一条消息给master，然后杀掉master，看是否还能从slave中消费到消息 </p>
+<p>先发一条消息</p>
+<pre><code class="java">public static void main(String[] args) throws MQClientException, RemotingException, InterruptedException, MQBrokerException {
+        DefaultMQProducer producer=new DefaultMQProducer(&quot;test_producer_name&quot;);//传入生产者组组名
+        producer.setNamesrvAddr(Const.NAMESERV_ADDR_MASTER_SLAVE);
+        producer.start();
+        //RocketMQ的消息封装成了Message的对象
+        for(int i=0;i&lt;1;i++){
+            //创建消息
+            Message message=new Message(&quot;test_topic&quot;,&quot;TagA&quot;,&quot;key&quot;+i,(&quot;hello,rocketmq&quot;+i).getBytes());//1 topic  2 tags 3 keys 4 body
+            //发送消息
+            SendResult sendResult=producer.send(message);//有个返回值就是sendresult
+            //System.out.printf(sendResult.getSendStatus());//可以获取发送状态
+            System.out.println(&quot;消息发出&quot;+sendResult.toString());//可以获取发送状态
+        }
+        producer.shutdown();
+    }
+</code></pre>
+<p><img src="50.png" alt> </p>
+<p>然后停止主节点的broker </p>
+<p><img src="51.png" alt> </p>
+<p>此时只有一个slave</p>
+<p><img src="52.png" alt> </p>
+<p>然后我们启动consumer,发现是可以消费到这条消息的</p>
+<p><img src="53.png" alt> </p>
+<p><img src="54.png" alt> </p>
+<p><strong>这就证明了在没有主节点的时候也可以做消息的消费</strong>,这就是高可用的测试</p>
+<h3 id="恢复master的broker"><a href="#恢复master的broker" class="headerlink" title="恢复master的broker"></a>恢复master的broker</h3><p>master的broker启动后第一件事情就是和slave的broker进行沟通，它们进行offset的同步，它发现slave已经把之前的消息消费了，就会作一个标记，Consumer再去拉取消息的时候就<strong>不会再消费一次了</strong>   </p>
+<h1 id="RocketMQ-生产者核心"><a href="#RocketMQ-生产者核心" class="headerlink" title="RocketMQ  生产者核心"></a>RocketMQ  生产者核心</h1><h2 id="生产者参数解析"><a href="#生产者参数解析" class="headerlink" title="生产者参数解析"></a>生产者参数解析</h2><pre><code>producerGroup :组名，一个应用里是唯一的，如果启动2个相同名称的group的话会报错
+
+createTopicKey:  一般生产环境不会用到这个api,在项目启动之前由架构组创建维护
+
+defaultTopicQueueNums 默认为4 :**一个topic下可以挂多少队列** 默认4个队列
+
+sendMsgTimeout:消息发送超时时间，单位ms 
+
+compressMsgBodyOverHowmuch:当消息体超过多大时进行压缩。 默认压缩字节4096 
+
+**retryTimesWhenSendFailed**: 消息发送失败了可以重试几次 (同步) 
+
+retryTimesWhenAsyncSendFailed: 消息发送失败了可以重试几次 (异步)
+
+retryAnotherBrokerWhenNotStoreOK 默认false,如果没有存储成功是否可以去其他Broker
+
+maxMessageSize:默认128K，如果超过这个值会抛异常
+</code></pre><p>主从同步机制解析</p>
 <p>同步/异步消息发送解析</p>
 <p>底层Netty通信解析</p>
 <p>延迟消息投递解析</p>

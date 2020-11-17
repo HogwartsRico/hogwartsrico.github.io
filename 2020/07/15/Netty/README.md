@@ -2540,25 +2540,33 @@ public void encode(ByteBuf byteBuf, Packet packet) {
 }
 ```
 
-我们可以看到，`PacketCodeC` 不再需要手动创建对象，不再需要再把创建完的 ByteBuf 进行返回。当我们向 pipeline 中添加了这个编码器之后，我们在指令处理完毕之后就只需要 writeAndFlush java 对象即可，像这样
+我们可以看到，`PacketCodeC` 不再需要手动创建对象，不再需要再把创建完的 ByteBuf 进行返回。当我们向 pipeline 中添加了这个编码器之后，**我们在指令处理完毕之后就只需要 writeAndFlush java 对象即可**，像这样
 
 ```java
 public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginRequestPacket> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LoginRequestPacket loginRequestPacket) {
-        ctx.channel().writeAndFlush(login(loginRequestPacket));
+        ctx.channel().writeAndFlush(login(loginRequestPacket));//直接write即可
     }
 }
 
 public class MessageRequestHandler extends SimpleChannelInboundHandler<MessageResponsePacket> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageResponsePacket messageRequestPacket) {
-        ctx.channel().writeAndFlush(receiveMessage(messageRequestPacket));
+        ctx.channel().writeAndFlush(receiveMessage(messageRequestPacket));//直接write即可
     }
 }
 ```
 
 通过我们前面的分析，可以看到，Netty 为了让我们逻辑更为清晰简洁，帮我们做了很多工作，能直接用 Netty 自带的 handler 来解决的问题，不要重复造轮子。在接下里的小节，我们会继续探讨 Netty 还有哪些开箱即用的 handler。
+
+这里我debug代码，发现不管在哪里writeAndFlush都会触发encode,哪怕没在`ch.pipeline().addLast` 中的pipline里writeAndFlush也会触发。经过询问，才发现，触不触发pipline中的handler，不是看你是否在下面add的这些handler里面，而是和channle有关的。 只要你在这个channel里面writeAndFlush了，都会捕捉到
+
+![](62.png) 
+
+
+
+
 
 分析完服务端的 pipeline 的 handler 组成结构，相信读者也不难自行分析出客户端的 handler 结构，最后，我们来看一下服务端和客户端完整的 pipeline 的 handler 结构
 
@@ -4103,26 +4111,17 @@ public class ListGroupMembersResponseHandler extends SimpleChannelInboundHandler
 
  闪电侠，逆闪，极速先后登录，然后闪电侠拉逆闪，极速和自己加入群聊，下面，我们来看一下各位客户端的控制台界面  
 
-> 客户端 - 闪电侠 
+> 客户端 - Rico
 
 ![](56.png) 
 
- 闪电侠第一个输入 "sendToGroup" 发送群消息。 
+Rico第一个输入 "sendToGroup" 发送群消息。 
 
-> 客户端 - 逆闪 
+> 客户端 - XY
 
 ![](57.png) 
 
- 逆闪第二个输入 "sendToGroup" 发送群消息，在前面已经收到了闪电侠的消息。 
 
-> 客户端 - 极速 
-
-![](58.png) 
-
-逆闪最后一个输入 "sendToGroup" 发送消息，在前面已经收到了闪电侠和逆闪的消息。
-
-1. 在闪电侠的控制台，输入 "sendToGroup" 指令之后，再输入 groupId + 空格 + 消息内容，发送消息给群里各位用户，随后，群组里的所有用户的控制台都显示了群消息。
-2. 随后，陆续在逆闪和极速的控制台做做相同的操作，群组里的所有用户的控制台陆续展示了群消息。
 
 这个实现过程和我们前面的套路一样，下面我们仅关注核心实现部分。
 
@@ -4743,6 +4742,32 @@ Netty 对逻辑处理流的处理其实和 TCP 协议栈的思路非常类似，
 无状态的 handler 可以改造为单例模式，但是千万记得要加 `@ChannelHandler.Sharable` 注解，平行等价的 handler 可以使用压缩的方式减少事件传播路径，调用 `ctx.xxx()` 而不是 `ctx.channel().xxx()` 也可以减少事件传播路径，不过要看应用场景。
 
 另外，每个 handler 都有自己的生命周期，Netty 会在 channel 或者 channelHandler 处于不同状态的情况下回调相应的方法，channelHandler 也可以动态添加，特别适用于一次性处理的 handler，用完即删除，干干净净。
+
+##  ChannelInboundHandlerAdapter 和  SimpleChannelInboundHandler 
+
+注意继承ChannelInboundHandlerAdapter和继承SimpleChannelInboundHandler不一样
+
+`ChannelInboundHandlerAdapter`需要调用`super.channelRead` 把读到的数据向下传递(前提是业务需要将数据向下传递,例如某个pipline认证登录成功后将数据向下传递给后续指令处理器 )，传递给后续指令处理器。同时，类型判断也需要我们自己做。 
+
+PS: 继承`ChannelOutboundHandlerAdapter`需调用`super.write();`进行传递
+
+ 而`SimpleChannelInboundHandler`  类型判断和对象传递的活都自动帮我们实现了  。注意，这里传递的对象是我们定义`SimpleChannelInboundHandler`  带的那个泛型的对象。 
+
+
+
+
+
+SimpleChannelInboundHandler只处理泛型匹配到的类型的数据(可参考pipline那一节)，而ChannelInboundHandlerAdapter处理所有类型的数据。
+
+
+
+至于`SimpleChannelInboundHandler`的channelRead0方法  或 `ChannelInboundHandlerAdapter` 的`channelRead/channelActive`方法 里面是否需要`ctx.channel().writeAndFlush();` 就看业务是否需要了。如果需要想对方发数据就发，不发只是记录下日志，操作下db啥的和对方无关的就不需要write了 
+
+
+
+
+
+
 
 ## 耗时操作的处理与统计
 

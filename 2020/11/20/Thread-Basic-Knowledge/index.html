@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://hm.baidu.com">
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            多线程基础知识 | 
+        
+        Rico&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,Java">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="多线程基础知识 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="Java"> 
+
+    
+        <meta property="article:published_time" content="Fri Nov 20 2020 17:31:59 GMT+0800">
+        <meta property="article:modified_time" content="Fri Nov 20 2020 17:32:55 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+        <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进程和线程"><span class="post-toc-number">1.</span> <span class="post-toc-text">进程和线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程生命周期"><span class="post-toc-number">2.</span> <span class="post-toc-text">线程生命周期</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Thread中的实例方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">Thread中的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#start"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">start()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#run"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">run()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isAlive"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">isAlive()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getId"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">getId()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getName"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">getName()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getPriority-和setPriority-int-newPriority"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">getPriority()和setPriority(int newPriority)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isDaemon、setDaemon"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">isDaemon、setDaemon</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#interrupt"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">interrupt</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#interrupt-打断wait"><span class="post-toc-number">3.8.1.</span> <span class="post-toc-text">interrupt()打断wait()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#join"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">join()</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Thread类中的静态方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">Thread类中的静态方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#wait-notify-notifyall"><span class="post-toc-number">5.</span> <span class="post-toc-text">wait/notify/notifyall</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">wait()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notify"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">notify()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notifyall"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">notifyall</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait-释放锁"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">wait()释放锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notify-不释放锁"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">notify()不释放锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait-sleep的区别"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">wait/sleep的区别</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 34 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                多线程基础知识
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>11月 20, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Java/">Java</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=多线程基础知识&url=http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=多线程基础知识&url=http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>谈到多线程，就得先讲进程和线程的概念。</p>
+<p><strong>进程</strong>  </p>
+<p>进程可以理解为受操作系统管理的基本运行单元。360浏览器是一个进程、WPS也是一个进程，正在操作系统中运行的”.exe”都可以理解为一个进程  </p>
+<p><img src="5.png" alt> </p>
+<p><strong>线程</strong></p>
+<p>进程中独立运行的子任务就是一个线程。像QQ.exe运行的时候就有很多子任务在运行，比如聊天线程、好友视频线程、下载文件线程等等。</p>
+<p><strong>为什么要使用多线程</strong></p>
+<p>如果使用得当，线程可以有效地降低程序的开发和维护等成本，同时提升复杂应用程序的性能。具体说，线程的优势有：</p>
+<p><strong>1、发挥多处理器的强大能力</strong></p>
+<p>现在，多处理器系统正日益盛行，并且价格不断降低，即时在低端服务器和中断桌面系统中，通常也会采用多个处理器，这种趋势还在进一步加快，因为通过提高时钟频率来提升性能已变得越来越困难，处理器生产厂商都开始转而在单个芯片上放置多个处理器核。试想，如果只有单个线程，双核处理器系统上程序只能使用一半的CPU资源，拥有100个处理器的系统上将有99%的资源无法使用。多线程程序则可以同时在多个处理器上执行，如果设计正确，多线程程序可以通过提高处理器资源的利用率来提升系统吞吐率。</p>
+<p><strong>2、在单处理器系统上获得更高的吞吐率</strong></p>
+<p>如果程序是单线程的，那么当程序等待某个同步I/O操作完成时，处理器将处于空闲状态。而在多线程程序中，如果一个线程在等待I/O操作完成，另一个线程可以继续运行，使得程序能在I/O阻塞期间继续运行。</p>
+<p><strong>3、建模的简单性</strong></p>
+<p>通过使用线程，可以将复杂并且异步的工作流进一步分解为一组简单并且同步的工作流，每个工作流在一个单独的线程中运行，并在特定的同步位置进行交互。我们可以通过一些现有框架来实现上述目标，例如Servlet和RMI，框架负责解决一些细节问题，例如请求管理、线程创建、负载平衡，并在正确的时候将请求分发给正确的应用程序组件。编写Servlet的开发人员不需要了解多少请求在同一时刻要被处理，也不需要了解套接字的输入流或输出流是否被阻塞，当调用Servlet的service方法来响应Web请求时，可以以同步的方式来处理这个请求，就好像它是一个单线程程序。</p>
+<p><strong>4、异步事件的简化处理</strong></p>
+<p>服务器应用程序在接受多个来自远程客户端的套接字连接请求时，如果为每个连接都分配其各自的线程并且使用同步I/O，那么就会降低这类程序的开发难度。如果某个应用程序对套接字执行读操作而此时还没有数据到来，那么这个读操作将一直阻塞，直到有数据到达。在单线程应用程序中，这不仅意味着在处理请求的过程中将停顿，而且还意味着在这个线程被阻塞期间，对所有请求的处理都将停顿。为了避免这个问题，单线程服务器应用程序必须使用非阻塞I/O，但是这种I/O的复杂性要远远高于同步I/O，并且很容易出错。然而，如果每个请求都拥有自己的处理线程，那么在处理某个请求时发生的阻塞将不会影响其他请求的处理。</p>
+<h1 id="线程生命周期"><a href="#线程生命周期" class="headerlink" title="线程生命周期"></a>线程生命周期</h1><p>在开始所有的线程方法介绍前，先来看下线程的几种状态.这样在讲下面的线程方法时，可以直到线程当前是进入到哪种状态了。  </p>
+<p>Java中的线程的生命周期大体可分为5种状态。  </p>
+<ol>
+<li><p><strong>新建(NEW)</strong>：新创建了一个线程对象。</p>
+</li>
+<li><p><strong>可运行(RUNNABLE)</strong>：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。</p>
+</li>
+<li><p><strong>运行(RUNNING)</strong>：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。</p>
+</li>
+<li><strong>阻塞(BLOCKED)</strong>：阻塞状态是指线程因为某种原因放弃了cpu 使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有机会再次获得cpu timeslice 转到运行(running)状态。阻塞的情况分三种： </li>
+</ol>
+<blockquote>
+<p>(一). 等待阻塞：运行(running)的线程执行wait()方法，JVM会把该线程放入等待队列(waitting queue)中。<br>(二). 同步阻塞：运行(running)的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。<br>(三). 其他阻塞：运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态。</p>
+</blockquote>
+<ol>
+<li><strong>死亡(DEAD)</strong>：线程run()、main() 方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。</li>
+</ol>
+<p><img src="1.png" alt> </p>
+<h1 id="Thread中的实例方法"><a href="#Thread中的实例方法" class="headerlink" title="Thread中的实例方法"></a>Thread中的实例方法</h1><p>从Thread类中的实例方法和类方法的角度讲解Thread中的方法，这种区分的角度也有助于理解多线程中的方法。实例方法，只和实例线程（也就是new出来的线程）本身挂钩，和当前运行的是哪个线程无关。看下Thread类中的实例方法：</p>
+<h2 id="start"><a href="#start" class="headerlink" title="start()"></a>start()</h2><p><strong>start()方法的作用讲得直白点就是通知”线程规划器”</strong>，此线程可以运行了，<strong>正在等待CPU调用线程对象得run()方法</strong>，产生一个<strong>异步执行</strong>的效果。 </p>
+<p><strong>调用start()方法的顺序不代表线程启动的顺序，线程启动顺序具有不确定性</strong>。</p>
+<h2 id="run"><a href="#run" class="headerlink" title="run()"></a>run()</h2><p>线程开始执行，虚拟机调用的是线程run()方法中的内容。 </p>
+<p><strong>如果只有run()没有start()，Thread实例run()方法里面的内容是没有任何异步效果的</strong>，全部被main函数执行。换句话说，<strong>只有run()而不调用start()启动线程是没有任何意义的</strong> </p>
+<h2 id="isAlive"><a href="#isAlive" class="headerlink" title="isAlive()"></a>isAlive()</h2><p>测试线程是否处于活动状态，只要线程启动且没有终止，方法返回的就是true。 </p>
+<h2 id="getId"><a href="#getId" class="headerlink" title="getId()"></a>getId()</h2><p>在一个Java应用中，有一个long型的全局唯一的线程ID生成器<strong>threadSeqNumber</strong>，每new出来一个线程都会把这个自增一次，并赋予线程的tid属性</p>
+<h2 id="getName"><a href="#getName" class="headerlink" title="getName()"></a>getName()</h2><p>我们new一个线程的时候，可以指定该线程的名字，也可以不指定。如果指定，那么线程的名字就是我们自己指定的，getName()返回的也是开发者指定的线程的名字；如果不指定，那么Thread中有一个<strong>int型全局唯一的线程初始号生成器threadInitNum</strong>，Java先把threadInitNum自增，然后以”Thread-threadInitNum”的方式来命名新生成的线程</p>
+<h2 id="getPriority-和setPriority-int-newPriority"><a href="#getPriority-和setPriority-int-newPriority" class="headerlink" title="getPriority()和setPriority(int newPriority)"></a>getPriority()和setPriority(int newPriority)</h2><p>这两个方法用于获取和设置线程的优先级，<strong>优先级高的CPU得到的CPU资源比较多</strong>，设置优先级有助于帮”线程规划器”确定下一次选择哪一个线程优先执行。换句话说，<strong>两个在等待CPU的线程，优先级高的线程越容易被CPU选择执行</strong>。 </p>
+<p><strong>线程默认优先级为5，如果不手动指定，那么线程优先级具有继承性，比如线程A启动线程B，那么线程B的优先级和线程A的优先级相同</strong> </p>
+<p>MyThread1.java</p>
+<pre><code class="java">public class MyThread1 extends Thread{
+    public void run() {
+        long beginTime = System.currentTimeMillis();
+        for (int j = 0; j &lt; 100000; j++){}
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;我是高优先级的 use time = &quot; +   (endTime - beginTime));
+    }
+}
+</code></pre>
+<p>MyThread2.java</p>
+<pre><code>public class MyThread2 extends Thread{
+    public void run() {
+        long beginTime = System.currentTimeMillis();
+        for (int j = 0; j &lt; 100000; j++){}
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;我是低优先级的 use time = &quot; +   (endTime - beginTime));
+    }
+}
+</code></pre><p>main</p>
+<pre><code class="java"> public static void main(String[] args) {
+        for (int i = 0; i &lt; 5; i++) {
+            MyThread1 t1 = new MyThread1();
+            t1.setPriority(6);
+            t1.start();
+            MyThread2 t2 = new MyThread2();
+            t2.setPriority(4);
+            t2.start();
+        }
+    }
+</code></pre>
+<p><img src="6.png" alt> </p>
+<p>从这个例子我们得出结论：<strong>CPU会尽量将执行资源让给优先级比较高的线程</strong>。</p>
+<h2 id="isDaemon、setDaemon"><a href="#isDaemon、setDaemon" class="headerlink" title="isDaemon、setDaemon"></a>isDaemon、setDaemon</h2><p>讲解两个方法前，首先要知道理解一个概念。Java中有两种线程，一种是用户线程，一种是守护线程。守护线程是一种特殊的线程，它的作用是为其他线程的运行提供便利的服务，最典型的应用便是GC线程。如果进程中不存在非守护线程了，那么守护线程自动销毁，因为没有存在的必要，为别人服务，结果服务的对象都没了，当然就销毁了。理解了这个概念后，看一下例子：</p>
+<p>过setDaemon(true)来设置线程为“守护线程”；将一个用户线程设置为守护线程的方式是在线程启动用线程对象的setDaemon方法。</p>
+<p>MyThread.java</p>
+<pre><code class="java">
+public class MyThread extends Thread{
+    private int i = 0;
+    public void run() {
+        try {
+            while (true) {
+                i++;
+                System.out.println(&quot;i = &quot; + i);
+                Thread.sleep(1000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<p>main</p>
+<pre><code class="java">public static void main(String[] args) {
+        try {
+            MyThread mt = new MyThread();
+            mt.setDaemon(true);
+            mt.start();
+            Thread.sleep(5000);
+            System.out.println(&quot;我离开非守护线程就停止执行了，再也不打印了！&quot;);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+</code></pre>
+<p>将MyThread线程设置为守护线程，main函数都运行完了，自然也没有存在的必要了，就自动销毁了，因此也就没有再往下打印数字。</p>
+<p>关于守护线程，有一个细节注意下，<strong>setDaemon(true)必须在线程start()之前</strong>  </p>
+<h2 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt"></a>interrupt</h2><p>Thread类的interrupt()方法无法中断线程。</p>
+<pre><code class="java">public static void main(String[] args) {
+            MyThread t = new MyThread();
+            t.start();
+            t.interrupt();
+    }
+
+    static class MyThread extends  Thread{
+        @Override
+        public void run() {
+            for (int i = 0; i &lt; 500000; i++) {
+                System.out.println(&quot;i = &quot; + (i + 1));
+            }
+        }
+    }
+</code></pre>
+<p>看结果还是打印到了50000。也就是说，尽管调用了interrupt()方法，但是线程并没有停止。</p>
+<p>interrupt()方法的作用实际上是：<strong>在线程受到阻塞时抛出一个中断信号，这样线程就得以退出阻塞状态</strong>。换句话说，<strong>没有被阻塞的线程，调用interrupt()方法是不起作用的</strong>。关于这个会在之后讲中断机制的时候详细介绍</p>
+<h3 id="interrupt-打断wait"><a href="#interrupt-打断wait" class="headerlink" title="interrupt()打断wait()"></a>interrupt()打断wait()</h3><p>之前有说过，interrupt()方法的作用不是中断线程，而是在线程阻塞的时候给线程一个中断标识，表示该线程中断。wait()就是”阻塞的一种场景”，看一下用interrupt()打断wait()的例子：</p>
+<p>ThreadDomain.java</p>
+<pre><code class="java">public class ThreadDomain {
+    public void testMethod(Object lock) {
+        try {
+            synchronized (lock) {
+                System.out.println(&quot;开始wait&quot;);
+                lock.wait();
+                System.out.println(&quot;结束wait()&quot;);
+            }
+        } catch (InterruptedException e) {
+            System.out.println(&quot;wait被interrupt()打断了！&quot;);
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<p>MyThread.java</p>
+<pre><code class="java">public class MyThread extends Thread{
+    private Object lock;
+    public MyThread(Object lock) {
+        this.lock = lock;
+    }
+    public void run() {
+        ThreadDomain td = new ThreadDomain();
+        td.testMethod(lock);
+    }
+}
+</code></pre>
+<p>main</p>
+<pre><code class="java"> public static void main(String[] args) throws InterruptedException {
+        Object lock = new Object();
+        MyThread mt = new MyThread(lock);
+        mt.start();
+        Thread.sleep(5000);
+        mt.interrupt();
+    }
+</code></pre>
+<p><img src="4.png" alt> </p>
+<h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><p>join()方法的作用是等待线程销毁。join()方法反应的是一个很现实的问题，比如main线程的执行时间是1s，子线程的执行时间是10s，但是主线程依赖子线程执行完的结果，这时怎么办？可以像生产者/消费者模型一样，搞一个缓冲区，子线程执行完把数据放在缓冲区中，通知main线程，main线程去拿，这样就不会浪费main线程的时间了。另外一种方法，就是join()了。当然也可以用 CountDownLatch 或 CyclicBarrier。后面会介绍。 but先看一下例子：</p>
+<p>MyThread</p>
+<pre><code class="java">public class MyThread extends Thread{
+    public void run() {
+        try {
+            int secondValue = (int)(Math.random() * 10000);
+            System.out.println(secondValue);
+            Thread.sleep(secondValue);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<p>main</p>
+<pre><code class="java"> public static void main(String[] args) throws InterruptedException {
+        MyThread mt = new MyThread();
+        mt.start();
+        mt.join();
+        System.out.println(&quot;我想等别人执行完毕之后我再执行，我做到了&quot;);
+    }
+</code></pre>
+<p><img src="8.png" alt> </p>
+<p>join()方法会使调用join()方法的线程所在的线程（也就是main线程）无限阻塞，直到调用join()方法的线程销毁为止，此例中main线程就会无限期阻塞直到mt的run()方法执行完毕。</p>
+<p>join()方法的一个重点是要区分出和sleep()方法的区别。<strong>join(2000)也是可以的，表示调用join()方法所在的线程最多等待2000ms</strong>，两者的区别在于：  </p>
+<p><strong>sleep(2000)不释放锁，join(2000)释放锁</strong>，因为join()方法内部使用的是wait()，因此会释放锁。 </p>
+<h1 id="Thread类中的静态方法"><a href="#Thread类中的静态方法" class="headerlink" title="Thread类中的静态方法"></a>Thread类中的静态方法</h1><h1 id="wait-notify-notifyall"><a href="#wait-notify-notifyall" class="headerlink" title="wait/notify/notifyall"></a>wait/notify/notifyall</h1><p>线程本身是操作系统中独立的个体，但是线程与线程之间不是独立的个体，因为它们彼此之间要相互通信和协作。</p>
+<p>想像一个场景，A线程做int型变量i的累加操作，B线程等待i到了10000就打印出i，怎么处理？一个办法就是，B线程while(i == 10000)，这样两个线程之间就有了通信，B线程不断通过轮训来检测i == 10000这个条件。</p>
+<p>这样可以实现我们的需求，但是也带来了问题：CPU把资源浪费了B线程的轮询操作上，因为while操作并不释放CPU资源，导致了CPU会一直在这个线程中做判断操作。如果可以把这些轮询的时间释放出来，给别的线程用，就好了。</p>
+<p>在Object对象中有三个方法wait()、notify()、notifyAll()，既然是Object中的方法，那每个对象自然都是有的。如果不接触多线程的话，这两个方法是不太常见的。下面看一下前两个方法：</p>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait()"></a>wait()</h2><p>wait()的作用是使当前执行代码的线程进行等待（线程进入等待阻塞），将当前线程置入”预执行队列”中，并且wait()所在的代码处停止执行，直到接到通知或被中断。<strong>在调用wait()之前，线程必须获得该对象的锁，因此只能在同步方法/同步代码块中调用wait()方法</strong>。 </p>
+<h2 id="notify"><a href="#notify" class="headerlink" title="notify()"></a>notify()</h2><p>notify()的作用是，如果有多个线程等待，那么线程规划器<strong>随机</strong>挑选出一个wait的线程，对其发出通知notify()，并使它等待获取该对象的对象锁注意”等待获取该对象的对象锁”，这意味着，即使收到了通知，wait的线程也不会马上获取对象锁，必须等待notify()方法的线程释放锁才可以。<strong>和wait()一样，notify()也要在同步方法/同步代码块中调用</strong>。</p>
+<p>总结起来就是，<strong>wait()使线程停止运行，notify()使停止运行的线程继续运行</strong>。  </p>
+<p>PS:如果想要不随机唤醒线程，可使用Lock，以后会介绍 </p>
+<p>示例: </p>
+<pre><code class="java">public class MyThread1 extends Thread{
+    private Object lock;
+    public MyThread1(Object lock) {
+        this.lock = lock;
+    }
+    @Override
+    public void run() {
+        try {
+            synchronized (lock) {
+                System.out.println(&quot;thread1开始wait time:&quot; + System.currentTimeMillis());
+                lock.wait();
+                System.out.println(&quot;thread1结束 time:&quot; + System.currentTimeMillis());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<pre><code class="java">public class MyThread2 extends Thread{
+    private Object lock;
+    public MyThread2(Object lock) {
+        this.lock = lock;
+    }
+    public void run() {
+        synchronized (lock) {
+            System.out.println(&quot;thread2开始 notify time:&quot; + System.currentTimeMillis());
+            lock.notify();
+            System.out.println(&quot;thread2结束notify time:&quot; + System.currentTimeMillis());
+        }
+    }
+}
+</code></pre>
+<p>写个main函数，Thread.sleep(3000)也是为了保证t1先运行，这样才能看到wait()和notify()的效果： </p>
+<pre><code class="java">public static void main(String[] args) throws InterruptedException {
+        Object lock = new Object();
+        MyThread1 t1 = new MyThread1(lock);
+        t1.start();
+        System.out.println(&quot;睡眠3秒后thread2进行notify&quot;);
+        Thread.sleep(3000);
+        MyThread2 t2 = new MyThread2(lock);
+        t2.start();
+    }
+</code></pre>
+<pre><code>睡眠3秒后thread2进行notify
+thread1开始wait time:1605852468080
+thread2开始 notify time:1605852471083
+thread2结束notify time:1605852471083
+thread1结束 time:1605852471083
+</code></pre><p><strong>wait()之后代码一直暂停，notify()之后代码才开始运行</strong>。  </p>
+<p>wait()方法可以使调用该线程的方法<strong>释放共享资源的锁</strong>，然后从运行状态退出，进入等待队列，直到再次被唤醒。</p>
+<p>notify()方法可以随机唤醒等待队列中等待同一共享资源的一个线程，<strong>并使得该线程退出等待状态，进入可运行状态</strong> （进入可运行状态，并不意味着马上运行。需要等当前线程运行完之后）</p>
+<p>notifyAll()方法可以使所有正在等待队列中等待同一共享资源的<strong>全部线程</strong>从等待状态退出，进入可运行状态 </p>
+<p>最后，如果<code>wait()</code>方法和<code>notify()/notifyAll()</code>方法不在同步方法/同步代码块中被调用，那么虚拟机会抛出java.lang.IllegalMonitorStateException，注意一下。  </p>
+<h2 id="notifyall"><a href="#notifyall" class="headerlink" title="notifyall"></a>notifyall</h2><p>MyThread1和MyThread2代码就不贴了，和上面的一样</p>
+<p>NotifyThread.java</p>
+<pre><code class="java">public class NotifyThread extends Thread{
+    private Object lock;
+    public NotifyThread(Object lock) {
+        this.lock = lock;
+    }
+    public void run() {
+        synchronized (lock) {
+            System.out.println(&quot;thread开始notify time:&quot; + System.currentTimeMillis());
+            lock.notifyAll();
+            System.out.println(&quot;thread结束notify time:&quot; + System.currentTimeMillis());
+        }
+    }
+}
+</code></pre>
+<pre><code class="java">  public static void main(String[] args) throws InterruptedException {
+        Object lock = new Object();
+        MyThread1 t1 = new MyThread1(lock);
+        MyThread2 t2 = new MyThread2(lock);
+        t1.start();
+        t2.start();
+        System.out.println(&quot;睡眠3秒&quot;);
+        Thread.sleep(3000);
+        NotifyThread nt  = new NotifyThread(lock);
+        nt.start();
+    }
+</code></pre>
+<p><img src="2.png" alt> </p>
+<p>可以看到notifyall确实是唤醒所有wait中的线程, 利用Object对象的notifyAll()方法可以唤醒处于同一监视器下的所有处于wait的线程 。至于唤醒的顺序，就和线程启动的顺序一样，是虚拟机随机的。</p>
+<h2 id="wait-释放锁"><a href="#wait-释放锁" class="headerlink" title="wait()释放锁"></a>wait()释放锁</h2><p>多线程的学习中，任何地方都要关注”锁”，wait()和notify()也是这样。wait()方法是释放锁的,notify是不释放锁的。写一个例子来证明一下：</p>
+<p>ThreadDomain.java</p>
+<pre><code class="java">public class ThreadDomain {
+    public void testMethod(Object lock) {
+        try {
+            synchronized (lock) {
+                System.out.println(Thread.currentThread().getName() + &quot;开始wait&quot;);
+                lock.wait();
+                System.out.println(Thread.currentThread().getName() + &quot;结束wait&quot;);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<p>MyThread.java</p>
+<pre><code class="java">public class MyThread extends Thread{
+    private Object lock;
+    public MyThread(Object lock) {
+        this.lock = lock;
+    }
+    public void run() {
+        ThreadDomain td = new ThreadDomain();
+        td.testMethod(lock);
+    }
+}
+</code></pre>
+<p>main函数调用下</p>
+<pre><code class="java">public static void main(String[] args) {
+        Object lock = new Object();
+        MyThread t1 = new MyThread(lock);
+        MyThread t2 = new MyThread(lock);
+        t1.start();
+        t2.start();
+    }
+</code></pre>
+<p><img src="3.png" alt> </p>
+<p>如果wait()方法不释放锁，那么Thread-1根本不会进入同步代码块打印的，所以，证明完毕。 </p>
+<h2 id="notify-不释放锁"><a href="#notify-不释放锁" class="headerlink" title="notify()不释放锁"></a>notify()不释放锁</h2><pre><code class="java">public class ThreadDomain {
+    public void testMethod(Object lock) {
+        try {
+            synchronized (lock) {
+                System.out.println(&quot;开始wait, ThreadName = &quot; + Thread.currentThread().getName());
+                lock.wait();
+                System.out.println(&quot;结束wait, ThreadName = &quot; + Thread.currentThread().getName());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void synNotifyMethod(Object lock) {
+        try {
+            synchronized (lock) {
+                System.out.println(&quot;开始notify,并睡五秒, ThreadName = &quot; + Thread.currentThread().getName());
+                lock.notify();
+                Thread.sleep(5000);
+                System.out.println(&quot;结束notify, ThreadName = &quot; + Thread.currentThread().getName());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+<p>MyThread1.java</p>
+<pre><code class="java">public class MyThread1 extends Thread{
+    private Object lock;
+
+    public MyThread1(Object lock) {
+        this.lock = lock;
+    }
+
+    public void run() {
+        ThreadDomain td = new ThreadDomain();
+        td.testMethod(lock);
+    }
+}
+</code></pre>
+<p>MyThread2.java</p>
+<pre><code>public class MyThread2 extends Thread{
+    private Object lock;
+
+    public MyThread2(Object lock) {
+        this.lock = lock;
+    }
+
+    public void run() {
+        ThreadDomain td = new ThreadDomain();
+        td.synNotifyMethod(lock);
+    }
+}
+</code></pre><p>main</p>
+<pre><code class="java">  public static void main(String[] args) {
+        Object lock = new Object();
+        MyThread1 t1 = new MyThread1(lock);//调的是wait
+        t1.start();
+        MyThread2 t2 = new MyThread2(lock);//调的是notify
+        t2.start();
+        MyThread2 t2_ = new MyThread2(lock);//调的是notify,用2个线程来notify来证明，第一个notify是否释放了锁,如果释放了，第二个notify可以立即执行.否则就证明了notify就不会释放锁的
+        t2_.start();
+    }
+</code></pre>
+<p>结果:</p>
+<pre><code>开始wait, ThreadName = Thread-0
+开始notify,并睡五秒, ThreadName = Thread-1
+......这里阻塞了5秒......
+结束notify, ThreadName = Thread-1
+结束wait, ThreadName = Thread-0
+开始notify,并睡五秒, ThreadName = Thread-2
+结束notify, ThreadName = Thread-2
+</code></pre><p>如果notify()方法释放锁，那么在Thread-1调用notify()方法后Thread.sleep(5000)必定应该有其他线程可以进入同步代码块了，但是实际上没有，必须等到Thread-1把代码执行完。所以，证明完毕。</p>
+<h2 id="wait-sleep的区别"><a href="#wait-sleep的区别" class="headerlink" title="wait/sleep的区别"></a>wait/sleep的区别</h2><p>Thread有一个sleep()静态方法，它也能使线程暂停一段时间。sleep与wait的不同点是：<strong>sleep并不释放锁</strong>，并且sleep的暂停和wait暂停是不一样的。obj.wait会使线程进入obj对象的等待集合中并等待唤醒。 </p>
+<p>但是<strong>wait()和sleep()都可以通过interrupt()方法打断线程的暂停状态</strong>，从而使线程立刻抛出InterruptedException。 </p>
+<p>如果线程A希望立即结束线程B，则可以对线程B对应的Thread实例调用interrupt方法。如果此刻线程B正在wait/sleep/join，则线程B会立刻抛出InterruptedException，在catch() {} 中直接return即可安全地结束线程。 </p>
+<p>需要注意的是，InterruptedException是线程自己从内部抛出的，并不是interrupt()方法抛出的。对某一线程调用interrupt()时，如果该线程正在执行普通的代码，那么该线程根本就不会抛出InterruptedException。但是，一旦该线程进入到wait()/sleep </p>
+<p>sleep是线程类（Thread）的方法，导致此线程暂停执行指定时间，<strong>给执行机会给其他线程，但是监控状态依然保持，到时后会自动恢复 。调用sleep不会释放对象锁</strong>。  </p>
+<p>wait是Object类的方法，对此对象调用wait方法导致本线程放弃对象锁，<strong>进入等待此对象的等待锁定池，只有针对此对象发出notify方 法（或notifyAll）后本线程才进入对象锁定池准备获得对象锁进入运行状态</strong>。</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            This blog is under a CC BY-NC-SA 3.0 Unported License
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/">http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/11/19/The-use-and-implementation-of-ThreadLocal/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Rico's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        chenhongjie101@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:chenhongjie101@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/02/">二月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">43</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/Ricoccc" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/rico.austin.5" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/103668464393164710629" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/1878017080/profile" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/14573494" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+        <a href="https://v2ex.com/member/Rico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-v2ex">
+                <span class="visuallyhidden">V2EX</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>-->
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2014;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

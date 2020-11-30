@@ -249,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Thu Nov 19 2020 19:06:55 GMT+0800">
-        <meta property="article:modified_time" content="Thu Nov 19 2020 19:06:58 GMT+0800">
+        <meta property="article:modified_time" content="Mon Nov 30 2020 14:54:40 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -663,7 +663,7 @@
 <p><img src="1.png" alt></p>
 <p>从上图我们可以发现<strong>Thread 中持有一个ThreadLocalMap </strong> </p>
 <p><img src="2.png" alt></p>
-<p>这里的ThreadLocalMap可以简单理解为就是持有一个数组（具体这个ThreadLocalMap我下面会详细介绍），这个数组是Entry 类型的。 Entry 的key 是ThreadLocal 类型的（就是你自己new出来的ThreadLocal），value 是Object 类型。一个ThreadLocalMap 可以持有多个ThreadLocal。他们是一对多的关系,就像上面的代码中我在一个线程中new了2个ThreadLocal,都可以获取到对应的值。 </p>
+<p>这里的ThreadLocalMap可以简单理解为就是持有一个数组（具体这个ThreadLocalMap我下面会详细介绍），这个数组是Entry 类型的。 Entry 的key 是ThreadLocal 类型的（就是你自己new出来的ThreadLocal），value 是Object 类型。一个ThreadLocalMap 可以持有多个ThreadLocal。他们是一对多的关系,就像上面的代码中我在一个线程中new了2个ThreadLocal,都可以获取到对应的值。 （也可以一个ThreadLocal对象实例用在多个线程中）</p>
 <p><img src="3.png" alt></p>
 <p>不难看出ThreadLocalMap类是ThreadLocal类的静态内部类   而Entry是ThreadLocalMap的静态内部类，key是ThreadLocal（声明为弱引用），value是Object，也就是我们要存的值。 </p>
 <p><img src="4.png" alt></p>

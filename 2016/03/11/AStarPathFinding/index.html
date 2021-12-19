@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://hm.baidu.com">
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            A星寻路算法解析 | 
+        
+        Rico&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,算法">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?uVzgA6RLrOm13Ukw8Qgy+A==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2016/03/11/AStarPathFinding/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2016/03/11/AStarPathFinding/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="A星寻路算法解析 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="算法"> 
+
+    
+        <meta property="article:published_time" content="Fri Mar 11 2016 23:21:15 GMT+0800">
+        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2016/03/11/AStarPathFinding/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+        <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#A星算法介绍及实现"><span class="post-toc-number">1.</span> <span class="post-toc-text">A星算法介绍及实现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">2.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#效果"><span class="post-toc-number">3.</span> <span class="post-toc-text">效果</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#算法详解"><span class="post-toc-number">4.</span> <span class="post-toc-text">算法详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始搜索"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">开始搜索</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-起点加入OpenList"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">1. 起点加入OpenList</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-相邻方格加入OpenList-并设置parent"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">2. 相邻方格加入OpenList,并设置parent</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-A从OpenList移除-加入CloseList"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">3 A从OpenList移除,加入CloseList</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#路径排序"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">路径排序</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#继续搜索"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">继续搜索</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-选出最小F值的方格-移出OpenList-加入ClostList"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">4. 选出最小F值的方格,移出OpenList,加入ClostList</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-最重要一步"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">5. 最重要一步</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我的实现"><span class="post-toc-number">5.</span> <span class="post-toc-text">我的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优化"><span class="post-toc-number">5.0.1.</span> <span class="post-toc-text">优化</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最后"><span class="post-toc-number">6.</span> <span class="post-toc-text">最后</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#欧几里得距离"><span class="post-toc-number">6.0.1.</span> <span class="post-toc-text">欧几里得距离</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#平方后的欧几里得距离"><span class="post-toc-number">6.0.2.</span> <span class="post-toc-text">平方后的欧几里得距离</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 34 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                A星寻路算法解析
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>3月 11, 2016</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/算法/">算法</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=A星寻路算法解析&url=http://hogwartsrico.github.io/2016/03/11/AStarPathFinding/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=A星寻路算法解析&url=http://hogwartsrico.github.io/2016/03/11/AStarPathFinding/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2016/03/11/AStarPathFinding/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="A星算法介绍及实现"><a href="#A星算法介绍及实现" class="headerlink" title="A星算法介绍及实现"></a>A星算法介绍及实现</h1><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" target="_blank" rel="noopener">computer science</a>, <strong>A*</strong> (pronounced as “A star”) is a <a href="https://en.wikipedia.org/wiki/Computer_algorithm" target="_blank" rel="noopener">computer algorithm</a> that is widely used in <a href="https://en.wikipedia.org/wiki/Pathfinding" target="_blank" rel="noopener">pathfinding</a> and <a href="https://en.wikipedia.org/wiki/Graph_traversal" target="_blank" rel="noopener">graph traversal</a>, the process of plotting an efficiently directed path between multiple points, called nodes. It enjoys widespread use due to its <a href="https://en.wikipedia.org/wiki/Computer_performance" target="_blank" rel="noopener">performance</a> and accuracy. However, in practical travel-routing systems, it is generally outperformed by algorithms which can pre-process the graph to attain better performance,<a href="https://en.wikipedia.org/wiki/A*_search_algorithm#cite_note-1" target="_blank" rel="noopener">[1]</a> although other work has found A<em> to be superior to other approaches.[[2]](<a href="https://en.wikipedia.org/wiki/A" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/A</a></em>_search_algorithm#cite_note-Zeng-2)            –<a href="https://en.wikipedia.org/wiki/A*_search_algorithm" target="_blank" rel="noopener">wikipedia</a></p>
+</blockquote>
+<p><code>A*寻路</code>算法是比较流行的启发式搜索算法之一，被广泛应用于路径优化领域。它的独特之处是检查最短路径中每个可能的节点时引入了全局信息，对当前节点距终点的距离做出估计，并作为评价该节点处于最短路线上的可能性的量度。 </p>
+<p>当你玩War3，Dota, 等RTS(即时战略)游戏，当你给里面的人物下达移动指令时，就是基于格子地图使用了<code>A*</code>算法来进行路径分析的. 当然了诸如冰霜飞龙奇美拉是不需要考虑阻挡的啦，直接飞直线就行了(三本兵就是屌233)      </p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>网上A星算法可视化的比较多 推荐2个Demo  </p>
+<p><a href="https://anvaka.github.io/ngraph.path.demo/#?graph=amsterdam-roads" target="_blank" rel="noopener">阿姆斯特丹路网–A*寻路Demo</a><br> <a href="https://github.com/anvaka/ngraph.path" target="_blank" rel="noopener">源码</a>  </p>
+<p><img src="1.png" alt></p>
+<p>作者将荷兰阿姆斯特丹城市的路网经过pbf编码压缩，使得7万6千条边数据压缩到了1.1M大小，然后通过A星算法进行最短路径分析，性能强大到鼠标拖动B点到哪里，路径分析就到哪里。 左上角是耗时，8.85毫秒  </p>
+<p>第二个Demo对于理解A星算法有很大帮助 </p>
+<p><a href="http://qiao.github.io/PathFinding.js/visual/" target="_blank" rel="noopener">PathFinding.js/visual</a><br><a href="https://github.com/qiao/PathFinding.js" target="_blank" rel="noopener">源码</a> </p>
+<p><img src="2.png" alt> </p>
+<p>下图是相同起止点，使用<code>迪杰斯特拉算法</code>进行路径分析的结果 ，可以明显看到，分析的节点比A*多了很多,耗时也多了很多，效率优劣不言而喻了.   </p>
+<p><img src="3.png" alt> </p>
+<p>再补一个3D的A*可视化网站： <a href="https://www.hightopo.com/demo/astar/astar.html" target="_blank" rel="noopener">https://www.hightopo.com/demo/astar/astar.html</a>  <a href="https://github.com/bgrins/javascript-astar" target="_blank" rel="noopener">源码</a>   </p>
+<p>2D <a href="https://briangrinstead.com/files/astar/" target="_blank" rel="noopener">https://briangrinstead.com/files/astar/</a>  </p>
+<h1 id="算法详解"><a href="#算法详解" class="headerlink" title="算法详解"></a>算法详解</h1><p>如图所示简易网格地图, 其中绿色方块的是起点 (用 A 表示), 中间绿色的是障碍物(不可走), 红色的方块 (用 B 表示) 是目的地. 为了可以用一个二维数组来表示地图, 我们将地图划分成一个个的小方块.</p>
+<p><img src="4.png" alt></p>
+<h2 id="开始搜索"><a href="#开始搜索" class="headerlink" title="开始搜索"></a>开始搜索</h2><h3 id="1-起点加入OpenList"><a href="#1-起点加入OpenList" class="headerlink" title="1. 起点加入OpenList"></a>1. 起点加入OpenList</h3><p><strong>把起点A加入到一个由方格组成的 <em>OpenList</em></strong>( 开放列表 ,这个概念很重要，还有一个<em>CloseList</em> ,下文中会提及) 中。这个 OpenList 就是一个备选列表。当然现在 OpenList 里只有一项，它就是起点 A ，后面会慢慢加入更多的项。 OpenList 里的格子是路径可能会是沿途经过的，也有可能不经过。</p>
+<h3 id="2-相邻方格加入OpenList-并设置parent"><a href="#2-相邻方格加入OpenList-并设置parent" class="headerlink" title="2. 相邻方格加入OpenList,并设置parent"></a>2. 相邻方格加入OpenList,并设置parent</h3><p>找到与起点 A 相邻的方格 ,把其中可走的方格也加入到 OpenList 中(忽略阻碍方格)。<strong>把起点 A 设置为这些方格的父亲 (parent node)</strong> 。当我们在搜寻完成之后，这些父节点是重现整条路径的关键。稍后解释。</p>
+<h3 id="3-A从OpenList移除-加入CloseList"><a href="#3-A从OpenList移除-加入CloseList" class="headerlink" title="3 A从OpenList移除,加入CloseList"></a>3 A从OpenList移除,加入CloseList</h3><p>现在确定A是必经之路(因为是起点,所以是必经之路,之后的必经之路就是F值最短的方格,稍后解释),也就是在这次选择中,我确定A一定要过,所以<strong>把 A 从 OpenList 中移除</strong>，加入到 CloseList( 封闭列表,其中的方格在之后的搜寻中都不再考虑 ) 中， CloseList 中的每个方格都是现在不需要再关注的。</p>
+<p>如下图所示，绿色的方格为起点，它的外框是亮蓝色，表示该方格被加入到了 CloseList 。与它相邻的白色方格是需要被检查的，他们的外框是亮绿色。每个黑方格都有一个红色的指针指向他们的父节点，就起点 A 。</p>
+<p><img src="5.png" alt></p>
+<p>下一步，我们需要从 OpenList 中选一个与起点 A 相邻的方格，按下面描述的一样或多或少的重复前面的步骤。但是到底选择哪个方格好呢？具有最小 F 值的那个。</p>
+<h2 id="路径排序"><a href="#路径排序" class="headerlink" title="路径排序"></a>路径排序</h2><p>计算出组成路径的方格的关键是下面这个等式：</p>
+<p><code>F = G + H</code> </p>
+<p>这里 ,</p>
+<p>G = 从起点 A 移动到指定方格的移动代价，沿着到达该方格而生成的路径。</p>
+<p>H = 从指定的方格移动到终点 B 的估算成本。这个通常被称为试探法，有点让人混淆。为什么这么叫呢，因为这是个猜测。直到我们找到了路径我们才会知道真正的距离，因为途中有各种各样的东西 ( 障碍等 ) 。</p>
+<p>我们的路径是这么产生的：反复遍历 OpenList ，选择 F 值最小的方格。这个过程稍后详细描述。我们还是先看看怎么去计算上面的等式。 </p>
+<p>如上所述， G 是从起点Ａ移动到指定方格的移动代价。在本例中，横向,纵向,斜角的移动代价为 1 (也可以将斜角代价设为1.4–2的平方根) 这里就用1了 </p>
+<p>既然我们是沿着到达指定方格的路径来计算 G 值，那么计算出该方格的 G 值的方法就是找出其父亲的 G 值，然后按父亲是直线方向还是斜线方向加上1 。随着我们离开起点而得到更多的方格，这个方法会变得更加明朗。</p>
+<p>有很多方法可以估算 H 值。这里我们使用 Manhattan 方法，计算从当前方格横向或纵向移动到达目标所经过的方格数，忽略对角移动 。之所以叫做 Manhattan 方法，是因为这很像统计从一个地点到另一个地点所穿过的街区数，而你不能斜向穿过街区。重要的是，计算 H 是，要忽略路径中的障碍物。<strong>这是对剩余距离的估算值，而不是实际值，因此才称为试探法</strong>。</p>
+<p>我们对上图 补上FGH值  拿右下角这个方格距离,它离起点差1个斜对角,G等于1  离终点差4个方格,所以F等于<code>1+4 = 5</code></p>
+<p><img src="6.png" alt> </p>
+<p>其他方格同理, F 值，直接把 G 值和 H 值相加就可以了。</p>
+<h2 id="继续搜索"><a href="#继续搜索" class="headerlink" title="继续搜索"></a>继续搜索</h2><h3 id="4-选出最小F值的方格-移出OpenList-加入ClostList"><a href="#4-选出最小F值的方格-移出OpenList-加入ClostList" class="headerlink" title="4. 选出最小F值的方格,移出OpenList,加入ClostList"></a>4. 选出最小F值的方格,移出OpenList,加入ClostList</h3><p>我们从 OpenList 中选择 F 值最小的 (方格)节点,把它从 OpenList 里取出，放到 CloseList中  </p>
+<p><img src="7.png" alt></p>
+<p>在这些方格中，起点右边的格子的 F 值 4 最小，因此我们选择这个方格作为下一个要处理的方格。它的外框用红线打亮</p>
+<h3 id="5-最重要一步"><a href="#5-最重要一步" class="headerlink" title="5. 最重要一步"></a>5. 最重要一步</h3><p>检查所有与它相邻的方格，忽略在CloseList 中或是阻碍的方格，</p>
+<p>衍生出2种情况: </p>
+<p><strong>如果方格不在OpenList 中</strong>，则把它们加入到 OpenList 中,把我们选定的方格设置为这些新加入的方格的父亲。  </p>
+<p><strong>如果这个点的相邻方格已经在OpenList中</strong>，则重计算F值(由这个点为起点到达该相邻点的F值),并将它和之前的F值作比较,又衍生出2种情况: </p>
+<p>​        如果新的F值小于旧的F值,说明由这个点去往该相邻点的路近了,选定这个点为下一个处理点,并将该相邻点的父亲设为它,更新该相邻点的FGH值. </p>
+<p>​        如果不是，啥也不做(上一步可知其实该点已经被剔除OpenList加入ClostList中了)。</p>
+<p>我们回来我们的例子: </p>
+<p>它右边的方格是墙壁，我们忽略。它左边的方格是起点，在 CloseList 中，我们也忽略。其他 4 个相邻的方格(红色五角星)均在 OpenList 中，我们需要检查经由这个方格到达那里的路径是否更好，使用 G 值来判定。</p>
+<p><img src="8.png" alt></p>
+<p>让我们看看上面的方格。它现在的 G 值为 1 。如果我们经由当前方格到达那里， G 值将会为 2(其中 1 为到达当前方格的 G 值，此外还要加上从当前方格纵向移动到上面方格的 G 值 1) 。显然 2 比 1 大，因此这不是最优的路径。如果你看图你就会明白。直接从起点沿对角线移动到那个方格比先横向移动再纵向移动要好。 </p>
+<p>当把 4 个已经在 OpenList 中的相邻方格都检查后，没有发现经由当前方格的更好路径，因此我们不做任何改变。现在我们已经检查了当前方格的所有相邻的方格，并也对他们作了处理，是时候选择下一个待处理的方格了。 </p>
+<p>看起来这一步啥也没动,其实我们已经把右边这个点从OpenList移出,加入ClostList中了,也就是说排除了右边这个点 </p>
+<p>因此再次遍历我们的 OpenList ，现在它只有 7 个方格了(起点和起点右边的已经被加入ClostList)，我们需要选择 F 值最小的那个。有趣的是，这次有两个方格的 F 值都 5 ，选哪个呢？没什么关系。从速度上考虑，选择最后加入 OpenList 的方格更快。这导致了在寻路过程中，当靠近目标时，优先使用新找到的方格的偏好。但是这并不重要。 </p>
+<p>我们选择起点右上方的方格，如下图所示:</p>
+<p>右上的方格已经被标为红色框,我们同时也可以看到起点和右侧点外框都已经是蓝色了说明他们已经被加入ClostList中不再被考虑了 </p>
+<p>！<img src="9.png" alt> </p>
+<p>这次，当我们检查相邻的方格时，我们发现它右边的方格是墙，忽略之。上面的也一样。</p>
+<p>我们把墙下面的一格也忽略掉。为什么？因为如果不穿越墙角的话，你不能直接从当前方格移动到那个方格。你需要先往下走，然后再移动到那个方格，这样来绕过墙角。 ( 注意：穿越墙角的规则是可选的，依赖于你的节点是怎么放置的 )</p>
+<p> <img src="10.png" alt> </p>
+<p>这样还剩下 6 个<strong>相邻</strong>的方格。当前方格上面的 3个方格还没有加入 OpenList ，所以把它们加入，同时把当前方格设为他们的父亲。在剩下的3 个方格中，有 2 个已经在 CloseList 中 ( 一个是起点，一个是当前方格下面的方格，都有蓝色外边框 ) ，我们忽略它们。最后一个方格，也就是当前方格左边的方格，我们检查经由当前方格到达那里是否具有更小的 G 值。没有(斜角直接到了，转弯反而远)。因此我们准备从 OpenList 中选择下一个待处理的方格。</p>
+<p>不断重复这个过程，直到把终点也加入到了 OpenList 中,我再顺着讲一个流程</p>
+<p>接下来继续遍历OpenList,看下图,下方和左方是在OpenList中找最小F值的,虽然我们人眼一看就知道继续右上角往下遍历就行了,但是程序不知道啊,按照规矩老老实实遍历.发现下面有个F=5,右边有个F=6,尝试着往那2个方格走,然后把这2个方格的相邻点进行上面第四步的操作,无奈那2个方格的相邻格子的F值仍然大于等于我们右上角的F值,所以程序继续选择这个点作为下一步的基点(兜了一圈又回来了,但这是必踩的坑),继续周而复始</p>
+<p><img src="11.png" alt> </p>
+<p>直到OpenList中出现了终点 </p>
+<p><img src="12.png" alt></p>
+<p>然后从OpenList中找到这个终点,拿到这个终点的parent,然后找终点的parent的parent,继续向上找，找到起点，A星最短路径就完成了  </p>
+<p><img src="13.png" alt> </p>
+<p>我们来一张动图来总体回顾一下 </p>
+<p><img src="14.gif" alt></p>
+<p>A星最短路径相对于迪杰斯特拉这种无脑遍历的最短路径算法,有一种”神奇的力量”将它往终点靠,这个神奇的力量就是启发值H,所以A星算法也叫<strong>启发式搜索算法</strong>(听着感觉好高大上,其实也就那么回事) </p>
+<h1 id="我的实现"><a href="#我的实现" class="headerlink" title="我的实现"></a>我的实现</h1><p>弄懂了A星的原理，实现起来就不难啦 </p>
+<p>我使用Java实现了一遍<code>A*</code>寻路算法,使用<code>A*</code>来对全国路网进行最优路径分析,最优路径稍稍区别于最短路径,加上了堵车,施工,道路平均速度等参数,其实都是H的成本 ,可同等看待  </p>
+<p><img src="15.png" alt> </p>
+<p>下图是多个停靠点的例子</p>
+<p><img src="16.png" alt></p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>全国的路网数据量非常大,搜索节点时可对节点ID采用hash编码,方便匹配,数据可存放于内存中而不是使用数据库(例如redis ,ehcache),减少IO和网络延迟. 计算时可采用分布式</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>可以延伸看下除了曼哈顿距离还有其他距离 </p>
+<p>例如  </p>
+<ul>
+<li><p><a href="http://en.wikipedia.org/wiki/Chebyshev_distance" target="_blank" rel="noopener">契比雪夫距离(Chebyshev distance)</a>  </p>
+</li>
+<li><h3 id="欧几里得距离"><a href="#欧几里得距离" class="headerlink" title="欧几里得距离"></a>欧几里得距离</h3></li>
+<li><h3 id="平方后的欧几里得距离"><a href="#平方后的欧几里得距离" class="headerlink" title="平方后的欧几里得距离"></a>平方后的欧几里得距离</h3></li>
+</ul>
+<p>延伸阅读  <a href="http://blog.jobbole.com/71044/" target="_blank" rel="noopener">关于寻路算法的一些思考</a>  </p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            This blog is under a CC BY-NC-SA 3.0 Unported License
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://hogwartsrico.github.io/2016/03/11/AStarPathFinding/">http://hogwartsrico.github.io/2016/03/11/AStarPathFinding/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/02/15/Everyone-Loves-Economics/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Rico's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        chenhongjie101@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:chenhongjie101@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/02/">二月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">46</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/Ricoccc" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/rico.austin.5" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/103668464393164710629" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/1878017080/profile" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/14573494" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+        <a href="https://v2ex.com/member/Rico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-v2ex">
+                <span class="visuallyhidden">V2EX</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>-->
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?LT4t6iE6m8TO1BLGGiNJqA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?tNQK2Tw2SUL8a1Scn/Mgew==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2014;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

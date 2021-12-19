@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://hm.baidu.com">
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            ElasticSearch入门学习笔记 | 
+        
+        Rico&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="HogwartsRico,ElasticSearch">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?uVzgA6RLrOm13Ukw8Qgy+A==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="ElasticSearch入门学习笔记 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="ElasticSearch"> 
+
+    
+        <meta property="article:published_time" content="Fri Sep 22 2017 21:01:26 GMT+0800">
+        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+        <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ElasticSearch简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">ElasticSearch简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ES版本历史和选择"><span class="post-toc-number">2.</span> <span class="post-toc-text">ES版本历史和选择</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#单实例安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">单实例安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插件安装"><span class="post-toc-number">4.</span> <span class="post-toc-text">插件安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分布式安装"><span class="post-toc-number">5.</span> <span class="post-toc-text">分布式安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础概念"><span class="post-toc-number">6.</span> <span class="post-toc-text">基础概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#索引创建"><span class="post-toc-number">7.</span> <span class="post-toc-text">索引创建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建索引"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">创建索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#非结构化创建"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">非结构化创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构化创建"><span class="post-toc-number">7.1.2.</span> <span class="post-toc-text">结构化创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据插入"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">数据插入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接修改文档"><span class="post-toc-number">7.3.1.</span> <span class="post-toc-text">直接修改文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#脚本修改"><span class="post-toc-number">7.3.2.</span> <span class="post-toc-text">脚本修改</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">删除</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除文档"><span class="post-toc-number">7.4.1.</span> <span class="post-toc-text">删除文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除索引"><span class="post-toc-number">7.4.2.</span> <span class="post-toc-text">删除索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用head插件删除"><span class="post-toc-number">7.4.2.1.</span> <span class="post-toc-text">使用head插件删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用rest删除"><span class="post-toc-number">7.4.2.2.</span> <span class="post-toc-text">使用rest删除</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查询"><span class="post-toc-number">8.</span> <span class="post-toc-text">查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单查询"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">简单查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#条件查询"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">条件查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚合查询"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">聚合查询</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SpringBook集成ES"><span class="post-toc-number">9.</span> <span class="post-toc-text">SpringBook集成ES</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 34 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                ElasticSearch入门学习笔记
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>9月 22, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/ElasticSearch/">ElasticSearch</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=ElasticSearch入门学习笔记&url=http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=ElasticSearch入门学习笔记&url=http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>本文为<a href="https://www.imooc.com/learn/889" target="_blank" rel="noopener">慕课网ElasticSearch</a>学习笔记,步骤均为亲手尝试实践  </p>
+<h1 id="ElasticSearch简介"><a href="#ElasticSearch简介" class="headerlink" title="ElasticSearch简介"></a>ElasticSearch简介</h1><p>基于Apache Lucene构建的开源搜索引擎 </p>
+<p>采用Java编写，提供简单易用的RESTFul API  </p>
+<p>轻松的横向扩展,支持PB级的结构化或非结构化数据处理   </p>
+<p><strong>可应用场景 </strong></p>
+<ul>
+<li>海量数据分析引擎  </li>
+<li>站内搜索引擎  </li>
+<li>数据仓库(利用ES强大的分布式存储能力)  </li>
+</ul>
+<p>一线公司实际应用场景   </p>
+<ul>
+<li>英国卫报–实时分析公众对文章的回应   </li>
+<li>维基百科,Github–站内实时搜索   </li>
+<li>百度–实时日志监控平台  </li>
+</ul>
+<h1 id="ES版本历史和选择"><a href="#ES版本历史和选择" class="headerlink" title="ES版本历史和选择"></a>ES版本历史和选择</h1><p>版本历史 1.x–&gt;2.x–&gt;5.x<br>版本选择:<br>es5.x支持lucene6,性能有大幅提升,磁盘空间相交之前也少了一半,查询性能提升了25%左右<br>2.x不被重视，也不会继续开发了<br>我们这里选择5.x  </p>
+<h1 id="单实例安装"><a href="#单实例安装" class="headerlink" title="单实例安装"></a>单实例安装</h1><p> 官网  <a href="https://www.elastic.co/" target="_blank" rel="noopener">https://www.elastic.co/</a>   </p>
+<p><img src="1.png" alt>  </p>
+<p>下载好之后 </p>
+<blockquote>
+<p>tar -zxvf elasticsearch-5.6.1.tar.gz<br>cd elasticsearch-5.6.1 </p>
+</blockquote>
+<p>可以看到如下文件结构<br><img src="2.png" alt> </p>
+<p>bin是存放es启动脚本的<br>config是存放es配置文件的目录<br>lib是它依赖的第三方库的目录<br>modules是它的模块目录<br>plugins是它的第三方插件的目录   </p>
+<p>使用命令<code>./bin/elasticsearch</code>来启动ES  </p>
+<p><img src="3.png" alt>  </p>
+<p>started表示启动成功,地址是localhost:9200  </p>
+<p>访问<a href="http://localhost:9200" target="_blank" rel="noopener">http://localhost:9200</a><br>显示如下<br><img src="4.png" alt> </p>
+<p>es单实例安装完成  </p>
+<h1 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h1><p>实用Head插件安装  </p>
+<p>es返回的是json格式的，不是很友好，head插件提供了友好的web界面，同时还可以实现基本信息的查看，rest请求的模拟，以及数据的基本检索  </p>
+<p>head插件地址 <a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a>  </p>
+<p>head要求node大于等于6.0   </p>
+<p>我们使用8.2.1版本的node    </p>
+<p>下载完成之后使用<code>npm install --registry=https://registry.npm.taobao.org</code>安装   </p>
+<p>使用命令<code>npm run start</code> 运行这个插件   然后访问<a href="http://localhost:9100" target="_blank" rel="noopener">http://localhost:9100</a>  </p>
+<p>es和head插件是2个不同的程序，而且端口也不一样，他们2个之间互相访问存在跨域问题，所以这里改2个配置   </p>
+<p><code>vim config/elasticsearch.yml</code>   </p>
+<p>在最下面加入2行   </p>
+<pre><code>http.cors.enabled:  true  #注意:后面有空格
+http.cors.allow-origin: &quot;*&quot;   #注意:后面有空格
+</code></pre><p>然后用后台方式启动es<br><code>./bin/elasticsearch -d</code>   </p>
+<p>然后再启动head插件，访问localhost:9100  </p>
+<p>就可以看到head连接es成功了,而且健康值是绿色   </p>
+<p><img src="5.png" alt>  </p>
+<p>健康值还有黄色和红色<br>黄色代表健康值不是很好,但是可以正常使用；red表示集群的情况很差了   </p>
+<p>后台启动的es如何关闭呢？ 答:使用 kill -9<br><img src="6.png" alt>  </p>
+<h1 id="分布式安装"><a href="#分布式安装" class="headerlink" title="分布式安装"></a>分布式安装</h1><p>我们会建一个集群，3个节点，1个master ,2个slave   </p>
+<p>编辑conf/elasticsearch.yml </p>
+<p>加入如下配置    </p>
+<pre><code>cluster.name: rico  #指定集群的名字       
+node.name: master   #给master起一个名字   
+node.master: true    #告诉它它就是master 
+network.host: 127.0.0.1  #绑定的IP ,端口不用改，默认就是9200
+</code></pre><p>IP绑定为127.0.0.1之后就不能用localhost访问了,必须用127.0.0.1了   </p>
+<p>然后启动es和head<br>访问如下 ，可以看到集群名字和master已经变成rico和master了<br><img src="7.png" alt><br><img src="8.png" alt>  </p>
+<p>我们新建2个目录，<code>es_slave1</code>和<code>es_slave2</code>,然后把es的程序拷贝进去，然后解压    </p>
+<p>然后修改slave的es的配置  </p>
+<p>加入如下配置 </p>
+<pre><code>luster.name: rico   #这个必须与master保证一致  
+node.name: slave1   #给这个节点起一个名字
+network.host: 127.0.0.1  #绑定IP 
+http.port: 8200     ## 不能和master的端口冲突  默认不配就是9200和master重了   
+discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;]  #这个配置的作用是找到master,如果不加这个配置的话,这个slave会游离于集群之外,找不到集群的master的
+</code></pre><p>slave可以不加  </p>
+<pre><code>http.cors.enabled:  true  
+http.cors.allow-origin: &quot;*&quot;
+</code></pre><p>先后启动slave1和slave2,然后我们访问head插件地址就可以看到下图   </p>
+<p><img src="9.png" alt>  </p>
+<p>我们可以看到一个master(五角星)，2个slave(圆点)   </p>
+<p>从这里可以看到，我们的es扩容是非常容易的  </p>
+<h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><p>每个集群都有一个唯一的名字,默认叫elasticsearch,所有节点都是通过集群名字来加入集群的, 每一个节点还有它自己的名字  </p>
+<p>节点能够存储数据，参与集群索引数据，搜索数据的独立服务<br><img src="10.png" alt>   </p>
+<p><img src="9.5.png" alt>  </p>
+<p>通常我们定义有相同字段的文档作为一个类型<br>文档是es里面最小的存储单位<br>索引在es中是通过名字来识别的，而且必须是英文字母小写且不含中划线,我们都是通过这个名字来对索引进行增删查改的操作   </p>
+<p>索引相当于数据库里的database ,类型相当于table，文档相当于sql里的一行记录  </p>
+<p>举个例子：<br>一个信息查询系统，用ES来做存储,里面的数据可以分为各种各样的索引，例如图书索引，家具索引，汽车索引。 图书索引又可以分为各种类型，例如科普类，计算机类，小说类等，具体到每一本书就是文档   </p>
+<p><img src="11.png" alt>  </p>
+<p>为何要分片？  </p>
+<p>假设一个索引的数据量很大，就会造成硬盘的压力很大，同时，搜索速度也会出现瓶颈,这时就可以将索引分成多个分片,分摊压力,分片的同时还允许用户进行水平的拆分，和分布式的操作，可以提高搜索和其他操作的效率   </p>
+<p>备份有哪些好处?<br>当一个主分片失败，或者出现问题时，备份的分片就可以代替工作，从而提高了es的可用性，备份的分片还可以执行搜索操作,以分摊搜索的压力,es默认在创建索引时会创建5个分片，1份备份,这个数量是可以修改的,分片的数量只能在创建索引时指定,而不能再后期进行修改,而备份可以修改   </p>
+<h1 id="索引创建"><a href="#索引创建" class="headerlink" title="索引创建"></a>索引创建</h1><p>RESTFul API<br><img src="12.png" alt>  </p>
+<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><h3 id="非结构化创建"><a href="#非结构化创建" class="headerlink" title="非结构化创建"></a>非结构化创建</h3><p>我们使用head插件来新建索引   </p>
+<p><img src="13.png" alt>  </p>
+<p><img src="14.png" alt> </p>
+<p>粗方框的是主分片,西细方框的是备份分片 </p>
+<p>如何知道一个索引是结构化还是非结构化的?  </p>
+<p>点击查看索引信息,mappings如果是空的就是非结构化的  </p>
+<p><img src="15.png" alt>  </p>
+<h3 id="结构化创建"><a href="#结构化创建" class="headerlink" title="结构化创建"></a>结构化创建</h3><p>如何建立结构化的索引呢？<br>点击复合索引<br>输入book索引,加一个类型novel，小说,接着加一个关键词<code>_mappings</code>给它加一个映射<br>内容写json结构体，也就是它的映射结构, </p>
+<pre><code>{
+  &quot;novel&quot;: {//novel是类型前缀,
+  //然后在这里定义它的结构
+    &quot;properties&quot;: {//关键词properties,在这里定义它的每一个字段
+      &quot;title&quot;: {//自定义的  标题
+        &quot;type&quot;: &quot;text&quot;//给title定义类型 type:text 表示是文本
+      }
+    }
+  }
+}
+</code></pre><p><img src="16.png" alt>   </p>
+<p>结果是”acknowledged”:true表示成功  </p>
+<p><img src="17.png" alt><br>这时我们看到mappings里面有内容了,有一个novel小说,它里面是有结构映射的  </p>
+<p>接下来我们使用工具POSTMan ，它是一个http模拟器  </p>
+<p><img src="18.png" alt><br>新的索引名 people    </p>
+<pre><code>{
+    &quot;settings&quot;:{//关键词settings,指定索引的配置
+        &quot;number_of_shards&quot;:3,//指定索引的分片数 
+        &quot;number_of_replicas&quot;:1//指定备份数 
+    },
+    &quot;mappings&quot;:{//索引映射定义
+        &quot;man&quot;:{//加一个类型 man  
+            &quot;properties&quot;:{//属性
+                &quot;name&quot;:{//名字
+                    &quot;type&quot;:&quot;text&quot;//类型是文本类型
+                },
+                &quot;county&quot;:{//国家
+                    &quot;type&quot;:&quot;keyword&quot;//国家是不可切分的，是一个关键词
+                },
+                &quot;age&quot;:{//年龄
+                    &quot;type&quot;:&quot;integer&quot;//类型是int
+                },
+                &quot;date&quot;:{//出生日期
+                    &quot;type&quot;:&quot;date&quot;,//格式是date
+                    &quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis&quot;//多种类型定义 年月日 小时分秒和年月日和时间戳
+                }
+            }
+        },
+        &quot;woman&quot;:{
+
+        }
+    }
+}
+</code></pre><p>去head插件里看一下 ,可以看到有people了,点击索引信息，可以看到格式映射是完全按照我们自己定义的     </p>
+<p><img src="19.png" alt>    </p>
+<h2 id="数据插入"><a href="#数据插入" class="headerlink" title="数据插入"></a>数据插入</h2><ul>
+<li>指定文档id插入</li>
+<li>自动产生文档id插入  </li>
+</ul>
+<p>文档id是唯一索引值，指向文档数据    </p>
+<p><img src="20.png" alt>  </p>
+<p>采用put方式,people是索引，man是类型,1是我们给他指定的一个id,也就是文档id<br>返回结果和我们的信息也是对应的,index是people，type是man，id是1   </p>
+<p>我们回head插件看到docs是1了，也就是我们刚插入的数据成功了     </p>
+<p><img src="21.png" alt> </p>
+<p>我们浏览数据<br><img src="22.png" alt>  </p>
+<p>id是我们自己指定的  </p>
+<p>接下来我们看如何让es在我们插入文档的时候自动产生id  </p>
+<p><img src="23.png" alt>  </p>
+<p>采用post方式,url不要写id，这样es就会产生id   </p>
+<p><img src="24.png" alt>  </p>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><ul>
+<li>直接修改文档 </li>
+<li>脚本修改文档  </li>
+</ul>
+<h3 id="直接修改文档"><a href="#直接修改文档" class="headerlink" title="直接修改文档"></a>直接修改文档</h3><blockquote>
+<p>127.0.0.1:9200/people/man/1/_update  </p>
+</blockquote>
+<p><img src="25.png" alt>   </p>
+<p>方式是post,1表示我们要修改的文档的id,<code>_update</code>是关键词，表示我们要对文档进行修改   </p>
+<pre><code>{
+    &quot;doc&quot;:{//关键词,要修改的文本就写在doc里面  
+        &quot;name&quot;:&quot;HogwartsRico&quot;
+    }
+}
+</code></pre><p><img src="26.png" alt>  </p>
+<p>我们查看head插件，可以看到数据已经修改了    </p>
+<h3 id="脚本修改"><a href="#脚本修改" class="headerlink" title="脚本修改"></a>脚本修改</h3><p><img src="27.png" alt>  </p>
+<pre><code>{
+    &quot;script&quot;:{//script关键字 es以脚本的方式去运行修改
+        &quot;lang&quot;:&quot;painless&quot;,//指定脚本语言,es支持很多的脚本语言, painless是内置的脚本语言,还支持js,python,groovy等脚本语言,这里我们选择es内置的painless
+        &quot;inline&quot;:&quot;ctx._source.age+=10&quot;//inline指定脚本内容，ctx代表es上下文,_source代表es当前的文档
+    }
+}
+</code></pre><p>可以看到结果修改了<br><img src="28.png" alt><br>我们还可以将参数放到外面 </p>
+<p><img src="29.png" alt>  </p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><p>这里我们删除id为1的文档<br>使用delete方式<br><img src="30.png" alt>  </p>
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><h4 id="使用head插件删除"><a href="#使用head插件删除" class="headerlink" title="使用head插件删除"></a>使用head插件删除</h4><p><img src="31.png" alt>  </p>
+<p><img src="32.png" alt>  </p>
+<p>这里有个确认操作，因为删除操作是很危险的，当我们删除索引时，索引和所有数据都会被删除  </p>
+<h4 id="使用rest删除"><a href="#使用rest删除" class="headerlink" title="使用rest删除"></a>使用rest删除</h4><p><img src="33.png" alt>  </p>
+<p>删除操作非常危险，谨慎操作  </p>
+<h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><p>我们先造几个模拟数据 </p>
+<pre><code>{
+    &quot;settings&quot;:{&quot;number_of_shards&quot;: 3,&quot;number_of_replicas&quot;: 1},
+    &quot;mappings&quot;:{
+        &quot;novel&quot;:{
+            &quot;properties&quot;:{
+                &quot;word_count&quot;:{&quot;type&quot;:&quot;integer&quot;},    
+                &quot;author&quot;:{&quot;type&quot;:&quot;keyword&quot;},
+                &quot;title&quot;:{&quot;type&quot;:&quot;text&quot;},
+                &quot;publish_date&quot;:{&quot;type&quot;:&quot;date&quot;,&quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || epoch_millis&quot;}
+            }
+        }
+    }
+}
+</code></pre><pre><code>{
+    &quot;word_count&quot;:50000,
+    &quot;title&quot;:&quot;菜谱&quot;,
+    &quot;author&quot;:&quot;abc&quot;,
+    &quot;publish_date&quot;:&quot;2017-09-21&quot;
+}
+</code></pre><p>等等 </p>
+<h2 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h2><p>查询id唯一的文档  </p>
+<blockquote>
+<p>127.0.0.1:9200/book/novel/1</p>
+</blockquote>
+<p><img src="35.png" alt>  </p>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><pre><code>{
+    &quot;query&quot;:{//es所有查询都是以query为关键词的
+        &quot;match_all&quot;:{}//查询所有的数据
+    }
+}
+</code></pre><p><img src="36.png" alt>  </p>
+<p>took：2表示这个查询花2毫秒<br>hits代表响应结果<br>hits的total是8，表示总共有8条数据,hits默认返回10条数据<br>如果size不指定，那么默认返回10条<br><code>_shards</code>：描述了查询分片的信息，查询了多少个分片、成功的分片数量、失败的分片数量等<br><code>_score</code>是文档的分数信息，与排名相关度有关，参考各大搜索引擎的搜索结果，就容易理解</p>
+<p>如何指定返回的数据大小和从哪里返回呢？  </p>
+<pre><code>{
+    &quot;query&quot;:{
+        &quot;match_all&quot;:{}
+    },
+    &quot;from&quot;:1,//返回第二条数据(从0开始数)  
+    &quot;size&quot;:1
+}
+</code></pre><p>文档的顺序是按照<code>_score</code>默认倒排的<br>如何将查询变成关键词查询呢？  </p>
+<p><img src="37.png" alt>  </p>
+<p>这里的返回结果是以<code>_score</code>默认倒排的,如何自定义自己的排序呢？  </p>
+<pre><code>{
+    &quot;query&quot;:{
+        &quot;match&quot;:{&quot;title&quot;:&quot;java&quot;}
+    },
+    &quot;sort&quot;:[//指定需要排序的字段
+        {
+            &quot;publish_date&quot;:{//publish_date作为排序字段
+                &quot;order&quot;:&quot;desc&quot;//默认是升序的，我们改成倒序
+            }
+        }
+    ]
+}
+</code></pre><p>返回结果<br><img src="39.png" alt><br>我们发现score这个字段变成null了，是因为我们指定了排序规则,</p>
+<p>下面的高级查询会做更多关于查询的介绍   </p>
+<h2 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h2><p>单个分组聚合  </p>
+<pre><code>{
+    &quot;aggs&quot;:{//aggs是聚合查询的关键词
+        &quot;group_by_word_count&quot;:{//给聚合条件起一个名字,这个名字是自定义的，可以随便起
+            &quot;terms&quot;:{//关键词
+                &quot;field&quot;:&quot;word_count&quot;//指定聚合的字段
+            }
+        }
+    }
+}
+</code></pre><p>结果会将所有数据返回并在结尾返回聚合后的数据  </p>
+<p><img src="40.png" alt> </p>
+<p>多个分组聚合  </p>
+<pre><code>{
+    &quot;aggs&quot;:{
+        &quot;group_by_word_count&quot;:{
+            &quot;terms&quot;:{
+                &quot;field&quot;:&quot;word_count&quot;
+            }
+        },
+        &quot;group_by_publish_date&quot;:{
+            &quot;terms&quot;:{
+                &quot;field&quot;:&quot;publish_date&quot;
+            }
+        }
+    }
+}
+</code></pre><p>es的其他功能函数  </p>
+<pre><code>{
+    &quot;aggs&quot;:{
+        &quot;grades_word_count&quot;:{
+            &quot;stats&quot;:{//stats表示进行下计算
+                &quot;field&quot;:&quot;word_count&quot;
+            }
+        }
+    }
+}
+</code></pre><p>结果<br><img src="41.png" alt><br>count总共有12个数   min最小值  avg 平均值  sum总和  </p>
+<p>也直接支持这里面的函数  </p>
+<pre><code>{
+    &quot;aggs&quot;:{
+        &quot;grades_word_count&quot;:{
+            &quot;min&quot;:{
+                &quot;field&quot;:&quot;word_count&quot;
+            }
+        }
+    }
+}
+</code></pre><h1 id="SpringBook集成ES"><a href="#SpringBook集成ES" class="headerlink" title="SpringBook集成ES"></a>SpringBook集成ES</h1><p>ESConfig.java  </p>
+<pre><code>@Configuration
+public class ESConfig {
+    @Bean
+    public TransportClient client() throws UnknownHostException {
+        InetSocketTransportAddress node=new InetSocketTransportAddress(
+                InetAddress.getByName(&quot;localhost&quot;),//address
+                9300//tcp端口
+        );
+        //设置自定义配置
+        Settings settings = Settings.builder().put(&quot;cluster.name&quot;,&quot;rico&quot;).build();//集群名
+        TransportClient client=new PreBuiltTransportClient(settings);//这里需要传入es的配置
+        client.addTransportAddress(node);
+        return client;
+    }
+}
+</code></pre><p><strong>增加和查询</strong></p>
+<p>Controller.java  </p>
+<pre><code>     @Autowired
+    private TransportClient client;
+
+    //获取图书的功能
+    @GetMapping(&quot;/get/book/novel&quot;)
+    @ResponseBody
+    public ResponseEntity  getBookNovel(@RequestParam(name=&quot;id&quot;,defaultValue = &quot;&quot;) String id){
+        if(id.isEmpty()){
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        GetResponse result= this.client.prepareGet(&quot;book&quot;,&quot;novel&quot;,id).get();//索引,类型   prepareGet获取索引
+        if(result.isExists()){
+            return new ResponseEntity(result.getSource(), HttpStatus.OK);
+        }else{
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+    //http://localhost:8080/get/book/novel?id=2
+    }
+
+    //增加图书的功能
+    @PostMapping(&quot;add/book/novel&quot;)
+    @ResponseBody
+    public ResponseEntity add(@RequestParam(name=&quot;title&quot;) String title,
+                              @RequestParam(name=&quot;author&quot;) String author,
+                              @RequestParam(name=&quot;word_count&quot;) int wordCount,
+                              @RequestParam(name=&quot;publish_date&quot;) @DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;) Date publish_date){
+        XContentBuilder content= null;
+        try {
+            content = XContentFactory.jsonBuilder().startObject().field(&quot;title&quot;,title).field(&quot;author&quot;,author).field(&quot;word_count&quot;,wordCount).field(&quot;publish_date&quot;,publish_date.getTime()).endObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        IndexResponse result= this.client.prepareIndex(&quot;book&quot;,&quot;novel&quot;).setSource(content).get();//prepareIndex准备构建索引  book是索引名   nove是type
+        return new ResponseEntity(result.getId(),HttpStatus.OK);
+    }
+</code></pre><p><img src="43.png" alt><br><img src="44.png" alt> </p>
+<p><strong>删除</strong>  </p>
+<pre><code>    @DeleteMapping(&quot;delete/book/novel&quot;)
+    @ResponseBody
+    public ResponseEntity delete(@RequestParam(name=&quot;id&quot;) String id){
+        DeleteResponse result=this.client.prepareDelete(&quot;book&quot;,&quot;novel&quot;,id).get();
+        return new ResponseEntity(result,HttpStatus.OK);
+    }
+</code></pre><p><img src="45.png" alt>   </p>
+<p><strong>更新</strong>  </p>
+<pre><code>     @PutMapping(&quot;update/book/novel&quot;)
+    @ResponseBody
+    public ResponseEntity update(
+            @RequestParam(name=&quot;id&quot;) String id,
+            @RequestParam(name=&quot;title&quot;,required = false) String title,
+            @RequestParam(name=&quot;author&quot;,required = false) String author,
+            @RequestParam(name=&quot;word_count&quot;,required = false) Integer word_count,
+            @RequestParam(name=&quot;publish_date&quot;,required = false) @DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;) Date publish_date
+    ){
+        UpdateRequest update=new UpdateRequest(&quot;book&quot;,&quot;novel&quot;,id);
+        XContentBuilder content=null;
+        try {
+            content=XContentFactory.jsonBuilder().startObject();
+            if(title!=null){
+                content.field(&quot;title&quot;,title);
+            }
+            if(author!=null){
+                content.field(&quot;author&quot;,author);
+            }
+            if(word_count!=null){
+                content.field(&quot;word_count&quot;,word_count);
+            }
+            if(publish_date!=null){
+                content.field(&quot;publish_date&quot;,publish_date.getTime());
+            }
+            content.endObject();//必须以endObject结尾
+            update.doc(content);
+            try {
+                UpdateResponse result=this.client.update(update).get();
+                return new ResponseEntity(result,HttpStatus.OK);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+                return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    //一般情况下，我们如果要在表单中上传文件，一般会将form的enctype参数设置为multipart/form-data。这种方式只支持POST的请求方式。
+    //put的话就用  x-www-form-urlencoded
+</code></pre><p><img src="46.png" alt>  </p>
+<p><strong>符合查询接口</strong>  </p>
+<pre><code>    @PostMapping(&quot;query/book/novel&quot;)
+    @ResponseBody
+    public ResponseEntity query(
+            @RequestParam(name=&quot;author&quot;,required = false) String author,
+            @RequestParam(name=&quot;title&quot;,required = false) String title,
+            @RequestParam(name=&quot;gt_word&quot;,defaultValue = &quot;0&quot;) Integer gt_word,//大于多少字
+            @RequestParam(name=&quot;lt_word&quot;,required = false) Integer lt_word//小于多少
+    ){
+
+        BoolQueryBuilder boolQuery= QueryBuilders.boolQuery();
+        if(author!=null){
+            boolQuery.must(QueryBuilders.matchQuery(&quot;author&quot;,author));
+        }
+        if(title!=null){
+            boolQuery.must(QueryBuilders.matchQuery(&quot;title&quot;,title));
+        }
+        RangeQueryBuilder rangeQueryBuilder=QueryBuilders.rangeQuery(&quot;word_count&quot;).from(gt_word);
+        if(lt_word!=null&amp;&amp;lt_word&gt;0){
+            rangeQueryBuilder.to(lt_word);
+        }
+        boolQuery.filter(rangeQueryBuilder);
+        SearchRequestBuilder  builder=this.client.prepareSearch(&quot;book&quot;)
+                .setTypes(&quot;novel&quot;)
+                .setSearchType(SearchType.DEFAULT.DFS_QUERY_THEN_FETCH)
+                .setQuery(boolQuery)
+                .setFrom(0).setSize(10);//当你的数据量足够多的时候，可以用QUERY_THEN_FETCH
+        System.out.println(builder);//直接打印请求体
+        SearchResponse response=builder.get();
+        List&lt;Map&lt;String,Object&gt;&gt; result=new ArrayList&lt;Map&lt;String,Object&gt;&gt;();
+        for(SearchHit hit:response.getHits()){
+            result.add(hit.getSource());
+        }
+        return new ResponseEntity(result,HttpStatus.OK);
+    }
+</code></pre><p><img src="47.png" alt><br><img src="48.png" alt>  </p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            This blog is under a CC BY-NC-SA 3.0 Unported License
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/">http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/10/01/Introduction-of-Lucene/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/08/19/Introduction-Of-Redis/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Rico's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        chenhongjie101@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:chenhongjie101@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/02/">二月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">46</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/Ricoccc" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/rico.austin.5" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/103668464393164710629" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/1878017080/profile" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/14573494" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+        <a href="https://v2ex.com/member/Rico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-v2ex">
+                <span class="visuallyhidden">V2EX</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>-->
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?LT4t6iE6m8TO1BLGGiNJqA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?tNQK2Tw2SUL8a1Scn/Mgew==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2014;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

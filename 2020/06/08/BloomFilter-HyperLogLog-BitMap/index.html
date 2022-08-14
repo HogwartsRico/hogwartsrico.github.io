@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,redis">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="布隆过滤器,位图,HyperLogLog | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="redis"> 
 
     
         <meta property="article:published_time" content="Mon Jun 08 2020 11:16:30 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/08/BloomFilter-HyperLogLog-BitMap/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/08/BloomFilter-HyperLogLog-BitMap/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#布隆过滤器"><span class="post-toc-number">1.</span> <span class="post-toc-text">布隆过滤器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#场景"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布隆过滤器是什么？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">布隆过滤器是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis中布隆过滤器的基本使用"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Redis中布隆过滤器的基本使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#误判率"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">误判率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布隆过滤器的原理"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">布隆过滤器的原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#布隆过滤器的其它应用"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">布隆过滤器的其它应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#爬虫系统"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">爬虫系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#nosql"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">nosql</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#垃圾邮件过滤"><span class="post-toc-number">1.7.3.</span> <span class="post-toc-text">垃圾邮件过滤</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#防止缓存击穿"><span class="post-toc-number">1.7.4.</span> <span class="post-toc-text">防止缓存击穿</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#优缺点"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优缺点与用途"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">优缺点与用途</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HyperLogLog"><span class="post-toc-number">2.</span> <span class="post-toc-text">HyperLogLog</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用方法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">使用方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注意事项"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">注意事项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#基数计数方法"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">基数计数方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#B树"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">B树</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bitmap"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">bitmap</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概率算法"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">概率算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HyperLogLog的惊人表现"><span class="post-toc-number">2.3.3.1.</span> <span class="post-toc-text">HyperLogLog的惊人表现</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HyperLogLog-原理"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">HyperLogLog 原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分桶平均"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">分桶平均</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#位图"><span class="post-toc-number">3.</span> <span class="post-toc-text">位图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#setbit命令"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">setbit命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getbit命令"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">getbit命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getcount命令"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">getcount命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#场景-1"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">场景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户日活，月活，留存率的统计"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">用户日活，月活，留存率的统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现用户上线次数的统计"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">实现用户上线次数的统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用户在线状态和人数统计"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">用户在线状态和人数统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#优点"><span class="post-toc-number">3.4.4.</span> <span class="post-toc-text">优点</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="post-toc-number">1.</span> <span class="post-toc-text">布隆过滤器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9C%BA%E6%99%AF"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">场景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">布隆过滤器是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis%E4%B8%AD%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Redis中布隆过滤器的基本使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AF%AF%E5%88%A4%E7%8E%87"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">误判率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%8E%9F%E7%90%86"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">布隆过滤器的原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%85%B6%E5%AE%83%E5%BA%94%E7%94%A8"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">布隆过滤器的其它应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%88%AC%E8%99%AB%E7%B3%BB%E7%BB%9F"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">爬虫系统</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#nosql"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">nosql</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9E%83%E5%9C%BE%E9%82%AE%E4%BB%B6%E8%BF%87%E6%BB%A4"><span class="post-toc-number">1.7.3.</span> <span class="post-toc-text">垃圾邮件过滤</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%98%B2%E6%AD%A2%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="post-toc-number">1.7.4.</span> <span class="post-toc-text">防止缓存击穿</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">优缺点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9%E4%B8%8E%E7%94%A8%E9%80%94"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">优缺点与用途</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HyperLogLog"><span class="post-toc-number">2.</span> <span class="post-toc-text">HyperLogLog</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">使用方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">注意事项</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9F%BA%E6%95%B0%E8%AE%A1%E6%95%B0%E6%96%B9%E6%B3%95"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">基数计数方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#B%E6%A0%91"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">B树</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bitmap"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">bitmap</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A6%82%E7%8E%87%E7%AE%97%E6%B3%95"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">概率算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HyperLogLog%E7%9A%84%E6%83%8A%E4%BA%BA%E8%A1%A8%E7%8E%B0"><span class="post-toc-number">2.3.3.1.</span> <span class="post-toc-text">HyperLogLog的惊人表现</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HyperLogLog-%E5%8E%9F%E7%90%86"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">HyperLogLog 原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E6%A1%B6%E5%B9%B3%E5%9D%87"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">分桶平均</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BD%8D%E5%9B%BE"><span class="post-toc-number">3.</span> <span class="post-toc-text">位图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#setbit%E5%91%BD%E4%BB%A4"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">setbit命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getbit%E5%91%BD%E4%BB%A4"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">getbit命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getcount%E5%91%BD%E4%BB%A4"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">getcount命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9C%BA%E6%99%AF-1"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">场景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%94%A8%E6%88%B7%E6%97%A5%E6%B4%BB%EF%BC%8C%E6%9C%88%E6%B4%BB%EF%BC%8C%E7%95%99%E5%AD%98%E7%8E%87%E7%9A%84%E7%BB%9F%E8%AE%A1"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">用户日活，月活，留存率的统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E4%B8%8A%E7%BA%BF%E6%AC%A1%E6%95%B0%E7%9A%84%E7%BB%9F%E8%AE%A1"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">实现用户上线次数的统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%94%A8%E6%88%B7%E5%9C%A8%E7%BA%BF%E7%8A%B6%E6%80%81%E5%92%8C%E4%BA%BA%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">用户在线状态和人数统计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%98%E7%82%B9"><span class="post-toc-number">3.4.4.</span> <span class="post-toc-text">优点</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83"><span class="post-toc-number">4.</span> <span class="post-toc-text">参考</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/redis/">redis</a>
+        <a class="post_tag-none-link" href="/tags/redis/" rel="tag">redis</a>
     </ul>
     
 
@@ -478,16 +478,17 @@
 <p>套在上面的使用场景中，布隆过滤器能准确过滤掉那些已经看过的内容，那些没有看过的新内容，它也会过滤掉极小一部分 (误判)，但是绝大多数新内容它都能准确识别。这样就可以完全保证推荐给用户的内容都是无重复的。 </p>
 <p>guava和redis中都有布隆过滤器 ,  但是guava的布隆过滤器分布式系统没法用，redis可以  </p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>bloomfilter是redis的一个插件</p>
-<p> <a href="https://github.com/RedisBloom/RedisBloom/releases" target="_blank" rel="noopener">https://github.com/RedisBloom/RedisBloom/releases</a>  </p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/RedisBloom/RedisBloom/releases">https://github.com/RedisBloom/RedisBloom/releases</a>  </p>
 <p>下载解压后make </p>
 <p>make完成之后会有一个<code>redisbloom.so*</code> 的文件  </p>
 <pre><code class="shell">#程序连接之前需要加载下模块
 ./redis-cli
  127.0.0.1:6379&gt; module load /home/rico/software/RedisBloom-2.2.2/redisbloom.so
+
 </code></pre>
 <p>远程连接redis需把protected-mode改为no </p>
 <p> bind 127.0.0.1注释掉</p>
-<p><img src="2.png" alt> </p>
+<p><img src="2.png" alt=""> </p>
 <h2 id="Redis中布隆过滤器的基本使用"><a href="#Redis中布隆过滤器的基本使用" class="headerlink" title="Redis中布隆过滤器的基本使用"></a>Redis中布隆过滤器的基本使用</h2><p> 布隆过滤器有二个基本指令，<code>bf.add</code> 添加元素，<code>bf.exists</code> 查询元素是否存在，它的用法和 set 集合的 sadd 和 sismember 差不多。注意 <code>bf.add</code> 只能<strong>一次添加一个元素</strong>，如果想要一次添加多个，就需要用到 <code>bf.madd</code> 指令。同样如果需要一次查询多个元素是否存在，就需要用到 <code>bf.mexists</code> 指令。 </p>
 <pre><code class="shell">127.0.0.1:6379&gt; bf.add guahao user1
 (integer) 1
@@ -514,65 +515,65 @@
 4) (integer) 0
 </code></pre>
 <p> 似乎很准确啊，一个都没误判。下面我们java加入很多元素，看看加到第几个元素的时候，布隆过滤器会出现误判。 </p>
-<pre><code class="java">  public static void main(String[] args) {
+<pre><code class="java">  public static void main(String[] args) &#123;
     Client client = new Client();
 
     client.delete(&quot;guahao&quot;);
-    for (int i = 0; i &lt; 100000; i++) {
+    for (int i = 0; i &lt; 100000; i++) &#123;
       client.add(&quot;guahao&quot;, &quot;user&quot; + i);
       boolean ret = client.exists(&quot;guahao&quot;, &quot;user&quot; + i);
-      if (!ret) {//如果误判会输出
+      if (!ret) &#123;//如果误判会输出
         System.out.println(i);
         break;
-      }
-    }
+      &#125;
+    &#125;
     client.close();
-  }
+  &#125;
 </code></pre>
 <p>执行上面的代码后，发现居然没有输出，塞进去了 100000 个元素，还是没有误判，这是怎么回事？</p>
 <p>原因就在于布隆过滤器对于已经见过的元素肯定不会误判，它只会误判那些没见过的元素。所以我们要稍微改一下上面的脚本，使用 bf.exists 去查找没见过的元素，看看它是不是以为自己见过了。</p>
 <pre><code class="java"> Client client = new Client();
     client.delete(&quot;guahao&quot;);
-    for (int i = 0; i &lt; 100000; i++) {
+    for (int i = 0; i &lt; 100000; i++) &#123;
       client.add(&quot;guahao&quot;, &quot;user&quot; + i);
       boolean ret = client.exists(&quot;guahao&quot;, &quot;user&quot; + (i + 1));
-      if (ret) {
+      if (ret) &#123;
         System.out.println(i);
         break;
-      }
-    }
+      &#125;
+    &#125;
 
     client.close();
 </code></pre>
 <p>运行后，我们看到了输出是 214，也就是到第 214 的时候，它出现了误判。</p>
 <h2 id="误判率"><a href="#误判率" class="headerlink" title="误判率"></a>误判率</h2><p>测量误判率:先随机出一堆字符串，然后切分为 2 组，将其中一组塞入布隆过滤器，然后再判断另外一组的字符串存在与否，取误判的个数和字符串总量一半的百分比作为误判率。</p>
 <pre><code class="java">private String chars;
-  {
+  &#123;
     StringBuilder builder = new StringBuilder();
-    for (int i = 0; i &lt; 26; i++) {
+    for (int i = 0; i &lt; 26; i++) &#123;
       builder.append((char) (&#39;a&#39; + i));
-    }
+    &#125;
     chars = builder.toString();
-  }
+  &#125;
 
-  private String randomString(int n) {
+  private String randomString(int n) &#123;
     StringBuilder builder = new StringBuilder();
-    for (int i = 0; i &lt; n; i++) {
+    for (int i = 0; i &lt; n; i++) &#123;
       int idx = ThreadLocalRandom.current().nextInt(chars.length());
       builder.append(chars.charAt(idx));
-    }
+    &#125;
     return builder.toString();
-  }
+  &#125;
 
-  private List&lt;String&gt; randomUsers(int n) {
+  private List&lt;String&gt; randomUsers(int n) &#123;
     List&lt;String&gt; users = new ArrayList&lt;&gt;();
-    for (int i = 0; i &lt; 100000; i++) {
+    for (int i = 0; i &lt; 100000; i++) &#123;
       users.add(randomString(64));
-    }
+    &#125;
     return users;
-  }
+  &#125;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) &#123;
     BloomTest bloomer = new BloomTest();
     List&lt;String&gt; users = bloomer.randomUsers(100000);
     List&lt;String&gt; usersTrain = users.subList(0, users.size() / 2);
@@ -580,19 +581,19 @@
 
     Client client = new Client();
     client.delete(&quot;guahao&quot;);
-    for (String user : usersTrain) {
+    for (String user : usersTrain) &#123;
       client.add(&quot;guahao&quot;, user);
-    }
+    &#125;
     int falses = 0;
-    for (String user : usersTest) {
+    for (String user : usersTest) &#123;
       boolean ret = client.exists(&quot;guahao&quot;, user);
-      if (ret) {
+      if (ret) &#123;
         falses++;
-      }
-    }
+      &#125;
+    &#125;
     System.out.printf(&quot;%d %d\n&quot;, falses, usersTest.size());
     client.close();
-  }
+  &#125;
 </code></pre>
 <p>输出</p>
 <pre><code>total users 100000
@@ -603,32 +604,32 @@ all trained
 <p>所以需要提前设置一个较大的数值避免超出导致误判率升高。如果不使用 bf.reserve，默认的<code>error_rate</code>是 0.01，默认的<code>initial_size</code>是 100。</p>
 <p>接下来我们使用 bf.reserve 改造一下上面的脚本：</p>
 <pre><code class="java"> private String chars;
-  {
+  &#123;
     StringBuilder builder = new StringBuilder();
-    for (int i = 0; i &lt; 26; i++) {
+    for (int i = 0; i &lt; 26; i++) &#123;
       builder.append((char) (&#39;a&#39; + i));
-    }
+    &#125;
     chars = builder.toString();
-  }
+  &#125;
 
-  private String randomString(int n) {
+  private String randomString(int n) &#123;
     StringBuilder builder = new StringBuilder();
-    for (int i = 0; i &lt; n; i++) {
+    for (int i = 0; i &lt; n; i++) &#123;
       int idx = ThreadLocalRandom.current().nextInt(chars.length());
       builder.append(chars.charAt(idx));
-    }
+    &#125;
     return builder.toString();
-  }
+  &#125;
 
-  private List&lt;String&gt; randomUsers(int n) {
+  private List&lt;String&gt; randomUsers(int n) &#123;
     List&lt;String&gt; users = new ArrayList&lt;&gt;();
-    for (int i = 0; i &lt; 100000; i++) {
+    for (int i = 0; i &lt; 100000; i++) &#123;
       users.add(randomString(64));
-    }
+    &#125;
     return users;
-  }
+  &#125;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) &#123;
     BloomTest bloomer = new BloomTest();
     List&lt;String&gt; users = bloomer.randomUsers(100000);
     List&lt;String&gt; usersTrain = users.subList(0, users.size() / 2);
@@ -638,19 +639,19 @@ all trained
     client.delete(&quot;codehole&quot;);
     // 对应 bf.reserve 指令
     client.createFilter(&quot;guahao&quot;, 50000, 0.001);
-    for (String user : usersTrain) {
+    for (String user : usersTrain) &#123;
       client.add(&quot;codehole&quot;, user);
-    }
+    &#125;
     int falses = 0;
-    for (String user : usersTest) {
+    for (String user : usersTest) &#123;
       boolean ret = client.exists(&quot;codehole&quot;, user);
-      if (ret) {
+      if (ret) &#123;
         falses++;
-      }
-    }
+      &#125;
+    &#125;
     System.out.printf(&quot;%d %d\n&quot;, falses, usersTest.size());
     client.close();
-  }
+  &#125;
 </code></pre>
 <p>输出: </p>
 <pre><code>total users 100000
@@ -658,12 +659,12 @@ all trained
 6 50000
 </code></pre><p>我们看到了误判率大约 0.012%，比预计的 0.1% 低很多，不过布隆的概率是有误差的，只要不比预计误判率高太多，都是正常现象。</p>
 <h2 id="布隆过滤器的原理"><a href="#布隆过滤器的原理" class="headerlink" title="布隆过滤器的原理"></a>布隆过滤器的原理</h2><p> 每个布隆过滤器对应到 Redis 的数据结构里面就是一个大型的位数组和几个不一样的无偏 hash 函数(<strong>比较均匀的hash函数</strong>) </p>
-<p>​    <img src="3.png" alt> </p>
+<p>​    <img src="3.png" alt=""> </p>
 <p>向布隆过滤器中添加 key 时，会使用多个 hash 函数对 key 进行 hash 算得一个整数索引值然后对位数组长度进行取模运算得到一个位置，每个 hash 函数都会算得一个不同的位置。再把位数组的这几个位置都置为 1 就完成了 add 操作。 </p>
 <p> 例如针对值 “baidu” 和三个不同的哈希函数分别生成了哈希值 1、4、7，则上图转变为： </p>
-<p><img src="4.jpg" alt></p>
+<p><img src="4.jpg" alt=""></p>
 <p> 我们现在再存一个值 “tencent”，如果哈希函数返回 3、4、8 的话，图继续变为 </p>
-<p><img src="5.jpg" alt> </p>
+<p><img src="5.jpg" alt=""> </p>
 <p> 值得注意的是，4 这个 bit 位由于两个值的哈希函数都返回了这个 bit 位，因此它被覆盖了。现在我们如果想查询 “dianping” 这个值是否存在，哈希函数返回了 1、5、8三个值，结果我们发现 5 这个 bit 位上的值为 0，<strong>说明没有任何一个值映射到这个 bit 位上(尽管1和8是1)</strong>，因此我们可以很确定地说 “dianping” 这个值不存在。 判断某个值是否存在的条件就是三个值都为1</p>
 <p>向布隆过滤器询问 key 是否存在时，跟 add 一样，也会把 hash 的几个位置都算出来，看看位数组中这几个位置是否都为 1，只要有一个位为 0，那么说明布隆过滤器中这个 key 不存在。如果都是 1，这并不能说明这个 key 就一定存在，只是极有可能存在，因为这些位被置为 1 可能是因为其它的 key 存在所致。如果这个位数组比较稀疏，判断正确的概率就会很大，如果这个位数组比较拥挤，判断正确的概率就会降低。具体的概率计算公式比较复杂 chj 2020年6月3日16:15:52</p>
 <p>但是当我们需要查询 “baidu” 这个值是否存在的话，那么哈希函数必然会返回 1、4、7，然后我们检查发现这三个 bit 位上的值<strong>均为 1</strong>，那么我们可以说 “baidu” 存在了么？<strong>答案是不可以，只能是 “baidu” 这个值可能存在</strong></p>
@@ -735,38 +736,38 @@ all trained
 <p>bitmap对于内存的节约量是显而易见的，但还是不够。统计一个对象的基数值需要12M，如果统计10000个对象，就需要将近120G了，同样不能广泛用于大数据场景。</p>
 <h3 id="概率算法"><a href="#概率算法" class="headerlink" title="概率算法"></a>概率算法</h3><p>实际上目前还没有发现更好的在大数据场景中准确计算基数的高效算法，因此在不追求绝对准确的情况下，使用概率算法算是一个不错的解决方案。概率算法不直接存储数据集合本身，通过一定的概率统计方法预估基数值，这种方法可以大大节省内存，同时保证误差控制在一定范围内。目前用于基数计数的概率算法包括:</p>
 <ul>
-<li>Linear Counting(LC)：早期的基数估计算法，LC在空间复杂度方面并不算优秀，实际上LC的空间复杂度与上文中简单bitmap方法是一样的（但是有个常数项级别的降低），都是<code>O(N_{max})O(Nmax)</code>；</li>
-<li>LogLog Counting(LLC)：LogLog Counting相比于LC更加节省内存，空间复杂度只有<code>O(log_2(log_2(N_{max})))O(log2(log2(Nmax)))</code></li>
+<li>Linear Counting(LC)：早期的基数估计算法，LC在空间复杂度方面并不算优秀，实际上LC的空间复杂度与上文中简单bitmap方法是一样的（但是有个常数项级别的降低），都是<code>O(N_&#123;max&#125;)O(Nmax)</code>；</li>
+<li>LogLog Counting(LLC)：LogLog Counting相比于LC更加节省内存，空间复杂度只有<code>O(log_2(log_2(N_&#123;max&#125;)))O(log2(log2(Nmax)))</code></li>
 <li>HyperLogLog Counting(HLL)\：HyperLogLog Counting是基于LLC的优化和改进，在同样空间复杂度情况下，能够比LLC的基数估计误差更小。</li>
 </ul>
 <p>下面将着重讲HLL的原理和计算过程。</p>
 <h4 id="HyperLogLog的惊人表现"><a href="#HyperLogLog的惊人表现" class="headerlink" title="HyperLogLog的惊人表现"></a>HyperLogLog的惊人表现</h4><p>上面我们计算过用bitmap存储1一亿个统计数据大概需要12M内存；而在HLL中，只需要不到1K内存就能做到；redis中实现的HyperLogLog，只需要12K内存，在标准误差0.81%的前提下，能够统计2^{64}264个数据。首先容我感叹一下数学的强大和魅力，那么概率算法是怎样做到如此节省内存的，又是怎样控制误差的呢？</p>
 <p>首先简单展示一下HLL的基本做法，HLL中实际存储的是一个长度为m<em>m</em>的大数组S<em>S</em>，将待统计的数据集合划分成m<em>m</em>组，每组根据算法记录一个统计值存入数组中。数组的大小m<em>m</em>由算法实现方自己确定，redis中这个数组的大小是16834，m<em>m</em>越大，基数统计的误差越小，但需要的内存空间也越大。</p>
-<p>这里有个<a href="http://content.research.neustar.biz/blog/hll.html" target="_blank" rel="noopener">HLL demo</a>可以看一下HLL到底是怎么做到这种超乎想象的事情的。</p>
+<p>这里有个<a target="_blank" rel="noopener" href="http://content.research.neustar.biz/blog/hll.html">HLL demo</a>可以看一下HLL到底是怎么做到这种超乎想象的事情的。</p>
 <h2 id="HyperLogLog-原理"><a href="#HyperLogLog-原理" class="headerlink" title="HyperLogLog 原理"></a>HyperLogLog 原理</h2><p>HyperLogLog 的使用非常简单，但是实现原理比较复杂</p>
 <p>为了方便理解 HyperLogLog 的内部实现原理 </p>
-<p><img src="6.jpg" alt>  </p>
+<p><img src="6.jpg" alt="">  </p>
 <p>这张图的意思是，给定一系列的随机整数，我们记录下<strong>低位连续零位的最大长度 k，通过这个 k 值可以估算出随机数的数量</strong>。</p>
 <p>先不问为什么，写个程序跑一下  HLLTest </p>
-<p><img src="8.png" alt> </p>
+<p><img src="8.png" alt=""> </p>
 <p>可以通过一组小实验验证一下这种估计方法是否基本合理。</p>
 <p>回到基数统计的问题，我们需要统计一组数据中不重复元素的个数，集合中每个元素的经过hash函数后可以表示成0和1构成的二进制数串，<strong>一个二进制串可以类比为一次抛硬币实验</strong>，1是抛到正面，0是反面。二进制串中从低位开始第一个1出现的位置可以理解为抛硬币试验中第一次出现正面的抛掷次数<strong>k</strong>，那么基于上面的结论，我们可以通过多次抛硬币实验的最大抛到正面的次数来预估总共进行了多少次实验，同样可以可以通过第一个1出现位置的最大值 <strong>K</strong>(max)来预估总共有多少个不同的数字（整体基数）。</p>
 <p>这种通过局部信息预估整体数据流特性的方法似乎有些超出我们的基本认知，需要用概率和统计的方法才能推导和验证这种关联关系。<strong>HyperLogLog核心在于观察集合中每个数字对应的比特串，通过统计和记录比特串中最大的出现1的位置来估计集合整体的基数，可以大大减少内存耗费</strong>。</p>
 <p>现在回到第二节中关于HyperLogLog的第一个疑问，为什么要统计hash值中第一个1出现的位置？<br>第一个1出现的位置可以类比为抛硬币实验中第一次抛到正面的抛掷次数，根据抛硬币实验的结论，记录每个数据的第一个出现的位置k，就可以通过其中最大值<strong>K</strong>(max)推导出数据集合的基数：  </p>
-<p><img src="9.png" alt> </p>
+<p><img src="9.png" alt=""> </p>
 <h3 id="分桶平均"><a href="#分桶平均" class="headerlink" title="分桶平均"></a>分桶平均</h3><p>HLL的基本思想是利用集合中数字的比特串第一个1出现位置的最大值来预估整体基数，但是这种预估方法存在较大误差，为了改善误差情况，HLL中引入分桶平均的概念。<br>同样举抛硬币的例子，如果只有一组抛硬币实验，运气较好，第一次实验过程就抛了10次才第一次抛到正面，显然根据公式推导得到的实验次数的估计误差较大；如果100个组同时进行抛硬币实验，同时运气这么好的概率就很低了，每组分别进行多次抛硬币实验，并上报各自实验过程中抛到正面的抛掷次数的最大值，就能根据100组的平均值预估整体的实验次数了。</p>
 <p>分桶平均的基本原理是将统计数据划分为m<em>m</em>个桶，每个桶分别统计各自的K(max)并能得到各自的基数预估值 n ，最终对这些 n求平均得到整体的基数估计值。LLC中使用几何平均数预估整体的基数值，但是当统计数据量较小时误差较大；HLL在LLC基础上做了改进，采用调和平均数，调和平均数的优点是可以过滤掉不健康的统计值，具体的计算公式为：</p>
-<p>回到第二节中关于HLL的第二个疑问，为什么要有分桶数组 ？分桶数组是为了消减因偶然性带来的误差，提高预估的准确性。那么分桶数组的大小怎么确定呢？<br>这是由算法实现方自己设定的，例如上面<a href="http://content.research.neustar.biz/blog/hll.html" target="_blank" rel="noopener">HLL demo</a>中，设定统计数组的大小，如果函数得到的比特串是32位，需要其中6()位定位分桶数组中的桶的位置，还剩下26位（需要记录的出现1的位置的最大值是26），那么数组中每个桶需要5()位记录1第一次出现的位置，整个统计数组需要花费的内存为：</p>
+<p>回到第二节中关于HLL的第二个疑问，为什么要有分桶数组 ？分桶数组是为了消减因偶然性带来的误差，提高预估的准确性。那么分桶数组的大小怎么确定呢？<br>这是由算法实现方自己设定的，例如上面<a target="_blank" rel="noopener" href="http://content.research.neustar.biz/blog/hll.html">HLL demo</a>中，设定统计数组的大小，如果函数得到的比特串是32位，需要其中6()位定位分桶数组中的桶的位置，还剩下26位（需要记录的出现1的位置的最大值是26），那么数组中每个桶需要5()位记录1第一次出现的位置，整个统计数组需要花费的内存为：</p>
 <p>也就是用32bit的内存能够统计的基数数量为。</p>
-<p> 这里有个<a href="http://content.research.neustar.biz/blog/hll.html" target="_blank" rel="noopener">HLL demo</a>可以看一下HLL到底是怎么做到这种超乎想象的事情的。 </p>
-<p> <a href="http://content.research.neustar.biz/blog/hll.html" target="_blank" rel="noopener">http://content.research.neustar.biz/blog/hll.html</a>  </p>
-<p>公式推导：  <a href="https://www.slideshare.net/KaiZhang130/countdistinct-problem-88329470" target="_blank" rel="noopener">https://www.slideshare.net/KaiZhang130/countdistinct-problem-88329470</a> </p>
+<p> 这里有个<a target="_blank" rel="noopener" href="http://content.research.neustar.biz/blog/hll.html">HLL demo</a>可以看一下HLL到底是怎么做到这种超乎想象的事情的。 </p>
+<p> <a target="_blank" rel="noopener" href="http://content.research.neustar.biz/blog/hll.html">http://content.research.neustar.biz/blog/hll.html</a>  </p>
+<p>公式推导：  <a target="_blank" rel="noopener" href="https://www.slideshare.net/KaiZhang130/countdistinct-problem-88329470">https://www.slideshare.net/KaiZhang130/countdistinct-problem-88329470</a> </p>
 <h1 id="位图"><a href="#位图" class="headerlink" title="位图"></a>位图</h1><p>场景1：用户日活，月活，留存统计  </p>
 <p>场景2： 实现用户上线次数的统计</p>
 <p>场景3 ：用户在线状态和人数统计</p>
 <p>在我们平时开发过程中，会有一些 bool 型数据需要存取，比如用户一年的签到记录，签了是 1，没签是 0，要记录 365 天。如果使用普通的 key/value，每个用户要记录 365 个，当用户上亿的时候，需要的存储空间是惊人的。</p>
 <p>为了解决这个问题，<strong>Redis 提供了位图数据结构</strong>，这样每天的签到记录只占据一个位(bit)，365 天就是 365 个位，46 个字节(byte) (一个稍长一点的字符串) 就可以完全容纳下，这就大大节约了存储空间。</p>
-<p><img src="D:/myworkspace/learn/AllMarkDown/Redis掘金小册笔记/2redis系列之应用/4.gif" alt></p>
+<p><img src="D:/myworkspace/learn/AllMarkDown/Redis掘金小册笔记/2redis系列之应用/4.gif" alt=""></p>
 <p>位图不是特殊的数据结构，它的内容其实就是普通的字符串，也就是 byte 数组。我们可以使用普通的 get/set 直接获取和设置整个位图的内容，也可以使用位图操作 getbit/setbit 等将 byte 数组看成「位数组」来处理。</p>
 <p>当我们要统计月活的时候，因为需要去重，需要使用 set 来记录所有活跃用户的 id，这非常浪费内存。这时就可以考虑使用位图来标记用户的活跃状态。每个用户会都在这个位图的一个确定位置上，0 表示不活跃，1 表示活跃。然后到月底遍历一次位图就可以得到月度活跃用户数。不过这个方法也是有条件的，那就是 userid 是整数连续的，并且活跃占比较高，否则可能得不偿失。</p>
 <p>如果你对 Redis 的位图有所了解，它将会是你的面试加分项。</p>
@@ -783,13 +784,13 @@ all trained
 <li>语法：<code>setbit key offset value</code></li>
 <li>返回值：指定偏移量<code>（offset）</code>原来存储的值</li>
 </ul>
-<p><img src="D:/myworkspace/learn/AllMarkDown/Redis掘金小册笔记/2redis系列之应用/16.png" alt> </p>
+<p><img src="D:/myworkspace/learn/AllMarkDown/Redis掘金小册笔记/2redis系列之应用/16.png" alt=""> </p>
 <h2 id="getbit命令"><a href="#getbit命令" class="headerlink" title="getbit命令"></a>getbit命令</h2><p>查询<code>key</code>所存储的字符串值，获取偏移量上的<strong>位</strong>。 </p>
 <ul>
 <li>语法：<code>getbit key offset</code></li>
 <li>返回值：返回指定<code>key</code>上的<strong>偏移量</strong>，若<code>key</code>不存在，那么返回0。</li>
 </ul>
-<p><img src="D:/myworkspace/learn/AllMarkDown/Redis掘金小册笔记/2redis系列之应用/17.png" alt> </p>
+<p><img src="D:/myworkspace/learn/AllMarkDown/Redis掘金小册笔记/2redis系列之应用/17.png" alt=""> </p>
 <h2 id="getcount命令"><a href="#getcount命令" class="headerlink" title="getcount命令"></a>getcount命令</h2><p>计算给定key的字符串值中，被设置为1的位<code>bit</code>的数量</p>
 <ul>
 <li>语法：<code>bitcount key [start] [end]</code> </li>
@@ -821,15 +822,15 @@ all trained
 <p><code>setbit xiaopang 1 0；</code>记录小胖的上线天数，<code>bitcount xiaopang</code>统计小胖的上线天数。</p>
 <h3 id="用户在线状态和人数统计"><a href="#用户在线状态和人数统计" class="headerlink" title="用户在线状态和人数统计"></a>用户在线状态和人数统计</h3><p>也是使用一个<code>bitmap</code>，使用用户<code>id</code>来充当<code>offset</code>，上线标识是1，下线标识是0，也可轻松统计在线人数。</p>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p> 位图操作是用来操作比特位的，其优点是节省内存空间。为什么可以节省内存空间呢？假如我们需要存储100万个用户的登录状态，使用位图的话最少只需要100万个比特位（比特位1表示登录，比特位0表示未登录）就可以存储了，而如果以字符串的形式存储，比如说以userId为key，是否登录（字符串“1”表示登录，字符串“0”表示未登录）为value进行存储的话，就需要存储100万个字符串了，相比之下使用位图存储占用的空间要小得多，这就是位图存储的优势。 </p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p> <a href="https://github.com/RedisBloom/JRedisBloom/issues/11" target="_blank" rel="noopener">https://github.com/RedisBloom/JRedisBloom/issues/11</a>  </p>
-<p> <a href="https://www.cnblogs.com/fu-yong/p/9629090.html" target="_blank" rel="noopener">https://www.cnblogs.com/fu-yong/p/9629090.html</a> </p>
-<p> <a href="https://zhuanlan.zhihu.com/p/43263751" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/43263751</a>  </p>
-<p> <a href="https://krisives.github.io/bloom-calculator/" target="_blank" rel="noopener">https://krisives.github.io/bloom-calculator/</a>  布隆计算器 </p>
-<p> <a href="https://www.cnblogs.com/luxianyu-s/p/12686466.html" target="_blank" rel="noopener">https://www.cnblogs.com/luxianyu-s/p/12686466.html</a>   </p>
-<p> <a href="https://www.cnblogs.com/allensun/archive/2011/02/16/1956532.html" target="_blank" rel="noopener">https://www.cnblogs.com/allensun/archive/2011/02/16/1956532.html</a> </p>
-<p> <a href="https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c" target="_blank" rel="noopener">https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c</a> </p>
-<p> <a href="http://www.rainybowe.com/blog/2017/07/13/神奇的HyperLogLog算法/index.html" target="_blank" rel="noopener">http://www.rainybowe.com/blog/2017/07/13/%E7%A5%9E%E5%A5%87%E7%9A%84HyperLogLog%E7%AE%97%E6%B3%95/index.html</a> </p>
-<p> <a href="http://content.research.neustar.biz/blog/hll.html" target="_blank" rel="noopener">http://content.research.neustar.biz/blog/hll.html</a> </p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p> <a target="_blank" rel="noopener" href="https://github.com/RedisBloom/JRedisBloom/issues/11">https://github.com/RedisBloom/JRedisBloom/issues/11</a>  </p>
+<p> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/fu-yong/p/9629090.html">https://www.cnblogs.com/fu-yong/p/9629090.html</a> </p>
+<p> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/43263751">https://zhuanlan.zhihu.com/p/43263751</a>  </p>
+<p> <a target="_blank" rel="noopener" href="https://krisives.github.io/bloom-calculator/">https://krisives.github.io/bloom-calculator/</a>  布隆计算器 </p>
+<p> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/luxianyu-s/p/12686466.html">https://www.cnblogs.com/luxianyu-s/p/12686466.html</a>   </p>
+<p> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/allensun/archive/2011/02/16/1956532.html">https://www.cnblogs.com/allensun/archive/2011/02/16/1956532.html</a> </p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c">https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c</a> </p>
+<p> <a target="_blank" rel="noopener" href="http://www.rainybowe.com/blog/2017/07/13/神奇的HyperLogLog算法/index.html">http://www.rainybowe.com/blog/2017/07/13/%E7%A5%9E%E5%A5%87%E7%9A%84HyperLogLog%E7%AE%97%E6%B3%95/index.html</a> </p>
+<p> <a target="_blank" rel="noopener" href="http://content.research.neustar.biz/blog/hll.html">http://content.research.neustar.biz/blog/hll.html</a> </p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1228,7 +1229,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

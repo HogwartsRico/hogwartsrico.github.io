@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Linux">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="编译安装PosgreSQL和PostGIS | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Linux"> 
 
     
         <meta property="article:published_time" content="Mon Sep 12 2016 20:43:34 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2016/09/12/Compile-And-Install-PostgreSQL-PostGIS/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2016/09/12/Compile-And-Install-PostgreSQL-PostGIS/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#下载PostgreSQL"><span class="post-toc-number">1.</span> <span class="post-toc-text">下载PostgreSQL</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编译安装PostgreSQL"><span class="post-toc-number">2.</span> <span class="post-toc-text">编译安装PostgreSQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装完成后配置"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装完成后配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建-postgres-用户"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">创建 postgres 用户</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建postgresql-数据目录："><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">创建postgresql 数据目录：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化postgresql数据目录"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">初始化postgresql数据目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证postgresql数据目录"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">验证postgresql数据目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动pgsql数据库"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">启动pgsql数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建测试数据库"><span class="post-toc-number">2.1.6.</span> <span class="post-toc-text">创建测试数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进入test数据库"><span class="post-toc-number">2.1.7.</span> <span class="post-toc-text">进入test数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何关闭-PostgreSQL"><span class="post-toc-number">2.1.8.</span> <span class="post-toc-text">如何关闭 PostgreSQL</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装-pgAdmin"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装 pgAdmin</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#下载PostGIS"><span class="post-toc-number">4.</span> <span class="post-toc-text">下载PostGIS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GEOS"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">GEOS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Proj-4"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Proj.4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDAL"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">GDAL</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LibXML2"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">LibXML2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON-C"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">JSON-C</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编译安装PostGIS"><span class="post-toc-number">5.</span> <span class="post-toc-text">编译安装PostGIS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试安装是否正确—–创建空间数据库。"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">测试安装是否正确—–创建空间数据库。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#修改白名单"><span class="post-toc-number">6.</span> <span class="post-toc-text">修改白名单</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%8B%E8%BD%BDPostgreSQL"><span class="post-toc-number">1.</span> <span class="post-toc-text">下载PostgreSQL</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85PostgreSQL"><span class="post-toc-number">2.</span> <span class="post-toc-text">编译安装PostgreSQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E5%90%8E%E9%85%8D%E7%BD%AE"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装完成后配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA-postgres-%E7%94%A8%E6%88%B7"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">创建 postgres 用户</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BApostgresql-%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95%EF%BC%9A"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">创建postgresql 数据目录：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96postgresql%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">初始化postgresql数据目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%AA%8C%E8%AF%81postgresql%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">验证postgresql数据目录</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%90%AF%E5%8A%A8pgsql%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">启动pgsql数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-number">2.1.6.</span> <span class="post-toc-text">创建测试数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%9B%E5%85%A5test%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="post-toc-number">2.1.7.</span> <span class="post-toc-text">进入test数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%AD-PostgreSQL"><span class="post-toc-number">2.1.8.</span> <span class="post-toc-text">如何关闭 PostgreSQL</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85-pgAdmin"><span class="post-toc-number">3.</span> <span class="post-toc-text">安装 pgAdmin</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%8B%E8%BD%BDPostGIS"><span class="post-toc-number">4.</span> <span class="post-toc-text">下载PostGIS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GEOS"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">GEOS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Proj-4"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Proj.4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GDAL"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">GDAL</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LibXML2"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">LibXML2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JSON-C"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">JSON-C</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85PostGIS"><span class="post-toc-number">5.</span> <span class="post-toc-text">编译安装PostGIS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE%E2%80%94%E2%80%93%E5%88%9B%E5%BB%BA%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%82"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">测试安装是否正确—–创建空间数据库。</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BF%AE%E6%94%B9%E7%99%BD%E5%90%8D%E5%8D%95"><span class="post-toc-number">6.</span> <span class="post-toc-text">修改白名单</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Linux/">Linux</a>
+        <a class="post_tag-none-link" href="/tags/Linux/" rel="tag">Linux</a>
     </ul>
     
 
@@ -469,9 +469,9 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <p>这篇文章主要记录在ubuntu server下编译安装postgresql9.3和postgis2.1  </p>
-<h1 id="下载PostgreSQL"><a href="#下载PostgreSQL" class="headerlink" title="下载PostgreSQL"></a>下载PostgreSQL</h1><p>打开<a href="https://www.postgresql.org/download/linux/ubuntu/" target="_blank" rel="noopener">PostgreSQL</a>的<a href="http://www.enterprisedb.com/products-services-training/pgbindownload" target="_blank" rel="noopener">下载网站</a>  </p>
+<h1 id="下载PostgreSQL"><a href="#下载PostgreSQL" class="headerlink" title="下载PostgreSQL"></a>下载PostgreSQL</h1><p>打开<a target="_blank" rel="noopener" href="https://www.postgresql.org/download/linux/ubuntu/">PostgreSQL</a>的<a target="_blank" rel="noopener" href="http://www.enterprisedb.com/products-services-training/pgbindownload">下载网站</a>  </p>
 <p>下载源码   </p>
-<p><img src="2.png" alt> </p>
+<p><img src="2.png" alt=""> </p>
 <p>我下载9.3版本的   </p>
 <h1 id="编译安装PostgreSQL"><a href="#编译安装PostgreSQL" class="headerlink" title="编译安装PostgreSQL"></a>编译安装PostgreSQL</h1><pre><code>tar -jxvf postgresql-9.0.2.tar.bz2  
 cd postgresql-9.0.2  
@@ -482,15 +482,17 @@ make install
 <p>安装 build-essential</p>
 <pre><code> sudo aptitude install build-essential
 </code></pre><p>安装 g++ </p>
-<pre><code>sudo apt-get install g++-4.8
+<pre><code>sudo apt-get install g++-4.8 
 </code></pre><p>安装gcc </p>
 <p><code>sudo apt-get install gcc-4.8</code><br>下面是安装zlib和readline的  </p>
 <p>虽然可以加上 “–without-readline” 即<code>./configure --prefix=/usr/local/pgsql --without-readline</code>  从而避开这个ERROR，<br>但Postgresql官方不推荐这么做，所以还是安装吧。  </p>
 <pre><code>sudo apt-get install zlib1g-dev
 
 sudo apt-get install libreadline-dev 或apt-get install libreadline-gplv2-dev
-</code></pre><p><img src="3.png" alt> </p>
-<p><img src="4.png" alt> </p>
+
+
+</code></pre><p><img src="3.png" alt=""> </p>
+<p><img src="4.png" alt=""> </p>
 <p>PostgreSQL9.3 安装完成   </p>
 <h2 id="安装完成后配置"><a href="#安装完成后配置" class="headerlink" title="安装完成后配置"></a>安装完成后配置</h2><p>PostgreSQL 不能以 root 用户运行，所以我们</p>
 <h3 id="创建-postgres-用户"><a href="#创建-postgres-用户" class="headerlink" title="创建 postgres 用户"></a>创建 postgres 用户</h3><pre><code>adduser postgres
@@ -500,45 +502,45 @@ passwd postgres
 <p><code>chown postgres /usr/local/pgsql/9.1/data或 chown postgres:postgres /usr/local/pgsql/data</code> </p>
 <p><code>ls -ld /usr/local/pgsql/data</code> </p>
 <p>会出现如下界面</p>
-<p><img src="9.png" alt> </p>
+<p><img src="9.png" alt=""> </p>
 <h3 id="初始化postgresql数据目录"><a href="#初始化postgresql数据目录" class="headerlink" title="初始化postgresql数据目录"></a>初始化postgresql数据目录</h3><p>su postgres切换到postgres用户</p>
 <p>/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/9.3/data/</p>
-<p><img src="10.png" alt> </p>
+<p><img src="10.png" alt=""> </p>
 <h3 id="验证postgresql数据目录"><a href="#验证postgresql数据目录" class="headerlink" title="验证postgresql数据目录"></a>验证postgresql数据目录</h3><p>ls -l /usr/local/pgsql/data</p>
 <p>出现如下界面：</p>
-<p><img src="11.png" alt> </p>
+<p><img src="11.png" alt=""> </p>
 <h3 id="启动pgsql数据库"><a href="#启动pgsql数据库" class="headerlink" title="启动pgsql数据库"></a>启动pgsql数据库</h3><pre><code>touch /usr/local/pgsql/9.3/data/logfile 创建日志文件
 /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/9.3/data &gt; /usr/local/pgsql/9.3/data/logfile 2&gt;&amp;1 &amp;  让postgresql在后台运行
 </code></pre><p>出现如下界面：</p>
-<p><img src="12.png" alt> </p>
+<p><img src="12.png" alt=""> </p>
 <h3 id="创建测试数据库"><a href="#创建测试数据库" class="headerlink" title="创建测试数据库"></a>创建测试数据库</h3><p><code>/usr/local/pgsql/bin/createdb test</code> </p>
 <h3 id="进入test数据库"><a href="#进入test数据库" class="headerlink" title="进入test数据库"></a>进入test数据库</h3><p><code>/usr/local/pgsql/bin/psql test</code> </p>
-<p><img src="13.png" alt> </p>
+<p><img src="13.png" alt=""> </p>
 <p>输入建表语句：</p>
 <p><code>CREATE TABLE mytable (id VARCHAR(20), name VARCHAR(30));</code></p>
 <p>建立完成后，会得到一条 “CREATED” 的信息，表示建立成功。</p>
-<p><img src="14.png" alt> </p>
+<p><img src="14.png" alt=""> </p>
 <p>现在插入一条数据：</p>
 <p><code>INSERT INTO mytable VALUES(&#39;author&#39;, &#39;rico&#39;);</code> </p>
 <p>psql 返回类似 INSERT 0 1</p>
 <p>查询插入是否成功：</p>
 <p><code>SELECT * FROM mytable;</code></p>
-<p><img src="15.png" alt> </p>
+<p><img src="15.png" alt=""> </p>
 <p>退出 psql :  </p>
 <p><code>\q</code></p>
 <h3 id="如何关闭-PostgreSQL"><a href="#如何关闭-PostgreSQL" class="headerlink" title="如何关闭 PostgreSQL"></a>如何关闭 PostgreSQL</h3><p>  切换到 postgres 用户</p>
 <p><code>su - postgres</code></p>
 <p>关闭 PostgreSQL</p>
 <p><code>/usr/local/pgsql/bin/pg_ctl stop -D /usr/local/pgsql/9.3/data</code></p>
-<p><img src="16.png" alt> </p>
+<p><img src="16.png" alt=""> </p>
 <p>当然 你还可以查看下日志logfile</p>
-<p><img src="17.png" alt>  </p>
+<p><img src="17.png" alt="">  </p>
 <p>退出 postgres 用户</p>
 <p><code>exit</code></p>
-<p>参考 <a href="http://blog.csdn.net/longshengguoji/article/details/38468449" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/38468449</a><br><a href="http://blog.csdn.net/leonzhouwei/article/details/7934810" target="_blank" rel="noopener">http://blog.csdn.net/leonzhouwei/article/details/7934810</a></p>
+<p>参考 <a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji/article/details/38468449">http://blog.csdn.net/longshengguoji/article/details/38468449</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/leonzhouwei/article/details/7934810">http://blog.csdn.net/leonzhouwei/article/details/7934810</a></p>
 <h1 id="安装-pgAdmin"><a href="#安装-pgAdmin" class="headerlink" title="安装 pgAdmin"></a>安装 pgAdmin</h1><p>注意，有桌面才装pgadmin，只有命令行模式不要安装pgadmin </p>
-<p><a href="https://www.pgadmin.org/download/source.php" target="_blank" rel="noopener">pgAdmin主页</a> 上有pgAdmin3和4</p>
-<p>我这里安装pgAdmin3 的1.22版本<br><a href="https://www.postgresql.org/ftp/pgadmin3/release/v1.22.1/src/" target="_blank" rel="noopener">下载</a>  </p>
+<p><a target="_blank" rel="noopener" href="https://www.pgadmin.org/download/source.php">pgAdmin主页</a> 上有pgAdmin3和4</p>
+<p>我这里安装pgAdmin3 的1.22版本<br><a target="_blank" rel="noopener" href="https://www.postgresql.org/ftp/pgadmin3/release/v1.22.1/src/">下载</a>  </p>
 <p>1 安装必要的库  </p>
 <pre><code>sudo apt-get install libxml2-dev
 
@@ -547,6 +549,7 @@ sudo apt-get install libxslt1-dev
 sudo apt-get install libpq-dev
 
 sudo apt-get install wx-common libwxgtk2.8-dev
+
 </code></pre><p>2  如果 <code>/usr/lib</code> 下有 <code>libcrypto.so</code>  </p>
 <pre><code>cd /usr/lib
 
@@ -557,38 +560,38 @@ cd pgadmin3-1.22.1
 ./configure
 make all
 sudo make install
-</code></pre><p><code>./configure</code>执行完成之后可能会<a href="http://www.guguncube.com/2798/pgadmin3-installation-latest-version" target="_blank" rel="noopener">报错</a> </p>
+</code></pre><p><code>./configure</code>执行完成之后可能会<a target="_blank" rel="noopener" href="http://www.guguncube.com/2798/pgadmin3-installation-latest-version">报错</a> </p>
 <blockquote>
 <p>configure: error: could not find a suitable C++ compiler to build pgAdmin  </p>
 </blockquote>
 <p>解决办法：  </p>
 <p>执行 <code>sudo apt-get install -y build-essential</code> //是为了 install g++ compiler   </p>
-<p>然后就可以make了<br><img src="5.png" alt> </p>
+<p>然后就可以make了<br><img src="5.png" alt=""> </p>
 <p>编译很慢，耐心等待   </p>
-<p><img src="6.png" alt></p>
-<p><img src="7.png" alt> </p>
-<p><img src="8.png" alt> </p>
+<p><img src="6.png" alt=""></p>
+<p><img src="7.png" alt=""> </p>
+<p><img src="8.png" alt=""> </p>
 <p>运行 pgAdmin3</p>
 <pre><code>cd /usr/local/pgadmin3/bin
 
 sudo ./pgadmin3
-</code></pre><h1 id="下载PostGIS"><a href="#下载PostGIS" class="headerlink" title="下载PostGIS"></a>下载PostGIS</h1><p>我这里下载2.1版本的<br>打开PostGIS的<a href="http://postgis.net/source/" target="_blank" rel="noopener">源码网站</a> 下载2.1的源码<br><img src="1.png" alt> </p>
-<p>安装postgis之前还需要安装 <a href="http://trac.osgeo.org/geos" target="_blank" rel="noopener">GEOS</a>, <a href="https://trac.osgeo.org/proj/" target="_blank" rel="noopener">Proj.4</a>, <a href="http://gdal.org/" target="_blank" rel="noopener">GDAL</a>, <a href="http://www.xmlsoft.org/" target="_blank" rel="noopener">LibXML2</a> 和 <a href="https://github.com/json-c/json-c" target="_blank" rel="noopener">JSON-C</a> 这几个库 </p>
+</code></pre><h1 id="下载PostGIS"><a href="#下载PostGIS" class="headerlink" title="下载PostGIS"></a>下载PostGIS</h1><p>我这里下载2.1版本的<br>打开PostGIS的<a target="_blank" rel="noopener" href="http://postgis.net/source/">源码网站</a> 下载2.1的源码<br><img src="1.png" alt=""> </p>
+<p>安装postgis之前还需要安装 <a target="_blank" rel="noopener" href="http://trac.osgeo.org/geos">GEOS</a>, <a target="_blank" rel="noopener" href="https://trac.osgeo.org/proj/">Proj.4</a>, <a target="_blank" rel="noopener" href="http://gdal.org/">GDAL</a>, <a target="_blank" rel="noopener" href="http://www.xmlsoft.org/">LibXML2</a> 和 <a target="_blank" rel="noopener" href="https://github.com/json-c/json-c">JSON-C</a> 这几个库 </p>
 <p>虽然这三个库不是安装postgis强制的，但是，没有这三个包，</p>
 <p>postgis一定程度上失去了空间数据库的意义。因为Proj4提供了投影的相关操作，如postgis中的transform()函数，geos则为postgis提供了很多拓扑</p>
 <p>检查功能的函数，如Touches(), Contains(), Disjoint() 还有一些空间操作函数，如Intersection(), Union() 以及 Buffer()等 ，而Libxml2则提供了对GML和KML的操作函数，如ST_GeomFromGML(), ST_GeomFromKML()等,如果丧失了这样特性，空间数据库将会怎样！</p>
-<h2 id="GEOS"><a href="#GEOS" class="headerlink" title="GEOS"></a>GEOS</h2><p>官网  <a href="https://trac.osgeo.org/geos" target="_blank" rel="noopener">https://trac.osgeo.org/geos</a> 下载源码包 </p>
+<h2 id="GEOS"><a href="#GEOS" class="headerlink" title="GEOS"></a>GEOS</h2><p>官网  <a target="_blank" rel="noopener" href="https://trac.osgeo.org/geos">https://trac.osgeo.org/geos</a> 下载源码包 </p>
 <p>编译安装 </p>
 <pre><code>tar -jxvf geos-3.5.0.tar.bz2 
 cd geos-3.5
 ./configure 或加上 --prefix=/usr/local/geos 
 make 
-make install
-</code></pre><p><img src="19.png" alt>   </p>
-<p><img src="20.png" alt> </p>
-<p>参考 <a href="https://trac.osgeo.org/geos/wiki/BuildingOnUnixWithCMake" target="_blank" rel="noopener">https://trac.osgeo.org/geos/wiki/BuildingOnUnixWithCMake</a></p>
-<h2 id="Proj-4"><a href="#Proj-4" class="headerlink" title="Proj.4"></a>Proj.4</h2><p><a href="https://github.com/OSGeo/proj.4" target="_blank" rel="noopener">https://github.com/OSGeo/proj.4</a>  </p>
-<p><a href="https://github.com/OSGeo/proj.4/wiki" target="_blank" rel="noopener">https://github.com/OSGeo/proj.4/wiki</a></p>
+make install 
+</code></pre><p><img src="19.png" alt="">   </p>
+<p><img src="20.png" alt=""> </p>
+<p>参考 <a target="_blank" rel="noopener" href="https://trac.osgeo.org/geos/wiki/BuildingOnUnixWithCMake">https://trac.osgeo.org/geos/wiki/BuildingOnUnixWithCMake</a></p>
+<h2 id="Proj-4"><a href="#Proj-4" class="headerlink" title="Proj.4"></a>Proj.4</h2><p><a target="_blank" rel="noopener" href="https://github.com/OSGeo/proj.4">https://github.com/OSGeo/proj.4</a>  </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/OSGeo/proj.4/wiki">https://github.com/OSGeo/proj.4/wiki</a></p>
 <pre><code>./autogen.sh
 ./configure
 If another path prefix is required, then execute:
@@ -598,52 +601,55 @@ writable by the installer.
 After executing configure, execute:
 make
 make install
-</code></pre><p><img src="26.png" alt> </p>
-<p><img src="27.png" alt> </p>
-<p><img src="28.png" alt> </p>
-<h2 id="GDAL"><a href="#GDAL" class="headerlink" title="GDAL"></a>GDAL</h2><p>gdal官网 <a href="http://www.gdal.org/" target="_blank" rel="noopener">http://www.gdal.org/</a><br>GDAL 下载 <a href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries" target="_blank" rel="noopener">https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries</a><br><a href="https://trac.osgeo.org/gdal/wiki/DownloadSource" target="_blank" rel="noopener">https://trac.osgeo.org/gdal/wiki/DownloadSource</a></p>
-<p>编译指南  macos linux unix windows等<br><a href="https://trac.osgeo.org/gdal/wiki/BuildHints" target="_blank" rel="noopener">https://trac.osgeo.org/gdal/wiki/BuildHints</a><br><a href="https://trac.osgeo.org/gdal/wiki/BuildingOnUnix" target="_blank" rel="noopener">https://trac.osgeo.org/gdal/wiki/BuildingOnUnix</a></p>
+</code></pre><p><img src="26.png" alt=""> </p>
+<p><img src="27.png" alt=""> </p>
+<p><img src="28.png" alt=""> </p>
+<h2 id="GDAL"><a href="#GDAL" class="headerlink" title="GDAL"></a>GDAL</h2><p>gdal官网 <a target="_blank" rel="noopener" href="http://www.gdal.org/">http://www.gdal.org/</a><br>GDAL 下载 <a target="_blank" rel="noopener" href="https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">https://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries</a><br><a target="_blank" rel="noopener" href="https://trac.osgeo.org/gdal/wiki/DownloadSource">https://trac.osgeo.org/gdal/wiki/DownloadSource</a></p>
+<p>编译指南  macos linux unix windows等<br><a target="_blank" rel="noopener" href="https://trac.osgeo.org/gdal/wiki/BuildHints">https://trac.osgeo.org/gdal/wiki/BuildHints</a><br><a target="_blank" rel="noopener" href="https://trac.osgeo.org/gdal/wiki/BuildingOnUnix">https://trac.osgeo.org/gdal/wiki/BuildingOnUnix</a></p>
 <pre><code>./configure  或加上--prefix=/usr/local/gdal 
 make 
-make install
-</code></pre><h2 id="LibXML2"><a href="#LibXML2" class="headerlink" title="LibXML2"></a>LibXML2</h2><p>Libxml2是个C语言的XML程式库，能简单方便的提供对XML文件的各种操作，并且支持XPATH查询，及部分的支持XSLT转换等功能。Libxml2的下载地址是<br><a href="http://xmlsoft.org/" target="_blank" rel="noopener">http://xmlsoft.org/</a>  </p>
-<p>源码包列表 ftp://xmlsoft.org/libxml2/</p>
+make install 
+
+</code></pre><h2 id="LibXML2"><a href="#LibXML2" class="headerlink" title="LibXML2"></a>LibXML2</h2><p>Libxml2是个C语言的XML程式库，能简单方便的提供对XML文件的各种操作，并且支持XPATH查询，及部分的支持XSLT转换等功能。Libxml2的下载地址是<br><a target="_blank" rel="noopener" href="http://xmlsoft.org/">http://xmlsoft.org/</a>  </p>
+<p>源码包列表 <a href="ftp://xmlsoft.org/libxml2/">ftp://xmlsoft.org/libxml2/</a></p>
 <p>我这里下载了libxml2-2.9.4.tar.gz  </p>
-<p><img src="18.png" alt> </p>
-<p>它的git地址 <a href="https://git.gnome.org/browse/libxml2/" target="_blank" rel="noopener">https://git.gnome.org/browse/libxml2/</a></p>
+<p><img src="18.png" alt=""> </p>
+<p>它的git地址 <a target="_blank" rel="noopener" href="https://git.gnome.org/browse/libxml2/">https://git.gnome.org/browse/libxml2/</a></p>
 <pre><code>tar -zxvf tar -zxvf libxml2-2.9.4.tar.gz 
 cd libxml22-2.9.4
 ./configure 或加上--prefix=/usr/local/xmllib2 
 make 
 make install
-</code></pre><p><img src="21.png" alt> </p>
-<p>然而make过程中报错 了<br><img src="22.png" alt> </p>
+</code></pre><p><img src="21.png" alt=""> </p>
+<p>然而make过程中报错 了<br><img src="22.png" alt=""> </p>
 <p>报错说没有python 那就安装python</p>
 <p><code>apt-get install python-dev</code></p>
 <p>然后就make成功了</p>
-<p><img src="23.png" alt> </p>
+<p><img src="23.png" alt=""> </p>
 <p>再继续make install</p>
-<p>参考 <a href="http://www.cnblogs.com/shanzhizi/archive/2012/07/09/2583739.html" target="_blank" rel="noopener">http://www.cnblogs.com/shanzhizi/archive/2012/07/09/2583739.html</a></p>
-<h2 id="JSON-C"><a href="#JSON-C" class="headerlink" title="JSON-C"></a>JSON-C</h2><p>json-c github  <a href="https://github.com/json-c/json-c" target="_blank" rel="noopener">https://github.com/json-c/json-c</a><br><a href="https://github.com/json-c/json-c/releases" target="_blank" rel="noopener">https://github.com/json-c/json-c/releases</a><br>下载解压 </p>
+<p>参考 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/shanzhizi/archive/2012/07/09/2583739.html">http://www.cnblogs.com/shanzhizi/archive/2012/07/09/2583739.html</a></p>
+<h2 id="JSON-C"><a href="#JSON-C" class="headerlink" title="JSON-C"></a>JSON-C</h2><p>json-c github  <a target="_blank" rel="noopener" href="https://github.com/json-c/json-c">https://github.com/json-c/json-c</a><br><a target="_blank" rel="noopener" href="https://github.com/json-c/json-c/releases">https://github.com/json-c/json-c/releases</a><br>下载解压 </p>
 <p>直接<code>./configure</code>然后make会报这个错 </p>
 <blockquote>
 <p>error: variable ‘size’ set but not used [-Werror=unused-but-set-variable]</p>
 </blockquote>
-<p><img src="29.png" alt> </p>
+<p><img src="29.png" alt=""> </p>
 <p>所以找到对应目录中的Makefile文件，找到 -Werror 字段，去掉-Werror，重新编译，则问题解决!</p>
 <pre><code>sed -i s/-Werror// Makefile.in tests/Makefile.in 
 ./configure --prefix=/usr/local/jsonc --disable-static       
 make -j1
-make install
+make install 
 </code></pre><h1 id="编译安装PostGIS"><a href="#编译安装PostGIS" class="headerlink" title="编译安装PostGIS"></a>编译安装PostGIS</h1><p>以上环境都准备好了，开始安装PostGIS</p>
 <pre><code>./configure --with-pgconfig=/usr/local/pgsql/bin/pg_config  --with-gdalconfig=/usr/local/gdal/bin/gdal-config 文件路径根据自己安装的
 如果缺其他配置可以继续加上  例如 --with-projdir=/usr/local/proj --with-geosconfig=/usr/local/geos/bin/geos_config等 
 make 
-make install
-</code></pre><p><code>./configure</code>之后的截图<br><img src="30.png" alt> </p>
-<p><img src="31.png" alt> </p>
-<p><img src="32.png" alt> </p>
-<p>参考 <a href="http://blog.csdn.net/zuiaikg703/article/details/46776095" target="_blank" rel="noopener">http://blog.csdn.net/zuiaikg703/article/details/46776095</a><br><a href="http://www.linuxfromscratch.org/blfs/view/svn/general/json-c.html" target="_blank" rel="noopener">http://www.linuxfromscratch.org/blfs/view/svn/general/json-c.html</a></p>
+make install 
+
+
+</code></pre><p><code>./configure</code>之后的截图<br><img src="30.png" alt=""> </p>
+<p><img src="31.png" alt=""> </p>
+<p><img src="32.png" alt=""> </p>
+<p>参考 <a target="_blank" rel="noopener" href="http://blog.csdn.net/zuiaikg703/article/details/46776095">http://blog.csdn.net/zuiaikg703/article/details/46776095</a><br><a target="_blank" rel="noopener" href="http://www.linuxfromscratch.org/blfs/view/svn/general/json-c.html">http://www.linuxfromscratch.org/blfs/view/svn/general/json-c.html</a></p>
 <h2 id="测试安装是否正确—–创建空间数据库。"><a href="#测试安装是否正确—–创建空间数据库。" class="headerlink" title="测试安装是否正确—–创建空间数据库。"></a>测试安装是否正确—–创建空间数据库。</h2><p>熟悉windows环境下postgis的朋友，都会注意到，安装了postgis后，pgsql中多了一个数据库template_postgis，这是个空间数据库的模板，其实就是个空间数据库。  </p>
 <p>而在linux环境下通过源码安装的postgis，默认没有创建这个空间数据库，下面我就用创建者个模板空间数据库来验证上面的安装是否正确。<br>一旦创建了一个空间数据库模板，以后每次创建空间数据库只要在这个模板空间数据库上创建就可以了，省时省力！ </p>
 <pre><code>切换用户
@@ -659,32 +665,33 @@ touch /usr/local/pgsql/9.3/data/logfile
 
 创建空间数据库模板
 /usr/local/pgsql/bin/psql -f /usr/local/pgsql/share/contrib/postgis-2.1/postgis.sql -d template_postgis
-</code></pre><p><img src="47.png" alt> </p>
-<p><img src="33.png" alt> </p>
+
+</code></pre><p><img src="47.png" alt=""> </p>
+<p><img src="33.png" alt=""> </p>
 <p>执行postgis.sql脚本，创建相关空间数据库相关的函数，类型，操作符等<br>执行完这个脚本，该数据库就具有了空间特性了  </p>
 <pre><code>/usr/local/pgsql/bin/psql -f /usr/local/pgsql/share/contrib/postgis-2.1/spatial_ref_sys.sql -d template_postgis
-</code></pre><p><img src="34.png" alt> </p>
+</code></pre><p><img src="34.png" alt=""> </p>
 <p>该命令在postgis数据库中创建了spatial_ref_sys表，用于存放空间投影信息。 </p>
 <pre><code>createdb [-U username] -T template_postgis mypostgisdb
 </code></pre><p>下次再创建数据库，只要以这个模板就可以了，不必每次都执行这个脚本,-U指定用户名，默认就是postgres</p>
 <p><code>psql my_spatial_db</code> 连接到创建的空间数据库  </p>
 <p><code>select postgis_full_version();</code>查询postgis的版本信息，包含用到的三个库信息</p>
-<p><img src="35.png" alt> </p>
+<p><img src="35.png" alt=""> </p>
 <p>创建一张表 </p>
-<p><img src="36.png" alt> </p>
+<p><img src="36.png" alt=""> </p>
 <p>增加一列空间字段</p>
-<p><img src="37.png" alt> </p>
+<p><img src="37.png" alt=""> </p>
 <p>随意插入一列数据 </p>
-<p><img src="38.png" alt> </p>
+<p><img src="38.png" alt=""> </p>
 <p>查看数据 </p>
-<p><img src="39.png" alt> </p>
+<p><img src="39.png" alt=""> </p>
 <p>查看一些配置信息</p>
-<p><img src="40.png" alt> </p>
+<p><img src="40.png" alt=""> </p>
 <h1 id="修改白名单"><a href="#修改白名单" class="headerlink" title="修改白名单"></a>修改白名单</h1><p>这时如果你打开web应用却发现连接不上PostgreSQL数据库</p>
-<p><img src="45.png" alt> </p>
+<p><img src="45.png" alt=""> </p>
 <p>postgresql默认只开启了本地访问权限，如果有web应用程序不是本地的需要开启</p>
 <p><code>vi /usr/local/pgsql/9.3/data/pg_hba.conf</code></p>
-<p><img src="41.png" alt> </p>
+<p><img src="41.png" alt=""> </p>
 <p>IPV4区域<br>如果你只想放开某个IP<br><code>host    all             all             10.10.21.62/32            trust</code></p>
 <p>如果可以让任意IP都可连接 </p>
 <p><code>host    all         all         0.0.0.0/0             trust</code> </p>
@@ -692,9 +699,9 @@ touch /usr/local/pgsql/9.3/data/logfile
 <p>然后重启一下  </p>
 <p>切换到postgre用户</p>
 <p><code>su - postgres</code>  </p>
-<p>到这里还不够<br>打开<br><code>vi /usr/local/pgsql/9.3/data/postgresql.conf</code><br>你会看到默认只监听了本地<br><img src="43.png" alt>  </p>
+<p>到这里还不够<br>打开<br><code>vi /usr/local/pgsql/9.3/data/postgresql.conf</code><br>你会看到默认只监听了本地<br><img src="43.png" alt="">  </p>
 <p>这时，你改成<code>*</code> </p>
-<p><img src="44.png" alt> </p>
+<p><img src="44.png" alt=""> </p>
 <p>重启 </p>
 <p><code>/usr/local/pgsql/bin/pg_ctl  -D /usr/local/pgsql/9.3/data/ -l /usr/local/pgsql/9.3/data/logfile   restart</code></p>
 <p>其他命令  </p>
@@ -704,13 +711,13 @@ touch /usr/local/pgsql/9.3/data/logfile
 
 #端口是否启用
 netstat -anp | grep 5432
-</code></pre><p><img src="42.png" alt> </p>
+</code></pre><p><img src="42.png" alt=""> </p>
 <p>这时再开启web应用就可以连接上了。  </p>
-<p><img src="46.png" alt> </p>
-<p><img src="48.png" alt> </p>
+<p><img src="46.png" alt=""> </p>
+<p><img src="48.png" alt=""> </p>
 <p>至此 ，从编译安装PostgreSQL到PostGIS到连接，创库，创空间模板，创空间库，应用连接数据库都可以了</p>
 <p>(完)</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/zhoulf/p/4040768.html" target="_blank" rel="noopener">http://www.cnblogs.com/zhoulf/p/4040768.html</a><br><a href="http://blog.csdn.net/dracotianlong/article/details/7907633" target="_blank" rel="noopener">http://blog.csdn.net/dracotianlong/article/details/7907633</a><br><a href="http://postgis.net/source/" target="_blank" rel="noopener">http://postgis.net/source/</a><br><a href="https://trac.osgeo.org/postgis/wiki/UsersWikiInstall" target="_blank" rel="noopener">https://trac.osgeo.org/postgis/wiki/UsersWikiInstall</a><br><a href="http://postgis.net/install/" target="_blank" rel="noopener">http://postgis.net/install/</a><br><a href="https://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS21Ubuntu1404src" target="_blank" rel="noopener">https://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS21Ubuntu1404src</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/zhoulf/p/4040768.html">http://www.cnblogs.com/zhoulf/p/4040768.html</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/dracotianlong/article/details/7907633">http://blog.csdn.net/dracotianlong/article/details/7907633</a><br><a target="_blank" rel="noopener" href="http://postgis.net/source/">http://postgis.net/source/</a><br><a target="_blank" rel="noopener" href="https://trac.osgeo.org/postgis/wiki/UsersWikiInstall">https://trac.osgeo.org/postgis/wiki/UsersWikiInstall</a><br><a target="_blank" rel="noopener" href="http://postgis.net/install/">http://postgis.net/install/</a><br><a target="_blank" rel="noopener" href="https://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS21Ubuntu1404src">https://trac.osgeo.org/postgis/wiki/UsersWikiPostGIS21Ubuntu1404src</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1109,7 +1116,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Spring">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="自己实现一个简单的Spring容器 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Spring"> 
 
     
         <meta property="article:published_time" content="Sun Nov 11 2018 22:59:23 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2018/11/11/write-a-spring/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2018/11/11/write-a-spring/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为什么要手写"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么要手写:</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#手写后会怎样"><span class="post-toc-number">2.</span> <span class="post-toc-text">手写后会怎样</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#经典问题"><span class="post-toc-number">3.</span> <span class="post-toc-text">经典问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实战"><span class="post-toc-number">4.</span> <span class="post-toc-text">实战</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%89%8B%E5%86%99"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么要手写:</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%89%8B%E5%86%99%E5%90%8E%E4%BC%9A%E6%80%8E%E6%A0%B7"><span class="post-toc-number">2.</span> <span class="post-toc-text">手写后会怎样</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BB%8F%E5%85%B8%E9%97%AE%E9%A2%98"><span class="post-toc-number">3.</span> <span class="post-toc-text">经典问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E6%88%98"><span class="post-toc-number">4.</span> <span class="post-toc-text">实战</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Spring/">Spring</a>
+        <a class="post_tag-none-link" href="/tags/Spring/" rel="tag">Spring</a>
     </ul>
     
 
@@ -475,7 +475,7 @@
 <p>提高解决问题的效率</p>
 <p>锻炼自己造轮子的能力</p>
 <h1 id="经典问题"><a href="#经典问题" class="headerlink" title="经典问题"></a>经典问题</h1><p>1 什么是Spring框架，Spring框架有哪些主要模块?<br>2 使用Spring框架能带来哪些好处?<br>3 什么是控制反转?<br>4 BeanFactory和ApplicationContext有什么区别?<br>5 请解释Spring Bean的生命周期<br>6 Spring Bean的各种作用于之间有什么区别?<br>7 Spring框架中的单例Beans是线程安全的吗？   </p>
-<p><img src="1.png" alt> </p>
+<p><img src="1.png" alt=""> </p>
 <p>默认是用类名的首字母小写作为key，用类的实例作为值 ，保存到IOC容器中去 </p>
 <h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p>下面的代码还没有实现handlerMapping，但是对加载配置文件, 注解的扫描, bean实例化, 把bean塞入ioc容器 ,autowired都实现了</p>
 <pre><code class="java">package org.rico.learnSpring.framework.webmvc.servlet;
@@ -496,35 +496,35 @@ import java.util.*;
 /**
  * Created by Rico on 2018/11/11.
  */
-public class MyDispatcherServlet extends HttpServlet{
+public class MyDispatcherServlet extends HttpServlet&#123;
     private Properties contextConfig=new Properties();
     private List&lt;String&gt; classNames=new ArrayList&lt;String&gt;();
     private Map&lt;String,Object&gt; ioc=new HashMap&lt;String,Object&gt;();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
         this.doGet(req, resp);
-    }
+    &#125;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
         super.doPost(req, resp);
-    }
+    &#125;
 
     @Override
-    public void init(ServletConfig config) throws ServletException {
+    public void init(ServletConfig config) throws ServletException &#123;
         //从这里开始启动SpringMVC
         //1 加载配置文件
         doLoadConfig(config.getInitParameter(&quot;contextConfigLocation&quot;));
         //2 扫描所有相关的类
         doScanner(contextConfig.getProperty(&quot;scanPackage&quot;));
         //3 初始化所有扫描到的类
-        try {
+        try &#123;
             doInstance();
-        } catch (IllegalAccessException e) {
+        &#125; catch (IllegalAccessException e) &#123;
             e.printStackTrace();
-        } catch (InstantiationException e) {
+        &#125; catch (InstantiationException e) &#123;
             e.printStackTrace();
-        }
+        &#125;
         //4  自动注入
         doAutowired();
         //*******Spring到此初始化完成*********************************
@@ -532,192 +532,192 @@ public class MyDispatcherServlet extends HttpServlet{
         //5 初始化HandlerMapping
         initHandlerMapping();
         System.out.println(&quot;MySpring init end&quot;);
-    }
+    &#125;
 
     //载入配置
-    private void doLoadConfig(String contextConfigLocation) {
+    private void doLoadConfig(String contextConfigLocation) &#123;
         InputStream is=this.getClass().getClassLoader().getResourceAsStream(contextConfigLocation);
-        try {
+        try &#123;
             contextConfig.load(is);
-        } catch (IOException e) {
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }finally {
-            try {
-                if(is!=null){
+        &#125;finally &#123;
+            try &#123;
+                if(is!=null)&#123;
                     is.close();
-                }
-            } catch (IOException e) {
+                &#125;
+            &#125; catch (IOException e) &#123;
                 e.printStackTrace();
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     //扫描类
-    private void doScanner(String scanPackage){//传入的参数是哪些包需要扫描的
+    private void doScanner(String scanPackage)&#123;//传入的参数是哪些包需要扫描的
         URL url= this.getClass().getClassLoader().getResource(&quot;/&quot;+scanPackage.replaceAll(&quot;\\.&quot;,&quot;/&quot;));//把点替换成斜杠
         File classDir=new File(url.getFile());//拿到这个包下面的所有class
-        for(File file : classDir.listFiles()){
-            if(file.isDirectory()){//如果是文件夹，还需要继续搜寻，递归调用自身
+        for(File file : classDir.listFiles())&#123;
+            if(file.isDirectory())&#123;//如果是文件夹，还需要继续搜寻，递归调用自身
                 doScanner(scanPackage+&quot;.&quot;+file.getName());//递归
-            }else{//如果不是文件夹
+            &#125;else&#123;//如果不是文件夹
                 String className=scanPackage+&quot;.&quot;+file.getName().replace(&quot;.class&quot;,&quot;&quot;);//把.class这个后缀去掉 
                 classNames.add(className);
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     //实例化扫描到的类
-    private void doInstance() throws IllegalAccessException, InstantiationException {
-        if(classNames.isEmpty()){return;}
-        for(String className:classNames){
-            try {
+    private void doInstance() throws IllegalAccessException, InstantiationException &#123;
+        if(classNames.isEmpty())&#123;return;&#125;
+        for(String className:classNames)&#123;
+            try &#123;
                 Class&lt;?&gt; clazz=Class.forName(className);//拿到class类
                 //不是所有的类都要实例化，只实例化加了注解的类
-                if(clazz.isAnnotationPresent(MyController.class)){
+                if(clazz.isAnnotationPresent(MyController.class))&#123;
                     //把类初始化，然后放到IOC容器中
                     //key是类名首字母小写
                     String beanName=lowerFirstCase(clazz.getName());
                     ioc.put(beanName,clazz.newInstance());
-                }else if(clazz.isAnnotationPresent(MyService.class)){//如果是Service注解
+                &#125;else if(clazz.isAnnotationPresent(MyService.class))&#123;//如果是Service注解
                     //默认采用首字母
                     //自定义bean的name，优先使用自定义的名字
                     //根据接口类型来赋值(接口不能实例化，但是接口的实现类可以实例化)
                     MyService service= clazz.getAnnotation(MyService.class);//拿到这个类上的@MyService注解
                     String beanName=service.value();
-                    if(&quot;&quot;.equals(beanName.trim())){//如果beanName是空的话，那么说明用户没有自定义beanName,那么就用首字母小写作为beanName
+                    if(&quot;&quot;.equals(beanName.trim()))&#123;//如果beanName是空的话，那么说明用户没有自定义beanName,那么就用首字母小写作为beanName
                         beanName=lowerFirstCase(clazz.getName());
-                    }
+                    &#125;
                     Object instance = clazz.newInstance();
                     ioc.put(beanName,instance);//将其放入ioc
-                    for(Class&lt;?&gt; i:clazz.getInterfaces()){//获取这个类的接口 如果这个类有多个接口，那么需要报错，这里没做
+                    for(Class&lt;?&gt; i:clazz.getInterfaces())&#123;//获取这个类的接口 如果这个类有多个接口，那么需要报错，这里没做
                         ioc.put(i.getName(),instance);//key是这个接口的名称
                         //疑问,这个接口名不需要首字母小写作为key吗?
-                    }
+                    &#125;
                     //所以有可能出现这种情况,就是以这个interface作为key的有一个实例，以类首字母小写作为key也有一个实例，且实例是同一个,主要是为了满足用户不同的注入要求
-                }else{
+                &#125;else&#123;
                     continue;
-                }
-            } catch (ClassNotFoundException e) {
+                &#125;
+            &#125; catch (ClassNotFoundException e) &#123;
                 e.printStackTrace();
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     //注入
-    private void doAutowired() {
-        if(ioc.isEmpty()){return;}
+    private void doAutowired() &#123;
+        if(ioc.isEmpty())&#123;return;&#125;
         //循环IOC容器中所有类，然后对需要自动赋值的属性进行赋值
-        for(Map.Entry&lt;String,Object&gt; entry:ioc.entrySet()){
+        for(Map.Entry&lt;String,Object&gt; entry:ioc.entrySet())&#123;
             //依赖注入，不管是谁，只要加了@MyAutowired注解的都要注入,哪怕它是私有的，哪怕他是受保护的.为什么？是因为反射破坏了它的封装性,在反射面前，所有东西都是裸露的. 所以反射要慎用，一般在框架里或者底层的设计模式中使用
             Field[] fields=entry.getValue().getClass().getDeclaredFields();//获取所有的字段
-            for(Field field:fields){//找出有@MyAutowired的注解的字段
-                if(!field.isAnnotationPresent(MyAutowired.class)){ continue; }
+            for(Field field:fields)&#123;//找出有@MyAutowired的注解的字段
+                if(!field.isAnnotationPresent(MyAutowired.class))&#123; continue; &#125;
                 MyAutowired autowired=field.getAnnotation(MyAutowired.class);
                 String beanName=autowired.value().trim();
-                if(&quot;&quot;.equals(beanName)){//如果没有指定引用那个bean,那么就是它的类型的那个bean
+                if(&quot;&quot;.equals(beanName))&#123;//如果没有指定引用那个bean,那么就是它的类型的那个bean
                     beanName=field.getType().getName();
-                }
+                &#125;
                 //暴力访问
                 field.setAccessible(true);
-                try {
+                try &#123;
                     field.set(entry.getValue(),ioc.get(beanName));//给这个字段复制,第一个参数是这个字段所在的对象实例,第二个参数就是具体的值
-                } catch (IllegalAccessException e) {
+                &#125; catch (IllegalAccessException e) &#123;
                     e.printStackTrace();
                     continue;
-                }
-            }
-        }
-    }
-    private void initHandlerMapping() {
-    }
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    private void initHandlerMapping() &#123;
+    &#125;
 
     //首字母小写工具类
-    private String lowerFirstCase(String str){
+    private String lowerFirstCase(String str)&#123;
         String firstString=str.substring(0, 1);
         firstString=firstString.toLowerCase();
         String left=str.substring(1,str.length());
         return firstString+left;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<p><img src="2.png" alt></p>
+<p><img src="2.png" alt=""></p>
 <p>这里明明代码只写了2个注解，一个是Controller,一个是Service，怎么有三个bean？</p>
 <p>是因为把service的实现和接口都作为了一个bean的key，这样不管是用接口去注入还是用实现去注入都可以注入成功 </p>
 <p>接下来实现initHandlerMapping方法</p>
-<pre><code class="java">    private void initHandlerMapping() {
-        if(ioc.isEmpty()) {return; }
+<pre><code class="java">    private void initHandlerMapping() &#123;
+        if(ioc.isEmpty()) &#123;return; &#125;
         //扫描所有的bean
-        for(Map.Entry&lt;String,Object&gt; entry : ioc.entrySet()){
+        for(Map.Entry&lt;String,Object&gt; entry : ioc.entrySet())&#123;
             //找到注解在类上的RequestMapping,拿到它的值
             Class&lt;?&gt; clazz=entry.getValue().getClass();
-            if(!clazz.isAnnotationPresent(MyController.class)){continue;}//只针对Controller,如果不是Controller,加了RequestMapping就忽略
+            if(!clazz.isAnnotationPresent(MyController.class))&#123;continue;&#125;//只针对Controller,如果不是Controller,加了RequestMapping就忽略
             String baseUrl=&quot;&quot;;//类上注解的requestMapping,是基url
-            if(clazz.isAnnotationPresent(MyRequestMapping.class)){
+            if(clazz.isAnnotationPresent(MyRequestMapping.class))&#123;
                 MyRequestMapping requestMapping=clazz.getAnnotation(MyRequestMapping.class);
                 baseUrl=requestMapping.value();
-            }
+            &#125;
             //扫描所有的公共方法
-            for(Method method:clazz.getMethods()){
-                if(!method.isAnnotationPresent(MyRequestMapping.class)){ continue; }
+            for(Method method:clazz.getMethods())&#123;
+                if(!method.isAnnotationPresent(MyRequestMapping.class))&#123; continue; &#125;
                 MyRequestMapping myRequestMapping=method.getAnnotation(MyRequestMapping.class);
                 String methodUrl=(&quot;/&quot;+baseUrl+myRequestMapping.value()).replaceAll(&quot;/+&quot;,&quot;/&quot;);//把连续的斜杠处理成单个斜杠
                 handlerMapping.put(methodUrl,method);
                 System.out.println(&quot;Mapping :&quot;+methodUrl+&quot;,&quot;+method);//打印日志
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 </code></pre>
 <p>测试类</p>
 <pre><code class="java">@MyController
 @MyRequestMapping(&quot;/demo&quot;)
-public class Demo {
+public class Demo &#123;
     @MyAutowired
     private IDemoService demoService;
     @MyRequestMapping(&quot;/query&quot;)
-    public void query(HttpServletRequest request, HttpServletResponse response, @MyRequestParam(&quot;name&quot;) String name){
+    public void query(HttpServletRequest request, HttpServletResponse response, @MyRequestParam(&quot;name&quot;) String name)&#123;
         String result=demoService.get(name);
-        try{
+        try&#123;
             response.getWriter().write(result);
-        }catch (IOException e){
+        &#125;catch (IOException e)&#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>输出</p>
-<p><img src="3.png" alt> </p>
+<p><img src="3.png" alt=""> </p>
 <p>接下来实现doGet doPost </p>
 <pre><code class="java">private Map&lt;String,Method&gt; handlerMapping = new HashMap&lt;String,Method&gt;();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
         //this.doGet(req, resp);
         this.doPost(req, resp);
-    }
+    &#125;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
         //super.doPost(req, resp);
         doDispatch(req,resp);
-    }
+    &#125;
 
-    private void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws IOException &#123;
         String url=req.getRequestURI();
         String contextPath=req.getContextPath();
         url=url.replaceAll(contextPath,&quot;&quot;).replaceAll(&quot;/+&quot;,&quot;/&quot;);//把多余的斜杠替换掉
-        if(!handlerMapping.containsKey(url)) {//如果url在handlerMapping没有的话就返回404
+        if(!handlerMapping.containsKey(url)) &#123;//如果url在handlerMapping没有的话就返回404
             resp.getWriter().write(&quot;&lt;h1&gt;404 not found&lt;/h1&gt;  --By Rico&quot;);
             return;
-        }
+        &#125;
         Method method=handlerMapping.get(url);//拿到这个url对应的方法
         method.invoke(这里遇到了问题)//第一个参数是谁调这个方法,第二个参数就是方法参数
         System.out.println(method);
-    }
+    &#125;
 </code></pre>
 <p>到此，除了调用哪个url对应的method，其他步都完成了,比如url请求处理</p>
 <p>当请求到了该url会打印这个方法</p>
-<p><img src="5.png" alt> </p>
+<p><img src="5.png" alt=""> </p>
 <p>不存在的url会404 </p>
-<p><img src="4.png" alt></p>
+<p><img src="4.png" alt=""></p>
 <p>但是此时在调用method.invoke的时候出了问题，因为调用那个method的bean被弄丢了，所以handlerMapping不能用map，得改下，把那个bean也纳入进来了</p>
 <p>修改后的完整的MyDispatcherServlet的代码</p>
 <pre><code class="java">package org.rico.learnSpring.framework.webmvc.servlet;
@@ -741,110 +741,110 @@ import java.util.regex.Pattern;
 /**
  * Created by Rico on 2018/11/11.
  */
-public class MyDispatcherServlet extends HttpServlet{
+public class MyDispatcherServlet extends HttpServlet&#123;
     private Properties contextConfig=new Properties();
     private List&lt;String&gt; classNames=new ArrayList&lt;String&gt;();
     private Map&lt;String,Object&gt; ioc=new HashMap&lt;String,Object&gt;();
     //private Map&lt;String,Method&gt; handlerMapping = new HashMap&lt;String,Method&gt;();
     private  List&lt;Handler&gt; handlerMapping=new ArrayList&lt;Handler&gt;();
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
         //this.doGet(req, resp);
         this.doPost(req, resp);
-    }
+    &#125;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
         //super.doPost(req, resp);
-        try {
+        try &#123;
             doDispatch(req,resp);
-        } catch (Exception e) {
+        &#125; catch (Exception e) &#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
 
-    private void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        try{
+    private void doDispatch(HttpServletRequest req, HttpServletResponse resp) throws Exception &#123;
+        try&#123;
             Handler handler=getHandler(req);
-            if(handler==null){//如果没有匹配
+            if(handler==null)&#123;//如果没有匹配
                 resp.getWriter().write(&quot;&lt;h1&gt;404 not found&lt;/h1&gt;  --By Rico&quot;);
                 return;
-            }
+            &#125;
             //获取方法的参数列表
             Class&lt;?&gt; [] paramTypes=handler.method.getParameterTypes();
             //保存所有需要自动赋值的参数值
             Object[] paramValues=new Object[paramTypes.length];
             Map&lt;String,String[]&gt; params=req.getParameterMap();
-            for(Map.Entry&lt;String,String[]&gt; param:params.entrySet()){
+            for(Map.Entry&lt;String,String[]&gt; param:params.entrySet())&#123;
                 String value=Arrays.toString(param.getValue()).replaceAll(&quot;\\[|\\]&quot;,&quot;&quot;).replaceAll(&quot;//&quot;,&quot;/&quot;);
                 //如果找到匹配的对象,则开始填充参数值
-                if(!handler.paramIndexMapping.containsKey(param.getKey())){continue;}
+                if(!handler.paramIndexMapping.containsKey(param.getKey()))&#123;continue;&#125;
                 int index=handler.paramIndexMapping.get(param.getKey());
                 paramValues[index]=convert(paramTypes[index],value);
-            }
+            &#125;
             //设置方法中的request和response对象
             int reqIndex=handler.paramIndexMapping.get(HttpServletRequest.class.getName());
             paramValues[reqIndex]=req;
             int respIndex=handler.paramIndexMapping.get(HttpServletResponse.class.getName());
             paramValues[respIndex]=resp;
             handler.method.invoke(handler.controller,paramValues);//反射调用
-        }catch (Exception e){
+        &#125;catch (Exception e)&#123;
             throw  e;
-        }
+        &#125;
         /*
         String url=req.getRequestURI();
         String contextPath=req.getContextPath();
         url=url.replaceAll(contextPath,&quot;&quot;).replaceAll(&quot;/+&quot;,&quot;/&quot;);//把多余的斜杠替换掉
-        if(!handlerMapping.containsKey(url)) {//如果url在handlerMapping没有的话就返回404
+        if(!handlerMapping.containsKey(url)) &#123;//如果url在handlerMapping没有的话就返回404
             resp.getWriter().write(&quot;&lt;h1&gt;404 not found&lt;/h1&gt;  --By Rico&quot;);
             return;
-        }
+        &#125;
 
         Method method=handlerMapping.get(url);//拿到这个url对应的方法
         method.invoke()//第一个参数是谁调这个方法,第二个参数就是方法参数
         System.out.println(method);*/
-    }
+    &#125;
 
     //从HttpServletRequest中通过url匹配handlermapping这个map中的元素来获取handler
-    private Handler getHandler(HttpServletRequest req)throws Exception{
-        if(handlerMapping.isEmpty()){return null;}
+    private Handler getHandler(HttpServletRequest req)throws Exception&#123;
+        if(handlerMapping.isEmpty())&#123;return null;&#125;
         String url=req.getRequestURI();
         String contextPath=req.getContextPath();
         url=url.replaceAll(contextPath,&quot;&quot;).replaceAll(&quot;/+&quot;,&quot;/&quot;);//把多余的斜杠替换掉
-        for(Handler handler:handlerMapping){
-            try{
+        for(Handler handler:handlerMapping)&#123;
+            try&#123;
                 Matcher matcher=handler.pattern.matcher(url);//通过正则匹配url
                 //如果没有匹配上 继续下一个匹配
-                if(!matcher.matches()){continue;}
+                if(!matcher.matches())&#123;continue;&#125;
                 return handler;
-            }catch (Exception e){
+            &#125;catch (Exception e)&#123;
                 throw e ;
-            }
-        }
+            &#125;
+        &#125;
         return null;
-    }
+    &#125;
 
-    private Object convert(Class&lt;?&gt; type,String value){
-        if(Integer.class==type){
+    private Object convert(Class&lt;?&gt; type,String value)&#123;
+        if(Integer.class==type)&#123;
             return  Integer.valueOf(value);
-        }
+        &#125;
         return value;
-    }
+    &#125;
     @Override
-    public void init(ServletConfig config) throws ServletException {
+    public void init(ServletConfig config) throws ServletException &#123;
         //从这里开始启动SpringMVC
         //1 加载配置文件
         doLoadConfig(config.getInitParameter(&quot;contextConfigLocation&quot;));
         //2 扫描所有相关的类
         doScanner(contextConfig.getProperty(&quot;scanPackage&quot;));
         //3 初始化所有扫描到的类
-        try {
+        try &#123;
             doInstance();
-        } catch (IllegalAccessException e) {
+        &#125; catch (IllegalAccessException e) &#123;
             e.printStackTrace();
-        } catch (InstantiationException e) {
+        &#125; catch (InstantiationException e) &#123;
             e.printStackTrace();
-        }
+        &#125;
         //4  自动注入
         doAutowired();
 
@@ -853,117 +853,117 @@ public class MyDispatcherServlet extends HttpServlet{
         //5 初始化HandlerMapping
         initHandlerMapping();
         System.out.println(&quot;MySpring 初始化完成!&quot;);
-    }
+    &#125;
 
     //载入配置
-    private void doLoadConfig(String contextConfigLocation) {
+    private void doLoadConfig(String contextConfigLocation) &#123;
         InputStream is=this.getClass().getClassLoader().getResourceAsStream(contextConfigLocation);
-        try {
+        try &#123;
             contextConfig.load(is);
-        } catch (IOException e) {
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }finally {
-            try {
-                if(is!=null){
+        &#125;finally &#123;
+            try &#123;
+                if(is!=null)&#123;
                     is.close();
-                }
-            } catch (IOException e) {
+                &#125;
+            &#125; catch (IOException e) &#123;
                 e.printStackTrace();
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     //扫描类
-    private void doScanner(String scanPackage){//传入的参数是哪些包需要扫描的
+    private void doScanner(String scanPackage)&#123;//传入的参数是哪些包需要扫描的
         URL url= this.getClass().getClassLoader().getResource(&quot;/&quot;+scanPackage.replaceAll(&quot;\\.&quot;,&quot;/&quot;));//把点替换成斜杠
         File classDir=new File(url.getFile());//拿到这个包下面的所有class
-        for(File file : classDir.listFiles()){
-            if(file.isDirectory()){//如果是文件夹，还需要继续搜寻，递归调用自身
+        for(File file : classDir.listFiles())&#123;
+            if(file.isDirectory())&#123;//如果是文件夹，还需要继续搜寻，递归调用自身
                 doScanner(scanPackage+&quot;.&quot;+file.getName());//递归
-            }else{//如果不是文件夹
+            &#125;else&#123;//如果不是文件夹
                 String className=scanPackage+&quot;.&quot;+file.getName().replace(&quot;.class&quot;,&quot;&quot;);//把.class这个后缀去掉 
                 classNames.add(className);
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     //实例化扫描到的类
-    private void doInstance() throws IllegalAccessException, InstantiationException {
-        if(classNames.isEmpty()){return;}
-        for(String className:classNames){
-            try {
+    private void doInstance() throws IllegalAccessException, InstantiationException &#123;
+        if(classNames.isEmpty())&#123;return;&#125;
+        for(String className:classNames)&#123;
+            try &#123;
                 Class&lt;?&gt; clazz=Class.forName(className);//拿到class类
                 //不是所有的类都要实例化，只实例化加了注解的类
-                if(clazz.isAnnotationPresent(MyController.class)){
+                if(clazz.isAnnotationPresent(MyController.class))&#123;
                     //把类初始化，然后放到IOC容器中
                     //key是类名首字母小写
                     String beanName=lowerFirstCase(clazz.getName());
                     ioc.put(beanName,clazz.newInstance());
-                }else if(clazz.isAnnotationPresent(MyService.class)){//如果是Service注解
+                &#125;else if(clazz.isAnnotationPresent(MyService.class))&#123;//如果是Service注解
                     //默认采用首字母
                     //自定义bean的name，优先使用自定义的名字
                     //根据接口类型来赋值(接口不能实例化，但是接口的实现类可以实例化)
                     MyService service= clazz.getAnnotation(MyService.class);//拿到这个类上的@MyService注解
                     String beanName=service.value();
-                    if(&quot;&quot;.equals(beanName.trim())){//如果beanName是空的话，那么说明用户没有自定义beanName,那么就用首字母小写作为beanName
+                    if(&quot;&quot;.equals(beanName.trim()))&#123;//如果beanName是空的话，那么说明用户没有自定义beanName,那么就用首字母小写作为beanName
                         beanName=lowerFirstCase(clazz.getName());
-                    }
+                    &#125;
                     Object instance = clazz.newInstance();
                     ioc.put(beanName,instance);//将其放入ioc
-                    for(Class&lt;?&gt; i:clazz.getInterfaces()){//获取这个类的接口 如果这个类有多个接口，那么需要报错，这里没做
+                    for(Class&lt;?&gt; i:clazz.getInterfaces())&#123;//获取这个类的接口 如果这个类有多个接口，那么需要报错，这里没做
                         ioc.put(i.getName(),instance);//key是这个接口的名称
                         //疑问,这个接口名不需要首字母小写作为key吗?
-                    }
+                    &#125;
                     //所以有可能出现这种情况,就是以这个interface作为key的有一个实例，以类首字母小写作为key也有一个实例，且实例是同一个,主要是为了满足用户不同的注入要求
-                }else{
+                &#125;else&#123;
                     continue;
-                }
-            } catch (ClassNotFoundException e) {
+                &#125;
+            &#125; catch (ClassNotFoundException e) &#123;
                 e.printStackTrace();
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     //注入
-    private void doAutowired() {
-        if(ioc.isEmpty()){return;}
+    private void doAutowired() &#123;
+        if(ioc.isEmpty())&#123;return;&#125;
         //循环IOC容器中所有类，然后对需要自动赋值的属性进行赋值
-        for(Map.Entry&lt;String,Object&gt; entry:ioc.entrySet()){
+        for(Map.Entry&lt;String,Object&gt; entry:ioc.entrySet())&#123;
             //依赖注入，不管是谁，只要加了@MyAutowired注解的都要注入,哪怕它是私有的，哪怕他是受保护的.为什么？是因为反射破坏了它的封装性,在反射面前，所有东西都是裸露的. 所以反射要慎用，一般在框架里或者底层的设计模式中使用
             Field[] fields=entry.getValue().getClass().getDeclaredFields();//获取所有的字段
-            for(Field field:fields){//找出有@MyAutowired的注解的字段
-                if(!field.isAnnotationPresent(MyAutowired.class)){ continue; }
+            for(Field field:fields)&#123;//找出有@MyAutowired的注解的字段
+                if(!field.isAnnotationPresent(MyAutowired.class))&#123; continue; &#125;
                 MyAutowired autowired=field.getAnnotation(MyAutowired.class);
                 String beanName=autowired.value().trim();
-                if(&quot;&quot;.equals(beanName)){//如果没有指定引用那个bean,那么就是它的类型的那个bean
+                if(&quot;&quot;.equals(beanName))&#123;//如果没有指定引用那个bean,那么就是它的类型的那个bean
                     beanName=field.getType().getName();
-                }
+                &#125;
                 //暴力访问
                 field.setAccessible(true);
-                try {
+                try &#123;
                     field.set(entry.getValue(),ioc.get(beanName));//给这个字段复制,第一个参数是这个字段所在的对象实例,第二个参数就是具体的值
-                } catch (IllegalAccessException e) {
+                &#125; catch (IllegalAccessException e) &#123;
                     e.printStackTrace();
                     continue;
-                }
-            }
-        }
-    }
-    private void initHandlerMapping() {
-        if(ioc.isEmpty()) {return; }
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    private void initHandlerMapping() &#123;
+        if(ioc.isEmpty()) &#123;return; &#125;
         //扫描所有的bean
-        for(Map.Entry&lt;String,Object&gt; entry : ioc.entrySet()){
+        for(Map.Entry&lt;String,Object&gt; entry : ioc.entrySet())&#123;
             //找到注解在类上的RequestMapping,拿到它的值
             Class&lt;?&gt; clazz=entry.getValue().getClass();
-            if(!clazz.isAnnotationPresent(MyController.class)){continue;}//只针对Controller,如果不是Controller,加了RequestMapping就忽略
+            if(!clazz.isAnnotationPresent(MyController.class))&#123;continue;&#125;//只针对Controller,如果不是Controller,加了RequestMapping就忽略
             String baseUrl=&quot;&quot;;//类上注解的requestMapping,是基url
-            if(clazz.isAnnotationPresent(MyRequestMapping.class)){
+            if(clazz.isAnnotationPresent(MyRequestMapping.class))&#123;
                 MyRequestMapping requestMapping=clazz.getAnnotation(MyRequestMapping.class);
                 baseUrl=requestMapping.value();
-            }
+            &#125;
             //扫描所有的公共方法
-            for(Method method:clazz.getMethods()){
-                if(!method.isAnnotationPresent(MyRequestMapping.class)){ continue; }
+            for(Method method:clazz.getMethods())&#123;
+                if(!method.isAnnotationPresent(MyRequestMapping.class))&#123; continue; &#125;
                 MyRequestMapping myRequestMapping=method.getAnnotation(MyRequestMapping.class);
                 //String methodUrl=(&quot;/&quot;+baseUrl+myRequestMapping.value()).replaceAll(&quot;/+&quot;,&quot;/&quot;);//把连续的斜杠处理成单个斜杠
                 //handlerMapping.put(methodUrl,method);
@@ -971,61 +971,62 @@ public class MyDispatcherServlet extends HttpServlet{
                 Pattern pattern=Pattern.compile(regex);//用了正则之后requestmapping就可以用正则的语法啦，例如/query* 表示query开头的都进行拦截
                 handlerMapping.add(new Handler(pattern,entry.getValue(),method));//handler类型的构造函数的参数  第一个是正则 第二个是controller对象 第三个是方法Method
                 System.out.println(&quot;Mapping :&quot;+regex+&quot;,&quot;+method);//打印日志
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     //首字母小写工具类
-    private String lowerFirstCase(String str){
+    private String lowerFirstCase(String str)&#123;
         String firstString=str.substring(0, 1);
         firstString=firstString.toLowerCase();
         String left=str.substring(1,str.length());
         return firstString+left;
-    }
+    &#125;
 
 
 
-    private class Handler{
+    private class Handler&#123;
         protected  Object controller;//保存方法对应的实例
         protected Method method;//保存映射的方法
         protected Pattern pattern;
         protected Map&lt;String,Integer&gt; paramIndexMapping;//参数顺序
-        protected Handler(Pattern pattern,Object controller,Method method){
+        protected Handler(Pattern pattern,Object controller,Method method)&#123;
             this.controller=controller;
             this.method=method;
             this.pattern=pattern;
             paramIndexMapping=new HashMap&lt;String,Integer&gt;();
             putParamIndexMapping(method);
-        }
+        &#125;
 
-        private void putParamIndexMapping(Method method) {
+        private void putParamIndexMapping(Method method) &#123;
             //提取方法中加了注解的参数
             Annotation[][] pa=method.getParameterAnnotations();//它返回的是个二维数组
-            for(int i=0;i&lt;pa.length;i++){
-                for(Annotation anno:pa[i]){
-                    if(anno instanceof MyRequestParam){//就是找那个标注了MyRequestParam的注解的参数
+            for(int i=0;i&lt;pa.length;i++)&#123;
+                for(Annotation anno:pa[i])&#123;
+                    if(anno instanceof MyRequestParam)&#123;//就是找那个标注了MyRequestParam的注解的参数
                         String paramName=((MyRequestParam)anno).value();
-                        if(!&quot;&quot;.equals(paramName.trim())){
+                        if(!&quot;&quot;.equals(paramName.trim()))&#123;
                             paramIndexMapping.put(paramName,i);
-                        }
-                    }
-                }
-            }
+                        &#125;
+                    &#125;
+                &#125;
+            &#125;
             //提取方法中的request和response参数
             Class&lt;?&gt; [] paramTypes=method.getParameterTypes();
-            for(int i=0;i&lt;paramTypes.length;i++){
+            for(int i=0;i&lt;paramTypes.length;i++)&#123;
                 Class&lt;?&gt; type=paramTypes[i];
-                if(type==HttpServletRequest.class||type==HttpServletResponse.class){
+                if(type==HttpServletRequest.class||type==HttpServletResponse.class)&#123;
                     paramIndexMapping.put(type.getName(),i);
-                }
-            }
-        }
-    }
-}
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+
 </code></pre>
 <p>成功</p>
-<p><img src="6.png" alt></p>
-<p>目录结构<br><img src="7.png" alt></p>
+<p><img src="6.png" alt=""></p>
+<p>目录结构<br><img src="7.png" alt=""></p>
 <p>源码待上传github</p>
 
         
@@ -1425,7 +1426,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

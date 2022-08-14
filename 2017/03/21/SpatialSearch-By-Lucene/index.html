@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Lucene">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="使用Lucene对地理数据进行空间搜索 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Lucene"> 
 
     
         <meta property="article:published_time" content="Tue Mar 21 2017 23:50:35 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2017/03/21/SpatialSearch-By-Lucene/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2017/03/21/SpatialSearch-By-Lucene/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lucene支持的空间关系"><span class="post-toc-number">1.</span> <span class="post-toc-text">Lucene支持的空间关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Intersects相交"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Intersects相交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Disjoint-不相交"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Disjoint  不相交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IsEqualTo-等于"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">IsEqualTo  等于</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Overlap-重叠"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Overlap 重叠</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Touch-一般是指边界相交"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Touch 一般是指边界相交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cross-交叉"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Cross 交叉</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Within-第一个完全在第二个中"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">Within(第一个完全在第二个中)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Contains-第二个完全在第一个中"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">Contains(第二个完全在第一个中)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简洁版本"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">简洁版本</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用Lucene进行空间搜索"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用Lucene进行空间搜索</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考文献"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lucene%E6%94%AF%E6%8C%81%E7%9A%84%E7%A9%BA%E9%97%B4%E5%85%B3%E7%B3%BB"><span class="post-toc-number">1.</span> <span class="post-toc-text">Lucene支持的空间关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Intersects%E7%9B%B8%E4%BA%A4"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Intersects相交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Disjoint-%E4%B8%8D%E7%9B%B8%E4%BA%A4"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Disjoint  不相交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IsEqualTo-%E7%AD%89%E4%BA%8E"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">IsEqualTo  等于</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Overlap-%E9%87%8D%E5%8F%A0"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Overlap 重叠</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Touch-%E4%B8%80%E8%88%AC%E6%98%AF%E6%8C%87%E8%BE%B9%E7%95%8C%E7%9B%B8%E4%BA%A4"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Touch 一般是指边界相交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cross-%E4%BA%A4%E5%8F%89"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Cross 交叉</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Within-%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%85%A8%E5%9C%A8%E7%AC%AC%E4%BA%8C%E4%B8%AA%E4%B8%AD"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">Within(第一个完全在第二个中)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Contains-%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%AE%8C%E5%85%A8%E5%9C%A8%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%AD"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">Contains(第二个完全在第一个中)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%80%E6%B4%81%E7%89%88%E6%9C%AC"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">简洁版本</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8Lucene%E8%BF%9B%E8%A1%8C%E7%A9%BA%E9%97%B4%E6%90%9C%E7%B4%A2"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用Lucene进行空间搜索</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Lucene/">Lucene</a>
+        <a class="post_tag-none-link" href="/tags/Lucene/" rel="tag">Lucene</a>
     </ul>
     
 
@@ -469,8 +469,8 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h1 id="Lucene支持的空间关系"><a href="#Lucene支持的空间关系" class="headerlink" title="Lucene支持的空间关系"></a>Lucene支持的空间关系</h1><p>Lucene支持的的空间拓扑查询有下面几种  </p>
-<p>下图截自lucene spatial-extras包的<a href="https://lucene.apache.org/core/7_2_1/spatial-extras/org/apache/lucene/spatial/query/SpatialOperation.html" target="_blank" rel="noopener">org.apache.lucene.spatial.query.SpatialOperation</a>  </p>
-<p><img src="1.png" alt></p>
+<p>下图截自lucene spatial-extras包的<a target="_blank" rel="noopener" href="https://lucene.apache.org/core/7_2_1/spatial-extras/org/apache/lucene/spatial/query/SpatialOperation.html">org.apache.lucene.spatial.query.SpatialOperation</a>  </p>
+<p><img src="1.png" alt=""></p>
 <ul>
 <li>BBoxIntersects  几何范围(矩形)相交</li>
 <li>BBoxWithin  几何范围(矩形)内含</li>
@@ -484,58 +484,58 @@
 <h2 id="Intersects相交"><a href="#Intersects相交" class="headerlink" title="Intersects相交"></a>Intersects相交</h2><p>Intersects returns t (TRUE) if the intersection does not result in an empty set. Intersects returns the exact opposite result of disjoint.  </p>
 <p>如果2个地理实体的交集不为空,那么它们相交。2个地理实体相交<code>Intersects</code>和不相交<code>Disjoint</code>的结果正好相反 </p>
 <p>2个实体相交有2面多种情况</p>
-<p>The intersects predicate(<em>断定</em>) will return TRUE if the conditions of any of the following pattern matrices returns TRUE.</p>
+<p>The intersects predicate(_断定_) will return TRUE if the conditions of any of the following pattern matrices returns TRUE.</p>
 <p>如果2个实体内部相交，那么它们相交</p>
 <p>The intersects predicate returns TRUE if the interiors of both geometries intersect(<em>横断,横切,横穿 ;线条,道路等相交,交叉</em>). </p>
-<p><img src="4.png" alt></p>
+<p><img src="4.png" alt=""></p>
 <p>如果2个实体的边相交,那么它们相交</p>
 <p>The intersects predicate returns TRUE if the boundary(<em>分界线;范围;球场边线</em>) of the first geometry intersects the boundary of the second geometry.</p>
-<p><img src="5.png" alt></p>
+<p><img src="5.png" alt=""></p>
 <p>如果一个实体的边和另一个实体的内部相交，那么它们相交</p>
 <p>The intersects predicate returns TRUE if the boundary of the first geometry intersects the interior of the second.</p>
-<p><img src="6.png" alt>   </p>
+<p><img src="6.png" alt="">   </p>
 <p>如果2个实体的边相交，</p>
 <p>The intersects predicate returns TRUE if the boundaries of either geometry intersect.</p>
-<p><img src="7.png" alt></p>
+<p><img src="7.png" alt=""></p>
 <h2 id="Disjoint-不相交"><a href="#Disjoint-不相交" class="headerlink" title="Disjoint  不相交"></a>Disjoint  不相交</h2><p>Disjoint returns t (TRUE) if the intersection of the two geometries is an empty set.</p>
 <p>如果2个地理实体的交集是空，那么他们不相交</p>
-<p> <img src="3.gif" alt></p>
+<p> <img src="3.gif" alt=""></p>
 <h2 id="IsEqualTo-等于"><a href="#IsEqualTo-等于" class="headerlink" title="IsEqualTo  等于"></a>IsEqualTo  等于</h2><p>Equal returns t (TRUE) if two geometries of the same type have identical X,Y coordinate values. </p>
 <p>相等意味着2个地理实体拥有相同的类型和XY值</p>
-<p><img src="2.gif" alt></p>
+<p><img src="2.gif" alt=""></p>
 <h2 id="Overlap-重叠"><a href="#Overlap-重叠" class="headerlink" title="Overlap 重叠"></a>Overlap 重叠</h2><p>Overlap比较2个相同维度的地理几何体并且如果他们的交集结果集与2者都不相同但是是同一个维度的，那么返回true</p>
 <p>Overlap compares two geometries of the same dimension(<em>尺寸面积范围</em>) and returns t (TRUE) if their intersection set results in a geometry different from both but of the same dimension.  </p>
-<p><img src="8.gif" alt></p>
+<p><img src="8.gif" alt=""></p>
 <p>Overlap returns t (TRUE) only for geometries of the same dimension and only when their intersection set results in a geometry of the same dimension. In other words, if the intersection of two polygons results in polygon, then overlap returns t (TRUE).</p>
 <p>当多个同一维度的地理实体交集的结果集在同一个维度,换句话说，如果2个面的交集是一个面，那么他们相交</p>
 <p>This pattern matrix applies to polygon/polygon, multipoint/multipoint and multipolygon/multipolygon overlays. For these combinations the overlap predicate returns TRUE if the interior of both geometries intersects the others interior and exterior.</p>
 <h2 id="Touch-一般是指边界相交"><a href="#Touch-一般是指边界相交" class="headerlink" title="Touch 一般是指边界相交"></a>Touch 一般是指边界相交</h2><p>如果两个几何体的共同点都不相交于两个几何图形的内部，那么touch为true。最少有一个几何体必须是线、多边形、多线，或多面。</p>
 <p>Touch returns t (TRUE) if none of the points common to both geometries intersect the interiors of both geometries. At least one geometry must be a linestring, polygon, multilinestring, or multipolygon.</p>
-<p><img src="9.gif" alt></p>
+<p><img src="9.gif" alt=""></p>
 <p>任一几何体边界相交 或 其中一个几何体内部和其他的几何体的边界相交</p>
 <p>Touch returns TRUE if either of the geometries’ boundaries intersect or if only one of the geometry’s interiors intersects the other’s boundary.</p>
 <p>The pattern matrices show us that the touch predicate returns TRUE when the interiors of the geometry don’t intersect and the boundary of either geometry intersects the others interior or boundary.</p>
 <p>The touch predicate returns TRUE if the boundary of one geometry intersects the interior of the other but the interiors do not intersect.</p>
 <h2 id="Cross-交叉"><a href="#Cross-交叉" class="headerlink" title="Cross 交叉"></a>Cross 交叉</h2><p>Cross returns t (TRUE) if the intersection results in a geometry whose dimension is one less than the maximum dimension of the two source geometries and the intersection set is interior to both source geometries. Cross returns t (TRUE) for only multipoint/polygon, multipoint/linestring, linestring/linestring, linestring/polygon, and linestring/multipolygon comparisons.</p>
-<p><img src="10.gif" alt></p>
+<p><img src="10.gif" alt=""></p>
 <p>Cross returns t (TRUE) if the dimension of the intersection is one less than the maximum dimension of the source geometries and the interiors of both geometries are intersected.</p>
 <p>This cross predicate pattern matrix applies to multipoint/linestring, multipoint/multilinestring, multipoint/polygon, multipoint/multipolygon, linestring/polygon, and linestring/multipolygon. The matrix states that the interiors must intersect and that at least the interior of the primary (geometry a) must intersect the exterior of the secondary (geometry b).</p>
-<p><img src="10.png" alt></p>
+<p><img src="10.png" alt=""></p>
 <p>This cross predicate matrix applies to linestring/linestring, linestring/multilinestring, and multilinestring/multilinestring. The matrix states that the dimension of the intersection of the interiors must be 0 (intersect at a point). If the dimension of this intersection was 1 (intersect at a linestring) the cross predicate would return FALSE but the overlap predicate would return TRUE.</p>
-<p><img src="11.png" alt></p>
+<p><img src="11.png" alt=""></p>
 <h2 id="Within-第一个完全在第二个中"><a href="#Within-第一个完全在第二个中" class="headerlink" title="Within(第一个完全在第二个中)"></a>Within(第一个完全在第二个中)</h2><p>如果第一个几何体完全在第二个几何体中，</p>
 <p>Within returns t (TRUE) if the first geometry is completely within the second geometry. Within tests for the exact opposite result of contains.</p>
-<p><img src="12.gif" alt></p>
+<p><img src="12.gif" alt=""></p>
 <p><strong>如果第一个几何体完全在第二个几何体中</strong> ,第一个几何体的边界和内部不允许和第二个几何体的外部相交,2个几何体不能相等</p>
 <p>Within returns t (TRUE) if the first geometry is completely inside the second geometry. The boundary and interior of the first geometry are not allowed to intersect the exterior of the second geometry and the first geometry may not equal the second geometry.</p>
 <p>The within predicate pattern matrix states that the interiors of both geometries must intersect and that the interior and boundary of the primary geometry (geometry a) must not intersect the exterior of the secondary (geometry b).</p>
-<p><img src="13.png" alt></p>
+<p><img src="13.png" alt=""></p>
 <h2 id="Contains-第二个完全在第一个中"><a href="#Contains-第二个完全在第一个中" class="headerlink" title="Contains(第二个完全在第一个中)"></a>Contains(第二个完全在第一个中)</h2><p>Contains returns t (TRUE) if the second geometry is completely contained by the first geometry. The contains predicate returns the exact opposite result of the within predicate.</p>
-<p><img src="14.gif" alt></p>
+<p><img src="14.gif" alt=""></p>
 <p><strong>第二个几何体完全在第一个几何体中,</strong>第二个几何体的内部和边界不允许和第一个几何体外部相交，并且几何体之间不能相等</p>
 <p>Contains returns t (TRUE) if the second geometry is completely inside the first. The boundary and interior of the second geometry are not allowed to intersect the exterior of the first geometry and the geometries may not be equal.</p>
 <p>The pattern matrix of the contains predicate states that the interiors of both geometries must intersect and that the interior and boundary of the secondary (geometry b) must not intersect the exterior of the primary (geometry a).</p>
-<p><img src="15.png" alt></p>
+<p><img src="15.png" alt=""></p>
 <h2 id="简洁版本"><a href="#简洁版本" class="headerlink" title="简洁版本"></a>简洁版本</h2><table>
 <thead>
 <tr>
@@ -575,13 +575,13 @@
 </tbody>
 </table>
 <h1 id="使用Lucene进行空间搜索"><a href="#使用Lucene进行空间搜索" class="headerlink" title="使用Lucene进行空间搜索"></a>使用Lucene进行空间搜索</h1><p>Lucene进行空间搜索是先构造一个你想去搜索(个人理解是碰撞)的几何体,然后用这个几何体去搜索相交，不相交，包含等的空间数据  </p>
-<pre><code class="java">    public static void main(String[] args) {
+<pre><code class="java">    public static void main(String[] args) &#123;
         File luceneDir=new File(&quot;/data/lucene&quot;);//lucene数据存放的路径
         Path path= Paths.get(luceneDir.getAbsolutePath());
         Directory indexDirectory= null;
         IndexReader indexReader = null;
         IndexSearcher indexSearcher=null;
-        try {
+        try &#123;
             indexDirectory = FSDirectory.open(path);
             indexReader = DirectoryReader.open(indexDirectory);
             indexSearcher = new IndexSearcher(indexReader);//构造IndexSearcher
@@ -590,18 +590,18 @@
             WKTWriter writer = new WKTWriter();
             String wktString=&quot;POINT(120.4464 30.2237)&quot;;//构建一个点
             Geometry bufferBefore;//JTS的Geometry
-            try {
+            try &#123;
                 bufferBefore = reader.read(wktString);
                  double BUFFER=2500;//缓冲250米
                  BUFFER=BUFFER/111000;//因为上面POINT(120.4464 30.2237)是4326坐标系,所以需要转换成度,这里111000也是大致的值,需要精确的值需要自己算
                 Geometry bufferAfter = bufferBefore.buffer( BUFFER, 8, BufferOp.CAP_ROUND);
                 wktString = writer.write(bufferAfter);//生成的这个缓冲器的wkt
                 System.out.println(wktString);
-            } catch (com.vividsolutions.jts.io.ParseException e1) {
+            &#125; catch (com.vividsolutions.jts.io.ParseException e1) &#123;
                 e1.printStackTrace();
-            }
+            &#125;
             Shape shp;
-            try {
+            try &#123;
                 JtsSpatialContextFactory factory = new JtsSpatialContextFactory();//创建JtsSpatialContextFactory工厂类
                 //spatial4j/jts实现的 SpatialContext: 用于获得距离计算Calculator以及解析形状等。其属于spatial4j包中，该包中还有各种Shape及判断各Shape间的相交情况。JtsSpatialContext(jts包)用于处理多边形等情况。
                 factory.srid = 4326;// 赋予坐标系
@@ -630,40 +630,40 @@
 //                Term term = new Term(&quot;Name&quot;, &quot;杭州*&quot;);
 //                Query query = new WildcardQuery(term);
                 //builder.add(query, BooleanClause.Occur.MUST);
-            } catch ( java.text.ParseException e) {
+            &#125; catch ( java.text.ParseException e) &#123;
                e.printStackTrace();
-            }
+            &#125;
             Query query = builder.build();
             TopDocs docs=indexSearcher.search(query,10);
             System.out.println(&quot;结果条数:&quot;+docs.totalHits);
-            for(ScoreDoc doc:docs.scoreDocs){//获取查找的文档的属性数据
+            for(ScoreDoc doc:docs.scoreDocs)&#123;//获取查找的文档的属性数据
                 int docID=doc.doc;
                 Document document =indexSearcher.doc(docID);
                 String str=&quot;名称:&quot;+document.get(&quot;Name&quot;)+&quot;,地址：&quot;+document.get(&quot;Address&quot;)+&quot;，X：&quot;+document.get(&quot;X&quot;)+&quot;，Y:&quot;+document.get(&quot;Y&quot;)+&quot; WKT:&quot;+document.get(&quot;wkt&quot;);
                 System.out.println(&quot;机场信息:&quot;+str);
-            }
+            &#125;
             //关闭
             indexDirectory.close();
             indexReader.close();
             indexDirectory.close();
-        } catch (IOException e) {
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
 <p>结果:</p>
-<p><img src="18.png" alt></p>
+<p><img src="18.png" alt=""></p>
 <p>我们将机场实际经纬度和查询点放到地图上直观 的看一下</p>
-<p><img src="19.png" alt></p>
+<p><img src="19.png" alt=""></p>
 <p>我们将输出的wkt转成面在地图上看下 </p>
-<p><img src="20.png" alt></p>
+<p><img src="20.png" alt=""></p>
 <p>我们再扩大范围 </p>
-<p><img src="21.png" alt></p>
-<p><img src="22.png" alt></p>
+<p><img src="21.png" alt=""></p>
+<p><img src="22.png" alt=""></p>
 <p>对于上述代码中一些方法的解释</p>
 <p>JTS的Geometry有buffer方法，可以进行缓冲,例如一个点缓冲成一个圆形面等  </p>
 <p>下面截图来自JTS Geometry的API截图</p>
-<p><img src="16.png" alt>  </p>
+<p><img src="16.png" alt="">  </p>
 <blockquote>
 <p><code>buffer(double distance, int quadrantSegments, int endCapStyle)</code>Computes a buffer area around this geometry having the given width and with a specified accuracy of approximation for circular arcs, and using a specified end cap style.</p>
 <p>计算给定的宽度和指定的圆弧逼近精度的几何形状周围的缓冲区，并使用指定的端点样式。</p>
@@ -674,8 +674,8 @@
 <p>用于表示圆的象限的线段数。意思就是拟合的线段数</p>
 </blockquote>
 <p>第三个参数: 端点样式有下面几种,圆弧形,粗的,平直的   </p>
-<p><img src="17.png" alt></p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm" target="_blank" rel="noopener">http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm</a>  </p>
+<p><img src="17.png" alt=""></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm">http://edndoc.esri.com/arcsde/9.1/general_topics/understand_spatial_relations.htm</a>  </p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1074,7 +1074,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

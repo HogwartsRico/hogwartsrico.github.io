@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="多线程基础知识 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Java"> 
 
     
         <meta property="article:published_time" content="Fri Nov 20 2020 17:31:59 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/11/20/Thread-Basic-Knowledge/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进程和线程"><span class="post-toc-number">1.</span> <span class="post-toc-text">进程和线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#并发和并行"><span class="post-toc-number">2.</span> <span class="post-toc-text">并发和并行</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程生命周期"><span class="post-toc-number">3.</span> <span class="post-toc-text">线程生命周期</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Thread中的实例方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">Thread中的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#start"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">start()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#run"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">run()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isAlive"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">isAlive()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getId"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">getId()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getName"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">getName()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getPriority-和setPriority-int-newPriority"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">getPriority()和setPriority(int newPriority)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isDaemon、setDaemon"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">isDaemon、setDaemon</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#interrupt"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">interrupt</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#interrupt-打断wait"><span class="post-toc-number">4.8.1.</span> <span class="post-toc-text">interrupt()打断wait()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isInterrupted"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">isInterrupted()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#join"><span class="post-toc-number">4.10.</span> <span class="post-toc-text">join()</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Thread类中的静态方法"><span class="post-toc-number">5.</span> <span class="post-toc-text">Thread类中的静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#currentThread"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">currentThread()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sleep-long-millis"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">sleep(long millis)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#yield"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">yield()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#interrupted"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">interrupted()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#interrupted-interrupt-isInterrupted"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">interrupted /interrupt/ isInterrupted</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#wait-notify-notifyall"><span class="post-toc-number">6.</span> <span class="post-toc-text">wait/notify/notifyall</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">wait()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notify"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">notify()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notifyall"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">notifyall</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait-释放锁"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">wait()释放锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notify-不释放锁"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">notify()不释放锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait-sleep的区别"><span class="post-toc-number">6.6.</span> <span class="post-toc-text">wait/sleep的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#synchronized"><span class="post-toc-number">7.</span> <span class="post-toc-text">synchronized</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized锁重入"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">synchronized锁重入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#异常自动释放锁"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">异常自动释放锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized同步代码块"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">synchronized同步代码块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#同步静态方法"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">同步静态方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#volatile"><span class="post-toc-number">8.</span> <span class="post-toc-text">volatile</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lock"><span class="post-toc-number">9.</span> <span class="post-toc-text">Lock</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ReentrantLock"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">ReentrantLock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Lock类其他的功能"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">Lock类其他的功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#实现公平锁"><span class="post-toc-number">9.2.0.1.</span> <span class="post-toc-text">实现公平锁</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取当前线程锁定的个数"><span class="post-toc-number">9.2.0.2.</span> <span class="post-toc-text">获取当前线程锁定的个数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取等待锁的线程数"><span class="post-toc-number">9.2.0.3.</span> <span class="post-toc-text">获取等待锁的线程数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hasQueuedThread-和hasQueuedThreads"><span class="post-toc-number">9.2.0.4.</span> <span class="post-toc-text">hasQueuedThread()和hasQueuedThreads()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#isHeldByCurrentThread和isLocked"><span class="post-toc-number">9.2.0.5.</span> <span class="post-toc-text">isHeldByCurrentThread和isLocked</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#加锁时如果中断则不加锁，进入异常处理"><span class="post-toc-number">9.2.0.6.</span> <span class="post-toc-text">加锁时如果中断则不加锁，进入异常处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tryLock-和tryLock-long-timeout-TimeUnit-unit"><span class="post-toc-number">9.2.0.7.</span> <span class="post-toc-text">tryLock()和tryLock(long timeout, TimeUnit unit)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#lockInterruptibly"><span class="post-toc-number">9.2.0.8.</span> <span class="post-toc-text">lockInterruptibly</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ReentrantLock中的其他方法"><span class="post-toc-number">9.2.0.9.</span> <span class="post-toc-text">ReentrantLock中的其他方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#synchronized和ReentrantLock的对比"><span class="post-toc-number">9.2.1.</span> <span class="post-toc-text">synchronized和ReentrantLock的对比</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Condition"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">Condition</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Condition类的其他功能"><span class="post-toc-number">9.3.1.</span> <span class="post-toc-text">Condition类的其他功能</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#读写锁"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">读写锁</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#生产者-消费者模型"><span class="post-toc-number">10.</span> <span class="post-toc-text">生产者/消费者模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用wait-notify-实现生产者-消费者模型"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">利用wait()/notify()实现生产者/消费者模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用await-signal-实现生产者和消费者模型"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">利用await()/signal()实现生产者和消费者模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小心假死"><span class="post-toc-number">10.3.</span> <span class="post-toc-text">小心假死</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#利用Queue实现生产者-消费者模型"><span class="post-toc-number">11.</span> <span class="post-toc-text">利用Queue实现生产者/消费者模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Queue是什么"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">Queue是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Queue中的方法"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">Queue中的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BlockingQueue"><span class="post-toc-number">11.2.1.</span> <span class="post-toc-text">BlockingQueue</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用BlockingQueue实现生产者消费者模型"><span class="post-toc-number">11.3.</span> <span class="post-toc-text">利用BlockingQueue实现生产者消费者模型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程组"><span class="post-toc-number">12.</span> <span class="post-toc-text">线程组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#线程池"><span class="post-toc-number">13.</span> <span class="post-toc-text">线程池</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程池类结构"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">线程池类结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ThreadPoolExecutor六个核心参数"><span class="post-toc-number">13.2.</span> <span class="post-toc-text">ThreadPoolExecutor六个核心参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#corePoolSize"><span class="post-toc-number">13.2.1.</span> <span class="post-toc-text">corePoolSize</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#maximumPoolSize"><span class="post-toc-number">13.2.2.</span> <span class="post-toc-text">maximumPoolSize</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#keepAliveTime"><span class="post-toc-number">13.2.3.</span> <span class="post-toc-text">keepAliveTime</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#unit"><span class="post-toc-number">13.2.4.</span> <span class="post-toc-text">unit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#workQueue"><span class="post-toc-number">13.2.5.</span> <span class="post-toc-text">workQueue</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#直接提交"><span class="post-toc-number">13.2.5.1.</span> <span class="post-toc-text">直接提交</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#有界队列"><span class="post-toc-number">13.2.5.2.</span> <span class="post-toc-text">有界队列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#无界队列"><span class="post-toc-number">13.2.5.3.</span> <span class="post-toc-text">无界队列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#互相优缺点"><span class="post-toc-number">13.2.5.4.</span> <span class="post-toc-text">互相优缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#threadFactory"><span class="post-toc-number">13.2.6.</span> <span class="post-toc-text">threadFactory</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#handler"><span class="post-toc-number">13.2.7.</span> <span class="post-toc-text">handler</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Executors"><span class="post-toc-number">13.3.</span> <span class="post-toc-text">Executors</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#newSingleThreadExecutos"><span class="post-toc-number">13.3.1.</span> <span class="post-toc-text">newSingleThreadExecutos()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#newFixedThreadPool-int-nThreads"><span class="post-toc-number">13.3.2.</span> <span class="post-toc-text">newFixedThreadPool(int nThreads)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#newCachedThreadPool"><span class="post-toc-number">13.3.3.</span> <span class="post-toc-text">newCachedThreadPool()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四种拒绝策略"><span class="post-toc-number">13.4.</span> <span class="post-toc-text">四种拒绝策略</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#线程池创建多少线程比较合理"><span class="post-toc-number">13.5.</span> <span class="post-toc-text">线程池创建多少线程比较合理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CountDownLatch-Semaphore-Exchanger"><span class="post-toc-number">14.</span> <span class="post-toc-text">CountDownLatch/Semaphore/Exchanger</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CountDownLatch"><span class="post-toc-number">14.1.</span> <span class="post-toc-text">CountDownLatch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore"><span class="post-toc-number">14.2.</span> <span class="post-toc-text">Semaphore</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Exchanger"><span class="post-toc-number">14.3.</span> <span class="post-toc-text">Exchanger</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CyclicBarrier"><span class="post-toc-number">15.</span> <span class="post-toc-text">CyclicBarrier</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Callable-Future-FutureTask"><span class="post-toc-number">16.</span> <span class="post-toc-text">Callable/Future/FutureTask</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Callable"><span class="post-toc-number">16.1.</span> <span class="post-toc-text">Callable</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Future"><span class="post-toc-number">16.2.</span> <span class="post-toc-text">Future</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FutureTask"><span class="post-toc-number">16.3.</span> <span class="post-toc-text">FutureTask</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Callable-Future使用示例"><span class="post-toc-number">16.4.</span> <span class="post-toc-text">Callable+Future使用示例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Callable-FutureTask使用示例"><span class="post-toc-number">16.5.</span> <span class="post-toc-text">Callable+FutureTask使用示例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用Callable、Future和FutureTask的好处"><span class="post-toc-number">16.6.</span> <span class="post-toc-text">使用Callable、Future和FutureTask的好处</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">17.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="post-toc-number">1.</span> <span class="post-toc-text">进程和线程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%B9%B6%E5%8F%91%E5%92%8C%E5%B9%B6%E8%A1%8C"><span class="post-toc-number">2.</span> <span class="post-toc-text">并发和并行</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="post-toc-number">3.</span> <span class="post-toc-text">线程生命周期</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Thread%E4%B8%AD%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="post-toc-number">4.</span> <span class="post-toc-text">Thread中的实例方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#start"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">start()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#run"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">run()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isAlive"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">isAlive()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getId"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">getId()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getName"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">getName()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#getPriority-%E5%92%8CsetPriority-int-newPriority"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">getPriority()和setPriority(int newPriority)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isDaemon%E3%80%81setDaemon"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">isDaemon、setDaemon</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#interrupt"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">interrupt</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#interrupt-%E6%89%93%E6%96%ADwait"><span class="post-toc-number">4.8.1.</span> <span class="post-toc-text">interrupt()打断wait()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#isInterrupted"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">isInterrupted()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#join"><span class="post-toc-number">4.10.</span> <span class="post-toc-text">join()</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Thread%E7%B1%BB%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="post-toc-number">5.</span> <span class="post-toc-text">Thread类中的静态方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#currentThread"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">currentThread()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#sleep-long-millis"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">sleep(long millis)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#yield"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">yield()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#interrupted"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">interrupted()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#interrupted-interrupt-isInterrupted"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">interrupted &#x2F;interrupt&#x2F; isInterrupted</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#wait-notify-notifyall"><span class="post-toc-number">6.</span> <span class="post-toc-text">wait&#x2F;notify&#x2F;notifyall</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">wait()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notify"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">notify()</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notifyall"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">notifyall</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait-%E9%87%8A%E6%94%BE%E9%94%81"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">wait()释放锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#notify-%E4%B8%8D%E9%87%8A%E6%94%BE%E9%94%81"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">notify()不释放锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wait-sleep%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-number">6.6.</span> <span class="post-toc-text">wait&#x2F;sleep的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#synchronized"><span class="post-toc-number">7.</span> <span class="post-toc-text">synchronized</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized%E9%94%81%E9%87%8D%E5%85%A5"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">synchronized锁重入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E5%B8%B8%E8%87%AA%E5%8A%A8%E9%87%8A%E6%94%BE%E9%94%81"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">异常自动释放锁</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#synchronized%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">synchronized同步代码块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8C%E6%AD%A5%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">同步静态方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#volatile"><span class="post-toc-number">8.</span> <span class="post-toc-text">volatile</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Lock"><span class="post-toc-number">9.</span> <span class="post-toc-text">Lock</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ReentrantLock"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">ReentrantLock</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Lock%E7%B1%BB%E5%85%B6%E4%BB%96%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">Lock类其他的功能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%85%AC%E5%B9%B3%E9%94%81"><span class="post-toc-number">9.2.0.1.</span> <span class="post-toc-text">实现公平锁</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%BA%BF%E7%A8%8B%E9%94%81%E5%AE%9A%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="post-toc-number">9.2.0.2.</span> <span class="post-toc-text">获取当前线程锁定的个数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%8E%B7%E5%8F%96%E7%AD%89%E5%BE%85%E9%94%81%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%95%B0"><span class="post-toc-number">9.2.0.3.</span> <span class="post-toc-text">获取等待锁的线程数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hasQueuedThread-%E5%92%8ChasQueuedThreads"><span class="post-toc-number">9.2.0.4.</span> <span class="post-toc-text">hasQueuedThread()和hasQueuedThreads()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#isHeldByCurrentThread%E5%92%8CisLocked"><span class="post-toc-number">9.2.0.5.</span> <span class="post-toc-text">isHeldByCurrentThread和isLocked</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8A%A0%E9%94%81%E6%97%B6%E5%A6%82%E6%9E%9C%E4%B8%AD%E6%96%AD%E5%88%99%E4%B8%8D%E5%8A%A0%E9%94%81%EF%BC%8C%E8%BF%9B%E5%85%A5%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="post-toc-number">9.2.0.6.</span> <span class="post-toc-text">加锁时如果中断则不加锁，进入异常处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#tryLock-%E5%92%8CtryLock-long-timeout-TimeUnit-unit"><span class="post-toc-number">9.2.0.7.</span> <span class="post-toc-text">tryLock()和tryLock(long timeout, TimeUnit unit)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#lockInterruptibly"><span class="post-toc-number">9.2.0.8.</span> <span class="post-toc-text">lockInterruptibly</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ReentrantLock%E4%B8%AD%E7%9A%84%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="post-toc-number">9.2.0.9.</span> <span class="post-toc-text">ReentrantLock中的其他方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#synchronized%E5%92%8CReentrantLock%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="post-toc-number">9.2.1.</span> <span class="post-toc-text">synchronized和ReentrantLock的对比</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Condition"><span class="post-toc-number">9.3.</span> <span class="post-toc-text">Condition</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Condition%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E5%8A%9F%E8%83%BD"><span class="post-toc-number">9.3.1.</span> <span class="post-toc-text">Condition类的其他功能</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AF%BB%E5%86%99%E9%94%81"><span class="post-toc-number">9.4.</span> <span class="post-toc-text">读写锁</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">10.</span> <span class="post-toc-text">生产者&#x2F;消费者模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8wait-notify-%E5%AE%9E%E7%8E%B0%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">利用wait()&#x2F;notify()实现生产者&#x2F;消费者模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8await-signal-%E5%AE%9E%E7%8E%B0%E7%94%9F%E4%BA%A7%E8%80%85%E5%92%8C%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">10.2.</span> <span class="post-toc-text">利用await()&#x2F;signal()实现生产者和消费者模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B0%8F%E5%BF%83%E5%81%87%E6%AD%BB"><span class="post-toc-number">10.3.</span> <span class="post-toc-text">小心假死</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8Queue%E5%AE%9E%E7%8E%B0%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">11.</span> <span class="post-toc-text">利用Queue实现生产者&#x2F;消费者模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Queue%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">11.1.</span> <span class="post-toc-text">Queue是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Queue%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="post-toc-number">11.2.</span> <span class="post-toc-text">Queue中的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BlockingQueue"><span class="post-toc-number">11.2.1.</span> <span class="post-toc-text">BlockingQueue</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8BlockingQueue%E5%AE%9E%E7%8E%B0%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">11.3.</span> <span class="post-toc-text">利用BlockingQueue实现生产者消费者模型</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B%E7%BB%84"><span class="post-toc-number">12.</span> <span class="post-toc-text">线程组</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="post-toc-number">13.</span> <span class="post-toc-text">线程池</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB%E7%BB%93%E6%9E%84"><span class="post-toc-number">13.1.</span> <span class="post-toc-text">线程池类结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ThreadPoolExecutor%E5%85%AD%E4%B8%AA%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0"><span class="post-toc-number">13.2.</span> <span class="post-toc-text">ThreadPoolExecutor六个核心参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#corePoolSize"><span class="post-toc-number">13.2.1.</span> <span class="post-toc-text">corePoolSize</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#maximumPoolSize"><span class="post-toc-number">13.2.2.</span> <span class="post-toc-text">maximumPoolSize</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#keepAliveTime"><span class="post-toc-number">13.2.3.</span> <span class="post-toc-text">keepAliveTime</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#unit"><span class="post-toc-number">13.2.4.</span> <span class="post-toc-text">unit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#workQueue"><span class="post-toc-number">13.2.5.</span> <span class="post-toc-text">workQueue</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%8F%90%E4%BA%A4"><span class="post-toc-number">13.2.5.1.</span> <span class="post-toc-text">直接提交</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9C%89%E7%95%8C%E9%98%9F%E5%88%97"><span class="post-toc-number">13.2.5.2.</span> <span class="post-toc-text">有界队列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%97%A0%E7%95%8C%E9%98%9F%E5%88%97"><span class="post-toc-number">13.2.5.3.</span> <span class="post-toc-text">无界队列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%92%E7%9B%B8%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-number">13.2.5.4.</span> <span class="post-toc-text">互相优缺点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#threadFactory"><span class="post-toc-number">13.2.6.</span> <span class="post-toc-text">threadFactory</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#handler"><span class="post-toc-number">13.2.7.</span> <span class="post-toc-text">handler</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Executors"><span class="post-toc-number">13.3.</span> <span class="post-toc-text">Executors</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#newSingleThreadExecutos"><span class="post-toc-number">13.3.1.</span> <span class="post-toc-text">newSingleThreadExecutos()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#newFixedThreadPool-int-nThreads"><span class="post-toc-number">13.3.2.</span> <span class="post-toc-text">newFixedThreadPool(int nThreads)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#newCachedThreadPool"><span class="post-toc-number">13.3.3.</span> <span class="post-toc-text">newCachedThreadPool()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9B%E7%A7%8D%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5"><span class="post-toc-number">13.4.</span> <span class="post-toc-text">四种拒绝策略</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%88%9B%E5%BB%BA%E5%A4%9A%E5%B0%91%E7%BA%BF%E7%A8%8B%E6%AF%94%E8%BE%83%E5%90%88%E7%90%86"><span class="post-toc-number">13.5.</span> <span class="post-toc-text">线程池创建多少线程比较合理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CountDownLatch-Semaphore-Exchanger"><span class="post-toc-number">14.</span> <span class="post-toc-text">CountDownLatch&#x2F;Semaphore&#x2F;Exchanger</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CountDownLatch"><span class="post-toc-number">14.1.</span> <span class="post-toc-text">CountDownLatch</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Semaphore"><span class="post-toc-number">14.2.</span> <span class="post-toc-text">Semaphore</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Exchanger"><span class="post-toc-number">14.3.</span> <span class="post-toc-text">Exchanger</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#CyclicBarrier"><span class="post-toc-number">15.</span> <span class="post-toc-text">CyclicBarrier</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Callable-Future-FutureTask"><span class="post-toc-number">16.</span> <span class="post-toc-text">Callable&#x2F;Future&#x2F;FutureTask</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Callable"><span class="post-toc-number">16.1.</span> <span class="post-toc-text">Callable</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Future"><span class="post-toc-number">16.2.</span> <span class="post-toc-text">Future</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FutureTask"><span class="post-toc-number">16.3.</span> <span class="post-toc-text">FutureTask</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Callable-Future%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="post-toc-number">16.4.</span> <span class="post-toc-text">Callable+Future使用示例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Callable-FutureTask%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="post-toc-number">16.5.</span> <span class="post-toc-text">Callable+FutureTask使用示例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8Callable%E3%80%81Future%E5%92%8CFutureTask%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="post-toc-number">16.6.</span> <span class="post-toc-text">使用Callable、Future和FutureTask的好处</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83"><span class="post-toc-number">17.</span> <span class="post-toc-text">参考</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Java/">Java</a>
+        <a class="post_tag-none-link" href="/tags/Java/" rel="tag">Java</a>
     </ul>
     
 
@@ -471,7 +471,7 @@
         <h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>谈到多线程，就得先讲进程和线程的概念。</p>
 <p><strong>进程</strong>  </p>
 <p>进程可以理解为受操作系统管理的基本运行单元。360浏览器是一个进程、WPS也是一个进程，正在操作系统中运行的”.exe”都可以理解为一个进程  </p>
-<p><img src="5.png" alt> </p>
+<p><img src="5.png" alt=""> </p>
 <p><strong>线程</strong></p>
 <p>进程中独立运行的子任务就是一个线程。像QQ.exe运行的时候就有很多子任务在运行，比如聊天线程、好友视频线程、下载文件线程等等。</p>
 <p><strong>为什么要使用多线程</strong></p>
@@ -501,10 +501,10 @@
 <blockquote>
 <p>(一). 等待阻塞：运行(running)的线程执行wait()方法，JVM会把该线程放入等待队列(waitting queue)中。<br>(二). 同步阻塞：运行(running)的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。<br>(三). 其他阻塞：运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态。</p>
 </blockquote>
-<ol>
+<ol start="5">
 <li><strong>死亡(DEAD)</strong>：线程run()、main() 方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。</li>
 </ol>
-<p><img src="1.png" alt> </p>
+<p><img src="1.png" alt=""> </p>
 <h1 id="Thread中的实例方法"><a href="#Thread中的实例方法" class="headerlink" title="Thread中的实例方法"></a>Thread中的实例方法</h1><p>从Thread类中的实例方法和类方法的角度讲解Thread中的方法，这种区分的角度也有助于理解多线程中的方法。实例方法，只和实例线程（也就是new出来的线程）本身挂钩，和当前运行的是哪个线程无关。看下Thread类中的实例方法：</p>
 <h2 id="start"><a href="#start" class="headerlink" title="start()"></a>start()</h2><p><strong>start()方法的作用讲得直白点就是通知”线程规划器”</strong>，此线程可以运行了，<strong>正在等待CPU调用线程对象得run()方法</strong>，产生一个<strong>异步执行</strong>的效果。 </p>
 <p><strong>调用start()方法的顺序不代表线程启动的顺序，线程启动顺序具有不确定性</strong>。</p>
@@ -516,204 +516,206 @@
 <h2 id="getPriority-和setPriority-int-newPriority"><a href="#getPriority-和setPriority-int-newPriority" class="headerlink" title="getPriority()和setPriority(int newPriority)"></a>getPriority()和setPriority(int newPriority)</h2><p>这两个方法用于获取和设置线程的优先级，<strong>优先级高的CPU得到的CPU资源比较多</strong>，设置优先级有助于帮”线程规划器”确定下一次选择哪一个线程优先执行。换句话说，<strong>两个在等待CPU的线程，优先级高的线程越容易被CPU选择执行</strong>。 </p>
 <p><strong>线程默认优先级为5，如果不手动指定，那么线程优先级具有继承性，比如线程A启动线程B，那么线程B的优先级和线程A的优先级相同</strong> </p>
 <p>MyThread1.java</p>
-<pre><code class="java">public class MyThread1 extends Thread{
-    public void run() {
+<pre><code class="java">public class MyThread1 extends Thread&#123;
+    public void run() &#123;
         long beginTime = System.currentTimeMillis();
-        for (int j = 0; j &lt; 100000; j++){}
+        for (int j = 0; j &lt; 100000; j++)&#123;&#125;
         long endTime = System.currentTimeMillis();
         System.out.println(&quot;我是高优先级的 use time = &quot; +   (endTime - beginTime));
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>MyThread2.java</p>
-<pre><code>public class MyThread2 extends Thread{
-    public void run() {
+<pre><code>public class MyThread2 extends Thread&#123;
+    public void run() &#123;
         long beginTime = System.currentTimeMillis();
-        for (int j = 0; j &lt; 100000; j++){}
+        for (int j = 0; j &lt; 100000; j++)&#123;&#125;
         long endTime = System.currentTimeMillis();
         System.out.println(&quot;我是低优先级的 use time = &quot; +   (endTime - beginTime));
-    }
-}
+    &#125;
+&#125;
 </code></pre><p>main</p>
-<pre><code class="java"> public static void main(String[] args) {
-        for (int i = 0; i &lt; 5; i++) {
+<pre><code class="java"> public static void main(String[] args) &#123;
+        for (int i = 0; i &lt; 5; i++) &#123;
             MyThread1 t1 = new MyThread1();
             t1.setPriority(6);
             t1.start();
             MyThread2 t2 = new MyThread2();
             t2.setPriority(4);
             t2.start();
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
-<p><img src="6.png" alt> </p>
+<p><img src="6.png" alt=""> </p>
 <p>从这个例子我们得出结论：<strong>CPU会尽量将执行资源让给优先级比较高的线程</strong>。</p>
 <h2 id="isDaemon、setDaemon"><a href="#isDaemon、setDaemon" class="headerlink" title="isDaemon、setDaemon"></a>isDaemon、setDaemon</h2><p>讲解两个方法前，首先要知道理解一个概念。Java中有两种线程，一种是用户线程，一种是守护线程。守护线程是一种特殊的线程，它的作用是为其他线程的运行提供便利的服务，最典型的应用便是GC线程。如果进程中不存在非守护线程了，那么守护线程自动销毁，因为没有存在的必要，为别人服务，结果服务的对象都没了，当然就销毁了。理解了这个概念后，看一下例子：</p>
 <p>过setDaemon(true)来设置线程为“守护线程”；将一个用户线程设置为守护线程的方式是在线程启动用线程对象的setDaemon方法。</p>
 <p>MyThread.java</p>
 <pre><code class="java">
-public class MyThread extends Thread{
+public class MyThread extends Thread&#123;
     private int i = 0;
-    public void run() {
-        try {
-            while (true) {
+    public void run() &#123;
+        try &#123;
+            while (true) &#123;
                 i++;
                 System.out.println(&quot;i = &quot; + i);
                 Thread.sleep(1000);
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>main</p>
-<pre><code class="java">public static void main(String[] args) {
-        try {
+<pre><code class="java">public static void main(String[] args) &#123;
+        try &#123;
             MyThread mt = new MyThread();
             mt.setDaemon(true);
             mt.start();
             Thread.sleep(5000);
             System.out.println(&quot;我离开非守护线程就停止执行了，再也不打印了！&quot;);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
 <p>将MyThread线程设置为守护线程，main函数都运行完了，自然也没有存在的必要了，就自动销毁了，因此也就没有再往下打印数字。</p>
 <p>关于守护线程，有一个细节注意下，<strong>setDaemon(true)必须在线程start()之前</strong>  </p>
 <h2 id="interrupt"><a href="#interrupt" class="headerlink" title="interrupt"></a>interrupt</h2><p>Thread类的interrupt()方法无法中断线程。</p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
             MyThread t = new MyThread();
             t.start();
             t.interrupt();
-    }
+    &#125;
 
-    static class MyThread extends  Thread{
+    static class MyThread extends  Thread&#123;
         @Override
-        public void run() {
-            for (int i = 0; i &lt; 500000; i++) {
+        public void run() &#123;
+            for (int i = 0; i &lt; 500000; i++) &#123;
                 System.out.println(&quot;i = &quot; + (i + 1));
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 </code></pre>
 <p>看结果还是打印到了50000。也就是说，尽管调用了interrupt()方法，但是线程并没有停止。</p>
 <p>interrupt()方法的其中一个实际作用是：<strong>在线程受到阻塞时抛出一个中断信号，这样线程就得以退出阻塞状态</strong>。换句话说，<strong>没有被阻塞的线程，调用interrupt()方法是不起作用的</strong>。关于这个会在之后讲中断机制的时候详细介绍</p>
 <p> <strong>interrupt()不能中断在运行中的线程，它只能改变中断状态(标记)而已。</strong> </p>
 <h3 id="interrupt-打断wait"><a href="#interrupt-打断wait" class="headerlink" title="interrupt()打断wait()"></a>interrupt()打断wait()</h3><p>之前有说过，interrupt()方法的作用不是中断线程，而是在线程阻塞的时候给线程一个中断标识，表示该线程中断。wait()就是”阻塞的一种场景”，看一下用interrupt()打断wait()的例子：</p>
 <p>ThreadDomain.java</p>
-<pre><code class="java">public class ThreadDomain {
-    public void testMethod(Object lock) {
-        try {
-            synchronized (lock) {
+<pre><code class="java">public class ThreadDomain &#123;
+    public void testMethod(Object lock) &#123;
+        try &#123;
+            synchronized (lock) &#123;
                 System.out.println(&quot;开始wait&quot;);
                 lock.wait();
                 System.out.println(&quot;结束wait()&quot;);
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             System.out.println(&quot;wait被interrupt()打断了！&quot;);
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>MyThread.java</p>
-<pre><code class="java">public class MyThread extends Thread{
+<pre><code class="java">public class MyThread extends Thread&#123;
     private Object lock;
-    public MyThread(Object lock) {
+    public MyThread(Object lock) &#123;
         this.lock = lock;
-    }
-    public void run() {
+    &#125;
+    public void run() &#123;
         ThreadDomain td = new ThreadDomain();
         td.testMethod(lock);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>main</p>
-<pre><code class="java"> public static void main(String[] args) throws InterruptedException {
+<pre><code class="java"> public static void main(String[] args) throws InterruptedException &#123;
         Object lock = new Object();
         MyThread mt = new MyThread(lock);
         mt.start();
         Thread.sleep(5000);
         mt.interrupt();
-    }
+    &#125;
 </code></pre>
-<p><img src="4.png" alt> </p>
+<p><img src="4.png" alt=""> </p>
 <h2 id="isInterrupted"><a href="#isInterrupted" class="headerlink" title="isInterrupted()"></a>isInterrupted()</h2><p>查看线程是否已经中断，但不清除状态标识</p>
 <h2 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h2><p>join()方法的作用是等待线程销毁。join()方法反应的是一个很现实的问题，比如main线程的执行时间是1s，子线程的执行时间是10s，但是主线程依赖子线程执行完的结果，这时怎么办？可以像生产者/消费者模型一样，搞一个缓冲区，子线程执行完把数据放在缓冲区中，通知main线程，main线程去拿，这样就不会浪费main线程的时间了。另外一种方法，就是join()了。当然也可以用 CountDownLatch 或 CyclicBarrier。后面会介绍。 but先看一下例子：</p>
 <p>MyThread</p>
-<pre><code class="java">public class MyThread extends Thread{
-    public void run() {
-        try {
+<pre><code class="java">public class MyThread extends Thread&#123;
+    public void run() &#123;
+        try &#123;
             int secondValue = (int)(Math.random() * 10000);
             System.out.println(secondValue);
             Thread.sleep(secondValue);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
+
 </code></pre>
 <p>main</p>
-<pre><code class="java"> public static void main(String[] args) throws InterruptedException {
+<pre><code class="java"> public static void main(String[] args) throws InterruptedException &#123;
         MyThread mt = new MyThread();
         mt.start();
         mt.join();
         System.out.println(&quot;我想等别人执行完毕之后我再执行，我做到了&quot;);
-    }
+    &#125;
 </code></pre>
-<p><img src="8.png" alt> </p>
+<p><img src="8.png" alt=""> </p>
 <p>join()方法会使调用join()方法的线程所在的线程（也就是main线程）无限阻塞，直到调用join()方法的线程销毁为止，此例中main线程就会无限期阻塞直到mt的run()方法执行完毕。</p>
 <p>join()方法的一个重点是要区分出和sleep()方法的区别。<strong>join(2000)也是可以的，表示调用join()方法所在的线程最多等待2000ms</strong>，两者的区别在于：  </p>
 <p><strong>sleep(2000)不释放锁，join(2000)释放锁</strong>，因为join()方法内部使用的是wait()，因此会释放锁。 </p>
 <h1 id="Thread类中的静态方法"><a href="#Thread类中的静态方法" class="headerlink" title="Thread类中的静态方法"></a>Thread类中的静态方法</h1><p>Thread类中的静态方法表示操作的线程是”<strong>正在执行静态方法所在的代码块的线程</strong>“。为什么Thread类中要有静态方法，这样就能对CPU<strong>当前正在运行的线程</strong>进行操作。下面来看一下Thread类中的静态方法：</p>
 <h2 id="currentThread"><a href="#currentThread" class="headerlink" title="currentThread()"></a>currentThread()</h2><p>currentThread()方法返回的是<strong>对当前正在执行线程对象的引用</strong>。看一个重要的例子，然后得出结论：</p>
-<pre><code class="java">public class MyThread extends Thread{
-        static{
+<pre><code class="java">public class MyThread extends Thread&#123;
+        static&#123;
             System.out.println(&quot;静态块的打印：&quot; + Thread.currentThread().getName());
-        }
-        public MyThread23(){
+        &#125;
+        public MyThread23()&#123;
             System.out.println(&quot;构造方法的打印：&quot; + Thread.currentThread().getName());
-        }
-        public void run() {
+        &#125;
+        public void run() &#123;
             System.out.println(&quot;run()方法的打印：&quot; + Thread.currentThread().getName());
-        }
-}
+        &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args){
+<pre><code class="java">public static void main(String[] args)&#123;
     MyThread04 mt = new MyThread04();
     mt.start();
-}
+&#125;
 </code></pre>
 <p>看一下运行结果：</p>
 <pre><code>静态块的打印：main
 构造方法的打印：main
 run()方法的打印：Thread-0
+
 </code></pre><p>这个例子说明了，<strong>线程类的构造方法、静态块是被main线程调用的，而线程类的run()方法才是应用线程自己调用的</strong>。在这个例子的基础上，再深入：</p>
-<pre><code class="java">public class MyThread extends Thread{
-        public MyThread()    {
+<pre><code class="java">public class MyThread extends Thread&#123;
+        public MyThread()    &#123;
             System.out.println(&quot;开始执行构造函数&quot;);
             System.out.println(&quot;Thread.currentThread().getName():&quot; + Thread.currentThread().getName());
             System.out.println(&quot;this.getName():&quot; + this.getName());
             System.out.println(&quot;构造函数执行完毕&quot;);
-        }
+        &#125;
 
-        public void run()    {
+        public void run()    &#123;
             System.out.println(&quot;run Begin&quot;);
             System.out.println(&quot;Thread.currentThread().getName():&quot;+ Thread.currentThread().getName());
             System.out.println(&quot;this.getName():&quot; + this.getName());
             System.out.println(&quot;run end&quot;);
-        }
-}
+        &#125;
+&#125;
 </code></pre>
 <p>main</p>
-<pre><code class="java">    public static void main(String[] args) {
+<pre><code class="java">    public static void main(String[] args) &#123;
         MyThread t = new MyThread();
         t.start();
-    }
+    &#125;
 </code></pre>
-<p><img src="9.png" alt> </p>
+<p><img src="9.png" alt=""> </p>
 <p>要理解一个重要的概念，就是”this.XXX()”和”Thread.currentThread().XXX()”的区别，这个就是最好的例子。必须要清楚的一点就是：<strong>当前执行的Thread未必就是Thread本身</strong>。从这个例子就能看出来：</p>
 <p>（1）执行MyThread构造方法是main，当前线程却是Thread-0</p>
 <p>（2）执行run()方法的Thread-0，当前线程也是Thread-0，说明run()方法就是被线程实例去执行的</p>
@@ -724,29 +726,29 @@ run()方法的打印：Thread-0
 <p>暂停当前正在执行的线程对象,并执行其他线程。 yield()应该做的是让当前运行线程回到可运行状态,以允许具有相同优先级的其它线程竞争机会</p>
 <h2 id="interrupted"><a href="#interrupted" class="headerlink" title="interrupted()"></a>interrupted()</h2><p>注意和上面的<code>interrupt()</code>/<code>isInterrupted()</code>方法的区别 </p>
 <p>测试当前线程是否已经中断，执行后具有将状态标识清除为false的功能。换句话说，如果执行了一次interrupt()，然后调用interrupted(),返回true，然后执行一次interrupted(),那么返回的必定是false：  用来恢复中断状态 </p>
-<pre><code class="java">public class InterruptedDemo1 implements Runnable{
-    public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public class InterruptedDemo1 implements Runnable&#123;
+    public static void main(String[] args) throws InterruptedException &#123;
         Thread testThread = new Thread(new InterruptedDemo1(),&quot;InterruptionInJava&quot;);
         testThread.start();
         testThread.interrupt();
         System.out.println(&quot;主线程结束&quot;);
-    }
+    &#125;
     @Override
-    public void run() {
-        while(true){
-            if(Thread.currentThread().isInterrupted()){
+    public void run() &#123;
+        while(true)&#123;
+            if(Thread.currentThread().isInterrupted())&#123;
                 System.out.println(&quot;我被打断了，但我仍然在运行&quot;);
                 System.out.println(&quot;当前是否中断:&quot;+Thread.interrupted());
                 System.out.println(&quot;当前是否中断:&quot;+Thread.interrupted());
-            }else{
+            &#125;else&#123;
                 System.out.println(&quot;还没被打断&quot;);
                 return;
-            }
-        }
-    }
-}
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<p><img src="11.png" alt> </p>
+<p><img src="11.png" alt=""> </p>
 <h2 id="interrupted-interrupt-isInterrupted"><a href="#interrupted-interrupt-isInterrupted" class="headerlink" title="interrupted /interrupt/ isInterrupted"></a>interrupted /interrupt/ isInterrupted</h2><p>中断在java中主要有3个方法，interrupt(),isInterrupted()和interrupted()。</p>
 <ul>
 <li>interrupt()，在一个线程中调用另一个线程的interrupt()方法，即会向那个线程发出信号——线程中断状态已被设置。至于那个线程何去何从，由具体的代码实现决定。</li>
@@ -756,78 +758,78 @@ run()方法的打印：Thread-0
 <p>Java没有提供一种安全、直接的方法来停止某个线程，而是提供了中断机制。<strong>中断机制是一种协作机制，也就是说通过中断并不能直接终止另一个线程，而需要被中断的线程自己处理</strong>。</p>
 <p>中断机制也是一样的，每个线程对象里都有一个<strong>标识位</strong>表示是否有中断请求</p>
 <p> <strong>interrupt()不能中断在运行中的线程，它只能改变中断状态(标记)而已。</strong> </p>
-<pre><code class="java">public class InterruptionDemo1 implements Runnable{
-    public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public class InterruptionDemo1 implements Runnable&#123;
+    public static void main(String[] args) throws InterruptedException &#123;
         Thread testThread = new Thread(new InterruptionDemo1(),&quot;InterruptionInJava&quot;);
         testThread.start();
         Thread.sleep(1000);
         testThread.interrupt();
         System.out.println(&quot;主线程结束&quot;);
-    }
+    &#125;
     @Override
-    public void run() {
-        while(true){
-            if(Thread.currentThread().isInterrupted()){
+    public void run() &#123;
+        while(true)&#123;
+            if(Thread.currentThread().isInterrupted())&#123;
                 System.out.println(&quot;我被打断了，但我仍然在运行&quot;);
 
-            }else{
+            &#125;else&#123;
                 System.out.println(&quot;还没被打断&quot;);
-            }
-        }
-    }
-}
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p> 结果显示，被中断后，仍旧运行，不停打印 “我被打断了，但我仍然在运行”</p>
 <p>那么，如何正确中断？</p>
 <p>既然是只能修改中断状态，那么我们应该针对中断状态做些什么。</p>
-<pre><code class="java">public class InterruptionDemo2 implements Runnable{
+<pre><code class="java">public class InterruptionDemo2 implements Runnable&#123;
     private volatile static boolean flag = false;
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException &#123;
         Thread testThread = new Thread(new InterruptionDemo2(),&quot;InterruptionInJava&quot;);
         testThread.start();
         Thread.sleep(1000);
         InterruptionDemo2.flag = true;
         System.out.println(&quot;主线程结束&quot;);
-    }
+    &#125;
     @Override
-    public void run() {
-        while(!flag){
+    public void run() &#123;
+        while(!flag)&#123;
             System.out.println(&quot;---&quot;);
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<p><img src="10.png" alt> </p>
+<p><img src="10.png" alt=""> </p>
 <p> 这表明是成功中断了的</p>
 <p> 这种开关的方式看起来不错，但是当遇到线程阻塞时，就会很无奈了，正如下面代码所示： </p>
-<pre><code class="java">public class InterruptionDemo3 implements Runnable {
+<pre><code class="java">public class InterruptionDemo3 implements Runnable &#123;
     private volatile static boolean flag = false;
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException &#123;
         Thread testThread = new Thread(new InterruptionDemo3(),&quot;InterruptionInJava&quot;);
         testThread.start();
         Thread.sleep(1000);
         InterruptionDemo3.flag = true;
         System.out.println(&quot;main end&quot;);
 
-    }
+    &#125;
 
     @Override
-    public void run() {
-        while(!flag){
-            try {
+    public void run() &#123;
+        while(!flag)&#123;
+            try &#123;
                 Thread.sleep(10000000);
-            } catch (InterruptedException e) {
+            &#125; catch (InterruptedException e) &#123;
                 System.out.println(&quot;caught exception: &quot;+e);
-            }
-        }
-    }
-}
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p> 线程被阻塞无法被中断。这时候救世主interrupt函数又回来了，它可以迅速中断被阻塞的线程，抛出一个InterruptedException，把线程从阻塞状态中解救出来</p>
 <p>将标记和interrupt结合</p>
-<pre><code class="java">public class InterruptDemo4 implements Runnable {
+<pre><code class="java">public class InterruptDemo4 implements Runnable &#123;
     private volatile static boolean flag = false;
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException &#123;
         Thread testThread = new Thread(new InterruptDemo4(),&quot;InterruptionInJava&quot;);
         testThread.start();
         Thread.sleep(1000);
@@ -835,21 +837,21 @@ run()方法的打印：Thread-0
         testThread.interrupt();
         System.out.println(&quot;打断&quot;);
         System.out.println(&quot;主线程结束&quot;);
-    }
+    &#125;
 
     @Override
-    public void run() {
-        while(!flag){
-            try {
+    public void run() &#123;
+        while(!flag)&#123;
+            try &#123;
                 System.out.println(&quot;没中断,睡上10000秒&quot;);
                 Thread.sleep(10000000);
-            } catch (InterruptedException e) {
+            &#125; catch (InterruptedException e) &#123;
                 System.out.println(&quot;捕捉到异常: &quot;+e);
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
-}
+&#125;
 </code></pre>
 <p>这样既能保证标记为未中断的时候执行子线程，又能在子线程阻塞的时候也打断它</p>
 <h1 id="wait-notify-notifyall"><a href="#wait-notify-notifyall" class="headerlink" title="wait/notify/notifyall"></a>wait/notify/notifyall</h1><p>线程本身是操作系统中独立的个体，但是线程与线程之间不是独立的个体，因为它们彼此之间要相互通信和协作。</p>
@@ -867,41 +869,41 @@ run()方法的打印：Thread-0
 <p>总结起来就是，<strong>wait()使线程停止运行，notify()使停止运行的线程继续运行</strong>。  </p>
 <p>PS:如果想要不随机唤醒线程，可使用Lock，以后会介绍 </p>
 <p>示例: </p>
-<pre><code class="java">public class MyThread1 extends Thread{
+<pre><code class="java">public class MyThread1 extends Thread&#123;
     private Object lock;
-    public MyThread1(Object lock) {
+    public MyThread1(Object lock) &#123;
         this.lock = lock;
-    }
+    &#125;
     @Override
-    public void run() {
-        try {
-            synchronized (lock) {
+    public void run() &#123;
+        try &#123;
+            synchronized (lock) &#123;
                 System.out.println(&quot;thread1开始wait time:&quot; + System.currentTimeMillis());
                 lock.wait();
                 System.out.println(&quot;thread1结束 time:&quot; + System.currentTimeMillis());
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public class MyThread2 extends Thread{
+<pre><code class="java">public class MyThread2 extends Thread&#123;
     private Object lock;
-    public MyThread2(Object lock) {
+    public MyThread2(Object lock) &#123;
         this.lock = lock;
-    }
-    public void run() {
-        synchronized (lock) {
+    &#125;
+    public void run() &#123;
+        synchronized (lock) &#123;
             System.out.println(&quot;thread2开始 notify time:&quot; + System.currentTimeMillis());
             lock.notify();
             System.out.println(&quot;thread2结束notify time:&quot; + System.currentTimeMillis());
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>写个main函数，Thread.sleep(3000)也是为了保证t1先运行，这样才能看到wait()和notify()的效果： </p>
-<pre><code class="java">public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public static void main(String[] args) throws InterruptedException &#123;
         Object lock = new Object();
         MyThread1 t1 = new MyThread1(lock);
         t1.start();
@@ -909,7 +911,7 @@ run()方法的打印：Thread-0
         Thread.sleep(3000);
         MyThread2 t2 = new MyThread2(lock);
         t2.start();
-    }
+    &#125;
 </code></pre>
 <pre><code>睡眠3秒后thread2进行notify
 thread1开始wait time:1605852468080
@@ -923,21 +925,21 @@ thread1结束 time:1605852471083
 <p>最后，如果<code>wait()</code>方法和<code>notify()/notifyAll()</code>方法不在同步方法/同步代码块中被调用，那么虚拟机会抛出java.lang.IllegalMonitorStateException，注意一下。  </p>
 <h2 id="notifyall"><a href="#notifyall" class="headerlink" title="notifyall"></a>notifyall</h2><p>MyThread1和MyThread2代码就不贴了，和上面的一样</p>
 <p>NotifyThread.java</p>
-<pre><code class="java">public class NotifyThread extends Thread{
+<pre><code class="java">public class NotifyThread extends Thread&#123;
     private Object lock;
-    public NotifyThread(Object lock) {
+    public NotifyThread(Object lock) &#123;
         this.lock = lock;
-    }
-    public void run() {
-        synchronized (lock) {
+    &#125;
+    public void run() &#123;
+        synchronized (lock) &#123;
             System.out.println(&quot;thread开始notify time:&quot; + System.currentTimeMillis());
             lock.notifyAll();
             System.out.println(&quot;thread结束notify time:&quot; + System.currentTimeMillis());
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">  public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">  public static void main(String[] args) throws InterruptedException &#123;
         Object lock = new Object();
         MyThread1 t1 = new MyThread1(lock);
         MyThread2 t2 = new MyThread2(lock);
@@ -947,105 +949,105 @@ thread1结束 time:1605852471083
         Thread.sleep(3000);
         NotifyThread nt  = new NotifyThread(lock);
         nt.start();
-    }
+    &#125;
 </code></pre>
-<p><img src="2.png" alt> </p>
+<p><img src="2.png" alt=""> </p>
 <p>可以看到notifyall确实是唤醒所有wait中的线程, 利用Object对象的notifyAll()方法可以唤醒处于同一监视器下的所有处于wait的线程 。至于唤醒的顺序，就和线程启动的顺序一样，是虚拟机随机的。</p>
 <h2 id="wait-释放锁"><a href="#wait-释放锁" class="headerlink" title="wait()释放锁"></a>wait()释放锁</h2><p>多线程的学习中，任何地方都要关注”锁”，wait()和notify()也是这样。<strong>wait()方法是释放锁的, notify是不释放锁的</strong>。写一个例子来证明一下：</p>
 <p>ThreadDomain.java</p>
-<pre><code class="java">public class ThreadDomain {
-    public void testMethod(Object lock) {
-        try {
-            synchronized (lock) {
+<pre><code class="java">public class ThreadDomain &#123;
+    public void testMethod(Object lock) &#123;
+        try &#123;
+            synchronized (lock) &#123;
                 System.out.println(Thread.currentThread().getName() + &quot;开始wait&quot;);
                 lock.wait();
                 System.out.println(Thread.currentThread().getName() + &quot;结束wait&quot;);
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>MyThread.java</p>
-<pre><code class="java">public class MyThread extends Thread{
+<pre><code class="java">public class MyThread extends Thread&#123;
     private Object lock;
-    public MyThread(Object lock) {
+    public MyThread(Object lock) &#123;
         this.lock = lock;
-    }
-    public void run() {
+    &#125;
+    public void run() &#123;
         ThreadDomain td = new ThreadDomain();
         td.testMethod(lock);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>main函数调用下</p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
         Object lock = new Object();
         MyThread t1 = new MyThread(lock);
         MyThread t2 = new MyThread(lock);
         t1.start();
         t2.start();
-    }
+    &#125;
 </code></pre>
-<p><img src="3.png" alt> </p>
+<p><img src="3.png" alt=""> </p>
 <p>如果wait()方法不释放锁，那么Thread-1根本不会进入同步代码块打印的，所以，证明完毕。 </p>
-<h2 id="notify-不释放锁"><a href="#notify-不释放锁" class="headerlink" title="notify()不释放锁"></a>notify()不释放锁</h2><pre><code class="java">public class ThreadDomain {
-    public void testMethod(Object lock) {
-        try {
-            synchronized (lock) {
+<h2 id="notify-不释放锁"><a href="#notify-不释放锁" class="headerlink" title="notify()不释放锁"></a>notify()不释放锁</h2><pre><code class="java">public class ThreadDomain &#123;
+    public void testMethod(Object lock) &#123;
+        try &#123;
+            synchronized (lock) &#123;
                 System.out.println(&quot;开始wait, ThreadName = &quot; + Thread.currentThread().getName());
                 lock.wait();
                 System.out.println(&quot;结束wait, ThreadName = &quot; + Thread.currentThread().getName());
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
 
-    public void synNotifyMethod(Object lock) {
-        try {
-            synchronized (lock) {
+    public void synNotifyMethod(Object lock) &#123;
+        try &#123;
+            synchronized (lock) &#123;
                 System.out.println(&quot;开始notify,并睡五秒, ThreadName = &quot; + Thread.currentThread().getName());
                 lock.notify();
                 Thread.sleep(5000);
                 System.out.println(&quot;结束notify, ThreadName = &quot; + Thread.currentThread().getName());
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>MyThread1.java</p>
-<pre><code class="java">public class MyThread1 extends Thread{
+<pre><code class="java">public class MyThread1 extends Thread&#123;
     private Object lock;
 
-    public MyThread1(Object lock) {
+    public MyThread1(Object lock) &#123;
         this.lock = lock;
-    }
+    &#125;
 
-    public void run() {
+    public void run() &#123;
         ThreadDomain td = new ThreadDomain();
         td.testMethod(lock);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>MyThread2.java</p>
-<pre><code>public class MyThread2 extends Thread{
+<pre><code>public class MyThread2 extends Thread&#123;
     private Object lock;
 
-    public MyThread2(Object lock) {
+    public MyThread2(Object lock) &#123;
         this.lock = lock;
-    }
+    &#125;
 
-    public void run() {
+    public void run() &#123;
         ThreadDomain td = new ThreadDomain();
         td.synNotifyMethod(lock);
-    }
-}
+    &#125;
+&#125;
 </code></pre><p>main</p>
-<pre><code class="java">  public static void main(String[] args) {
+<pre><code class="java">  public static void main(String[] args) &#123;
         Object lock = new Object();
         MyThread1 t1 = new MyThread1(lock);//调的是wait
         t1.start();
@@ -1053,7 +1055,7 @@ thread1结束 time:1605852471083
         t2.start();
         MyThread2 t2_ = new MyThread2(lock);//调的是notify,用2个线程来notify来证明，第一个notify是否释放了锁,如果释放了，第二个notify可以立即执行.否则就证明了notify就不会释放锁的
         t2_.start();
-    }
+    &#125;
 </code></pre>
 <p>结果:</p>
 <pre><code>开始wait, ThreadName = Thread-0
@@ -1073,22 +1075,22 @@ thread1结束 time:1605852471083
 <h1 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h1><p>在多线程中，难免会出现在多个线程中对同一个对象的实例变量进行并发访问的情况，如果不做正确的同步处理，那么产生的后果就是”脏读”，也就是取到的数据其实是被更改过的。也就是线程不安全 </p>
 <p>关键字<strong>synchronized取得的锁都是对象锁，而不是把一段代码或方法（函数）当作锁</strong>，哪个线程先执行带synchronized关键字的方法，哪个线程就持有<strong>该方法所属对象的锁</strong>(即this)，其他线程都只能呈等待状态。但是这有个前提：既然锁叫做对象锁，那么势必和对象相关，所以<strong>多个线程访问的必须是同一个对象</strong>。</p>
 <p>如果多个线程访问的是多个对象，那么Java虚拟机就会创建多个锁，既然两个线程持有的是不同的锁，自然不会受到”等待释放锁”这一行为的制约，可以分别运行代码。</p>
-<p>1、<strong>A线程持有Object对象的Lock锁，B线程可以以异步方式调用Object对象中的非synchronized类型的 <em>方法</em></strong>   </p>
-<p>2、<strong>A线程持有Object对象的Lock锁，B线程如果在这时调用Object对象中的synchronized类型的 <em>方法</em> 则需要等待，也就是同步 </strong>  </p>
+<p>1、<strong>A线程持有Object对象的Lock锁，B线程可以以异步方式调用Object对象中的非synchronized类型的 _方法_</strong>   </p>
+<p>2、<strong>A线程持有Object对象的Lock锁，B线程如果在这时调用Object对象中的synchronized类型的 _方法_ 则需要等待，也就是同步 </strong>  </p>
 <h2 id="synchronized锁重入"><a href="#synchronized锁重入" class="headerlink" title="synchronized锁重入"></a>synchronized锁重入</h2><p>关键字synchronized拥有锁重入的功能。所谓锁重入的意思就是：<strong>当一个线程得到一个对象锁后，再次请求此对象锁时时可以再次得到该对象的锁的</strong>。 </p>
 <p>这种<strong>锁重入的机制，也支持在父子类继承的环境中</strong>。这个“锁”的归属者不是“类”而是“实例”。不管这个方法是定义在父类还是子类中，执行时的锁都是那一个“实例”的，一个对象而已 </p>
-<pre><code class="java">public class Widget {
-    public synchronized void doSomething() {
+<pre><code class="java">public class Widget &#123;
+    public synchronized void doSomething() &#123;
         // do somethig here...
-    }
-}
+    &#125;
+&#125;
 
-public class LoggingWidget extends Widget {
-    public synchronized void doSomething() {
+public class LoggingWidget extends Widget &#123;
+    public synchronized void doSomething() &#123;
         System.out.println(toString() + &quot;: calling doSomething&quot;);
         super.doSomething();
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>当线程执行LoggingWidget实例中的doSomething时获得LoggingWidget实例的锁。</p>
 <p>LoggingWidget实例doSomething方法中调用 super.doSomething()，调用者依然是LoggingWidget实例，再次获得的锁依然是LoggingWidget实例的锁。</p>
@@ -1119,84 +1121,84 @@ public class LoggingWidget extends Widget {
 <p><strong>静态同步方法和非静态同步方法持有的是不同的锁，前者是类锁，后者是对象锁</strong>。</p>
 <p>所谓类锁，举个再具体的例子。假如一个类中有一个静态同步方法A，new出了两个类的实例B和实例C，线程D持有实例B，线程E持有实例C，只要线程D调用了A方法，那么线程E调用A方法必须等待线程D执行完A方法，尽管两个线程持有的是不同的对象。</p>
 <h1 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h1><p>直接先举一个例子： </p>
-<pre><code class="java">public class MyThread extends  Thread{
+<pre><code class="java">public class MyThread extends  Thread&#123;
     private boolean isRunning = true;
-    public boolean isRunning()    {
+    public boolean isRunning()    &#123;
         return isRunning;
-    }
-    public void setRunning(boolean isRunning) {
+    &#125;
+    public void setRunning(boolean isRunning) &#123;
         this.isRunning = isRunning;
-    }
-    public void run() {
+    &#125;
+    public void run() &#123;
         System.out.println(&quot;进入run了&quot;);
-        while (isRunning == true){}
+        while (isRunning == true)&#123;&#125;
         System.out.println(&quot;线程被停止了&quot;);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args) {
-        try {
+<pre><code class="java">public static void main(String[] args) &#123;
+        try &#123;
             MyThread mt = new MyThread();
             mt.start();
             Thread.sleep(1000);
             mt.setRunning(false);
             System.out.println(&quot;已赋值为false&quot;);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
 <p>看一下运行结果：</p>
-<p><img src="12.png" alt> </p>
+<p><img src="12.png" alt=""> </p>
 <p>也许这个结果有点奇怪，明明isRunning已经设置为false了， 线程还没停止呢？</p>
 <p>这就要从Java内存模型（JMM）说起，这里先简单讲，虚拟机那块会详细讲的。根据JMM，Java中有一块主内存，不同的线程有自己的工作内存，同一个变量值在主内存中有一份，如果线程用到了这个变量的话，自己的工作内存中有一份一模一样的拷贝。每次进入线程从主内存中拿到变量值，每次执行完线程将变量从工作内存同步回主内存中。</p>
 <p><strong>出现打印结果现象的原因就是主内存和工作内存中数据的不同步造成的</strong>。因为执行run()方法的时候拿到一个主内存isRunning的拷贝，而设置isRunning是在main函数中做的，换句话说 ，设置的isRunning设置的是主内存中的isRunning，更新了主内存的isRunning，线程工作内存中的isRunning没有更新，当然一直死循环了，因为对于线程来说，它的isRunning依然是true。</p>
 <p>解决这个问题很简单，给isRunning关键字加上volatile。加上了volatile的意思是，每次读取isRunning的值的时候，都先从主内存中把isRunning同步到线程的工作内存中，再当前时刻最新的isRunning。看一下给isRunning加了volatile关键字的运行效果：</p>
-<p><img src="13.png" alt> </p>
+<p><img src="13.png" alt=""> </p>
 <p>看到这下线程停止了，因为从主内存中读取了最新的isRunning值，线程工作内存中的isRunning变成了false，自然while循环就结束了。</p>
 <p>volatile的作用就是这样，被volatile修饰的变量，保证了每次读取到的都是最新的那个值。线程安全围绕的是<strong>可见性</strong>和<strong>原子性</strong>这两个特性展开的，<strong>volatile解决的是变量在多个线程之间的可见性，但是无法保证原子性</strong>。 </p>
 <p>多提一句，<strong>synchronized除了保障了原子性外，其实也保障了可见性</strong>。<strong>因为synchronized无论是同步的方法还是同步的代码块，都会先把主内存的数据拷贝到工作内存中，同步代码块结束，会把工作内存中的数据更新到主内存中，这样主内存中的数据一定是最新的</strong>。</p>
 <p><strong>原子类也无法保证线程安全</strong></p>
 <p>原子操作表示一段操作是不可分割的，没有其他线程能够中断或检查正在原子操作中的变量。一个原子类就是一个原子操作可用的类，它可以在没有锁的情况下保证线程安全。</p>
 <p>但是这种线程安全不是绝对的，在有逻辑的情况下输出结果也具有随机性，比如</p>
-<pre><code class="java">public class ThreadDomain{
+<pre><code class="java">public class ThreadDomain&#123;
     public static AtomicInteger aiRef = new AtomicInteger();
 
-    public void addNum()  {
+    public void addNum()  &#123;
         System.out.println(Thread.currentThread().getName() + &quot;加了100之后的结果：&quot; + 
                 aiRef.addAndGet(100));
         aiRef.getAndAdd(1);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public class MyThread extends Thread{
+<pre><code class="java">public class MyThread extends Thread&#123;
     private ThreadDomain td;
 
-    public MyThread(ThreadDomain td) {
+    public MyThread(ThreadDomain td) &#123;
         this.td = td;
-    }
+    &#125;
 
-    public void run(){
+    public void run()&#123;
         td.addNum();
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args){
-    try  {
+<pre><code class="java">public static void main(String[] args)&#123;
+    try  &#123;
         ThreadDomain29 td = new ThreadDomain29();
         MyThread29[] mt = new MyThread29[5];
-        for (int i = 0; i &lt; mt.length; i++){
+        for (int i = 0; i &lt; mt.length; i++)&#123;
             mt[i] = new MyThread29(td);
-        }
-        for (int i = 0; i &lt; mt.length; i++)  {
+        &#125;
+        for (int i = 0; i &lt; mt.length; i++)  &#123;
             mt[i].start();
-        }
+        &#125;
         Thread.sleep(1000);
         System.out.println(ThreadDomain29.aiRef.get());
-    }  catch (InterruptedException e)  {
+    &#125;  catch (InterruptedException e)  &#123;
         e.printStackTrace();
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>这里用了一个Integer的原子类AtomicInteger，看一下运行结果：</p>
 <pre><code>Thread-1加了100之后的结果：200
@@ -1214,23 +1216,23 @@ Thread-0加了100之后的结果：100
 <p>其实这个在Java里面有专门的名词的：相对线程安全。</p>
 <h1 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h1><p>之前已经说道，JVM提供了synchronized关键字来实现对变量的同步访问以及用wait和notify来实现线程间通信。在jdk1.5以后，JAVA提供了Lock类来实现和synchronized一样的功能，并且还提供了Condition来显示线程间通信。<br>Lock类是Java类来提供的功能，丰富的api使得Lock类的同步功能比synchronized的同步更强大</p>
 <p>Lock类实际上是一个接口，我们在实例化的时候实际上是实例化实现了该接口的类<code>Lock lock = new ReentrantLock();</code></p>
-<p><img src="14.png" alt> </p>
+<p><img src="14.png" alt=""> </p>
 <h2 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h2><p>ReentrantLock，一个可重入的互斥锁，它具有与使用synchronized方法和语句所访问的隐式监视器锁相同的一些基本行为和语义，但功能更强大。</p>
 <p>lock是可中断锁，而synchronized 不是可中断锁  </p>
 <p>线程A和B都要获取对象O的锁定，假设A获取了对象O锁，B将等待A释放对O的锁定   </p>
 <p>如果使用 synchronized ，如果A不释放，B将一直等下去，不能被中断   </p>
 <p>如果 使用ReentrantLock，如果A不释放，可以使B在等待了足够长的时间以后，中断等待，而干别的事情(详见下面的<code>tryLock(timeout,unit)</code>)   </p>
 <p> 先来看一下ReentrantLock的基本用法： </p>
-<pre><code class="java">public class MyConditionService {
+<pre><code class="java">public class MyConditionService &#123;
     private Lock lock = new ReentrantLock();
-    public void testMethod(){
+    public void testMethod()&#123;
         lock.lock();
-        for (int i = 0 ;i &lt; 5;i++){
+        for (int i = 0 ;i &lt; 5;i++)&#123;
             System.out.println(&quot;ThreadName = &quot; + Thread.currentThread().getName() + (&quot; &quot; + (i + 1)));
-        }
+        &#125;
         lock.unlock();
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>测试的代码如下：</p>
 <pre><code class="java">        MyConditionService service = new MyConditionService();
@@ -1242,7 +1244,7 @@ Thread-0加了100之后的结果：100
 
         Thread.sleep(1000 * 5);
 </code></pre>
-<p><img src="15.png" alt> </p>
+<p><img src="15.png" alt=""> </p>
 <p>就是每个线程的打印1-5都是同步进行，顺序没有乱。 这也证明了ReentrantLock具有加锁的功能 </p>
 <p><strong>ReentrantLock持有的是对象监视器</strong> </p>
 <p><strong>ReentrantLock持有的是对象监视器</strong></p>
@@ -1267,66 +1269,66 @@ Thread-0加了100之后的结果：100
 <p>公平锁：按照线程加锁的顺序来获取锁<br>非公平锁：随机竞争来得到锁<br>此外，JAVA还提供<code>isFair()</code>来判断一个锁是不是公平锁。</p>
 </blockquote>
 <p>写代码验证下: </p>
-<pre><code class="java">public class ThreadDomain {
+<pre><code class="java">public class ThreadDomain &#123;
     private Lock lock = new ReentrantLock(true);
-    public void testMethod() {
-        try {
+    public void testMethod() &#123;
+        try &#123;
             lock.lock();
             System.out.println(&quot;ThreadName&quot; + Thread.currentThread().getName() + &quot;获得锁&quot;);
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
         final ThreadDomain td = new ThreadDomain();
-        Runnable runnable = new Runnable() {
-            public void run() {
+        Runnable runnable = new Runnable() &#123;
+            public void run() &#123;
                 System.out.println(&quot;线程&quot; + Thread.currentThread().getName() + &quot;运行了&quot;);
                 td.testMethod();
-            }
-        };
+            &#125;
+        &#125;;
         Thread[] threads = new Thread[5];
-        for (int i = 0; i &lt; 5; i++) {
+        for (int i = 0; i &lt; 5; i++) &#123;
             threads[i] = new Thread(runnable);
-        }
+        &#125;
 
-        for (int i = 0; i &lt; 5; i++) {
+        for (int i = 0; i &lt; 5; i++) &#123;
             threads[i].start();
-        }
+        &#125;
 </code></pre>
 <p> 看一下运行结果：</p>
-<p><img src="16.png" alt> </p>
+<p><img src="16.png" alt=""> </p>
 <p>可以看到结果里面获得锁的顺序和线程启动顺序是一致的，这就是公平锁。对比一下，如果是非公平锁运行结果是怎么样的，在new ReentrantLock的时候传入false： </p>
-<p><img src="17.png" alt> </p>
+<p><img src="17.png" alt=""> </p>
 <p> 线程启动顺序是14230，获得锁的顺序却是12430，这就是非公平锁，它不保证先排队尝试去获取锁的线程一定能先拿到锁 </p>
 <h4 id="获取当前线程锁定的个数"><a href="#获取当前线程锁定的个数" class="headerlink" title="获取当前线程锁定的个数"></a>获取当前线程锁定的个数</h4><p>Java提供了<code>getHoldCount()</code>方法来获取当前线程的锁定个数。所谓锁定个数就是当前线程调用lock方法的次数。一般一个方法只会调用一个lock方法，但是有可能在同步代码中还有调用了别的方法，那个方法内部有同步代码。这样，<code>getHoldCount()</code>返回值就是大于1。 </p>
-<pre><code class="java">public class ThreadDomain {
+<pre><code class="java">public class ThreadDomain &#123;
     private ReentrantLock lock = new ReentrantLock();
-    public void testMethod1() {
-        try {
+    public void testMethod1() &#123;
+        try &#123;
             lock.lock();
             System.out.println(&quot;testMethod1 getHoldCount = &quot; + lock.getHoldCount());
             testMethod2();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
-    public void testMethod2() {
-        try {
+        &#125;
+    &#125;
+    public void testMethod2() &#123;
+        try &#123;
             lock.lock();
             System.out.println(&quot;testMethod2 getHoldCount = &quot; + lock.getHoldCount());
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">    public static void main(String[] args) {
+<pre><code class="java">    public static void main(String[] args) &#123;
         ThreadDomain td = new ThreadDomain();
         td.testMethod1();
-    }
+    &#125;
 </code></pre>
 <p>结果</p>
 <pre><code>testMethod1 getHoldCount = 1
@@ -1334,66 +1336,66 @@ testMethod2 getHoldCount = 2
 </code></pre><p> <strong>ReentrantLock和synchronized一样，锁都是可重入的</strong>，同一线程的同一个ReentrantLock的lock()方法被调用了多少次，getHoldCount()方法就返回多少  </p>
 <p><strong>下面的方法用来判断等待锁的情况</strong></p>
 <h4 id="获取等待锁的线程数"><a href="#获取等待锁的线程数" class="headerlink" title="获取等待锁的线程数"></a>获取等待锁的线程数</h4><p>Java提供了<code>getQueueLength()</code>方法来得到等待锁释放的线程的<strong>估计</strong>个数。  注意”估计”两个字，因为此方法遍历内部数据结构的同时，线程的数据可能动态变化 </p>
-<pre><code class="java">public class ThreadDomain {
+<pre><code class="java">public class ThreadDomain &#123;
     public ReentrantLock lock = new ReentrantLock();
-    public void testMethod() {
-        try {
+    public void testMethod() &#123;
+        try &#123;
             lock.lock();
             System.out.println(&quot;ThreadName = &quot; + Thread.currentThread().getName() + &quot;进入方法！&quot;);
             System.out.println(&quot;是否公平锁？&quot; + lock.isFair());
             System.out.println(&quot;有&quot;+lock.getQueueLength()+&quot;个线程正在等待&quot;);
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public static void main(String[] args) throws InterruptedException &#123;
         final ThreadDomain td = new ThreadDomain();
-        Runnable runnable = new Runnable() {
+        Runnable runnable = new Runnable() &#123;
             @Override
-            public void run() {
+            public void run() &#123;
                 td.testMethod();
-            }
-        };
+            &#125;
+        &#125;;
         Thread[] threads = new Thread[10];
-        for (int i = 0; i &lt; 10; i++){
+        for (int i = 0; i &lt; 10; i++)&#123;
             threads[i] = new Thread(runnable);
-        }
-        for (int i = 0; i &lt; 10; i++){
+        &#125;
+        for (int i = 0; i &lt; 10; i++)&#123;
             threads[i].start();
-        }
+        &#125;
         Thread.sleep(2000);
-    }
+    &#125;
 </code></pre>
-<p><img src="18.png" alt> </p>
+<p><img src="18.png" alt=""> </p>
 <h4 id="hasQueuedThread-和hasQueuedThreads"><a href="#hasQueuedThread-和hasQueuedThreads" class="headerlink" title="hasQueuedThread()和hasQueuedThreads()"></a>hasQueuedThread()和hasQueuedThreads()</h4><p>hasQueuedThread(Thread thread)用来查询<strong>指定的线程</strong>是否正在等待获取<strong>指定的对象监视器</strong></p>
 <p>hasQueuedThreads()用于查询是否有线程正在等待获取<strong>指定的对象监视器</strong></p>
 <p>看一下例子，换一个写法，ReentrantLock既然是一个类，就有类的特性，所以这次用<strong>继承ReentrantLock的写法</strong>，这也是很常见的：</p>
-<pre><code class="java">public class ThreadDomain extends ReentrantLock {
-    public void waitMethod() {
-        try {
+<pre><code class="java">public class ThreadDomain extends ReentrantLock &#123;
+    public void waitMethod() &#123;
+        try &#123;
             lock();
             Thread.sleep(Integer.MAX_VALUE);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        } finally {
+        &#125; finally &#123;
             unlock();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public static void main(String[] args) throws InterruptedException &#123;
         final ThreadDomain td = new ThreadDomain();
-        Runnable runnable = new Runnable() {
+        Runnable runnable = new Runnable() &#123;
             @Override
-            public void run() {
+            public void run() &#123;
                 td.waitMethod();
-            }
-        };
+            &#125;
+        &#125;;
         Thread t0 = new Thread(runnable); t0.start();
         Thread t1 = new Thread(runnable); t1.start();
         Thread t2 = new Thread(runnable); t2.start();
@@ -1402,36 +1404,36 @@ testMethod2 getHoldCount = 2
         System.out.println(&quot;t1是否正在等待？&quot; + td.hasQueuedThread(t1));
         System.out.println(&quot;t2是否正在等待？&quot; + td.hasQueuedThread(t2));
         System.out.println(&quot;is any thread waiting？&quot; + td.hasQueuedThreads());
-    }
+    &#125;
 </code></pre>
-<p><img src="19.png" alt> </p>
+<p><img src="19.png" alt=""> </p>
 <p> 由于t0先启动获得了锁，因此不等待，返回false，另外两个线程则要等待获取t0的锁，因此返回的是true，而此ReentrantLock中有线程在等待，所以hasQueuedThreads()返回的是true </p>
 <h4 id="isHeldByCurrentThread和isLocked"><a href="#isHeldByCurrentThread和isLocked" class="headerlink" title="isHeldByCurrentThread和isLocked"></a>isHeldByCurrentThread和isLocked</h4><p>isHeldByCurrentThread()表示此对象监视器是否由当前线程保持</p>
 <p>isLocked()表示此对象监视器是否由任意线程保持</p>
 <p>看一下例子：</p>
-<pre><code class="java">public class ThreadDomain {
+<pre><code class="java">public class ThreadDomain &#123;
     private ReentrantLock lock = new ReentrantLock();
-    public void testMethod() {
-        try {
+    public void testMethod() &#123;
+        try &#123;
             lock.lock();
             System.out.println(Thread.currentThread().getName() + &quot;线程持有了锁！&quot;);
             System.out.println(Thread.currentThread().getName() + &quot;线程是否持有锁？&quot; + lock.isHeldByCurrentThread());
             System.out.println(&quot;是否有任意线程持有了锁？&quot; + lock.isLocked());
             Thread.sleep(Integer.MAX_VALUE);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
+        &#125;
+    &#125;
 
-    public void testHoldLock() {
+    public void testHoldLock() &#123;
         System.out.println(&quot;当前线程&quot;+Thread.currentThread().getName()+&quot;是否持有锁？&quot; + lock.isHeldByCurrentThread());
         System.out.println(&quot;是否有任意线程持有了锁？&quot; + lock.isLocked());
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">    public static void main(String[] args) {
+<pre><code class="java">    public static void main(String[] args) &#123;
         final ThreadDomain td = new ThreadDomain();
         Thread t0 = new Thread(()-&gt;td.testMethod());
         Thread t1 = new Thread(()-&gt;td.testHoldLock());
@@ -1439,23 +1441,23 @@ testMethod2 getHoldCount = 2
         t0.start();
         System.out.println(&quot;thread1启动&quot;);
         t1.start();
-    }
+    &#125;
 </code></pre>
 <h4 id="加锁时如果中断则不加锁，进入异常处理"><a href="#加锁时如果中断则不加锁，进入异常处理" class="headerlink" title="加锁时如果中断则不加锁，进入异常处理"></a>加锁时如果中断则不加锁，进入异常处理</h4><p>Lock类提供了多种选择的加锁方法，<code>lockInterruptibly()</code>也可以实现加锁，但是当线程被中断的时候，就会加锁失败，进行异常处理阶段。一般这种情况出现在该线程已经被打上interrupted的标记了。</p>
 <h4 id="tryLock-和tryLock-long-timeout-TimeUnit-unit"><a href="#tryLock-和tryLock-long-timeout-TimeUnit-unit" class="headerlink" title="tryLock()和tryLock(long timeout, TimeUnit unit)"></a><strong>tryLock()和tryLock(long timeout, TimeUnit unit)</strong></h4><p><code>tryLock()</code>方法的作用是，在调用try()方法的时候，如果锁没有被另外一个线程持有，那么就<strong>获取锁并返回true，否则返回false</strong> </p>
 <p><code>tryLock(long timeout, TimeUnit unit)</code>是tryLock()另一个重要的重载方法，表示如果在指定等待时间内获得了锁，返回true，否则返回false</p>
-<pre><code class="java">public class ThreadDomain {
+<pre><code class="java">public class ThreadDomain &#123;
     private ReentrantLock lock = new ReentrantLock();
-    public void waitMethod() {
-        if (lock.tryLock()) {
+    public void waitMethod() &#123;
+        if (lock.tryLock()) &#123;
             System.out.println(Thread.currentThread().getName() + &quot;获得了锁&quot;);
-        } else {
+        &#125; else &#123;
             System.out.println(Thread.currentThread().getName() + &quot;没有获得锁&quot;);
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java"> public static void main(String[] args) {
+<pre><code class="java"> public static void main(String[] args) &#123;
         final ThreadDomain td = new ThreadDomain();
         Thread t0 = new Thread(()-&gt;td.waitMethod());
         Thread t1 = new Thread(()-&gt;td.waitMethod());
@@ -1463,35 +1465,35 @@ testMethod2 getHoldCount = 2
         t0.start();
         System.out.println(&quot;thread1启动&quot;);
         t1.start();
-    }
+    &#125;
 </code></pre>
-<p><img src="20.png" alt> </p>
+<p><img src="20.png" alt=""> </p>
 <h4 id="lockInterruptibly"><a href="#lockInterruptibly" class="headerlink" title="lockInterruptibly"></a>lockInterruptibly</h4><p>如果当前线程未被中断，则获取锁  </p>
 <p><code>ReentrantLock.lockInterruptibly</code> 允许在等待时由其它线程调用等待线程的<code>Thread.interrupt</code> 方法来中断等待线程的等待而直接返回，这时不用获取锁，而会抛出一个InterruptedException。 </p>
 <p>1 <strong>线程在sleep或wait,join</strong>， 此时如果别的进程调用此进程的 <strong>interrupt（）方法</strong>，此线程会被唤醒并被要求处理<strong>InterruptedException</strong>；(thread在做IO操作时也可能有类似行为，见java thread api)</p>
 <p>2  <strong>此线程在运行中， 则不会收到提醒。但是 此线程的 “打扰标志”会被设置， 可以通过isInterrupted()查看并 作出处理。</strong> </p>
 <p>lockInterruptibly()和上面的第一种情况是一样的， <strong>线程在请求lock并被阻塞时，如果被interrupt，则“此线程会被唤醒并被要求处理InterruptedException</strong>。并且如果线程已经被interrupt，再使用lockInterruptibly的时候，此线程也会被要求处理interruptedException</p>
-<pre><code class="java">public class TestLockInterruptibly {
-    public void test() throws Exception {
+<pre><code class="java">public class TestLockInterruptibly &#123;
+    public void test() throws Exception &#123;
         final Lock lock = new ReentrantLock();
         lock.lock();
         //新起一个线程去获取锁
-        Thread t1 = new Thread(()-&gt; {
-            try {
+        Thread t1 = new Thread(()-&gt; &#123;
+            try &#123;
                 lock.lockInterruptibly();
-            } catch (InterruptedException e) {
+            &#125; catch (InterruptedException e) &#123;
                 System.out.println(Thread.currentThread().getName() + &quot; 获取锁的过程中被打断了.&quot;);
-            }
-        }, &quot;child thread -1&quot;);
+            &#125;
+        &#125;, &quot;child thread -1&quot;);
         t1.start();
         Thread.sleep(1000);
         t1.interrupt();
         Thread.sleep(1000000);
-    }
-    public static void main(String[] args) throws Exception {
+    &#125;
+    public static void main(String[] args) throws Exception &#123;
         new TestLockInterruptibly().test();
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>结果： child thread -1 获取锁的过程中被打断了.</p>
 <p>注意，是在请求锁的时候阻塞了，此时被打断会被唤醒并处理异常，如果lockInterruptibly就拿到锁了，没有阻塞，就不会被要求处理异常 </p>
@@ -1514,40 +1516,40 @@ testMethod2 getHoldCount = 2
 <p>1、一个Lock里面可以创建多个Condition实例，实现多路通知</p>
 <p>2、notify()方法进行通知时，被通知的线程是Java虚拟机<strong>随机</strong>选择的，但是ReentrantLock结合Condition可以实现<strong>有选择性地</strong>通知，这是非常重要的 </p>
 <p>看一下利用Condition实现等待/通知模型的最简单用法，下面的代码注意一下，<strong>await()和signal()之前，必须要先lock()获得锁，使用完毕在finally中unlock()释放锁</strong>，这和wait()/notify()/notifyAll()使用前必须先获得对象锁是一样的：</p>
-<pre><code class="java">public class ConditionWaitNotifyService {
+<pre><code class="java">public class ConditionWaitNotifyService &#123;
     private Lock lock = new ReentrantLock();
     public Condition condition = lock.newCondition();
-    public void await(){
-        try{
+    public void await()&#123;
+        try&#123;
             lock.lock();
             System.out.println(&quot;await的时间为 &quot; + System.currentTimeMillis());
             condition.await();
             System.out.println(&quot;await结束的时间&quot; + System.currentTimeMillis());
-        }catch (Exception e){
+        &#125;catch (Exception e)&#123;
             e.printStackTrace();
-        }finally {
+        &#125;finally &#123;
             lock.unlock();
-        }
-    }
+        &#125;
+    &#125;
 
-    public void signal(){
-        try{
+    public void signal()&#123;
+        try&#123;
             lock.lock();
             System.out.println(&quot;sign的时间为&quot; + System.currentTimeMillis());
             condition.signal();
-        }finally {
+        &#125;finally &#123;
             lock.unlock();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">    public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">    public static void main(String[] args) throws InterruptedException &#123;
         ConditionWaitNotifyService service = new ConditionWaitNotifyService();
         new Thread(service::await).start();
         Thread.sleep(1000 * 3);
         service.signal();
         Thread.sleep(1000);
-    }
+    &#125;
 </code></pre>
 <p>上面<code>new Thread(service::await)</code>是java8的语法</p>
 <p> java 8之后，Runnable，Callable等接口都被添加了<code>@FunctionalInterface</code>标签。这个标签表示，这个接口是一个函数式接口。所以，Thread的构造方法里，不是一定得传入Runnable对象了，而是传入函数式接口就可以。</p>
@@ -1557,59 +1559,59 @@ testMethod2 getHoldCount = 2
 sign的时间为1485610110423
 await结束的时间1485610110423
 </code></pre><p>condition对象通过<code>lock.newCondition()</code>来创建，用<code>condition.await</code>来实现让线程等待，是线程进入阻塞。用<code>condition.signal()</code>来实现唤醒线程。唤醒的线程是用同一个conditon对象调用<code>await</code>方法而进入阻塞。并且和wait/notify一样，await（）和signal（）也是在同步代码区内执行。<br>此外看出await结束的语句是在获取通知之后才执行，确实实现了wait/notify的功能。下面这个例子是展示唤醒制定的线程</p>
-<pre><code class="java">public class ConditionAllService {
+<pre><code class="java">public class ConditionAllService &#123;
     private Lock lock = new ReentrantLock();
     public Condition conditionA = lock.newCondition();
     public Condition conditionB = lock.newCondition();
 
-    public void awaitA() {
-        try {
+    public void awaitA() &#123;
+        try &#123;
             lock.lock();
             System.out.println(&quot;begin awaitA时间为 &quot; + System.currentTimeMillis() + &quot;ThreadName=&quot; + Thread.currentThread().getName());
             conditionA.await();
             System.out.println(&quot;end awaitA时间为&quot; + System.currentTimeMillis() + &quot;ThreadName=&quot; + Thread.currentThread().getName());
-        } catch (Exception e) {
+        &#125; catch (Exception e) &#123;
             e.printStackTrace();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
+        &#125;
+    &#125;
 
-    public void awaitB() {
-        try {
+    public void awaitB() &#123;
+        try &#123;
             lock.lock();
             System.out.println(&quot;begin awaitB时间为 &quot; + System.currentTimeMillis() + &quot;ThreadName=&quot; + Thread.currentThread().getName());
             conditionB.await();
             System.out.println(&quot;end awaitB时间为&quot; + System.currentTimeMillis() + &quot;ThreadName=&quot; + Thread.currentThread().getName());
-        } catch (Exception e) {
+        &#125; catch (Exception e) &#123;
             e.printStackTrace();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
+        &#125;
+    &#125;
 
-    public void signAAll() {
-        try {
+    public void signAAll() &#123;
+        try &#123;
             lock.lock();
             System.out.println(&quot;signAAll的时间为&quot; + System.currentTimeMillis() + &quot;ThreadName=&quot; + Thread.currentThread().getName());
             conditionA.signalAll();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
+        &#125;
+    &#125;
 
-    public void signBAll() {
-        try {
+    public void signBAll() &#123;
+        try &#123;
             lock.lock();
             System.out.println(&quot;signBAll的时间为&quot; + System.currentTimeMillis() + &quot;ThreadName=&quot; + Thread.currentThread().getName());
             conditionB.signalAll();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public static void main(String[] args) throws InterruptedException &#123;
         ConditionAllService service = new ConditionAllService();
         Thread a = new Thread(service::awaitA);
         a.setName(&quot;A&quot;);
@@ -1621,7 +1623,7 @@ await结束的时间1485610110423
         service.signAAll();
         Thread.sleep(1000 * 4);
         service.signBAll();
-    }
+    &#125;
 </code></pre>
 <p>结果</p>
 <pre><code>begin awaitA时间为 1606200570248ThreadName=A
@@ -1636,7 +1638,7 @@ end awaitB时间为1606200577248ThreadName=B
 <p>注意要是用一个Condition的话，那么多个线程被该Condition给await()后，调用Condition的signalAll()方法唤醒的是所有的线程。如果想单独唤醒部分线程该怎么办呢？new出多个Condition就可以了，这样也有助于提升程序运行的效率。使用多个Condition的场景是很常见的，像ArrayBlockingQueue里就有。 </p>
 <h3 id="Condition类的其他功能"><a href="#Condition类的其他功能" class="headerlink" title="Condition类的其他功能"></a>Condition类的其他功能</h3><p><code>awaitUntil(Date deadline)</code>在到达指定时间之后，线程会自动唤醒。但是无论是await或者awaitUntil，当线程中断时，进行阻塞的线程会产生中断异常</p>
 <p>Java提供了一个<code>awaitUninterruptibly</code>的方法，使即使线程中断时，进行阻塞的线程也不会产生中断异常。   </p>
-<pre><code class="java">public interface Condition {
+<pre><code class="java">public interface Condition &#123;
      //使当前线程加入 await() 等待队列中，并释放当锁，当其他线程调用signal()会重新请求锁。与Object.wait()类似。
     void await() throws InterruptedException;
 
@@ -1660,27 +1662,27 @@ end awaitB时间为1606200577248ThreadName=B
 
    //唤醒 await()等待队列中所有的线程。与object.notifyAll()相似
     void signalAll();
-}
+&#125;
 </code></pre>
 <h2 id="读写锁"><a href="#读写锁" class="headerlink" title="读写锁"></a>读写锁</h2><p>Lock类除了提供了<code>ReentrantLock</code>的锁以外，还提供了<code>ReentrantReadWriteLock</code>的锁。读写锁分成两个锁，一个锁是读锁，一个锁是写锁。读锁与读锁之间是共享的，读锁与写锁之间是互斥的，写锁与写锁之间也是互斥的。</p>
 <p>看下面的读读共享的例子：</p>
-<pre><code class="java">public class ReadReadService {
+<pre><code class="java">public class ReadReadService &#123;
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
-    public void read(){
-        try{
-            try{
+    public void read()&#123;
+        try&#123;
+            try&#123;
                 lock.readLock().lock();
                 System.out.println(&quot;获得读锁&quot; + Thread.currentThread().getName() +
                 &quot; &quot; + System.currentTimeMillis());
                 Thread.sleep(1000 * 10);
-            }finally {
+            &#125;finally &#123;
                 lock.readLock().unlock();
-            }
-        }catch (InterruptedException e){
+            &#125;
+        &#125;catch (InterruptedException e)&#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>测试的代码和结果如下：</p>
 <pre><code class="java">        ReadReadService service = new ReadReadService();
@@ -1698,24 +1700,24 @@ end awaitB时间为1606200577248ThreadName=B
 获得读锁B 1485614976981
 </code></pre><p>尽管read方法中线程睡了10秒，但是两个线程几乎同时执行同步代码。说明读锁不互斥</p>
 <p>下面的例子是写写互斥的例子</p>
-<pre><code class="java">public class WriteWriteService {
+<pre><code class="java">public class WriteWriteService &#123;
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
-    public void write(){
-        try{
-            try{
+    public void write()&#123;
+        try&#123;
+            try&#123;
                 lock.writeLock().lock();
                 System.out.println(&quot;获得写锁&quot; + Thread.currentThread().getName() +
                         &quot; &quot; +System.currentTimeMillis());
                 Thread.sleep(1000 * 10);
-            }finally {
+            &#125;finally &#123;
                 lock.writeLock().unlock();
-            }
-        }catch (InterruptedException e){
+            &#125;
+        &#125;catch (InterruptedException e)&#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>测试代码和结果如下：</p>
 <pre><code class="java">        WriteWriteService service = new WriteWriteService();
@@ -1733,41 +1735,41 @@ end awaitB时间为1606200577248ThreadName=B
 获得写锁B 1485615326524
 </code></pre><p>可以看到过了10秒后B才获得写锁。说明写锁互斥 </p>
 <p>读写互斥的例子：</p>
-<pre><code class="java">public class WriteReadService {
+<pre><code class="java">public class WriteReadService &#123;
 
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
-    public void read(){
-        try{
-            try{
+    public void read()&#123;
+        try&#123;
+            try&#123;
                 lock.readLock().lock();
                 System.out.println(&quot;获得读锁&quot; + Thread.currentThread().getName()
                         + &quot; &quot; + System.currentTimeMillis());
                 Thread.sleep(1000 * 10);
-            }finally {
+            &#125;finally &#123;
                 lock.readLock().unlock();
-            }
-        }catch (InterruptedException e){
+            &#125;
+        &#125;catch (InterruptedException e)&#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
 
-    public void write(){
-        try{
-            try{
+    public void write()&#123;
+        try&#123;
+            try&#123;
                 lock.writeLock().lock();
                 System.out.println(&quot;获得写锁&quot; + Thread.currentThread().getName()
                         + &quot; &quot; + System.currentTimeMillis());
                 Thread.sleep(1000 * 10);
-            }finally {
+            &#125;finally &#123;
                 lock.writeLock().unlock();
-            }
-        }catch (InterruptedException e){
+            &#125;
+        &#125;catch (InterruptedException e)&#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
 
-}
+&#125;
 </code></pre>
 <p>测试的代码如下：</p>
 <pre><code class="java">        WriteReadService service = new WriteReadService();
@@ -1800,77 +1802,77 @@ end awaitB时间为1606200577248ThreadName=B
 <li><strong>通过平衡生产者和消费者的处理能力来提高整体处理数据的速度</strong>，这是生产者/消费者模型最重要的一个优点。如果消费者直接从生产者这里拿数据，如果生产者生产的速度很慢，但消费者消费的速度很快，那消费者就得占用CPU的时间片白白等在那边。有了生产者/消费者模型，生产者和消费者就是两个独立的并发体，生产者把生产出来的数据往缓冲区一丢就好了，不必管消费者；消费者也是，从缓冲区去拿数据就好了，也不必管生产者，缓冲区满了就不生产，缓冲区空了就不消费，使生产者/消费者的处理能力达到一个动态的平衡</li>
 </ul>
 <h2 id="利用wait-notify-实现生产者-消费者模型"><a href="#利用wait-notify-实现生产者-消费者模型" class="headerlink" title="利用wait()/notify()实现生产者/消费者模型"></a>利用wait()/notify()实现生产者/消费者模型</h2><p>既然生产者/消费者模型有一个缓冲区，那么我们就自己做一个缓冲区，生产者和消费者的通信都是通过这个缓冲区的。value为空表示缓冲区空，value不为空表示缓冲区满</p>
-<pre><code class="java">public class ValueObject {
+<pre><code class="java">public class ValueObject &#123;
     public static String value = &quot;&quot;;
-}
+&#125;
 </code></pre>
 <p> 接下来就是一个生产者了，如果缓冲区满了的，那么就wait()，不再生产了，等待消费者消费完通知；如果缓冲区是空的，那么就生产数据到缓冲区中 </p>
-<pre><code class="java">public class Producer {
+<pre><code class="java">public class Producer &#123;
     private Object lock;
-    public Producer(Object lock) {
+    public Producer(Object lock) &#123;
         this.lock = lock;
-    }
-    public void setValue() {
-        try {
-            synchronized (lock) {
-                if (!ValueObject.value.equals(&quot;&quot;)) {
+    &#125;
+    public void setValue() &#123;
+        try &#123;
+            synchronized (lock) &#123;
+                if (!ValueObject.value.equals(&quot;&quot;)) &#123;
                     lock.wait();//缓冲区有东西，消费者没来得及消费，就暂停生产
-                }
+                &#125;
                 String value = System.currentTimeMillis() + &quot;_&quot; + System.nanoTime();
                 System.out.println(&quot;Set的值是：&quot; + value);
                 ValueObject.value = value;
                 lock.notify();//生产了，通知消费者消费
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p> 消费者类似，如果缓冲区是空的，那么就不再消费，wait()等待，等待生产者生产完通知；如果缓冲区不是空的，那么就去拿数据： </p>
-<pre><code class="java">public class Customer {
+<pre><code class="java">public class Customer &#123;
     private Object lock;
-    public Customer(Object lock) {
+    public Customer(Object lock) &#123;
         this.lock = lock;
-    }
-    public void getValue() {
-        try {
-            synchronized (lock) {
-                if (ValueObject.value.equals(&quot;&quot;)){
+    &#125;
+    public void getValue() &#123;
+        try &#123;
+            synchronized (lock) &#123;
+                if (ValueObject.value.equals(&quot;&quot;))&#123;
                     lock.wait();//队列中没有东西,等待
-                }
+                &#125;
                 System.out.println(&quot;Get的值是：&quot; + ValueObject.value);
                 ValueObject.value = &quot;&quot;;
                 lock.notify();//消费了,通知生产者生产
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java"> public static void main(String[] args) {
+<pre><code class="java"> public static void main(String[] args) &#123;
         Object lock = new Object();
         final Producer producer = new Producer(lock);
         final Customer customer = new Customer(lock);
-        Thread producerThread = new Thread(()-&gt;{
-            while ((true)) {
-                try {
+        Thread producerThread = new Thread(()-&gt;&#123;
+            while ((true)) &#123;
+                try &#123;
                     Thread.sleep(1000);//每隔一秒生产
-                } catch (InterruptedException e) {
+                &#125; catch (InterruptedException e) &#123;
                     e.printStackTrace();
-                }
+                &#125;
                 producer.setValue();
-            }
-        });
-        Thread CustomerThread = new Thread(()-&gt;{
-            while (true) {
+            &#125;
+        &#125;);
+        Thread CustomerThread = new Thread(()-&gt;&#123;
+            while (true) &#123;
                 customer.getValue();
-            }
-        });
+            &#125;
+        &#125;);
         producerThread.start();
         CustomerThread.start();
-    }
+    &#125;
 </code></pre>
 <p>结果</p>
 <pre><code>Set的值是：1606445645200_234202981358500
@@ -1886,63 +1888,63 @@ Get的值是：1606445649202_234206983334400
 </code></pre><p> 可以看到，虽然消费者是while(true),没有睡眠，但是由于生产者是睡眠1秒生产的，所以消费者也是每隔一秒读到数据。 </p>
 <p>生产数据和消费数据一定是成对出现的，生产一个消费一个，满了不生产，空了不消费，生产者不能无限生产，消费者也不能无限消费，符合生产者/消费者模型。  </p>
 <h2 id="利用await-signal-实现生产者和消费者模型"><a href="#利用await-signal-实现生产者和消费者模型" class="headerlink" title="利用await()/signal()实现生产者和消费者模型"></a>利用await()/signal()实现生产者和消费者模型</h2><p> 换种写法，生产和消费方法放在一个类里面： </p>
-<pre><code class="java">public class ThreadDomain {
+<pre><code class="java">public class ThreadDomain &#123;
     private ReentrantLock lock = new ReentrantLock();
     private Condition condition = lock.newCondition();
 
-    public void set() {
-        try {
+    public void set() &#123;
+        try &#123;
             lock.lock();
-            while (!&quot;&quot;.equals(ValueObject.value)) {
+            while (!&quot;&quot;.equals(ValueObject.value)) &#123;
                 condition.await();
-            }
+            &#125;
             ValueObject.value = &quot;123&quot;;
             System.out.println(Thread.currentThread().getName() + &quot;生产了value, value的当前值是&quot; + ValueObject.value);
             condition.signal();
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
+        &#125;
+    &#125;
 
-    public void get() {
-        try {
+    public void get() &#123;
+        try &#123;
             lock.lock();
-            while (&quot;&quot;.equals(ValueObject.value)) {
+            while (&quot;&quot;.equals(ValueObject.value)) &#123;
                 condition.await();
-            }
+            &#125;
             ValueObject.value = &quot;&quot;;
             System.out.println(Thread.currentThread().getName() + &quot;消费了value, value的当前值是&quot; + ValueObject.value);
             condition.signal();
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        } finally {
+        &#125; finally &#123;
             lock.unlock();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p> 同样的，开两个线程，一个线程调用set()方法生产，另一个线程调用get()方法消费： </p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
         final ThreadDomain td = new ThreadDomain();
-        Thread ProducerThread = new Thread(()-&gt;{
-            for (int i = 0; i &lt; Integer.MAX_VALUE; i++){
+        Thread ProducerThread = new Thread(()-&gt;&#123;
+            for (int i = 0; i &lt; Integer.MAX_VALUE; i++)&#123;
                 td.set();
-            }
-        });
+            &#125;
+        &#125;);
         ProducerThread.setName(&quot;Producer&quot;);
 
-        Thread ConsumerThread = new Thread(()-&gt;{
-            for (int i = 0; i &lt; Integer.MAX_VALUE; i++){
+        Thread ConsumerThread = new Thread(()-&gt;&#123;
+            for (int i = 0; i &lt; Integer.MAX_VALUE; i++)&#123;
                 td.get();
-            }
-        });
+            &#125;
+        &#125;);
         ConsumerThread.setName(&quot;Consumer&quot;);
 
         ProducerThread.start();
         ConsumerThread.start();
-    }
+    &#125;
 </code></pre>
 <p> 和wait()/notify()机制的实现效果一样，同样符合生产者/消费者模型 </p>
 <h2 id="小心假死"><a href="#小心假死" class="headerlink" title="小心假死"></a>小心假死</h2><p>生产者/消费者模型最终达到的目的是<strong>平衡生产者和消费者的处理能力</strong>，达到这个目的的过程中，并不要求只有一个生产者和一个消费者。可以多个生产者对应多个消费者，可以一个生产者对应一个消费者，可以多个生产者对应一个消费者。</p>
@@ -1953,13 +1955,13 @@ Get的值是：1606445649202_234206983334400
 <p>2、<strong>用ReentrantLock定义两个Condition，一个表示生产者的Condition，一个表示消费者的Condition，唤醒的时候调用相应的Condition的signal()方法就可以了</strong></p>
 <h1 id="利用Queue实现生产者-消费者模型"><a href="#利用Queue实现生产者-消费者模型" class="headerlink" title="利用Queue实现生产者/消费者模型"></a>利用Queue实现生产者/消费者模型</h1><h2 id="Queue是什么"><a href="#Queue是什么" class="headerlink" title="Queue是什么"></a>Queue是什么</h2><p>队列，是一种数据结构。除了优先级队列和LIFO队列外，队列都是以FIFO（先进先出）的方式对各个元素进行排序的。无论使用哪种排序方式，队列的头都是调用remove()或poll()移除元素的。在FIFO队列中，所有新元素都插入队列的末尾。</p>
 <h2 id="Queue中的方法"><a href="#Queue中的方法" class="headerlink" title="Queue中的方法"></a>Queue中的方法</h2><p>Queue中的方法不难理解，6个，每2对是一个也就是总共3对。看一下JDK API就知道了：</p>
-<p><img src="21.png" alt> </p>
+<p><img src="21.png" alt=""> </p>
 <p> Queue 中 add() 和 offer()都是用来<strong>向队列尾部添加一个元素</strong>。<br>在容量已满的情况下，add() 方法会抛出IllegalStateException异常，offer() 方法只会返回 false 。 </p>
 <p> Queue 中 remove() 和 poll()都是用来<strong>从队列头部删除一个元素</strong>。<br>在队列元素为空的情况下，remove() 方法会抛出NoSuchElementException异常，poll() 方法只会返回 null 。 </p>
 <p>Queue 中 element() 和 peek()都是用来返回队列的头元素，不删除。</p>
 <p>在队列元素为空的情况下，element() 方法会抛出NoSuchElementException异常，peek() 方法只会返回 null。</p>
 <p> 注意一点就好，<strong>Queue通常不允许插入Null</strong>，尽管某些实现（比如LinkedList）是允许的，但是也不建议。 </p>
-<h3 id="BlockingQueue"><a href="#BlockingQueue" class="headerlink" title="BlockingQueue"></a>BlockingQueue</h3><p><img src="22.png" alt> </p>
+<h3 id="BlockingQueue"><a href="#BlockingQueue" class="headerlink" title="BlockingQueue"></a>BlockingQueue</h3><p><img src="22.png" alt=""> </p>
 <p><strong>1、BlockingQueue概述</strong></p>
 <p>只讲BlockingQueue，因为BlockingQueue是Queue中的一个重点，并且通过BlockingQueue我们再次加深对于生产者/消费者模型的理解。其他的Queue都不难，通过查看JDK API和简单阅读源码完全可以理解他们的作用。</p>
 <p>BlockingQueue，顾名思义，<strong>阻塞队列</strong>。BlockingQueue是在 java.util.concurrent 下的，因此不难理解，BlockingQueue是为了解决多线程中数据高效安全传输而提出的。</p>
@@ -2006,12 +2008,12 @@ private final E[] items;
 <pre><code class="java">/**
  * Linked list node class
  */
-static class Node&lt;E&gt; {
+static class Node&lt;E&gt; &#123;
     /** The item, volatile to ensure barrier separating write and read */
     volatile E item;
     Node&lt;E&gt; next;
-    Node(E x) { item = x; }
-}
+    Node(E x) &#123; item = x; &#125;
+&#125;
 </code></pre>
 <p>将队列以链表形式连接。</p>
 <p><code>SynchronousQueue</code>是一个内部只能包含一个元素的队列。插入元素到队列的线程被阻塞，直到另一个线程从队列中获取了队列中存储的元素。同样，如果线程尝试获取元素并且当前不存在任何元素，则该线程将被阻塞，直到线程将元素插入队列。</p>
@@ -2028,64 +2030,65 @@ static class Node&lt;E&gt; {
 <li>生产者和消费者处理数据的速度几乎一样</li>
 </ul>
 <p>现在我们就用BlockingQueue来简单写一个例子，并且让生产者、消费者处理数据速度不同。子类选择的是ArrayBlockingQueue，大小定为10</p>
-<pre><code class="java"> public static void main(String[] args) {
+<pre><code class="java"> public static void main(String[] args) &#123;
         final BlockingQueue&lt;String&gt; queue = new ArrayBlockingQueue&lt;String&gt;(10);
-        Runnable producerRunnable = new Runnable() {
+        Runnable producerRunnable = new Runnable() &#123;
             int i = 0;
-            public void run() {
-                while (true) {
-                    try {
+            public void run() &#123;
+                while (true) &#123;
+                    try &#123;
                         i++;
                         System.out.println(&quot;我生产了一个&quot; + i);
                         queue.put(i + &quot;&quot;);
                         Thread.sleep(1000);
-                    } catch (InterruptedException e) {
+                    &#125; catch (InterruptedException e) &#123;
                         e.printStackTrace();
-                    }
-                }
-            }
-        };
+                    &#125;
+                &#125;
+            &#125;
+        &#125;;
         Thread producerThread = new Thread(producerRunnable);
 
-        Thread customerThread = new Thread(()-&gt;{
-            while (true) {
-                try {
+        Thread customerThread = new Thread(()-&gt;&#123;
+            while (true) &#123;
+                try &#123;
                     System.out.println(&quot;我消费了一个&quot; + queue.take());
                     Thread.sleep(4000);
-                } catch (InterruptedException e) {
+                &#125; catch (InterruptedException e) &#123;
                     e.printStackTrace();
-                }
-            }
-        });
+                &#125;
+            &#125;
+        &#125;);
         producerThread.start();
         customerThread.start();
-    }
+    &#125;
 </code></pre>
 <p>分两部分来看输出结果：</p>
 <p>1、前面BlockingQueue未满，所以生产者随便生产，消费者随便消费，基本上都是生产4个消费1个，消费者消费速度慢</p>
 <p>2、后面生产到14，消费到4，说明到了ArrayBlockingQueue的极限10了，这时候没办法，生产者生产一个ArrayBlockingQueue就满了，所以不能继续生产了，只有等到消费者消费完才可以继续生产。所以之后的打印内容一定是一个生产者、一个消费者</p>
-<p><img src="23.png" alt> </p>
+<p><img src="23.png" alt=""> </p>
 <p> 这就是前面一章开头说的”<strong>通过平衡生产者和消费者的处理能力来提高整体处理数据的速度</strong>“，这给例子应该体现得很明显。另外，也不要担心非单一生产者/消费者场景下的系统假死问题，缓冲区空、缓冲区满的场景BlockingQueue都是定义了不同的Condition，所以不会唤醒自己的同类。 </p>
 <h1 id="线程组"><a href="#线程组" class="headerlink" title="线程组"></a>线程组</h1><p>可以把线程归属到某一个线程组中，线程组中可以有线程对象，也可以有线程组，组中还可以有线程，这样的组织结构有点类似于树的形式，如图所示： </p>
-<p><img src="24.png" alt> </p>
+<p><img src="24.png" alt=""> </p>
 <p>线程组的作用是：<strong>可以批量管理线程或线程组对象，有效地对线程或线程组对象进行组织</strong>。</p>
 <p><strong>线程关联线程组：1级关联</strong></p>
 <p>所谓1级关联就是父对象中有子对象，但并不创建孙对象。这种情况在开发中很常见，比如创建一些线程时，为了有效对这些线程进行管理，通常情况下是创建一个线程组，然后再将部分线程归属到该组中，以此来对零散的线程对象进行有效的管理。</p>
 <p>看一下简单的1级关联的例子：</p>
-<pre><code class="java">public class Mythread implements Runnable{
+<pre><code class="java">public class Mythread implements Runnable&#123;
     @Override
-    public void run() {
-        try {
-            while (!Thread.currentThread().isInterrupted()) {
+    public void run() &#123;
+        try &#123;
+            while (!Thread.currentThread().isInterrupted()) &#123;
                 System.out.println(&quot;ThreadName = &quot; + Thread.currentThread().getName());
                 Thread.sleep(3000);
-            }
-        } catch (InterruptedException e) {
+            &#125;
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
+
 </code></pre>
-<pre><code class="java"> public static void main(String[] args) {
+<pre><code class="java"> public static void main(String[] args) &#123;
             Mythread mt0 = new Mythread();
             Mythread mt1 = new Mythread();
             ThreadGroup tg = new ThreadGroup(&quot;新建线程组1&quot;);
@@ -2095,7 +2098,7 @@ static class Node&lt;E&gt; {
             t1.start();
             System.out.println(&quot;活动的线程数为：&quot; + tg.activeCount());
             System.out.println(&quot;线程组的名称为：&quot; + tg.getName());
-    }
+    &#125;
 </code></pre>
 <p> 看一下运行结果： </p>
 <pre><code>活动的线程数为：2
@@ -2112,14 +2115,14 @@ ThreadName = Thread-0...
 <p><strong>线程关联线程组：多级关联</strong></p>
 <p>所谓的多级关联就是父对象中有子对象，子对象中再创建子对象买也就出现了子孙的效果了。但是这种写法在开发中不太常见，因为线程树如果涉及得复杂反而不利于线程对象的管理，不过JDK确实提供了多级关联的线程树结构。</p>
 <p>多级关联的代码就不写了，简单看一下怎么使用关机关联，查看下JDK API的ThreadGroup构造方法：</p>
-<p><img src="25.png" alt> </p>
+<p><img src="25.png" alt=""> </p>
 <p>注意一下第二个，假如要使用多级关联一般就是用第二个构造函数。第一个参数表示新线程组的父线程组，第二个参数表示新线程组的名称，有了父线程组和新线程组的名称，自然可以构造出一个新的线程组来了。</p>
 <p>当然用第一个构造方法也是可以的，下一部分就会提到。</p>
 <p>另外注意一点，<strong>线程必须启动后才能归到指定线程组中</strong>。</p>
 <p><strong>线程组自动归属特性</strong></p>
 <p>自动归属的意思就是自动归到当前线程组中，看一下例子：</p>
 <pre><code>public static void main(String[] args)
-{
+&#123;
     System.out.println(&quot;A处线程：&quot; + Thread.currentThread().getName() + &quot;, 所属线程：&quot; + Thread.currentThread().getThreadGroup().getName() + 
         &quot;, 组中有线程组数量：&quot; + Thread.currentThread().getThreadGroup().activeGroupCount());
     ThreadGroup group = new ThreadGroup(&quot;新的组&quot;);
@@ -2129,7 +2132,7 @@ ThreadName = Thread-0...
     Thread.currentThread().getThreadGroup().enumerate(tg);
     for (int i = 0; i &lt; tg.length; i++)
         System.out.println(&quot;第一个线程组名称为：&quot; + tg[i].getName());
-}
+&#125;
 </code></pre><p>看一下运行结果：</p>
 <pre><code>A处线程：main, 所属线程：main, 组中有线程组数量：0
 B处线程：main, 所属线程：main, 组中有线程组数量：1
@@ -2137,9 +2140,9 @@ B处线程：main, 所属线程：main, 组中有线程组数量：1
 </code></pre><p>从结果看，实例化了一个group出来，<strong>没有指定线程组，那么自动归到当前线程所属的线程组中</strong>，也就是隐式地在一个线程组中添加了一个子线程组。</p>
 <p><strong>根线程组</strong></p>
 <p>看一下根线程组： </p>
-<pre><code class="java">public static void main(String[] args){
+<pre><code class="java">public static void main(String[] args)&#123;
     System.out.println(Thread.currentThread().getThreadGroup().getParent().getName());    System.out.println(Thread.currentThread().getThreadGroup().getParent().getParent().getName());
-}
+&#125;
 </code></pre>
 <p>看一下运行结果：</p>
 <pre><code class="java">system
@@ -2154,39 +2157,39 @@ Exception in thread &quot;main&quot; java.lang.NullPointerException
  * Creates an empty Thread group that is not in any Thread group. 
  * This method is used to create the system Thread group.
  */
-private ThreadGroup() {    // called from C code
+private ThreadGroup() &#123;    // called from C code
 this.name = &quot;system&quot;;
 this.maxPriority = Thread.MAX_PRIORITY;
-}
+&#125;
 </code></pre>
 <p> 一个私有构造方法，说明不是对开发者开放的。注释上已经写得很清楚了，这是C代码调用的，用于构建系统线程组。 </p>
 <p><strong>批量停止组内线程</strong></p>
 <p>使用线程组自然是要对线程做批量管理的，到目前为止我们似乎都没有看见如何对线程组内的线程做批量操作，最后来看一下批量操作线程组内的线程：</p>
-<pre><code class="java">public class MyThread extends Thread {
-    public MyThread(ThreadGroup tg, String name)  {
+<pre><code class="java">public class MyThread extends Thread &#123;
+    public MyThread(ThreadGroup tg, String name)  &#123;
         super(tg, name);
-    }
+    &#125;
 
-    public void run()  {
+    public void run()  &#123;
         System.out.println(&quot;ThreadName = &quot; + Thread.currentThread().getName() + 
                 &quot;准备开始死循环了&quot;);
-        while (!this.isInterrupted()){}
+        while (!this.isInterrupted())&#123;&#125;
         System.out.println(&quot;ThreadName = &quot; + Thread.currentThread().getName() + 
                 &quot;结束了&quot;);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args) throws InterruptedException{
+<pre><code class="java">public static void main(String[] args) throws InterruptedException&#123;
     ThreadGroup tg = new ThreadGroup(&quot;我的线程组&quot;);
     MyThread mt = null;
-    for (int i = 0; i &lt; 3; i++)    {
+    for (int i = 0; i &lt; 3; i++)    &#123;
         mt = new MyThread(tg, &quot;线程&quot; + i);
         mt.start();
-    }
+    &#125;
     Thread.sleep(5000);
     tg.interrupt();
     System.out.println(&quot;调用了interrupt()方法&quot;);
-}
+&#125;
 </code></pre>
 <p>结果:</p>
 <pre><code>ThreadName = 线程0准备开始死循环了
@@ -2199,48 +2202,48 @@ ThreadName = 线程0结束了
 </code></pre><p>看到调用了ThreadGroup中的interrupt()方法批量中断了线程组内的线程，这就是ThreadGroup的作用。更多线程组的操作可以查看JDK API。</p>
 <h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><p><strong>使用线程池与不使用线程池的差别</strong></p>
 <p>先来看一下使用线程池与不使用线程池的差别，第一段代码是使用线程池的：</p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
         long startTime = System.currentTimeMillis();
         final List&lt;Integer&gt; l = new LinkedList&lt;Integer&gt;();
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(100, 100, 60, TimeUnit.SECONDS, new LinkedBlockingQueue&lt;Runnable&gt;(20000));
         final Random random = new Random();
-        for (int i = 0; i &lt; 20000; i++) {
-            threadPool.execute(()-&gt; {
+        for (int i = 0; i &lt; 20000; i++) &#123;
+            threadPool.execute(()-&gt; &#123;
                 l.add(random.nextInt());
-            });
-        }
+            &#125;);
+        &#125;
         threadPool.shutdown();
-        try {
+        try &#123;
             threadPool.awaitTermination(1, TimeUnit.DAYS);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
+        &#125;
         System.out.println(System.currentTimeMillis() - startTime);
         System.out.println(l.size());
-    }
+    &#125;
 </code></pre>
 <p>结果</p>
 <pre><code>112//耗时
 19960
 </code></pre><p>接着是不使用线程的</p>
-<pre><code class="java"> public static void main(String[] args) {
+<pre><code class="java"> public static void main(String[] args) &#123;
         long startTime = System.currentTimeMillis();
         final List&lt;Integer&gt; l = new LinkedList&lt;Integer&gt;();
         final Random random = new Random();
-        for (int i = 0; i &lt; 20000; i++) {
-            Thread thread = new Thread(()-&gt;{
+        for (int i = 0; i &lt; 20000; i++) &#123;
+            Thread thread = new Thread(()-&gt;&#123;
                 l.add(random.nextInt());
-            });
+            &#125;);
             thread.start();
-            try {
+            try &#123;
                 thread.join();
-            } catch (InterruptedException e) {
+            &#125; catch (InterruptedException e) &#123;
                 e.printStackTrace();
-            }
-        }
+            &#125;
+        &#125;
         System.out.println(System.currentTimeMillis() - startTime);
         System.out.println(l.size());
-    }
+    &#125;
 </code></pre>
 <p>结果</p>
 <pre><code>2336
@@ -2252,7 +2255,7 @@ ThreadName = 线程0结束了
 <p><strong>2、可以根据系统的承受能力，调整线程池中工作线程的数据，防止因为消耗过多的内存导致服务器崩溃</strong></p>
 <p>使用线程池，要根据系统的环境情况，手动或自动设置线程数目。少了系统运行效率不高，多了系统拥挤、占用内存多。用线程池控制数量，其他线程排队等候。一个任务执行完毕，再从队列中取最前面的任务开始执行。若任务中没有等待任务，线程池这一资源处于等待。当一个新任务需要运行，如果线程池中有等待的工作线程，就可以开始运行了，否则进入等待队列。 </p>
 <h2 id="线程池类结构"><a href="#线程池类结构" class="headerlink" title="线程池类结构"></a>线程池类结构</h2><p>线程池的类结构图：</p>
-<p><img src="26.png" alt> </p>
+<p><img src="26.png" alt=""> </p>
 <p>这张图基本简单代表了线程池类的结构：</p>
 <p>1、最顶级的接口是Executor，不过Executor严格意义上来说并不是一个线程池而只是提供了一种任务如何运行的机制而已</p>
 <p>2、<strong>ExecutorService才可以认为是真正的线程池接口</strong>，接口提供了管理线程池的方法</p>
@@ -2301,11 +2304,11 @@ ThreadName = 线程0结束了
 <p>排队有三种策略：直接提交、有界队列、无界队列。</p>
 <h4 id="直接提交"><a href="#直接提交" class="headerlink" title="直接提交"></a>直接提交</h4><p>SynchronousQueue， 直接提交通常要求无界 maximumPoolSizes 以避免拒绝新提交的任务。当命令以超过队列所能处理的平均数连续到达时，此策略允许无界线程具有增长的可能性。</p>
 <p><code>newCachedThreadPool()</code>   就用的SynchronousQueue,它的maximumPoolSizes就是<code>Integer.MAX_VALUE</code> </p>
-<pre><code class="java">public static ExecutorService newCachedThreadPool() {
+<pre><code class="java">public static ExecutorService newCachedThreadPool() &#123;
     return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
                                   60L, TimeUnit.SECONDS,
                                   new SynchronousQueue&lt;Runnable&gt;());
-}
+&#125;
 </code></pre>
 <h4 id="有界队列"><a href="#有界队列" class="headerlink" title="有界队列"></a>有界队列</h4><p>ArrayBlockingQueue 是一个有界缓存等待队列，可以指定缓存队列的大小，当正在执行的线程数等于corePoolSize时，多余的元素缓存在 ArrayBlockingQueue 队列中等待有空闲的线程时继续执行，当ArrayBlockingQueue已满时，加入ArrayBlockingQueue失败，会开启新的线程去执行，当线程数已经达到最大的maximumPoolSizes时，再有新的元素尝试加入ArrayBlockingQueue时会报错。 </p>
 <h4 id="无界队列"><a href="#无界队列" class="headerlink" title="无界队列"></a>无界队列</h4><p>不具有预定义容量的 LinkedBlockingQueue 。 将导致在所有corePoolSize 线程都忙时新任务在队列中等待。这样，队列也就不会满，因此，maximumPoolSize的值也就无效了。 当每个任务完全独立于其他任务，即任务执行互不影响时，适合于使用无界队列；例如，在 Web页服务器中。这种排队可用于处理瞬态突发请求，当命令以超过队列所能处理的平均数连续到达时，此策略允许无界线程具有增长的可能性。 </p>
@@ -2325,28 +2328,28 @@ ThreadName = 线程0结束了
 <p>线程池的重点不是ThreadPoolExecutor怎么用或者是Executors怎么用，而是在合适的场景下使用合适的线程池，所谓”合适的线程池”的意思就是，ThreadPoolExecutor的构造方法传入不同的参数，构造出不同的线程池，以满足使用的需要</p>
 <p>下面来看一下Executors为用户提供的几种线程池：</p>
 <h3 id="newSingleThreadExecutos"><a href="#newSingleThreadExecutos" class="headerlink" title="newSingleThreadExecutos()"></a>newSingleThreadExecutos()</h3><p>单线程线程池</p>
-<pre><code class="java">public static ExecutorService newSingleThreadExecutor() {
+<pre><code class="java">public static ExecutorService newSingleThreadExecutor() &#123;
     return new FinalizableDelegatedExecutorService
         (new ThreadPoolExecutor(1, 1,
                                 0L, TimeUnit.MILLISECONDS,
                                 new LinkedBlockingQueue&lt;Runnable&gt;()));
-}
+&#125;
 </code></pre>
 <p>单线程线程池，那么线程池中运行的线程数肯定是1。 workQueue选择了无界的LinkedBlockingQueue，那么不管来多少任务都排队，前面一个任务执行完毕，再执行队列中的线程。从这个角度讲，第二个参数maximumPoolSize是没有意义的，因为maximumPoolSize描述的是排队的任务多过workQueue的容量，线程池中最多只能容纳maximumPoolSize个任务，现在workQueue是无界的，也就是说排队的任务永远不会多过workQueue的容量，那maximum其实设置多少都无所谓了 </p>
 <h3 id="newFixedThreadPool-int-nThreads"><a href="#newFixedThreadPool-int-nThreads" class="headerlink" title="newFixedThreadPool(int nThreads)"></a>newFixedThreadPool(int nThreads)</h3><p>固定大小线程池</p>
-<pre><code class="java">public static ExecutorService newFixedThreadPool(int nThreads) {
+<pre><code class="java">public static ExecutorService newFixedThreadPool(int nThreads) &#123;
     return new ThreadPoolExecutor(nThreads, nThreads,
                                   0L, TimeUnit.MILLISECONDS,
                                   new LinkedBlockingQueue&lt;Runnable&gt;());
-}
+&#125;
 </code></pre>
 <p>固定大小的线程池和单线程的线程池异曲同工，无非是让线程池中能运行的线程编程了手动指定的nThreads罢了。同样，由于是选择了LinkedBlockingQueue，因此其实第二个参数maximumPoolSize同样也是无意义的</p>
 <h3 id="newCachedThreadPool"><a href="#newCachedThreadPool" class="headerlink" title="newCachedThreadPool()"></a>newCachedThreadPool()</h3><p>无界线程池</p>
-<pre><code class="java">public static ExecutorService newCachedThreadPool() {
+<pre><code class="java">public static ExecutorService newCachedThreadPool() &#123;
     return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
                                   60L, TimeUnit.SECONDS,
                                   new SynchronousQueue&lt;Runnable&gt;());
-}
+&#125;
 </code></pre>
 <p>无界线程池，意思是不管多少任务提交进来，都直接运行。无界线程池采用了SynchronousQueue，采用这个线程池就没有workQueue容量一说了，只要添加进去的线程就会被拿去用。既然是无界线程池，那线程数肯定没上限，所以maximumPoolSize为主了，设置为一个近似的无限大Integer.MAX_VALUE。 另外注意一下，单线程线程池和固定大小线程池线程都不会进行自动回收的，也即是说保证提交进来的任务最终都会被处理，但至于什么时候处理，就要看处理能力了。<strong>但是无界线程池是设置了回收时间的，由于corePoolSize为0，所以只要60秒没有被用到的工作线程都会被直接移除</strong>  </p>
 <h2 id="四种拒绝策略"><a href="#四种拒绝策略" class="headerlink" title="四种拒绝策略"></a>四种拒绝策略</h2><p>所谓拒绝策略之前也提到过了，任务太多，超过maximumPoolSize了怎么把？当然是接不下了，接不下那只有拒绝了。拒绝的时候可以指定拒绝策略，也就是一段处理程序。</p>
@@ -2367,46 +2370,46 @@ ThreadName = 线程0结束了
 <h2 id="CountDownLatch"><a href="#CountDownLatch" class="headerlink" title="CountDownLatch"></a>CountDownLatch</h2><p>CountDownLatch主要提供的机制是当多个（具体数量等于初始化CountDownLatch时count参数的值）线程都达到了预期状态或完成预期工作时触发事件，其他线程可以等待这个事件来触发自己的后续工作。值得注意的是，CountDownLatch是可以唤醒多个等待的线程的。</p>
 <p>到达自己预期状态的线程会调用CountDownLatch的countDown方法，等待的线程会调用CountDownLatch的await方法。如果CountDownLatch初始化的count值为1，那么这就退化为一个单一事件了，即是由一个线程来通知其他线程，效果等同于对象的wait和notifyAll，count值大于1是常用的方式，目的是为了让多个线程到达各自的预期状态，变为一个事件进行通知，线程则继续自己的行为。</p>
 <p>看一个例子：</p>
-<pre><code class="java">public class WorkThread extends Thread{
+<pre><code class="java">public class WorkThread extends Thread&#123;
     private CountDownLatch countDownLatch;
     private int sleepSecond;
 
-    public WorkThread(String name, CountDownLatch countDownLatch , int sleepSecond) {
+    public WorkThread(String name, CountDownLatch countDownLatch , int sleepSecond) &#123;
         super(name);
         this.countDownLatch = countDownLatch;
         this.sleepSecond = sleepSecond;
-    }
+    &#125;
 
-    public void run() {
-        try {
+    public void run() &#123;
+        try &#123;
             System.out.println(this.getName() + &quot;启动了，时间为&quot; + System.currentTimeMillis());
             Thread.sleep(sleepSecond * 1000);
             countDownLatch.countDown();
             System.out.println(this.getName() + &quot;执行完了，时间为&quot; + System.currentTimeMillis());
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public class DoneThread extends Thread{
+<pre><code class="java">public class DoneThread extends Thread&#123;
     private CountDownLatch countDownLatch;
 
-    public DoneThread(String name, CountDownLatch cdl) {
+    public DoneThread(String name, CountDownLatch cdl) &#123;
         super(name);
         this.countDownLatch = cdl;
-    }
+    &#125;
 
-    public void run() {
-        try {
+    public void run() &#123;
+        try &#123;
             System.out.println(this.getName() + &quot;要等待了, 时间为&quot; + System.currentTimeMillis());
             countDownLatch.await();
             System.out.println(this.getName() + &quot;等待完了, 时间为&quot; + System.currentTimeMillis());
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <pre><code class="java"> DoneThread dt0 = new DoneThread(&quot;DoneThread1&quot;, countDownLatch);
         DoneThread dt1 = new DoneThread(&quot;DoneThread2&quot;, countDownLatch);
@@ -2431,31 +2434,31 @@ ThreadName = 线程0结束了
 <p>1、单值的Semaphore管理的信号量只有1个，该信号量只能被1个，只能被一个线程所获得，意味着并发的代码只能被一个线程运行，这就相当于是一个互斥锁了</p>
 <p>2、多值的Semaphore管理的信号量多余1个，主要用于控制并发数</p>
 <p>看一下代码例子：</p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
         final Semaphore semaphore = new Semaphore(2);
-        Runnable runnable = new Runnable() {
-            public void run() {
-                try {
+        Runnable runnable = new Runnable() &#123;
+            public void run() &#123;
+                try &#123;
                     semaphore.acquire();
                     System.out.println(Thread.currentThread().getName() + &quot;获得了信号量,时间为&quot; + System.currentTimeMillis());
                     Thread.sleep(2000);
                     System.out.println(Thread.currentThread().getName() + &quot;释放了信号量,时间为&quot; + System.currentTimeMillis());
-                } catch (InterruptedException e) {
+                &#125; catch (InterruptedException e) &#123;
                     e.printStackTrace();
-                } finally {
+                &#125; finally &#123;
                     semaphore.release();
-                }
-            }
-        };
+                &#125;
+            &#125;
+        &#125;;
 
         Thread[] threads = new Thread[10];
-        for (int i = 0; i &lt; threads.length; i++) {
+        for (int i = 0; i &lt; threads.length; i++) &#123;
             threads[i] = new Thread(runnable);
-        }
-        for (int i = 0; i &lt; threads.length; i++) {
+        &#125;
+        for (int i = 0; i &lt; threads.length; i++) &#123;
             threads[i].start();
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
 <p>结果</p>
 <pre><code>Thread-0获得了信号量,时间为1606468873492
@@ -2485,34 +2488,34 @@ Thread-9释放了信号量,时间为1606468883495
 <p>2、acquire方法和release方法是可以有参数的，表示获取/返还的信号量个数</p>
 <h2 id="Exchanger"><a href="#Exchanger" class="headerlink" title="Exchanger"></a>Exchanger</h2><p>Exchanger，从名字上理解就是交换。Exchanger用于在两个线程之间进行数据交换，注意也只能在两个线程之间进行数据交换。线程会阻塞在Exchanger的exchange方法上，直到另外一个线程也到了同一个Exchanger的exchange方法时，二者进行数据交换，然后两个线程继续执行自身相关的代码。</p>
 <p>Exchanger只有一个exchange方法，用于交换数据。看一下例子：</p>
-<pre><code class="java">public class ExchangerThread extends Thread{
+<pre><code class="java">public class ExchangerThread extends Thread&#123;
     private String str;
     private Exchanger&lt;String&gt; exchanger;
     private int sleepSecond;
-    public ExchangerThread(String str, Exchanger&lt;String&gt; exchanger, int sleepSecond) {
+    public ExchangerThread(String str, Exchanger&lt;String&gt; exchanger, int sleepSecond) &#123;
         this.str = str;
         this.exchanger = exchanger;
         this.sleepSecond = sleepSecond;
-    }
-    public void run() {
-        try {
+    &#125;
+    public void run() &#123;
+        try &#123;
             System.out.println(this.getName() + &quot;启动, 原数据为&quot; + str + &quot;, 时间为&quot; + System.currentTimeMillis());
             Thread.sleep(sleepSecond * 1000);
             str = exchanger.exchange(str);
             System.out.println(this.getName() + &quot;交换了数据, 交换后的数据为&quot; + str + &quot;, 时间为&quot; + System.currentTimeMillis());
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">   public static void main(String[] args) {
+<pre><code class="java">   public static void main(String[] args) &#123;
         Exchanger&lt;String&gt; exchanger = new Exchanger&lt;String&gt;();
         ExchangerThread et0 = new ExchangerThread(&quot;111&quot;, exchanger, 5);
         ExchangerThread et1 = new ExchangerThread(&quot;222&quot;, exchanger, 2);
         et0.start();
         et1.start();
-    }
+    &#125;
 </code></pre>
 <p>看一下运行结果：</p>
 <pre><code>Thread-1启动, 原数据为222, 时间为1606469192544
@@ -2522,38 +2525,40 @@ Thread-1交换了数据, 交换后的数据为111, 时间为1606469197544
 </code></pre><p>看到两个线程交换了数据，由于一个线程睡2秒、一个线程睡3秒，既然要交换数据，肯定是睡2秒的要等待睡5秒的，所以看到时间差是3000ms即3s。</p>
 <p>从这个例子看来，Exchanger有点像之前Queue、BlockingQueue以及利用BlockingQueue实现生产者/消费者模型]中的SynchronousQueue的双向形式，它可能在遗传算法和管道设计中很有用。</p>
 <h1 id="CyclicBarrier"><a href="#CyclicBarrier" class="headerlink" title="CyclicBarrier"></a>CyclicBarrier</h1><p>接着讲多线程下的其他组件，第一个要讲的就是CyclicBarrier。CyclicBarrier从字面理解是指循环屏障，它可以协同多个线程，让多个线程在这个屏障前等待，直到所有线程都达到了这个屏障时，再一起继续执行后面的动作。看一下CyclicBarrier的使用实例：</p>
-<pre><code class="java">public class CyclicBarrierThread extends Thread{
+<pre><code class="java">public class CyclicBarrierThread extends Thread&#123;
     private CyclicBarrier cyclicBarrier;
     private int sleepSecond;
-    public CyclicBarrierThread(CyclicBarrier cyclicBarrier, int sleepSecond) {
+    public CyclicBarrierThread(CyclicBarrier cyclicBarrier, int sleepSecond) &#123;
         this.cyclicBarrier = cyclicBarrier;
         this.sleepSecond = sleepSecond;
-    }
-    public void run() {
-        try {
+    &#125;
+    public void run() &#123;
+        try &#123;
             System.out.println(this.getName() + &quot;运行了&quot;);
             Thread.sleep(sleepSecond * 1000);
             System.out.println(this.getName() + &quot;准备等待了, 时间为&quot; + System.currentTimeMillis());
             cyclicBarrier.await();
             System.out.println(this.getName() + &quot;结束等待了, 时间为&quot; + System.currentTimeMillis());
-        } catch (Exception e) {
+        &#125; catch (Exception e) &#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
+
 </code></pre>
-<pre><code class="java">public static void main(String[] args) {
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(3, ()-&gt;{
+<pre><code class="java">public static void main(String[] args) &#123;
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(3, ()-&gt;&#123;
             System.out.println(&quot;CyclicBarrier的所有线程await()结束了，我运行了, 时间为&quot; + System.currentTimeMillis());
-        });
+        &#125;);
         CyclicBarrierThread cbt0 = new CyclicBarrierThread(cyclicBarrier, 3);
         CyclicBarrierThread cbt1 = new CyclicBarrierThread(cyclicBarrier, 6);
         CyclicBarrierThread cbt2 = new CyclicBarrierThread(cyclicBarrier, 9);
         cbt0.start();
         cbt1.start();
         cbt2.start();
+
 </code></pre>
 <p> 看一下运行结果： </p>
-<p><img src="27.png" alt> </p>
+<p><img src="27.png" alt=""> </p>
 <p>从运行结果看，由于是同一个CyclicBarrier，Thread-0先运行到了await()的地方，等着；Thread-2接着运行到了await()的地方，还等着；Thread-1最后运行到了await()的地方，所有的线程都运行到了await()的地方，所以三个线程以及指定的Runnable”同时”运行后面的代码，可以看到，await()之后，四个线程运行的时间一模一样 </p>
 <p>从使用来看，<strong>可能有人觉得CyclicBarrier和CountDownLatch有点像，都是多个线程等待相互完成之后，再执行后面的代码</strong>。实际上，CountDownLatch和CyclicBarrier都是用于多个线程间的协调的，它们二者的几个差别是：</p>
 <p>1、CountDownLatch是在多个线程都进行了latch.countDown()后才会触发事件，唤醒await()在latch上的线程，而执行countDown()的线程，执行完countDown()后<strong>会继续自己线程的工作</strong>； </p>
@@ -2569,18 +2574,18 @@ Thread-1交换了数据, 交换后的数据为111, 时间为1606469197544
 <h2 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h2><p>FutureTask是Future的实现类，它提供了对Future的基本实现。可使用FutureTask包装Callable或Runnable对象，因为<strong>FutureTask实现了Runnable，所以也可以将FutureTask提交给Executor</strong>。</p>
 <p><strong>使用方法</strong></p>
 <p>Callable、Future、FutureTask一般都是和线程池配合使用的，因为线程池ThreadPoolExecutor的父类AbstractExecutorService提供了三种submit方法：</p>
-<p>1、<code>public Future&lt;?&gt; subit(Runnable task){...}</code></p>
-<p>2、<code>public &lt;T&gt; Future&lt;T&gt; submit&lt;Runnable task, T result&gt;{...}</code></p>
-<p>3、<code>public &lt;T&gt; Future&lt;T&gt; submit&lt;Callable&lt;T&gt; task&gt;{...}</code></p>
+<p>1、<code>public Future&lt;?&gt; subit(Runnable task)&#123;...&#125;</code></p>
+<p>2、<code>public &lt;T&gt; Future&lt;T&gt; submit&lt;Runnable task, T result&gt;&#123;...&#125;</code></p>
+<p>3、<code>public &lt;T&gt; Future&lt;T&gt; submit&lt;Callable&lt;T&gt; task&gt;&#123;...&#125;</code></p>
 <p>第2个用得不多，第1个和第3个比较有用</p>
-<h2 id="Callable-Future使用示例"><a href="#Callable-Future使用示例" class="headerlink" title="Callable+Future使用示例"></a>Callable+Future使用示例</h2><pre><code class="java">public class CallableThread implements Callable&lt;String&gt; {
-    public String call() throws Exception {
+<h2 id="Callable-Future使用示例"><a href="#Callable-Future使用示例" class="headerlink" title="Callable+Future使用示例"></a>Callable+Future使用示例</h2><pre><code class="java">public class CallableThread implements Callable&lt;String&gt; &#123;
+    public String call() throws Exception &#123;
         System.out.println(&quot;进入CallableThread的call()方法, 开始睡10秒才返回结果, 目前时间为&quot; + System.currentTimeMillis());
         Thread.sleep(10000);
         return &quot;123&quot;;
-    }
+    &#125;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException &#123;
         ExecutorService executorService = Executors.newCachedThreadPool();
         CallableThread callableThread = new CallableThread();
         Future&lt;String&gt; future = executorService.submit(callableThread);
@@ -2588,16 +2593,16 @@ Thread-1交换了数据, 交换后的数据为111, 时间为1606469197544
         //Thread.sleep(5000);
         //System.out.println(&quot;主线程等待5秒, 当前时间为&quot; + System.currentTimeMillis());
         String str = null;
-        try {
+        try &#123;
             System.out.println(&quot;获取数据&quot;);
             str = future.get();
-        } catch (ExecutionException e) {
+        &#125; catch (ExecutionException e) &#123;
             e.printStackTrace();
-        }
+        &#125;
         System.out.println(&quot;Future已拿到数据, str = &quot; + str + &quot;, 当前时间为&quot; + System.currentTimeMillis());
-    }
+    &#125;
 
-}
+&#125;
 </code></pre>
 <p> 运行结果为： </p>
 <pre><code>进入CallableThread的call()方法, 开始睡10秒才返回结果, 目前时间为1606470635664
@@ -2606,17 +2611,17 @@ Future已拿到数据, str = 123, 当前时间为1606470645664
 </code></pre><p>利用Callable接口submit上去的任务，只要有一个Future引用接收，Future便可以在程序任何地点尝试去获取这条线程返回出去的数据，时间可以比对一下，正好10000ms，即10s </p>
 <p><strong>Future.get方法是一个阻塞方法</strong> ，当submit提交多个任务时，只有所有任务都完成后，才能使用get按照任务的提交顺序得到返回结果，所以一般需要使用future.isDone先判断任务是否全部执行完成，完成后再使用future.get得到结果。（也可以用get (long timeout, TimeUnit unit)方法可以设置超时时间，防止无限时间的等待）  </p>
 <h2 id="Callable-FutureTask使用示例"><a href="#Callable-FutureTask使用示例" class="headerlink" title="Callable+FutureTask使用示例"></a>Callable+FutureTask使用示例</h2><p>有兴趣的可以看下源码，其实使用Callable+Future的方式，executorService.submit(ct)方法返回的Future，底层实现new出来的是一个FutureTask。那么，我们看一下Callable+FutureTask的方式：</p>
-<p><img src="28.png" alt> </p>
-<pre><code class="main">public class CallableThread implements Callable&lt;String&gt; {
+<p><img src="28.png" alt=""> </p>
+<pre><code class="main">public class CallableThread implements Callable&lt;String&gt; &#123;
     @Override
-    public String call() throws Exception {
+    public String call() throws Exception &#123;
         System.out.println(&quot;进入CallableThread的call()方法, 开始sleep10秒, sleep时间为&quot; + System.currentTimeMillis());
         Thread.sleep(10000);
         return &quot;123&quot;;
-    }
-}
+    &#125;
+&#125;
 
- public static void main(String[] args) throws Exception {
+ public static void main(String[] args) throws Exception &#123;
         ExecutorService executorService = Executors.newCachedThreadPool();
         CallableThread ct = new CallableThread();
         FutureTask&lt;String&gt; f = new FutureTask&lt;String&gt;(ct);
@@ -2625,7 +2630,7 @@ Future已拿到数据, str = 123, 当前时间为1606470645664
         System.out.println(&quot;当前时间为&quot; + System.currentTimeMillis());
         String str = f.get();
         System.out.println(&quot;Future已拿到数据, str = &quot; + str + &quot;, 当前时间为&quot; + System.currentTimeMillis());
-    }
+    &#125;
 </code></pre>
 <h2 id="使用Callable、Future和FutureTask的好处"><a href="#使用Callable、Future和FutureTask的好处" class="headerlink" title="使用Callable、Future和FutureTask的好处"></a>使用Callable、Future和FutureTask的好处</h2><p>上面演示了两个例子，其实反映的是现实中一种情况，把上面的例子稍微扩展一下就是：</p>
 <p>有一个method()方法，方法中执行方法A返回一个数据要10秒钟，A方法后面的代码一共要执行20秒钟，但是这20秒的代码中有10秒的方法并不依赖方法A的执行结果，有10秒钟的代码依赖方法A的执行结果。此时若采用同步的方式，那么势必要先等待10秒钟，等待方法A执行完毕，返回数据，再执行后面20秒的代码。</p>
@@ -2636,8 +2641,8 @@ Future已拿到数据, str = 123, 当前时间为1606470645664
 <p>4、获取方法A的运行结果，执行后面方法中10秒依赖方法A运行结果的代码</p>
 <p>这样代码执行效率一下子就提高了，程序不必卡在A方法处。</p>
 <p>当然，也可以不用Callable，采用实现Runnable的方式，run()方法执行完了想个办法给method()方法中的某个变量V赋个值就好了。但是我上一篇文章开头就说了，之所以要用多线程组件，就是因为JDK帮我们很好地实现好了代码细节，让开发者更多可以关注业务层的逻辑。如果使用Runnable的方式，那么我们自己就要考虑很多细节，比如Runnable实现类的run()方法执行完毕给V赋值是否线程安全、10秒后如果A方法没有执行完导致V还没有值怎么办，何况JDK还给用户提供了取消任务、判断任务是否存在等方法。既然JDK已经帮我们考虑并实现这些细节了，在没有有说服力的理由的情况下，我们为什么还要自己写run()方法的实现呢？ </p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/qifengshi/p/6354890.html" target="_blank" rel="noopener">https://www.cnblogs.com/qifengshi/p/6354890.html</a></p>
-<p><a href="https://www.zhihu.com/question/412004413/answer/1384852425" target="_blank" rel="noopener">https://www.zhihu.com/question/412004413/answer/1384852425</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/qifengshi/p/6354890.html">https://www.cnblogs.com/qifengshi/p/6354890.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/412004413/answer/1384852425">https://www.zhihu.com/question/412004413/answer/1384852425</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -3036,7 +3041,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

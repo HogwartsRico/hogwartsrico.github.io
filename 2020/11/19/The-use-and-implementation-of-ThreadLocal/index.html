@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="ThreadLocal使用及其实现原理 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Java"> 
 
     
         <meta property="article:published_time" content="Thu Nov 19 2020 19:06:55 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/11/19/The-use-and-implementation-of-ThreadLocal/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/11/19/The-use-and-implementation-of-ThreadLocal/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是ThreadLocal"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是ThreadLocal</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#有什么用？"><span class="post-toc-number">2.</span> <span class="post-toc-text">有什么用？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#管理Connection"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">管理Connection</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#避免一些参数传递"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">避免一些参数传递</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#怎么用"><span class="post-toc-number">3.</span> <span class="post-toc-text">怎么用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal实现"><span class="post-toc-number">4.</span> <span class="post-toc-text">ThreadLocal实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ThreadLocal-ThreadLocalMap-和Thread-的关系"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">ThreadLocal ,ThreadLocalMap 和Thread 的关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为何ThreadLocalMap设计为ThreadLocal内部类"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">为何ThreadLocalMap设计为ThreadLocal内部类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ThreadLdocalMap何时与Thread-进行绑定-赋值"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">ThreadLdocalMap何时与Thread 进行绑定(赋值)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#get方法"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">get方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#再谈三者关系"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">再谈三者关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么ThreadLocalMap-采用开放地址法来解决哈希冲突"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">为什么ThreadLocalMap 采用开放地址法来解决哈希冲突?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链地址法"><span class="post-toc-number">4.6.1.</span> <span class="post-toc-text">链地址法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开放地址法（-线性探测法-）"><span class="post-toc-number">4.6.2.</span> <span class="post-toc-text">开放地址法（ 线性探测法 ）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链地址法和开放地址法的优缺点"><span class="post-toc-number">4.6.3.</span> <span class="post-toc-text">链地址法和开放地址法的优缺点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ThreadLocalMap-采用开放地址法原因"><span class="post-toc-number">4.6.4.</span> <span class="post-toc-text">ThreadLocalMap 采用开放地址法原因</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#弱引用"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">弱引用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#set-方法"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">set 方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#replaceStaleEntry-方法"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">replaceStaleEntry 方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要交换"><span class="post-toc-number">4.9.1.</span> <span class="post-toc-text">为什么要交换</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#get-方法"><span class="post-toc-number">4.10.</span> <span class="post-toc-text">get 方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#remove-方法"><span class="post-toc-number">4.11.</span> <span class="post-toc-text">remove 方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#expungeStaleEntry"><span class="post-toc-number">4.12.</span> <span class="post-toc-text">expungeStaleEntry</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#cleanSomeSlots"><span class="post-toc-number">4.13.</span> <span class="post-toc-text">cleanSomeSlots</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal内存泄漏原因"><span class="post-toc-number">5.</span> <span class="post-toc-text">ThreadLocal内存泄漏原因</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal在预防内存泄漏方面，做了哪些努力？"><span class="post-toc-number">6.</span> <span class="post-toc-text">ThreadLocal在预防内存泄漏方面，做了哪些努力？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal内存泄漏避免方案"><span class="post-toc-number">7.</span> <span class="post-toc-text">ThreadLocal内存泄漏避免方案</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal使用建议"><span class="post-toc-number">8.</span> <span class="post-toc-text">ThreadLocal使用建议</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFThreadLocal"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是ThreadLocal</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8%EF%BC%9F"><span class="post-toc-number">2.</span> <span class="post-toc-text">有什么用？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%A1%E7%90%86Connection"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">管理Connection</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%81%BF%E5%85%8D%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">避免一些参数传递</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="post-toc-number">3.</span> <span class="post-toc-text">怎么用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal%E5%AE%9E%E7%8E%B0"><span class="post-toc-number">4.</span> <span class="post-toc-text">ThreadLocal实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ThreadLocal-ThreadLocalMap-%E5%92%8CThread-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">ThreadLocal ,ThreadLocalMap 和Thread 的关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BA%E4%BD%95ThreadLocalMap%E8%AE%BE%E8%AE%A1%E4%B8%BAThreadLocal%E5%86%85%E9%83%A8%E7%B1%BB"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">为何ThreadLocalMap设计为ThreadLocal内部类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ThreadLdocalMap%E4%BD%95%E6%97%B6%E4%B8%8EThread-%E8%BF%9B%E8%A1%8C%E7%BB%91%E5%AE%9A-%E8%B5%8B%E5%80%BC"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">ThreadLdocalMap何时与Thread 进行绑定(赋值)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#get%E6%96%B9%E6%B3%95"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">get方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%86%8D%E8%B0%88%E4%B8%89%E8%80%85%E5%85%B3%E7%B3%BB"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">再谈三者关系</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88ThreadLocalMap-%E9%87%87%E7%94%A8%E5%BC%80%E6%94%BE%E5%9C%B0%E5%9D%80%E6%B3%95%E6%9D%A5%E8%A7%A3%E5%86%B3%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81"><span class="post-toc-number">4.6.</span> <span class="post-toc-text">为什么ThreadLocalMap 采用开放地址法来解决哈希冲突?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%93%BE%E5%9C%B0%E5%9D%80%E6%B3%95"><span class="post-toc-number">4.6.1.</span> <span class="post-toc-text">链地址法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%80%E6%94%BE%E5%9C%B0%E5%9D%80%E6%B3%95%EF%BC%88-%E7%BA%BF%E6%80%A7%E6%8E%A2%E6%B5%8B%E6%B3%95-%EF%BC%89"><span class="post-toc-number">4.6.2.</span> <span class="post-toc-text">开放地址法（ 线性探测法 ）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%93%BE%E5%9C%B0%E5%9D%80%E6%B3%95%E5%92%8C%E5%BC%80%E6%94%BE%E5%9C%B0%E5%9D%80%E6%B3%95%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="post-toc-number">4.6.3.</span> <span class="post-toc-text">链地址法和开放地址法的优缺点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ThreadLocalMap-%E9%87%87%E7%94%A8%E5%BC%80%E6%94%BE%E5%9C%B0%E5%9D%80%E6%B3%95%E5%8E%9F%E5%9B%A0"><span class="post-toc-number">4.6.4.</span> <span class="post-toc-text">ThreadLocalMap 采用开放地址法原因</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="post-toc-number">4.7.</span> <span class="post-toc-text">弱引用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#set-%E6%96%B9%E6%B3%95"><span class="post-toc-number">4.8.</span> <span class="post-toc-text">set 方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#replaceStaleEntry-%E6%96%B9%E6%B3%95"><span class="post-toc-number">4.9.</span> <span class="post-toc-text">replaceStaleEntry 方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BA%A4%E6%8D%A2"><span class="post-toc-number">4.9.1.</span> <span class="post-toc-text">为什么要交换</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#get-%E6%96%B9%E6%B3%95"><span class="post-toc-number">4.10.</span> <span class="post-toc-text">get 方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#remove-%E6%96%B9%E6%B3%95"><span class="post-toc-number">4.11.</span> <span class="post-toc-text">remove 方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#expungeStaleEntry"><span class="post-toc-number">4.12.</span> <span class="post-toc-text">expungeStaleEntry</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#cleanSomeSlots"><span class="post-toc-number">4.13.</span> <span class="post-toc-text">cleanSomeSlots</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%8E%9F%E5%9B%A0"><span class="post-toc-number">5.</span> <span class="post-toc-text">ThreadLocal内存泄漏原因</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal%E5%9C%A8%E9%A2%84%E9%98%B2%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%96%B9%E9%9D%A2%EF%BC%8C%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E5%8A%AA%E5%8A%9B%EF%BC%9F"><span class="post-toc-number">6.</span> <span class="post-toc-text">ThreadLocal在预防内存泄漏方面，做了哪些努力？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%81%BF%E5%85%8D%E6%96%B9%E6%A1%88"><span class="post-toc-number">7.</span> <span class="post-toc-text">ThreadLocal内存泄漏避免方案</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ThreadLocal%E4%BD%BF%E7%94%A8%E5%BB%BA%E8%AE%AE"><span class="post-toc-number">8.</span> <span class="post-toc-text">ThreadLocal使用建议</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Java/">Java</a>
+        <a class="post_tag-none-link" href="/tags/Java/" rel="tag">Java</a>
     </ul>
     
 
@@ -472,14 +472,14 @@
 <pre><code class="java">/**
  * This class provides thread-local variables.  These variables differ from
  * their normal counterparts in that each thread that accesses one (via its
- * {@code get} or {@code set} method) has its own, independently initialized
- * copy of the variable.  {@code ThreadLocal} instances are typically private
+ * &#123;@code get&#125; or &#123;@code set&#125; method) has its own, independently initialized
+ * copy of the variable.  &#123;@code ThreadLocal&#125; instances are typically private
  * static fields in classes that wish to associate state with a thread (e.g.,
  * a user ID or Transaction ID).
  * 
  * &lt;p&gt;For example, the class below generates unique identifiers local to each
  * thread.
- * A thread&#39;s id is assigned the first time it invokes {@code ThreadId.get()}
+ * A thread&#39;s id is assigned the first time it invokes &#123;@code ThreadId.get()&#125;
  * and remains unchanged on subsequent calls.
  */
 </code></pre>
@@ -501,13 +501,13 @@
 <p>当时在学JDBC的时候，为了方便操作写了一个简单数据库连接池，需要数据库连接池的理由也很简单，频繁创建和关闭Connection是一件非常耗费资源的操作，因此需要创建数据库连接池 </p>
 <p>那么，数据库连接池的连接怎么管理呢？？我们交由ThreadLocal来进行管理。为什么交给它来管理呢？？ThreadLocal能够实现<strong>当前线程的操作都是用同一个Connection，保证了事务！</strong></p>
 <p>当时候写的代码：</p>
-<pre><code class="java">public class DBUtil {
+<pre><code class="java">public class DBUtil &#123;
     //DBCP数据库连接池
     private static BasicDataSource source;
     //为不同的线程管理连接
     private static ThreadLocal&lt;Connection&gt; local;
-    static {
-        try {
+    static &#123;
+        try &#123;
             //加载配置文件
             Properties properties = new Properties();
             //获取读取流
@@ -536,61 +536,61 @@
             source.setMinIdle(Integer.parseInt(properties.getProperty(&quot;minidle&quot;)));
             //初始化线程本地
             local = new ThreadLocal&lt;&gt;();
-        } catch (IOException e) {
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
+        &#125;
+    &#125;
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException &#123;
         //从BasicDataSource池中获取连接
         Connection connection = source.getConnection(); 
         //把当前线程获取到的Connection放进ThreadLocal里面
         local.set(connection);
         //返回Connection对象
         return connection;
-    }
+    &#125;
 
     //关闭数据库连接
-    public static void closeConnection() {
+    public static void closeConnection() &#123;
         //从threadlocal中拿到当前线程的Connection对象
         Connection connection = local.get();
-        try {
-            if (connection != null) {
+        try &#123;
+            if (connection != null) &#123;
                 //恢复连接为自动提交
                 connection.setAutoCommit(true);
                 //这里不是真的把连接关了,只是将该连接归还给连接池
                 connection.close();
                 //既然连接已经归还给连接池了,ThreadLocal保存的Connction对象也已经没用了
                 local.remove();
-            }
-        } catch (SQLException e) {
+            &#125;
+        &#125; catch (SQLException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <h2 id="避免一些参数传递"><a href="#避免一些参数传递" class="headerlink" title="避免一些参数传递"></a>避免一些参数传递</h2><p> 日常中我们要去办理业务可能会有很多地方用到身份证，各类证件，每次我们都要掏出来很麻烦 </p>
 <pre><code class="java">    // 咨询时要用身份证，学生证，房产证等等....
-    public void consult(IdCard idCard,StudentCard studentCard,HourseCard hourseCard){
+    public void consult(IdCard idCard,StudentCard studentCard,HourseCard hourseCard)&#123;
 
-    }
+    &#125;
 
     // 办理时还要用身份证，学生证，房产证等等....
-    public void manage(IdCard idCard,StudentCard studentCard,HourseCard hourseCard) {
+    public void manage(IdCard idCard,StudentCard studentCard,HourseCard hourseCard) &#123;
 
-    }
+    &#125;
 </code></pre>
 <p>而如果用了ThreadLocal的话，ThreadLocal就相当于一个机构，ThreadLocal机构做了记录你有那么多张证件。用到的时候就不用自己掏了，问机构拿就可以了。</p>
 <p>在咨询时的时候就告诉机构：来，把我的身份证、房产证、学生证通通给他。在办理时又告诉机构：来，把我的身份证、房产证、学生证通通给他。…</p>
 <pre><code class="java">// 咨询时要用身份证，学生证，房产证等等....
-    public void consult(){
+    public void consult()&#123;
         threadLocal.get();
-    }
+    &#125;
 
     // 办理时还要用身份证，学生证，房产证等等....
-    public void takePlane() {
+    public void takePlane() &#123;
         threadLocal.get();
-    }
+    &#125;
 </code></pre>
 <p>通过ThreadLocal的set()方法设置到线程的<code>ThreadLocal.ThreadLocalMap</code>里的是是线程自己要存储的对象，其他线程不需要去访问，也是访问不到的。各个线程中的<code>ThreadLocal.ThreadLocalMap</code>以及<code>ThreadLocal.ThreadLocal</code>中的值都是不同的对象。</p>
 <h1 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h1><p>其实上面的数据库连接池中的代码已经部分展示了如何使用了 </p>
@@ -604,7 +604,7 @@
     System.out.println(threadLocal2.get());
     threadLocal2.remove();
 </code></pre>
-<p><img src="20.png" alt> </p>
+<p><img src="20.png" alt=""> </p>
 <p>没错，这四行代码已经把<code>ThreadLocal</code>的使用方法表现得明明白白。</p>
 <ul>
 <li><code>get</code>从<code>ThreadLocal</code>拿出一个当前线程所拥有得对象</li>
@@ -612,15 +612,15 @@
 <li><code>remove</code>将当前线程绑定的当前对象移除</li>
 </ul>
 <p>﻿案例2 </p>
-<pre><code class="java">public class ThreadLocalTest2 {
-    public static void main(String[] args) throws InterruptedException {
+<pre><code class="java">public class ThreadLocalTest2 &#123;
+    public static void main(String[] args) throws InterruptedException &#123;
         final ThreadLocal&lt;String&gt; threadLocal = new ThreadLocal&lt;&gt;();
         threadLocal.set(&quot;我是主线程的变量&quot;);
-        Thread thread = new Thread(() -&gt; {
+        Thread thread = new Thread(() -&gt; &#123;
             // 获取不到主线程设置的值，所以为null
             threadLocal.set(&quot;我是子线程的变量&quot;);
             System.out.println(&quot;子线程中get到的值:&quot;+threadLocal.get());
-        });
+        &#125;);
         // 启动子线程
         thread.start();
         thread.join(); //阻塞主线程,知道子线程执行完成
@@ -628,10 +628,10 @@
         System.out.println(&quot;主线程中get到的值:&quot;+threadLocal.get());
         threadLocal.remove(); System.out.println(&quot;移除主线程的值&quot;);
         System.out.println(&quot;主线程中get到的值:&quot;+threadLocal.get());
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<p><img src="22.png" alt> </p>
+<p><img src="22.png" alt=""> </p>
 <p><strong>记住在使用的以后，一定要remove,一定要remove,一定要remove</strong></p>
 <p>为什么要<code>remove</code>。相信不少小伙伴听到过<code>ThreadLocal</code>会导致内存泄漏问题。</p>
 <p>没错，所以为了解决这种情况，所以用完就移除，别浪费空间 </p>
@@ -660,13 +660,13 @@
 <li>虚引用。通过<code>PhantomReference</code>创建，它和不存也一样，<strong>非常虚，只能通过引用队列在进行一些操作，主要用于堆外内存回收</strong></li>
 </ul>
 <h2 id="ThreadLocal-ThreadLocalMap-和Thread-的关系"><a href="#ThreadLocal-ThreadLocalMap-和Thread-的关系" class="headerlink" title="ThreadLocal ,ThreadLocalMap 和Thread 的关系"></a>ThreadLocal ,ThreadLocalMap 和Thread 的关系</h2><p>这三者的关系由于大量的内部类的关系，第一次看的时候还是有点绕的 .建议先抛开内部类的关系，把每一个类当作普通类来看到，理解每個类的职责，最后再把内部类放进去考虑这样设计的目的。这里也给大家一个启示，面对复杂的事情的时候，我们需要跳出来，先把问题简单化，大方向把握了，再进一步去细化每一个功能点和设计的艺术</p>
-<p><img src="1.png" alt></p>
+<p><img src="1.png" alt=""></p>
 <p>从上图我们可以发现<strong>Thread 中持有一个ThreadLocalMap </strong> </p>
-<p><img src="2.png" alt></p>
+<p><img src="2.png" alt=""></p>
 <p>这里的ThreadLocalMap可以简单理解为就是持有一个数组（具体这个ThreadLocalMap我下面会详细介绍），这个数组是Entry 类型的。 Entry 的key 是ThreadLocal 类型的（就是你自己new出来的ThreadLocal），value 是Object 类型。一个ThreadLocalMap 可以持有多个ThreadLocal。他们是一对多的关系,就像上面的代码中我在一个线程中new了2个ThreadLocal,都可以获取到对应的值。 （也可以一个ThreadLocal对象实例用在多个线程中）</p>
-<p><img src="3.png" alt></p>
+<p><img src="3.png" alt=""></p>
 <p>不难看出ThreadLocalMap类是ThreadLocal类的静态内部类   而Entry是ThreadLocalMap的静态内部类，key是ThreadLocal（声明为弱引用），value是Object，也就是我们要存的值。 </p>
-<p><img src="4.png" alt></p>
+<p><img src="4.png" alt=""></p>
 <h2 id="为何ThreadLocalMap设计为ThreadLocal内部类"><a href="#为何ThreadLocalMap设计为ThreadLocal内部类" class="headerlink" title="为何ThreadLocalMap设计为ThreadLocal内部类"></a>为何ThreadLocalMap设计为ThreadLocal内部类</h2><p>看到各种内部类是不是有点晕，为什么不独立ThreadLocalMap 出来呢？其实这里涉及到内部类起到封装的作用。来，我们看看源码的解析</p>
 <pre><code class="java">    /**
      * ThreadLocalMap is a customized hash map suitable only for
@@ -678,47 +678,47 @@
      * used, stale entries are guaranteed to be removed only when
      * the table starts running out of space.
      */
-    static class ThreadLocalMap {
+    static class ThreadLocalMap &#123;
     //这里省略其他属性和方法
-    }
+    &#125;
 </code></pre>
 <p>主要是说明ThreadLocalMap 是一个线程本地的值，它所有的方法都是private 的，也就意味着除了ThreadLocal 这个类，其他类是不能操作ThreadLocalMap 中的任何方法的，这样就可以对其他类是透明的。同时这个类的权限是包级别的，也就意味着只有同一个包下面的类才能引用ThreadLocalMap 这个类，这也是Thread 为什么可以引用ThreadLocalMap 的原因，因为他们在同一个包下面。</p>
 <p><strong>虽然Thread 可以引用ThreadLocalMap，但是不能调用任何ThreadLocalMap 中的方法。这也就是我们平时都是通过ThreadLocal 来获取值和设置值</strong>，看下以下代码</p>
-<pre><code class="java">public class Test {
+<pre><code class="java">public class Test &#123;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) &#123;
         ThreadLocal&lt;String&gt; local = new ThreadLocal&lt;&gt;();
         local.set(&quot;hello word&quot;);
         System.out.println(local.get());
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>但我们调用ThreadLocal 的get 方法的时候，其实我们最后是通过调用ThreadLocalMap  来获取值的</p>
-<pre><code class="java"> public T get() {
+<pre><code class="java"> public T get() &#123;
         //这里通过获取当前的线程
         Thread t = Thread.currentThread();
         //通过线程来获取ThreadLocalMap ，还记得我们上面说的Thread 里面有一个ThreadLocalMap 属性吗？就是这里用上了
         ThreadLocalMap map = getMap(t);
-        if (map != null) {
+        if (map != null) &#123;
             ThreadLocalMap.Entry e = map.getEntry(this);
-            if (e != null) {
+            if (e != null) &#123;
                 @SuppressWarnings(&quot;unchecked&quot;)
                 T result = (T)e.value;
                 return result;
-            }
-        }
+            &#125;
+        &#125;
         return setInitialValue();
-    }
+    &#125;
 </code></pre>
-<pre><code class="java">ThreadLocalMap getMap(Thread t) {
+<pre><code class="java">ThreadLocalMap getMap(Thread t) &#123;
         return t.threadLocals;//即Thread.java的threadLcoals，它是ThreadLcoal.ThreadLocalMap类型的
-}
+&#125;
 </code></pre>
-<p><img src="23.png" alt> </p>
+<p><img src="23.png" alt=""> </p>
 <p>到这里，读者应该大概明白了，其实ThreadLdocalMap  对使用者来说是透明的，可以当作空气，我们一值使用的都是ThreadLocal，这样的设计在使用的时候就显得简单，然后封装性又特别好。</p>
 <h2 id="ThreadLdocalMap何时与Thread-进行绑定-赋值"><a href="#ThreadLdocalMap何时与Thread-进行绑定-赋值" class="headerlink" title="ThreadLdocalMap何时与Thread 进行绑定(赋值)"></a>ThreadLdocalMap何时与Thread 进行绑定(赋值)</h2><p>在第一次调用ThreadLocal set() 方法的时候开始绑定的，来我们看下set 方法的源码</p>
 <p>ThreadLoca.java</p>
-<pre><code class="java">    public void set(T value) {
+<pre><code class="java">    public void set(T value) &#123;
         Thread t = Thread.currentThread();
         ThreadLocalMap map = getMap(t);
         if (map != null)
@@ -726,35 +726,35 @@
         else
         //第一次的时候进来这里，因为ThreadLocalMap还为null
             createMap(t, value);
-    }
+    &#125;
 </code></pre>
 <pre><code class="java">     //这个时候开始创建一个新的ThreadLocalMap 赋值给Thread 进行绑定
-    void createMap(Thread t, T firstValue) {
+    void createMap(Thread t, T firstValue) &#123;
         t.threadLocals = new ThreadLocalMap(this, firstValue);//this就是key,就是ThreadLocal对象
-    }
+    &#125;
 </code></pre>
-<p><img src="5.png" alt></p>
+<p><img src="5.png" alt=""></p>
 <p> 其中</p>
 <pre><code class="java">        /**
          * Set the resize threshold to maintain at worst a 2/3 load factor.
          */
-        private void setThreshold(int len) {
+        private void setThreshold(int len) &#123;
             threshold = len * 2 / 3;
-        }
+        &#125;
 </code></pre>
 <p>Entry是Map中用来保存一个键值对的，而Map实际上就是多个Entry的集合。<code>Entry&lt;key,value&gt;</code> 和<code>Map&lt;key,value&gt;</code> 一样的理解方式就OK了 . Entry是Map实现类的内部类。看下HashMap实现源码，就明白Entry的作用了。 </p>
 <p>createMap 方法只是在<strong>第一次设置值的时候创建一个ThreadLocalMap 赋值给Thread 对象的threadLocals 属性进行绑定</strong>，以后就可以直接通过这个属性获取到值了。</p>
 <p>由于是第一次设值，肯定不用考虑地址冲突 。这里的<code>int i = firstKey.threadLocalHashCode &amp; (INITIAL_CAPACITY - 1);</code> 下面会详细解读</p>
 <p>举例</p>
-<pre><code class="java">public class Test {
-    public static void main(String[] args) {
+<pre><code class="java">public class Test &#123;
+    public static void main(String[] args) &#123;
         ThreadLocal&lt;String&gt; local = new ThreadLocal&lt;&gt;();
         //设置值
         local.set(&quot;hello word&quot;);
         //获取刚刚设置的值
         System.out.println(local.get());
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>值真正是放在ThreadLocalMap 中存取的，ThreadLocalMap 内部类有一个Entry 类，<strong>key是ThreadLocal 对象</strong>，value 就是你要存放的值，上面的代码value 存放的就是hello word。ThreadLocalMap 和HashMap的功能类似，但是实现上却有很大的不同：</p>
 <ol>
@@ -765,11 +765,11 @@
 <li>HashMap 里面的Entry 内部类的引用都是强引用</li>
 <li>ThreadLocalMap里面的Entry 内部类中的key 是弱引用，value 是强引用</li>
 </ol>
-<h2 id="get方法"><a href="#get方法" class="headerlink" title="get方法"></a>get方法</h2><p><img src="6.png" alt></p>
-<p><img src="7.png" alt></p>
+<h2 id="get方法"><a href="#get方法" class="headerlink" title="get方法"></a>get方法</h2><p><img src="6.png" alt=""></p>
+<p><img src="7.png" alt=""></p>
 <p>get方法其实就是set方法索引的逆向，根据key算出数组索引位置，把value返回出去</p>
 <h2 id="再谈三者关系"><a href="#再谈三者关系" class="headerlink" title="再谈三者关系"></a>再谈三者关系</h2><p>至此，我对ThreadLocal,ThreadLocalMap和Thread的关系有了更深的印象</p>
-<p><img src="1.png" alt></p>
+<p><img src="1.png" alt=""></p>
 <p>ThreadLocalMap的key就是我们new出来的ThreadLocal对象, 一个Thread中可以有多个ThreadLocal(也即多个key,也就是可以set多个k-v), </p>
 <p>ThreadLocalMap其实是个数组,value的下标通过key哈希得到，数组该下标的位置存的就是value</p>
 <p>该数组就是table,它是Entry的数组</p>
@@ -780,17 +780,17 @@
         private Entry[] table;
 </code></pre>
 <p>entry的数据结构</p>
-<p><img src="8.png" alt></p>
+<p><img src="8.png" alt=""></p>
 <h2 id="为什么ThreadLocalMap-采用开放地址法来解决哈希冲突"><a href="#为什么ThreadLocalMap-采用开放地址法来解决哈希冲突" class="headerlink" title="为什么ThreadLocalMap 采用开放地址法来解决哈希冲突?"></a>为什么ThreadLocalMap 采用开放地址法来解决哈希冲突?</h2><p>jdk 中大多数的类都是采用了链地址法来解决hash 冲突，为什么ThreadLocalMap 采用开放地址法来解决哈希冲突呢？首先我们来看看这两种不同的方式</p>
 <h3 id="链地址法"><a href="#链地址法" class="headerlink" title="链地址法"></a>链地址法</h3><p>这种方法的基本思想是将所有哈希地址为 i 的元素构成一个称为同义词链的单链表，并将单链表的头指针存在哈希表的第i个单元中，因而查找、插入和删除主要在同义词链中进行。列如对于关键字集合{12,67,56,16,25,37, 22,29,15,47,48,34}，我们用前面同样的12为除数，进行除留余数法：</p>
-<p><img src="10.png" alt></p>
+<p><img src="10.png" alt=""></p>
 <h3 id="开放地址法（-线性探测法-）"><a href="#开放地址法（-线性探测法-）" class="headerlink" title="开放地址法（ 线性探测法 ）"></a>开放地址法（ <strong>线性探测法</strong> ）</h3><p> <strong>人话就是：如果当前数组位有值，则判断下一个数组位是否有值，如果有值继续向下寻找，直到一个为空的数组位</strong>  </p>
 <p>这种方法的基本思想是<strong>一旦发生了冲突，就去寻找下一个空的散列地址</strong>(这非常重要，源码都是根据这个特性，必须理解这里才能往下走)，只要散列表足够大，空的散列地址总能找到，并将记录存入。</p>
 <p>比如说，我们的关键字集合为{12,33,4,5,15,25},表长为10。 我们用散列函数f(key) = key mod l0。 当计算前S个数{12,33,4,5}时，都是没有冲突的散列地址，直接存入（蓝色代表为空的，可以存放数据）：</p>
-<p><img src="11.png" alt></p>
+<p><img src="11.png" alt=""></p>
 <p>计算key = 15时，发现f(15) = 5，此时就与5所在的位置冲突。</p>
 <p>于是我们应用上面的公式f(15) = (f(15)+1) mod 10 =6。于是将15存入下标为6的位置。这其实就是房子被人买了于是买下一间的作法：</p>
-<p><img src="12.png" alt></p>
+<p><img src="12.png" alt=""></p>
 <h3 id="链地址法和开放地址法的优缺点"><a href="#链地址法和开放地址法的优缺点" class="headerlink" title="链地址法和开放地址法的优缺点"></a>链地址法和开放地址法的优缺点</h3><p>开放地址法：</p>
 <ol>
 <li>容易产生堆积问题，不适于大规模的数据存储。</li>
@@ -807,7 +807,7 @@
 <h3 id="ThreadLocalMap-采用开放地址法原因"><a href="#ThreadLocalMap-采用开放地址法原因" class="headerlink" title="ThreadLocalMap 采用开放地址法原因"></a>ThreadLocalMap 采用开放地址法原因</h3><p>上面有讲到的ThreadLocalMap构造函数有一行代码如下，是计算数组下标的</p>
 <p><code>int i = firstKey.threadLocalHashCode &amp; (INITIAL_CAPACITY - 1);</code>  </p>
 <p>另一方面如果不是第一次，会调用set方法</p>
-<pre><code class="java">  private void set(ThreadLocal&lt;?&gt; key, Object value) {
+<pre><code class="java">  private void set(ThreadLocal&lt;?&gt; key, Object value) &#123;
 
             // We don&#39;t use a fast path as with get() because it is at
             // least as common to use set() to create new entries as
@@ -821,32 +821,32 @@
 </code></pre>
 <p> 也有计算地址的代码，逻辑就是<strong>key.threadLocalHashCode和长度-1进行与与运算</strong></p>
 <p>那么什么是key.threadLocalHashCode?</p>
-<p><img src="24.png" alt> </p>
+<p><img src="24.png" alt=""> </p>
 <p> 注意实例变量<code>threadLocalHashCode</code>,  <strong>每当创建<code>ThreadLocal</code>实例时这个值都会累加 <code>0x61c88647</code></strong>,   (它是在上一个被构造出的ThreadLocal的threadLocalHashCode的基础上加上一个魔数0x61c88647的，经过我debug代码发现确实是这样，也就是说你每new一个新的ThreadLocal,新的ThreadLocal拿到的threadLocalHashCode都不一样,在一个JVM实例中是不停累加的,因为nextHashCode是静态变量,跟随类的)   </p>
 <p><strong>至于为什么每次new ThreadLocal都要累加？是因为新new一个ThreadLocal，意味着就有新的东西要加入到数组中了，那么去拿下标的时候数组位置肯定不能是原来那个，就需要累加，这样逻辑与出来的下标才不会是原来那个。</strong> </p>
 <p>0x61c88647 是一个神奇的数字，让哈希码能均匀的分布在2的N次方的数组里(即<code>Entry[] table</code>)  </p>
 <p> <code>key.threadLocalHashCode &amp; (len-1)</code>这么用是什么意思?  由于<code>table</code>数组的长度的大小必须是2的N次方 ，那 <code>len-1</code> 的二进制表示就是低位连续的N个1，那 <code>key.threadLocalHashCode &amp; (len-1)</code> 的值就是 <code>threadLocalHashCode</code> 的低N位, 这样就能均匀的产生均匀的分布? 我用代码做个实验吧</p>
-<pre><code class="java"> public static void main(String[] args) {
+<pre><code class="java"> public static void main(String[] args) &#123;
         hash(16,10);
         hash(32,10);
-    }
+    &#125;
 
-    static void hash(int range, int times){
+    static void hash(int range, int times)&#123;
         int a = 0x61c88647;
         int len = range -1;
-        for ( int i = 0 ; i &lt; times; i++) {
+        for ( int i = 0 ; i &lt; times; i++) &#123;
             System.out.print(i*a&amp;len);
             System.out.print(&quot;,&quot;);
-        }
+        &#125;
         System.out.println();
-    }
+    &#125;
 /*
 输出
 0,7,14,5,12,3,10,1,8,15
 0,7,14,21,28,3,10,17,24,31,6,13,20,27,2,9,16,23,30,5
 */
 </code></pre>
-<p>产生的哈希码分布真的是很均匀，而且没有任何冲突啊, 太神奇了, <a href="http://www.javaspecialists.eu/archive/Issue164.html" target="_blank" rel="noopener">javaspecialists</a>中的一篇文章有对它的一些描述：</p>
+<p>产生的哈希码分布真的是很均匀，而且没有任何冲突啊, 太神奇了, <a target="_blank" rel="noopener" href="http://www.javaspecialists.eu/archive/Issue164.html">javaspecialists</a>中的一篇文章有对它的一些描述：</p>
 <blockquote>
 <p>This number represents the <strong>golden ratio</strong> (sqrt(5)-1) times two to the power of 31 ((sqrt(5)-1) * (2^31)). The result is then a golden number, either 2654435769 or -1640531527.</p>
 </blockquote>
@@ -858,22 +858,22 @@
 <p>ThreadLocal 往往存放的数据量不会特别大（而且key 是弱引用又会被垃圾回收，及时让数据量更小），这个时候开放地址法简单的结构会显得更省空间，同时数组的查询效率也是非常高，加上第一点的保障，冲突概率也低</p>
 <p>PS: 这里只有在new ThreadLocal的时候,threadLocalHash才会实例化，才会调用nextHashCode方法,而如果仅仅是获取threadLocalHash的值时，并不会调用nextHashCode方法。 </p>
 <h2 id="弱引用"><a href="#弱引用" class="headerlink" title="弱引用"></a>弱引用</h2><p>我们看看ThreadLocalMap 中的存放数据的内部类Entry 的实现源码</p>
-<pre><code class="java">        static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; {
+<pre><code class="java">        static class Entry extends WeakReference&lt;ThreadLocal&lt;?&gt;&gt; &#123;
             /** The value associated with this ThreadLocal. */
             Object value;
 
-            Entry(ThreadLocal&lt;?&gt; k, Object v) {
+            Entry(ThreadLocal&lt;?&gt; k, Object v) &#123;
                 super(k);
                 value = v;
-            }
-        }
+            &#125;
+        &#125;
 </code></pre>
 <p>我们可以知道Entry 的key 是一个弱引用，也就意味这可能会被垃圾回收器回收掉</p>
 <pre><code class="java">threadLocal.get() == null
 </code></pre>
 <p>也就意味着被回收掉了</p>
 <h2 id="set-方法"><a href="#set-方法" class="headerlink" title="set 方法"></a>set 方法</h2><p><strong>set方法就是先找相同的key，找到了就替换，找不到就新增。</strong></p>
-<pre><code class="java"> private void set(ThreadLocal&lt;?&gt; key, Object value) {
+<pre><code class="java"> private void set(ThreadLocal&lt;?&gt; key, Object value) &#123;
             Entry[] tab = table;
             int len = tab.length;
             //计算数组的下标
@@ -884,21 +884,21 @@
            //找不到就往下一个index找，有两种可能会退出这个循环
            // 1.找到了相同ThreadLocal对象
            // 2.一直往数组下一个下标查询，直到下一个下标对应的是null 跳出
-            for (Entry e = tab[i];e != null;e = tab[i = nextIndex(i, len)]) {
+            for (Entry e = tab[i];e != null;e = tab[i = nextIndex(i, len)]) &#123;
                 ThreadLocal&lt;?&gt; k = e.get();
                 //如果找到直接设置value 值返回，这个很简单没什么好讲的
-                if (k == key) {
+                if (k == key) &#123;
                     e.value = value;
                     return;
-                }
+                &#125;
 
                // k==null&amp;&amp;e!=null 说明key被垃圾回收了，这里涉及到弱引用，接下来讲
-                if (k == null) {
+                if (k == null) &#123;
                     //key被回收的话就需要交换掉过期过期的值，并把新的值放在这里返回 具体下面会讲
                     replaceStaleEntry(key, value, i);
                     return;
-                }
-            }
+                &#125;
+            &#125;
             //来到这里，说明没找到,新增
             tab[i] = new Entry(key, value);
             int sz = ++size;
@@ -906,19 +906,19 @@
             if (!cleanSomeSlots(i, sz) &amp;&amp; sz &gt;= threshold)
               //进行扩容，这里先不讲
                 rehash();
-        }
+        &#125;
 </code></pre>
 <p>还是拿上面解释开放地址法解释的例子来说明下。 比如说，我们的关键字集合为{12,33,4,5,15,25},表长为10。 我们用散列函数f(key) = key mod l0。 当计算前S个数{12,33,4,5,15,25}时，并且此时key=3,k=5 已经过期了（蓝色代表为空的，可以存放数据，红色代表key 过期，过期的key为null）：</p>
-<p><img src="13.png" alt></p>
+<p><img src="13.png" alt=""></p>
 <p>这时候来了一个新的数据，key=15,value=new,通过计算f(15)=5,此时5已经过期，进入到下面这个if 语句</p>
-<pre><code class="java">    if (k == null) {
+<pre><code class="java">    if (k == null) &#123;
     //key 过期了，要进行替换
         replaceStaleEntry(key, value, i);
         return;
-     }
+     &#125;
 </code></pre>
 <h2 id="replaceStaleEntry-方法"><a href="#replaceStaleEntry-方法" class="headerlink" title="replaceStaleEntry 方法"></a>replaceStaleEntry 方法</h2><p>这个方法在set中被调用, 就是当set某个值的时候，<strong>查到它的key被回收了</strong>，就需要替换掉过期的值，把新的值放在这里返回</p>
-<pre><code class="java"> private void replaceStaleEntry(ThreadLocal&lt;?&gt; key, Object value,int staleSlot) {
+<pre><code class="java"> private void replaceStaleEntry(ThreadLocal&lt;?&gt; key, Object value,int staleSlot) &#123;
             Entry[] tab = table;
             int len = tab.length;
             Entry e;
@@ -940,11 +940,11 @@
             //注意：在右边如果找到需要设置值的key（这个例子是key=15）相同的时候就开始清理，然后返回，不再继续遍历下去了，不理解的话看下面的图
             for (int i = nextIndex(staleSlot, len);
                  (e = tab[i]) != null;
-                 i = nextIndex(i, len)) {
+                 i = nextIndex(i, len)) &#123;
                 ThreadLocal&lt;?&gt; k = e.get();
                 //说明之前已经存在相同的key,所以需要替换旧的值并且和前面那个过期的对象的进行交换位置，
                 //交换的目的下面会解释
-                if (k == key) {
+                if (k == key) &#123;
                     e.value = value;
 
                     tab[i] = tab[staleSlot];
@@ -958,7 +958,7 @@
                         //进行清理过期数据
                     cleanSomeSlots(expungeStaleEntry(slotToExpunge), len);
                     return;
-                }
+                &#125;
 
                 // 如果我们在第一个for 循环(i--) 向前遍历的时候没有找到任何过期的对象
                 // 那么我们需要把slotToExpunge 设置为向后遍历(i++) 的第一个过期对象的位置
@@ -967,7 +967,7 @@
                 //综上所述，staleSlot位置上不管怎么样，存放的都是有效的值，所以不需要清理的
                 if (k == null &amp;&amp; slotToExpunge == staleSlot)
                     slotToExpunge = i;
-            }
+            &#125;
 
             // 如果key 在数组中没有存在，那么直接新建一个新的放进去就可以
             tab[staleSlot].value = null;
@@ -976,7 +976,7 @@
             // 如果有其他已经过期的对象，那么需要清理他
             if (slotToExpunge != staleSlot)
                 cleanSomeSlots(expungeStaleEntry(slotToExpunge), len);
-        }
+        &#125;
 </code></pre>
 <p><strong>第一个for 循环是向前遍历数据的，直到遍历到空的entry 就停止</strong>（这个是根据开放地址的线性探测法）,这里的例子就是遍历到index=1就停止了。向前遍历的过程同时会找出过期的key,这个时候找到的是下标index=3 的为过期，进入到</p>
 <pre><code class="java">if (e.get() == null)
@@ -985,7 +985,7 @@
 <p>注意此时slotToExpunge=3，staleSlot=5</p>
 <p>第二个for 循环是从index=staleSlot开始，向后遍历的,也是直到空的entry为止，找出是否有和当前匹配的key,有的话进行清理过期的对象和重新设置当前的值。这个例子遍历到index=6 的时候，匹配到key=15的值，进入如下代码</p>
 <p>PS：注意往前找和往后找，做的事情也不一样。 往前找是为了清理对象。 往后找不单单为了清理对象，还为了找相同key的对象。 因为开放地址法的原因。 </p>
-<pre><code class="java">            if (k == key) {//如果key相同,说明找到需要交换的了
+<pre><code class="java">            if (k == key) &#123;//如果key相同,说明找到需要交换的了
                     e.value = value;
 
                     tab[i] = tab[staleSlot];
@@ -996,37 +996,37 @@
                         slotToExpunge = i;
                     cleanSomeSlots(expungeStaleEntry(slotToExpunge), len);
                     return;
-         }
+         &#125;
 </code></pre>
 <p>先进行数据交换，注意此时slotToExpunge=3，staleSlot=5，i=6。这里就是把5 和6 的位置的元素进行交换，<strong>并且设置新的value=new</strong>,交换后的图是这样的 </p>
-<p><img src="14.png" alt></p>
+<p><img src="14.png" alt=""></p>
 <p>所以replaceStaleEntry 方法的作用用一句话总结就是交换并替换新值</p>
 <h3 id="为什么要交换"><a href="#为什么要交换" class="headerlink" title="为什么要交换"></a>为什么要交换</h3><p>这里解释下为什么交换， 目前是这样的。 </p>
-<p><img src="25.png" alt> </p>
+<p><img src="25.png" alt=""> </p>
 <p>我们先来看看如果不交换的话，经过设置值和清理过期对象，会是以下这张图。 把第5个清理了。 key为15的由于之前第5个被占了就到第6个去了</p>
-<p><img src="15.png" alt></p>
+<p><img src="15.png" alt=""></p>
 <p>这个时候如果我们再一次设置一个key=15,value=new2 的值，通过f(15)=5,这个时候由于上次index=5是过期对象，被清空了，所以可以存在数据，那么就直接存放在这里了</p>
-<p><img src="16.png" alt></p>
+<p><img src="16.png" alt=""></p>
 <p>你看，这样整个数组就存在两个key=15 的数据了，这样是不允许的，所以一定要交换数据. 之后才会避免这种情况</p>
-<h2 id="get-方法"><a href="#get-方法" class="headerlink" title="get 方法"></a>get 方法</h2><pre><code class="java">public T get() {
+<h2 id="get-方法"><a href="#get-方法" class="headerlink" title="get 方法"></a>get 方法</h2><pre><code class="java">public T get() &#123;
         //获取当前线程
         Thread t = Thread.currentThread();
         //拿到当前线程的Map
         ThreadLocalMap map = getMap(t);
-        if (map != null) {
+        if (map != null) &#123;
             //获取这个实体
             ThreadLocalMap.Entry e = map.getEntry(this);
-            if (e != null) {
+            if (e != null) &#123;
                 @SuppressWarnings(&quot;unchecked&quot;)
                 T result = (T)e.value;
                 //返回
                 return result;
-            }
-        }
+            &#125;
+        &#125;
         return setInitialValue();
-    }
+    &#125;
 
-    private Entry getEntry(ThreadLocal&lt;?&gt; key) {
+    private Entry getEntry(ThreadLocal&lt;?&gt; key) &#123;
             //计算数组下标
             int i = key.threadLocalHashCode &amp; (table.length - 1);
             Entry e = table[i];
@@ -1036,13 +1036,13 @@
             else
                 //线性探测寻找对应的Key
                 return getEntryAfterMiss(key, i, e);
-        }
+        &#125;
 
-    private Entry getEntryAfterMiss(ThreadLocal&lt;?&gt; key, int i, Entry e) {
+    private Entry getEntryAfterMiss(ThreadLocal&lt;?&gt; key, int i, Entry e) &#123;
             Entry[] tab = table;
             int len = tab.length;
 
-            while (e != null) {
+            while (e != null) &#123;
                 ThreadLocal&lt;?&gt; k = e.get();
                 if (k == key)
                     return e;
@@ -1053,36 +1053,36 @@
                     //获取下一个数组位
                     i = nextIndex(i, len);
                 e = tab[i];
-            }
+            &#125;
         //如果没有找到直接返回空
             return null;
-        }
+        &#125;
 </code></pre>
-<h2 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove 方法"></a>remove 方法</h2><pre><code class="java">    public void remove() {
+<h2 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove 方法"></a>remove 方法</h2><pre><code class="java">    public void remove() &#123;
          ThreadLocalMap m = getMap(Thread.currentThread());
          if (m != null)
              m.remove(this);
-     }
+     &#125;
 
-    private void remove(ThreadLocal&lt;?&gt; key) {
+    private void remove(ThreadLocal&lt;?&gt; key) &#123;
             Entry[] tab = table;
             int len = tab.length;
             int i = key.threadLocalHashCode &amp; (len-1);
         //拿到当前的数组，判断是否为需要的数组位，如果不是线性查找
             for (Entry e = tab[i];
                  e != null;
-                 e = tab[i = nextIndex(i, len)]) {
-                if (e.get() == key) {
+                 e = tab[i = nextIndex(i, len)]) &#123;
+                if (e.get() == key) &#123;
                     e.clear();
                     //清空位NUll的实体
                     expungeStaleEntry(i);
                     return;
-                }
-            }
-        }
+                &#125;
+            &#125;
+        &#125;
 </code></pre>
 <p> 我们可以看到一个现象：在<code>set</code>,<code>get</code>,<code>remove</code>的时候都调用了<code>expungeStaleEntry</code>来将<strong>所有失效的</strong><code>Entity</code>移除 , 看一下这个方法做了什么 </p>
-<pre><code class="java">private int expungeStaleEntry(int staleSlot) {
+<pre><code class="java">private int expungeStaleEntry(int staleSlot) &#123;
             Entry[] tab = table;
             int len = tab.length;
 
@@ -1098,15 +1098,15 @@
             int i;
             for (i = nextIndex(staleSlot, len);
                  (e = tab[i]) != null;
-                 i = nextIndex(i, len)) {
+                 i = nextIndex(i, len)) &#123;
                 ThreadLocal&lt;?&gt; k = e.get();
-                if (k == null) {
+                if (k == null) &#123;
                     e.value = null;
                     tab[i] = null;
                     size--;
-                } else {
+                &#125; else &#123;
                     int h = k.threadLocalHashCode &amp; (len - 1);
-                    if (h != i) {
+                    if (h != i) &#123;
                         tab[i] = null;
 ﻿
                         // Unlike Knuth 6.4 Algorithm R, we must scan until
@@ -1114,13 +1114,13 @@
                         while (tab[h] != null)
                             h = nextIndex(h, len);
                         tab[h] = e;
-                    }
-                }
-            }
+                    &#125;
+                &#125;
+            &#125;
             return i;
-        }
+        &#125;
 </code></pre>
-<h2 id="expungeStaleEntry"><a href="#expungeStaleEntry" class="headerlink" title="expungeStaleEntry"></a>expungeStaleEntry</h2><pre><code class="java">        private int expungeStaleEntry(int staleSlot) {
+<h2 id="expungeStaleEntry"><a href="#expungeStaleEntry" class="headerlink" title="expungeStaleEntry"></a>expungeStaleEntry</h2><pre><code class="java">        private int expungeStaleEntry(int staleSlot) &#123;
             Entry[] tab = table;
             int len = tab.length;
 
@@ -1131,14 +1131,14 @@
             int i;
             for (i = nextIndex(staleSlot, len);
                  (e = tab[i]) != null;
-                 i = nextIndex(i, len)) {
+                 i = nextIndex(i, len)) &#123;
                 ThreadLocal&lt;?&gt; k = e.get();
-                if (k == null) {
+                if (k == null) &#123;
                 //这里设置为null ,方便让GC 回收
                     e.value = null;
                     tab[i] = null;
                     size--;
-                } else {
+                &#125; else &#123;
                 //这里主要的作用是由于采用了开放地址法，所以删除的元素是多个冲突元素中的一个，需要对后面的元素作
                 //处理，可以简单理解就是让后面的元素往前面移动
                 //为什么要这样做呢？主要是开放地址寻找元素的时候，遇到null 就停止寻找了，你前面k==null
@@ -1146,45 +1146,47 @@
 
                     int h = k.threadLocalHashCode &amp; (len - 1);
                     //他们不相等，说明是经过hash 是有冲突的
-                    if (h != i) {
+                    if (h != i) &#123;
                         tab[i] = null;
 
                         while (tab[h] != null)
                             h = nextIndex(h, len);
                         tab[h] = e;
-                    }
-                }
-            }
+                    &#125;
+                &#125;
+            &#125;
             return i;
-        }
+        &#125;
+
+
 </code></pre>
 <p>接下来我们详细模拟下整个过程 根据我们的例子，key=5,15,25 都是冲突的，并且k=5的值已经过期，经过replaceStaleEntry 方法，在进入expungeStaleEntry 方法之前，数据结构是这样的</p>
-<p><img src="17.png" alt></p>
+<p><img src="17.png" alt=""></p>
 <p>此时传进来的参数staleSlot=6，</p>
-<pre><code class="java"> if (k == null) {
+<pre><code class="java"> if (k == null) &#123;
                 //这里设置为null ,方便让GC 回收
                     e.value = null;
                     tab[i] = null;
                     size--;
-                }
+                &#125;
 </code></pre>
 <p>这个时候会把index=6设置为null,数据结构变成下面的情况</p>
-<p> <img src="18.png" alt></p>
+<p> <img src="18.png" alt=""></p>
 <p>接下来我们会遍历到i=7，经过int h = k.threadLocalHashCode &amp; (len - 1) (实际上对应我们的举例的函数int h= f(25)); 得到的h=5,而25实际存放在index=7 的位置上，这个时候我们需要从h=5的位置上重新开始编列，直到遇到空的entry 为止</p>
 <pre><code class="java">                    int h = k.threadLocalHashCode &amp; (len - 1);
-                    if (h != i) {
+                    if (h != i) &#123;
                         tab[i] = null;
 
                         while (tab[h] != null)
                             h = nextIndex(h, len);
                         tab[h] = e;
-                    }
+                    &#125;
 </code></pre>
 <p>这个时候h=6，并把k=25 的值移到index=6 的位置上，同时设置index=7 为空，如下图</p>
-<p> <img src="19.png" alt></p>
+<p> <img src="19.png" alt=""></p>
 <p>其实目的跟replaceStaleEntry 交换位置的原理是一样的，为了防止由于回收掉中间那个冲突的值，导致后面冲突的值没办法找到（因为e==null 就跳出循环了）</p>
 <h2 id="cleanSomeSlots"><a href="#cleanSomeSlots" class="headerlink" title="cleanSomeSlots"></a>cleanSomeSlots</h2><p> 回到上面那个replaceStaleEntry 方法中的以下代码片段 `</p>
-<pre><code class="java">  if (k == key) {
+<pre><code class="java">  if (k == key) &#123;
                     e.value = value;
 
                     tab[i] = tab[staleSlot];
@@ -1196,35 +1198,35 @@
                     //执行清理
                     cleanSomeSlots(expungeStaleEntry(slotToExpunge), len);
                     return;
-                }
+                &#125;
 </code></pre>
 <p> 刚刚上面执行完expungeStaleEntry 后，会执行cleanSomeSlots 这个方法 </p>
 <pre><code class="java">//这个方法是从i 开始往后遍历（i++）,寻找过期对象进行清除操作
- private boolean cleanSomeSlots(int i, int n) {
+ private boolean cleanSomeSlots(int i, int n) &#123;
             boolean removed = false;
             Entry[] tab = table;
             int len = tab.length;
             // 用do while 语法，保证 do 里面的代码至少被执行一次
-            do {
+            do &#123;
                 i = nextIndex(i, len);
                 Entry e = tab[i];
 
-                if (e != null &amp;&amp; e.get() == null) {
+                if (e != null &amp;&amp; e.get() == null) &#123;
                 //如果遇到过期对象的时候，重新赋值n=len 也就是当前数组的长度
                     n = len;
                     removed = true;
                     //在一次调用expungeStaleEntry 来进行垃圾回收（只是帮助垃圾回收）
                     i = expungeStaleEntry(i);
-                }
-            } while ( (n &gt;&gt;&gt;= 1) != 0);//无符号右移动一位，可以简单理解为除以2
+                &#125;
+            &#125; while ( (n &gt;&gt;&gt;= 1) != 0);//无符号右移动一位，可以简单理解为除以2
             return removed;
-        }
+        &#125;
 </code></pre>
 <p> 经过上面的分析expungeStaleEntry 返回的值i=7,<strong>传进来的n 是数组的长度n=10</strong>; 大家可以看到这个方法的循环结束条件是n&gt;&gt;&gt;1!=0,  <strong>也就是这个方法在没有遇到过期对象的时候，会执行log2(n)的扫描</strong>。这里没有选择扫描全部是为了性能的平衡。由于这里的跳出循环的条件不是遇到空的entry 就停止，那么空entry 后面的过期对象也有机会被清理掉（对应下图的index=9，会被清除），注意下标在i 前面的的过期对象也有机会被清理掉，只要是因为如果n&gt;&gt;&gt;1!=0 的情况，并且i 已经是最大值了，调用以下代码会从下标为0 开始编列，所以对应下图的index=0 也会被清理掉 </p>
-<pre><code>        private static int nextIndex(int i, int len) {
+<pre><code>        private static int nextIndex(int i, int len) &#123;
             return ((i + 1 &lt; len) ? i + 1 : 0);
-        }
-</code></pre><p><img src="26.png" alt> </p>
+        &#125;
+</code></pre><p><img src="26.png" alt=""> </p>
 <p> 为了解释，上图中的 index=0 和index =9 这个过期对象数据是临时加上去了，前面的分析没有这个对象，大家不要感到太唐突（临时加上为了解答问题 (这个整理的话每次是只整理一段区域的对象么，如果数组的结构呈现前中后三块区域的话，每次set()和get()的元素计算后都落在了中间区域，是不是前后的元素都不会被清理到啊？） </p>
 <p>通过上面的分析，我们知道<code>expungeStaleEntry()</code> 方法是帮助垃圾回收的，根据源码，我们可以发现 get 和set  方法都可能触发清理方法<code>expungeStaleEntry()</code>，<strong>所以正常情况下是不会有内存溢出的 但是如果我们没有调用get 和set 的时候就会可能面临着内存溢出</strong>，养成好习惯不再使用的时候调用remove(),加快垃圾回收，避免内存溢出</p>
 <p>退一步说，就算我们没有调用get 和set 和remove 方法,线程结束的时候，也就没有强引用再指向ThreadLocal 中的ThreadLocalMap了，这样ThreadLocalMap 和里面的元素也会被回收掉，<strong>但是有一种危险是，如果线程是线程池的， 在线程执行完代码的时候并没有结束，只是归还给线程池，这个时候ThreadLocalMap 和里面的元素是不会回收掉的</strong></p>
@@ -1239,7 +1241,7 @@
 <p>之所以有关于内存泄露的讨论是因为在有线程复用如线程池的场景中，一个线程的寿命很长，大对象长期不被回收影响系统运行效率与安全。如果线程不会复用，用完即销毁了也不会有ThreadLocal引发内存泄露的问题</p>
 <p>也就是说，我们回答了文章开头的第一个问题，ThreadLocal如果使用的不当，是有可能引起内存泄露的，虽然触发的场景不算很容易。</p>
 <h1 id="ThreadLocal在预防内存泄漏方面，做了哪些努力？"><a href="#ThreadLocal在预防内存泄漏方面，做了哪些努力？" class="headerlink" title="ThreadLocal在预防内存泄漏方面，做了哪些努力？"></a>ThreadLocal在预防内存泄漏方面，做了哪些努力？</h1><p>Thread中维护了ThreadLocalMap，<strong>所以ThreadLocalMap的生命周期和Thread（当前线程）一样长</strong>。使用不当就可能会导致内存泄漏问题。但是，在ThreadLocal中，进行set操作的时候会清除Map里所有key为null的value。 </p>
-<p><img src="21.png" alt> </p>
+<p><img src="21.png" alt=""> </p>
 <p> 这是java8中ThreadLocal.set()方法，for循环是遍历整个Entry数组，红色框的地方是碰到了(null,value)的处理逻辑，也就是碰到了内存泄漏后会将原来的Entry替换掉避免内存泄漏。 </p>
 <h1 id="ThreadLocal内存泄漏避免方案"><a href="#ThreadLocal内存泄漏避免方案" class="headerlink" title="ThreadLocal内存泄漏避免方案"></a>ThreadLocal内存泄漏避免方案</h1><p>当我们仔细读过ThreadLocalMap的源码，我们可以推断，如果在使用的ThreadLocal的过程中，显式地进行remove是个很好的编码习惯，这样是不会引起内存泄漏。</p>
 <p>如果您必须使用ThreadLocal，请确保在您完成该操作后立即删除该值，并且最好在将线程返回到线程池之前。 最佳做法是使用remove（）而不是set（null），因为这将导致WeakReference立即被删除，并与值一起被删除。</p>
@@ -1248,8 +1250,8 @@
 <p>当需要减少线程资源竞争的时候，可以考虑使用ThreadLocal来实现</p>
 <p>注意Thread实例和ThreadLocal实例的生存周期，因为他们直接关联着存储数据的生命周期 </p>
 <p>如果频繁的在线程中new ThreadLocal对象，在使用结束时，最好调用ThreadLocal.remove来释放其value的引用，避免在ThreadLocal被回收时value无法被访问却又占用着内存</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://xie.infoq.cn/article/eb09a8ddb6df4edf1505fa81c" target="_blank" rel="noopener">https://xie.infoq.cn/article/eb09a8ddb6df4edf1505fa81c</a></p>
-<p><a href="https://blog.csdn.net/qq_45401061/article/details/103101719" target="_blank" rel="noopener">https://blog.csdn.net/qq_45401061/article/details/103101719</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/eb09a8ddb6df4edf1505fa81c">https://xie.infoq.cn/article/eb09a8ddb6df4edf1505fa81c</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45401061/article/details/103101719">https://blog.csdn.net/qq_45401061/article/details/103101719</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1648,7 +1650,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

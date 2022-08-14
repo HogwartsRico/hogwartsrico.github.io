@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Gradle">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="新一代构建工具Gradle | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Gradle"> 
 
     
         <meta property="article:published_time" content="Sun Mar 24 2019 23:54:38 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/03/24/learn-gradle/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/03/24/learn-gradle/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目自动化介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">项目自动化介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建工具的作用"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">构建工具的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主流构建工具"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">主流构建工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gradle是什么？"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Gradle是什么？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备使用Gradle"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备使用Gradle</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#groovy基础知识"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">groovy基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#理论介绍"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">理论介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Groovy是什么？"><span class="post-toc-number">2.2.1.1.</span> <span class="post-toc-text">Groovy是什么？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#与Java相比"><span class="post-toc-number">2.2.1.2.</span> <span class="post-toc-text">与Java相比</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#高效的特性"><span class="post-toc-number">2.2.1.3.</span> <span class="post-toc-text">高效的特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#可选的类型定义"><span class="post-toc-number">2.2.1.3.1.</span> <span class="post-toc-text">可选的类型定义</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#断言"><span class="post-toc-number">2.2.1.3.2.</span> <span class="post-toc-text">断言</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#括号是可选的"><span class="post-toc-number">2.2.1.3.3.</span> <span class="post-toc-text">括号是可选的</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#字符串"><span class="post-toc-number">2.2.1.3.4.</span> <span class="post-toc-text">字符串</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#集合API"><span class="post-toc-number">2.2.1.3.5.</span> <span class="post-toc-text">集合API</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#闭包"><span class="post-toc-number">2.2.1.3.6.</span> <span class="post-toc-text">闭包</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#闭包也是对象"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">闭包也是对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用gradle语法解析构建脚本"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">使用gradle语法解析构建脚本</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第一句："><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">第一句：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第二句："><span class="post-toc-number">2.2.3.2.</span> <span class="post-toc-text">第二句：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第三句"><span class="post-toc-number">2.2.3.3.</span> <span class="post-toc-text">第三句:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第四句"><span class="post-toc-number">2.2.3.4.</span> <span class="post-toc-text">第四句</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一个gradle项目"><span class="post-toc-number">3.</span> <span class="post-toc-text">第一个gradle项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#打包成jar"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">打包成jar</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web应用-war包"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">web应用 war包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#高级应用"><span class="post-toc-number">4.</span> <span class="post-toc-text">高级应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#构建脚本介绍"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">构建脚本介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建块："><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">构建块：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性："><span class="post-toc-number">4.1.2.1.</span> <span class="post-toc-text">属性：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#方法："><span class="post-toc-number">4.1.2.2.</span> <span class="post-toc-text">方法：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性的其他配置方式"><span class="post-toc-number">4.1.2.3.</span> <span class="post-toc-text">属性的其他配置方式:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#任务-task"><span class="post-toc-number">4.1.2.4.</span> <span class="post-toc-text">任务(task)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义任务"><span class="post-toc-number">4.1.2.5.</span> <span class="post-toc-text">自定义任务</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#构建的生命周期"><span class="post-toc-number">4.1.2.6.</span> <span class="post-toc-text">构建的生命周期</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#依赖管理"><span class="post-toc-number">4.1.2.7.</span> <span class="post-toc-text">依赖管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#工件坐标"><span class="post-toc-number">4.1.2.7.1.</span> <span class="post-toc-text">工件坐标</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#常用仓库"><span class="post-toc-number">4.1.2.7.2.</span> <span class="post-toc-text">常用仓库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#依赖的传递性"><span class="post-toc-number">4.1.2.7.3.</span> <span class="post-toc-text">依赖的传递性</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#依赖阶段配置"><span class="post-toc-number">4.1.2.7.4.</span> <span class="post-toc-text">依赖阶段配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#依赖阶段关系"><span class="post-toc-number">4.1.2.7.5.</span> <span class="post-toc-text">依赖阶段关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决版本冲突"><span class="post-toc-number">4.1.2.8.</span> <span class="post-toc-text">解决版本冲突</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#如何解决呢？"><span class="post-toc-number">4.1.2.8.1.</span> <span class="post-toc-text">如何解决呢？</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多项目构建"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">多项目构建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多项目构建实战"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">多项目构建实战</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自动化测试"><span class="post-toc-number">4.1.5.</span> <span class="post-toc-text">自动化测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#发布"><span class="post-toc-number">4.1.6.</span> <span class="post-toc-text">发布</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一个疑问"><span class="post-toc-number">6.</span> <span class="post-toc-text">一个疑问</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#扩展阅读"><span class="post-toc-number">7.</span> <span class="post-toc-text">扩展阅读</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#委托策略"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">委托策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Owner，delegate和this"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">Owner，delegate和this</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#This"><span class="post-toc-number">7.1.1.1.</span> <span class="post-toc-text">This</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Owner"><span class="post-toc-number">7.1.1.2.</span> <span class="post-toc-text">Owner</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Delegate"><span class="post-toc-number">7.1.1.3.</span> <span class="post-toc-text">Delegate</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Delegate策略"><span class="post-toc-number">7.1.1.4.</span> <span class="post-toc-text">Delegate策略</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GStrings中的闭包"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">GStrings中的闭包</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE%E8%87%AA%E5%8A%A8%E5%8C%96%E4%BB%8B%E7%BB%8D"><span class="post-toc-number">1.</span> <span class="post-toc-text">项目自动化介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">构建工具的作用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BB%E6%B5%81%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">主流构建工具</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gradle%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Gradle是什么？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8Gradle"><span class="post-toc-number">2.</span> <span class="post-toc-text">准备使用Gradle</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#groovy%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">groovy基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%90%86%E8%AE%BA%E4%BB%8B%E7%BB%8D"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">理论介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Groovy%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">2.2.1.1.</span> <span class="post-toc-text">Groovy是什么？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%8EJava%E7%9B%B8%E6%AF%94"><span class="post-toc-number">2.2.1.2.</span> <span class="post-toc-text">与Java相比</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%AB%98%E6%95%88%E7%9A%84%E7%89%B9%E6%80%A7"><span class="post-toc-number">2.2.1.3.</span> <span class="post-toc-text">高效的特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%8F%AF%E9%80%89%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="post-toc-number">2.2.1.3.1.</span> <span class="post-toc-text">可选的类型定义</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%96%AD%E8%A8%80"><span class="post-toc-number">2.2.1.3.2.</span> <span class="post-toc-text">断言</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%8B%AC%E5%8F%B7%E6%98%AF%E5%8F%AF%E9%80%89%E7%9A%84"><span class="post-toc-number">2.2.1.3.3.</span> <span class="post-toc-text">括号是可选的</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="post-toc-number">2.2.1.3.4.</span> <span class="post-toc-text">字符串</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E9%9B%86%E5%90%88API"><span class="post-toc-number">2.2.1.3.5.</span> <span class="post-toc-text">集合API</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E9%97%AD%E5%8C%85"><span class="post-toc-number">2.2.1.3.6.</span> <span class="post-toc-text">闭包</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%97%AD%E5%8C%85%E4%B9%9F%E6%98%AF%E5%AF%B9%E8%B1%A1"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">闭包也是对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8gradle%E8%AF%AD%E6%B3%95%E8%A7%A3%E6%9E%90%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">使用gradle语法解析构建脚本</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E5%8F%A5%EF%BC%9A"><span class="post-toc-number">2.2.3.1.</span> <span class="post-toc-text">第一句：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%8F%A5%EF%BC%9A"><span class="post-toc-number">2.2.3.2.</span> <span class="post-toc-text">第二句：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%89%E5%8F%A5"><span class="post-toc-number">2.2.3.3.</span> <span class="post-toc-text">第三句:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%8F%A5"><span class="post-toc-number">2.2.3.4.</span> <span class="post-toc-text">第四句</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AAgradle%E9%A1%B9%E7%9B%AE"><span class="post-toc-number">3.</span> <span class="post-toc-text">第一个gradle项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%89%93%E5%8C%85%E6%88%90jar"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">打包成jar</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web%E5%BA%94%E7%94%A8-war%E5%8C%85"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">web应用 war包</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8"><span class="post-toc-number">4.</span> <span class="post-toc-text">高级应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">构建脚本介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9E%84%E5%BB%BA%E5%9D%97%EF%BC%9A"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">构建块：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A1%B9%E7%9B%AE"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B1%9E%E6%80%A7%EF%BC%9A"><span class="post-toc-number">4.1.2.1.</span> <span class="post-toc-text">属性：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="post-toc-number">4.1.2.2.</span> <span class="post-toc-text">方法：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B1%9E%E6%80%A7%E7%9A%84%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F"><span class="post-toc-number">4.1.2.3.</span> <span class="post-toc-text">属性的其他配置方式:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1-task"><span class="post-toc-number">4.1.2.4.</span> <span class="post-toc-text">任务(task)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%BB%E5%8A%A1"><span class="post-toc-number">4.1.2.5.</span> <span class="post-toc-text">自定义任务</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9E%84%E5%BB%BA%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="post-toc-number">4.1.2.6.</span> <span class="post-toc-text">构建的生命周期</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="post-toc-number">4.1.2.7.</span> <span class="post-toc-text">依赖管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%B7%A5%E4%BB%B6%E5%9D%90%E6%A0%87"><span class="post-toc-number">4.1.2.7.1.</span> <span class="post-toc-text">工件坐标</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%B8%B8%E7%94%A8%E4%BB%93%E5%BA%93"><span class="post-toc-number">4.1.2.7.2.</span> <span class="post-toc-text">常用仓库</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%BE%9D%E8%B5%96%E7%9A%84%E4%BC%A0%E9%80%92%E6%80%A7"><span class="post-toc-number">4.1.2.7.3.</span> <span class="post-toc-text">依赖的传递性</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%BE%9D%E8%B5%96%E9%98%B6%E6%AE%B5%E9%85%8D%E7%BD%AE"><span class="post-toc-number">4.1.2.7.4.</span> <span class="post-toc-text">依赖阶段配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%BE%9D%E8%B5%96%E9%98%B6%E6%AE%B5%E5%85%B3%E7%B3%BB"><span class="post-toc-number">4.1.2.7.5.</span> <span class="post-toc-text">依赖阶段关系</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%A7%A3%E5%86%B3%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81"><span class="post-toc-number">4.1.2.8.</span> <span class="post-toc-text">解决版本冲突</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%91%A2%EF%BC%9F"><span class="post-toc-number">4.1.2.8.1.</span> <span class="post-toc-text">如何解决呢？</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA"><span class="post-toc-number">4.1.3.</span> <span class="post-toc-text">多项目构建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%9A%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E5%AE%9E%E6%88%98"><span class="post-toc-number">4.1.4.</span> <span class="post-toc-text">多项目构建实战</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="post-toc-number">4.1.5.</span> <span class="post-toc-text">自动化测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%91%E5%B8%83"><span class="post-toc-number">4.1.6.</span> <span class="post-toc-text">发布</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%E4%B8%AA%E7%96%91%E9%97%AE"><span class="post-toc-number">6.</span> <span class="post-toc-text">一个疑问</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%89%A9%E5%B1%95%E9%98%85%E8%AF%BB"><span class="post-toc-number">7.</span> <span class="post-toc-text">扩展阅读</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A7%94%E6%89%98%E7%AD%96%E7%95%A5"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">委托策略</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Owner%EF%BC%8Cdelegate%E5%92%8Cthis"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">Owner，delegate和this</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#This"><span class="post-toc-number">7.1.1.1.</span> <span class="post-toc-text">This</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Owner"><span class="post-toc-number">7.1.1.2.</span> <span class="post-toc-text">Owner</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Delegate"><span class="post-toc-number">7.1.1.3.</span> <span class="post-toc-text">Delegate</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Delegate%E7%AD%96%E7%95%A5"><span class="post-toc-number">7.1.1.4.</span> <span class="post-toc-text">Delegate策略</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GStrings%E4%B8%AD%E7%9A%84%E9%97%AD%E5%8C%85"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">GStrings中的闭包</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Gradle/">Gradle</a>
+        <a class="post_tag-none-link" href="/tags/Gradle/" rel="tag">Gradle</a>
     </ul>
     
 
@@ -479,11 +479,11 @@
 <h2 id="Gradle是什么？"><a href="#Gradle是什么？" class="headerlink" title="Gradle是什么？"></a>Gradle是什么？</h2><p>是一个开源的项目自动化构建工具，建立在Apache Ant和Maven概念的基础上，并引入了基于Groovy的特定领域语言(DSL),而不再使用XML语法管理构建脚本，能提供更高的灵活性和可扩展性 </p>
 <h1 id="准备使用Gradle"><a href="#准备使用Gradle" class="headerlink" title="准备使用Gradle"></a>准备使用Gradle</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
 <li>确保已经安装JDK</li>
-<li><a href="https://gradle.org/" target="_blank" rel="noopener">https://gradle.org/</a> ,<a href="https://gradle.org/releases/" target="_blank" rel="noopener">https://gradle.org/releases/</a> 下载 </li>
+<li><a target="_blank" rel="noopener" href="https://gradle.org/">https://gradle.org/</a> ,<a target="_blank" rel="noopener" href="https://gradle.org/releases/">https://gradle.org/releases/</a> 下载 </li>
 <li>配置环境变量<code>GRADLE_HOME</code>  path<code>%GRADLE_HOME%\bin;</code>  </li>
 <li>验证 <code>gradle -v</code></li>
 </ul>
-<p><img src="1.png" alt></p>
+<p><img src="1.png" alt=""></p>
 <h2 id="groovy基础知识"><a href="#groovy基础知识" class="headerlink" title="groovy基础知识"></a>groovy基础知识</h2><h3 id="理论介绍"><a href="#理论介绍" class="headerlink" title="理论介绍"></a>理论介绍</h3><h4 id="Groovy是什么？"><a href="#Groovy是什么？" class="headerlink" title="Groovy是什么？"></a>Groovy是什么？</h4><p>Groovy是用于Java虚拟机的一种敏捷的动态语言，它是一种成熟的面向对象编程语言，既可以用于面向对象编程，又可以用作纯粹的脚本语言。使用该种语言不必编写过多的代码，同时又具有闭包和动态语言中的其他特性  </p>
 <h4 id="与Java相比"><a href="#与Java相比" class="headerlink" title="与Java相比"></a>与Java相比</h4><ul>
 <li>Groovy完全兼容Java的语法 </li>
@@ -495,19 +495,19 @@
 <li>==等同于equals(),不会有NullPointerExceptions</li>
 </ul>
 <pre><code class="groovy">package groovy.reflect.field
-class Employee {
+class Employee &#123;
     String id
     String name
-    def getAge() {
+    def getAge() &#123;
         &#39;everyone is 24&#39;
-    }
-    static main(args){
+    &#125;
+    static main(args)&#123;
         def empl1 = new Employee(id:&#39;00001&#39;,name:&#39;Tom&#39;)
         println empl1.name
         //可以看到，我们并没有给“Employee”类定义“age”属性，但是我们实现了“getAge”方法，我们就可以通过Gpath来访问“age”属性
         println empl1.age
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>如“empl1.name”并不是直接访问“empl1”对象的“name”属性，而是通过“Employee”类隐含实现了的“get”和“set”方法来访问的</p>
 <p>我们并没有给“Employee”类定义“age”属性，但是我们实现了“getAge”方法，我们就可以通过Gpath来访问“age”属性 ,当然如果我们声明了属性的话会自动生成getter和setter</p>
@@ -519,8 +519,8 @@ class Employee {
 <li>集合API</li>
 <li>闭包</li>
 </ul>
-<p><img src="2.png" alt></p>
-<p><img src="3.png" alt> </p>
+<p><img src="2.png" alt=""></p>
+<p><img src="3.png" alt=""> </p>
 <p>Tool-&gt;Groovy Console可弹出Groovy的编程环境控制台进行Groovy代码的编写和运行 </p>
 <h5 id="可选的类型定义"><a href="#可选的类型定义" class="headerlink" title="可选的类型定义"></a>可选的类型定义</h5><pre><code class="groovy">def version=1
 </code></pre>
@@ -528,7 +528,7 @@ class Employee {
 <h5 id="括号是可选的"><a href="#括号是可选的" class="headerlink" title="括号是可选的"></a>括号是可选的</h5><p><code>println version</code> 等同于 <code>println(version)</code> </p>
 <h5 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h5><pre><code class="groovy">//字符串 有三种表达形式
 def s1=&#39;rico&#39;//第一种:仅仅是个字符串
-def s2=&quot;gradle version is ${version}&quot;//第二种:可以插入变量
+def s2=&quot;gradle version is $&#123;version&#125;&quot;//第二种:可以插入变量
 def s3=&#39;&#39;&#39;my name
 is rico&#39;&#39;&#39;//第三种:可以换行
 
@@ -538,18 +538,18 @@ println s3
 </code></pre>
 <p>如果双引号字符串中没有插入表达式的话对应的是java中的String对象，如果有则对应Groovy中的GString对象。</p>
 <p>单引号字符串如果只有一个字符会被转化成<code>char</code>类型。</p>
-<p>Groovy中使用<code>${}</code>来表示插入表达式，<code>$</code>来表示引用表达：</p>
+<p>Groovy中使用<code>$&#123;&#125;</code>来表示插入表达式，<code>$</code>来表示引用表达：</p>
 <pre><code class="groovy">def name = &#39;Guillaume&#39; // a plain string
-def greeting = &quot;Hello ${name}&quot;
+def greeting = &quot;Hello $&#123;name&#125;&quot;
 
 assert greeting.toString() == &#39;Hello Guillaume&#39;
 def person = [name: &#39;Guillaume&#39;, age: 36]
 assert &quot;$person.name is $person.age years old&quot; == &#39;Guillaume is 36 years old&#39;
-shouldFail(MissingPropertyException) {
+shouldFail(MissingPropertyException) &#123;
     println &quot;$number.toString()&quot;
-}
+&#125;
 </code></pre>
-<p><img src="4.png" alt> </p>
+<p><img src="4.png" alt=""> </p>
 <h5 id="集合API"><a href="#集合API" class="headerlink" title="集合API"></a>集合API</h5><p>集合有list和map</p>
 <p><strong>List</strong></p>
 <p>默认对应的java的list是ArrayList</p>
@@ -571,47 +571,47 @@ println  buildYears.ant
 println  buildYears[&#39;gradle&#39;]
 println  buildYears.getClass()
 </code></pre>
-<p><img src="6.png" alt> </p>
+<p><img src="6.png" alt=""> </p>
 <h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><p>下面看一些闭包的具体例子：</p>
-<pre><code class="groovy">{ item++ }                                          
+<pre><code class="groovy">&#123; item++ &#125;                                          
 
-{ -&gt; item++ }                                       
+&#123; -&gt; item++ &#125;                                       
 
-{ println it }                                      
+&#123; println it &#125;                                      
 
-{ it -&gt; println it }                                
+&#123; it -&gt; println it &#125;                                
 
-{ name -&gt; println name }                            
+&#123; name -&gt; println name &#125;                            
 
-{ String x, int y -&gt;                                
-    println &quot;hey ${x} the value is ${y}&quot;
-}
+&#123; String x, int y -&gt;                                
+    println &quot;hey $&#123;x&#125; the value is $&#123;y&#125;&quot;
+&#125;
 
-{ reader -&gt;                                         
+&#123; reader -&gt;                                         
     def line = reader.readLine()
     line.trim()
-}
+&#125;
 </code></pre>
 <p>闭包简单来说就是一段代码块 ，和方法一样，可以有参数，可以没参数 </p>
 <p>闭包可以被赋值给一个变量，也可以当做一个参数传入给一个方法，像普通方法一样调用  </p>
 <pre><code class="groovy">//闭包
 //包含参数
-def c1={
+def c1=&#123;
     v -&gt;//包含一个参数,类型可省
         println v
-}
+&#125;
 //不包含参数
-def c2={
+def c2=&#123;
     println &#39;hello&#39;
-}
+&#125;
 
-def method1(Closure closure){//定义一个调用有参闭包的方法
+def method1(Closure closure)&#123;//定义一个调用有参闭包的方法
     closure(&#39;param&#39;)
-}
+&#125;
 
-def method2(Closure closure){
+def method2(Closure closure)&#123;
     closure()
-}
+&#125;
 
 method1(c1)
 method2(c2)
@@ -620,7 +620,7 @@ method2(c2)
 <pre><code>param
 hello
 </code></pre><p>闭包有两种调用方式：</p>
-<pre><code class="groovy">def code = { 123 }
+<pre><code class="groovy">def code = &#123; 123 &#125;
 
 assert code() == 123
 
@@ -628,150 +628,151 @@ assert code.call() == 123
 </code></pre>
 <p>闭包名+（）或者闭包名.call()来调用闭包。</p>
 <p>当闭包没有显式声明参数时，其默认包含一个隐式的参数<code>it</code>。</p>
-<pre><code class="groovy">def greeting = { &quot;Hello, $it!&quot; }
+<pre><code class="groovy">def greeting = &#123; &quot;Hello, $it!&quot; &#125;
 assert greeting(&#39;Patrick&#39;) == &#39;Hello, Patrick!&#39;
 </code></pre>
 <h3 id="闭包也是对象"><a href="#闭包也是对象" class="headerlink" title="闭包也是对象"></a>闭包也是对象</h3><p>闭包在groovy中是<code>groovy.lang.Closure</code>类的实例，这使得闭包可以赋值给变量或字段。</p>
-<pre><code class="groovy">def listener = { e -&gt; println &quot;Clicked on $e.source&quot; }      
+<pre><code class="groovy">def listener = &#123; e -&gt; println &quot;Clicked on $e.source&quot; &#125;      
 assert listener instanceof Closure
-Closure callback = { println &#39;Done!&#39; }                      
-Closure&lt;Boolean&gt; isTextFile = {
+Closure callback = &#123; println &#39;Done!&#39; &#125;                      
+Closure&lt;Boolean&gt; isTextFile = &#123;
     File it -&gt; it.name.endsWith(&#39;.txt&#39;)                     
-}
+&#125;
 </code></pre>
 <h3 id="使用gradle语法解析构建脚本"><a href="#使用gradle语法解析构建脚本" class="headerlink" title="使用gradle语法解析构建脚本"></a>使用gradle语法解析构建脚本</h3><p>使用Groovy的语法来解析这段gradle构建脚本 </p>
-<p><img src="7.png" alt> </p>
+<p><img src="7.png" alt=""> </p>
 <p>构建脚本中默认都有个Project实例</p>
 <p>构建脚本中所有的代码作用域都是Project</p>
 <h4 id="第一句："><a href="#第一句：" class="headerlink" title="第一句："></a>第一句：</h4><p> <code>apply plugin:&#39;java&#39;</code>   </p>
 <p>project实例中有个方法叫做apply,然后它的参数类型是Map,我们这里值是<code>plugin:&#39;java&#39;</code>  意思是key为plugin的值是java  ,这里还省略了括号 </p>
 <p>跟进源代码就可以看到apply方法</p>
-<p><img src="8.png" alt> </p>
+<p><img src="8.png" alt=""> </p>
 <h4 id="第二句："><a href="#第二句：" class="headerlink" title="第二句："></a>第二句：</h4><p> <code>version=&#39;0.1&#39;</code> 是Project实例中有个属性叫version ,它的值是0.1 </p>
-<h4 id="第三句"><a href="#第三句" class="headerlink" title="第三句:"></a>第三句:</h4><pre><code class="groovy">repositories {
+<h4 id="第三句"><a href="#第三句" class="headerlink" title="第三句:"></a>第三句:</h4><pre><code class="groovy">repositories &#123;
   mavenCentral()
-}
+&#125;
 </code></pre>
-<p>repositories也是一个方法 ,其中<code>{  mavenCentral() }</code> 作为一个闭包当做参数传入(闭包的运行结果当做参数) ,来调用repositories这个方法  </p>
-<p><img src="9.png" alt> </p>
-<h4 id="第四句"><a href="#第四句" class="headerlink" title="第四句"></a>第四句</h4><pre><code class="groovy"> dependencies {
+<p>repositories也是一个方法 ,其中<code>&#123;  mavenCentral() &#125;</code> 作为一个闭包当做参数传入(闭包的运行结果当做参数) ,来调用repositories这个方法  </p>
+<p><img src="9.png" alt=""> </p>
+<h4 id="第四句"><a href="#第四句" class="headerlink" title="第四句"></a>第四句</h4><pre><code class="groovy"> dependencies &#123;
         classpath &#39;com.android.tools.build:gradle:2.1.2&#39;
-}
+&#125;
 </code></pre>
 <p>dependencies也是一个方法，后面大括号也是一个闭包 ，闭包的运行结果作为参数去调用dependencies这个方法 ，其中,classpath又是一个方法，当然dependencies中还有诸如:implementation,runtimeOnly,testImplementation等方法 </p>
-<p><img src="10.png" alt></p>
+<p><img src="10.png" alt=""></p>
 <p> compile：编译时必须。</p>
 <p>runtime：运行时必须，包括编译时。</p>
 <p>testCompile：测试编译时必须。</p>
 <p>testRuntime：测试运行时必须，包括编译时。</p>
 <p>有点类似于下面的结构</p>
-<pre><code class="groovy">def dependencies(Closure cl){
+<pre><code class="groovy">def dependencies(Closure cl)&#123;
     cl.call();
-}
+&#125;
 
-def classpath(String path){
+def classpath(String path)&#123;
     println path
-}
+&#125;
 
-dependencies {
+dependencies &#123;
     classpath &#39;com.android.tools.build:gradle:2.1.2&#39;
-}
+&#125;
+
 </code></pre>
 <p>那么我们再来看这个：</p>
-<pre><code class="groovy">task clean(type: Delete) {
+<pre><code class="groovy">task clean(type: Delete) &#123;
     delete rootProject.buildDir
-}
+&#125;
 </code></pre>
 <p>这个用上面的思路套进去看看呢？task是一个方法，没毛病。后面是两个参数？clean和一个闭包？这里就不对了，如果是两个参数，中间需要有<code>,</code>隔开，所以这里只有一个参数，就是clean。那这就是什么写法？这里我们又要了解groovy中的一个语法特性，</p>
 <blockquote>
 <p>当一个方法的最后一个参数是闭包，可以将这个闭包写在<code>()</code>外面。</p>
 </blockquote>
 <p>看例子：</p>
-<pre><code>def foo(String s,Closure cl){
+<pre><code>def foo(String s,Closure cl)&#123;
     cl(s)
-}
+&#125;
 
 //❶
-foo(&#39;hello world&#39;){
+foo(&#39;hello world&#39;)&#123;
     println it
-}
+&#125;
 
-foo &#39;hello world&#39;,{
+foo &#39;hello world&#39;,&#123;
     println it
-}
+&#125;
 </code></pre><p>方法的两种特殊写法都在这了，上面讲个写法就是❶处的写法。</p>
 <p>所以把clean理解为一个参数是对的，接着再看<code>clean(type: Delete)</code>这个就简单了，groovy中的方法参数是支持<strong>命名参数</strong>的，这里用的就是命名参数，到这里都理顺了，我们还是写一个小例子模仿一下上面的写法：</p>
-<pre><code class="groovy">def task(String taskName){
+<pre><code class="groovy">def task(String taskName)&#123;
     println &#39;execute task &#39; + taskName
-}
+&#125;
 
-def clean(Map type,Closure cl){
+def clean(Map type,Closure cl)&#123;
     type.type
-}
+&#125;
 
-def delete(String path){
+def delete(String path)&#123;
 
-}
+&#125;
 
 Delete = &#39;delete&#39;
 
-task clean(type:Delete){
+task clean(type:Delete)&#123;
     delete &quot;path&quot;
-}
+&#125;
 </code></pre>
 <p>有空可以看下<code>org.gradle.api.Project</code>这个interface的源码 ,会对各项属性和方法有了解</p>
 <p>项目name保存在settings.gradle中,settings.gradle是用来管理多项目构建的  </p>
-<p><img src="15.png" alt> </p>
-<h1 id="第一个gradle项目"><a href="#第一个gradle项目" class="headerlink" title="第一个gradle项目"></a>第一个gradle项目</h1><p><img src="5.png" alt> </p>
+<p><img src="15.png" alt=""> </p>
+<h1 id="第一个gradle项目"><a href="#第一个gradle项目" class="headerlink" title="第一个gradle项目"></a>第一个gradle项目</h1><p><img src="5.png" alt=""> </p>
 <p>构建脚本 build.gradle</p>
-<pre><code class="groovy">plugins {
+<pre><code class="groovy">plugins &#123;
     id &#39;java&#39;
-}
+&#125;
 
 group &#39;org.rico.gradle&#39; //gav
 version &#39;1.0-SNAPSHOT&#39; //版本
 
 sourceCompatibility = 1.8 //源文件适应的版本
 
-repositories {//仓库
+repositories &#123;//仓库
     mavenCentral()
-}
+&#125;
 
-dependencies {//依赖管理
+dependencies &#123;//依赖管理
     testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.12&#39;
-}
+&#125;
 </code></pre>
 <p>新的插件DSL提供一种简洁而方便的定义插件依赖的方法</p>
 <p>其中上面的</p>
-<pre><code class="groovy">plugins {
+<pre><code class="groovy">plugins &#123;
     id &#39;java&#39;
-}
+&#125;
 </code></pre>
 <p>表示使用Java核心插件 </p>
 <p>使用核心插件可以使用简称,如果从插件官网使用社区版插件，就需要使用全称了,例如</p>
-<pre><code class="groovy">plugins {
+<pre><code class="groovy">plugins &#123;
     id &#39;com.jfrog.bintray&#39; version &#39;0.4.1&#39;
-}
+&#125;
 </code></pre>
 <p>而老版本2.0及以下的gradle是</p>
 <pre><code class="groovy">apply plugin: &quot;java&quot;
 </code></pre>
 <p>Gradle构建项目的的目录结构和Maven是一样的，兼容Maven</p>
-<p><img src="11.png" alt> </p>
+<p><img src="11.png" alt=""> </p>
 <p>如果直接用gradle创建项目的话这些目录都是没有的，需要我们手动创建，后面我们会学到使用task来自动帮我们创建这些目录    </p>
-<h2 id="打包成jar"><a href="#打包成jar" class="headerlink" title="打包成jar"></a>打包成jar</h2><p><img src="12.png" alt> </p>
+<h2 id="打包成jar"><a href="#打包成jar" class="headerlink" title="打包成jar"></a>打包成jar</h2><p><img src="12.png" alt=""> </p>
 <p>它的功能就是把源文件编译完成后打包成jar包 ，build也可以实现同样的功能，因为build就是运行的build.gradle这个构建脚本 ，我们这里使用了java这个插件，所以build完成之后也是jar包 </p>
 <p>classes就是把源文件编译成class文件</p>
 <p>clean就是清除以前的构建(build目录)</p>
 <p>我们双击jar，然后编译窗口出现以下内容</p>
-<p><img src="13.png" alt> </p>
+<p><img src="13.png" alt=""> </p>
 <p>task任务包括了编译java，处理资源文件，生成字节码,打包成jar包</p>
 <p>任务完成后jar包放在build/libs文件夹下 </p>
 <h2 id="web应用-war包"><a href="#web应用-war包" class="headerlink" title="web应用 war包"></a>web应用 war包</h2><p>添加<code>war</code>这个插件 </p>
 <p>gradle有很多插件，关于gradle有哪些插件可以去官网看 </p>
 <p>我们也可以编写自己的插件</p>
 <h1 id="高级应用"><a href="#高级应用" class="headerlink" title="高级应用"></a>高级应用</h1><h2 id="构建脚本介绍"><a href="#构建脚本介绍" class="headerlink" title="构建脚本介绍"></a>构建脚本介绍</h2><h3 id="构建块："><a href="#构建块：" class="headerlink" title="构建块："></a>构建块：</h3><p>Gradle构建中的两个基本概念是<strong>项目(Project)</strong>和<strong>任务(task)</strong>，每个构建至少包含一个项目，项目中包含一个或多个任务。在多项目构建中，一个项目可以依赖于其他项目；类似的，任务可以形成一个依赖关系图来确保他们的执行顺序 </p>
-<p><img src="14.png" alt></p>
+<p><img src="14.png" alt=""></p>
 <p>上图中，项目一依赖于项目二，A依赖于B和C，显然，B和C得在A之前执行完。 </p>
 <p>项目二中F依赖E，E依赖D，所以顺序是DEF</p>
 <h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><p>一个项目代表一个正在构建的组件，比如一个Jar文件，当构建启动后，Gradle会基于build.gradle实例化一个org.gradle.api.Project类，并且能够通过project使其隐式可用  </p>
@@ -793,53 +794,53 @@ dependencies {//依赖管理
 </ul>
 <p>settings.gradle是用来管理多项目构建的  </p>
 <p>我们可以自定义任务，但是我们使用插件后，这些插件自带了很多任务 </p>
-<p><img src="16.png" alt> </p>
-<p><img src="17.png" alt> </p>
+<p><img src="16.png" alt=""> </p>
+<p><img src="17.png" alt=""> </p>
 <p>任务流程是：编译java，处理资源文件，编译字节码文件，打jar包，说明jar这个任务是依赖上面三个任务的 ，上面的up-to-date表示自上次构建后没有更改，是最新的 ，所以是跳过执行的 </p>
 <h4 id="自定义任务"><a href="#自定义任务" class="headerlink" title="自定义任务"></a>自定义任务</h4><p>我们写一个自动创建java目录的task</p>
-<pre><code class="groovy">def createDir = {
+<pre><code class="groovy">def createDir = &#123;
     path -&gt;
         File dir=new File(path)
-        if(!dir.exists()){
+        if(!dir.exists())&#123;
             dir.mkdirs()
-        }
-}
-task makeJavaDir(){
+        &#125;
+&#125;
+task makeJavaDir()&#123;
     def paths=[&#39;src/main/java&#39;,&#39;src/main/resources&#39;,&#39;src/test/java&#39;,&#39;src/test/resources&#39;]
-    doFirst{
+    doFirst&#123;
         paths.forEach(createDir)
-    }
-}
-task makeWebDir() {
+    &#125;
+&#125;
+task makeWebDir() &#123;
     dependsOn &#39;makeJavaDir&#39;//webapp只是在java的目录上多了webapp，所以依赖javadir的任务
     def paths=[&#39;src/main/webapp&#39;,&#39;src/test/webapp&#39;]
-    doLast {
+    doLast &#123;
         paths.forEach(createDir)
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>自己写的task在other里 </p>
-<p><img src="18.png" alt> </p>
+<p><img src="18.png" alt=""> </p>
 <p>双击执行 </p>
-<p><img src="20.png" alt></p>
-<p><img src="21.png" alt> </p>
+<p><img src="20.png" alt=""></p>
+<p><img src="21.png" alt=""> </p>
 <h4 id="构建的生命周期"><a href="#构建的生命周期" class="headerlink" title="构建的生命周期"></a>构建的生命周期</h4><p>除了动作代码之外都是配置代码 </p>
 <p>执行代码就是动作代码</p>
-<p><img src="22.png" alt> </p>
+<p><img src="22.png" alt=""> </p>
 <p>配置阶段决定任务的依赖关系和执行顺序 </p>
 <p>一个方法中可能有配置代码也有执行代码，先执行完文件中的所有配置代码，再会执行动作代码.  <strong>如果在执行阶段修改任务的依赖会报错</strong> </p>
 <p>例如我改成下面的代码</p>
-<pre><code class="groovy">task makeWebDir() {
+<pre><code class="groovy">task makeWebDir() &#123;
     def paths=[&#39;src/main/webapp&#39;,&#39;src/test/webapp&#39;]
-    doLast {
+    doLast &#123;
         dependsOn &#39;makeJavaDir&#39;//webapp只是在java的目录上多了webapp，所以依赖javadir的任务
         paths.forEach(createDir)
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<p><img src="23.png" alt> </p>
+<p><img src="23.png" alt=""> </p>
 <p>钩子方法</p>
-<p><img src="24.png" alt> </p>
+<p><img src="24.png" alt=""> </p>
 <p>这些基本不会用到  </p>
 <h4 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h4><h5 id="工件坐标"><a href="#工件坐标" class="headerlink" title="工件坐标"></a>工件坐标</h5><p>工件就是jar包</p>
 <p>通过group,name,version可以唯一确定一个jar包 </p>
@@ -851,7 +852,7 @@ task makeWebDir() {
 <li>文件仓库(基本不用)</li>
 </ul>
 <h5 id="依赖的传递性"><a href="#依赖的传递性" class="headerlink" title="依赖的传递性"></a>依赖的传递性</h5><p>B依赖A，如果C依赖B，那么C依赖A</p>
-<p><img src="25.png" alt>n</p>
+<p><img src="25.png" alt="">n</p>
 <h5 id="依赖阶段配置"><a href="#依赖阶段配置" class="headerlink" title="依赖阶段配置"></a>依赖阶段配置</h5><p>compile 编译阶段</p>
 <p>runtime 运行时阶段</p>
 <p>测试代码也有2个阶段</p>
@@ -859,36 +860,36 @@ task makeWebDir() {
 <h5 id="依赖阶段关系"><a href="#依赖阶段关系" class="headerlink" title="依赖阶段关系"></a>依赖阶段关系</h5><p>运行时阶段都是扩展于编译时阶段的，也就是说编译阶段依赖的jar包在运行时一定会依赖 ，运行时依赖的在编译时不一定依赖</p>
 <p>比如jdbc的驱动，在写代码时JDK包含了JDBC的接口，所以编译时不需要，运行时需要</p>
 <p>源代码依赖的测试代码一定会依赖，测试代码依赖的源代码不一定依赖 </p>
-<pre><code class="groovy">dependencies {
+<pre><code class="groovy">dependencies &#123;
     testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.11&#39; //测试时依赖
-}
+&#125;
 </code></pre>
 <p>比如</p>
-<pre><code class="groovy">dependencies {
+<pre><code class="groovy">dependencies &#123;
     compile group: &#39;ch.qos.logback&#39;, name: &#39;logback-classic&#39;, version: &#39;1.2.3&#39;
     testCompile group: &#39;junit&#39;, name: &#39;junit&#39;, version: &#39;4.11&#39;
-}
+&#125;
 </code></pre>
 <p>也有个简单写法</p>
 <p><code>ch.qos.logback:logback-classic:1.2.3</code> </p>
 <p>第一个冒号之前的是groupid，第二个冒号之前的是name，最后一个冒号后面的是version</p>
-<p><img src="26.png" alt> </p>
+<p><img src="26.png" alt=""> </p>
 <p>gradle中可以配多个仓库</p>
 <p>j</p>
-<pre><code class="groovy">repositories {
+<pre><code class="groovy">repositories &#123;
     mavenLocal()
     mavenCentral()
-}
+&#125;
 </code></pre>
 <p>私服的写法</p>
-<pre><code class="groovy">repositories {
-   maven{
+<pre><code class="groovy">repositories &#123;
+   maven&#123;
      url &#39;xxx.xxx.com&#39; //或url=&#39;xxx.xxx.com&#39;
-   }    
-}
+   &#125;    
+&#125;
 </code></pre>
 <h4 id="解决版本冲突"><a href="#解决版本冲突" class="headerlink" title="解决版本冲突"></a>解决版本冲突</h4><p>先来看一个版本冲突的例子 </p>
-<p><img src="27.png" alt> </p>
+<p><img src="27.png" alt=""> </p>
 <p>由于传递性依赖，对slf4j出现了2个版本的依赖 </p>
 <p>解决冲突： </p>
 <ul>
@@ -898,77 +899,78 @@ task makeWebDir() {
 </ul>
 <p>gradle对版本冲突默认的解决方案是依赖最高版本 </p>
 <p>如何修改默认解决策略？ </p>
-<p><img src="28.png" alt> </p>
+<p><img src="28.png" alt=""> </p>
 <p>图中的意思是如果发现版本冲突，让它构建失败，否则我们很难发现出现了版本冲突</p>
 <h5 id="如何解决呢？"><a href="#如何解决呢？" class="headerlink" title="如何解决呢？"></a>如何解决呢？</h5><p>2种方式</p>
 <p>1 排除依赖 2  指定依赖版本</p>
 <p>我们可以排除一个具体的jar包的依赖，也可以通过transitive排除所有传递性依赖(但是这种情况用的很少)</p>
-<p><img src="29.png" alt></p>
-<p><img src="34.png" alt> </p>
+<p><img src="29.png" alt=""></p>
+<p><img src="34.png" alt=""> </p>
 <p>图中module就是name属性，版本是不需要指定的 </p>
 <p>第二种方式就是强制指定一个版本  </p>
-<p><img src="30.png" alt> </p>
-<p><img src="35.png" alt> </p>
-<p><img src="31.png" alt> </p>
+<p><img src="30.png" alt=""> </p>
+<p><img src="35.png" alt=""> </p>
+<p><img src="31.png" alt=""> </p>
 <p>task/help中有个dependencies的task，可以显示所有依赖的结构</p>
-<p><img src="32.png" alt> </p>
+<p><img src="32.png" alt=""> </p>
 <p>我们发现hibernate中的slf4j由1.5.8变成了1.7.22 </p>
-<p><img src="33.png" alt> </p>
+<p><img src="33.png" alt=""> </p>
 <h3 id="多项目构建"><a href="#多项目构建" class="headerlink" title="多项目构建"></a>多项目构建</h3><p>项目模块化</p>
 <p>企业项目中，包层次和类关系比较复杂，把代码拆分成模块通常是最佳实践，这需要你清晰的划分功能的边界。 项目符合高内聚，低耦合时，模块化就变得很容易，这是一条非常好的软件开发实践 </p>
-<p><img src="36.png" alt> </p>
+<p><img src="36.png" alt=""> </p>
 <p>配置要求：</p>
 <p>所有项目应用java插件</p>
 <p>web子项目打包成war</p>
 <p>统一配置公共属性</p>
 <p>所哟项目添加logback日志</p>
-<p><img src="37.png" alt></p>
+<p><img src="37.png" alt=""></p>
 <p>所有项目就是根项目加上子项目</p>
 <p>对子项目的依赖有个特殊的写法</p>
-<pre><code class="groovy">dependencies{
+<pre><code class="groovy">dependencies&#123;
   compile project (&quot;:model&quot;) //model是模块名
-}
+&#125;
 </code></pre>
 <p>idea新建module时应该new-&gt;module</p>
 <p>当我们新建module时，settings.gradle会有模块include进来</p>
-<p><img src="38.png" alt> </p>
+<p><img src="38.png" alt=""> </p>
 <p>settings.gradle就是用来进行多项目构建的的 ，它就这一个功能 </p>
-<p><img src="39.png" alt> </p>
+<p><img src="39.png" alt=""> </p>
 <p>todo旁边显示root，表示它是根项目</p>
 <p>下面的model,repository,web左边都有冒号，说明他们是子模块</p>
 <p>repository依赖model，web依赖model和repository，但是由于依赖传递，web只需要依赖repository即可 </p>
-<pre><code class="grovvy">dependencies {
+<pre><code class="grovvy">dependencies &#123;
   compile project (&quot;:repository&quot;)
-}
+&#125;
 </code></pre>
 <h3 id="多项目构建实战"><a href="#多项目构建实战" class="headerlink" title="多项目构建实战"></a>多项目构建实战</h3><p>我们在创建module的时候，每个module的build.gradle都有java插件，源代码版本等属性设置 ，比较麻烦</p>
 <p>我们直接改成在根项目上配置，使用allprojects这个方法</p>
-<pre><code>allprojects{
+<pre><code>allprojects&#123;
     apply plugin &#39;java&#39;
     sourceCompatibility=1.8
-}
+&#125;
+
 </code></pre><p>这样就对所有项目应用这些配置了 你在build.gradle中能写什么，在allprojects中就能写什么 </p>
 <p>然后只在web模块中使用war这个插件</p>
 <p>然后比如说所有子项目都要用某个依赖，可以在根项目的build.gralde文件的allprojects中配置依赖，也可以在根项目的build.gralde文件的subprojects中配置依赖，由于我们根项目没代码，所以效果一样</p>
-<p><img src="40.png" alt> </p>
+<p><img src="40.png" alt=""> </p>
 <p>gradle.properties配置公共属性</p>
-<p><img src="41.png" alt> </p>
+<p><img src="41.png" alt=""> </p>
 <p>如果想对根项目进行任务，就执行根项目的task，如果只想执行子项目的任务，就执行子项目的task，gradle会根据依赖进行相应顺序执行 </p>
-<h3 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h3><p><img src="42.png" alt> </p>
-<p><img src="43.png" alt> </p>
-<p><img src="44.png" alt></p>
+<h3 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h3><p><img src="42.png" alt=""> </p>
+<p><img src="43.png" alt=""> </p>
+<p><img src="44.png" alt=""></p>
 <p>如果测试失败了，后面的build就不会执行了 </p>
-<p><img src="45.png" alt> </p>
-<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p><img src="46.png" alt> </p>
+<p><img src="45.png" alt=""> </p>
+<h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p><img src="46.png" alt=""> </p>
 <p>发布是通过一个插件来完成的 </p>
 <p>官方提供了一个maven-publish插件 </p>
 <p>插件下配置2个属性，一个是publications一个是repositories </p>
-<p><img src="47.png" alt> </p>
+<p><img src="47.png" alt=""> </p>
 <p>c配置 </p>
 <p>配置了发布，右侧gradle会出现一些publishing 的任务 </p>
-<p><img src="48.png" alt> </p>
-<p><img src="49.png" alt> </p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="50.png" alt> </p>
+<p><img src="48.png" alt=""> </p>
+<p><img src="49.png" alt=""> </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="50.png" alt=""> </p>
 <h1 id="一个疑问"><a href="#一个疑问" class="headerlink" title="一个疑问"></a>一个疑问</h1><p>build.gradle中有设置属性的一段</p>
 <pre><code class="groovy">group &#39;org.rico.gradle&#39;
 version &#39;1.0-SNAPSHOT&#39;
@@ -977,10 +979,10 @@ version &#39;1.0-SNAPSHOT&#39;
 <p>而且我按住Ctrl点进去发现调用的的确是setGroup和setVersion，也就是的确是调用的方法</p>
 <p>而且我们自己写一个属性，然后采用 空格这种方式赋值是错误的，必须加等号</p>
 <p>疑惑，有知道的小伙伴欢迎告知</p>
-<h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><p><a href="https://www.cnblogs.com/zqlxtt/p/5741306.html" target="_blank" rel="noopener">写出gradle风格的groovy代码</a>   </p>
-<p><a href="https://www.cnblogs.com/zqlxtt/p/5741297.html" target="_blank" rel="noopener">Groovy中的闭包</a> </p>
-<p><a href="http://www.groovy-lang.org/closures.html" target="_blank" rel="noopener">Groovy官网-Closures</a> </p>
-<p><a href="http://www.groovy-lang.org/syntax.html" target="_blank" rel="noopener">Groovy语法</a>  </p>
+<h1 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zqlxtt/p/5741306.html">写出gradle风格的groovy代码</a>   </p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zqlxtt/p/5741297.html">Groovy中的闭包</a> </p>
+<p><a target="_blank" rel="noopener" href="http://www.groovy-lang.org/closures.html">Groovy官网-Closures</a> </p>
+<p><a target="_blank" rel="noopener" href="http://www.groovy-lang.org/syntax.html">Groovy语法</a>  </p>
 <h2 id="委托策略"><a href="#委托策略" class="headerlink" title="委托策略"></a>委托策略</h2><p>委托策略是groovy中闭包独有的语法，这也使得闭包较java的lambda更为高级。下面简单介绍一下groovy中的委托策略。</p>
 <h3 id="Owner，delegate和this"><a href="#Owner，delegate和this" class="headerlink" title="Owner，delegate和this"></a>Owner，delegate和this</h3><p>在理解delegate之前，首先先要了解一下闭包中this和owner的含义，闭包中三者是这么定义的：</p>
 <ul>
@@ -989,90 +991,90 @@ version &#39;1.0-SNAPSHOT&#39;
 <li><code>delegate</code> 表示一个用于处理方法调用和属性处理的第三方类。</li>
 </ul>
 <h4 id="This"><a href="#This" class="headerlink" title="This"></a>This</h4><p>闭包中，使用<code>this</code>关键字或者调用方法<code>getThisObject()</code>来获得其外围类：</p>
-<pre><code class="groovy">class Enclosing {
-    void run() {
-        def whatIsThisObject = { getThisObject() }          
+<pre><code class="groovy">class Enclosing &#123;
+    void run() &#123;
+        def whatIsThisObject = &#123; getThisObject() &#125;          
         assert whatIsThisObject() == this                   
-        def whatIsThis = { this }                           
+        def whatIsThis = &#123; this &#125;                           
         assert whatIsThis() == this                         
-    }
-}
-class EnclosedInInnerClass {
-    class Inner {
-        Closure cl = { this }                               
-    }
-    void run() {
+    &#125;
+&#125;
+class EnclosedInInnerClass &#123;
+    class Inner &#123;
+        Closure cl = &#123; this &#125;                               
+    &#125;
+    void run() &#123;
         def inner = new Inner()
         assert inner.cl() == inner                          
-    }
-}
-class NestedClosures {
-    void run() {
-        def nestedClosures = {
-            def cl = { this }                               
+    &#125;
+&#125;
+class NestedClosures &#123;
+    void run() &#123;
+        def nestedClosures = &#123;
+            def cl = &#123; this &#125;                               
             cl()
-        }
+        &#125;
         assert nestedClosures() == this                     
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>判断this表示的具体是哪个对象可以从this往外找，遇到的第一类就是this代表的类。</p>
 <h4 id="Owner"><a href="#Owner" class="headerlink" title="Owner"></a>Owner</h4><p>owner与this类似，只不过owner表示的是直接外围对象，可以是类也可以是闭包：</p>
-<pre><code class="groovy">class Enclosing {
-    void run() {
-        def whatIsOwnerMethod = { getOwner() }               
+<pre><code class="groovy">class Enclosing &#123;
+    void run() &#123;
+        def whatIsOwnerMethod = &#123; getOwner() &#125;               
         assert whatIsOwnerMethod() == this                   
-        def whatIsOwner = { owner }                          
+        def whatIsOwner = &#123; owner &#125;                          
         assert whatIsOwner() == this                         
-    }
-}
-class EnclosedInInnerClass {
-    class Inner {
-        Closure cl = { owner }                               
-    }
-    void run() {
+    &#125;
+&#125;
+class EnclosedInInnerClass &#123;
+    class Inner &#123;
+        Closure cl = &#123; owner &#125;                               
+    &#125;
+    void run() &#123;
         def inner = new Inner()
         assert inner.cl() == inner                           
-    }
-}
-class NestedClosures {
-    void run() {
-        def nestedClosures = {
-            def cl = { owner }                               
+    &#125;
+&#125;
+class NestedClosures &#123;
+    void run() &#123;
+        def nestedClosures = &#123;
+            def cl = &#123; owner &#125;                               
             cl()
-        }
+        &#125;
         assert nestedClosures() == nestedClosures            
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>上述例子与this中的例子不同的就是NestedClosures，其中owner表示的是nestedClosures而不是NestedClosures。</p>
 <h4 id="Delegate"><a href="#Delegate" class="headerlink" title="Delegate"></a>Delegate</h4><p>闭包中可以使用delegate关键字或者getDelegate()方法来得到delegate变量，它默认与owner一致，但可以由用户自定义其代表的对象。</p>
-<pre><code class="groovy">class Enclosing {
-    void run() {
-        def cl = { getDelegate() }                          
-        def cl2 = { delegate }                              
+<pre><code class="groovy">class Enclosing &#123;
+    void run() &#123;
+        def cl = &#123; getDelegate() &#125;                          
+        def cl2 = &#123; delegate &#125;                              
         assert cl() == cl2()                                
         assert cl() == this                                 
-        def enclosed = {
-            { -&gt; delegate }.call()                          
-        }
+        def enclosed = &#123;
+            &#123; -&gt; delegate &#125;.call()                          
+        &#125;
         assert enclosed() == enclosed                       
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>闭包中的delegate可被指向任意对象，我们看下面这个例子：</p>
-<pre><code class="groovy">class Person {
+<pre><code class="groovy">class Person &#123;
     String name
-}
-class Thing {
+&#125;
+class Thing &#123;
     String name
-}
+&#125;
 
 def p = new Person(name: &#39;Norman&#39;)
 def t = new Thing(name: &#39;Teapot&#39;)
 </code></pre>
 <p>定义了两个拥有相同属性name的类Person和Thing。接着定义一个闭包，其作用是通过delegate来获得name属性。</p>
-<pre><code>def upperCasedName = { delegate.name.toUpperCase() }
+<pre><code>def upperCasedName = &#123; delegate.name.toUpperCase() &#125;
 </code></pre><p>接着改变闭包的delegate的指向，我们可以看到闭包调用结果也不同：</p>
 <pre><code class="groovy">upperCasedName.delegate = p
 assert upperCasedName() == &#39;NORMAN&#39;
@@ -1080,11 +1082,11 @@ upperCasedName.delegate = t
 assert upperCasedName() == &#39;TEAPOT&#39;
 </code></pre>
 <h4 id="Delegate策略"><a href="#Delegate策略" class="headerlink" title="Delegate策略"></a>Delegate策略</h4><p>在闭包中，当一个属性没有指明其所有者的时候，delegate策略就会发挥作用了。</p>
-<pre><code class="groovy">class Person {
+<pre><code class="groovy">class Person &#123;
     String name
-}
+&#125;
 def p = new Person(name:&#39;Igor&#39;)
-def cl = { name.toUpperCase() }   //❶              
+def cl = &#123; name.toUpperCase() &#125;   //❶              
 cl.delegate = p                   //❷              
 assert cl() == &#39;IGOR&#39;             //❸
 </code></pre>
@@ -1098,16 +1100,16 @@ assert cl() == &#39;IGOR&#39;             //❸
 <li><code>Closure.TO_SELF</code> 在闭包自身中寻找。</li>
 </ul>
 <p>下面我们看一下默认的Closure.OWNER_FIRST的用法：</p>
-<pre><code class="groovy">class Person {
+<pre><code class="groovy">class Person &#123;
     String name
-    def pretty = { &quot;My name is $name&quot; }             
-    String toString() {
+    def pretty = &#123; &quot;My name is $name&quot; &#125;             
+    String toString() &#123;
         pretty()
-    }
-}
-class Thing {
+    &#125;
+&#125;
+class Thing &#123;
     String name                                     
-}
+&#125;
 
 def p = new Person(name: &#39;Sarah&#39;)
 def t = new Thing(name: &#39;Teapot&#39;)
@@ -1123,14 +1125,14 @@ assert p.toString() == &#39;My name is Teapot&#39;
 </code></pre>
 <p>这时候就会访问t的name属性了。</p>
 <p>下面再来看一个例子：</p>
-<pre><code class="groovy">class Person {
+<pre><code class="groovy">class Person &#123;
     String name
     int age
-    def fetchAge = { age }
-}
-class Thing {
+    def fetchAge = &#123; age &#125;
+&#125;
+class Thing &#123;
     String name
-}
+&#125;
 
 def p = new Person(name:&#39;Jessica&#39;, age:42)
 def t = new Thing(name:&#39;Printer&#39;)
@@ -1143,17 +1145,17 @@ cl.resolveStrategy = Closure.DELEGATE_ONLY
 cl.delegate = p
 assert cl() == 42
 cl.delegate = t
-try {
+try &#123;
     cl()
     assert false
-} catch (MissingPropertyException ex) {
+&#125; catch (MissingPropertyException ex) &#123;
     // &quot;age&quot; is not defined on the delegate
-}
+&#125;
 </code></pre>
 <p>当使用了Closure.DELEGATE_ONLY后，若delegate中找不到age属性，则会直接报错。</p>
 <h2 id="GStrings中的闭包"><a href="#GStrings中的闭包" class="headerlink" title="GStrings中的闭包"></a>GStrings中的闭包</h2><p>先来看一下下面这段代码：</p>
 <pre><code class="groovy">def x = 1
-def gs = &quot;x = ${x}&quot;
+def gs = &quot;x = $&#123;x&#125;&quot;
 assert gs == &#39;x = 1&#39;
 </code></pre>
 <p>OK,运行没有问题，那如果加两行代码呢？</p>
@@ -1163,12 +1165,12 @@ assert gs == &#39;x = 2&#39;
 <p>这里就会报错了，错误原因有两：</p>
 <ul>
 <li>GString只是调用了字符串的toString方法来获得值。</li>
-<li><code>${x}</code>这种写法并不是一个闭包，而是一个表达式等价于<code>$x</code>,当GString被创建的时候该表达式会被计算。</li>
+<li><code>$&#123;x&#125;</code>这种写法并不是一个闭包，而是一个表达式等价于<code>$x</code>,当GString被创建的时候该表达式会被计算。</li>
 </ul>
 <p>所以当给x赋值2的时候，gs已经被创建，表达式也已经被计算，结果是x = 1,所以gs得值就是固定的x = 1。</p>
 <p>如果要在GString使用闭包也是可以的，如下：</p>
 <pre><code class="groovy">def x = 1
-def gs = &quot;x = ${-&gt; x}&quot;
+def gs = &quot;x = $&#123;-&gt; x&#125;&quot;
 assert gs == &#39;x = 1&#39;
 
 x = 2
@@ -1572,7 +1574,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Spring">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Spring如何解决循环引用 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Spring"> 
 
     
         <meta property="article:published_time" content="Mon Oct 21 2019 17:54:24 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/21/How-Spring-solves-circular-references/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/21/How-Spring-solves-circular-references/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是循环依赖"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是循环依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要避免循环依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text">为什么要避免循环依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Spring的循环依赖示例"><span class="post-toc-number">3.</span> <span class="post-toc-text">Spring的循环依赖示例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如何检测循环依赖"><span class="post-toc-number">4.</span> <span class="post-toc-text">如何检测循环依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Spring是如何处理循环依赖的"><span class="post-toc-number">5.</span> <span class="post-toc-text">Spring是如何处理循环依赖的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Spring源码"><span class="post-toc-number">6.</span> <span class="post-toc-text">Spring源码</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为什么构造函数构造bean会异常"><span class="post-toc-number"></span> <span class="post-toc-text">为什么构造函数构造bean会异常</span></a>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是循环依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%81%BF%E5%85%8D%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="post-toc-number">2.</span> <span class="post-toc-text">为什么要避免循环依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Spring%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E7%A4%BA%E4%BE%8B"><span class="post-toc-number">3.</span> <span class="post-toc-text">Spring的循环依赖示例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96"><span class="post-toc-number">4.</span> <span class="post-toc-text">如何检测循环依赖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Spring%E6%98%AF%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E7%9A%84"><span class="post-toc-number">5.</span> <span class="post-toc-text">Spring是如何处理循环依赖的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Spring%E6%BA%90%E7%A0%81"><span class="post-toc-number">6.</span> <span class="post-toc-text">Spring源码</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9E%84%E9%80%A0bean%E4%BC%9A%E5%BC%82%E5%B8%B8"><span class="post-toc-number"></span> <span class="post-toc-text">为什么构造函数构造bean会异常</span></a>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Spring/">Spring</a>
+        <a class="post_tag-none-link" href="/tags/Spring/" rel="tag">Spring</a>
     </ul>
     
 
@@ -477,18 +477,18 @@
 </blockquote>
 <h2 id="什么是循环依赖"><a href="#什么是循环依赖" class="headerlink" title="什么是循环依赖"></a>什么是循环依赖</h2><p>循环依赖指的是<strong>多个对象之间的依赖关系形成一个闭环</strong>。</p>
 <p>下图展示了两个对象 A 和 B 形成的一个循环依赖</p>
-<p><img src="1.png" alt></p>
+<p><img src="1.png" alt=""></p>
 <p>现实中由于依赖层次深、关系复杂等因素， 导致循环依赖可能并不是那么一目了然。</p>
 <h2 id="为什么要避免循环依赖"><a href="#为什么要避免循环依赖" class="headerlink" title="为什么要避免循环依赖"></a>为什么要避免循环依赖</h2><p>循环依赖会为系统带来很多意想不到的问题</p>
 <p>、<strong>循环依赖会导致内存溢出</strong></p>
 <p>参考下面的代码</p>
-<pre><code class="java">public class AService {
+<pre><code class="java">public class AService &#123;
   private BService bService = new BService();
-}
+&#125;
 
-public class BService {
+public class BService &#123;
   private AService aService = new AService();
-}
+&#125;
 </code></pre>
 <p>当你通过 <code>new AService()</code> <strong>创建一个对象时你会获得一个栈溢出的错误</strong>。</p>
 <p>如果你了解 <strong>Java</strong> 的初始化顺序就应该知道为什么会出现这样的问题。</p>
@@ -497,45 +497,45 @@ public class BService {
 <ul>
 <li><p>构造器注入</p>
 <pre><code class="java">@Service
-public class AService {
+public class AService &#123;
 
   private final BService bService;
 
   @Autowired
-  public AService(BService bService) {
+  public AService(BService bService) &#123;
     this.BService = bService
-  }
-}
+  &#125;
+&#125;
 </code></pre>
 <pre><code class="java">@Service
-public class BService {
+public class BService &#123;
 
   private final AService aService;
 
   @Autowired
-  public BService(AService aService) {
+  public BService(AService aService) &#123;
     this.aService = aService;
-  }
+  &#125;
 
-}
+&#125;
 </code></pre>
 </li>
 <li><p>Field注入</p>
 <pre><code class="java">@Service
-public class AService {
+public class AService &#123;
 
   @Autowired
   private BService bService;
 
-}
+&#125;
 </code></pre>
 <pre><code class="java">@Service
-public class BService {
+public class BService &#123;
 
   @Autowired
   private AService aService;
 
-}
+&#125;
 </code></pre>
 <p><code>Setter</code>注入和 Feild注入 类似</p>
 </li>
@@ -553,51 +553,51 @@ public class BService {
 <p>明确后，我们就能知道检测循环依赖本质就是在<strong>检测一个图中是否出现了环</strong>， 这是一个很简单的算法问题。</p>
 <p>利用一个 <code>HashSet</code> 依次记录这个依赖关系方向中出现的元素， 当出现重复元素时就说明产生了<code>环</code>， 而且这个重复元素就是环的起点。</p>
 <p>参考下图， 红色的节点就代表是循环出现的点</p>
-<p><img src="3.png" alt></p>
+<p><img src="3.png" alt=""></p>
 <p>以第一个图为例，依赖方向为 A-&gt;B-&gt;C-&gt;A ，很容易检测到 A 就是环状点。</p>
 <h2 id="Spring是如何处理循环依赖的"><a href="#Spring是如何处理循环依赖的" class="headerlink" title="Spring是如何处理循环依赖的"></a>Spring是如何处理循环依赖的</h2><p>Spring 能够处理 <strong>单例Bean</strong> 的循环依赖（<strong>Field注入方式</strong>)，本节我们就通过纸上谈兵的方式来看看它是如何做到的</p>
 <p>首先，我们将 Spring 创建 Bean 的生命周期简化为两个步骤：实例化 -&gt; 依赖注入， 如下图所示</p>
-<p><img src="4.png" alt></p>
+<p><img src="4.png" alt=""></p>
 <p><strong>实例化</strong>就相当于通过 <code>new</code> 创建了一个具体的对象， 而<strong>依赖注入</strong>就相当于为对象的属性进行赋值操作</p>
 <p>我们再将这个过程扩展到两个相互依赖 Bean 的创建过程上去, 如下图所示</p>
-<p><img src="5.png" alt></p>
+<p><img src="5.png" alt=""></p>
 <p>A 在执行依赖注入时需要实例化 B， 而 B 在执行依赖注入时又会实例化 A ，形成了一个很典型的依赖环。</p>
 <p>产生环的节点就是 B 在执行依赖注入的阶段， 如果我们将其”砍”掉， 就没有环了， 如下图所示</p>
-<p><img src="6.png" alt></p>
+<p><img src="6.png" alt=""></p>
 <p>这样做确实没有循环依赖了，但却带来了另一个问题，B 是没有经过依赖注入的， 也就是说 B 是不完整的， 这怎么办呢？</p>
 <p>此时 A 已经创建完成并维护在 Spring 容器内，A 持有 B 的引用， 并且 Spring 维护着未进行依赖注入的 B 的引用</p>
 <p>当 Spring <strong>主动创建</strong> B 时可以直接取得 B 的引用 （省去了实例化的过程）， 当执行依赖注入时， 也可以直接从容器内取得 A 的引用， 这样 B 就创建完成了</p>
-<p><img src="7.png" alt></p>
+<p><img src="7.png" alt=""></p>
 <p>A 持有的未进行依赖注入的 B，和后面单独创建 B 流程里面<strong>是同一个引用对象</strong>， 当 B 执行完依赖注入后，A 持有的 B 也就是一个完整的 Bean了。</p>
 <h2 id="Spring源码"><a href="#Spring源码" class="headerlink" title="Spring源码"></a>Spring源码</h2><p>入口直接从 <code>getBean(String)</code> 方法开始， 以 <code>populateBean</code> 结束， 用于分析循环依赖的处理是足够的了</p>
-<p><img src="8.png" alt></p>
+<p><img src="8.png" alt=""></p>
 <p><code>getBean(String)</code> 是 <strong>AbstractBeanFactory</strong> 的方法,  它内部调用了  <code>doGetBean</code> 方法， 下面是源码：</p>
-<pre><code class="java">public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport implements ConfigurableBeanFactory {
+<pre><code class="java">public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport implements ConfigurableBeanFactory &#123;
      @Override
-    public Object getBean(String name) throws BeansException {
+    public Object getBean(String name) throws BeansException &#123;
         return doGetBean(name, null, null, false);
-    }
+    &#125;
 
-  protected &lt;T&gt; T doGetBean(final String name, final Class&lt;T&gt; requiredType, final Object[] args, boolean typeCheckOnly){
+  protected &lt;T&gt; T doGetBean(final String name, final Class&lt;T&gt; requiredType, final Object[] args, boolean typeCheckOnly)&#123;
     ...
     // #1
     Object sharedInstance = getSingleton(beanName);
     ...
     final RootBeanDefinition mbd = getMergedLocalBeanDefinition(beanName);
-    if (mbd.isSingleton()) {
+    if (mbd.isSingleton()) &#123;
       // #2
-        sharedInstance = getSingleton(beanName, new ObjectFactory&lt;Object&gt;() {
+        sharedInstance = getSingleton(beanName, new ObjectFactory&lt;Object&gt;() &#123;
                         @Override
-                        public Object getObject() throws BeansException {
+                        public Object getObject() throws BeansException &#123;
                   // #3
                                 return createBean(beanName, mbd, args);
-                        }
-                    });
-    }
+                        &#125;
+                    &#125;);
+    &#125;
     ...
     return (T)bean;
-  }
-}
+  &#125;
+&#125;
 </code></pre>
 <p>我简化了 <code>doGetBean</code> 的方法体，与流程图对应起来，使得我们可以轻松找到下面的调用流程</p>
 <pre><code class="java">doGetBean -&gt; getSingleton(String) -&gt; getSingleton(String, ObjectFactory)
@@ -614,51 +614,51 @@ private final Map&lt;String, ObjectFactory&lt;?&gt;&gt; singletonFactories = new
 private final Map&lt;String, Object&gt; earlySingletonObjects = new HashMap&lt;String, Object&gt;(16);
 </code></pre>
 <p><code>getSingleton(String)</code>  调用了重载方法  <code>getSingleton(String, boolean)</code>， 而该方法实际就是一个查询 Bean 的实现， 先看图再看代码：</p>
-<p><img src="9.png" alt></p>
+<p><img src="9.png" alt=""></p>
 <p>从图中我们可以看见如下查询层次</p>
 <pre><code class="java">singletonObjects =&gt;  earlySingletonObjects =&gt; singletonFactories
 </code></pre>
 <p>再结合源码</p>
-<pre><code class="java">public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements SingletonBeanRegistry {
+<pre><code class="java">public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements SingletonBeanRegistry &#123;
   @Override
-    public Object getSingleton(String beanName) {
+    public Object getSingleton(String beanName) &#123;
         return getSingleton(beanName, true);
-    }
+    &#125;
 
-  protected Object getSingleton(String beanName, boolean allowEarlyReference) {
+  protected Object getSingleton(String beanName, boolean allowEarlyReference) &#123;
     // 从singletonObjects获取已创建的Bean
         Object singletonObject = this.singletonObjects.get(beanName);
 
     // 如果没有已创建的Bean， 但是该Bean正在创建中
-        if (singletonObject == null &amp;&amp; isSingletonCurrentlyInCreation(beanName)) {
+        if (singletonObject == null &amp;&amp; isSingletonCurrentlyInCreation(beanName)) &#123;
         // 从earlySingletonObjects获取已经实例化的Bean
                 singletonObject = this.earlySingletonObjects.get(beanName);
 
           // 如果没有实例化的Bean， 但是参数allowEarlyReference为true
-                if (singletonObject == null &amp;&amp; allowEarlyReference) {
+                if (singletonObject == null &amp;&amp; allowEarlyReference) &#123;
           // 从singletonFactories获取ObjectFactory
                     ObjectFactory&lt;?&gt; singletonFactory = this.singletonFactories.get(beanName);
-                    if (singletonFactory != null) {
+                    if (singletonFactory != null) &#123;
             // 使用ObjectFactory获取Bean实例
                         singletonObject = singletonFactory.getObject();
 
             // 保存实例， 并清理ObjectFactory
                         this.earlySingletonObjects.put(beanName, singletonObject);
                         this.singletonFactories.remove(beanName);
-                    }
-                }
-        }
+                    &#125;
+                &#125;
+        &#125;
         return (singletonObject != NULL_OBJECT ? singletonObject : null);
-    }
+    &#125;
 
-}
+&#125;
 </code></pre>
 <p>通过 <code>getSingleton(String)</code> 没有找到Bean的话就会继续往下调用 <code>getSingleton(String, ObjectFactory)</code> ,  这也是个重载方法， 源码如下</p>
-<pre><code class="java">public Object getSingleton(String beanName, ObjectFactory&lt;?&gt; singletonFactory) {
+<pre><code class="java">public Object getSingleton(String beanName, ObjectFactory&lt;?&gt; singletonFactory) &#123;
         ...
     // 获取缓存的Bean
     Object singletonObject = this.singletonObjects.get(beanName);
-            if (singletonObject == null) {
+            if (singletonObject == null) &#123;
                 ...
         // 标记Bean在创建中
         beforeSingletonCreation(beanName);
@@ -668,72 +668,72 @@ private final Map&lt;String, Object&gt; earlySingletonObjects = new HashMap&lt;S
         singletonObject = singletonFactory.getObject();
         newSingleton = true;
                 ...
-                if (newSingleton) {
+                if (newSingleton) &#123;
           // 缓存bean
                     addSingleton(beanName, singletonObject);
-                }
-            }
+                &#125;
+            &#125;
             return (singletonObject != NULL_OBJECT ? singletonObject : null);
-    }
+    &#125;
 </code></pre>
 <p>流程很清晰，就没必要再画图了，简单来说就是根据 beanName 找不到 Bean 的话就使用传入的 ObjectFactory 创建一个 Bean。</p>
 <p>从最开始的代码片段我们可以知道这个 ObjectFactory 的 getObject 方法实际就是调用了 <code>createBean</code> 方法</p>
-<pre><code class="java">sharedInstance = getSingleton(beanName, new ObjectFactory&lt;Object&gt;() {
+<pre><code class="java">sharedInstance = getSingleton(beanName, new ObjectFactory&lt;Object&gt;() &#123;
                         @Override
-                        public Object getObject() throws BeansException {
+                        public Object getObject() throws BeansException &#123;
                   // #3
                                 return createBean(beanName, mbd, args);
-                        }
-                    });
+                        &#125;
+                    &#125;);
 </code></pre>
 <p><code>createBean</code> 是 <strong>AbstractAutowireCapableBeanFactory</strong> 实现的，内部调用了 <code>doCreateBean</code> 方法</p>
 <p><code>doCreateBean</code> 承担了 bean 的实例化，依赖注入等职责。</p>
 <p>参考下图</p>
-<p><img src="10.png" alt></p>
+<p><img src="10.png" alt=""></p>
 <p><code>createBeanInstance</code> 负责实例化一个 Bean 对象。</p>
 <p><code>addSingletonFactory</code> 会将单例对象的引用通过 ObjectFactory 保存下来， 然后将该 ObjectFactory 缓存在 <strong>Map</strong> 中（该方法在依赖注入之前执行）。</p>
 <p><code>populateBean</code> <strong>主要是执行依赖注入。</strong></p>
 <p>下面是源码， 基本与上面的流程图保持一致， 细节的地方我也标了注释了</p>
 <pre><code class="java">public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory
-      implements AutowireCapableBeanFactory {
+      implements AutowireCapableBeanFactory &#123;
     @Override
-    protected Object createBean(String beanName, RootBeanDefinition mbd, Object[] args) throws BeanCreationException {
+    protected Object createBean(String beanName, RootBeanDefinition mbd, Object[] args) throws BeanCreationException &#123;
         ...
         return doCreateBean(beanName, mbdToUse, args);
-    }
+    &#125;
 
-    protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, final Object[] args) {
+    protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, final Object[] args) &#123;
         ...
         BeanWrapper instanceWrapper = null;
-        if (instanceWrapper == null) {
+        if (instanceWrapper == null) &#123;
             // 实例化Bean
             instanceWrapper = createBeanInstance(beanName, mbd, args);
-        }
+        &#125;
         final Object bean = (instanceWrapper != null ? instanceWrapper.getWrappedInstance() : null);
         // 允许单例Bean的提前暴露
         boolean earlySingletonExposure = (mbd.isSingleton() &amp;&amp; this.allowCircularReferences &amp;&amp; isSingletonCurrentlyInCreation(beanName));
-        if (earlySingletonExposure) {
+        if (earlySingletonExposure) &#123;
             // 新建并缓存ObjectFactory
-            addSingletonFactory(beanName, new ObjectFactory&lt;Object&gt;() {
+            addSingletonFactory(beanName, new ObjectFactory&lt;Object&gt;() &#123;
                 @Override
-                public Object getObject() throws BeansException {
+                public Object getObject() throws BeansException &#123;
                     // 如果忽略BeanPostProcessor逻辑， 该方法实际就是直接返回bean对象
                     // 而这里的bean对象就是前面实例化的对象
                     return getEarlyBeanReference(beanName, mbd, bean);
-                }
-            });
-        }
+                &#125;
+            &#125;);
+        &#125;
 
         ...
         // 依赖注入
     populateBean(beanName, mbd, instanceWrapper);
         ...
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>如果你仔细看了上面的代码片段，相信你已经找到 Spring 处理循环依赖的关键点了</p>
 <p>我们以 A，B 循环依赖注入为例，画了一个完整的注入流程图</p>
-<p> <img src="11.png" alt></p>
+<p> <img src="11.png" alt=""></p>
 <p>注意上图的<strong>黄色节点</strong>， 我们再来过一下这个流程</p>
 <ol>
 <li>在创建 A 的时候，会将 <strong>实例化的A</strong> 通过 <code>addSingleFactory</code>（黄色节点）方法<strong>缓存</strong>, 然后执行依赖注入B。</li>
@@ -1144,7 +1144,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

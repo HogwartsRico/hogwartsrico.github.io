@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="WeakReference | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Java"> 
 
     
         <meta property="article:published_time" content="Mon Nov 30 2020 20:36:38 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/11/30/WeakReference/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/11/30/WeakReference/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#认识WeakReference类"><span class="post-toc-number">2.</span> <span class="post-toc-text">认识WeakReference类</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实战"><span class="post-toc-number">3.</span> <span class="post-toc-text">实战</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ReferenceQueue的使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">ReferenceQueue的使用</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%A4%E8%AF%86WeakReference%E7%B1%BB"><span class="post-toc-number">2.</span> <span class="post-toc-text">认识WeakReference类</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E6%88%98"><span class="post-toc-number">3.</span> <span class="post-toc-text">实战</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ReferenceQueue%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="post-toc-number">4.</span> <span class="post-toc-text">ReferenceQueue的使用</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Java/">Java</a>
+        <a class="post_tag-none-link" href="/tags/Java/" rel="tag">Java</a>
     </ul>
     
 
@@ -471,15 +471,15 @@
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在看<a href="https://hogwartsrico.github.io/2020/11/19/The-use-and-implementation-of-ThreadLocal/">ThreadLocal源码</a>的时候，其中嵌套类ThreadLocalMap中的Entry继承了WeakReferenc，为了能搞清楚ThreadLocal，只能先了解下了WeakReferenc(是的，很多时候为了搞清楚一个东西，不得不往上追好几层，先搞清楚其所依赖的东西。)<br>WeakReference如字面意思，弱引用.</p>
 <p> <strong>当一个对象仅仅被weak reference指向, 而没有任何其他strong reference指向的时候, 如果GC运行, 那么这个对象就会被回收</strong>, 不论当前的内存空间是否足够，这个对象都会被回收。</p>
 <h1 id="认识WeakReference类"><a href="#认识WeakReference类" class="headerlink" title="认识WeakReference类"></a>认识WeakReference类</h1><p> WeakReference继承Reference，其中只有两个构造函数： </p>
-<pre><code class="java">public class WeakReference&lt;T&gt; extends Reference&lt;T&gt; {
-    public WeakReference(T referent) {
+<pre><code class="java">public class WeakReference&lt;T&gt; extends Reference&lt;T&gt; &#123;
+    public WeakReference(T referent) &#123;
         super(referent);
-    }
+    &#125;
 
-    public WeakReference(T referent, ReferenceQueue&lt;? super T&gt; q) {
+    public WeakReference(T referent, ReferenceQueue&lt;? super T&gt; q) &#123;
         super(referent, q);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p><code>WeakReference(T referent)</code>：referent就是被弱引用的对象（注意区分弱引用对象和被弱引用的对应，弱引用对象是指WeakReference的实例或者其子类的实例），比如有一个Apple实例apple，可以如下使用，并且通过get()方法来获取apple引用。也可以再创建一个继承WeakReference的类来对Apple进行弱引用，下面就会使用这种方式。</p>
 <pre><code class="apple">WeakReference&lt;Apple&gt; appleWeakReference = new WeakReference&lt;&gt;(apple);
@@ -487,44 +487,44 @@ Apple apple2 = appleWeakReference.get();
 </code></pre>
 <p><code>WeakReference(T referent, ReferenceQueue&lt;? super T&gt; q)</code>：与上面的构造方法比较，多了个ReferenceQueue，在对象被回收后，会把弱引用对象，也就是WeakReference对象或者其子类的对象，放入队列ReferenceQueue中，注意不是<strong>被</strong>弱引用的对象，<strong>被</strong>弱引用的对象已经被回收了。</p>
 <h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p> 下面是使用继承WeakReference的方式来使用软引用，并且不使用ReferenceQueue。 </p>
-<pre><code class="java">public class Fruit {
+<pre><code class="java">public class Fruit &#123;
     private String name;
-    public Fruit(String name) { this.name = name; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public Fruit(String name) &#123; this.name = name; &#125;
+    public String getName() &#123; return name; &#125;
+    public void setName(String name) &#123; this.name = name; &#125;
     /**
      * 覆盖finalize，在回收的时候会执行。
      */
     @Override
-    protected void finalize() throws Throwable {
+    protected void finalize() throws Throwable &#123;
         super.finalize();
         System.out.println(&quot;Fruit&quot; + name + &quot; finalize。&quot;);
-    }
+    &#125;
     @Override
-    public String toString() {
-        return &quot;Fruit{&quot; + &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; + &#39;}&#39; + &quot;, hashCode:&quot; + this.hashCode();
-    }
-}
+    public String toString() &#123;
+        return &quot;Fruit&#123;&quot; + &quot;name=&#39;&quot; + name + &#39;\&#39;&#39; + &#39;&#125;&#39; + &quot;, hashCode:&quot; + this.hashCode();
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
         WeakReference&lt;Fruit&gt; weakReference = new WeakReference&lt;&gt;(new Fruit(&quot;红富士&quot;));//注意到时候回收的是Fruit，而不是Apple
         //通过WeakReference的get()方法获取Apple
         System.out.println(&quot;调用weakference的toString:&quot;+ weakReference.get());
         System.out.println(&quot;调用weakference的getName:&quot;+ weakReference.get().getName());
         System.gc();
-        try {
+        try &#123;
             //休眠一下，在运行的时候加上虚拟机参数-XX:+PrintGCDetails，输出gc信息，确定gc发生了。
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
+        &#125;
         //如果为空，代表被回收了
-        if (weakReference.get() == null) {
+        if (weakReference.get() == null) &#123;
             System.out.println(&quot;弱引用已经被回收&quot;);
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
-<p><img src="1.png" alt> </p>
+<p><img src="1.png" alt=""> </p>
 <p>可以看到,weakReference这个对象还在，但是它引用的Fruit已经没有了 。 </p>
 <p>还可以使用继承WeakReference的方式来使用软引用 </p>
 <p>沙拉引用了水果</p>
@@ -532,42 +532,42 @@ Apple apple2 = appleWeakReference.get();
  * Salad class  继承WeakReference，将Apple作为弱引用。
  * 注意到时候回收的是Fruit，而不是Salad
  */
-public class Salad extends WeakReference&lt;Fruit&gt; {
-    public Salad(Fruit fruit) {
+public class Salad extends WeakReference&lt;Fruit&gt; &#123;
+    public Salad(Fruit fruit) &#123;
         super(fruit);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
-<pre><code class="java"> public static void main(String[] args) {
+<pre><code class="java"> public static void main(String[] args) &#123;
         Salad salad = new Salad(new Fruit(&quot;红富士&quot;));//注意到时候回收的是Fruit，而不是Salad
         //通过WeakReference的get()方法获取Apple
         System.out.println(&quot;调用salad的toString:&quot;+ salad.get());
         System.out.println(&quot;调用salad的getName:&quot;+ salad.get().getName());
         System.gc();
-        try {
+        try &#123;
             //休眠一下，在运行的时候加上虚拟机参数-XX:+PrintGCDetails，输出gc信息，确定gc发生了。
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
+        &#125;
         //如果为空，代表被回收了
-        if (salad.get() == null) {
+        if (salad.get() == null) &#123;
             System.out.println(&quot;水果被回收了&quot;);
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
-<p><img src="2.png" alt> </p>
+<p><img src="2.png" alt=""> </p>
 <p>可以看到，沙拉还在，水果已经没有了。 </p>
-<h1 id="ReferenceQueue的使用"><a href="#ReferenceQueue的使用" class="headerlink" title="ReferenceQueue的使用"></a>ReferenceQueue的使用</h1><pre><code class="java"> public static void main(String[] args) {
+<h1 id="ReferenceQueue的使用"><a href="#ReferenceQueue的使用" class="headerlink" title="ReferenceQueue的使用"></a>ReferenceQueue的使用</h1><pre><code class="java"> public static void main(String[] args) &#123;
         ReferenceQueue&lt;Fruit&gt; fruitReferenceQueue = new ReferenceQueue&lt;&gt;();
         WeakReference&lt;Fruit&gt; fruitWeakReference = new WeakReference&lt;Fruit&gt;(new Fruit(&quot;草莓&quot;), fruitReferenceQueue);
         WeakReference&lt;Fruit&gt; fruitWeakReference2 = new WeakReference&lt;Fruit&gt;(new Fruit(&quot;红苹果&quot;), fruitReferenceQueue);
         System.out.println(&quot;=====gc调用前=====&quot;);
         Reference&lt;? extends Fruit&gt; reference = null;
-        while ((reference = fruitReferenceQueue.poll()) != null ) {
+        while ((reference = fruitReferenceQueue.poll()) != null ) &#123;
             //不会输出，因为没有回收被弱引用的对象，并不会加入队列中
             System.out.println(reference);
-        }
+        &#125;
         System.out.println(fruitWeakReference);
         System.out.println(fruitWeakReference2);
         System.out.println(fruitWeakReference.get());
@@ -575,11 +575,11 @@ public class Salad extends WeakReference&lt;Fruit&gt; {
 
         System.out.println(&quot;=====调用gc=====&quot;);
         System.gc();
-        try {
+        try &#123;
             Thread.sleep(5000);
-        } catch (InterruptedException e) {
+        &#125; catch (InterruptedException e) &#123;
             e.printStackTrace();
-        }
+        &#125;
 
         System.out.println(&quot;=====gc调用后=====&quot;);
 
@@ -589,13 +589,13 @@ public class Salad extends WeakReference&lt;Fruit&gt; {
 
         //输出结果，并且就是上面的appleWeakReference、appleWeakReference2，再次证明对象被回收了
         Reference&lt;? extends Fruit&gt; reference2 = null;
-        while ((reference2 = fruitReferenceQueue.poll()) != null ) {
+        while ((reference2 = fruitReferenceQueue.poll()) != null ) &#123;
             //如果使用继承的方式就可以包含其他信息了
             System.out.println(&quot;fruitReferenceQueue中：&quot; + reference2);
-        }
-    }
+        &#125;
+    &#125;
 </code></pre>
-<p><img src="3.png" alt> </p>
+<p><img src="3.png" alt=""> </p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -994,7 +994,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,网络">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="深入理解TCP协议 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="网络"> 
 
     
         <meta property="article:published_time" content="Wed Jul 15 2020 17:36:43 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/07/15/TCP/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/07/15/TCP/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TCP-IP历史与分层模型"><span class="post-toc-number">1.</span> <span class="post-toc-text">TCP/IP历史与分层模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-IP-协议产生的历史背景"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">TCP/IP 协议产生的历史背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-IP-网络分层"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">TCP/IP 网络分层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#应用层（Application-Layer）"><span class="post-toc-number">1.2.0.1.</span> <span class="post-toc-text">应用层（Application Layer）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#传输层（Transport-Layer）"><span class="post-toc-number">1.2.0.2.</span> <span class="post-toc-text">传输层（Transport Layer）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#网络层-网络互连层（Internet-Layer）"><span class="post-toc-number">1.2.0.3.</span> <span class="post-toc-text">网络层/网络互连层（Internet Layer）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据链路层-网络访问层（Network-Access-Layer）"><span class="post-toc-number">1.2.0.4.</span> <span class="post-toc-text">数据链路层/网络访问层（Network Access Layer）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分层的好处是什么呢？"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">分层的好处是什么呢？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#习题"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">习题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TCP"><span class="post-toc-number">2.</span> <span class="post-toc-text">TCP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-是面向连接的协议"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">TCP 是面向连接的协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP三次握手，建立连接"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">TCP三次握手，建立连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#终止协议，4次挥手"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">终止协议，4次挥手</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-协议是可靠的"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">TCP 协议是可靠的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-是面向字节流的协议"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">TCP 是面向字节流的协议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-是全双工的协议"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">TCP 是全双工的协议</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#剖析TCP首部字段"><span class="post-toc-number">3.</span> <span class="post-toc-text">剖析TCP首部字段</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TCP-IP%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="post-toc-number">1.</span> <span class="post-toc-text">TCP&#x2F;IP历史与分层模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-IP-%E5%8D%8F%E8%AE%AE%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%86%E5%8F%B2%E8%83%8C%E6%99%AF"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">TCP&#x2F;IP 协议产生的历史背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-IP-%E7%BD%91%E7%BB%9C%E5%88%86%E5%B1%82"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">TCP&#x2F;IP 网络分层</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%88Application-Layer%EF%BC%89"><span class="post-toc-number">1.2.0.1.</span> <span class="post-toc-text">应用层（Application Layer）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%88Transport-Layer%EF%BC%89"><span class="post-toc-number">1.2.0.2.</span> <span class="post-toc-text">传输层（Transport Layer）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82-%E7%BD%91%E7%BB%9C%E4%BA%92%E8%BF%9E%E5%B1%82%EF%BC%88Internet-Layer%EF%BC%89"><span class="post-toc-number">1.2.0.3.</span> <span class="post-toc-text">网络层&#x2F;网络互连层（Internet Layer）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82-%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE%E5%B1%82%EF%BC%88Network-Access-Layer%EF%BC%89"><span class="post-toc-number">1.2.0.4.</span> <span class="post-toc-text">数据链路层&#x2F;网络访问层（Network Access Layer）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%86%E5%B1%82%E7%9A%84%E5%A5%BD%E5%A4%84%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">分层的好处是什么呢？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B9%A0%E9%A2%98"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">习题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#TCP"><span class="post-toc-number">2.</span> <span class="post-toc-text">TCP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-%E6%98%AF%E9%9D%A2%E5%90%91%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%8D%8F%E8%AE%AE"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">TCP 是面向连接的协议</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">TCP三次握手，建立连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BB%88%E6%AD%A2%E5%8D%8F%E8%AE%AE%EF%BC%8C4%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">终止协议，4次挥手</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%8F%AF%E9%9D%A0%E7%9A%84"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">TCP 协议是可靠的</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-%E6%98%AF%E9%9D%A2%E5%90%91%E5%AD%97%E8%8A%82%E6%B5%81%E7%9A%84%E5%8D%8F%E8%AE%AE"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">TCP 是面向字节流的协议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TCP-%E6%98%AF%E5%85%A8%E5%8F%8C%E5%B7%A5%E7%9A%84%E5%8D%8F%E8%AE%AE"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">TCP 是全双工的协议</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%89%96%E6%9E%90TCP%E9%A6%96%E9%83%A8%E5%AD%97%E6%AE%B5"><span class="post-toc-number">3.</span> <span class="post-toc-text">剖析TCP首部字段</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/网络/">网络</a>
+        <a class="post_tag-none-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a>
     </ul>
     
 
@@ -482,9 +482,9 @@
 <h2 id="TCP-IP-网络分层"><a href="#TCP-IP-网络分层" class="headerlink" title="TCP/IP 网络分层"></a>TCP/IP 网络分层</h2><p>记得在学习计算机网络课程的时候，一上来就开始讲分层模型了，当时死记硬背的各个层的名字很快就忘光了，不明白到底分层有什么用。纵观计算机和分布式系统，你会发现「计算机的问题都可以通过增加一个虚拟层来解决，如果不行，那就两个」</p>
 <p>下面用 wireshark 抓包的方式来开始看网络分层。</p>
 <p>打开 wireshark，在弹出的选项中，选中 en0 网卡，在过滤器中输入<code>host www.baidu.com</code>，只抓取与百度服务器通信的数据包。</p>
-<p><img src="1.png" alt> </p>
+<p><img src="1.png" alt=""> </p>
 <p> 在命令行中用 curl 命令发起 http 请求：<code>curl http://www.baidu.com</code>，抓到的中间一次数据包如下 </p>
-<p><img src="2.png" alt> </p>
+<p><img src="2.png" alt=""> </p>
 <p>可以看到协议的分层从上往下依次是</p>
 <ul>
 <li>Ethernet II：网络接口层以太网帧头部信息</li>
@@ -492,14 +492,14 @@
 <li>Transmission Control Protocol：传输层的数据段头部信息，此处是 TCP 协议</li>
 <li>Hypertext Transfer Protocol：应用层 HTTP 的信息</li>
 </ul>
-<p><img src="3.png" alt> </p>
+<p><img src="3.png" alt=""> </p>
 <h4 id="应用层（Application-Layer）"><a href="#应用层（Application-Layer）" class="headerlink" title="应用层（Application Layer）"></a>应用层（Application Layer）</h4><p>应用层的本质是规定了应用程序之间如何相互传递报文， 以 HTTP 协议为例，它规定了</p>
 <ul>
 <li>报文的类型，是请求报文还是响应报文</li>
 <li>报文的语法，报文分为几段，各段是什么含义、用什么分隔，每个部分的每个字段什么什么含义</li>
 <li>进程应该以什么样的时序发送报文和处理响应报文</li>
 </ul>
-<p>很多应用层协议都是由 RFC 文档定义，比如 HTTP 的 RFC 为 <a href="https://tools.ietf.org/html/rfc2616" target="_blank" rel="noopener">RFC 2616 - Hypertext Transfer Protocol – HTTP/1.1</a>。</p>
+<p>很多应用层协议都是由 RFC 文档定义，比如 HTTP 的 RFC 为 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2616">RFC 2616 - Hypertext Transfer Protocol – HTTP/1.1</a>。</p>
 <p>HTTP 客户端和 HTTP 服务端的首要工作就是根据 HTTP 协议的标准组装和解析 HTTP 数据包，每个 HTTP 报文格式由三部分组成：</p>
 <ul>
 <li>起始行（start line），起始行根据是请求报文还是响应报文分为「请求行」和「响应行」。这个例子中起始行是<code>GET / HTTP/1.1</code>，表示这是一个 <code>GET</code> 请求，请求的 URL 为<code>/</code>，协议版本为<code>HTTP 1.1</code>，起始行最后会有一个空行<code>CRLF（\r\n)</code>与下面的首部分隔开</li>
@@ -507,7 +507,7 @@
 <li>可选的实体（entity），实体是 HTTP 真正要传输的内容，比如下载一个图片文件，传输的一段 HTML等</li>
 </ul>
 <p>以本例的请求报文格式为例</p>
-<p><img src="5.png" alt></p>
+<p><img src="5.png" alt=""></p>
 <p>除了我们熟知的 HTTP 协议，还有下面这些非常常用的<strong>应用层协议</strong></p>
 <ul>
 <li>域名解析协议 DNS</li>
@@ -517,22 +517,22 @@
 </ul>
 <h4 id="传输层（Transport-Layer）"><a href="#传输层（Transport-Layer）" class="headerlink" title="传输层（Transport Layer）"></a>传输层（Transport Layer）</h4><p>传输层的作用是为两台主机之间的「应用进程」提供端到端的逻辑通信，相隔几千公里的两台主机的进程就好像在直接通信一样。</p>
 <p>虽然是叫传输层，但是并不是将数据包从一台主机传送到另一台，而是对「传输行为进行控制」，这本小册介绍的主要内容 TCP 协议就被称为传输控制协议（Transmission Control Protocol），为下面两层协议提供数据包的重传、流量控制、拥塞控制等。</p>
-<p><img src="6.png" alt> </p>
+<p><img src="6.png" alt=""> </p>
 <p>假设你正在电脑上用微信跟女朋友聊天，用 QQ 跟技术大佬们讨论技术细节，当电脑收到一个数据包时，它怎么知道这是一条微信的聊天内容，还是一条 QQ 的消息呢？</p>
 <p>这就是端口号的作用。传输层用端口号来标识不同的应用程序，主机收到数据包以后根据目标端口号将数据包传递给对应的应用程序进行处理。比如这个例子中，目标端口号为 80，百度的服务器就根据这个目标端口号将请求交给监听 80 端口的应用程序（可能是 Nginx 等负载均衡器）处理</p>
-<p><img src="7.png" alt> </p>
+<p><img src="7.png" alt=""> </p>
 <h4 id="网络层-网络互连层（Internet-Layer）"><a href="#网络层-网络互连层（Internet-Layer）" class="headerlink" title="网络层/网络互连层（Internet Layer）"></a>网络层/网络互连层（Internet Layer）</h4><p>网络互连层提供了主机到主机的通信，将传输层产生的的数据包封装成分组数据包发送到目标主机，并提供路由选择的能力</p>
-<p><img src="8.png" alt> </p>
+<p><img src="8.png" alt=""> </p>
 <p>IP 协议是网络层的主要协议，<strong>TCP 和 UDP 都是用 IP 协议作为网络层协议</strong>。这一层的主要作用是给包加上源地址和目标地址，将数据包传送到目标地址。</p>
 <p><strong>IP 协议是一个无连接的协议，也不具备重发机制，这也是 TCP 协议复杂的原因之一就是基于了这样一个「不靠谱」的协议。</strong> </p>
 <h4 id="数据链路层-网络访问层（Network-Access-Layer）"><a href="#数据链路层-网络访问层（Network-Access-Layer）" class="headerlink" title="数据链路层/网络访问层（Network Access Layer）"></a>数据链路层/网络访问层（Network Access Layer）</h4><p>网络访问层也有说法叫做网络接口层，以太网、Wifi、蓝牙工作在这一层，网络访问层提供了主机连接到物理网络需要的硬件和相关的协议。这一层我们不做重点讨论。</p>
 <p>整体的分层图如下图所示</p>
-<p><img src="9.png" alt></p>
+<p><img src="9.png" alt=""></p>
 <p>网络互连层（网络层）</p>
 <p>网络访问层 （数据链路层）</p>
-<p><img src="4.png" alt></p>
-<p><img src="10.jpg" alt> </p>
-<p><img src="10.png" alt> </p>
+<p><img src="4.png" alt=""></p>
+<p><img src="10.jpg" alt=""> </p>
+<p><img src="10.png" alt=""> </p>
 <h2 id="分层的好处是什么呢？"><a href="#分层的好处是什么呢？" class="headerlink" title="分层的好处是什么呢？"></a>分层的好处是什么呢？</h2><p>分层的本质是通过分离关注点而让复杂问题简单化，通过分层可以做到：</p>
 <ul>
 <li>各层独立：限制了依赖关系的范围，各层之间使用标准化的接口，各层不需要知道上下层是如何工作的，增加或者修改一个应用层协议不会影响传输层协议</li>
@@ -552,8 +552,8 @@
 </ul>
 <h3 id="TCP三次握手，建立连接"><a href="#TCP三次握手，建立连接" class="headerlink" title="TCP三次握手，建立连接"></a>TCP三次握手，建立连接</h3><p>建立连接的过程是通过「三次握手」来完成的，顾名思义，通过三次数据交换建立一个连接。 通过三次握手协商好双方后续通信的起始序列号、窗口缩放大小等信息。</p>
 <p>如下图所示</p>
-<p><img src="11.png" alt> </p>
-<p><img src="12.png" alt>  </p>
+<p><img src="11.png" alt=""> </p>
+<p><img src="12.png" alt="">  </p>
 <p> 1：客户端发送了一个<strong>带有SYN的Tcp报文</strong>到服务器，<strong>这个三次握手中的开始</strong>。表示客户端想要和服务端建立连接。<br>2：服务端接收到客户端的请求，返回客户端报文，<strong>这个报文带有SYN和ACK标志</strong>，询问客户端是否准备好。<br>3：客户端<strong>再次响应服务端一个ACK</strong>，表示我已经准备好。 </p>
 <p>为什么不能一次握手很容易理解，TCP是面向连接的，一次握手肯定建立不了连接，一条信息发出去连个回信都没有怎么连接？ </p>
 <p>那么为什么要三次握手呢，有人说两次握手就好了。的确，为什么呢，这个可以从计算机网络中得到答案，举一个例子：已失效的连接请求报文段，<br>client发送了第一个连接的请求报文，但是由于网络不好，这个请求没有立即到达服务端，而是在某个网络节点中滞留了，直到某个时间才到达server，本来这已经是一个失效的报文，但是server端接收到这个请求报文后，还是会向client发出确认的报文，表示同意连接。假如不采用三次握手，那么只要server发出确认，新的建立就连接了，<strong>但其实这个请求是失效的请求，client是不会理睬server的确认信息，也不会向服务端发送确认的请求，但是server认为新的连接已经建立起来了，并一直等待client发来数据，这样，server的很多资源就没白白浪费掉了，采用三次握手就是为了防止这种情况的发生，server会因为收不到确认的报文，就知道client并没有建立连接。这就是三次握手的作用</strong>。 </p>
@@ -563,7 +563,7 @@
 <p>第二次握手B发送SYN+ACK传输失败，A不会申请资源，B申请了资源，但收不到A的ACK，过一段时间释放资源。如果是收到了多个A的SYN请求，B都会回复SYN+ACK，但A只会承认其中它最早发送的那个SYN的回应，并回复最后一次握手的ACK</p>
 <p>第三次握手ACK传输失败，B没有收到ACK，释放资源，对于后序的A的传输数据返回RST。实际上B会因为没有收到A的ACK会多次发送SYN+ACK，次数是可以设置的，如果最后还是没有收到A的ACK，则释放资源，对A的数据传输返回RST</p>
 <h3 id="终止协议，4次挥手"><a href="#终止协议，4次挥手" class="headerlink" title="终止协议，4次挥手"></a>终止协议，4次挥手</h3><p>当终止协议的时候，tcp进行了4次握手，那这4次握手又是怎么回事呢？</p>
-<p><img src="13.png" alt> </p>
+<p><img src="13.png" alt=""> </p>
 <p><strong>由于Tcp连接是进行全双工工作的，因此每个方向都必须单独进行关闭</strong>，这个原则是当一方完成他的数据发送的时候就发送一个FIN来终止这个方向的连接，收到这个FIN意味着这个方向上没有数据的流动，一个TCP连接在收到这个FIN之后还能发送消息，首先执行关闭的一方进行主动的关闭，而另一方进行被动的关闭。  </p>
 <p>1：客户端TCP发送一个FIN，用来关闭客户端到服务端的连接。<br>2：服务端收到这个FIN，他发回一个ACK，确认收到序号 为 收到序号+1，和SYN一样，一个FIN将占用一个序号。<br>3：服务端发送一个FIN到客户端，服务端关闭客户端的连接。<br>4：客户端发送ACK报文确认，并将确认的序号+1，这样关闭完成。 </p>
 <p>那么为什么是4次挥手呢？<br>可能有人会有疑问，tcp我握手的时候为何ACK和SYN是一起发送。挥手的时候为什么是分开的时候发送呢?</p>
@@ -578,16 +578,16 @@
 <li>流量控制、拥塞控制</li>
 </ul>
 <p><strong>校验和（checksum）</strong> 每个 TCP 包首部中都有两字节用来表示校验和，防止在传输过程中有损坏。<strong>如果收到一个校验和有差错的报文，TCP 不会发送任何确认直接丢弃它，等待发送端重传</strong>。</p>
-<p><img src="14.png" alt> </p>
+<p><img src="14.png" alt=""> </p>
 <p> <strong>包的序列号保证了接收数据的乱序和重复问题</strong> 假设我们往 TCP 套接字里写 3000 字节的数据导致 TCP发送了 3 个数据包，每个数据包大小为 1000 字节：第一个包序列号为[1~1001)，第二个包序列号为 [1001~2001)，第三个包序号为[2001~3001) </p>
-<p><img src="15.png" alt> </p>
+<p><img src="15.png" alt=""> </p>
 <p>假如因为网络的原因导致第二个、第三个包先到接收端，第一个包最后才到，接收端也不会因为他们到达的顺序不一致把包弄错，<strong>TCP 会根据他们的序号进行重新的排列然后把结果传递给上层应用程序</strong>。</p>
 <p>如果 TCP 接收到重复的数据，可能的原因是超时重传了两次但这个包并没有丢失，接收端会收到两次同样的数据，<strong>它能够根据包序号丢弃重复的数据</strong>。</p>
 <p><strong>超时重传</strong> TCP 发送数据后会启动一个定时器，等待对端确认收到这个数据包。如果在指定的时间内没有收到 ACK 确认，就会重传数据包，然后等待更长时间，如果还没有收到就再重传，在多次重传仍然失败以后，TCP 会放弃这个包。后面我们讲到超时重传模块的时候会详细介绍这部分内容。</p>
 <p><strong>流量控制、拥塞控制</strong> 这部分内容较复杂，后面有专门的文章进行讲解，这里先不展开。</p>
 <h2 id="TCP-是面向字节流的协议"><a href="#TCP-是面向字节流的协议" class="headerlink" title="TCP 是面向字节流的协议"></a>TCP 是面向字节流的协议</h2><p>TCP 是一种字节流（byte-stream）协议，<strong>流的含义是没有固定的报文边界</strong>。</p>
 <p>假设你调用 2 次 write 函数往 socket 里依次写 500 字节、800 字节。<strong>write 函数只是把字节拷贝到内核缓冲区，最终会以多少条报文发送出去是不确定的</strong>，如下图所示</p>
-<p><img src="16.png" alt> </p>
+<p><img src="16.png" alt=""> </p>
 <ul>
 <li>情况 1：分为两条报文依次发出去 500 字节 和 800 字节数据，也有</li>
 <li>情况 2：两部分数据合并为一个长度为 1300 字节的报文，一次发送</li>
@@ -601,7 +601,7 @@
 <h2 id="TCP-是全双工的协议"><a href="#TCP-是全双工的协议" class="headerlink" title="TCP 是全双工的协议"></a>TCP 是全双工的协议</h2><p>在 TCP 中发送端和接收端可以是客户端/服务端，也可以是服务器/客户端，<strong>通信的双方在任意时刻既可以是接收数据也可以是发送数据，每个方向的数据流都独立管理序列号、滑动窗口大小、MSS 等信息</strong>。</p>
 <p>总结：</p>
 <p>TCP 是一个可靠的（reliable）、面向连接的（connection-oriented）、基于字节流（byte-stream）、全双工（full-duplex）的协议。发送端在发送数据以后启动一个定时器，如果超时没有收到对端确认会进行重传，接收端利用序列号对收到的包进行排序、丢弃重复数据，TCP 还提供了流量控制、拥塞控制等机制保证了稳定性。</p>
-<p><img src="17.png" alt> </p>
+<p><img src="17.png" alt=""> </p>
 <p>留一个思考题，这个题目也是《TCP/IP》详解中的一个习题。</p>
 <p>TCP提供了一种字节流服务，而收发双方都不保持记录的边界，应用程序应该如何提供他们自己的记录标识呢？</p>
 <p> 应用程序自己控制消息边界，定义自己的消息分割符 </p>
@@ -1004,7 +1004,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

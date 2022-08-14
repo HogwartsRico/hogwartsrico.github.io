@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Java基础">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="ArrayList常用方法和实现原理 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Java基础"> 
 
     
         <meta property="article:published_time" content="Wed Apr 08 2015 21:30:19 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2015/04/08/About-ArrayList/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2015/04/08/About-ArrayList/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ArrayList常用方法"><span class="post-toc-number">1.</span> <span class="post-toc-text">ArrayList常用方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ArrayList实现原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">ArrayList实现原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-底层使用数组实现"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.底层使用数组实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-构造方法："><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.构造方法：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-如何实现存储和扩容的？"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3.如何实现存储和扩容的？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-使用set-int-index-E-element-方法，用指定的元素替代指定位置的元素"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">3.1  使用set(int index, E element) ;方法，用指定的元素替代指定位置的元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-add-E-e-如何扩容的？"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">3.2  add(E e);如何扩容的？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-add-int-index-E-element-将指定的元素插入此列表中的指定位置"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">3.3 add(int index, E element)将指定的元素插入此列表中的指定位置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-如何读取元素？"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4.如何读取元素？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-删除元素"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5.删除元素</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-手动调整底层数组的容量为列表实际元素大小的方法"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">6.手动调整底层数组的容量为列表实际元素大小的方法</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ArrayList%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="post-toc-number">1.</span> <span class="post-toc-text">ArrayList常用方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ArrayList%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="post-toc-number">2.</span> <span class="post-toc-text">ArrayList实现原理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%BA%95%E5%B1%82%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84%E5%AE%9E%E7%8E%B0"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1.底层使用数组实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.构造方法：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AD%98%E5%82%A8%E5%92%8C%E6%89%A9%E5%AE%B9%E7%9A%84%EF%BC%9F"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3.如何实现存储和扩容的？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-%E4%BD%BF%E7%94%A8set-int-index-E-element-%E6%96%B9%E6%B3%95%EF%BC%8C%E7%94%A8%E6%8C%87%E5%AE%9A%E7%9A%84%E5%85%83%E7%B4%A0%E6%9B%BF%E4%BB%A3%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%85%83%E7%B4%A0"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">3.1  使用set(int index, E element) ;方法，用指定的元素替代指定位置的元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-add-E-e-%E5%A6%82%E4%BD%95%E6%89%A9%E5%AE%B9%E7%9A%84%EF%BC%9F"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">3.2  add(E e);如何扩容的？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-add-int-index-E-element-%E5%B0%86%E6%8C%87%E5%AE%9A%E7%9A%84%E5%85%83%E7%B4%A0%E6%8F%92%E5%85%A5%E6%AD%A4%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%8C%87%E5%AE%9A%E4%BD%8D%E7%BD%AE"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">3.3 add(int index, E element)将指定的元素插入此列表中的指定位置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%96%E5%85%83%E7%B4%A0%EF%BC%9F"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4.如何读取元素？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5.删除元素</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-%E6%89%8B%E5%8A%A8%E8%B0%83%E6%95%B4%E5%BA%95%E5%B1%82%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%B9%E9%87%8F%E4%B8%BA%E5%88%97%E8%A1%A8%E5%AE%9E%E9%99%85%E5%85%83%E7%B4%A0%E5%A4%A7%E5%B0%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">6.手动调整底层数组的容量为列表实际元素大小的方法</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Java基础/">Java基础</a>
+        <a class="post_tag-none-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a>
     </ul>
     
 
@@ -470,13 +470,13 @@
     
         <h1 id="ArrayList常用方法"><a href="#ArrayList常用方法" class="headerlink" title="ArrayList常用方法"></a>ArrayList常用方法</h1><p>ArrayList常用的方法和Collection基本一样 </p>
 <p><strong>1.add(“AA”);向集合中添加一个元素</strong></p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
     List&lt;String&gt; list = new ArrayList&lt;String&gt;();
     list.add(&quot;AA&quot;);
-}
+&#125;
 </code></pre>
 <p><strong>2.add(2, “CC”);将指定的元素插入此列表中的指定位置。索引从0开始</strong></p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
     List&lt;String&gt; list = new ArrayList&lt;String&gt;();
     list.add(&quot;AA&quot;);
     list.add(&quot;BB&quot;);
@@ -484,13 +484,14 @@
     System.out.println(list);
     list.add(2, &quot;CC&quot;);
     System.out.println(list);
-}
+&#125;
 </code></pre>
 <p>结果为：</p>
 <pre><code>[AA, BB, DD]
 [AA, BB, CC, DD]
+
 </code></pre><p><strong>3.addAll(list2);将形参中的集合元素全部添加到当前集合中的尾部。</strong></p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
     List&lt;String&gt; list = new ArrayList&lt;String&gt;();
     list.add(&quot;AA&quot;);
     list.add(&quot;BB&quot;);
@@ -500,12 +501,13 @@
     list2.add(&quot;EE&quot;);
     list.addAll(list2);
     System.out.println(list);
-}
+&#125;
 </code></pre>
 <p>结果为：</p>
 <pre><code>[AA, BB, DD, CC, EE]
+
 </code></pre><p><strong>4.addAll(2, list2);将形参中集合元素添加到当前集合指定的位置。</strong></p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
     List&lt;String&gt; list = new ArrayList&lt;String&gt;();
     list.add(&quot;AA&quot;);
     list.add(&quot;BB&quot;);
@@ -515,42 +517,44 @@
     list2.add(&quot;EE&quot;);
     list.addAll(2, list2);
     System.out.println(list);
-}
+&#125;
 </code></pre>
 <p>结果为：</p>
 <pre><code>[AA, BB, CC, EE, DD]
+
 </code></pre><p><strong>5.clear();清空当前集合中所有元素</strong></p>
 <pre><code>list.clear();
+
 </code></pre><p>注意：以下方法和Collection一样，都依赖元素对象的equals方法。更多的时候都需要重写equals方法。</p>
 <p> <strong>6.contains(“aa”);返回当前 元素是否包含某一个对象。当前放回false。</strong></p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
     List&lt;String&gt; list = new ArrayList&lt;String&gt;();
     list.add(&quot;AA&quot;);
     list.add(&quot;BB&quot;);
     list.add(&quot;DD&quot;);
     boolean contains = list.contains(&quot;aa&quot;);
     System.out.println(contains);
-}
+&#125;
 </code></pre>
 <p><strong>7.get(1);获取当前集合中指定位置的元素，这里返回BB</strong></p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
     List&lt;String&gt; list = new ArrayList&lt;String&gt;();
     list.add(&quot;AA&quot;);
     list.add(&quot;BB&quot;);
     list.add(&quot;DD&quot;);
     String string = list.get(1);
     System.out.println(string);
-}
+&#125;
 </code></pre>
 <p><strong>8.indexOf(“BB”);返回当前集合中首次出现形参对象的位置，如果集合中不存在就返回-1.</strong></p>
-<pre><code class="java">public static void main(String[] args) {
+<pre><code class="java">public static void main(String[] args) &#123;
     List&lt;String&gt; list = new ArrayList&lt;String&gt;();
     list.add(&quot;AA&quot;);
     list.add(&quot;BB&quot;);
     list.add(&quot;BB&quot;);
     int indexOf = list.indexOf(&quot;BB&quot;);
     System.out.println(indexOf);
-}
+&#125;
 </code></pre>
 <p>简单的方法就查询JDK API文档吧，下面作简要的说明：</p>
 <p>1.<code>size();</code>返回当前集合元素个数.   </p>
@@ -561,7 +565,7 @@
 <p>6.<code>remove(Object o);</code>  <strong>移除集合中首次出现的元素</strong>。   </p>
 <p>7.<code>remove(int index);</code>移除集合中指定位置的元素。  </p>
 <h1 id="ArrayList实现原理"><a href="#ArrayList实现原理" class="headerlink" title="ArrayList实现原理"></a>ArrayList实现原理</h1><p>ArrayList是List接口的可变数组的实现，允许包括null在内的所有元素，既然是数组，那么该类肯定会存在改变存储列表的数组大小的方法。每一个ArrayList实例都有一个容量，该容量是用来存储列表元素的数组的大小，<strong>他总是等于列表的大小</strong>，随着往ArrayList中添加元素，这个容量也会相应的总动增长，<strong>自动增长就会带来数据向新数组的重新拷贝</strong>。  </p>
-<h2 id="1-底层使用数组实现"><a href="#1-底层使用数组实现" class="headerlink" title="1.底层使用数组实现"></a>1.底层使用数组实现</h2><pre><code class="java"> private transient Object[] elementData;
+<h2 id="1-底层使用数组实现"><a href="#1-底层使用数组实现" class="headerlink" title="1.底层使用数组实现"></a>1.底层使用数组实现</h2><pre><code class="java"> private transient Object[] elementData; 
 </code></pre>
 <p>关于关键字<strong>transient</strong>: </p>
 <p>一个对象只要实现了Serilizable接口，这个对象就可以被序列化。 </p>
@@ -569,44 +573,44 @@
 <h2 id="2-构造方法："><a href="#2-构造方法：" class="headerlink" title="2.构造方法："></a>2.构造方法：</h2><pre><code class="java">    /**
      * Constructs an empty list with an initial capacity of ten.
      */
-    public ArrayList() {
+    public ArrayList() &#123;
         this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
-    }
+    &#125;
 </code></pre>
 <p>其中 </p>
-<pre><code class="java"> private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+<pre><code class="java"> private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;
 </code></pre>
 <p>可以看出它的默认数组为长度为0。而在之前JDK1,6中，无参数构造器代码是初始长度为10。<br>JDK6代码这样的：</p>
-<pre><code class="java"> public ArrayList() {
+<pre><code class="java"> public ArrayList() &#123;
     this(10);
-}
- public ArrayList(int initialCapacity) {//可以指定初始大小
+&#125;
+ public ArrayList(int initialCapacity) &#123;//可以指定初始大小
     super();
     if (initialCapacity &lt; 0)
         throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+ initialCapacity);
     this.elementData = new Object[initialCapacity];
-}
- public ArrayList(Collection&lt;? extends E&gt; c) {
+&#125;
+ public ArrayList(Collection&lt;? extends E&gt; c) &#123;
     elementData = c.toArray();
     size = elementData.length;
     // c.toArray might (incorrectly) not return Object[] (see 6260652)
     if (elementData.getClass() != Object[].class)
         elementData = Arrays.copyOf(elementData, size, Object[].class);
-}
+&#125;
 </code></pre>
-<h2 id="3-如何实现存储和扩容的？"><a href="#3-如何实现存储和扩容的？" class="headerlink" title="3.如何实现存储和扩容的？"></a>3.如何实现存储和扩容的？</h2><h3 id="3-1-使用set-int-index-E-element-方法，用指定的元素替代指定位置的元素"><a href="#3-1-使用set-int-index-E-element-方法，用指定的元素替代指定位置的元素" class="headerlink" title="3.1  使用set(int index, E element) ;方法，用指定的元素替代指定位置的元素"></a>3.1  使用set(int index, E element) ;方法，用指定的元素替代指定位置的元素</h3><pre><code class="java">public E set(int index, E element) {
+<h2 id="3-如何实现存储和扩容的？"><a href="#3-如何实现存储和扩容的？" class="headerlink" title="3.如何实现存储和扩容的？"></a>3.如何实现存储和扩容的？</h2><h3 id="3-1-使用set-int-index-E-element-方法，用指定的元素替代指定位置的元素"><a href="#3-1-使用set-int-index-E-element-方法，用指定的元素替代指定位置的元素" class="headerlink" title="3.1  使用set(int index, E element) ;方法，用指定的元素替代指定位置的元素"></a>3.1  使用set(int index, E element) ;方法，用指定的元素替代指定位置的元素</h3><pre><code class="java">public E set(int index, E element) &#123;
     rangeCheck(index);
     E oldValue = elementData(index);
     elementData[index] = element;
     return oldValue;
-}
+&#125;
 </code></pre>
 <h3 id="3-2-add-E-e-如何扩容的？"><a href="#3-2-add-E-e-如何扩容的？" class="headerlink" title="3.2  add(E e);如何扩容的？"></a>3.2  add(E e);如何扩容的？</h3><p>将指定的元素添加到集合尾部</p>
-<pre><code class="java">    public boolean add(E e) {
+<pre><code class="java">    public boolean add(E e) &#123;
         ensureCapacityInternal(size + 1);  // Increments modCount!!
         elementData[size++] = e;
         return true;
-    }
+    &#125;
 </code></pre>
 <p>代码中关于size含义的源码注释  </p>
 <p><code>The size of the ArrayList (the number of elements it contains).</code> 意思就是目前ArrayList中实际包含的元素数量  不一定等于elementData的长度 一般小于等于elementData的长度 ,elementData长度会大于等于size </p>
@@ -617,29 +621,29 @@
      *
      * @return the number of elements in this list
      */
-    public int size() {
+    public int size() &#123;
         return size;
-    }
+    &#125;
 </code></pre>
 <p>ensureCapacityInternal方法名的英文大致是“确保内部容量”，size表示的是执行添加之前的实际元素个数，并非ArrayList的容量，容量是数组elementData的长度。ensureCapacityInternal该方法通过将现有的元素个数数组的容量比较。看如果需要扩容，则扩容。  </p>
 <p>下面具体看 ensureCapacityInternal(size + 1);</p>
 <pre><code class="java">//如何判断和扩容的
-private void ensureCapacityInternal(int minCapacity) {
+private void ensureCapacityInternal(int minCapacity) &#123;
       //如果目前实际存储数组 是空数组，则最小需要容量为  默认容量(10)和0+1=1之间最大值,也就是10,其中DEFAULT_CAPACITY=10
-        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;
             minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);
-        }
+        &#125;
         ensureExplicitCapacity(minCapacity);
-    }
+    &#125;
 
-    private void ensureExplicitCapacity(int minCapacity) {
+    private void ensureExplicitCapacity(int minCapacity) &#123;
       //当第一次插入值时，由于minCapacity 一定大于等于10 而elementData.length是0  所以需要扩容
       //如果不是第一次插入则是size+1  
         modCount++;
         //如果数组（elementData)的长度小于最小需要的容量（minCapacity）就扩容,如果还够用则不扩容
         if (minCapacity - elementData.length &gt; 0)
             grow(minCapacity);
-    }
+    &#125;
 
     /**
      * Default initial capacity.
@@ -651,7 +655,7 @@ private void ensureCapacityInternal(int minCapacity) {
     *由最小容量参数指定的元素数。
     * @param mincapacity所需的最小容量
     */
-    private void grow(int minCapacity) {
+    private void grow(int minCapacity) &#123;
         // overflow-conscious code
         int oldCapacity = elementData.length;
 //&gt;&gt;位运算，右移动一位。 整体相当于newCapacity =oldCapacity + 0.5 * oldCapacity  即旧elementData数组长度的1.5倍 jdk1.7采用位运算比以前的计算方式更快
@@ -663,17 +667,17 @@ private void ensureCapacityInternal(int minCapacity) {
             newCapacity = hugeCapacity(minCapacity);
         // 最重要的复制元素方法  把原来数组的数据复制到新的数组中。调用了Arrays的copyOf方法。内部是System的arraycopy方法，由于是native方法，所以效率较高。
         elementData = Arrays.copyOf(elementData, newCapacity);
-    }
+    &#125;
 </code></pre>
 <p>如果新的容量大于数组的最大值MAX_ARRAY_SIZE </p>
 <p>这时，又会进入另一个方法hugeCapacity</p>
-<pre><code class="java">    private static int hugeCapacity(int minCapacity) {
+<pre><code class="java">    private static int hugeCapacity(int minCapacity) &#123;
         if (minCapacity &lt; 0) // overflow
             throw new OutOfMemoryError();
         return (minCapacity &gt; MAX_ARRAY_SIZE) ?
             Integer.MAX_VALUE :
             MAX_ARRAY_SIZE;
-    }
+    &#125;
 </code></pre>
 <p>会对minCapacity 和 MAX_ARRAY_SIZE进行比较，minCapacity 大的话，就将Integer.MAX_VALUE 作为新数组的大小，否则将MAX_ARRAY_SIZE作为数组的大小。 </p>
 <p>通过分析可以发现，ArrayList的扩容会产生一个新的数组，将原来数组的值复制到新的数组中。会消耗一定的资源。<strong>所以我们初始化ArrayList时，最好可以估算一个初始的大小</strong>。 而且就算你之后往ArrayList中添加了超过数量的元素也不会报错，会自动扩容   </p>
@@ -684,35 +688,35 @@ private void ensureCapacityInternal(int minCapacity) {
 <p><strong>向数组中添加到第16个元素时，数组容量扩为22.</strong>  </p>
 <p>对比执行时间要使用控制变量法，先后执行所使用的时间会有不同。</p>
 <p>如：</p>
-<pre><code class="java">public class Test {
-    private static void test(int n) {
+<pre><code class="java">public class Test &#123;
+    private static void test(int n) &#123;
         long start = System.currentTimeMillis();
         List&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;(n);
-        for (int i = 0; i &lt; n; i++) {
+        for (int i = 0; i &lt; n; i++) &#123;
             list.add(i);
-        }
+        &#125;
         long end = System.currentTimeMillis();
         System.out.println(end-start);
-    }
-    private static void test0(int n) {
+    &#125;
+    private static void test0(int n) &#123;
         long start = System.currentTimeMillis();
         List&lt;Integer&gt; list2 = new ArrayList&lt;Integer&gt;();
-        for (int i = 0; i &lt; n; i++) {
+        for (int i = 0; i &lt; n; i++) &#123;
             list2.add(i);
-        }
+        &#125;
         long end = System.currentTimeMillis();
         System.out.println(end-start);
-    }
-     public static void main(String[] args) {
+    &#125;
+     public static void main(String[] args) &#123;
              test(10000000);
              test0(10000000);
-        }
-}
+        &#125;
+&#125;
 </code></pre>
 <p>输出 : </p>
 <p>2412<br>3898</p>
 <p>明显可以看出初始化长度比没有初始化长度节省时间。</p>
-<h3 id="3-3-add-int-index-E-element-将指定的元素插入此列表中的指定位置"><a href="#3-3-add-int-index-E-element-将指定的元素插入此列表中的指定位置" class="headerlink" title="3.3 add(int index, E element)将指定的元素插入此列表中的指定位置"></a>3.3 add(int index, E element)将指定的元素插入此列表中的指定位置</h3><pre><code class="java">public void add(int index, E element) {  
+<h3 id="3-3-add-int-index-E-element-将指定的元素插入此列表中的指定位置"><a href="#3-3-add-int-index-E-element-将指定的元素插入此列表中的指定位置" class="headerlink" title="3.3 add(int index, E element)将指定的元素插入此列表中的指定位置"></a>3.3 add(int index, E element)将指定的元素插入此列表中的指定位置</h3><pre><code class="java">public void add(int index, E element) &#123;  
     if (index &gt; size || index &lt; 0)  
         throw new IndexOutOfBoundsException(&quot;Index: &quot;+index+&quot;, Size: &quot;+size);  
     // 如果数组长度不足，将进行扩容。  
@@ -723,7 +727,7 @@ private void ensureCapacityInternal(int minCapacity) {
     System.arraycopy(elementData, index, elementData, index + 1, size - index);  
     elementData[index] = element;  
     size++;  
-}
+&#125;  
 </code></pre>
 <p>System.arraycopy</p>
 <pre><code class="java"> public static native void arraycopy(Object src,  int  srcPos, Object dest, int destPos,  int length);
@@ -736,34 +740,34 @@ private void ensureCapacityInternal(int minCapacity) {
 <li>@param      destPos  starting position in the destination data.目标数组的位置</li>
 <li>@param      length   the number of array elements to be copied. 数量</li>
 </ul>
-<h2 id="4-如何读取元素？"><a href="#4-如何读取元素？" class="headerlink" title="4.如何读取元素？"></a>4.如何读取元素？</h2><pre><code class="java">  public E get(int index) {
+<h2 id="4-如何读取元素？"><a href="#4-如何读取元素？" class="headerlink" title="4.如何读取元素？"></a>4.如何读取元素？</h2><pre><code class="java">  public E get(int index) &#123;
     rangeCheck(index);
     return elementData(index);
-}
+&#125;
 </code></pre>
-<h2 id="5-删除元素"><a href="#5-删除元素" class="headerlink" title="5.删除元素"></a>5.删除元素</h2><pre><code class="java"> public boolean remove(Object o) {
-    if (o == null) {
+<h2 id="5-删除元素"><a href="#5-删除元素" class="headerlink" title="5.删除元素"></a>5.删除元素</h2><pre><code class="java"> public boolean remove(Object o) &#123;
+    if (o == null) &#123;
         for (int index = 0; index &lt; size; index++)
-            if (elementData[index] == null) {
+            if (elementData[index] == null) &#123;
                 fastRemove(index);
                 return true;
-            }
-    } else {
+            &#125;
+    &#125; else &#123;
         for (int index = 0; index &lt; size; index++)
-            if (o.equals(elementData[index])) {
+            if (o.equals(elementData[index])) &#123;
                 fastRemove(index);
                 return true;
-            }
-    }
+            &#125;
+    &#125;
     return false;
-}
+&#125;
 </code></pre>
 <p>注意：从集合中移除一个元素，如果这个元素不是最后一个元素，那么这个元素的后面元素会向向左移动一位。</p>
 <pre><code class="java">    /*
      * Private remove method that skips bounds checking and does not
      * return the value removed.
      */
-    private void fastRemove(int index) {
+    private void fastRemove(int index) &#123;
         modCount++;
         int numMoved = size - index - 1;
         if (numMoved &gt; 0)
@@ -771,15 +775,15 @@ private void ensureCapacityInternal(int minCapacity) {
           //将index后边的对象往前复制一位，并将数组中的最后一位元素设置为null 不置为null的话最后2个元素值是一模一样的
             System.arraycopy(elementData, index+1, elementData, index, numMoved);
         elementData[--size] = null; // clear to let GC do its work 让GC来回收 
-    }
+    &#125;
 </code></pre>
-<h2 id="6-手动调整底层数组的容量为列表实际元素大小的方法"><a href="#6-手动调整底层数组的容量为列表实际元素大小的方法" class="headerlink" title="6.手动调整底层数组的容量为列表实际元素大小的方法"></a>6.手动调整底层数组的容量为列表实际元素大小的方法</h2><pre><code class="java">  public void trimToSize() {
+<h2 id="6-手动调整底层数组的容量为列表实际元素大小的方法"><a href="#6-手动调整底层数组的容量为列表实际元素大小的方法" class="headerlink" title="6.手动调整底层数组的容量为列表实际元素大小的方法"></a>6.手动调整底层数组的容量为列表实际元素大小的方法</h2><pre><code class="java">  public void trimToSize() &#123;
     modCount++;
     int oldCapacity = elementData.length;
-    if (size &lt; oldCapacity) {
+    if (size &lt; oldCapacity) &#123;
         elementData = Arrays.copyOf(elementData, size);
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>另外有个高频率出现的属性但是我们没有提过它就是modCount ,它是当前这个ArrayList被修改的次数</p>
 <p>JDK注释</p>
@@ -790,22 +794,22 @@ private void ensureCapacityInternal(int minCapacity) {
      * progress may yield incorrect results.
      *
      * &lt;p&gt;This field is used by the iterator and list iterator implementation
-     * returned by the {@code iterator} and {@code listIterator} methods.
+     * returned by the &#123;@code iterator&#125; and &#123;@code listIterator&#125; methods.
      * If the value of this field changes unexpectedly, the iterator (or list
-     * iterator) will throw a {@code ConcurrentModificationException} in
-     * response to the {@code next}, {@code remove}, {@code previous},
-     * {@code set} or {@code add} operations.  This provides
+     * iterator) will throw a &#123;@code ConcurrentModificationException&#125; in
+     * response to the &#123;@code next&#125;, &#123;@code remove&#125;, &#123;@code previous&#125;,
+     * &#123;@code set&#125; or &#123;@code add&#125; operations.  This provides
      * &lt;i&gt;fail-fast&lt;/i&gt; behavior, rather than non-deterministic behavior in
      * the face of concurrent modification during iteration.
      *
      * &lt;p&gt;&lt;b&gt;Use of this field by subclasses is optional.&lt;/b&gt; If a subclass
      * wishes to provide fail-fast iterators (and list iterators), then it
-     * merely has to increment this field in its {@code add(int, E)} and
-     * {@code remove(int)} methods (and any other methods that it overrides
+     * merely has to increment this field in its &#123;@code add(int, E)&#125; and
+     * &#123;@code remove(int)&#125; methods (and any other methods that it overrides
      * that result in structural modifications to the list).  A single call to
-     * {@code add(int, E)} or {@code remove(int)} must add no more than
+     * &#123;@code add(int, E)&#125; or &#123;@code remove(int)&#125; must add no more than
      * one to this field, or the iterators (and list iterators) will throw
-     * bogus {@code ConcurrentModificationExceptions}.  If an implementation
+     * bogus &#123;@code ConcurrentModificationExceptions&#125;.  If an implementation
      * does not wish to provide fail-fast iterators, this field may be
      * ignored.
      */
@@ -1209,7 +1213,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

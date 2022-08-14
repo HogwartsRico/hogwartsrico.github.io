@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,PostGIS">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="使用PostGIS实现最短路径服务 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="PostGIS"> 
 
     
         <meta property="article:published_time" content="Thu Jul 14 2016 22:56:32 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2016/07/14/Using-PostGIS-to-implement-the-shortestpath/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、下载和安装"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、下载和安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#导入shp数据"><span class="post-toc-number">2.</span> <span class="post-toc-text">导入shp数据</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#创建路网拓扑结构"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建路网拓扑结构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#尝试查询"><span class="post-toc-number">4.</span> <span class="post-toc-text">尝试查询</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最短路径规划中创建基于geoserver的wms服务"><span class="post-toc-number">5.</span> <span class="post-toc-text">最短路径规划中创建基于geoserver的wms服务</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考文献"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、下载和安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AF%BC%E5%85%A5shp%E6%95%B0%E6%8D%AE"><span class="post-toc-number">2.</span> <span class="post-toc-text">导入shp数据</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E8%B7%AF%E7%BD%91%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84"><span class="post-toc-number">3.</span> <span class="post-toc-text">创建路网拓扑结构</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%B0%9D%E8%AF%95%E6%9F%A5%E8%AF%A2"><span class="post-toc-number">4.</span> <span class="post-toc-text">尝试查询</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%9F%BA%E4%BA%8Egeoserver%E7%9A%84wms%E6%9C%8D%E5%8A%A1"><span class="post-toc-number">5.</span> <span class="post-toc-text">最短路径规划中创建基于geoserver的wms服务</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/PostGIS/">PostGIS</a>
+        <a class="post_tag-none-link" href="/tags/PostGIS/" rel="tag">PostGIS</a>
     </ul>
     
 
@@ -468,22 +468,22 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="一、下载和安装"><a href="#一、下载和安装" class="headerlink" title="一、下载和安装"></a>一、下载和安装</h1><p>PGRouting要配合PostgreSQL和Postgis使用，所以安装PGRouting之前要先安装PostgreSQL和Postgis，它们的官网地址分别是：<br>PostgreSQL          <a href="http://www.postgresql.org/" target="_blank" rel="noopener">http://www.postgresql.org/</a><br>Postgis                <a href="http://www.postgis.net/" target="_blank" rel="noopener">http://www.postgis.net/</a><br>PGRouting          <a href="http://pgrouting.org/" target="_blank" rel="noopener">http://pgrouting.org/</a>  github <a href="https://github.com/pgRouting/pgrouting" target="_blank" rel="noopener">https://github.com/pgRouting/pgrouting</a>  </p>
+        <h1 id="一、下载和安装"><a href="#一、下载和安装" class="headerlink" title="一、下载和安装"></a>一、下载和安装</h1><p>PGRouting要配合PostgreSQL和Postgis使用，所以安装PGRouting之前要先安装PostgreSQL和Postgis，它们的官网地址分别是：<br>PostgreSQL          <a target="_blank" rel="noopener" href="http://www.postgresql.org/">http://www.postgresql.org/</a><br>Postgis                <a target="_blank" rel="noopener" href="http://www.postgis.net/">http://www.postgis.net/</a><br>PGRouting          <a target="_blank" rel="noopener" href="http://pgrouting.org/">http://pgrouting.org/</a>  github <a target="_blank" rel="noopener" href="https://github.com/pgRouting/pgrouting">https://github.com/pgRouting/pgrouting</a>  </p>
 <p>另外在安装好PostgreSQL之后，程序本身会提供一个工具Application Stack Builder，我们也可以在这个工具中下载对应版本的Postgis。  </p>
 <p>PostgreSQL和Postgis在windows下的安装相对简单，在这里说一下PGRouting的安装。  </p>
 <p>在官网下载和本机PostgreSQL对应版本的PGRouting，我这里的版本的PostgreSQL 9.1，这个版本可以使用的PGRouting对应版本是2.0。</p>
 <p>下面贴一下我的PosggreSQL和PostGIS 和pgRouting的版本</p>
-<p>PostgreSQL下载地址  <a href="http://www.postgresql.org/download/" target="_blank" rel="noopener">http://www.postgresql.org/download/</a><br>PostGIS 下载地址 <a href="http://download.osgeo.org/postgis/windows/" target="_blank" rel="noopener">http://download.osgeo.org/postgis/windows/</a>  <a href="http://download.osgeo.org/postgis/windows/pg92/archive/" target="_blank" rel="noopener">http://download.osgeo.org/postgis/windows/pg92/archive/</a><br>pgRouting下载地址 <a href="http://pgrouting.org/download.html#windows-binaries" target="_blank" rel="noopener">http://pgrouting.org/download.html#windows-binaries</a>    <a href="http://postgis.net/windows_downloads" target="_blank" rel="noopener">http://postgis.net/windows_downloads</a>   <a href="http://winnie.postgis.net/download/windows/pg92/buildbot/" target="_blank" rel="noopener">http://winnie.postgis.net/download/windows/pg92/buildbot/</a>  <a href="http://winnie.postgis.net/download/windows/" target="_blank" rel="noopener">http://winnie.postgis.net/download/windows/</a></p>
-<p>各版本兼容情况<br><a href="http://postgis.net/windows_downloads" target="_blank" rel="noopener">http://postgis.net/windows_downloads</a><br><a href="http://pgrouting.org/download.html" target="_blank" rel="noopener">http://pgrouting.org/download.html</a><br><img src="1.png" alt><br>下载PGRouing之后，可以看到里面有3个文件夹（bin、lib、share）和5个文件，以后可能会有变动，将这三个文件夹拷贝到PostgreSQL的安装目录下，和同名文件夹合并。<br><img src="2.png" alt></p>
+<p>PostgreSQL下载地址  <a target="_blank" rel="noopener" href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</a><br>PostGIS 下载地址 <a target="_blank" rel="noopener" href="http://download.osgeo.org/postgis/windows/">http://download.osgeo.org/postgis/windows/</a>  <a target="_blank" rel="noopener" href="http://download.osgeo.org/postgis/windows/pg92/archive/">http://download.osgeo.org/postgis/windows/pg92/archive/</a><br>pgRouting下载地址 <a target="_blank" rel="noopener" href="http://pgrouting.org/download.html#windows-binaries">http://pgrouting.org/download.html#windows-binaries</a>    <a target="_blank" rel="noopener" href="http://postgis.net/windows_downloads">http://postgis.net/windows_downloads</a>   <a target="_blank" rel="noopener" href="http://winnie.postgis.net/download/windows/pg92/buildbot/">http://winnie.postgis.net/download/windows/pg92/buildbot/</a>  <a target="_blank" rel="noopener" href="http://winnie.postgis.net/download/windows/">http://winnie.postgis.net/download/windows/</a></p>
+<p>各版本兼容情况<br><a target="_blank" rel="noopener" href="http://postgis.net/windows_downloads">http://postgis.net/windows_downloads</a><br><a target="_blank" rel="noopener" href="http://pgrouting.org/download.html">http://pgrouting.org/download.html</a><br><img src="1.png" alt=""><br>下载PGRouing之后，可以看到里面有3个文件夹（bin、lib、share）和5个文件，以后可能会有变动，将这三个文件夹拷贝到PostgreSQL的安装目录下，和同名文件夹合并。<br><img src="2.png" alt=""></p>
 <p>然后执行一遍share里面的sql,</p>
-<p>具体方法:<br>点击这个sql查询按钮<br><img src="4.png" alt><br>弹出如下窗口,选择刚才几个的sql语句,都执行一遍<br><img src="5.png" alt><br>点击如下所示按钮执行sql语句<br><img src="6.png" alt></p>
+<p>具体方法:<br>点击这个sql查询按钮<br><img src="4.png" alt=""><br>弹出如下窗口,选择刚才几个的sql语句,都执行一遍<br><img src="5.png" alt=""><br>点击如下所示按钮执行sql语句<br><img src="6.png" alt=""></p>
 <p>执行完这些后PostgreSQL就具备了最短路径分析的功能</p>
-<h1 id="导入shp数据"><a href="#导入shp数据" class="headerlink" title="导入shp数据"></a>导入shp数据</h1><p>这个之前有写,需要注意四项:1新建数据库时选择PostGIS提供的模板,2编码选择GBK,3还有shp数据不要有中文路径<br>4把这个勾上<br><img src="3.png" alt><br>此处导入的shp数据一定要是单线的，否则无法完成路径计算。</p>
+<h1 id="导入shp数据"><a href="#导入shp数据" class="headerlink" title="导入shp数据"></a>导入shp数据</h1><p>这个之前有写,需要注意四项:1新建数据库时选择PostGIS提供的模板,2编码选择GBK,3还有shp数据不要有中文路径<br>4把这个勾上<br><img src="3.png" alt=""><br>此处导入的shp数据一定要是单线的，否则无法完成路径计算。</p>
 <h1 id="创建路网拓扑结构"><a href="#创建路网拓扑结构" class="headerlink" title="创建路网拓扑结构"></a>创建路网拓扑结构</h1><p><code>ALTER TABLE public.bjroad ADD COLUMN source integer;</code>//添加起点id</p>
 <p><code>ALTER TABLE public.bjroad ADD COLUMN target integer;</code>//添加终点id</p>
 <p><code>ALTER TABLE public.bjroad ADD COLUMN mlength double precision;</code>//添加道路 权重值 这里长度就是权重了 </p>
-<p>这里先介绍一个Pgrouting的函数：pgr_createTopology，这个函数就是将我们的路网（线型）数据形成拓扑导航网络的数据，为下一步的导航路径算法提供支持<br><code>SELECT pgr_createTopology(&#39;public.bjroad&#39;,0.00001, &#39;geom&#39;, &#39;gid&#39;);</code>//创建拓扑布局，即为source和target字段赋值<br>详见 <a href="http://docs.pgrouting.org/2.0/en/src/common/doc/functions/create_topology.html#pgr-create-topology" target="_blank" rel="noopener">http://docs.pgrouting.org/2.0/en/src/common/doc/functions/create_topology.html#pgr-create-topology</a></p>
-<p><img src="7.png" alt><br><img src="8.png" alt><br><img src="9.png" alt> </p>
+<p>这里先介绍一个Pgrouting的函数：pgr_createTopology，这个函数就是将我们的路网（线型）数据形成拓扑导航网络的数据，为下一步的导航路径算法提供支持<br><code>SELECT pgr_createTopology(&#39;public.bjroad&#39;,0.00001, &#39;geom&#39;, &#39;gid&#39;);</code>//创建拓扑布局，即为source和target字段赋值<br>详见 <a target="_blank" rel="noopener" href="http://docs.pgrouting.org/2.0/en/src/common/doc/functions/create_topology.html#pgr-create-topology">http://docs.pgrouting.org/2.0/en/src/common/doc/functions/create_topology.html#pgr-create-topology</a></p>
+<p><img src="7.png" alt=""><br><img src="8.png" alt=""><br><img src="9.png" alt=""> </p>
 <p>为source和target字段创建索引<br><code>CREATE INDEX source_idx ON bjroad(&quot;source&quot;);</code><br><code>CREATE INDEX target_idx ON bjroad(&quot;target&quot;);</code>  </p>
 <p>为mlength赋值<br><code>update bjroad set mlength =st_length(geom);</code></p>
 <p>为bjroad表添加reverse_cost字段并用mlength的值赋值</p>
@@ -503,7 +503,7 @@ FROM bjroad&#39;,
 
 30, 60, false, false);
 </code></pre>
-<p><img src="10.png" alt></p>
+<p><img src="10.png" alt=""></p>
 <p>//查询每个路段经过的点</p>
 <pre><code class="SQL">SELECT st_astext(geom) FROM pgr_dijkstra(&#39;
 
@@ -523,7 +523,7 @@ join bjroad pt
 
 on di.id2 = pt.gid;
 </code></pre>
-<p><img src="11.png" alt></p>
+<p><img src="11.png" alt=""></p>
 <p>//把查询结果放在新建的表格中dijkstra_res就是新建的表</p>
 <pre><code class="SQL">SELECT seq, id1 AS node, id2 AS edge, cost,geom into dijkstra_res FROM pgr_dijkstra(&#39;
 
@@ -543,7 +543,7 @@ join bjroad pt
 
 on di.id2 = pt.gid;
 </code></pre>
-<p><img src="12.png" alt><br><img src="13.png" alt>  </p>
+<p><img src="12.png" alt=""><br><img src="13.png" alt="">  </p>
 <pre><code class="SQL">
 pgr_dijkstra的定义是pgr_costResult[]
 pgr_dijkstra(textsql, integer source, integer target, boolean directed, boolean has_rcost);
@@ -574,7 +574,7 @@ CREATE TYPE pgr_costResult AS
 
 `
 </code></pre>
-<p>将这个表导出为shp，再在arcmap中定义坐标系打开，可以看到上面的结果如下图所示<br><img src="14.png" alt></p>
+<p>将这个表导出为shp，再在arcmap中定义坐标系打开，可以看到上面的结果如下图所示<br><img src="14.png" alt=""></p>
 <hr>
 <p>前面介绍了如何利用postgresql创建空间数据库，建立空间索引和进行路径规划。但是在真实的场景中用户进行路径规划的时候都是基于经纬度数据进行路径规划的，因为用户根本不会知道道路上节点的ID。因此接下来讲述如何查询任意两点间的最短路径。  </p>
 <p>一、定义函数名及函数参数</p>
@@ -691,6 +691,7 @@ BEGIN
 END;
 $BODY$
 LANGUAGE &#39;plpgsql&#39; VOLATILE STRICT;
+
 </code></pre><p>但是上面查询任意两点间最短路径的函数，是由于当时对pgrouting不熟悉，功能很low。现在对该函数进行扩展，支持用户自己输入查询的数据库表，这一点看似简单，其实意义很大，在做室内导航的时候当用户所在的楼层变化的时候最短路径函数查询的数据表名称也会发生变化，不可能一栋大楼里的道路都是一样的吧，另外进行跨楼层的最短路径规划时，需要查询从A到楼梯口的最短路径和楼梯口到B的最短路径，这些都需要进行最短路径规划的时候能够自己选择数据表。</p>
 <p>先解释一下最短路径规划的处理步骤，首先要确定用户的出发点和目的地所在的道路，再在相应的道路上确定道路的节点，查找这两个节点之间的最短路径，最后再处理出发点和目的地到道路节点之间的路段。具体过程为：</p>
 <ol>
@@ -786,7 +787,7 @@ begin
 
 end;  
 $body$  
-LANGUAGE plpgsql VOLATILE STRICT
+LANGUAGE plpgsql VOLATILE STRICT  
 </code></pre>
 <p>使用这个最短路径规划函数进行路径规划一般不会出现问题，但是有的时候会出现这样的问题，因为函数的查找思路是查找距离起点最近的线和改线的终点，查找离目的地最近的线和该线的起点，这样有可能会出现这样的情况，就是起点和终点对应的线段是相连接的，这时查找的距离起点最近线的终点和距离目的地最近线上的起点就是同一个点，这样的话这两点直接就没有最短距离。</p>
 <p>所以需要对上述代码第59到61行进行修改，修改后的代码如下  </p>
@@ -874,13 +875,13 @@ begin
 
 end;  
 $body$  
-LANGUAGE plpgsql VOLATILE STRICT
+LANGUAGE plpgsql VOLATILE STRICT  
 </code></pre>
 <p>将这个函数在PostgreSQL的sql查询工具中执行一遍就可以了  </p>
 <p>这时你在sql查询中输入<br><code>SELECT * FROM pgr_fromatob(&#39;bjroad&#39;, x1, y1, x2, y2  )</code><br>或<br><code>SELECT pgr_fromatob.geometry FROM pgr_fromatob(&#39;bjroad&#39;, x1, y1, x2, y2  )</code>就可以查询到从点1到点2的路径了</p>
 <h1 id="最短路径规划中创建基于geoserver的wms服务"><a href="#最短路径规划中创建基于geoserver的wms服务" class="headerlink" title="最短路径规划中创建基于geoserver的wms服务"></a>最短路径规划中创建基于geoserver的wms服务</h1><p>上面文章写了求任意两点间最短路径的sql函数，接下来讲一下如何把上面介绍的子功能整合到系统中去</p>
-<p>单击左侧数据存储图标，会进入新建数据源页面<br><img src="15.png" alt><br>单击postgis，会弹出数据库的访问设置对话框<br>在对话框中选择工作区，填入数据源名称、数据库名以及用户名密码 点击保存</p>
-<p>在弹出的新页面中单击配置新的SQL视图，<br><img src="16.png" alt> </p>
+<p>单击左侧数据存储图标，会进入新建数据源页面<br><img src="15.png" alt=""><br>单击postgis，会弹出数据库的访问设置对话框<br>在对话框中选择工作区，填入数据源名称、数据库名以及用户名密码 点击保存</p>
+<p>在弹出的新页面中单击配置新的SQL视图，<br><img src="16.png" alt=""> </p>
 <p>在出现的新页面中输入视图名称以及最短路径规划的查询sql语句（pgr_fromAtoB为自定义的查询函数，需要添加到postgresql中,上文已经将其添加进去了）</p>
 <p>在出现的新页面中输入视图名称以及最短路径规划的查询sql语句（pgr_fromAtoB为自定义的查询函数，需要添加到postgresql中），</p>
 <pre><code class="SQL">SELECT ST_MakeLine(route.geometry) FROM (
@@ -889,30 +890,30 @@ LANGUAGE plpgsql VOLATILE STRICT
 
 ) AS route
 </code></pre>
-<p>单击从sql猜想的参数，把x1 y1 x2 y2的默认值都设为0，正则表达式中全部输入<code>^-?[\d.]+$</code> 。最后点刷新按钮，在出现的st_makeline结果数据中选择其类型为linestring，坐标系为4326<br><img src="17.png" alt></p>
-<p><img src="18.png" alt></p>
-<p>然后就像普通图层那样将其发布即可<br><img src="19.png" alt><br><img src="20.png" alt></p>
+<p>单击从sql猜想的参数，把x1 y1 x2 y2的默认值都设为0，正则表达式中全部输入<code>^-?[\d.]+$</code> 。最后点刷新按钮，在出现的st_makeline结果数据中选择其类型为linestring，坐标系为4326<br><img src="17.png" alt=""></p>
+<p><img src="18.png" alt=""></p>
+<p>然后就像普通图层那样将其发布即可<br><img src="19.png" alt=""><br><img src="20.png" alt=""></p>
 <p>然后写代码就可以实现最短路径功能了  </p>
 <pre><code class="HTML">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&gt;&quot;
 &lt;head&gt;
     &lt;title&gt;最短路径分析&lt;/title&gt;
     &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;
-    &lt;style type=&quot;text/css&quot;&gt; v\:* {behavior:url(#default#VML);}
-        html, body { overflow: hidden; padding: 0; height: 100%; width: 100%; font-family: &#39;Lucida Grande&#39;,Geneva,Arial,Verdana,sans-serif; }
-        body { margin: 0px; background: #fff; }
-        #map { height: 100%; border: 1px solid #888; }
-        .olImageLoadError {
+    &lt;style type=&quot;text/css&quot;&gt; v\:* &#123;behavior:url(#default#VML);&#125;
+        html, body &#123; overflow: hidden; padding: 0; height: 100%; width: 100%; font-family: &#39;Lucida Grande&#39;,Geneva,Arial,Verdana,sans-serif; &#125;
+        body &#123; margin: 0px; background: #fff; &#125;
+        #map &#123; height: 100%; border: 1px solid #888; &#125;
+        .olImageLoadError &#123;
             display: none !important;
-        }
-        ul li{height:28px; width:100%;list-style:none;}
- li a{
+        &#125;
+        ul li&#123;height:28px; width:100%;list-style:none;&#125;
+ li a&#123;
     padding-left:0px; 
     width:100%; 
     line-height:0px;
     text-decoration:none;
     color:#666;
-}
+&#125;
     &lt;/style&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;http://xxxxx/OpenLayers-2.11/theme/default/style.css&quot; type=&quot;text/css&quot;&gt;
     &lt;script src=&quot;http://xxxxx/OpenLayers-2.11/OpenLayers.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
@@ -921,37 +922,37 @@ LANGUAGE plpgsql VOLATILE STRICT
         var tilerpath=&quot;http://xxxxxx/zjTDT/&quot;;//你的底图地址
         var map,baselayer,tmsoverlay,bjroadLayer,markerLayer;
         OpenLayers.Util.onImageLoadErrorColor = &quot;transparent&quot;;
-        function init(){
-            var options = {
+        function init()&#123;
+            var options = &#123;
                 controls: [new OpenLayers.Control.PanZoomBar(),
-                new OpenLayers.Control.Navigation({dragPanOptions:{enableKinetic:true}}),new OpenLayers.Control.MousePosition()],
+                new OpenLayers.Control.Navigation(&#123;dragPanOptions:&#123;enableKinetic:true&#125;&#125;),new OpenLayers.Control.MousePosition()],
                 projection: new OpenLayers.Projection(&quot;EPSG:4326&quot;),
                 resolutions:[0.3515625,0.17578125,0.087890625,0.0439453125,0.02197265625,0.010986328125,0.0054931640625,0.00274658203125,0.001373291015625,0.0006866455078125,0.00034332275390625,0.000171661376953125,0.0000858306884765625,0.00004291534423828125,0.000021457672119140625,0.0000107288360595703125,0.00000536441802978515625],
                 maxExtent: new OpenLayers.Bounds(-180, -90, 180, 90)
-            };
+            &#125;;
             map = new OpenLayers.Map(&#39;map&#39;, options);
 
             baselayer = new OpenLayers.Layer.TMS( &quot;天地图底图&quot;, tilerpath+&quot;TDTVec&quot;,
-            { 
+            &#123; 
                 serviceVersion: &#39;.&#39;, layername: &#39;.&#39;, alpha: true,
                 type: &#39;png&#39;, getURL: overlay_getTileURL,
                 isBaseLayer: true
-            });
+            &#125;);
 
             tmsoverlay = new OpenLayers.Layer.TMS( &quot;天地图标注&quot;, tilerpath+&quot;TDTVecAnno&quot;,
-            {
+            &#123;
                 serviceVersion: &#39;.&#39;, layername: &#39;.&#39;, alpha: true,
                 type: &#39;png&#39;, getURL: overlay_getTileURL,
                 isBaseLayer: false
-            });
-             function overlay_getTileURL(bounds) {
+            &#125;);
+             function overlay_getTileURL(bounds) &#123;
                 bounds = this.adjustBounds(bounds);
                 var res = this.map.getResolution();
                 var x = Math.round((bounds.left - this.tileOrigin.lon) / (res * this.tileSize.w));
                 var y = Math.round(Math.abs((bounds.bottom + this.tileOrigin.lat))/(res * this.tileSize.h))-1;
                 var z = this.map.getZoom()+2;
             return this.url + &quot;/L&quot;+z+&quot;/&quot;+x+&quot;/&quot;+y+&quot;.png&quot;;//&amp;x=&quot;+x+&quot;&amp;y=&quot;+y+&quot;&amp;l=&quot;+z;
-            }    
+            &#125;    
 
             map.addLayers([baselayer,tmsoverlay]);
              map.setCenter(new OpenLayers.LonLat(120.00,30.25),10);
@@ -959,9 +960,9 @@ LANGUAGE plpgsql VOLATILE STRICT
             //-----------------------------------------
              bjroadLayer = new OpenLayers.Layer.WMS(&quot;OpenLayers WMS&quot;,   
                 &#39;http://xxxxx:8080/geoserver/chj/wms&#39;,     
-                {    
+                &#123;    
                     layers: &#39;chj:bjroadshp&#39;  ,format:&#39;image/png&#39;,transparent:true  
-                });    
+                &#125;);    
             map.addLayer(bjroadLayer);
 
             markerLayer = new OpenLayers.Layer.Markers(&quot;markers&quot;);         
@@ -972,7 +973,7 @@ LANGUAGE plpgsql VOLATILE STRICT
 
             //清空路径规划结果  
             var clearButton = document.getElementById(&#39;clear&#39;);  
-            clearButton.addEventListener(&#39;click&#39;, function(event) {  
+            clearButton.addEventListener(&#39;click&#39;, function(event) &#123;  
                 // Reset the &quot;start&quot; and &quot;destination&quot; features.  
                 startPointSet = false;  
                 endPointSet = false;  
@@ -982,10 +983,10 @@ LANGUAGE plpgsql VOLATILE STRICT
                 startPoint.destroy();  
                 destPoint.destroy();  
                 map.removeLayer(result);  
-            });           
+            &#125;);           
         map.events.register(&#39;click&#39;, map, onMapClick);      
 
-}// init end
+&#125;// init end
 
 
 var startPointSet = false;
@@ -996,17 +997,17 @@ var destCoord
 var result;
 var result2;
 function onMapClick(event)
-{
+&#123;
 
      // 显示地图屏幕坐标
-    if (!startPointSet) {    
+    if (!startPointSet) &#123;    
     var lonlat = map.getLonLatFromPixel(event.xy);
     startPoint = new OpenLayers.Marker(lonlat);  
     markerLayer.addMarker(startPoint);
     startCoord = new OpenLayers.Geometry.Point(lonlat.lon,lonlat.lat);
     startPointSet = true;
-  } 
-  else if (!endPointSet) {
+  &#125; 
+  else if (!endPointSet) &#123;
     // Second click.
     var lonlat = map.getLonLatFromPixel(event.xy);
     destPoint = new OpenLayers.Marker(lonlat);  
@@ -1025,22 +1026,22 @@ function onMapClick(event)
     viewparams = viewparams.join(&#39;;&#39;);
     result = new OpenLayers.Layer.WMS(&quot;resLayer&quot;,
     &#39;http://xxxxx:8080/geoserver/rico/wms&#39;,
-    {    FORMAT: &#39;image/png8&#39;,
+    &#123;    FORMAT: &#39;image/png8&#39;,
         transparent: true,
         LAYERS: &#39;chj:pgrfromAtoB&#39;,
         viewparams:viewparams
-    },
-    {isBaseLayer:false,
+    &#125;,
+    &#123;isBaseLayer:false,
     opacity: 1,
-    }        
+    &#125;        
     );
 
     map.addLayer(result);
 
 
 
-  }// else if end 
- }// onMapClick end
+  &#125;// else if end 
+ &#125;// onMapClick end
 
 
 
@@ -1059,8 +1060,8 @@ function onMapClick(event)
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p><img src="21.png" alt> </p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="http://blog.csdn.net/longshengguoji/article/details/45565551" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/45565551</a><br><a href="http://blog.csdn.net/cehui115081/article/details/19808889" target="_blank" rel="noopener">http://blog.csdn.net/cehui115081/article/details/19808889</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/46051111" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/46051111</a><br><a href="http://www.davidgis.fr/documentation/pgrouting-1.02/" target="_blank" rel="noopener">http://www.davidgis.fr/documentation/pgrouting-1.02/</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/46350355" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/46350355</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/46350675" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/46350675</a><br><a href="http://www.openlayers.cn/forum.php?mod=viewthread&amp;tid=14&amp;page=1" target="_blank" rel="noopener">http://www.openlayers.cn/forum.php?mod=viewthread&amp;tid=14&amp;page=1</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/45602219" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/45602219</a><br><a href="http://blog.csdn.net/longshengguoji?viewmode=contents" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji?viewmode=contents</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/46793111" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/46793111</a><br><a href="http://blog.csdn.net/longshengguoji/article/details/45602219" target="_blank" rel="noopener">http://blog.csdn.net/longshengguoji/article/details/45602219</a><br><a href="http://blog.csdn.net/yifei1989/article/details/14137891" target="_blank" rel="noopener">http://blog.csdn.net/yifei1989/article/details/14137891</a><br><a href="http://blog.csdn.net/yifei1989/article/details/9500187#comments" target="_blank" rel="noopener">http://blog.csdn.net/yifei1989/article/details/9500187#comments</a><br><a href="http://blog.csdn.net/yifei1989/article/details/14004661" target="_blank" rel="noopener">http://blog.csdn.net/yifei1989/article/details/14004661</a><br><a href="http://blog.csdn.net/yifei1989/article/details/14137891" target="_blank" rel="noopener">http://blog.csdn.net/yifei1989/article/details/14137891</a></p>
+<p><img src="21.png" alt=""> </p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji/article/details/45565551">http://blog.csdn.net/longshengguoji/article/details/45565551</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/cehui115081/article/details/19808889">http://blog.csdn.net/cehui115081/article/details/19808889</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji/article/details/46051111">http://blog.csdn.net/longshengguoji/article/details/46051111</a><br><a target="_blank" rel="noopener" href="http://www.davidgis.fr/documentation/pgrouting-1.02/">http://www.davidgis.fr/documentation/pgrouting-1.02/</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji/article/details/46350355">http://blog.csdn.net/longshengguoji/article/details/46350355</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji/article/details/46350675">http://blog.csdn.net/longshengguoji/article/details/46350675</a><br><a target="_blank" rel="noopener" href="http://www.openlayers.cn/forum.php?mod=viewthread&amp;tid=14&amp;page=1">http://www.openlayers.cn/forum.php?mod=viewthread&amp;tid=14&amp;page=1</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji/article/details/45602219">http://blog.csdn.net/longshengguoji/article/details/45602219</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji?viewmode=contents">http://blog.csdn.net/longshengguoji?viewmode=contents</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji/article/details/46793111">http://blog.csdn.net/longshengguoji/article/details/46793111</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/longshengguoji/article/details/45602219">http://blog.csdn.net/longshengguoji/article/details/45602219</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yifei1989/article/details/14137891">http://blog.csdn.net/yifei1989/article/details/14137891</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yifei1989/article/details/9500187#comments">http://blog.csdn.net/yifei1989/article/details/9500187#comments</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yifei1989/article/details/14004661">http://blog.csdn.net/yifei1989/article/details/14004661</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/yifei1989/article/details/14137891">http://blog.csdn.net/yifei1989/article/details/14137891</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1459,7 +1460,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

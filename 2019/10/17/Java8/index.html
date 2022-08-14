@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Java8 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Java"> 
 
     
         <meta property="article:published_time" content="Thu Oct 17 2019 19:51:15 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/17/Java8/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/17/Java8/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数式编程"><span class="post-toc-number">1.</span> <span class="post-toc-text">函数式编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lamda"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">lamda</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#函数式接口"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">函数式接口</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Stream"><span class="post-toc-number">2.</span> <span class="post-toc-text">Stream</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#foreach"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">foreach</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#filter"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">filter</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Map映射"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Map映射</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#collect"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">collect</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toMap"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">toMap</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toList"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">toList</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拼接字符串"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">拼接字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#collectingAndThen"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">collectingAndThen</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#collect-map"><span class="post-toc-number">2.4.5.</span> <span class="post-toc-text">collect+map</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#match"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">match</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Collectors"><span class="post-toc-number">3.</span> <span class="post-toc-text">Collectors</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Collectors类中提供的方法"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">Collectors类中提供的方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Optional"><span class="post-toc-number">4.</span> <span class="post-toc-text">Optional</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Predicate和Consumer"><span class="post-toc-number">5.</span> <span class="post-toc-text">Predicate和Consumer</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Predicate-接口"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Predicate 接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Function-接口"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Function 接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Consumer-接口"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">Consumer 接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实现原理"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">实现原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="post-toc-number">1.</span> <span class="post-toc-text">函数式编程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lamda"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">lamda</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">函数式接口</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Stream"><span class="post-toc-number">2.</span> <span class="post-toc-text">Stream</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#foreach"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">foreach</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#filter"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">filter</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Map%E6%98%A0%E5%B0%84"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Map映射</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#collect"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">collect</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toMap"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">toMap</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toList"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">toList</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">拼接字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#collectingAndThen"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">collectingAndThen</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#collect-map"><span class="post-toc-number">2.4.5.</span> <span class="post-toc-text">collect+map</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#match"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">match</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Collectors"><span class="post-toc-number">3.</span> <span class="post-toc-text">Collectors</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Collectors%E7%B1%BB%E4%B8%AD%E6%8F%90%E4%BE%9B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">Collectors类中提供的方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Optional"><span class="post-toc-number">4.</span> <span class="post-toc-text">Optional</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Predicate%E5%92%8CConsumer"><span class="post-toc-number">5.</span> <span class="post-toc-text">Predicate和Consumer</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Predicate-%E6%8E%A5%E5%8F%A3"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Predicate 接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Function-%E6%8E%A5%E5%8F%A3"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Function 接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Consumer-%E6%8E%A5%E5%8F%A3"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">Consumer 接口</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">实现原理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Java/">Java</a>
+        <a class="post_tag-none-link" href="/tags/Java/" rel="tag">Java</a>
     </ul>
     
 
@@ -470,12 +470,12 @@
     
         <p>在很多编程语言里(例如JavaScript)，都可以实现函数式的编程，也就是函数可以作为变量去灵活使用，但是java一直都不可以，之前很多都使用一些匿名内部类这种丑的亚批的代码。java8之后算是可以使用伪函数式编程，其实也是应用了单方法接口去实现。并且设计出了lambda语法</p>
 <h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><h2 id="lamda"><a href="#lamda" class="headerlink" title="lamda"></a>lamda</h2><p>lambda之前实现thread</p>
-<pre><code class="java">        Thread thread = new Thread(new Runnable() {
+<pre><code class="java">        Thread thread = new Thread(new Runnable() &#123;
             @Override
-            public void run() {
+            public void run() &#123;
                 System.out.println(&quot;xxx&quot;);
-            }
-        });
+            &#125;
+        &#125;);
 </code></pre>
 <p>在lambda实现thread</p>
 <pre><code class="java">Thread thread = new Thread(()-&gt; System.out.println(&quot;xx&quot;));
@@ -490,17 +490,17 @@
 <p>Lambda表达式是如何在java的类型系统中表示的呢？每一个lambda表达式都对应一个类型，通常是接口类型。而“函数式接口”是指仅仅<strong>只包含一个抽象方法</strong>的接口，<strong>每一个该类型的lambda表达式都会被匹配到这个抽象方法</strong>。因为 默认方法 不算抽象方法，所以你也可以给你的函数式接口添加默认方法。</p>
 <p>我们可以将lambda表达式当作任意只包含一个抽象方法的接口类型，确保你的接口一定达到这个要求，你只需要给你的接口添加 <code>@FunctionalInterface</code> 注解，编译器如果发现你标注了这个注解的接口有多于一个抽象方法的时候会报错的。 </p>
 <pre><code class="java">@FunctionalInterface
-interface Converter&lt;F, T&gt; {
+interface Converter&lt;F, T&gt; &#123;
     T convert(F from);//如果写两个方法就会报错    
-}
+&#125;
 </code></pre>
-<pre><code class="java">public class  MyTest {
-    public static void main(String[] args) {
+<pre><code class="java">public class  MyTest &#123;
+    public static void main(String[] args) &#123;
         Converter&lt;String, Integer&gt; converter = (from) -&gt; Integer.valueOf(from);//如果是多行就用大括号括起来 使用Lambda表达式来表示该接口的一个实现(注：JAVA 8 之前一般是用匿名类实现的)：
         Integer converted = converter.convert(&quot;123&quot;);
         System.out.println(converted);    // 123
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p>需要注意如果没有<code>@FunctionalInterface</code>，上面的代码也是对的。</p>
 <h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h1><h2 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h2><pre><code class="java">//构建个User对象的list，后面都会使用到 User(id,name,age)
@@ -510,15 +510,16 @@ userList.add(new User(2, &quot;bbb&quot;, 21));
 userList.add(new User(3, &quot;ccc&quot;, 25)); 
 
 //使用stream.foreach 依次输出
-userList.stream().forEach(user-&gt;{
+userList.stream().forEach(user-&gt;&#123;
     System.out.println(user.getName());
-});
+&#125;);
+
 </code></pre>
 <h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p><strong>filter可以按照你的要求进行过滤，非常方便</strong></p>
-<pre><code class="java">        userList.stream().filter(user -&gt; user.getAge() &gt; 18).forEach(user -&gt; {
+<pre><code class="java">        userList.stream().filter(user -&gt; user.getAge() &gt; 18).forEach(user -&gt; &#123;
             //输出age大于18的user的name
             System.out.println(user.getName());
-        });
+        &#125;);
 </code></pre>
 <p>filter中也可以是一个大括号的语法段或者是方法，返回true/false即可  </p>
 <pre><code class="java">List list = list.stream().map(xxDO::getID).filter(xxx::contains).collect(Collectors.toList());
@@ -554,10 +555,10 @@ System.out.println(collect1); //[2, 4, 6, 8, 10]
 <pre><code class="java">//将对象集合生成key为id，value为对象的映射map
 userMap.putAll(users.stream().collect(Collectors.toMap(e -&gt;
 e.getId().toString(), view -&gt; view, (k1, k2) -&gt; k2)));
-//[{&quot;id&quot;:1,&quot;name&quot;:&quot;张三&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;李四&quot;}] -- &gt; {1:{&quot;id&quot;:1,&quot;name&quot;:&quot;张三&quot;},2:{&quot;id&quot;:2,&quot;name&quot;:&quot;李四&quot;}}
+//[&#123;&quot;id&quot;:1,&quot;name&quot;:&quot;张三&quot;&#125;,&#123;&quot;id&quot;:2,&quot;name&quot;:&quot;李四&quot;&#125;] -- &gt; &#123;1:&#123;&quot;id&quot;:1,&quot;name&quot;:&quot;张三&quot;&#125;,2:&#123;&quot;id&quot;:2,&quot;name&quot;:&quot;李四&quot;&#125;&#125;
 </code></pre>
-<p><img src="1.png" alt> </p>
-<p><img src="2.png" alt> </p>
+<p><img src="1.png" alt=""> </p>
+<p><img src="2.png" alt=""> </p>
 <pre><code class="java">//将do集合的元素挨个转成bo然后形成一个新的集合
 userBOS = userDOS.stream().map(USERConvert::convertDO2BO).collect(Collectors.toList());
 </code></pre>
@@ -630,7 +631,7 @@ System.out.println(stringObjectMap);
 /*=================打印结果=================
 [ab, s, bc, cd, abcd, sd, jkl]
 [ab, bc, cd, sd, s, jkl, abcd]
-{sd=sd, cd=cd, bc=bc, ab=ab, s=s, jkl=jkl, abcd=abcd}
+&#123;sd=sd, cd=cd, bc=bc, ab=ab, s=s, jkl=jkl, abcd=abcd&#125;
 */
 </code></pre>
 <p>将集合拆分拼接成字符串</p>
@@ -694,8 +695,8 @@ System.out.println(map);
 System.out.println(map2);
 
 /*=================打印结果=================
-{1=[s], 2=[ab, bc, cd, sd], 3=[jkl], 4=[abcd]}
-{false=[ab, s, bc, cd, sd], true=[abcd, jkl]}
+&#123;1=[s], 2=[ab, bc, cd, sd], 3=[jkl], 4=[abcd]&#125;
+&#123;false=[ab, s, bc, cd, sd], true=[abcd, jkl]&#125;
 */
 </code></pre>
 <p>.对数据进行映射</p>
@@ -790,58 +791,58 @@ System.out.println(str);
 </tbody>
 </table>
 <p> of/ofNullable源码</p>
-<pre><code class="java">public static &lt;T&gt; Optional&lt;T&gt; of(T value) {
+<pre><code class="java">public static &lt;T&gt; Optional&lt;T&gt; of(T value) &#123;
     return new Optional&lt;&gt;(value);
-}
+&#125;
 
-public static &lt;T&gt; Optional&lt;T&gt; ofNullable(T value) {
+public static &lt;T&gt; Optional&lt;T&gt; ofNullable(T value) &#123;
     return value == null ? empty() : of(value);
-}
+&#125;
 </code></pre>
 <p>很明显 of 对null对象没有做任何处理，ofNullable才做了处理。所以当我们<strong>不知道传入的对象是否为null的时候</strong>，我们应该选择用 ofNullable来做处理。</p>
-<pre><code class="java">public&lt;U&gt; Optional&lt;U&gt; map(Function&lt;? super T, ? extends U&gt; mapper) {
+<pre><code class="java">public&lt;U&gt; Optional&lt;U&gt; map(Function&lt;? super T, ? extends U&gt; mapper) &#123;
     Objects.requireNonNull(mapper);
     if (!isPresent())
         return empty();
-    else {
+    else &#123;
         return Optional.ofNullable(mapper.apply(value));
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <p> 如果我们想获取Object里面的值的话，我们就需要用到这个map </p>
-<pre><code class="java">public class OptionalTest {
-    public static void main(String[] args) {
+<pre><code class="java">public class OptionalTest &#123;
+    public static void main(String[] args) &#123;
         Person person = new Person(&quot;zhangsan&quot;, 18);
         String name = getName(person);
         System.out.println(name);
-    }
+    &#125;
 
-    private static String getName(Person person) {
-        if (Objects.isNull(person)) {
+    private static String getName(Person person) &#123;
+        if (Objects.isNull(person)) &#123;
             return &quot;unKnown&quot;;
-        }
+        &#125;
         return person.getName();
-    }
+    &#125;
 
-}
+&#125;
 </code></pre>
 <p>我们看上面的这个例子。</p>
 <p>我们有一个函数 <strong>getName</strong> 作用是获取Person对象的名字。但我并不知道这个Person是否为Null。</p>
 <p>所以我要进行一个判断，判断Person是否为空，在做决定。</p>
 <p>但如果我们使用Optional类的话，我们可以这样写</p>
-<pre><code class="java">public class OptionalTest {
-    public static void main(String[] args) {
+<pre><code class="java">public class OptionalTest &#123;
+    public static void main(String[] args) &#123;
         Person person = new Person(&quot;zhangsan&quot;, 18);
         String name = getName(person);
         System.out.println(name);
-    }        
+    &#125;        
 
-    private static String getName(Person person) {
+    private static String getName(Person person) &#123;
         String name = Optional.ofNullable(person).map(x -&gt; x.getName())
                 .orElse(&quot;unKnown&quot;);
         return name;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <pre><code class="java">Optional.ofNullable(user).map(USERDO::getName).orElse(&quot;&quot;)//如果有就获取name否则返回&#39;&#39;
 </code></pre>
@@ -853,10 +854,10 @@ public static &lt;T&gt; Optional&lt;T&gt; ofNullable(T value) {
 <p>有效的处理到了null的问题，而且还非常的简洁。</p>
 <h1 id="Predicate和Consumer"><a href="#Predicate和Consumer" class="headerlink" title="Predicate和Consumer"></a>Predicate和Consumer</h1><p>在这些stream的各种操作组合骚包操作下，有时候直接写一个lambda显得有点丑，特别是这个lambda方法体内东西很多的时候，这个时候就可以使用这2个内置的函数先行定义lambda方法体,这样就非常灵活骚包，而且还可以分开写</p>
 <pre><code class="java">Predicate&lt;User&gt; predicate = p -&gt; p.getName().startsWith(&quot;s&quot;);
-        Consumer&lt;User&gt; consumer = p -&gt; {
+        Consumer&lt;User&gt; consumer = p -&gt; &#123;
             System.out.println(p.getName());
             System.out.println(p.getAge());
-        };
+        &#125;;
         userList.stream().filter(predicate).forEach(consumer);
 </code></pre>
 <h2 id="Predicate-接口"><a href="#Predicate-接口" class="headerlink" title="Predicate 接口"></a>Predicate 接口</h2><p>Predicate 接口只有一个参数，返回<strong>boolean</strong>类型。该接口包含多种默认方法来将Predicate组合成其他复杂的逻辑（比如：与，或，非）： </p>
@@ -887,8 +888,8 @@ greeter.accept(new Person(&quot;Luke&quot;, &quot;Skywalker&quot;));
 <li>处理完成后类似future这种方式得到所有结果集再进行合并</li>
 </ul>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>lambda加stream的组合简化我们开发的复杂度，并且让代码更加简洁</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p> <a href="https://www.cnblogs.com/Deters/p/11137532.html" target="_blank" rel="noopener">https://www.cnblogs.com/Deters/p/11137532.html</a> </p>
-<p> <a href="https://www.jianshu.com/p/0bf8fe0f153b" target="_blank" rel="noopener">https://www.jianshu.com/p/0bf8fe0f153b</a> </p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Deters/p/11137532.html">https://www.cnblogs.com/Deters/p/11137532.html</a> </p>
+<p> <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0bf8fe0f153b">https://www.jianshu.com/p/0bf8fe0f153b</a> </p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1287,7 +1288,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

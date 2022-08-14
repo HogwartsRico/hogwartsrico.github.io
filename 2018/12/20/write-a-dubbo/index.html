@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,RPC">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="自己实现一个Dubbo | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="RPC"> 
 
     
         <meta property="article:published_time" content="Thu Dec 20 2018 21:53:40 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2018/12/20/write-a-dubbo/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2018/12/20/write-a-dubbo/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Dubbo"><span class="post-toc-number">1.</span> <span class="post-toc-text">Dubbo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#传统的HTTP调用"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">传统的HTTP调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RPC式的调用"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">RPC式的调用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自己实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">自己实现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#部分源码"><span class="post-toc-number">3.</span> <span class="post-toc-text">部分源码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册中心"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">注册中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#传输协议"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">传输协议</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Dubbo"><span class="post-toc-number">1.</span> <span class="post-toc-text">Dubbo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%A0%E7%BB%9F%E7%9A%84HTTP%E8%B0%83%E7%94%A8"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">传统的HTTP调用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RPC%E5%BC%8F%E7%9A%84%E8%B0%83%E7%94%A8"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">RPC式的调用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%87%AA%E5%B7%B1%E5%AE%9E%E7%8E%B0"><span class="post-toc-number">2.</span> <span class="post-toc-text">自己实现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81"><span class="post-toc-number">3.</span> <span class="post-toc-text">部分源码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">注册中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">传输协议</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/RPC/">RPC</a>
+        <a class="post_tag-none-link" href="/tags/RPC/" rel="tag">RPC</a>
     </ul>
     
 
@@ -471,31 +471,31 @@
         <h1 id="Dubbo"><a href="#Dubbo" class="headerlink" title="Dubbo"></a>Dubbo</h1><p>Dubbo是一款高性能轻量级的开源Java RPC框架</p>
 <p>什么是RPC？</p>
 <p>远程过程调用。</p>
-<p><img src="1.png" alt> </p>
+<p><img src="1.png" alt=""> </p>
 <p> HTTP也是一种RPC协议 TCP也是  </p>
-<p><img src="2.png" alt> </p>
-<h3 id="传统的HTTP调用"><a href="#传统的HTTP调用" class="headerlink" title="传统的HTTP调用"></a>传统的HTTP调用</h3><p><img src="3.png" alt> </p>
+<p><img src="2.png" alt=""> </p>
+<h3 id="传统的HTTP调用"><a href="#传统的HTTP调用" class="headerlink" title="传统的HTTP调用"></a>传统的HTTP调用</h3><p><img src="3.png" alt=""> </p>
 <p>需要关心地址，地址变了消费端也要跟着变 ，需要字符串转换等缺点</p>
-<h3 id="RPC式的调用"><a href="#RPC式的调用" class="headerlink" title="RPC式的调用"></a>RPC式的调用</h3><p><img src="4.png" alt> </p>
+<h3 id="RPC式的调用"><a href="#RPC式的调用" class="headerlink" title="RPC式的调用"></a>RPC式的调用</h3><p><img src="4.png" alt=""> </p>
 <p>consumer配置</p>
-<p><img src="5.png" alt> </p>
+<p><img src="5.png" alt=""> </p>
 <p>provider配置</p>
-<p><img src="6.png" alt> </p>
+<p><img src="6.png" alt=""> </p>
 <p> 特别简单，作为消费者不需要关心地址</p>
 <p>dubbo可扩展，它支持多种协议</p>
-<p><img src="7.png" alt> </p>
-<h1 id="自己实现"><a href="#自己实现" class="headerlink" title="自己实现"></a>自己实现</h1><p><img src="8.png" alt></p>
+<p><img src="7.png" alt=""> </p>
+<h1 id="自己实现"><a href="#自己实现" class="headerlink" title="自己实现"></a>自己实现</h1><p><img src="8.png" alt=""></p>
 <p>本项目就不采用模块的形式了（可以采用模块的形式） ，采用包代替模块的方式 </p>
-<p><img src="9.png" alt> </p>
+<p><img src="9.png" alt=""> </p>
 <p>我们注册中心一般用zookeeper或者eureka 或者redis  ,注册中心也是可以扩展的 </p>
 <p>我们自己实现一个注册中心</p>
 <p>注册中心要实现的是保存服务配置，需要保存:  服务名, url, 服务的实现类</p>
 <p>形如</p>
-<pre><code class="json">{
+<pre><code class="json">&#123;
  服务名://因为可能有多个提供者
-   {URL:服务实现类},
-   {URL:服务实现类}
-}
+   &#123;URL:服务实现类&#125;,
+   &#123;URL:服务实现类&#125;
+&#125;
 </code></pre>
 <p>我们用hashmap来存 </p>
 <p>一个Java对象要在网络中进行传输，需要序列化 </p>
@@ -508,25 +508,25 @@ import java.util.Map;
  * 自己实现的一个注册中心,采用map
  * Created by Rico on 2018/12/20.
  */
-public class RegisterServer {
+public class RegisterServer &#123;
     private static Map&lt;String,Map&lt;URL,Class&gt;&gt;   REGISTER =new HashMap&lt;String,Map&lt;URL,Class&gt;&gt;();
 
     //注册服务
-    public static  void register(URL url,String interfaceName,Class implClass){//需要传入URL，服务名，接口名(interface),实现类
+    public static  void register(URL url,String interfaceName,Class implClass)&#123;//需要传入URL，服务名，接口名(interface),实现类
         Map&lt;URL,Class&gt; map=new HashMap&lt;URL,Class&gt;();
         map.put(url,implClass);
         System.out.println(&quot;服务注册成功!注册的服务接口名为:&quot;+interfaceName+&quot;,所在接口类为:&quot;+implClass.getName());
         REGISTER.put(interfaceName,map);
-    }
+    &#125;
 
-    public static Class get(URL url,String interfaceName){
+    public static Class get(URL url,String interfaceName)&#123;
         return REGISTER.get(interfaceName).get(url);
-    }
+    &#125;
     //获取可用服务
-    public static  URL get(String interfaceName){
+    public static  URL get(String interfaceName)&#123;
       return null;
-    }
-}
+    &#125;
+&#125;
 </code></pre>
 <h2 id="传输协议"><a href="#传输协议" class="headerlink" title="传输协议"></a>传输协议</h2><p>http</p>
 <pre><code>package org.rico.learnDubbo.protocol.http;
@@ -538,13 +538,13 @@ import java.io.IOException;
 /**
  * Created by Rico on 2018/12/20.
  */
-public class DispatcherServlet extends HttpServlet {
+public class DispatcherServlet extends HttpServlet &#123;
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
         //super.service(req, resp);
         new HttpServerHandler().handler(req,resp);
-    }
-}
+    &#125;
+&#125;
 </code></pre><pre><code>package org.rico.learnDubbo.protocol.http;
 
 import org.apache.commons.io.IOUtils;
@@ -564,12 +564,12 @@ import java.lang.reflect.Method;
 /**
  * Created by Rico on 2018/12/20.
  */
-public class HttpServerHandler{
+public class HttpServerHandler&#123;
     //处理请求和响应
-    public void handler(HttpServletRequest req, HttpServletResponse resp){
+    public void handler(HttpServletRequest req, HttpServletResponse resp)&#123;
         //对象通过网络传输
         InputStream inputStream= null;
-        try {
+        try &#123;
             inputStream = req.getInputStream();
             ObjectInputStream objectInputStream=new ObjectInputStream(inputStream);
             TransferModel  transferModel =(TransferModel)objectInputStream.readObject();//二进制数据反序列化成一个对象
@@ -585,23 +585,24 @@ public class HttpServerHandler{
             OutputStream outputStream=resp.getOutputStream();
             IOUtils.write(result,outputStream);//把字符串给output了 这样就完成了一个结果的返回
             //server端就写完了
-        } catch (IOException e) {
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        &#125; catch (ClassNotFoundException e) &#123;
             System.out.println(&quot;找不到这个类&quot;);
             e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        &#125; catch (NoSuchMethodException e) &#123;
             System.out.println(&quot;没有这个方法&quot;);
             e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        &#125; catch (IllegalAccessException e) &#123;
             e.printStackTrace();
-        } catch (InstantiationException e) {
+        &#125; catch (InstantiationException e) &#123;
             e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        &#125; catch (InvocationTargetException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
+
 </code></pre><pre><code>package org.rico.learnDubbo.protocol.http;
 
 import org.apache.catalina.*;
@@ -614,8 +615,8 @@ import org.apache.catalina.startup.Tomcat;
 /**
  * Created by Rico on 2018/12/20.
  */
-public class HttpServer {
-    public void start(String hostname,Integer port){
+public class HttpServer &#123;
+    public void start(String hostname,Integer port)&#123;
         Tomcat tomcat=new Tomcat();
 
         Server server=tomcat.getServer();
@@ -643,14 +644,15 @@ public class HttpServer {
         //tomcat是servlet的容器 所以要加入servlet,servlet用来处理请求的
         tomcat.addServlet(contextPath,&quot;dispatcher&quot;,new DispatcherServlet());//指定servlet,第二个参数是servlet的名字，第三个参数是指定其实现类
         context.addServletMappingDecoded(&quot;/*&quot;,&quot;dispatcher&quot;);//mapping
-        try {
+        try &#123;
             tomcat.start();//只是初始化
             tomcat.getServer().await();//接收请求
-        } catch (LifecycleException e) {
+        &#125; catch (LifecycleException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
+
 </code></pre><pre><code>package org.rico.learnDubbo.protocol.http;
 import org.apache.commons.io.IOUtils;
 import org.rico.learnDubbo.framework.TransferModel;
@@ -665,9 +667,9 @@ import java.net.URL;
 /**
  * Created by Rico on 2018/12/21.
  */
-public class HttpClient {
-    public String post(String hostname, Integer port, TransferModel transferModel) {
-        try {
+public class HttpClient &#123;
+    public String post(String hostname, Integer port, TransferModel transferModel) &#123;
+        try &#123;
             //发送请求
             URL url = new URL(&quot;http&quot;, hostname, port, &quot;/&quot;);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -681,23 +683,23 @@ public class HttpClient {
             //发送完请求,然后拿到结果
             InputStream inputStream=httpURLConnection.getInputStream();
             return IOUtils.toString(inputStream);
-        } catch (MalformedURLException e) {
+        &#125; catch (MalformedURLException e) &#123;
             e.printStackTrace();
             return &quot;&quot;;
-        } catch (ProtocolException e) {
+        &#125; catch (ProtocolException e) &#123;
             e.printStackTrace();
             return &quot;&quot;;
-        } catch (IOException e) {
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
             return &quot;&quot;;
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre><p>未完，待续….</p>
-<p>目录结构<br><img src="10.png" alt></p>
+<p>目录结构<br><img src="10.png" alt=""></p>
 <p>下面2张图帮助理解源码</p>
-<p><img src="11.png" alt> </p>
-<p><img src="12.png" alt>  </p>
+<p><img src="11.png" alt=""> </p>
+<p><img src="12.png" alt="">  </p>
 <p><a href="mydubbo.zip">源码下载</a>   </p>
 
         
@@ -1097,7 +1099,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

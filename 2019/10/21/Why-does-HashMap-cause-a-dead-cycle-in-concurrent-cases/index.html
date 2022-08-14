@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="【转载】并发情况下HashMap为什么会引起死循环 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Java"> 
 
     
         <meta property="article:published_time" content="Mon Oct 21 2019 16:10:54 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/21/Why-does-HashMap-cause-a-dead-cycle-in-concurrent-cases/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2019/10/21/Why-does-HashMap-cause-a-dead-cycle-in-concurrent-cases/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -396,7 +396,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Java/">Java</a>
+        <a class="post_tag-none-link" href="/tags/Java/" rel="tag">Java</a>
     </ul>
     
 
@@ -465,50 +465,52 @@
     *
     * 往表中添加元素，如果插入元素之后，表长度不够，便会调用resize方法扩容
     */
-   void addEntry(int hash, K key, V value, int bucketIndex) {
+   void addEntry(int hash, K key, V value, int bucketIndex) &#123;
 Entry&lt;K,V&gt; e = table[bucketIndex];
        table[bucketIndex] = new Entry&lt;K,V&gt;(hash, key, value, e);
        if (size++ &gt;= threshold)
            resize(2 * table.length);
-   }
+   &#125;
 
    /**
     * resize()方法如下，重要的是transfer方法，把旧表中的元素添加到新表中
     */
-   void resize(int newCapacity) {
+   void resize(int newCapacity) &#123;
        Entry[] oldTable = table;
        int oldCapacity = oldTable.length;
-       if (oldCapacity == MAXIMUM_CAPACITY) {
+       if (oldCapacity == MAXIMUM_CAPACITY) &#123;
            threshold = Integer.MAX_VALUE;
            return;
-       }
+       &#125;
 
        Entry[] newTable = new Entry[newCapacity];
        transfer(newTable);
        table = newTable;
        threshold = (int)(newCapacity * loadFactor);
-   }
+   &#125;
+
 </code></pre>
 <p>（2）参考上面的代码，便引入到了transfer方法，（引入重点）这就是HashMap并发时，会引起死循环的根本原因所在，下面结合transfer的源代码，说明一下产生死循环的原理，先列transfer代码（这是里JDK7的源码），如下：</p>
 <pre><code class="java">    /**
      * Transfers all entries from current table to newTable.
      */
-    void transfer(Entry[] newTable, boolean rehash) {
+    void transfer(Entry[] newTable, boolean rehash) &#123;
         int newCapacity = newTable.length;
-        for (Entry&lt;K,V&gt; e : table) {
-            while(null != e) {
+        for (Entry&lt;K,V&gt; e : table) &#123;
+            while(null != e) &#123;
                 Entry&lt;K,V&gt; next = e.next;//(1)
-                if (rehash) {
+                if (rehash) &#123;
                     e.hash = null == e.key ? 0 : hash(e.key);
-                }
+                &#125;
                 int i = indexFor(e.hash, newCapacity);
                 e.next = newTable[i];//3的next=null
                 newTable[i] = e;// newTable[i]=3
                 e = next;//e=3
-            } // while
+            &#125; // while
 
-        }
-    }
+        &#125;
+    &#125;
+
 </code></pre>
 <p>假如原来是是3,7,8</p>
 <p>第一轮</p>
@@ -538,9 +540,10 @@ e = next;//e=null,这个位置结束
 <p>3）假设：</p>
 <pre><code class="java">Map&lt;Integer&gt; map = new HashMap&lt;Integer&gt;(2);  // 只能放置两个元素，其中的threshold为1（表中只填充一个元素时），即插入元素为1时就扩容（由addEntry方法中得知）
 //放置2个元素 3 和 7，若要再放置元素8（经hash映射后不等于1）时，会引起扩容
+
 </code></pre>
 <p>假设放置结果图如下:</p>
-<p><img src="1.png" alt></p>
+<p><img src="1.png" alt=""></p>
 <p>现在有两个线程A和B，都要执行put操作，即向表中添加元素，即线程A和线程B都会看到上面图的状态快照</p>
 <p>执行顺序如下：</p>
 <p>执行一：  线程A执行到transfer函数中（1）处挂起（transfer函数代码中有标注）。此时在线程A的栈中</p>
@@ -548,17 +551,17 @@ e = next;//e=null,这个位置结束
 next = 7
 </code></pre>
 <p> 执行二：线程B执行 transfer函数中的while循环，即会把原来的table变成新一table（线程B自己的栈中），再写入到内存中。如下图（假设两个元素在新的hash函数下也会映射到同一个位置）</p>
-<p><img src="2.png" alt></p>
+<p><img src="2.png" alt=""></p>
 <p>执行三： 线程A解挂，接着执行（<strong>看到的仍是旧表</strong>），即从transfer代码（1）处接着执行，当前的 e = 3, next = 7, 上面已经描述。</p>
 <p>​</p>
 <p>1 处理元素 3 ， 将 3 放入 线程A自己栈的新table中（新table是处于线程A自己栈中，是线程私有的，不被线程2的影响），处理3后的图如下：</p>
-<p><img src="3.png" alt></p>
+<p><img src="3.png" alt=""></p>
 <p>【重点在这步】 2 线程A再复制元素 7 ，当前 e = 7 ,<strong>而next值由于线程 B 修改了它的引用，所以next 为 3</strong> (本来7后面应该是null,但是由于线程B处理时由于hashmap扩容机制是倒序,7指向了3)，处理后的新表如下图</p>
-<p><img src="4.png" alt></p>
+<p><img src="4.png" alt=""></p>
 <p>3 由于上面取到的next = 3, 接着while循环，即当前处理的结点为3， next就为null ，退出while循环，执行完while循环后，新表中的内容如下图：</p>
-<p><img src="5.png" alt></p>
+<p><img src="5.png" alt=""></p>
 <p>4 当操作完成，执行查找时，会陷入死循环！</p>
-<p>原文  <a href="https://blog.csdn.net/zhuqiuhui/article/details/51849692" target="_blank" rel="noopener">https://blog.csdn.net/zhuqiuhui/article/details/51849692</a></p>
+<p>原文  <a target="_blank" rel="noopener" href="https://blog.csdn.net/zhuqiuhui/article/details/51849692">https://blog.csdn.net/zhuqiuhui/article/details/51849692</a></p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -957,7 +960,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

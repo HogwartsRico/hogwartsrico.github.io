@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="JavaSocket详解 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Java"> 
 
     
         <meta property="article:published_time" content="Mon Jun 29 2020 15:51:04 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/29/Java-Socket/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2020/06/29/Java-Socket/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一：socket通信基本原理。"><span class="post-toc-number">1.</span> <span class="post-toc-text">一：socket通信基本原理。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二：socket通信基本示例"><span class="post-toc-number">2.</span> <span class="post-toc-text">二：socket通信基本示例</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三：while循环连续接受客户端信息："><span class="post-toc-number">3.</span> <span class="post-toc-text">三：while循环连续接受客户端信息：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四：多线程下socket编程"><span class="post-toc-number">4.</span> <span class="post-toc-text">四：多线程下socket编程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五：socket-指定长度发送数据"><span class="post-toc-number">5.</span> <span class="post-toc-text">五：socket 指定长度发送数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#半包"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">半包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#粘包"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">粘包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是粘包"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">什么是粘包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#出现原因"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">出现原因</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何解决"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">如何解决</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复现"><span class="post-toc-number">5.2.4.</span> <span class="post-toc-text">复现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分包-拆包"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">分包(拆包)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六：socket-建立长连接"><span class="post-toc-number">6.</span> <span class="post-toc-text">六：socket 建立长连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-1-长连接"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">6.1 长连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-2-短连接"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">6.2 短连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-3-长连接与短连接的优势"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">6.3 长连接与短连接的优势</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%EF%BC%9Asocket%E9%80%9A%E4%BF%A1%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E3%80%82"><span class="post-toc-number">1.</span> <span class="post-toc-text">一：socket通信基本原理。</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%8C%EF%BC%9Asocket%E9%80%9A%E4%BF%A1%E5%9F%BA%E6%9C%AC%E7%A4%BA%E4%BE%8B"><span class="post-toc-number">2.</span> <span class="post-toc-text">二：socket通信基本示例</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%89%EF%BC%9Awhile%E5%BE%AA%E7%8E%AF%E8%BF%9E%E7%BB%AD%E6%8E%A5%E5%8F%97%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="post-toc-number">3.</span> <span class="post-toc-text">三：while循环连续接受客户端信息：</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9B%9B%EF%BC%9A%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8Bsocket%E7%BC%96%E7%A8%8B"><span class="post-toc-number">4.</span> <span class="post-toc-text">四：多线程下socket编程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%94%EF%BC%9Asocket-%E6%8C%87%E5%AE%9A%E9%95%BF%E5%BA%A6%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE"><span class="post-toc-number">5.</span> <span class="post-toc-text">五：socket 指定长度发送数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%8A%E5%8C%85"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">半包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%B2%98%E5%8C%85"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">粘包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B2%98%E5%8C%85"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">什么是粘包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%87%BA%E7%8E%B0%E5%8E%9F%E5%9B%A0"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">出现原因</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3"><span class="post-toc-number">5.2.3.</span> <span class="post-toc-text">如何解决</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%8D%E7%8E%B0"><span class="post-toc-number">5.2.4.</span> <span class="post-toc-text">复现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%86%E5%8C%85-%E6%8B%86%E5%8C%85"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">分包(拆包)</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%85%AD%EF%BC%9Asocket-%E5%BB%BA%E7%AB%8B%E9%95%BF%E8%BF%9E%E6%8E%A5"><span class="post-toc-number">6.</span> <span class="post-toc-text">六：socket 建立长连接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-1-%E9%95%BF%E8%BF%9E%E6%8E%A5"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">6.1 长连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-2-%E7%9F%AD%E8%BF%9E%E6%8E%A5"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">6.2 短连接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-3-%E9%95%BF%E8%BF%9E%E6%8E%A5%E4%B8%8E%E7%9F%AD%E8%BF%9E%E6%8E%A5%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">6.3 长连接与短连接的优势</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Java/">Java</a>
+        <a class="post_tag-none-link" href="/tags/Java/" rel="tag">Java</a>
     </ul>
     
 
@@ -469,16 +469,16 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h1 id="一：socket通信基本原理。"><a href="#一：socket通信基本原理。" class="headerlink" title="一：socket通信基本原理。"></a>一：socket通信基本原理。</h1><p>首先socket 通信是基于TCP/IP 网络层上的一种传送方式，我们通常把TCP和UDP称为传输层。</p>
-<p><img src="1.png" alt> </p>
+<p><img src="1.png" alt=""> </p>
 <p>如上图，在七个层级关系中，我们将的socket属于传输层，其中UDP是一种面向无连接的传输层协议。UDP不关心对端是否真正收到了传送过去的数据。如果需要检查对端是否收到分组数据包，或者对端是否连接到网络，则需要在应用程序中实现。UDP常用在分组数据较少或多播、广播通信以及视频通信等多媒体领域。在这里我们不进行详细讨论，这里主要讲解的是基于TCP/IP协议下的socket通信。</p>
 <p>socket是基于应用服务与TCP/IP通信之间的一个抽象，他将TCP/IP协议里面复杂的通信逻辑进行分装，对用户来说，只要通过一组简单的API就可以实现网络的连接。借用网络上一组socket通信图给大家进行详细讲解：</p>
-<p><img src="2.png" alt> </p>
+<p><img src="2.png" alt=""> </p>
 <p>首先，服务端初始化ServerSocket，然后对指定的端口进行绑定，接着对端口及进行监听，通过调用accept方法阻塞，此时，如果客户端有一个socket连接到服务端，那么服务端通过监听和accept方法可以与客户端进行连接。</p>
 <h1 id="二：socket通信基本示例"><a href="#二：socket通信基本示例" class="headerlink" title="二：socket通信基本示例"></a>二：socket通信基本示例</h1><p>在对socket通信基本原理明白后，那我们就写一个最简单的示例，展示童鞋们常遇到的第一个问题：客户端发送消息后，服务端无法收到消息。</p>
 <p>服务端：</p>
-<pre><code class="java">public class SocketServer {
-    public static void main(String[] args) {
-        try {
+<pre><code class="java">public class SocketServer &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
             // 初始化服务端socket并且绑定9999端口
             ServerSocket serverSocket = new ServerSocket(9999);
             //等待客户端的连接
@@ -489,39 +489,39 @@
             String str = bufferedReader.readLine();
             //输出打印
             System.out.println(str);
-        } catch (IOException e) {
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p> 客户端： </p>
-<pre><code class="java">public class SocketClient {
-    public static void main(String[] args) {
-        try {
+<pre><code class="java">public class SocketClient &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
             Socket socket =new Socket(&quot;127.0.0.1&quot;,9999);
             BufferedWriter bufferedWriter =new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             String str=&quot;你好，这是我的第一个socket&quot;;
             bufferedWriter.write(str);
-        }catch (IOException e) {
+        &#125;catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>启动服务端：</p>
 <p>发现正常，等待客户端的的连接</p>
 <p>启动客户端：</p>
 <p>发现客户端启动正常后，马上执行完后关闭。同时<strong>服务端控制台报错</strong>：</p>
-<p><img src="3.png" alt> </p>
+<p><img src="3.png" alt=""> </p>
 <p>java.net.SocketException: Connection reset上网查异常，查询解决方案，搞了半天都不知道怎么回事。</p>
 <p>解决这个问题我们首先要明白，socket通信是阻塞的，他会在以下几个地方进行阻塞。第一个是accept方法，调用这个方法后，服务端一直阻塞在哪里，直到有客户端连接进来。第二个是read方法，调用read方法也会进行阻塞。通过上面的示例我们可以发现，该问题发生在read方法中。有朋友说是Client没有发送成功，其实不是的，我们可以通debug跟踪一下，发现客户端发送了，并且没有问题。而是发生在服务端中，当服务端调用read方法后，他一直阻塞在哪里，因为客户端没有给他一个标识，告诉是否消息发送完成，所以服务端还在一直等待接受客户端的数据，结果客户端此时已经关闭了，就是在服务端报错：java.net.SocketException: Connection reset</p>
 <p>那么理解上面的原理后，我们就能明白，客户端发送完消息后，需要给服务端一个标识，告诉服务端，我已经发送完成了，服务端就可以将接受的消息打印出来。</p>
 <p>通常会用以下方法进行进行结束：</p>
 <p><code>socket.close()</code>或者调用<code>socket.shutdownOutput();</code> 方法。调用这俩个方法，都会结束客户端socket。但是有本质的区别。socket.close() 将socket关闭连接，那边如果有服务端给客户端反馈信息，此时客户端是收不到的。<strong>而socket.shutdownOutput()是将输出流关闭</strong>，此时，如果服务端有信息返回，则客户端是可以正常接受的。现在我们将上面的客户端示例修改一下啊，增加一个标识告诉流已经输出完毕：</p>
-<pre><code class="java">public class SocketClient {
-    public static void main(String[] args) {
-        try {
+<pre><code class="java">public class SocketClient &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
             Socket socket =new Socket(&quot;127.0.0.1&quot;,9999);
             BufferedWriter bufferedWriter =new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             String str=&quot;你好，这是我的第一个socket&quot;;
@@ -530,20 +530,20 @@
             bufferedWriter.flush();
             //关闭socket的输出流
             socket.shutdownOutput();
-        }catch (IOException e) {
+        &#125;catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p> 控制台： </p>
-<p><img src="4.png" alt> </p>
+<p><img src="4.png" alt=""> </p>
 <p>服务端在接受到客户端关闭流的信息后，知道信息输入已经完毕，苏哦有就能正常读取到客户端传过来的数据。通过上面示例，我们可以基本了解socket通信原理，掌握了一些socket通信的基本api和方法，实际应用中，都是通过此处进行实现变通的。</p>
 <h1 id="三：while循环连续接受客户端信息："><a href="#三：while循环连续接受客户端信息：" class="headerlink" title="三：while循环连续接受客户端信息："></a>三：while循环连续接受客户端信息：</h1><p>上面的示例中scoket客户端和服务端固然可以通信，但是客户端每次发送信息后socket就需要关闭，下次如果需要发送信息，需要socket从新启动，这显然是无法适应生产环境的需要。比如在我们是实际应用中QQ，如果每次发送一条信息，就需要重新登陆QQ，我估计这程序不是给人设计的，那么如何让服务可以连续给服务端发送消息？下面我们通过while循环进行简单展示：</p>
 <p>Server</p>
-<pre><code class="java">public class SocketServer {
-    public static void main(String[] args) {
-        try {
+<pre><code class="java">public class SocketServer &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
             // 初始化服务端socket并且绑定9999端口
             ServerSocket serverSocket = new ServerSocket(9999);
             //等待客户端的连接
@@ -551,133 +551,133 @@
             //获取输入流
             BufferedReader bufferedReader =new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String str;
-            while ((str = bufferedReader.readLine())!=null){
+            while ((str = bufferedReader.readLine())!=null)&#123;
                 //输出打印
                 System.out.println(str);
-            }
-        } catch (IOException e) {
+            &#125;
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>client</p>
-<pre><code class="java">public class SocketClient {
-    public static void main(String[] args) {
-        try {
+<pre><code class="java">public class SocketClient &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
             Socket socket =new Socket(&quot;127.0.0.1&quot;,9999);
             BufferedWriter bufferedWriter =new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             //通过标准输入流从控制台获取字符流
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in,&quot;UTF-8&quot;));
-            while (true){
+            while (true)&#123;
                 String str = bufferedReader.readLine();
                 bufferedWriter.write(str);
                 bufferedWriter.write(&quot;\n&quot;);
                 bufferedWriter.flush();
-            }
-        } catch (IOException e) {
+            &#125;
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<p><img src="5.png" alt> </p>
-<p><img src="6.png" alt> </p>
+<p><img src="5.png" alt=""> </p>
+<p><img src="6.png" alt=""> </p>
 <p>大家可以看到，通过一个while 循环，就可以实现客户端不间断的通过标准输入流读取来的消息，发送给服务端。 </p>
 <p>在这里有个细节， 客户端没有写<code>socket.close()</code>或者调用<code>socket.shutdownOutput();</code>服务端是如何知道客户端已经输入完成了？服务端接受数据的时候是如何判断客户端已经输入完成呢？</p>
 <p>这就是一个核心点，双方约定一个标识，当客户端发送一个标识给服务端时，表明客户端端已经完成一个数据的载入。而服务端在结束数据的时候，也通过这个标识进行判断，如果接受到这个标识，表明数据已经传入完成，那么服务端就可以将数据度入后显示出来。</p>
 <p> 在上面的示例中，客户端端在循环发送数据时候，每发送一行，添加一个换行标识“\n”标识，在告诉服务端我数据已经发送完成了。而服务端在读取客户数据时，通过while ((str = bufferedReader.readLine())!=null)去判断是否读到了流的结尾，负责服务端将会一直阻塞在哪里，等待客户端的输入。</p>
 <pre><code>通过while方式，我们可以实现多个客户端和服务端进行聊天。但是，下面敲黑板，划重点。由于socket通信是阻塞式的，假设我现在有A和B俩个客户端同时连接到服务端的上，当客户端A发送信息给服务端后，那么服务端将一直阻塞在A的客户端上，不同的通过while循环从A客户端读取信息，此时如果B给服务端发送信息时，将进入阻塞队列，直到A客户端发送完毕，并且退出后，B才可以和服务端进行通信。简单地说，我们现在实现的功能，虽然可以让客户端不间断的和服务端进行通信，与其说是一对一的功能，因为只有当客户端A关闭后，客户端B才可以真正和服务端进行通信，这显然不是我们想要的。 下面我们通过多线程的方式给大家实现正常人类的思维。
 </code></pre><h1 id="四：多线程下socket编程"><a href="#四：多线程下socket编程" class="headerlink" title="四：多线程下socket编程"></a>四：多线程下socket编程</h1><p>服务端：</p>
-<pre><code class="java">public class SocketServer {
-    public static void main(String[] args) throws IOException{
+<pre><code class="java">public class SocketServer &#123;
+    public static void main(String[] args) throws IOException&#123;
         // 初始化服务端socket并且绑定9999端口
         ServerSocket serverSocket = new ServerSocket(9999);
-        while (true) {
+        while (true) &#123;
             //等待客户端的连接
             Socket socket = serverSocket.accept();//会阻塞
             //每当有一个客户端连接进来后，就启动一个单独的线程进行处理
-            new Thread(new Runnable() {
+            new Thread(new Runnable() &#123;
                 @Override
-                public void run() {
+                public void run() &#123;
                     //获取输入流
                     BufferedReader bufferedReader = null;
-                    try{
+                    try&#123;
                         bufferedReader =new BufferedReader(new InputStreamReader(socket.getInputStream(),&quot;UTF-8&quot;));
                         String str;
-                        while ((str = bufferedReader.readLine()) != null){
+                        while ((str = bufferedReader.readLine()) != null)&#123;
                             //输出打印
                             System.out.println(&quot;当前连接对应的线程:&quot;+Thread.currentThread());
                             System.out.println(str);
-                        }
-                    } catch (IOException e) {
+                        &#125;
+                    &#125; catch (IOException e) &#123;
                         e.printStackTrace();
-                    }
-                }
-            }).start();
-        }
-    }
-}
+                    &#125;
+                &#125;
+            &#125;).start();
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>客户端</p>
-<pre><code class="java">public class SocketClient {
-    public static void main(String[] args) {
-        try {
+<pre><code class="java">public class SocketClient &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
             Socket socket =new Socket(&quot;127.0.0.1&quot;,9999);
             BufferedWriter bufferedWriter =new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             //通过标准输入流从控制台获取字符流
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in,&quot;UTF-8&quot;));
-            while (true){
+            while (true)&#123;
                 String str = bufferedReader.readLine();
                 bufferedWriter.write(str);
                 bufferedWriter.write(&quot;\n&quot;);
                 bufferedWriter.flush();
-            }
-        } catch (IOException e) {
+            &#125;
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p> 通过客户端A控制台输入： </p>
-<p><img src="7.png" alt></p>
+<p><img src="7.png" alt=""></p>
 <p> 通过客户端B控制台输入： </p>
-<p><img src="8.png" alt></p>
+<p><img src="8.png" alt=""></p>
 <p>服务端控制台输出</p>
-<p><img src="9.png" alt></p>
+<p><img src="9.png" alt=""></p>
 <p>通过这里我们可以发现，客户端A和客户端B同时连接到服务端后，都可以和服务端进行通信，也不会出现前面讲到使用while（true）时候客户端A连接时客户端B不能与服务端进行交互的情况。在这里我们看到，主要是通过服务端的 new Thread(new Runnable() {}实现的，每一个客户端连接进来后，服务端都会单独起个一线程，与客户端进行数据交互，这样就保证了每个客户端处理的数据是单独的，不会出现相互阻塞的情况，这样就基本是实现了QQ程序的基本聊天原理。</p>
 <p>但是实际生产环境中，这种写法对于客户端连接少的的情况下是没有问题，但是如果有大批量的客户端连接进行，那我们服务端估计就要歇菜了。假如有上万个socket连接进来，服务端就是新建这么多进程，反正博主是不敢想，而且socket 的回收机制又不是很及时，这么多线程被new 出来，就发送一句话，然后就没有然后了，<strong>导致服务端被大量的无用线程暂用，对性能是非常大的消耗.</strong> </p>
 <p>在实际生产过程中，我们可以通过<strong>线程池技术</strong>，保证线程的复用，下面请看改良后的服务端程序。</p>
-<pre><code class="java">public class SocketServer {
-    public static void main(String[] args) throws  IOException{
+<pre><code class="java">public class SocketServer &#123;
+    public static void main(String[] args) throws  IOException&#123;
         // 初始化服务端socket并且绑定9999端口
         ServerSocket serverSocket = new ServerSocket(9999);
         //创建一个线程池
         ExecutorService executorService = Executors.newFixedThreadPool(100);
-        while (true) {
+        while (true) &#123;
             //等待客户端的连接
             Socket socket = serverSocket.accept();
-            Runnable runnable = () -&gt; {
+            Runnable runnable = () -&gt; &#123;
                 BufferedReader bufferedReader = null;
-                try {
+                try &#123;
                     bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream(), &quot;UTF-8&quot;));
                     //读取一行数据
                     String str;
                     //通过while循环不断读取信息，
-                    while ((str = bufferedReader.readLine()) != null) {
+                    while ((str = bufferedReader.readLine()) != null) &#123;
                         //输出打印
                         System.out.println(&quot;客户端说：&quot; + str);
-                    }
-                } catch (IOException e) {
+                    &#125;
+                &#125; catch (IOException e) &#123;
                     e.printStackTrace();
-                }
-            };
+                &#125;
+            &#125;;
             executorService.submit(runnable);
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<p><img src="10.png" alt> </p>
+<p><img src="10.png" alt=""> </p>
 <p>就算用了线程池，也得某个server-client的通信结束后这条线程才能空出来进行复用,如果线程池的所有线程跑满了，没有一个通信断开，那么新的请求仍然是无法响应的 </p>
 <p>通过线程池技术，我们可以实现线程的复用。其实在这里executorService.submit在并发时，如果要求当前执行完毕的线程有返回结果时，这里面有一个大坑，在这里我就不一一详细说明，具体我在我的另一篇文章中《把多线程说个透》里面详细介绍。本章主要讲述socket相关内容。</p>
 <p>在实际应用中，socket发送的数据并不是按照一行一行发送的，比如我们常见的报文，那么我们就不能要求每发送一次数据，都在增加一个“\n”标识，这是及其不专业的，在实际应用中，通过是采用<strong>数据长度+类型+数据的方式</strong>，在我们常接触的热Redis就是采用这种方式，</p>
@@ -707,43 +707,43 @@
 <li>更复杂的应用层协议</li>
 </ul>
 <h3 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h3><p>server代码</p>
-<pre><code class="java">public class SocketServer {
-    public static void main(String[] args) {
-        try {
+<pre><code class="java">public class SocketServer &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
             // 初始化服务端socket并且绑定9999端口
             ServerSocket serverSocket = new ServerSocket(9999);
             //等待客户端的连接
             Socket socket = serverSocket.accept();//会阻塞
-            try {
+            try &#123;
                 int len;
                 byte[] data = new byte[1024];
                 InputStream inputStream = socket.getInputStream();
                 // (3) 按字节流方式读取数据
-                while ((len = inputStream.read(data)) != -1) {
+                while ((len = inputStream.read(data)) != -1) &#123;
                     System.out.println(&quot;收到客户端发来的数据:&quot;+new String(data, 0, len));
-                }
-            } catch (IOException e) { }
-        } catch (IOException e) {
+                &#125;
+            &#125; catch (IOException e) &#123; &#125;
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
 <p>client代码</p>
-<pre><code class="java">public class SocketClient {
-    public static void main(String[] args) {
-        try {
+<pre><code class="java">public class SocketClient &#123;
+    public static void main(String[] args) &#123;
+        try &#123;
             Socket socket =new Socket(&quot;127.0.0.1&quot;,9999);
-            for (int i = 0; i &lt; 1000; i++) {
+            for (int i = 0; i &lt; 1000; i++) &#123;
                 socket.getOutputStream().write(new String(&quot;本小节我们来学习一下 Netty 里面拆包和粘包的概念，并且如何选择适合我们应用程序的拆包器&quot;).getBytes());
-            }
-        } catch (IOException e) {
+            &#125;
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<p><img src="11.png" alt></p>
+<p><img src="11.png" alt=""></p>
 <p>从服务端的控制台输出可以看出，存在三种类型的输出</p>
 <ol>
 <li>一种是正常的字符串输出。</li>
@@ -768,13 +768,13 @@
 <p>下面我们通过几个简单的小示例，演示发送接受定长数据，<strong>前面我们讲过通过特殊标识的方式，可是有什么我们发送的数据比较大，并且数据本身就会包含我们约定的特殊标识</strong>，那么我们在接受数据时，就会出现半包的情况，通过这种情况下，我们都是才有包头+包长+包体的协议模式，每次发送数据的时候，我们都会固定前4个字节为数据长度，那到数据长度后，我们就可以非常精确的创建一个数据缓存区用来接收数据。</p>
 <p>那么下面就先通过包类型+包长度+消息内容定义一个socket通信对象，数据类型为byte类型，包长度为int类型，消息内容为byte类型。</p>
 <p>首先我们创建服务端socket。</p>
-<pre><code class="java">public static void main(String[] args) throws IOException {
-        try {
+<pre><code class="java">public static void main(String[] args) throws IOException &#123;
+        try &#123;
             ServerSocket serverSocket =new ServerSocket(9999);
             Socket client = serverSocket.accept();
             InputStream inputStream = client.getInputStream();
             DataInputStream dataInputStream =new DataInputStream(inputStream);
-            while (true){
+            while (true)&#123;
                 byte b = dataInputStream.readByte();//读取1位
                 int len = dataInputStream.readInt();
                 byte[] data =new byte[len -5];
@@ -783,18 +783,18 @@
                 System.out.println(&quot;获取的数据类型为：&quot;+b);
                 System.out.println(&quot;获取的数据长度为：&quot;+len);
                 System.out.println(&quot;获取的数据内容为：&quot;+str);
-            }
-        } catch (IOException e) { e.printStackTrace();}
-}
+            &#125;
+        &#125; catch (IOException e) &#123; e.printStackTrace();&#125;
+&#125;
 </code></pre>
 <p>在服务端创建后，我们通过DataInputStream 数据流进行数据获取，首先我们获取数据的类型，然后在获取数据的长度，因为数据实际有效长度是整个数据的长度减去5，（包括第1个字节为数据类型，第2到5个字节为数据长度）。然后根据数据的实际有效长度创建数据缓存区，用户存放数据，这边确保每次接接受数据的完整性，不会出现半包与粘包的情况。在数据读取的时候，我们通过readFully（）方法读取数据。下面我们来创建socket的客户端：</p>
-<pre><code class="java">public static void main(String[] args) {
-        try {
+<pre><code class="java">public static void main(String[] args) &#123;
+        try &#123;
             Socket socket =new Socket(&quot;127.0.0.1&quot;,9999);
             OutputStream outputStream = socket.getOutputStream();
             DataOutputStream dataOutputStream =new DataOutputStream(outputStream);
             Scanner scanner =new Scanner(System.in);
-            if(scanner.hasNext()){
+            if(scanner.hasNext())&#123;
                 String str = scanner.next();
                 int type =1;
                 byte[] data = str.getBytes();
@@ -803,14 +803,14 @@
                 dataOutputStream.writeInt(len);//长度
                 dataOutputStream.write(data);//数据
                 dataOutputStream.flush();
-            }
-        }catch (IOException e) { e.printStackTrace(); }
-    }
+            &#125;
+        &#125;catch (IOException e) &#123; e.printStackTrace(); &#125;
+    &#125;
 </code></pre>
 <p>客户端socket创建后，我们通过dataOutputStream输出流中的writeByte（）方法，设置数据类型，writeInt（）方法设置数据长度，然后通过write（）方法将数据发送到服务端进行通信，发送完毕后，为了确保数据完全发送，通过调用flush()方法刷新缓冲区。</p>
 <p>下面我们通过控制可以看到服务端接受数据的情况：</p>
-<p><img src="12.png" alt></p>
-<p><img src="13.png" alt> </p>
+<p><img src="12.png" alt=""></p>
+<p><img src="13.png" alt=""> </p>
 <p>上面服务端分别接受到数据的类型，长度和详细内容，具体下面的错误异常是由于客户端发送一次后关闭，服务端任在接受数据，就会出现连接重置的错误，这是一个简单的通过数据类型+数据长度+数据内容的方法发送数据的一个小例子，让大家了解socket通信数据发送的原理，在实际应用中，原理不出其左右，只是在业务逻辑上完善而已。</p>
 <h1 id="六：socket-建立长连接"><a href="#六：socket-建立长连接" class="headerlink" title="六：socket 建立长连接"></a>六：socket 建立长连接</h1><p>在了解socket长连接和短连接之前，我们先通过一个概念性的东西，理解一下什么叫长连接，什么叫短连接，长连接的原理和短连接的原理，</p>
 <h2 id="6-1-长连接"><a href="#6-1-长连接" class="headerlink" title="6.1 长连接"></a>6.1 长连接</h2><p>指在一个连接上可以连续发送多个数据包(<em>包(Packet)是TCP/IP协议通信传输中的数据单位，一般也称“数据包”。</em>)，在连接保持期间，如果没有数据包发送，需要双方发链路检测包。整个通讯过程，客户端和服务端只用一个Socket对象，长期保持Socket的连接。</p>
@@ -820,7 +820,7 @@
 <p>在这章之前，你看到所有的例子，都是短连接，每次连接完毕后，都是自动断开，如果需要重新连接，则需要建立新的连接对象，比如像前一章我们看到的例子中，服务端有connection reset错误，就是短连接的一种。接下来，我们主要讲解一下长连接原理，在实际应用中，长连接他并不是真正意义上的长连接，（他不像我们打电话一样，电话通了之后一直不挂的这种连接）。<strong>他们是通过一种称之为心跳包或者叫做链路检测包，去定时检查socket 是否关闭，输入/输出流是否关闭。</strong> </p>
 <p><strong>在这里有个问题，也是好多初学者比较困惑的，也是好多初学socket时候，遇到的一个问题，那就是socket是通过流的方式通信的，既然关闭流，就是关闭socket，那么长连接不是很简单吗？就是我们读取流中的信息后，不关闭流，等下次使用时，直接往流中扔数据不就行了？</strong> </p>
 <p>针对这个问题，我做个详细的解答，尽可能的描述清楚，首先我们socket是针对应用层与TCP/IP数据传输协议封装的一套方案，那么他的底层也是通过TCP/IP或则UDP通信的，所以说socket本身并不是一直通信协议，而是一套接口的封装。而TCP/IP协议组里面的应用层包括FTP、HTTP、TELNET、SMTP、DNS等协议，我们知道，http1.0是短连接，http1.1是长连接，我们在打开http通信协议里面在Response headers中可以看到这么一句<code>Connection:keep-alive</code>。他是干什么的，他就是表示长连接，但是他并不是一直保持的连接，他有一个时间段，如果我们想一直保持这个连接怎么办？那就是在指定的时间内让客户端和服务端进行一个请求，请求可以是服务端发起，也可以是客户端发起，<strong>通常我们是在客户端不定时的发送一个字节数据给服务端，这个就是我们称之为心跳包</strong>，想想心跳是怎么跳动的，是不是为了检测人活着，心会定时的跳动，就是这个原理。</p>
-<p>参考：  <a href="https://www.jianshu.com/p/cde27461c226" target="_blank" rel="noopener">https://www.jianshu.com/p/cde27461c226</a> </p>
+<p>参考：  <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cde27461c226">https://www.jianshu.com/p/cde27461c226</a> </p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1219,7 +1219,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

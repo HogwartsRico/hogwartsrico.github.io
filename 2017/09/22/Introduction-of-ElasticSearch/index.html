@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,ElasticSearch">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="ElasticSearch入门学习笔记 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="ElasticSearch"> 
 
     
         <meta property="article:published_time" content="Fri Sep 22 2017 21:01:26 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2017/09/22/Introduction-of-ElasticSearch/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ElasticSearch简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">ElasticSearch简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ES版本历史和选择"><span class="post-toc-number">2.</span> <span class="post-toc-text">ES版本历史和选择</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#单实例安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">单实例安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#插件安装"><span class="post-toc-number">4.</span> <span class="post-toc-text">插件安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#分布式安装"><span class="post-toc-number">5.</span> <span class="post-toc-text">分布式安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础概念"><span class="post-toc-number">6.</span> <span class="post-toc-text">基础概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#索引创建"><span class="post-toc-number">7.</span> <span class="post-toc-text">索引创建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建索引"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">创建索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#非结构化创建"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">非结构化创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结构化创建"><span class="post-toc-number">7.1.2.</span> <span class="post-toc-text">结构化创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数据插入"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">数据插入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修改"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接修改文档"><span class="post-toc-number">7.3.1.</span> <span class="post-toc-text">直接修改文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#脚本修改"><span class="post-toc-number">7.3.2.</span> <span class="post-toc-text">脚本修改</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#删除"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">删除</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除文档"><span class="post-toc-number">7.4.1.</span> <span class="post-toc-text">删除文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#删除索引"><span class="post-toc-number">7.4.2.</span> <span class="post-toc-text">删除索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用head插件删除"><span class="post-toc-number">7.4.2.1.</span> <span class="post-toc-text">使用head插件删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用rest删除"><span class="post-toc-number">7.4.2.2.</span> <span class="post-toc-text">使用rest删除</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#查询"><span class="post-toc-number">8.</span> <span class="post-toc-text">查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单查询"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">简单查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#条件查询"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">条件查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#聚合查询"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">聚合查询</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SpringBook集成ES"><span class="post-toc-number">9.</span> <span class="post-toc-text">SpringBook集成ES</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ElasticSearch%E7%AE%80%E4%BB%8B"><span class="post-toc-number">1.</span> <span class="post-toc-text">ElasticSearch简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ES%E7%89%88%E6%9C%AC%E5%8E%86%E5%8F%B2%E5%92%8C%E9%80%89%E6%8B%A9"><span class="post-toc-number">2.</span> <span class="post-toc-text">ES版本历史和选择</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8D%95%E5%AE%9E%E4%BE%8B%E5%AE%89%E8%A3%85"><span class="post-toc-number">3.</span> <span class="post-toc-text">单实例安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="post-toc-number">4.</span> <span class="post-toc-text">插件安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%89%E8%A3%85"><span class="post-toc-number">5.</span> <span class="post-toc-text">分布式安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="post-toc-number">6.</span> <span class="post-toc-text">基础概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%B4%A2%E5%BC%95%E5%88%9B%E5%BB%BA"><span class="post-toc-number">7.</span> <span class="post-toc-text">索引创建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">创建索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%9D%9E%E7%BB%93%E6%9E%84%E5%8C%96%E5%88%9B%E5%BB%BA"><span class="post-toc-number">7.1.1.</span> <span class="post-toc-text">非结构化创建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BB%93%E6%9E%84%E5%8C%96%E5%88%9B%E5%BB%BA"><span class="post-toc-number">7.1.2.</span> <span class="post-toc-text">结构化创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8F%92%E5%85%A5"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">数据插入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%96%87%E6%A1%A3"><span class="post-toc-number">7.3.1.</span> <span class="post-toc-text">直接修改文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9"><span class="post-toc-number">7.3.2.</span> <span class="post-toc-text">脚本修改</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">删除</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E6%A1%A3"><span class="post-toc-number">7.4.1.</span> <span class="post-toc-text">删除文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="post-toc-number">7.4.2.</span> <span class="post-toc-text">删除索引</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8head%E6%8F%92%E4%BB%B6%E5%88%A0%E9%99%A4"><span class="post-toc-number">7.4.2.1.</span> <span class="post-toc-text">使用head插件删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8rest%E5%88%A0%E9%99%A4"><span class="post-toc-number">7.4.2.2.</span> <span class="post-toc-text">使用rest删除</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="post-toc-number">8.</span> <span class="post-toc-text">查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AE%80%E5%8D%95%E6%9F%A5%E8%AF%A2"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">简单查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">条件查询</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%81%9A%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">聚合查询</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SpringBook%E9%9B%86%E6%88%90ES"><span class="post-toc-number">9.</span> <span class="post-toc-text">SpringBook集成ES</span></a></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/ElasticSearch/">ElasticSearch</a>
+        <a class="post_tag-none-link" href="/tags/ElasticSearch/" rel="tag">ElasticSearch</a>
     </ul>
     
 
@@ -468,7 +468,7 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>本文为<a href="https://www.imooc.com/learn/889" target="_blank" rel="noopener">慕课网ElasticSearch</a>学习笔记,步骤均为亲手尝试实践  </p>
+        <p>本文为<a target="_blank" rel="noopener" href="https://www.imooc.com/learn/889">慕课网ElasticSearch</a>学习笔记,步骤均为亲手尝试实践  </p>
 <h1 id="ElasticSearch简介"><a href="#ElasticSearch简介" class="headerlink" title="ElasticSearch简介"></a>ElasticSearch简介</h1><p>基于Apache Lucene构建的开源搜索引擎 </p>
 <p>采用Java编写，提供简单易用的RESTFul API  </p>
 <p>轻松的横向扩展,支持PB级的结构化或非结构化数据处理   </p>
@@ -485,26 +485,26 @@
 <li>百度–实时日志监控平台  </li>
 </ul>
 <h1 id="ES版本历史和选择"><a href="#ES版本历史和选择" class="headerlink" title="ES版本历史和选择"></a>ES版本历史和选择</h1><p>版本历史 1.x–&gt;2.x–&gt;5.x<br>版本选择:<br>es5.x支持lucene6,性能有大幅提升,磁盘空间相交之前也少了一半,查询性能提升了25%左右<br>2.x不被重视，也不会继续开发了<br>我们这里选择5.x  </p>
-<h1 id="单实例安装"><a href="#单实例安装" class="headerlink" title="单实例安装"></a>单实例安装</h1><p> 官网  <a href="https://www.elastic.co/" target="_blank" rel="noopener">https://www.elastic.co/</a>   </p>
-<p><img src="1.png" alt>  </p>
+<h1 id="单实例安装"><a href="#单实例安装" class="headerlink" title="单实例安装"></a>单实例安装</h1><p> 官网  <a target="_blank" rel="noopener" href="https://www.elastic.co/">https://www.elastic.co/</a>   </p>
+<p><img src="1.png" alt="">  </p>
 <p>下载好之后 </p>
 <blockquote>
 <p>tar -zxvf elasticsearch-5.6.1.tar.gz<br>cd elasticsearch-5.6.1 </p>
 </blockquote>
-<p>可以看到如下文件结构<br><img src="2.png" alt> </p>
+<p>可以看到如下文件结构<br><img src="2.png" alt=""> </p>
 <p>bin是存放es启动脚本的<br>config是存放es配置文件的目录<br>lib是它依赖的第三方库的目录<br>modules是它的模块目录<br>plugins是它的第三方插件的目录   </p>
 <p>使用命令<code>./bin/elasticsearch</code>来启动ES  </p>
-<p><img src="3.png" alt>  </p>
+<p><img src="3.png" alt="">  </p>
 <p>started表示启动成功,地址是localhost:9200  </p>
-<p>访问<a href="http://localhost:9200" target="_blank" rel="noopener">http://localhost:9200</a><br>显示如下<br><img src="4.png" alt> </p>
+<p>访问<a target="_blank" rel="noopener" href="http://localhost:9200">http://localhost:9200</a><br>显示如下<br><img src="4.png" alt=""> </p>
 <p>es单实例安装完成  </p>
 <h1 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h1><p>实用Head插件安装  </p>
 <p>es返回的是json格式的，不是很友好，head插件提供了友好的web界面，同时还可以实现基本信息的查看，rest请求的模拟，以及数据的基本检索  </p>
-<p>head插件地址 <a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a>  </p>
+<p>head插件地址 <a target="_blank" rel="noopener" href="https://github.com/mobz/elasticsearch-head">https://github.com/mobz/elasticsearch-head</a>  </p>
 <p>head要求node大于等于6.0   </p>
 <p>我们使用8.2.1版本的node    </p>
 <p>下载完成之后使用<code>npm install --registry=https://registry.npm.taobao.org</code>安装   </p>
-<p>使用命令<code>npm run start</code> 运行这个插件   然后访问<a href="http://localhost:9100" target="_blank" rel="noopener">http://localhost:9100</a>  </p>
+<p>使用命令<code>npm run start</code> 运行这个插件   然后访问<a target="_blank" rel="noopener" href="http://localhost:9100">http://localhost:9100</a>  </p>
 <p>es和head插件是2个不同的程序，而且端口也不一样，他们2个之间互相访问存在跨域问题，所以这里改2个配置   </p>
 <p><code>vim config/elasticsearch.yml</code>   </p>
 <p>在最下面加入2行   </p>
@@ -513,18 +513,18 @@ http.cors.allow-origin: &quot;*&quot;   #注意:后面有空格
 </code></pre><p>然后用后台方式启动es<br><code>./bin/elasticsearch -d</code>   </p>
 <p>然后再启动head插件，访问localhost:9100  </p>
 <p>就可以看到head连接es成功了,而且健康值是绿色   </p>
-<p><img src="5.png" alt>  </p>
+<p><img src="5.png" alt="">  </p>
 <p>健康值还有黄色和红色<br>黄色代表健康值不是很好,但是可以正常使用；red表示集群的情况很差了   </p>
-<p>后台启动的es如何关闭呢？ 答:使用 kill -9<br><img src="6.png" alt>  </p>
+<p>后台启动的es如何关闭呢？ 答:使用 kill -9<br><img src="6.png" alt="">  </p>
 <h1 id="分布式安装"><a href="#分布式安装" class="headerlink" title="分布式安装"></a>分布式安装</h1><p>我们会建一个集群，3个节点，1个master ,2个slave   </p>
 <p>编辑conf/elasticsearch.yml </p>
 <p>加入如下配置    </p>
 <pre><code>cluster.name: rico  #指定集群的名字       
 node.name: master   #给master起一个名字   
 node.master: true    #告诉它它就是master 
-network.host: 127.0.0.1  #绑定的IP ,端口不用改，默认就是9200
+network.host: 127.0.0.1  #绑定的IP ,端口不用改，默认就是9200  
 </code></pre><p>IP绑定为127.0.0.1之后就不能用localhost访问了,必须用127.0.0.1了   </p>
-<p>然后启动es和head<br>访问如下 ，可以看到集群名字和master已经变成rico和master了<br><img src="7.png" alt><br><img src="8.png" alt>  </p>
+<p>然后启动es和head<br>访问如下 ，可以看到集群名字和master已经变成rico和master了<br><img src="7.png" alt=""><br><img src="8.png" alt="">  </p>
 <p>我们新建2个目录，<code>es_slave1</code>和<code>es_slave2</code>,然后把es的程序拷贝进去，然后解压    </p>
 <p>然后修改slave的es的配置  </p>
 <p>加入如下配置 </p>
@@ -532,93 +532,93 @@ network.host: 127.0.0.1  #绑定的IP ,端口不用改，默认就是9200
 node.name: slave1   #给这个节点起一个名字
 network.host: 127.0.0.1  #绑定IP 
 http.port: 8200     ## 不能和master的端口冲突  默认不配就是9200和master重了   
-discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;]  #这个配置的作用是找到master,如果不加这个配置的话,这个slave会游离于集群之外,找不到集群的master的
+discovery.zen.ping.unicast.hosts: [&quot;127.0.0.1&quot;]  #这个配置的作用是找到master,如果不加这个配置的话,这个slave会游离于集群之外,找不到集群的master的  
 </code></pre><p>slave可以不加  </p>
 <pre><code>http.cors.enabled:  true  
-http.cors.allow-origin: &quot;*&quot;
+http.cors.allow-origin: &quot;*&quot; 
 </code></pre><p>先后启动slave1和slave2,然后我们访问head插件地址就可以看到下图   </p>
-<p><img src="9.png" alt>  </p>
+<p><img src="9.png" alt="">  </p>
 <p>我们可以看到一个master(五角星)，2个slave(圆点)   </p>
 <p>从这里可以看到，我们的es扩容是非常容易的  </p>
 <h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><p>每个集群都有一个唯一的名字,默认叫elasticsearch,所有节点都是通过集群名字来加入集群的, 每一个节点还有它自己的名字  </p>
-<p>节点能够存储数据，参与集群索引数据，搜索数据的独立服务<br><img src="10.png" alt>   </p>
-<p><img src="9.5.png" alt>  </p>
+<p>节点能够存储数据，参与集群索引数据，搜索数据的独立服务<br><img src="10.png" alt="">   </p>
+<p><img src="9.5.png" alt="">  </p>
 <p>通常我们定义有相同字段的文档作为一个类型<br>文档是es里面最小的存储单位<br>索引在es中是通过名字来识别的，而且必须是英文字母小写且不含中划线,我们都是通过这个名字来对索引进行增删查改的操作   </p>
 <p>索引相当于数据库里的database ,类型相当于table，文档相当于sql里的一行记录  </p>
 <p>举个例子：<br>一个信息查询系统，用ES来做存储,里面的数据可以分为各种各样的索引，例如图书索引，家具索引，汽车索引。 图书索引又可以分为各种类型，例如科普类，计算机类，小说类等，具体到每一本书就是文档   </p>
-<p><img src="11.png" alt>  </p>
+<p><img src="11.png" alt="">  </p>
 <p>为何要分片？  </p>
 <p>假设一个索引的数据量很大，就会造成硬盘的压力很大，同时，搜索速度也会出现瓶颈,这时就可以将索引分成多个分片,分摊压力,分片的同时还允许用户进行水平的拆分，和分布式的操作，可以提高搜索和其他操作的效率   </p>
 <p>备份有哪些好处?<br>当一个主分片失败，或者出现问题时，备份的分片就可以代替工作，从而提高了es的可用性，备份的分片还可以执行搜索操作,以分摊搜索的压力,es默认在创建索引时会创建5个分片，1份备份,这个数量是可以修改的,分片的数量只能在创建索引时指定,而不能再后期进行修改,而备份可以修改   </p>
-<h1 id="索引创建"><a href="#索引创建" class="headerlink" title="索引创建"></a>索引创建</h1><p>RESTFul API<br><img src="12.png" alt>  </p>
+<h1 id="索引创建"><a href="#索引创建" class="headerlink" title="索引创建"></a>索引创建</h1><p>RESTFul API<br><img src="12.png" alt="">  </p>
 <h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><h3 id="非结构化创建"><a href="#非结构化创建" class="headerlink" title="非结构化创建"></a>非结构化创建</h3><p>我们使用head插件来新建索引   </p>
-<p><img src="13.png" alt>  </p>
-<p><img src="14.png" alt> </p>
+<p><img src="13.png" alt="">  </p>
+<p><img src="14.png" alt=""> </p>
 <p>粗方框的是主分片,西细方框的是备份分片 </p>
 <p>如何知道一个索引是结构化还是非结构化的?  </p>
 <p>点击查看索引信息,mappings如果是空的就是非结构化的  </p>
-<p><img src="15.png" alt>  </p>
+<p><img src="15.png" alt="">  </p>
 <h3 id="结构化创建"><a href="#结构化创建" class="headerlink" title="结构化创建"></a>结构化创建</h3><p>如何建立结构化的索引呢？<br>点击复合索引<br>输入book索引,加一个类型novel，小说,接着加一个关键词<code>_mappings</code>给它加一个映射<br>内容写json结构体，也就是它的映射结构, </p>
-<pre><code>{
-  &quot;novel&quot;: {//novel是类型前缀,
+<pre><code>&#123;
+  &quot;novel&quot;: &#123;//novel是类型前缀,
   //然后在这里定义它的结构
-    &quot;properties&quot;: {//关键词properties,在这里定义它的每一个字段
-      &quot;title&quot;: {//自定义的  标题
+    &quot;properties&quot;: &#123;//关键词properties,在这里定义它的每一个字段
+      &quot;title&quot;: &#123;//自定义的  标题
         &quot;type&quot;: &quot;text&quot;//给title定义类型 type:text 表示是文本
-      }
-    }
-  }
-}
-</code></pre><p><img src="16.png" alt>   </p>
+      &#125;
+    &#125;
+  &#125;
+&#125;
+</code></pre><p><img src="16.png" alt="">   </p>
 <p>结果是”acknowledged”:true表示成功  </p>
-<p><img src="17.png" alt><br>这时我们看到mappings里面有内容了,有一个novel小说,它里面是有结构映射的  </p>
+<p><img src="17.png" alt=""><br>这时我们看到mappings里面有内容了,有一个novel小说,它里面是有结构映射的  </p>
 <p>接下来我们使用工具POSTMan ，它是一个http模拟器  </p>
-<p><img src="18.png" alt><br>新的索引名 people    </p>
-<pre><code>{
-    &quot;settings&quot;:{//关键词settings,指定索引的配置
+<p><img src="18.png" alt=""><br>新的索引名 people    </p>
+<pre><code>&#123;
+    &quot;settings&quot;:&#123;//关键词settings,指定索引的配置
         &quot;number_of_shards&quot;:3,//指定索引的分片数 
         &quot;number_of_replicas&quot;:1//指定备份数 
-    },
-    &quot;mappings&quot;:{//索引映射定义
-        &quot;man&quot;:{//加一个类型 man  
-            &quot;properties&quot;:{//属性
-                &quot;name&quot;:{//名字
+    &#125;,
+    &quot;mappings&quot;:&#123;//索引映射定义
+        &quot;man&quot;:&#123;//加一个类型 man  
+            &quot;properties&quot;:&#123;//属性
+                &quot;name&quot;:&#123;//名字
                     &quot;type&quot;:&quot;text&quot;//类型是文本类型
-                },
-                &quot;county&quot;:{//国家
+                &#125;,
+                &quot;county&quot;:&#123;//国家
                     &quot;type&quot;:&quot;keyword&quot;//国家是不可切分的，是一个关键词
-                },
-                &quot;age&quot;:{//年龄
+                &#125;,
+                &quot;age&quot;:&#123;//年龄
                     &quot;type&quot;:&quot;integer&quot;//类型是int
-                },
-                &quot;date&quot;:{//出生日期
+                &#125;,
+                &quot;date&quot;:&#123;//出生日期
                     &quot;type&quot;:&quot;date&quot;,//格式是date
                     &quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis&quot;//多种类型定义 年月日 小时分秒和年月日和时间戳
-                }
-            }
-        },
-        &quot;woman&quot;:{
+                &#125;
+            &#125;
+        &#125;,
+        &quot;woman&quot;:&#123;
 
-        }
-    }
-}
+        &#125;
+    &#125;
+&#125;
 </code></pre><p>去head插件里看一下 ,可以看到有people了,点击索引信息，可以看到格式映射是完全按照我们自己定义的     </p>
-<p><img src="19.png" alt>    </p>
+<p><img src="19.png" alt="">    </p>
 <h2 id="数据插入"><a href="#数据插入" class="headerlink" title="数据插入"></a>数据插入</h2><ul>
 <li>指定文档id插入</li>
 <li>自动产生文档id插入  </li>
 </ul>
 <p>文档id是唯一索引值，指向文档数据    </p>
-<p><img src="20.png" alt>  </p>
+<p><img src="20.png" alt="">  </p>
 <p>采用put方式,people是索引，man是类型,1是我们给他指定的一个id,也就是文档id<br>返回结果和我们的信息也是对应的,index是people，type是man，id是1   </p>
 <p>我们回head插件看到docs是1了，也就是我们刚插入的数据成功了     </p>
-<p><img src="21.png" alt> </p>
-<p>我们浏览数据<br><img src="22.png" alt>  </p>
+<p><img src="21.png" alt=""> </p>
+<p>我们浏览数据<br><img src="22.png" alt="">  </p>
 <p>id是我们自己指定的  </p>
 <p>接下来我们看如何让es在我们插入文档的时候自动产生id  </p>
-<p><img src="23.png" alt>  </p>
+<p><img src="23.png" alt="">  </p>
 <p>采用post方式,url不要写id，这样es就会产生id   </p>
-<p><img src="24.png" alt>  </p>
+<p><img src="24.png" alt="">  </p>
 <h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><ul>
 <li>直接修改文档 </li>
 <li>脚本修改文档  </li>
@@ -626,141 +626,141 @@ http.cors.allow-origin: &quot;*&quot;
 <h3 id="直接修改文档"><a href="#直接修改文档" class="headerlink" title="直接修改文档"></a>直接修改文档</h3><blockquote>
 <p>127.0.0.1:9200/people/man/1/_update  </p>
 </blockquote>
-<p><img src="25.png" alt>   </p>
+<p><img src="25.png" alt="">   </p>
 <p>方式是post,1表示我们要修改的文档的id,<code>_update</code>是关键词，表示我们要对文档进行修改   </p>
-<pre><code>{
-    &quot;doc&quot;:{//关键词,要修改的文本就写在doc里面  
+<pre><code>&#123;
+    &quot;doc&quot;:&#123;//关键词,要修改的文本就写在doc里面  
         &quot;name&quot;:&quot;HogwartsRico&quot;
-    }
-}
-</code></pre><p><img src="26.png" alt>  </p>
+    &#125;
+&#125;
+</code></pre><p><img src="26.png" alt="">  </p>
 <p>我们查看head插件，可以看到数据已经修改了    </p>
-<h3 id="脚本修改"><a href="#脚本修改" class="headerlink" title="脚本修改"></a>脚本修改</h3><p><img src="27.png" alt>  </p>
-<pre><code>{
-    &quot;script&quot;:{//script关键字 es以脚本的方式去运行修改
+<h3 id="脚本修改"><a href="#脚本修改" class="headerlink" title="脚本修改"></a>脚本修改</h3><p><img src="27.png" alt="">  </p>
+<pre><code>&#123;
+    &quot;script&quot;:&#123;//script关键字 es以脚本的方式去运行修改
         &quot;lang&quot;:&quot;painless&quot;,//指定脚本语言,es支持很多的脚本语言, painless是内置的脚本语言,还支持js,python,groovy等脚本语言,这里我们选择es内置的painless
         &quot;inline&quot;:&quot;ctx._source.age+=10&quot;//inline指定脚本内容，ctx代表es上下文,_source代表es当前的文档
-    }
-}
-</code></pre><p>可以看到结果修改了<br><img src="28.png" alt><br>我们还可以将参数放到外面 </p>
-<p><img src="29.png" alt>  </p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><p>这里我们删除id为1的文档<br>使用delete方式<br><img src="30.png" alt>  </p>
-<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><h4 id="使用head插件删除"><a href="#使用head插件删除" class="headerlink" title="使用head插件删除"></a>使用head插件删除</h4><p><img src="31.png" alt>  </p>
-<p><img src="32.png" alt>  </p>
+    &#125;
+&#125;
+</code></pre><p>可以看到结果修改了<br><img src="28.png" alt=""><br>我们还可以将参数放到外面 </p>
+<p><img src="29.png" alt="">  </p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><p>这里我们删除id为1的文档<br>使用delete方式<br><img src="30.png" alt="">  </p>
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><h4 id="使用head插件删除"><a href="#使用head插件删除" class="headerlink" title="使用head插件删除"></a>使用head插件删除</h4><p><img src="31.png" alt="">  </p>
+<p><img src="32.png" alt="">  </p>
 <p>这里有个确认操作，因为删除操作是很危险的，当我们删除索引时，索引和所有数据都会被删除  </p>
-<h4 id="使用rest删除"><a href="#使用rest删除" class="headerlink" title="使用rest删除"></a>使用rest删除</h4><p><img src="33.png" alt>  </p>
+<h4 id="使用rest删除"><a href="#使用rest删除" class="headerlink" title="使用rest删除"></a>使用rest删除</h4><p><img src="33.png" alt="">  </p>
 <p>删除操作非常危险，谨慎操作  </p>
 <h1 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h1><p>我们先造几个模拟数据 </p>
-<pre><code>{
-    &quot;settings&quot;:{&quot;number_of_shards&quot;: 3,&quot;number_of_replicas&quot;: 1},
-    &quot;mappings&quot;:{
-        &quot;novel&quot;:{
-            &quot;properties&quot;:{
-                &quot;word_count&quot;:{&quot;type&quot;:&quot;integer&quot;},    
-                &quot;author&quot;:{&quot;type&quot;:&quot;keyword&quot;},
-                &quot;title&quot;:{&quot;type&quot;:&quot;text&quot;},
-                &quot;publish_date&quot;:{&quot;type&quot;:&quot;date&quot;,&quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || epoch_millis&quot;}
-            }
-        }
-    }
-}
-</code></pre><pre><code>{
+<pre><code>&#123;
+    &quot;settings&quot;:&#123;&quot;number_of_shards&quot;: 3,&quot;number_of_replicas&quot;: 1&#125;,
+    &quot;mappings&quot;:&#123;
+        &quot;novel&quot;:&#123;
+            &quot;properties&quot;:&#123;
+                &quot;word_count&quot;:&#123;&quot;type&quot;:&quot;integer&quot;&#125;,    
+                &quot;author&quot;:&#123;&quot;type&quot;:&quot;keyword&quot;&#125;,
+                &quot;title&quot;:&#123;&quot;type&quot;:&quot;text&quot;&#125;,
+                &quot;publish_date&quot;:&#123;&quot;type&quot;:&quot;date&quot;,&quot;format&quot;:&quot;yyyy-MM-dd HH:mm:ss || yyyy-MM-dd || epoch_millis&quot;&#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre><pre><code>&#123;
     &quot;word_count&quot;:50000,
     &quot;title&quot;:&quot;菜谱&quot;,
     &quot;author&quot;:&quot;abc&quot;,
     &quot;publish_date&quot;:&quot;2017-09-21&quot;
-}
+&#125;
 </code></pre><p>等等 </p>
 <h2 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h2><p>查询id唯一的文档  </p>
 <blockquote>
 <p>127.0.0.1:9200/book/novel/1</p>
 </blockquote>
-<p><img src="35.png" alt>  </p>
-<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><pre><code>{
-    &quot;query&quot;:{//es所有查询都是以query为关键词的
-        &quot;match_all&quot;:{}//查询所有的数据
-    }
-}
-</code></pre><p><img src="36.png" alt>  </p>
+<p><img src="35.png" alt="">  </p>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><pre><code>&#123;
+    &quot;query&quot;:&#123;//es所有查询都是以query为关键词的
+        &quot;match_all&quot;:&#123;&#125;//查询所有的数据
+    &#125;
+&#125;
+</code></pre><p><img src="36.png" alt="">  </p>
 <p>took：2表示这个查询花2毫秒<br>hits代表响应结果<br>hits的total是8，表示总共有8条数据,hits默认返回10条数据<br>如果size不指定，那么默认返回10条<br><code>_shards</code>：描述了查询分片的信息，查询了多少个分片、成功的分片数量、失败的分片数量等<br><code>_score</code>是文档的分数信息，与排名相关度有关，参考各大搜索引擎的搜索结果，就容易理解</p>
 <p>如何指定返回的数据大小和从哪里返回呢？  </p>
-<pre><code>{
-    &quot;query&quot;:{
-        &quot;match_all&quot;:{}
-    },
+<pre><code>&#123;
+    &quot;query&quot;:&#123;
+        &quot;match_all&quot;:&#123;&#125;
+    &#125;,
     &quot;from&quot;:1,//返回第二条数据(从0开始数)  
     &quot;size&quot;:1
-}
+&#125;
 </code></pre><p>文档的顺序是按照<code>_score</code>默认倒排的<br>如何将查询变成关键词查询呢？  </p>
-<p><img src="37.png" alt>  </p>
+<p><img src="37.png" alt="">  </p>
 <p>这里的返回结果是以<code>_score</code>默认倒排的,如何自定义自己的排序呢？  </p>
-<pre><code>{
-    &quot;query&quot;:{
-        &quot;match&quot;:{&quot;title&quot;:&quot;java&quot;}
-    },
+<pre><code>&#123;
+    &quot;query&quot;:&#123;
+        &quot;match&quot;:&#123;&quot;title&quot;:&quot;java&quot;&#125;
+    &#125;,
     &quot;sort&quot;:[//指定需要排序的字段
-        {
-            &quot;publish_date&quot;:{//publish_date作为排序字段
+        &#123;
+            &quot;publish_date&quot;:&#123;//publish_date作为排序字段
                 &quot;order&quot;:&quot;desc&quot;//默认是升序的，我们改成倒序
-            }
-        }
+            &#125;
+        &#125;
     ]
-}
-</code></pre><p>返回结果<br><img src="39.png" alt><br>我们发现score这个字段变成null了，是因为我们指定了排序规则,</p>
+&#125;
+</code></pre><p>返回结果<br><img src="39.png" alt=""><br>我们发现score这个字段变成null了，是因为我们指定了排序规则,</p>
 <p>下面的高级查询会做更多关于查询的介绍   </p>
 <h2 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h2><p>单个分组聚合  </p>
-<pre><code>{
-    &quot;aggs&quot;:{//aggs是聚合查询的关键词
-        &quot;group_by_word_count&quot;:{//给聚合条件起一个名字,这个名字是自定义的，可以随便起
-            &quot;terms&quot;:{//关键词
+<pre><code>&#123;
+    &quot;aggs&quot;:&#123;//aggs是聚合查询的关键词
+        &quot;group_by_word_count&quot;:&#123;//给聚合条件起一个名字,这个名字是自定义的，可以随便起
+            &quot;terms&quot;:&#123;//关键词
                 &quot;field&quot;:&quot;word_count&quot;//指定聚合的字段
-            }
-        }
-    }
-}
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre><p>结果会将所有数据返回并在结尾返回聚合后的数据  </p>
-<p><img src="40.png" alt> </p>
+<p><img src="40.png" alt=""> </p>
 <p>多个分组聚合  </p>
-<pre><code>{
-    &quot;aggs&quot;:{
-        &quot;group_by_word_count&quot;:{
-            &quot;terms&quot;:{
+<pre><code>&#123;
+    &quot;aggs&quot;:&#123;
+        &quot;group_by_word_count&quot;:&#123;
+            &quot;terms&quot;:&#123;
                 &quot;field&quot;:&quot;word_count&quot;
-            }
-        },
-        &quot;group_by_publish_date&quot;:{
-            &quot;terms&quot;:{
+            &#125;
+        &#125;,
+        &quot;group_by_publish_date&quot;:&#123;
+            &quot;terms&quot;:&#123;
                 &quot;field&quot;:&quot;publish_date&quot;
-            }
-        }
-    }
-}
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre><p>es的其他功能函数  </p>
-<pre><code>{
-    &quot;aggs&quot;:{
-        &quot;grades_word_count&quot;:{
-            &quot;stats&quot;:{//stats表示进行下计算
+<pre><code>&#123;
+    &quot;aggs&quot;:&#123;
+        &quot;grades_word_count&quot;:&#123;
+            &quot;stats&quot;:&#123;//stats表示进行下计算
                 &quot;field&quot;:&quot;word_count&quot;
-            }
-        }
-    }
-}
-</code></pre><p>结果<br><img src="41.png" alt><br>count总共有12个数   min最小值  avg 平均值  sum总和  </p>
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre><p>结果<br><img src="41.png" alt=""><br>count总共有12个数   min最小值  avg 平均值  sum总和  </p>
 <p>也直接支持这里面的函数  </p>
-<pre><code>{
-    &quot;aggs&quot;:{
-        &quot;grades_word_count&quot;:{
-            &quot;min&quot;:{
+<pre><code>&#123;
+    &quot;aggs&quot;:&#123;
+        &quot;grades_word_count&quot;:&#123;
+            &quot;min&quot;:&#123;
                 &quot;field&quot;:&quot;word_count&quot;
-            }
-        }
-    }
-}
+            &#125;
+        &#125;
+    &#125;
+&#125;
 </code></pre><h1 id="SpringBook集成ES"><a href="#SpringBook集成ES" class="headerlink" title="SpringBook集成ES"></a>SpringBook集成ES</h1><p>ESConfig.java  </p>
 <pre><code>@Configuration
-public class ESConfig {
+public class ESConfig &#123;
     @Bean
-    public TransportClient client() throws UnknownHostException {
+    public TransportClient client() throws UnknownHostException &#123;
         InetSocketTransportAddress node=new InetSocketTransportAddress(
                 InetAddress.getByName(&quot;localhost&quot;),//address
                 9300//tcp端口
@@ -770,8 +770,8 @@ public class ESConfig {
         TransportClient client=new PreBuiltTransportClient(settings);//这里需要传入es的配置
         client.addTransportAddress(node);
         return client;
-    }
-}
+    &#125;
+&#125;
 </code></pre><p><strong>增加和查询</strong></p>
 <p>Controller.java  </p>
 <pre><code>     @Autowired
@@ -780,18 +780,18 @@ public class ESConfig {
     //获取图书的功能
     @GetMapping(&quot;/get/book/novel&quot;)
     @ResponseBody
-    public ResponseEntity  getBookNovel(@RequestParam(name=&quot;id&quot;,defaultValue = &quot;&quot;) String id){
-        if(id.isEmpty()){
+    public ResponseEntity  getBookNovel(@RequestParam(name=&quot;id&quot;,defaultValue = &quot;&quot;) String id)&#123;
+        if(id.isEmpty())&#123;
             return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
+        &#125;
         GetResponse result= this.client.prepareGet(&quot;book&quot;,&quot;novel&quot;,id).get();//索引,类型   prepareGet获取索引
-        if(result.isExists()){
+        if(result.isExists())&#123;
             return new ResponseEntity(result.getSource(), HttpStatus.OK);
-        }else{
+        &#125;else&#123;
             return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
+        &#125;
     //http://localhost:8080/get/book/novel?id=2
-    }
+    &#125;
 
     //增加图书的功能
     @PostMapping(&quot;add/book/novel&quot;)
@@ -799,26 +799,26 @@ public class ESConfig {
     public ResponseEntity add(@RequestParam(name=&quot;title&quot;) String title,
                               @RequestParam(name=&quot;author&quot;) String author,
                               @RequestParam(name=&quot;word_count&quot;) int wordCount,
-                              @RequestParam(name=&quot;publish_date&quot;) @DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;) Date publish_date){
+                              @RequestParam(name=&quot;publish_date&quot;) @DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;) Date publish_date)&#123;
         XContentBuilder content= null;
-        try {
+        try &#123;
             content = XContentFactory.jsonBuilder().startObject().field(&quot;title&quot;,title).field(&quot;author&quot;,author).field(&quot;word_count&quot;,wordCount).field(&quot;publish_date&quot;,publish_date.getTime()).endObject();
-        } catch (IOException e) {
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        &#125;
         IndexResponse result= this.client.prepareIndex(&quot;book&quot;,&quot;novel&quot;).setSource(content).get();//prepareIndex准备构建索引  book是索引名   nove是type
         return new ResponseEntity(result.getId(),HttpStatus.OK);
-    }
-</code></pre><p><img src="43.png" alt><br><img src="44.png" alt> </p>
+    &#125;
+</code></pre><p><img src="43.png" alt=""><br><img src="44.png" alt=""> </p>
 <p><strong>删除</strong>  </p>
 <pre><code>    @DeleteMapping(&quot;delete/book/novel&quot;)
     @ResponseBody
-    public ResponseEntity delete(@RequestParam(name=&quot;id&quot;) String id){
+    public ResponseEntity delete(@RequestParam(name=&quot;id&quot;) String id)&#123;
         DeleteResponse result=this.client.prepareDelete(&quot;book&quot;,&quot;novel&quot;,id).get();
         return new ResponseEntity(result,HttpStatus.OK);
-    }
-</code></pre><p><img src="45.png" alt>   </p>
+    &#125;
+</code></pre><p><img src="45.png" alt="">   </p>
 <p><strong>更新</strong>  </p>
 <pre><code>     @PutMapping(&quot;update/book/novel&quot;)
     @ResponseBody
@@ -828,43 +828,43 @@ public class ESConfig {
             @RequestParam(name=&quot;author&quot;,required = false) String author,
             @RequestParam(name=&quot;word_count&quot;,required = false) Integer word_count,
             @RequestParam(name=&quot;publish_date&quot;,required = false) @DateTimeFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;) Date publish_date
-    ){
+    )&#123;
         UpdateRequest update=new UpdateRequest(&quot;book&quot;,&quot;novel&quot;,id);
         XContentBuilder content=null;
-        try {
+        try &#123;
             content=XContentFactory.jsonBuilder().startObject();
-            if(title!=null){
+            if(title!=null)&#123;
                 content.field(&quot;title&quot;,title);
-            }
-            if(author!=null){
+            &#125;
+            if(author!=null)&#123;
                 content.field(&quot;author&quot;,author);
-            }
-            if(word_count!=null){
+            &#125;
+            if(word_count!=null)&#123;
                 content.field(&quot;word_count&quot;,word_count);
-            }
-            if(publish_date!=null){
+            &#125;
+            if(publish_date!=null)&#123;
                 content.field(&quot;publish_date&quot;,publish_date.getTime());
-            }
+            &#125;
             content.endObject();//必须以endObject结尾
             update.doc(content);
-            try {
+            try &#123;
                 UpdateResponse result=this.client.update(update).get();
                 return new ResponseEntity(result,HttpStatus.OK);
-            } catch (InterruptedException e) {
+            &#125; catch (InterruptedException e) &#123;
                 e.printStackTrace();
                 return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-            } catch (ExecutionException e) {
+            &#125; catch (ExecutionException e) &#123;
                 e.printStackTrace();
                 return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        } catch (IOException e) {
+            &#125;
+        &#125; catch (IOException e) &#123;
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+        &#125;
+    &#125;
     //一般情况下，我们如果要在表单中上传文件，一般会将form的enctype参数设置为multipart/form-data。这种方式只支持POST的请求方式。
-    //put的话就用  x-www-form-urlencoded
-</code></pre><p><img src="46.png" alt>  </p>
+    //put的话就用  x-www-form-urlencoded 
+</code></pre><p><img src="46.png" alt="">  </p>
 <p><strong>符合查询接口</strong>  </p>
 <pre><code>    @PostMapping(&quot;query/book/novel&quot;)
     @ResponseBody
@@ -873,19 +873,19 @@ public class ESConfig {
             @RequestParam(name=&quot;title&quot;,required = false) String title,
             @RequestParam(name=&quot;gt_word&quot;,defaultValue = &quot;0&quot;) Integer gt_word,//大于多少字
             @RequestParam(name=&quot;lt_word&quot;,required = false) Integer lt_word//小于多少
-    ){
+    )&#123;
 
         BoolQueryBuilder boolQuery= QueryBuilders.boolQuery();
-        if(author!=null){
+        if(author!=null)&#123;
             boolQuery.must(QueryBuilders.matchQuery(&quot;author&quot;,author));
-        }
-        if(title!=null){
+        &#125;
+        if(title!=null)&#123;
             boolQuery.must(QueryBuilders.matchQuery(&quot;title&quot;,title));
-        }
+        &#125;
         RangeQueryBuilder rangeQueryBuilder=QueryBuilders.rangeQuery(&quot;word_count&quot;).from(gt_word);
-        if(lt_word!=null&amp;&amp;lt_word&gt;0){
+        if(lt_word!=null&amp;&amp;lt_word&gt;0)&#123;
             rangeQueryBuilder.to(lt_word);
-        }
+        &#125;
         boolQuery.filter(rangeQueryBuilder);
         SearchRequestBuilder  builder=this.client.prepareSearch(&quot;book&quot;)
                 .setTypes(&quot;novel&quot;)
@@ -895,12 +895,12 @@ public class ESConfig {
         System.out.println(builder);//直接打印请求体
         SearchResponse response=builder.get();
         List&lt;Map&lt;String,Object&gt;&gt; result=new ArrayList&lt;Map&lt;String,Object&gt;&gt;();
-        for(SearchHit hit:response.getHits()){
+        for(SearchHit hit:response.getHits())&#123;
             result.add(hit.getSource());
-        }
+        &#125;
         return new ResponseEntity(result,HttpStatus.OK);
-    }
-</code></pre><p><img src="47.png" alt><br><img src="48.png" alt>  </p>
+    &#125;
+</code></pre><p><img src="47.png" alt=""><br><img src="48.png" alt="">  </p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1299,7 +1299,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

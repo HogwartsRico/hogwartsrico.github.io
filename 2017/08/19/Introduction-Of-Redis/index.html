@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
+    <head>
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -29,11 +29,11 @@
 
 
 
-    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
 
 
 
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
 
 
 
@@ -57,14 +57,14 @@
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
     <link rel="icon" href="/img/favicon.png">
 
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
     <meta name="keywords" content="HogwartsRico,Reids">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--[if lte IE 9]>
         <link rel="stylesheet" href="/css/ie-blocker.css">
@@ -244,12 +244,12 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="Redis入门 | Rico&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="">
     <meta property="og:article:tag" content="Reids"> 
 
     
         <meta property="article:published_time" content="Sat Aug 19 2017 00:15:42 GMT+0800">
-        <meta property="article:modified_time" content="Sun Dec 19 2021 18:34:24 GMT+0800">
+        <meta property="article:modified_time" content="Fri Apr 29 2022 21:39:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://hogwartsrico.github.io/2017/08/19/Introduction-Of-Redis/index.html">
+        <link rel="canonical" href="http://hogwartsrico.github.io/2017/08/19/Introduction-Of-Redis/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -280,7 +280,7 @@
     <!-- Custom Head -->
     
 
-</head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
     
@@ -330,7 +330,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NoSQL概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">NoSQL概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis概述"><span class="post-toc-number">2.</span> <span class="post-toc-text">Redis概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis的安装和使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">Redis的安装和使用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Jedis入门"><span class="post-toc-number">4.</span> <span class="post-toc-text">Jedis入门</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis的数据结构"><span class="post-toc-number">5.</span> <span class="post-toc-text">Redis的数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis数据结构之String"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Redis数据结构之String</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#存储String"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">存储String</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis数据结构之哈希"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Redis数据结构之哈希</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis的数据结构之-–List"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">Redis的数据结构之 –List</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis的数据结构之Set"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">Redis的数据结构之Set</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis数据结构之Sorted-Set"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">Redis数据结构之Sorted-Set</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Keys的通用操作"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">Keys的通用操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis的特性"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">redis的特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis持久化"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">Redis持久化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RDB方式"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">RDB方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AOF方式"><span class="post-toc-number">5.10.</span> <span class="post-toc-text">AOF方式</span></a></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NoSQL%E6%A6%82%E8%BF%B0"><span class="post-toc-number">1.</span> <span class="post-toc-text">NoSQL概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis%E6%A6%82%E8%BF%B0"><span class="post-toc-number">2.</span> <span class="post-toc-text">Redis概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="post-toc-number">3.</span> <span class="post-toc-text">Redis的安装和使用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Jedis%E5%85%A5%E9%97%A8"><span class="post-toc-number">4.</span> <span class="post-toc-text">Jedis入门</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="post-toc-number">5.</span> <span class="post-toc-text">Redis的数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8BString"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Redis数据结构之String</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%98%E5%82%A8String"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">存储String</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%93%88%E5%B8%8C"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Redis数据结构之哈希</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B-%E2%80%93List"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">Redis的数据结构之 –List</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8BSet"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">Redis的数据结构之Set</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8BSorted-Set"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">Redis数据结构之Sorted-Set</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Keys%E7%9A%84%E9%80%9A%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="post-toc-number">5.6.</span> <span class="post-toc-text">Keys的通用操作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#redis%E7%9A%84%E7%89%B9%E6%80%A7"><span class="post-toc-number">5.7.</span> <span class="post-toc-text">redis的特性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Redis%E6%8C%81%E4%B9%85%E5%8C%96"><span class="post-toc-number">5.8.</span> <span class="post-toc-text">Redis持久化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RDB%E6%96%B9%E5%BC%8F"><span class="post-toc-number">5.9.</span> <span class="post-toc-text">RDB方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AOF%E6%96%B9%E5%BC%8F"><span class="post-toc-number">5.10.</span> <span class="post-toc-text">AOF方式</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -405,7 +405,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Reids/">Reids</a>
+        <a class="post_tag-none-link" href="/tags/Reids/" rel="tag">Reids</a>
     </ul>
     
 
@@ -474,54 +474,54 @@
 <p>High performance 高并发读写  </p>
 <p>Huge Storage 海量数据的高效率存储和访问  </p>
 <p>High Scalaility &amp; HighAvaliablity 高可扩展性和高可用性  </p>
-<p><img src="1.png" alt>   </p>
-<p><img src="2.png" alt>  </p>
+<p><img src="1.png" alt="">   </p>
+<p><img src="2.png" alt="">  </p>
 <p>键值存储： Redis 优点： 快速查询  缺点：存储的数据缺少结构化  </p>
 <p>列存储： HBase ，优点：查找速度快，扩展性强  ，缺点：功能相对局限 </p>
 <p>文档数据库： MogoDB:</p>
 <p>图形数据库： infoGrid  </p>
-<p><img src="3.png" alt>  </p>
+<p><img src="3.png" alt="">  </p>
 <p>NoSQL的特点<br>数据之间没有关系 </p>
-<p><img src="4.png" alt>  </p>
-<h1 id="Redis概述"><a href="#Redis概述" class="headerlink" title="Redis概述"></a>Redis概述</h1><p><img src="5.png" alt>  </p>
-<p><img src="6.png" alt>  </p>
-<h1 id="Redis的安装和使用"><a href="#Redis的安装和使用" class="headerlink" title="Redis的安装和使用"></a>Redis的安装和使用</h1><p>上Reids官网 <a href="https://redis.io/download" target="_blank" rel="noopener">https://redis.io/download</a> 下载 </p>
+<p><img src="4.png" alt="">  </p>
+<h1 id="Redis概述"><a href="#Redis概述" class="headerlink" title="Redis概述"></a>Redis概述</h1><p><img src="5.png" alt="">  </p>
+<p><img src="6.png" alt="">  </p>
+<h1 id="Redis的安装和使用"><a href="#Redis的安装和使用" class="headerlink" title="Redis的安装和使用"></a>Redis的安装和使用</h1><p>上Reids官网 <a target="_blank" rel="noopener" href="https://redis.io/download">https://redis.io/download</a> 下载 </p>
 <p>官网上有安装说明  </p>
-<p><img src="7.png" alt>  </p>
+<p><img src="7.png" alt="">  </p>
 <p>make </p>
-<p><img src="8.png" alt>  </p>
+<p><img src="8.png" alt="">  </p>
 <p>make完之后要进行安装  </p>
 <p><code>make PREFIX=/usr/local/redis install</code>  //指定路径 </p>
-<p><img src="10.png" alt>  </p>
+<p><img src="10.png" alt="">  </p>
 <p>然后在<code>local/usr/redis</code>里面就有redis的文件了 </p>
-<p><img src="11.png" alt><br><code>redis-benchmark</code>是性能测试的工具<br>redis-check-aof 是aof文件修复工具<br>redis-check-rdb  是rdb文件检查工具<br>redis-cli是命令行的客户端<br>redis-server 启动的客户端  </p>
+<p><img src="11.png" alt=""><br><code>redis-benchmark</code>是性能测试的工具<br>redis-check-aof 是aof文件修复工具<br>redis-check-rdb  是rdb文件检查工具<br>redis-cli是命令行的客户端<br>redis-server 启动的客户端  </p>
 <p>拷贝配置文件<br>将redis的安装包里的redis.conf拷贝到<code>/usr/local/redis</code>目录下    </p>
-<p><img src="12.png" alt>  </p>
+<p><img src="12.png" alt="">  </p>
 <p>启动 redis-server  </p>
-<p><img src="9.png" alt>  </p>
+<p><img src="9.png" alt="">  </p>
 <p>这种启动属于前端启动，启动起来之后我们就不能进行操作了  </p>
 <p>我们一般采用后端启动方式  </p>
 <p>修改配置文件  </p>
 <p>找到<code>daemonize no</code>这一行，将no改为yes  </p>
-<p><img src="13.png" alt> </p>
+<p><img src="13.png" alt=""> </p>
 <p>保存后退出   </p>
 <p>然后运行下面的命令   </p>
-<p><img src="14.png" alt>   </p>
+<p><img src="14.png" alt="">   </p>
 <p>意思是使用redis.conf配置文件里的配置来启动redis   </p>
-<p>使用命令<code>ps -ef | grep -i redis</code><br>查看redis是否运行及其端口<br>redis的默认端口是<strong>6379</strong><br><img src="15.png" alt>  </p>
+<p>使用命令<code>ps -ef | grep -i redis</code><br>查看redis是否运行及其端口<br>redis的默认端口是<strong>6379</strong><br><img src="15.png" alt="">  </p>
 <p>关闭Redis  </p>
 <p>第一种方式 <code>kill -9 5318</code>但这种方式不建议使用    </p>
 <p>第二种方式   <code>./bin/redis-cli   shutdown</code>  推荐使用这种方式  </p>
 <p>再ps看下没有了  </p>
-<p><img src="16.png" alt>   </p>
-<p><img src="17.png" alt>  </p>
+<p><img src="16.png" alt="">   </p>
+<p><img src="17.png" alt="">  </p>
 <p><code>set name imooc</code> name是key  imooc是值  </p>
 <p><code>get  name</code>  获取key为name的值 </p>
 <p><code>keys *</code> 获取所有key  </p>
 <p><code>del name</code> 删除key为name的值 和key一起删除  </p>
 <h1 id="Jedis入门"><a href="#Jedis入门" class="headerlink" title="Jedis入门"></a>Jedis入门</h1><p> Jedis是Redis官方首选的Java客户端开发包   </p>
 <p>要使其他ip的程序访问redis，需要在redis.conf中修改一下配置  </p>
-<p><img src="18.png" alt>  </p>
+<p><img src="18.png" alt="">  </p>
 <p>把bind 这一行注释掉  </p>
 <p><code>protected-mode yes</code> 改为no </p>
 <p>bind 127.0.0.1将只允许本机连接  </p>
@@ -531,16 +531,16 @@
 </blockquote>
 <p>这个错  </p>
 <pre><code>     @Test
-    public void demo1(){
+    public void demo1()&#123;
         Jedis j1=new Jedis(&quot;192.168.0.108&quot;,6379);//ip  端口号
         j1.set(&quot;name&quot;,&quot;rico&quot;);
         String name=j1.get(&quot;name&quot;);
         System.out.println(name);
         j1.close();
-    }
-</code></pre><p><img src="19.png" alt>  </p>
+    &#125;
+</code></pre><p><img src="19.png" alt="">  </p>
 <p>使用连接池  </p>
-<p><img src="20.png" alt>  </p>
+<p><img src="20.png" alt="">  </p>
 <h1 id="Redis的数据结构"><a href="#Redis的数据结构" class="headerlink" title="Redis的数据结构"></a>Redis的数据结构</h1><h2 id="Redis数据结构之String"><a href="#Redis数据结构之String" class="headerlink" title="Redis数据结构之String"></a>Redis数据结构之String</h2><p>五种数据类型   </p>
 <ul>
 <li>字符串 (常用)</li>
@@ -599,17 +599,17 @@ OK
 </code></pre><p>getset是先获取再重新赋值<br>获取一个不存在的返回nil<br>incr表示增加1  如果这个key不存在，这默认设为0并加1 即为1<br>如果不是int型 会报错  ERR value is not an integer or out of range<br>decr 会递减1 如果不存在则是0-1即为-1<br>incrby 可以指定加多少而不是1  同样如果不存在则为0然后加<br>decrby 可以指定减少多少<br>append表示在后面追加  返回值时长度，并不是值 </p>
 <h2 id="Redis数据结构之哈希"><a href="#Redis数据结构之哈希" class="headerlink" title="Redis数据结构之哈希"></a>Redis数据结构之哈希</h2><p>String Key和String Value的map容器<br>每一个Hash可以存储4294967295个键值对  </p>
 <p>存储Hash的常用命令    </p>
-<p><img src="21.png" alt>  </p>
+<p><img src="21.png" alt="">  </p>
 <p><code>hset 名字  key value</code><br><code>hmset 名字 key value key value</code> 可以设置多个<br><code>hget 名字 key</code><br><code>hmget 名字 key1 key2</code><br><code>hgetall 名字</code> 显示全部 </p>
-<p><img src="22.png" alt>  </p>
-<p><img src="23.png" alt><br><code>hdel 名字 key1  key1</code> 可以删除多个   </p>
-<p>继续删除返回0，表示字段不存在<br><img src="24.png" alt>  </p>
+<p><img src="22.png" alt="">  </p>
+<p><img src="23.png" alt=""><br><code>hdel 名字 key1  key1</code> 可以删除多个   </p>
+<p>继续删除返回0，表示字段不存在<br><img src="24.png" alt="">  </p>
 <p>del 名字  删除整个集合  </p>
-<p><img src="25.png" alt>  </p>
+<p><img src="25.png" alt="">  </p>
 <p>删除后再去查找会显示nil  </p>
 <p>支持数字增加<br>例如<br><code>hincrby myhash age 5</code>  增加5<br>但是不支持自增1 hincr是不支持的  </p>
 <p><code>hexists 名字  key</code> 判断是否有这个key的值 如果有返回1 如果没有返回 0  </p>
-<p> <img src="26.png" alt>    </p>
+<p> <img src="26.png" alt="">    </p>
 <p> <code>hgetall 名字</code>可以得到所有属性和值   </p>
 <p> <code>hlen 名字</code> 有多少键值对   </p>
 <p> <code>hkeys 名字</code> 可以得到所有的key  </p>
@@ -625,75 +625,75 @@ OK
 <p>两端弹出 </p>
 <p>获取列表 </p>
 <p><code>lpush mylist a b c</code> lpush 表示在左边添加  a  b  c顺序进入，c在最左侧  如果名字之前没有则会新建，如果有就会继续增加  </p>
-<p><img src="27.png" alt>  </p>
+<p><img src="27.png" alt="">  </p>
 <p>图中第二次lpush已经有了，所以变成添加了  </p>
 <p><code>rpush mylist2 a b c</code>rpush表示在右边添加 a b c 顺序进入，a在最左侧  </p>
-<p><img src="28.png" alt>  </p>
+<p><img src="28.png" alt="">  </p>
 <p>查看 list <code>lrange mylist 0 5</code> 0表示开始  5表示结束  可以是负值，表示倒数第几个  </p>
-<p><img src="29.png" alt>   </p>
+<p><img src="29.png" alt="">   </p>
 <p>0到-1 相当于从头到尾  </p>
-<p><img src="30.png" alt>  </p>
+<p><img src="30.png" alt="">  </p>
 <p>左端弹出 </p>
 <p><code>lpopup 名字</code>  </p>
-<p><img src="31.png" alt>   </p>
+<p><img src="31.png" alt="">   </p>
 <p>右端弹出 </p>
-<p><img src="32.png" alt>  </p>
+<p><img src="32.png" alt="">  </p>
 <p><code>llen mylist</code> 获取list长度  </p>
 <p>llen 一个没有的 会返回0  </p>
 <p><code>lpushx mylist z</code>  会在头部插入一个值 但是当mylsit不存在的时候就不会新建然后插入  </p>
 <p>同理还有<code>rpushx mylist y</code>  </p>
 <p>移除元素<br><code>lrem 名字 个数 值</code> 意思是删除多少个值为多少的值  rem是remove的缩写  </p>
 <p>如果个数大于0 就会从头向尾遍历删除<br>如果个数小于0 就会从后面向前遍历删除  </p>
-<p><img src="33.png" alt>  </p>
-<p>删除了尾部的b<br><img src="34.png" alt>  </p>
+<p><img src="33.png" alt="">  </p>
+<p>删除了尾部的b<br><img src="34.png" alt="">  </p>
 <p><code>lset mylist 3 x</code> 设置角标为3的值 </p>
-<p><img src="35.png" alt>  </p>
-<p><code>linsert mylist before x a</code>意思是在mylist中，在第一个出现x的地方的前面插入a<br><img src="36.png" alt><br>之后插入<br><img src="37.png" alt> </p>
+<p><img src="35.png" alt="">  </p>
+<p><code>linsert mylist before x a</code>意思是在mylist中，在第一个出现x的地方的前面插入a<br><img src="36.png" alt=""><br>之后插入<br><img src="37.png" alt=""> </p>
 <p>把 mylist的尾部压出加入到mylist2的头部  </p>
-<p><img src="38.png" alt><br>这个功能主要用于消费者备份    </p>
+<p><img src="38.png" alt=""><br>这个功能主要用于消费者备份    </p>
 <h2 id="Redis的数据结构之Set"><a href="#Redis的数据结构之Set" class="headerlink" title="Redis的数据结构之Set"></a>Redis的数据结构之Set</h2><p>和List类型不同，Set集合中不允许出现重复元素  </p>
 <p>添加删除元素<br>获得集合中的元素<br>集合中的差集<br>集合中的交集运算<br>集合中的并集运算<br>扩展命令  </p>
-<p><img src="40.png" alt>  </p>
+<p><img src="40.png" alt="">  </p>
 <p><code>sadd 名字  值1  值2  值3  ...</code><br>如果之前有这个值，继续添加会返回0 表示添加不进去  </p>
 <p><code>smembers</code> 名字 查看这个set里面的所有值</p>
 <p>srem是用于删除的  </p>
 <p>sismember是用于判断某个值是否是成员  1表示true  0表示false   </p>
-<p><img src="41.png" alt>  </p>
+<p><img src="41.png" alt="">  </p>
 <p>sdiff 求差集<br>sinter 求交集<br>sunion 求并集(重复元素去掉)<br>scard 总共有多少个  </p>
 <p><code>srandmember 名字</code>  随机返回set里面的成员  </p>
 <p><code>sdiffstore 要存储到的名字 名字1 名字2</code> 将名字1 和名字2中相差的常用存储到第一个参数里面去  </p>
 <p><code>sinterstore</code>  交集存储到新的set里面去<br><code>sunionstore</code> 并集存储到新的set里面去 </p>
-<p><img src="42.png" alt>  </p>
+<p><img src="42.png" alt="">  </p>
 <h2 id="Redis数据结构之Sorted-Set"><a href="#Redis数据结构之Sorted-Set" class="headerlink" title="Redis数据结构之Sorted-Set"></a>Redis数据结构之Sorted-Set</h2><p>Sorted-Set 和 Set 都是字符串的集合  都不允许重复的内容出现在set中 </p>
 <p>Sorted-Set和Set的区别 </p>
 <p>Sorted-Set的每一个值都有一个分数与其关联  </p>
 <p>Sorted-Set中的成员在集合中的位置是有序的 </p>
-<p> <img src="43.png" alt>  </p>
+<p> <img src="43.png" alt="">  </p>
 <p><code>zadd 名字 分数1 值1  分数2  值2  ..</code><br>如果之前有这个值，仍然往里面添加，会覆盖这个值，并且返回0  </p>
-<p> <img src="44.png" alt>  </p>
+<p> <img src="44.png" alt="">  </p>
 <p>获得分数 <code>zscore</code><br>获得数量 <code>zcard</code><br>删除 <code>zrem</code><br>范围查找 <code>zrange mysort 0 -1</code>     -1表示最后一个<br><code>range mysort 0 -1  withscores</code> 表示同时显示分数  默认是分数由小到大排序的  </p>
-<p><img src="45.png" alt><br><img src="46.png" alt>  </p>
-<p><code>zrevrange mysort 0 -1 withscores</code> 按分数从大到小 排序<br><img src="47.png" alt><br><code>zremrangebyrank mysort 0 4</code> 按照排名删除 0到4个，即5个  </p>
+<p><img src="45.png" alt=""><br><img src="46.png" alt="">  </p>
+<p><code>zrevrange mysort 0 -1 withscores</code> 按分数从大到小 排序<br><img src="47.png" alt=""><br><code>zremrangebyrank mysort 0 4</code> 按照排名删除 0到4个，即5个  </p>
 <p><code>zremrangebyscore mysort 起始分数(包含) 终止分数(包含)</code>  按照分数范围删除  </p>
-<p><img src="48.png" alt>  </p>
-<p>返回分数区间的成员，并按照从低到高进行排序<br><img src="49.png" alt><br>只显示2个<br><img src="50.png" alt>  </p>
+<p><img src="48.png" alt="">  </p>
+<p>返回分数区间的成员，并按照从低到高进行排序<br><img src="49.png" alt=""><br>只显示2个<br><img src="50.png" alt="">  </p>
 <p><code>zrevrangebyscore</code> 逆序按分数排列  <strong>注意分数区间也要倒着写</strong></p>
-<p><img src="51.png" alt> </p>
+<p><img src="51.png" alt=""> </p>
 <p><code>zincrby mysort  6  赵六</code>    为赵六增加6分 </p>
 <p><code>zcount</code> 统计分数段内有多少个 </p>
-<p><img src="52.png" alt>   </p>
+<p><img src="52.png" alt="">   </p>
 <p>使用场景  游戏排名  构建索引数据  </p>
-<h2 id="Keys的通用操作"><a href="#Keys的通用操作" class="headerlink" title="Keys的通用操作"></a>Keys的通用操作</h2><p><img src="53.png" alt>  </p>
+<h2 id="Keys的通用操作"><a href="#Keys的通用操作" class="headerlink" title="Keys的通用操作"></a>Keys的通用操作</h2><p><img src="53.png" alt="">  </p>
 <p><code>keys *</code>列出所有keys<br><code>kyes my*</code> 列出所有my开头的keys 教程上是？号  </p>
-<p><img src="54.png" alt><br>del 多个key 可以删除  </p>
+<p><img src="54.png" alt=""><br>del 多个key 可以删除  </p>
 <p>exists可以判断某个key是否存在  存在返回1  不存在返回0  </p>
 <pre><code>127.0.0.1:6379&gt; exists mylist2
 0
 127.0.0.1:6379&gt; exists myset
 1
 </code></pre><p><code>rename 名字 新名字</code> 注意这里改的是名字而不是值    </p>
-<p><img src="55.png" alt>   </p>
-<p>设置过期时间 超过过期时间就获取不到了   如果某个key没有设置过期时间，会返回-1  如果已经过期，返回-2<br><img src="56.png" alt>  </p>
+<p><img src="55.png" alt="">   </p>
+<p>设置过期时间 超过过期时间就获取不到了   如果某个key没有设置过期时间，会返回-1  如果已经过期，返回-2<br><img src="56.png" alt="">  </p>
 <p>type命令返回指定key的类型   没有这个key返回none </p>
 <pre><code>127.0.0.1:6379&gt; type age
 string
@@ -709,7 +709,7 @@ zset
 </ul>
 <p>一个redis最多可提供16个数据库  分别是0到15 客户端默认连接的是0  </p>
 <p><code>select 1</code>  可以选择1号数据库<br><code>move key</code> 可以将某个key移到某个数据库  </p>
-<p><img src="57.png" alt>  </p>
+<p><img src="57.png" alt="">  </p>
 <p>用这三个命令来实现事务  <code>multi exec discard</code>   </p>
 <p>事务中所有命令都将被串行化顺序执行 执行事务期间，redis不会再为其他客户端执行任务 ， 从而保证事务中的命令都被原子化执行，</p>
 <p>事务中如果某个命令执行失败，剩下的还是会被执行，</p>
@@ -720,14 +720,14 @@ zset
 <p>在事务开启之前，如果客户端和服务器之间出现网络错误，那么所执行的语句都将不会被服务器提交  </p>
 <p>如果网络断开是发生在执行之后的，那么这个事务中的所有命令都会被服务器执行  </p>
 <p>multi表示开启事务，它后面执行的命令都会被存到命令的队列当中   </p>
-<p><img src="58.png" alt>  </p>
-<p><img src="59.png" alt>  </p>
+<p><img src="58.png" alt="">  </p>
+<p><img src="59.png" alt="">  </p>
 <p>如图所示，当在执行事务的时候，get age仍然是255，没有变 </p>
 <p>一旦执行完成之后，就变了  </p>
-<p><img src="60.png" alt>  </p>
-<p><img src="61.png" alt>  </p>
+<p><img src="60.png" alt="">  </p>
+<p><img src="61.png" alt="">  </p>
 <p>回滚 </p>
-<p><img src="62.png" alt>  </p>
+<p><img src="62.png" alt="">  </p>
 <p><code>discard</code> 回滚，回滚了就不需要再exec了 </p>
 <h2 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h2><p>两种持久化方式 </p>
 <ul>
@@ -741,9 +741,9 @@ zset
 <p>优势:<br>整个redis数据库将只包含一个文件,方便备份<br>对于恢复而言，RDB是一个非常不错的选择<br>性能最大化</p>
 <p>劣势<br>举例，每30秒写一次，结果25秒的时候宕机了  前25秒数据就丢失了<br>子进程来完成数据持久化操作的，如果数据集大的时候，可能会导致整个服务器需要停止一段时间   </p>
 <p>配置: </p>
-<p>默认配置<br><img src="63.png" alt>  </p>
+<p>默认配置<br><img src="63.png" alt="">  </p>
 <p>意思是每900秒(15分钟)至少有一个key发生变化就写一次<br>每300秒(5分钟)至少有10个key发生变化就写一次<br>每60秒至少有10000个key发生变化就写一次   </p>
-<p><img src="64.png" alt>  </p>
+<p><img src="64.png" alt="">  </p>
 <p>保存的文件名是dump.rdb  保存的路径是当前目录路径   </p>
 <h2 id="AOF方式"><a href="#AOF方式" class="headerlink" title="AOF方式"></a>AOF方式</h2><p>优势:<br>更高的数据安全性<br>每秒同步，每修改同步和不同步  </p>
 <p>每秒同步也是异步完成的<br>每修改同步效率是最低的，但是是最安全的   </p>
@@ -753,19 +753,19 @@ zset
 <p>aof包含一个格式非常清晰日志文件用于记录所有的修改操作，也可以通过这个文件来完成数据的重建 </p>
 <p>缺点:  </p>
 <p>相同数据，aof文件比rdb文件大<br>运行效率低于rdb  </p>
-<p>配置<br>默认情况下使用RDB方式，所以<br><code>appendonly</code> 是 no<br><img src="65.png" alt>  </p>
+<p>配置<br>默认情况下使用RDB方式，所以<br><code>appendonly</code> 是 no<br><img src="65.png" alt="">  </p>
 <p>同步设置 </p>
-<p><img src="66.png" alt>  </p>
+<p><img src="66.png" alt="">  </p>
 <p>appendfsync always 表示每修改都同步 </p>
 <p>appendfsync  everysec 表示每秒同步  </p>
 <p>appendfsync no 表示不同步  </p>
 <p>我们要启用aof模式，就把appendonly 改为 yes<br>然后 使用每修改同步  </p>
 <p>然后保存，停止redis，重新启动redis  </p>
-<p>重启之后我们加入些数据，然后flushall，清空数据<br><img src="67.png" alt>  </p>
-<p>同时可以看到有appendonly.aof文件了<br><img src="68.png" alt>  </p>
+<p>重启之后我们加入些数据，然后flushall，清空数据<br><img src="67.png" alt="">  </p>
+<p>同时可以看到有appendonly.aof文件了<br><img src="68.png" alt="">  </p>
 <p>然后我们将redis 关掉  </p>
 <p>打开appendonly.aof文件，将末尾的fulshall删掉 ,保存  </p>
-<p>然后重新启动下，<code>keys *</code>  可以看到数据都有了<br><img src="69.png" alt>  </p>
+<p>然后重新启动下，<code>keys *</code>  可以看到数据都有了<br><img src="69.png" alt="">  </p>
 
         
                 <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
@@ -1164,7 +1164,9 @@ It will not impact the appearance and can give developers a lot of support :)
 <script>
 	var agent = navigator.userAgent.toLowerCase();
 	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
 	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
 	}
 </script>

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://hm.baidu.com"/>
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            达芬奇教程学习笔记 | 
+        
+        Rico&#39;s Blog
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="HogwartsRico,note">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?uVzgA6RLrOm13Ukw8Qgy+A==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body {
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text {
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Rico&#39;s Blog">
+    <meta name="msapplication-starturl" content="http://hogwartsrico.github.io/2023/09/30/davinci-note/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Rico&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://hogwartsrico.github.io/2023/09/30/davinci-note/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="达芬奇教程学习笔记 | Rico&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="note"> 
+
+    
+        <meta property="article:published_time" content="Sat Sep 30 2023 07:37:59 GMT+0800">
+        <meta property="article:modified_time" content="Sat Sep 30 2023 07:44:29 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://hogwartsrico.github.io/2023/09/30/davinci-note/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+
+    <!-- Analytics -->
+    
+    
+        <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?54ee66f82cedec3c2b6b4ea942911185';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+    
+    
+
+    <!-- Custom Head -->
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1%E3%80%81-%E5%85%A5%E9%97%A8%E7%AE%80%E4%BB%8B"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、 入门简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AA%92%E4%BD%93%E9%9D%A2%E6%9D%BF"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">媒体面板</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%AA%E8%BE%91%E9%9D%A2%E6%9D%BF"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">剪辑面板</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B0%83%E8%89%B2"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">调色</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Fairlight"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Fairlight</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%A4%E4%BB%98"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">交付</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2%E3%80%81%E5%89%AA%E8%BE%91%E9%9D%A2%E6%9D%BF"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、剪辑面板</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">创建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%B6%E9%97%B4%E7%BA%BF"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">时间线</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%B6%E9%97%B4%E7%BA%BF-%E5%89%AA%E8%BE%91%E8%A7%86%E9%A2%91"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">时间线 剪辑视频</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%9B%BE%E6%A0%87"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">第一种图标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%9B%BE%E6%A0%87"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">第二种图标</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%97%B6%E9%97%B4%E7%BA%BF-%E5%B7%A5%E5%85%B7%E6%A0%8F"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">时间线 工具栏</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BF%AE%E5%89%AA%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">修剪编辑模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8A%A8%E6%80%81%E4%BF%AE%E5%89%AA%E6%A8%A1%E5%BC%8F"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">动态修剪模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%80%E7%89%87%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">刀片编辑模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8F%92%E5%85%A5%E7%89%87%E6%AE%B5"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">插入片段</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%A6%86%E7%9B%96"><span class="post-toc-number">2.4.5.</span> <span class="post-toc-text">覆盖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9B%BF%E6%8D%A2"><span class="post-toc-number">2.4.6.</span> <span class="post-toc-text">替换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%90%B8%E9%99%84"><span class="post-toc-number">2.4.7.</span> <span class="post-toc-text">吸附</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E9%93%BE%E6%8E%A5"><span class="post-toc-number">2.4.8.</span> <span class="post-toc-text">音视频链接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%8D%E7%BD%AE%E9%94%81%E5%AE%9A"><span class="post-toc-number">2.4.9.</span> <span class="post-toc-text">位置锁定</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%97%E6%A0%87"><span class="post-toc-number">2.4.10.</span> <span class="post-toc-text">旗标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A0%87%E8%AE%B0"><span class="post-toc-number">2.4.11.</span> <span class="post-toc-text">标记</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E6%89%BE%E5%9B%9E%E8%A7%86%E9%A2%91%E7%9A%84%E9%9F%B3%E9%A2%91%E6%88%96%E8%80%85%E9%9F%B3%E9%A2%91%E7%9A%84%E8%A7%86%E9%A2%91%EF%BC%9F"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">如何找回视频的音频或者音频的视频？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BB%99%E6%97%B6%E9%97%B4%E7%BA%BF%E4%B8%8A%E9%A2%9C%E8%89%B2"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">给时间线上颜色</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3%E3%80%81%E6%B7%BB%E5%8A%A0%E6%95%88%E6%9E%9C%E4%B8%8E%E5%85%B3%E9%94%AE%E5%B8%A7"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、添加效果与关键帧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%88%E6%9E%9C%E5%92%8C%E8%BD%AC%E5%9C%BA"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">效果和转场</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%9D%99%E6%80%81%E7%9A%84%E8%B0%83%E6%95%B4"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">静态的调整</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8A%A8%E6%80%81%E7%9A%84%E8%B0%83%E6%95%B4"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">动态的调整</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/custom-bg/davinci.jpg)">
+    
+            <p class="article-headline-p">
+                达芬奇教程学习笔记
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Rico</strong>
+        <span>9月 30, 2023</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-none-link" href="/tags/note/" rel="tag">note</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=达芬奇教程学习笔记&url=http://hogwartsrico.github.io/2023/09/30/davinci-note/index.html&pic=http://hogwartsrico.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=达芬奇教程学习笔记&url=http://hogwartsrico.github.io/2023/09/30/davinci-note/index.html&via=Rico" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://hogwartsrico.github.io/2023/09/30/davinci-note/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="1、-入门简介"><a href="#1、-入门简介" class="headerlink" title="1、 入门简介"></a>1、 入门简介</h1><p>软件语言调整成中文,设置自动备份实时保存 </p>
+<p><img src="1.png" alt=""> </p>
+<p><img src="2.png" alt="">  </p>
+<p><img src="3.png" alt=""> </p>
+<p>软件下方有几个功能面板，对应的就是视频制作的从头到尾的流程 </p>
+<p><img src="4.png" alt=""> </p>
+<h2 id="媒体面板"><a href="#媒体面板" class="headerlink" title="媒体面板"></a>媒体面板</h2><p>  导入素材，分类 </p>
+<p><img src="5.png" alt=""> </p>
+<p>备选素材从媒体浏览器中拖入媒体池  </p>
+<p>可以在媒体池中创建媒体夹帮助分类 </p>
+<p><img src="6.png" alt=""> </p>
+<p>达芬奇有个最大的问题，一旦导入素材，就无法更改项目的帧率。 所以在前期导入素材前，就把项目的帧率设置好 ,然后再导入素材 </p>
+<p><img src="7.png" alt="">    </p>
+<p><img src="8.png" alt="">   </p>
+<p>导入素材后就可以开始剪辑，达芬奇有2个剪辑面板，快编和剪辑 ，这2者可以相互替代 。最常用的是剪辑面板 </p>
+<h2 id="剪辑面板"><a href="#剪辑面板" class="headerlink" title="剪辑面板"></a>剪辑面板</h2><p>剪辑面板 分为 5大块 </p>
+<p><img src="9.png" alt=""> </p>
+<p>通常剪辑视频，我们会在媒体池进行筛选，随后在素材监视器通过 i 键 和 o键  打下出入点 ，然后把这段素材拖入时间线 ，进行拼凑和组装 </p>
+<p><img src="10.png" alt=""> </p>
+<p>快编界面和剪辑界面很相似</p>
+<h2 id="调色"><a href="#调色" class="headerlink" title="调色"></a>调色</h2><p><img src="12.png" alt=""> </p>
+<p>预设区可以保存调色预设或者是LUTS </p>
+<p>节点区是记录调色操作和效果的面板 </p>
+<p>除了可以单纯的调色，还可以稳定，降噪，或者是跟踪 </p>
+<h2 id="Fairlight"><a href="#Fairlight" class="headerlink" title="Fairlight"></a>Fairlight</h2><p>对音频调整</p>
+<h2 id="交付"><a href="#交付" class="headerlink" title="交付"></a>交付</h2><p>通常选择mp4 封装  H.264 编码 </p>
+<h1 id="2、剪辑面板"><a href="#2、剪辑面板" class="headerlink" title="2、剪辑面板"></a>2、剪辑面板</h1><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>达芬奇没有办法在导入素材以后改变项目的帧率，所以创建项目后做的第一件事就是点击文件–&gt;项目设置–&gt;更改帧率</p>
+<p>在中国一般使用PAL制，25帧 。因为国内是50HZ，25帧能更好的规避屏闪</p>
+<p>还要修改项目缓存的位置，否则C盘很快会被达芬奇占满  </p>
+<p><img src="55.png" alt=""> </p>
+<p><img src="54.png" alt=""> </p>
+<p>建议先导入所有素材，再在媒体池中创建媒体夹进行分类，然后再在素材监视器进行素材的筛选，通过i键和o键打视频的入点和出点，再拖入时间线</p>
+<p>拖入时间线除了可以视频音频都拖入，也可以只拖入视频，音频</p>
+<p><img src="14.png" alt=""> </p>
+<h2 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h2><p>可以直接拖入素材创建时间线，但是这样命名会很混乱， 建议在剪辑模块下，右击媒体池，创建时间线</p>
+<p><img src="15.png" alt=""> </p>
+<p><img src="16.png" alt=""> </p>
+<p>达芬奇有多种浏览时间线的方法，可以通过点击时间线按钮来进行设置</p>
+<p><img src="17.png" alt=""> </p>
+<p><img src="18.png" alt=""> </p>
+<p>时间线缩放： 按住ALT 然后滚动鼠标滚轮进行时间线缩放 。也可以按住Ctrl然后加减号进行时间线的缩放 </p>
+<h2 id="时间线-剪辑视频"><a href="#时间线-剪辑视频" class="headerlink" title="时间线 剪辑视频"></a>时间线 剪辑视频</h2><p>把鼠标移动到素材的边缘，鼠标会有2种图标 </p>
+<h3 id="第一种图标"><a href="#第一种图标" class="headerlink" title="第一种图标"></a>第一种图标</h3><p><img src="19.png" alt=""> </p>
+<p>这种可以让你通过拖动鼠标来快速剪辑素材。往左拖动，缩短视频，往右就是拉长视频。</p>
+<p>点击2个素材中间的空挡，按Del按键可以将两个素材连贯到一起 </p>
+<h3 id="第二种图标"><a href="#第二种图标" class="headerlink" title="第二种图标"></a>第二种图标</h3><p><img src="20.png" alt=""> </p>
+<p>这种图标的话，往左会把前面的视频缩短，右边的视频拉长。 往右则反之。直到其中一个素材达到最大长度才不能够延申 </p>
+<h2 id="时间线-工具栏"><a href="#时间线-工具栏" class="headerlink" title="时间线 工具栏"></a>时间线 工具栏</h2><p>默认是选择模式，也就是普通模式</p>
+<h3 id="修剪编辑模式"><a href="#修剪编辑模式" class="headerlink" title="修剪编辑模式"></a>修剪编辑模式</h3><p>按T或者点击如下按钮进入修剪编辑模式</p>
+<p><img src="21.png" alt=""> </p>
+<h3 id="动态修剪模式"><a href="#动态修剪模式" class="headerlink" title="动态修剪模式"></a>动态修剪模式</h3><p>不常用 </p>
+<p>快捷键 W </p>
+<h3 id="刀片编辑模式"><a href="#刀片编辑模式" class="headerlink" title="刀片编辑模式"></a>刀片编辑模式</h3><p>快捷键B</p>
+<p><img src="22.png" alt=""> </p>
+<p>激活这个模式之后，可以把一段素材一分为二 </p>
+<h3 id="插入片段"><a href="#插入片段" class="headerlink" title="插入片段"></a>插入片段</h3><p><img src="23.png" alt=""> </p>
+<p>点击后，你在媒体库中选中的素材就会插入到你当前时间线标尺所在的位置，后方的片段自动往后移</p>
+<h3 id="覆盖"><a href="#覆盖" class="headerlink" title="覆盖"></a>覆盖</h3><p><img src="49.png" alt=""> </p>
+<p>新素材覆盖现有内容</p>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p><img src="50.png" alt=""> </p>
+<p>自动替换现有片段,总时长和别的片段不受影响</p>
+<h3 id="吸附"><a href="#吸附" class="headerlink" title="吸附"></a>吸附</h3><p>开启后，拖入素材自动吸附到时间线上的前一个素材后面。如果未开启，需要手动对齐 </p>
+<p>所以99%的情况下我们都会激活这个效果 ,默认也是开启的</p>
+<p><img src="51.png" alt=""> </p>
+<h3 id="音视频链接"><a href="#音视频链接" class="headerlink" title="音视频链接"></a>音视频链接</h3><p>当激活这个效果时，拖动视频，音频一起跟着动。拖动音频，视频也一起跟着动 。如果关闭，就是分开的  </p>
+<p>默认是开启的</p>
+<p><img src="25.png" alt=""> </p>
+<h3 id="位置锁定"><a href="#位置锁定" class="headerlink" title="位置锁定"></a>位置锁定</h3><p>锁定后无法移动时间线上的素材。 默认未开启</p>
+<p><img src="52.png" alt=""> </p>
+<h3 id="旗标"><a href="#旗标" class="headerlink" title="旗标"></a>旗标</h3><p>标注整段原始素材，哪怕素材被切割了</p>
+<p><img src="53.png" alt=""> </p>
+<h3 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h3><p>可以在时间线上标记，也可以选中时间线上的素材标记</p>
+<p><img src="29.png" alt=""> </p>
+<p>双击标记，可以添加备注或者关键词,或者把它移除  </p>
+<p><img src="30.png" alt=""> </p>
+<p>添加了备注的，鼠标滑过会显示</p>
+<p><img src="31.png" alt=""> </p>
+<h2 id="如何找回视频的音频或者音频的视频？"><a href="#如何找回视频的音频或者音频的视频？" class="headerlink" title="如何找回视频的音频或者音频的视频？"></a>如何找回视频的音频或者音频的视频？</h2><p>先把时间轴的帧放到需要找回的音频或者视频上，然后按 f 键，素材监视器就显示这段素材了，然后拖住视频（音频）放到时间线上就行了  </p>
+<p>但是，此时音视频是分隔的，需要手动链接他们，选中2者，右键 </p>
+<p><img src="26.png" alt=""> </p>
+<h2 id="给时间线上颜色"><a href="#给时间线上颜色" class="headerlink" title="给时间线上颜色"></a>给时间线上颜色</h2><p>框选中一个片段</p>
+<p><img src="32.png" alt=""> </p>
+<h1 id="3、添加效果与关键帧"><a href="#3、添加效果与关键帧" class="headerlink" title="3、添加效果与关键帧"></a>3、添加效果与关键帧</h1><h2 id="效果和转场"><a href="#效果和转场" class="headerlink" title="效果和转场"></a>效果和转场</h2><p>在剪辑面板添加效果，点击特效库，选择你需要的效果，拖到对应的片段上即可 </p>
+<p><img src="33.png" alt=""> </p>
+<p>转场也一样 ,注意，视频要有重合。</p>
+<p><img src="34.png" alt=""> </p>
+<p>鼠标放到转场的左右两侧，可以修改转场的长度 </p>
+<p><img src="35.png" alt=""> </p>
+<p>此时点击转场本身，就可以看到检查器这边,有转场的控制界面，可以修改转场的时长，方向等</p>
+<p><img src="36.png" alt=""> </p>
+<h2 id="静态的调整"><a href="#静态的调整" class="headerlink" title="静态的调整"></a>静态的调整</h2><p>当点击片段，检查器会变成对片段的控制</p>
+<p><img src="37.png" alt=""> </p>
+<p>在这个页面，可以控制对片段的缩放，他的位置，旋转 等</p>
+<p><img src="38.png" alt=""> </p>
+<p>在拖动位置等参数的时候，数字变化很快，此时如果按住alt再拖动，会变得丝滑一些。 </p>
+<p>或者更加直观一点,点击下方红框内的按钮，进行调整 可以缩放和旋转 </p>
+<p><img src="39.png" alt=""> </p>
+<p>裁切</p>
+<p><img src="40.png" alt=""> </p>
+<h2 id="动态的调整"><a href="#动态的调整" class="headerlink" title="动态的调整"></a>动态的调整</h2><p>例如画面的缓慢放大，旋转等</p>
+<p>就要用到关键帧，就是告诉电脑，某个数值，要从x变到y </p>
+<p><img src="41.png" alt=""> </p>
+<p>如上图所示，这些参数右侧都有菱形，当时间轴的帧卡尺走到某个地方的时候，改变数值，打一个关键帧，走到另外一个地方的时候，改变数值，打一个关键帧，就会产生变化</p>
+<p>如果后续想调整关键帧的时间，以及想在时间轴上看到关键帧，怎么办呢？ 如下图所示</p>
+<p><img src="42.png" alt=""> </p>
+<p>如何删除关键帧的点呢？ </p>
+<p><img src="46.png" alt="">   </p>
+<p>当把所有关键帧删掉之后，再点击时间轴右下角的菱形，就没反应了</p>
+<p><img src="47.png" alt="">  </p>
+<p>最开头的关键帧按del是删不掉的，那怎么删除呢？ </p>
+<p>只需要把卡尺移到时间轴的最开头，然后把黄色激活的关键帧点击取消掉即可 </p>
+<p><img src="48.png" alt=""> </p>
+<p>如何让关键帧的变化比较平滑，曲线呢？ 默认的动画是线性的，</p>
+<p>如何做到渐变呢？ </p>
+<p><img src="43.png" alt=""> </p>
+<p><img src="45.png" alt=""> </p>
+<p>这条线就代表了你参数的变化 </p>
+<p>也可以点击左上角 选择曲线控制的东西</p>
+<p><img src="44.png" alt=""> </p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            This blog is under a CC BY-NC-SA 3.0 Unported License
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://hogwartsrico.github.io/2023/09/30/davinci-note/">http://hogwartsrico.github.io/2023/09/30/davinci-note/</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2023/03/05/TwoDayTourInWuZhen/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Rico's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        chenhongjie101@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:chenhongjie101@gmail.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2023/09/">九月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2023/03/">三月 2023<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/12/">十二月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/08/">八月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/07/">七月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/06/">六月 2022<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/03/">三月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2022/02/">二月 2022<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/12/">十二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/08/">八月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/06/">六月 2020<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/03/">三月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/02/">二月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/01/">一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/04/">四月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/03/">三月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/03/">三月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/02/">二月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/04/">四月 2015<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/01/">一月 2015<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">57</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/Ricoccc" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/rico.austin.5" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/103668464393164710629" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+        <a href="https://weibo.com/1878017080/profile" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-weibo">
+                <span class="visuallyhidden">Weibo</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Instagram -->
+    
+        <a href="https://www.instagram.com/hogwartsrico/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-instagram">
+                <span class="visuallyhidden">Instagram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/HogwartsRico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+        <a href="https://space.bilibili.com/14573494" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-bilibili">
+                <span class="visuallyhidden">Bilibili</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+        <a href="https://v2ex.com/member/Rico" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-v2ex">
+                <span class="visuallyhidden">V2EX</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Rico's Blog
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>-->
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?LT4t6iE6m8TO1BLGGiNJqA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("sm_js","/js/smoothscroll.js?tNQK2Tw2SUL8a1Scn/Mgew==", true)</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('
+<link rel="stylesheet" href="/css/uc.css">
+');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+<script type="text/ls-javascript" id="Bing-Background-script">
+    queue.offer(function(){
+        $('body').attr('data-original', 'https://api.i-meto.com/bing?');
+    });
+</script>
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2014;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

@@ -2,10 +2,6 @@
 <html style="display: none;" lang="zh">
     <head>
     <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.6 -->
     <script>
         window.materialVersion = "1.5.6"
         // Delete localstorage with these tags
@@ -20,6 +16,15 @@
         ]
     </script>
 
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KR9KQDPLNN"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-KR9KQDPLNN');
+	</script>
     <!-- dns prefetch -->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
@@ -407,7 +412,9 @@
             <span class="mdl-ripple">
             </span>
         </span>
-    </button>Sidebar Avatar -->
+    </button>
+
+    <!-- Sidebar Avatar -->
     <div class="sidebar-image">
         <img src="/img/avatar.png" alt="Rico's avatar">
     </div>
@@ -802,8 +809,6 @@ console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viose
             </div>
         </body>
     
-</html>
-  
 </html>
 tton mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
         <i class="material-icons">clear_all</i>
